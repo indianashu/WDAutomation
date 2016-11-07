@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * @author Anilkumar.P
+ * @author Ashutosh
  *
  *This class wraps all the wait related stuffs
  */

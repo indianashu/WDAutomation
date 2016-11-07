@@ -1,0 +1,72 @@
+package customerTest;
+
+import baseClassPackage.BaseClasses;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import utilPackages.PropertyValExtractors;
+import utilPackages.WaitClass;
+import customer.CustomerPage;
+
+
+public class addNewSubCustomerTest {
+	CustomerPage customerPage;
+    WebDriver driver,driver2;
+
+    @BeforeClass(alwaysRun=true)
+    public void setup(){
+        driver= BaseClasses.setup( "User1");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1");
+        driver.get(url);
+        WaitClass.waitForUrl(driver, url, 10);
+        customerPage=customerPage.getPage(driver, CustomerPage.class);
+
+    }
+
+    @Test(groups={"Sanity"},description="Login",priority = 1)
+    public void userSignin() throws IOException{
+    	customerPage.enterLoginID();
+    	customerPage.enterPassword();
+    	customerPage.selectCompany();
+    	customerPage.clickLoginButton();
+    	customerPage.clickCustomerTab();
+    	customerPage.clickAddNewButton();
+    	customerPage.selectUserCompany();
+    	customerPage.selectAccountType();
+    	customerPage.clickSelectButton();
+    	customerPage.enterLoginName();
+    	customerPage.clickUseCompanyBillingCycleButton();
+    	customerPage.selectBillingCycleUnit();
+    	customerPage.selectBillingCycleDay();
+    	customerPage.clickSaveChangesButton();
+    	customerPage.verifyConfirmationMsg();
+    	customerPage.selectCustomer();
+    	customerPage.clickAddSubAccountButton();
+    	customerPage.selectUserCompany();
+    	customerPage.selectAccountType();
+    	customerPage.clickSelectButton();
+    	customerPage.enterLoginName1();
+    	customerPage.clickUseCompanyBillingCycleButton();
+    	customerPage.selectBillingCycleUnit();
+    	customerPage.selectBillingCycleDay();
+    	customerPage.clickSaveChangesButton();
+    	customerPage.verifyConfirmationMsg();
+
+
+    }
+
+}

@@ -21,7 +21,7 @@ import static org.monte.media.AudioFormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
 
 /**
- * @author Anilkumar.P
+ * @author Ashutosh
  *
  *Class is used for desktop recording using Monte
  */

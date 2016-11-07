@@ -1,27 +1,23 @@
 package baseClassPackage;
 
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import utilPackages.PropertyValExtractors;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.server.browserlaunchers.FirefoxLauncher;
-
-import utilPackages.PropertyValExtractors;
-
 /**
- * @author Anilkumar.P
+ * @author Ashutosh
  *
  */
 public class BaseClasses {
@@ -61,8 +57,8 @@ public class BaseClasses {
 					profile.setAssumeUntrustedCertificateIssuer(false);
 				capability = DesiredCapabilities.firefox(); 
 				capability.setCapability(FirefoxDriver.PROFILE, profile);*/
+				//capability.setCapability(FirefoxDriver.BINARY,new File("C:/Program Files (x86)/Mozilla Firefox/firefox.exe").getAbsolutePath());
 				capability.setCapability(FirefoxDriver.BINARY,new File("C:/Program Files (x86)/Mozilla Firefox/firefox.exe").getAbsolutePath());
-
 			}
 			else if(browser.equalsIgnoreCase("internetexplorer")||browser.equalsIgnoreCase("ie")){
 

@@ -1,58 +1,56 @@
-package loginEasyops;
+package loginWebData;
 
-import homePage.HomePage;
-
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-
+/**
+ * Created by ashutosh on 07/10/16.
+ */
 import baseClassPackage.BaseClasses;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import utilPackages.PropertyValExtractors;
+import utilPackages.WaitClass;
+import webDataPages.LoginPage;
+import webDataPages.SignupPage;
+
+public class WebDataLoginTest {
+    LoginPage loginPage;
+    WebDriver driver,driver2;
+
+    @BeforeClass(alwaysRun=true)
+    public void setup(){
+        driver= BaseClasses.setup( "User1");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1");
+        driver.get(url);
+        WaitClass.waitForUrl(driver, url, 10);
+        loginPage=LoginPage.getPage(driver, LoginPage.class);
+
+    }
+
+    @Test(groups={"Sanity"},description="Login",priority = 1)
+    public void userSignin() throws IOException{
+        loginPage.enterLoginID();
+        loginPage.enterPassword();
+        loginPage.selectCompany();
+        loginPage.clickLoginButton();
+        loginPage.verifyLabelSuccessfulLogin();
+        loginPage.enterURL();
+        loginPage.labelRootCompany();
 
 
-public class EasyOpsLoginTest{
-	HomePage homePage,homePage2;
-	WebDriver driver,driver2;
-	
-	@BeforeClass(alwaysRun=true)
-	public void setup(){
-		driver=BaseClasses.setup( "User1");
-		PropertyValExtractors p=new PropertyValExtractors();
-		p.getPropertyFile("test", "configuration.properties");
-		String url=p.getVal("url");
-		driver.get(url);
-		WaitClass.waitForUrl(driver, url, 10);
-		homePage=HomePage.getPage(driver, HomePage.class);
-		driver2=BaseClasses.setup("User2");
-		driver2.get(url);
-		WaitClass.waitForUrl(driver2, url, 10);
-		//BaseClasses.setSize(driver2, 446, 619);
-		homePage2=HomePage.getPage(driver2, HomePage.class);
-	}
+    }
 
-	@Test(groups={"Sanity"},description="Check for LoginBtn is available or not")
-	public void checkLoginBtnAvl(){
-		homePage.verifyLoginButton();
-		homePage.verifySinginButton();
-		homePage.verifyMyntraBtn();
-	}
-
-	@Test(groups={"Sanity"},description="Check for Product button is available or not")
-	public void checkProductBtnAvl(){
-		homePage2.verifyProductBtn();
-		homePage2.navigateBottom();
-	}
-
-	@Test()
-	public void checkFeatureBtnAvl(){
-		homePage.verifyFeatureBtn();
-	}
-
-	@Test
-	public void checkIntegrationAvl(){
-		homePage2.verifyIntegrationsBtn();
-	}
 }

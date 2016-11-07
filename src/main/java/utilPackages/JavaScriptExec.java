@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * @author Anilkumar.P
+ * @author Ashutosh
  * 
  * The purpose of the class to handle some cases which selenium does not
  * have any in-built methods

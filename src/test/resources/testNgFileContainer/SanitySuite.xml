@@ -1,4 +1,4 @@
-<suite name="EasyOps-Sanity" parallel="none">
+<suite name="WebData-Sanity" parallel="none">
 
 	<listeners>
 
@@ -6,7 +6,7 @@
 
 	</listeners>
 
-	<test name="EasyOps-Sanity">
+	<test name="WebData-Sanity">
 
 		<groups>
 
@@ -26,7 +26,21 @@
 
 		<classes>
 
-			<class name="loginEasyops.EasyOpsLoginTest" />
+			 
+			
+			
+			<class name="SignupTest.SignupTest" /> 
+			<!--<class name ="loginWebData.WebDataLoginTest"/>
+			<class name = "companySetupTest.configureAccountTypeTest" />
+			<class name = "companySetupTest.editConfigureAccountTypeTest" />
+			<class name = "companySetupTest.configurePaymentMethodTest" />
+			<class name = "companySetupTest.configurePaymentMethCreditCardTest" />
+			<class name = "companySetupTest.configureAddOrderPeriodTest" />
+			<class name = "companySetupTest.configureAddCollectionTest" />
+			<class name = "companySetupTest.configureAddBillingPeriodTest" />
+			<class name = "companySetupTest.configureAddAddNewInfoTypeTest" />
+			<class name = "categoryProductsTest.addEditCategoryTest" />
+			<class name = "customerTest.addNewCustomerTest" />-->
 
 		</classes>
 

@@ -4,8 +4,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import bsh.This;
-
 public class BasePage {
 	static Logger log=Logger.getLogger(BasePage.class);
 	public WebDriver driver;

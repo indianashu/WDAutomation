@@ -15,7 +15,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
-			<version>2.53.0</version>
+			<version>3.0.1</version>
 		</dependency>
 
 		<dependency>
@@ -29,13 +29,18 @@
 			<artifactId>monte-repack</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
 
 
 
 	</dependencies>
 	<profiles>
 		<profile>
-			<id>EasyOps</id>
+			<id>WDAutomation</id>
 			<build>
 				<plugins>
 					<plugin>
