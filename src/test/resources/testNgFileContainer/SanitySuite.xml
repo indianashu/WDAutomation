@@ -26,11 +26,8 @@
 
 		<classes>
 
-			 
-			
-			
-			<class name="SignupTest.SignupTest" /> 
-			<!--<class name ="loginWebData.WebDataLoginTest"/>
+			<class name ="loginWebData.WebDataLoginTest"/>
+			<!--<class name="SignupTest.SignupTest" /> 
 			<class name = "companySetupTest.configureAccountTypeTest" />
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
 			<class name = "companySetupTest.configurePaymentMethodTest" />
