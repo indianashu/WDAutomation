@@ -162,7 +162,7 @@ public class LoginPage extends BasePage{
 
     }
     
-    //@FindBy(how=How.XPATH, using="//div[@class='row']//*[text()='Root/Parent Company']")
+    //@FindBy(how=How.XPATH, using="//*[@id="company-edit-form"]/fieldset/div[1]/div[2]/div[1]/span/h")
     private WebElement labelRootCompany;
     /**
      * Method to verify Label root company is present after successful login.
@@ -172,11 +172,13 @@ public class LoginPage extends BasePage{
     	LoginPage sp=new LoginPage(driver);
         log.info("Verifying if Label is available or not");
         String RootCompanyName = sp.ExcelRead().get(3); 
-        driver.findElement(By.xpath("//div[@class='row']//*[text()='"+RootCompanyName+"']"));
+        String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
+        System.out.println("Company Name:********" +ActualRootCompany+ "*********");
         log.info("Click on customer name");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
-        Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
+        //WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
+        //Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
+        Assert.assertEquals(ActualRootCompany, RootCompanyName);
     }
     
     public void navigateBottom(){
