@@ -520,6 +520,120 @@ public class CreatingOrdersPage extends BasePage{
         
     }
     
+  
+    @FindBy(how=How.XPATH, using="//input[@name='mydate']")
+    private WebElement enterPriceDate;
+    /**
+     * Method to enter Price Date.
+     * @throws IOException 
+     */
+    public void enterPriceDate() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product code");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate);
+        Assert.assertTrue(enterPriceDate.isDisplayed());
+        enterPriceDate.sendKeys(sp.ExcelRead().get(15));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
+    private WebElement enterPriceRate;
+    /**
+     * Method to enter Price Rate.
+     * @throws IOException 
+     */
+    public void enterPriceRate() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product code");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
+        Assert.assertTrue(enterPriceRate.isDisplayed());
+        enterPriceRate.sendKeys(sp.ExcelRead().get(16));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
+    private WebElement enterProductDescription1;
+    /**
+     * Method to enter product description.
+     * @throws IOException 
+     */
+    public void enterProductDescription1() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product description");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterProductDescription1);
+        Assert.assertTrue(enterProductDescription1.isDisplayed());
+        enterProductDescription1.sendKeys(sp.ExcelRead().get(17));
+        
+    }
+  
+    @FindBy(how=How.XPATH, using="//input[@name='product.number']")
+    private WebElement enterProductCode1;
+    /**
+     * Method to enter product code.
+     * @throws IOException 
+     */
+    public void enterProductCode1() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product code");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode1);
+        Assert.assertTrue(enterProductCode1.isDisplayed());
+        enterProductCode1.sendKeys(sp.ExcelRead().get(18));
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//input[@name='mydate']")
+    private WebElement enterPriceDate1;
+    /**
+     * Method to enter Price Date.
+     * @throws IOException 
+     */
+    public void enterPriceDate1() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product code");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate1);
+        Assert.assertTrue(enterPriceDate1.isDisplayed());
+        enterPriceDate1.sendKeys(sp.ExcelRead().get(19));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
+    private WebElement enterPriceRate1;
+    /**
+     * Method to enter Price Rate.
+     * @throws IOException 
+     */
+    public void enterPriceRate1() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product code");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate1);
+        Assert.assertTrue(enterPriceRate1.isDisplayed());
+        enterPriceRate1.sendKeys(sp.ExcelRead().get(20));
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Price']")
+    private WebElement clickAddPriceButton;
+    /**
+     * Method to click on add price button.
+     * @throws IOException 
+     */
+    public void clickAddPriceButton() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("Click on Add Price Button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
+        Assert.assertTrue(clickAddPriceButton.isDisplayed());
+        clickAddPriceButton.click();
+        
+    }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Create Order']")
     private WebElement clickCreateOrderButton;
@@ -546,7 +660,7 @@ public class CreatingOrdersPage extends BasePage{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(sp.ExcelRead().get(8));
+        se.selectByVisibleText(sp.ExcelRead().get(21));
 
     }
 
@@ -559,7 +673,7 @@ public class CreatingOrdersPage extends BasePage{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(9));
+        se.selectByVisibleText(sp.ExcelRead().get(22));
 
     }
     
@@ -572,7 +686,7 @@ public class CreatingOrdersPage extends BasePage{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
         WebElement ASelement = driver.findElement(By.xpath("//input[@name='activeSince']"));
         Select se = new Select(ASelement);
-        se.selectByVisibleText(sp.ExcelRead().get(10));
+        se.selectByVisibleText(sp.ExcelRead().get(23));
 
     }  
     
@@ -592,7 +706,7 @@ public class CreatingOrdersPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='abc']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingGrad']")
     private WebElement selectProduct;
     /**
      * Method to Select Product from list.
@@ -600,6 +714,8 @@ public class CreatingOrdersPage extends BasePage{
      */
     public void selectProduct() throws IOException{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+    	String ProductName=sp.ExcelRead().get(17);
+    	driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']"));
         log.info("Click Product from list");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, selectProduct);
@@ -620,7 +736,7 @@ public class CreatingOrdersPage extends BasePage{
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEffectiveDate);
         Assert.assertTrue(enterEffectiveDate.isDisplayed());
-        enterEffectiveDate.sendKeys(sp.ExcelRead().get(11));
+        enterEffectiveDate.sendKeys(sp.ExcelRead().get(24));
         
     }
     
@@ -636,7 +752,7 @@ public class CreatingOrdersPage extends BasePage{
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity);
         Assert.assertTrue(enterQuantity.isDisplayed());
-        enterQuantity.sendKeys(sp.ExcelRead().get(12));
+        enterQuantity.sendKeys(sp.ExcelRead().get(25));
         
     }
     
@@ -670,103 +786,205 @@ public class CreatingOrdersPage extends BasePage{
         Assert.assertTrue(verifyNewOrder.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
+    //#############################################
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit edit']//*[text()='Edit this Order']")
-    private WebElement clickEditOrderButton;
+    private WebElement selectPeriod1;
     /**
-     * Method to Click Edit This Order Button.
+     * Method to select Period.
      * @throws IOException 
      */
-    public void clickEditOrderButton() throws IOException{
+    public void selectPeriod1() throws IOException{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
-        log.info("Click Edit This Order Button");
+        WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
+        Select se = new Select(Periodelement);
+        se.selectByVisibleText(sp.ExcelRead().get(26));
+
+    }
+
+    private WebElement selectOrderType1;
+    /**
+     * Method to select Order Type.
+     * @throws IOException 
+     */
+    public void selectOrderType1() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
+        Select se = new Select(OrderTypeelement);
+        se.selectByVisibleText(sp.ExcelRead().get(27));
+
+    }
+    
+    private WebElement selectActiveSince1;
+    /**
+     * Method to select Active since.
+     * @throws IOException 
+     */
+    public void selectActiveSince1() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        WebElement ASelement = driver.findElement(By.xpath("//input[@name='activeSince']"));
+        Select se = new Select(ASelement);
+        se.selectByVisibleText(sp.ExcelRead().get(28));
+
+    }  
+    
+    
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingGrad']")
+    private WebElement selectProduct1;
+    /**
+     * Method to Select Product from list.
+     * @throws IOException 
+     */
+    public void selectProduct1() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+    	String ProductName=sp.ExcelRead().get(13);
+    	driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']"));
+        log.info("Click Product from list");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickEditOrderButton);
-        Assert.assertTrue(clickEditOrderButton.isDisplayed());
-        clickEditOrderButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, selectProduct1);
+        Assert.assertTrue(selectProduct1.isDisplayed());
+        selectProduct1.click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='ui-id-11']")
-    private WebElement clickChangeLog;
+    @FindBy(how=How.XPATH, using="//input[@name='change--3.startDate']")
+    private WebElement enterEffectiveDate1;
     /**
-     * Method to Click ChangeLog.
+     * Method to Enter Effective Date.
      * @throws IOException 
      */
-    public void clickChangeLog() throws IOException{
+    public void enterEffectiveDate1() throws IOException{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
-        log.info("Click Change Log");
+        log.info("Enter Effective Date");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickChangeLog);
-        Assert.assertTrue(clickChangeLog.isDisplayed());
-        clickChangeLog.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, enterEffectiveDate1);
+        Assert.assertTrue(enterEffectiveDate1.isDisplayed());
+        enterEffectiveDate1.sendKeys(sp.ExcelRead().get(29));
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Generate Invoice']")
-    private WebElement clickGenerateInvoiceButton;
+    @FindBy(how=How.XPATH, using="//input[@name='change--3.quantityAsDecimal']")
+    private WebElement enterQuantity1;
     /**
-     * Method to Click on Generate Invoice Button.
+     * Method to Enter Quantity.
      * @throws IOException 
      */
-    public void clickGenerateInvoiceButton() throws IOException{
+    public void enterQuantity1() throws IOException{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
-        log.info("Click on Generate Invoice Button");
+        log.info("Enter Quantity");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickGenerateInvoiceButton);
-        Assert.assertTrue(clickGenerateInvoiceButton.isDisplayed());
-        clickGenerateInvoiceButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity1);
+        Assert.assertTrue(enterQuantity1.isDisplayed());
+        enterQuantity1.sendKeys(sp.ExcelRead().get(30));
+        
+    }
+
+    //#############################################
+  
+    private WebElement selectPeriod2;
+    /**
+     * Method to select Period.
+     * @throws IOException 
+     */
+    public void selectPeriod2() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
+        Select se = new Select(Periodelement);
+        se.selectByVisibleText(sp.ExcelRead().get(31));
+
+    }
+
+    private WebElement selectOrderType2;
+    /**
+     * Method to select Order Type.
+     * @throws IOException 
+     */
+    public void selectOrderType2() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
+        Select se = new Select(OrderTypeelement);
+        se.selectByVisibleText(sp.ExcelRead().get(32));
+
+    }
+    
+    private WebElement selectActiveSince3;
+    /**
+     * Method to select Active since.
+     * @throws IOException 
+     */
+    public void selectActiveSince3() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        WebElement ASelement = driver.findElement(By.xpath("//input[@name='activeSince']"));
+        Select se = new Select(ASelement);
+        se.selectByVisibleText(sp.ExcelRead().get(33));
+
+    }  
+    
+    
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingGrad']")
+    private WebElement selectProduct2a;
+    /**
+     * Method to Select Product from list.
+     * @throws IOException 
+     */
+    public void selectProduct2a() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+    	String ProductName=sp.ExcelRead().get(13);
+    	driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']"));
+        log.info("Click Product from list");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, selectProduct2a);
+        Assert.assertTrue(selectProduct2a.isDisplayed());
+        selectProduct2a.click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//span[@class='description']")
-    private WebElement clickSelectedProduct;
+    @FindBy(how=How.XPATH, using="//input[@name='change--3.startDate']")
+    private WebElement enterEffectiveDate2;
     /**
-     * Method to Click Selected Product.
+     * Method to Enter Effective Date.
      * @throws IOException 
      */
-    public void clickSelectedProduct() throws IOException{
+    public void enterEffectiveDate2() throws IOException{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
-        log.info("Click Selected Product");
+        log.info("Enter Effective Date");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSelectedProduct);
-        Assert.assertTrue(clickSelectedProduct.isDisplayed());
-        clickSelectedProduct.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, enterEffectiveDate2);
+        Assert.assertTrue(enterEffectiveDate2.isDisplayed());
+        enterEffectiveDate2.sendKeys(sp.ExcelRead().get(34));
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Change']")
-    private WebElement clickChangeButton;
+    @FindBy(how=How.XPATH, using="//input[@name='change--3.quantityAsDecimal']")
+    private WebElement enterQuantity2;
     /**
-     * Method to Click ChangeButton.
+     * Method to Enter Quantity.
      * @throws IOException 
      */
-    public void clickChangeButton() throws IOException{
+    public void enterQuantity2() throws IOException{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
-        log.info("Click Change Button");
+        log.info("Enter Quantity");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickChangeButton);
-        Assert.assertTrue(clickChangeButton.isDisplayed());
-        clickChangeButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity2);
+        Assert.assertTrue(enterQuantity2.isDisplayed());
+        enterQuantity2.sendKeys(sp.ExcelRead().get(35));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@class='field quantity']")
-    private WebElement enterChangeQty;
+    @FindBy(how=How.XPATH, using="//input[@name='change--3.quantityAsDecimal']")
+    private WebElement enterQuantity3;
     /**
-     * Method to Enter New Quantity.
+     * Method to Enter Quantity.
      * @throws IOException 
      */
-    public void enterChangeQty() throws IOException{
+    public void enterQuantity3() throws IOException{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
-        log.info("Enter New Quantity");
+        log.info("Enter Quantity");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterChangeQty);
-        Assert.assertTrue(enterChangeQty.isDisplayed());
-        enterChangeQty.sendKeys(sp.ExcelRead().get(13));
+        WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity3);
+        Assert.assertTrue(enterQuantity3.isDisplayed());
+        enterQuantity3.sendKeys(sp.ExcelRead().get(36));
         
     }
-    
     
     
     public void navigateBottom(){

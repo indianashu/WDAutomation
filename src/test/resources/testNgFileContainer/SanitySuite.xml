@@ -26,8 +26,9 @@
 
 		<classes>
 
-			<class name ="loginWebData.WebDataLoginTest"/>
+			<class name ="billingProcessTest.approvingReviewReportforRealBillingTest"/>
 			<!--<class name="SignupTest.SignupTest" /> 
+			<class name ="loginWebData.WebDataLoginTest"/>
 			<class name = "companySetupTest.configureAccountTypeTest" />
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
 			<class name = "companySetupTest.configurePaymentMethodTest" />
