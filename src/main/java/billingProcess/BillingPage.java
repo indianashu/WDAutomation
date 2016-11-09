@@ -248,7 +248,7 @@ public class BillingPage extends BasePage{
     }
     
     
-    //@FindBy(how=How.XPATH, using="//*[@id='process-11']/td[3]/a/span")
+    //@FindBy(how=How.XPATH, using="//*[@id='process-13']/td[3]/a/span")
     private WebElement verifyOrderNumbers;
     /**
      * Method to Verify order numbers.
@@ -257,7 +257,7 @@ public class BillingPage extends BasePage{
     public void verifyOrderNumbers() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Verify order numbers");
-        String OrderNumber = driver.findElement(By.xpath("//*[@id='process-11']/td[3]/a/span")).getText();
+        String OrderNumber = driver.findElement(By.xpath("//*[@id='process-13']/td[3]/a/span")).getText();
         System.out.println("Number of Orders---->" +OrderNumber);
         WaitClass.sleep(10000);
         String OrderNumberExpected = sp.ExcelRead().get(4);
@@ -266,19 +266,19 @@ public class BillingPage extends BasePage{
     }
 
     //@FindBy(how=How.XPATH, using="//*[@id='process-11']/td[3]/a/span")
-    private WebElement verifyOrderNumbersBold;
+    private WebElement verifyOrderNumbersItalics;
     /**
      * Method to Verify order numbers.
      * @throws IOException 
      */
-    public void verifyOrderNumbersBold() throws IOException{
+    public void verifyOrderNumbersItalics() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Verify order numbers");
-        String FontWeight = driver.findElement(By.xpath("//*[@id='process-11']/td[3]/a/span")).getCssValue("font-weight");
-        System.out.println("Fontweight---->" +FontWeight);
+        String FontStyle = driver.findElement(By.xpath("//*[@id='process-13']/td[3]/a/span")).getCssValue("font-style");
+        System.out.println("FontStyle---->" +FontStyle);
         WaitClass.sleep(10000);
-        String FontWeightExpected = sp.ExcelRead().get(5);
-        Assert.assertEquals(FontWeight, FontWeightExpected);
+        String FontStyleExpected = sp.ExcelRead().get(5);
+        Assert.assertEquals(FontStyle, FontStyleExpected);
         
     }
     
@@ -377,8 +377,8 @@ public class BillingPage extends BasePage{
         WaitClass.sleep(10000);
         int rowCount = driver.findElements(By.xpath("//table[@id='invoices']/tbody/tr")).size();
         System.out.println("Row Count -------->" +rowCount);
-        int OrderCount = 1;
-        Assert.assertEquals(rowCount, OrderCount);
+        int InvoiceCount = 2;
+        Assert.assertEquals(rowCount, InvoiceCount);
                 
     }
   
@@ -396,6 +396,167 @@ public class BillingPage extends BasePage{
         System.out.println("Billing Customer Name is -------->" +BillingCustomerActual);
         Assert.assertEquals(BillingCustomerActual, BillingCustomerExpected);
                 
+    }
+    
+  
+    //@FindBy(how=How.XPATH, using="//*[@id='main']/div[6]/em[5]/strong")
+    private WebElement verifyReviewStatusGenerated;
+    /**
+     * Method to Verify Review Status is Generated.
+     * @throws IOException 
+     */
+    public void verifyReviewStatusGenerated() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Verify Review Status is Generated.");
+        WaitClass.sleep(10000);
+        String ActualStatus = driver.findElement(By.xpath("//*[@id='main']/div[6]/em[5]/strong")).getText();
+        String ExpectedStatus = "Generated";
+        Assert.assertEquals(ActualStatus, ExpectedStatus);
+    } 
+    
+  
+    //@FindBy(how=How.XPATH, using="//*[@id='main']/div[6]/em[5]/strong")
+    private WebElement verifyReviewStatusApproved;
+    /**
+     * Method to Verify Review Status is Approved.
+     * @throws IOException 
+     */
+    public void verifyReviewStatusApproved() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Verify Review Status is Approved.");
+        WaitClass.sleep(10000);
+        String ActualStatus = driver.findElement(By.xpath("//*[@id='main']/div[6]/em[5]/strong")).getText();
+        String ExpectedStatus = "Approved";
+        Assert.assertEquals(ActualStatus, ExpectedStatus);
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//input[@id='generateReport']")
+    private WebElement clickGenerateReviewReport;
+    /**
+     * Method to Uncheck Generate Review Report.
+     * @throws IOException 
+     */
+    public void clickGenerateReviewReport() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Uncheck Generate Review Report.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickGenerateReviewReport);
+        Assert.assertTrue(clickGenerateReviewReport.isDisplayed());
+        clickGenerateReviewReport.click();
+        
+    } 
+    
+    
+  //@FindBy(how=How.XPATH, using="//*[@id='process-11']/td[3]/a/span")
+    private WebElement verifyOrderNumbersBold;
+    /**
+     * Method to Verify order numbers.
+     * @throws IOException 
+     */
+    public void verifyOrderNumbersBold() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Verify order numbers");
+        String FontWeight = driver.findElement(By.xpath("//*[@id='process-13']/td[3]/a/span")).getCssValue("font-weight");
+        System.out.println("FontStyle---->" +FontWeight);
+        WaitClass.sleep(10000);
+        String FontWeightExpected = sp.ExcelRead().get(7);
+        Assert.assertEquals(FontWeight, FontWeightExpected);
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='process-12']/td[2]")
+    private WebElement clickLastBillingRun;
+    /**
+     * Method to Click on last billing run.
+     * @throws IOException 
+     */
+    public void clickLastBillingRun() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Click on last billing run");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickLastBillingRun);
+        Assert.assertTrue(clickLastBillingRun.isDisplayed());
+        clickLastBillingRun.click();
+        
+    }
+
+  
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing Customer2']")
+    private WebElement clickBillingCustomer2;
+    /**
+     * Method to Click on Billing Customer2.
+     * @throws IOException 
+     */
+    public void clickBillingCustomer2() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Click on Billing Customer2");
+        WaitClass.sleep(10000);
+        String BillingCustomer= sp.ExcelRead().get(6);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
+        
+    }
+    
+  
+    private WebElement verifyDueDate;
+    /**
+     * Method to Verify Due Date.
+     * @throws IOException 
+     */
+    public void verifyDueDate() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Click on last billing run");
+        WaitClass.sleep(10000);
+        String ExpectedDueDate= sp.ExcelRead().get(8);
+        String ActualDueDate = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[5]/td[2]")).getText();
+        Assert.assertEquals(ActualDueDate, ExpectedDueDate);
+    }
+    
+    
+    @FindBy(how=How.XPATH, using="//input[@name='nextRunDate']")
+    private WebElement enterNextRunDate1;
+    /**
+     * Method to Enter Next Run Date.
+     * @throws IOException 
+     */
+    public void enterNextRunDate1() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Enter Next Run Date");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterNextRunDate1);
+        Assert.assertTrue(enterNextRunDate1.isDisplayed());
+        enterNextRunDate1.sendKeys(sp.ExcelRead().get(9));
+        
+    }
+    
+  //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing Customer1']")
+    private WebElement clickBillingCustomer1;
+    /**
+     * Method to Click on Billing Customer1.
+     * @throws IOException 
+     */
+    public void clickBillingCustomer1() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Click on Billing Customer1");
+        WaitClass.sleep(10000);
+        String BillingCustomer1= sp.ExcelRead().get(10);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer1+"']")).click();
+        
+    }
+    
+    private WebElement verifyDueDate1;
+    /**
+     * Method to Verify Due Date.
+     * @throws IOException 
+     */
+    public void verifyDueDate1() throws IOException{
+    	BillingPage sp=new BillingPage(driver);
+        log.info("Click on last billing run");
+        WaitClass.sleep(10000);
+        String ExpectedDueDate= sp.ExcelRead().get(11);
+        String ActualDueDate = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[5]/td[2]")).getText();
+        Assert.assertEquals(ActualDueDate, ExpectedDueDate);
     }
     
     public void navigateBottom(){

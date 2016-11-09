@@ -21,7 +21,7 @@ import utilPackages.WaitClass;
 import billingProcess.BillingPage;
 
 
-public class approvingReviewReportforRealBillingTest {
+public class runningBillingProcessOrdersCreatedTest {
 	BillingPage billingPage;
     WebDriver driver,driver2;
 
@@ -43,6 +43,11 @@ public class approvingReviewReportforRealBillingTest {
     	billingPage.enterPassword();
     	billingPage.selectCompany();
     	billingPage.clickLoginButton();
+    	billingPage.clickConfigurationTab();
+    	billingPage.clickBillingProcessLink();
+    	billingPage.clickGenerateReviewReport();
+    	billingPage.clickSaveChangesButton();
+    	billingPage.clickRunBillingButton();
     	billingPage.clickBillingTab();
     	billingPage.verifyOrderNumbers();
     	billingPage.verifyOrderNumbersItalics();
