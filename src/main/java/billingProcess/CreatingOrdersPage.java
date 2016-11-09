@@ -436,6 +436,91 @@ public class CreatingOrdersPage extends BasePage{
         
     }
     
+    @FindBy(how=How.XPATH, using="//input[@name='description']")
+    private WebElement enterProductCategoryName;
+    /**
+     * Method to enter product category name.
+     * @throws IOException 
+     */
+    public void enterProductCategoryName() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("Click on Add Category Button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCategoryName);
+        Assert.assertTrue(enterProductCategoryName.isDisplayed());
+        enterProductCategoryName.sendKeys(sp.ExcelRead().get(12));
+        
+    }
+    
+    //a[@class='cell double']//*[text()='Billing Category']
+    private WebElement clickProductCategoryName;
+    /**
+     * Method to click on product category name.
+     * @throws IOException 
+     */
+    public void clickProductCategoryName() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+    	String CategoryName = sp.ExcelRead().get(12);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']"));
+    	log.info("Click on Add Category Button");
+        WaitClass.sleep(10000);
+         WaitClass.WaitForElementisDisplay(driver, 10, clickProductCategoryName);
+        Assert.assertTrue(clickProductCategoryName.isDisplayed());
+        clickProductCategoryName.click();
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Product']")
+    private WebElement clickAddProductButton;
+    /**
+     * Method to Click on Add Product Button.
+     * @throws IOException 
+     */
+    public void clickAddProductButton() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("Click on Add Product Button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
+        Assert.assertTrue(clickAddProductButton.isDisplayed());
+        clickAddProductButton.click();
+        
+    }  
+    
+  
+    @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
+    private WebElement enterProductDescription;
+    /**
+     * Method to enter product description.
+     * @throws IOException 
+     */
+    public void enterProductDescription() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product description");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterProductDescription);
+        Assert.assertTrue(enterProductDescription.isDisplayed());
+        enterProductDescription.sendKeys(sp.ExcelRead().get(13));
+        
+    }
+  
+    @FindBy(how=How.XPATH, using="//input[@name='product.number']")
+    private WebElement enterProductCode;
+    /**
+     * Method to enter product code.
+     * @throws IOException 
+     */
+    public void enterProductCode() throws IOException{
+    	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
+        log.info("enter product code");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
+        Assert.assertTrue(enterProductCode.isDisplayed());
+        enterProductCode.sendKeys(sp.ExcelRead().get(14));
+        
+    }
+    
+    
     @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Create Order']")
     private WebElement clickCreateOrderButton;
     /**
