@@ -51,7 +51,7 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     	
 
 		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File("/Users/ashutosh/Documents/Web Data Consulting/WDAutomation/Webdata_TestData.xlsx");
+		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
 		XSSFSheet sheet=wb.getSheet("ConfigPaymentMethod");
