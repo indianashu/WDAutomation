@@ -134,31 +134,31 @@ public class TearDownProcessPage extends BasePage{
     }
 
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
-    private WebElement clickCustomerTab;
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[4]/a/span")
+    private WebElement clickPaymentsTab;
     /**
-     * Method to click on Customer tab after successful login.
+     * Method to click on Payments tab after successful login.
      * @throws IOException 
      */
-    public void clickCustomerTab() throws IOException{
+    public void clickPaymentsTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Customer Tab after successful login");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
-        Assert.assertTrue(clickCustomerTab.isDisplayed());
-        clickCustomerTab.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickPaymentsTab);
+        Assert.assertTrue(clickPaymentsTab.isDisplayed());
+        clickPaymentsTab.click();
         
     }
     
-  //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing Customer2']")
-    private WebElement clickBillingCustomer2;
+  //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
+    private WebElement clickCustomerA;
     /**
-     * Method to Click on Billing Customer2.
+     * Method to Click on Customer A.
      * @throws IOException 
      */
     public void clickBillingCustomer2() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Click on Billing Customer2");
+        log.info("Click on Customer A");
         WaitClass.sleep(10000);
         String BillingCustomer= sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
@@ -166,81 +166,53 @@ public class TearDownProcessPage extends BasePage{
     }
    
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit edit']//*[text()='Edit']")
-    private WebElement clickEditButton;
+    @FindBy(how=How.XPATH, using="//*[@id='column2']/div/div[2]/div/table[4]/tbody/tr/td[4]/a/span")
+    private WebElement clickUnlink;
     /**
-     * Method to click on edit button.
+     * Method to click on unlink link.
      * @throws IOException 
      */
-    public void clickEditButton() throws IOException{
+    public void clickUnlink() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Click on Edit Button");
+        log.info("Click on unlink link");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickEditButton);
-        Assert.assertTrue(clickEditButton.isDisplayed());
-        clickEditButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickUnlink);
+        Assert.assertTrue(clickUnlink.isDisplayed());
+        clickUnlink.click();
         
     }
     
-    private WebElement selectPaymentMethod;
-    /**
-     * Method to select Payment Method.
-     * @throws IOException 
-     */
-    public void selectPaymentMethod() throws IOException{
-    	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        WebElement PMelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
-        Select se = new Select(PMelement);
-        se.selectByVisibleText(sp.ExcelRead().get(4));
-
-    }
     
-  
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_86.value']")
-    private WebElement enterCardHolderName;
+    @FindBy(how=How.XPATH, using="/html/body/div[5]/div[3]/div/button[1]/span")
+    private WebElement clickYesPopup;
     /**
-     * Method to enter Card Holder Name.
+     * Method to click on yes popup.
      * @throws IOException 
      */
-    public void enterCardHolderName() throws IOException{
+    public void clickYesPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Enter Cardholder Name");
+        log.info("click on yes button");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
-        Assert.assertTrue(enterCardHolderName.isDisplayed());
-        enterCardHolderName.sendKeys(sp.ExcelRead().get(5));
+        WaitClass.WaitForElementisDisplay(driver, 10, clickYesPopup);
+        Assert.assertTrue(clickYesPopup.isDisplayed());
+        clickYesPopup.click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_85.value']")
-    private WebElement enterCardNumber;
+    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']")
+    private WebElement verifyPaymentUnlinkedSuccessfully;
     /**
-     * Method to enter Card Number.
+     * Method to Verify Payment is unlinked successfully.
      * @throws IOException 
      */
-    public void enterCardNumber() throws IOException{
+    public void verifyPaymentUnlinkedSuccessfully() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Enter Cardholder Number");
+        log.info("Verify Payment is unlinked successfully");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
-        Assert.assertTrue(enterCardNumber.isDisplayed());
-        enterCardNumber.sendKeys(sp.ExcelRead().get(6));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_83.value']")
-    private WebElement enterCardExpiry;
-    /**
-     * Method to enter Card Expiry.
-     * @throws IOException 
-     */
-    public void enterCardExpiry() throws IOException{
-    	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Enter Cardholder Number");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
-        Assert.assertTrue(enterCardExpiry.isDisplayed());
-        enterCardExpiry.sendKeys(sp.ExcelRead().get(7));
+        //WaitClass.WaitForElementisDisplay(driver, 10, verifyPaymentUnlinkedSuccessfully);
+        String PaymentMsgExpected = "Payment unlinked successfully";
+        String PaymentMsgActual = driver.findElement(By.xpath("//div[@class='msg-box successfully']")).getText();
+        Assert.assertEquals(PaymentMsgActual, PaymentMsgExpected);
         
     }
     
@@ -276,223 +248,249 @@ public class TearDownProcessPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[12]/a/span")
-    private WebElement clickConfigurationTab;
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[3]/a/span")
+    private WebElement clickInvoicesTab;
     /**
-     * Method to click on Configuration tab after successful login.
+     * Method to click on Invoices tab after successful login.
      * @throws IOException 
      */
-    public void clickConfigurationTab() throws IOException{
+    public void clickInvoicesTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Click on Configuration Tab after successful login");
+        log.info("Click on Invoices Tab after successful login");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickInvoicesTab);
+        Assert.assertTrue(clickInvoicesTab.isDisplayed());
+        clickInvoicesTab.click();
         
     }
     
-  @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[7]/a")
-    private WebElement clickCollectionsLink;
-    /**
-     * Method to Click on Collections Link.
-     * @throws IOException 
-     */
-    public void clickCollectionsLink() throws IOException{
-    	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Click on Collections Link.");
-        WaitClass.sleep(10000);  
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCollectionsLink);
-        Assert.assertTrue(clickCollectionsLink.isDisplayed());
-        clickCollectionsLink.click();
-        
-    }
+  //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing Customer2']")
+  private WebElement clickCustomerB;
+  /**
+   * Method to Click on Customer B.
+   * @throws IOException 
+   */
+  public void clickCustomerB() throws IOException{
+  	TearDownProcessPage sp=new TearDownProcessPage(driver);
+      log.info("Click on Customer A");
+      WaitClass.sleep(10000);
+      String BillingCustomer= sp.ExcelRead().get(4);
+      driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
+      
+  }
     
   
-    @FindBy(how=How.XPATH, using="//input[@name='collectionsRunDate']")
-    private WebElement enterRunCollectionDate;
+    @FindBy(how=How.XPATH, using="//a[@class='submit delete']//*[text()='Delete Invoice']")
+    private WebElement clickDeleteInvoiceButton;
     /**
-     * Method to enter Run Collection Date.
+     * Method to click on delete invoice button.
      * @throws IOException 
      */
-    public void enterRunCollectionDate() throws IOException{
+    public void clickDeleteInvoiceButton() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Enter Run Collection Date");
+        log.info("click on delete invoice button");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate);
-        Assert.assertTrue(enterRunCollectionDate.isDisplayed());
-        enterRunCollectionDate.sendKeys(sp.ExcelRead().get(8));
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteInvoiceButton);
+        Assert.assertTrue(clickDeleteInvoiceButton.isDisplayed());
+        clickDeleteInvoiceButton.click();
         
     } 
     
-    @FindBy(how=How.XPATH, using="//input[@class='submit confirm']")
-    private WebElement clickRunCollectionsButton;
+    @FindBy(how=How.XPATH, using="/html/body/div[7]/div[3]/div/button[1]/span")
+    private WebElement clickYesDeleteInvoiceProductPopup;
     /**
-     * Method to Click on Run Collections Button.
+     * Method to Click on Yes delete invoice/product popup.
      * @throws IOException 
      */
-    public void clickRunCollectionsButton() throws IOException{
+    public void clickYesDeleteInvoiceProductPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Click on Run Collections Button.");
+        log.info("Click on Yes delete invoice/product popup.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsButton);
-        Assert.assertTrue(clickRunCollectionsButton.isDisplayed());
-        clickRunCollectionsButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickYesDeleteInvoiceProductPopup);
+        Assert.assertTrue(clickYesDeleteInvoiceProductPopup.isDisplayed());
+        clickYesDeleteInvoiceProductPopup.click();
         
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='runCollection']/span")
-    private WebElement clickRunCollectionsPopup;
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[5]/a/span")
+    private WebElement clickOrdersTab;
     /**
-     * Method to Click on Run Collections Popup.
+     * Method to Click on Orders Tab.
      * @throws IOException 
      */
-    public void clickRunCollectionsPopup() throws IOException{
+    public void clickOrdersTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Click on Run Collections Popup.");
+        log.info("Click on Orders Tab.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsPopup);
-        Assert.assertTrue(clickRunCollectionsPopup.isDisplayed());
-        clickRunCollectionsPopup.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
+        Assert.assertTrue(clickOrdersTab.isDisplayed());
+        clickOrdersTab.click();
         
     }
     
-    //@FindBy(how=How.XPATH, using="//a[@id='41']//*[text()='Active']")
-    private WebElement verifyBillingCustomer1Status;
+  //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing Customer2']")
+    private WebElement clickCustomerC;
     /**
-     * Method to Verify status of Billing Customer1.
+     * Method to Click on Customer C.
      * @throws IOException 
      */
-    public void verifyBillingCustomer1Status() throws IOException{
+    public void clickCustomerC() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Verify status of Billing Customer1");
-        String CustomerID=sp.ExcelRead().get(9);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer1---->" +ActualStatus);
+        log.info("Click on Customer A");
         WaitClass.sleep(10000);
-        String StatusExpected = sp.ExcelRead().get(10);
-        Assert.assertEquals(ActualStatus, StatusExpected);
+        String BillingCustomer= sp.ExcelRead().get(5);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
+        
+    }
+      
+    @FindBy(how=How.XPATH, using="//a[@class='submit delete']//*[text()='Delete']")
+    private WebElement clickDeleteButton;
+    /**
+     * Method to click on delete button.
+     * @throws IOException 
+     */
+    public void clickDeleteButton() throws IOException{
+    	TearDownProcessPage sp=new TearDownProcessPage(driver);
+        log.info("click on delete button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteButton);
+        Assert.assertTrue(clickDeleteButton.isDisplayed());
+        clickDeleteButton.click();
         
     }
     
-  //@FindBy(how=How.XPATH, using="//a[@id='42']//*[text()='Active']")
-    private WebElement verifyBillingCustomer2Status;
+  
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    private WebElement clickProductsTab;
     /**
-     * Method to Verify status of Billing Customer2.
+     * Method to click on Products Tab.
      * @throws IOException 
      */
-    public void verifyBillingCustomer2Status() throws IOException{
+    public void clickProductsTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
+        log.info("click on products tab.");
         WaitClass.sleep(10000);
-        String StatusExpected = sp.ExcelRead().get(12);
-        Assert.assertEquals(ActualStatus, StatusExpected);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
+        Assert.assertTrue(clickProductsTab.isDisplayed());
+        clickProductsTab.click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='collectionsRunDate']")
-    private WebElement enterRunCollectionDate1;
+    //a[@class='cell double']//*[text()='plans']
+    private WebElement clickProductCategory;
     /**
-     * Method to enter Run Collection Date.
+     * Method to Click on a product category.
      * @throws IOException 
      */
-    public void enterRunCollectionDate1() throws IOException{
+    public void clickProductCategory() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Enter Run Collection Date");
+        log.info("Click on a product category");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate1);
-        Assert.assertTrue(enterRunCollectionDate1.isDisplayed());
-        enterRunCollectionDate1.sendKeys(sp.ExcelRead().get(13));
-        
-    }
-  //@FindBy(how=How.XPATH, using="//a[@id='42']//*[text()='Active']")
-    private WebElement verifyBillingCustomer2Status1;
-    /**
-     * Method to Verify status of Billing Customer2.
-     * @throws IOException 
-     */
-    public void verifyBillingCustomer2Status1() throws IOException{
-    	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
-        WaitClass.sleep(10000);
-        String StatusExpected = sp.ExcelRead().get(14);
-        Assert.assertEquals(ActualStatus, StatusExpected);
+        String ProductCategory= sp.ExcelRead().get(6);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductCategory+"']")).click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='collectionsRunDate']")
-    private WebElement enterRunCollectionDate2;
+  //a[@class='cell double']//*[text()='plans']
+    private WebElement clickProduct;
     /**
-     * Method to enter Run Collection Date.
+     * Method to Click on a product.
      * @throws IOException 
      */
-    public void enterRunCollectionDate2() throws IOException{
+    public void clickProduct() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Enter Run Collection Date");
+        log.info("Click on a product.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate2);
-        Assert.assertTrue(enterRunCollectionDate2.isDisplayed());
-        enterRunCollectionDate2.sendKeys(sp.ExcelRead().get(15));
-        
-    }
-  //@FindBy(how=How.XPATH, using="//a[@id='42']//*[text()='Active']")
-    private WebElement verifyBillingCustomer2Status2;
-    /**
-     * Method to Verify status of Billing Customer2.
-     * @throws IOException 
-     */
-    public void verifyBillingCustomer2Status2() throws IOException{
-    	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
-        WaitClass.sleep(10000);
-        String StatusExpected = sp.ExcelRead().get(16);
-        Assert.assertEquals(ActualStatus, StatusExpected);
+        String ProductName= sp.ExcelRead().get(7);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='collectionsRunDate']")
-    private WebElement enterRunCollectionDate3;
+  
+    //@FindBy(how=How.XPATH, using="//*[@id='column2']/div[1]/strong/em")
+    private WebElement verifyNoProducts;
     /**
-     * Method to enter Run Collection Date.
+     * Method to Verify there are no products in the selected category.
      * @throws IOException 
      */
-    public void enterRunCollectionDate3() throws IOException{
+    public void verifyNoProducts() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Enter Run Collection Date");
+        log.info("Verify there are no products in the selected category");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate3);
-        Assert.assertTrue(enterRunCollectionDate3.isDisplayed());
-        enterRunCollectionDate3.sendKeys(sp.ExcelRead().get(17));
+        //WaitClass.WaitForElementisDisplay(driver, 10, verifyPaymentUnlinkedSuccessfully);
+        String MsgExpected = "No products found.";
+        String MsgActual = driver.findElement(By.xpath("//*[@id='column2']/div[1]/strong/em")).getText();
+        Assert.assertEquals(MsgActual, MsgExpected);
         
-    }
-  //@FindBy(how=How.XPATH, using="//a[@id='42']//*[text()='Active']")
-    private WebElement verifyBillingCustomer2Status3;
+    }   
+    
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit delete']//*[text()='Delete Category']")
+    private WebElement clickDeleteCategoryButton;
     /**
-     * Method to Verify status of Billing Customer2.
+     * Method to click on delete category button.
      * @throws IOException 
      */
-    public void verifyBillingCustomer2Status3() throws IOException{
+    public void clickDeleteCategoryButton() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
+        log.info("click on delete category button");
         WaitClass.sleep(10000);
-        String StatusExpected = sp.ExcelRead().get(18);
-        Assert.assertEquals(ActualStatus, StatusExpected);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteCategoryButton);
+        Assert.assertTrue(clickDeleteCategoryButton.isDisplayed());
+        clickDeleteCategoryButton.click();
         
     }
     
+    @FindBy(how=How.XPATH, using="/html/body/div[6]/div[3]/div/button[1]/span")
+    private WebElement clickDeleteYesCategoryPopup;
+    /**
+     * Method to click on delete category popup.
+     * @throws IOException 
+     */
+    public void clickDeleteYesCategoryPopup() throws IOException{
+    	TearDownProcessPage sp=new TearDownProcessPage(driver);
+        log.info("click on delete category popup");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCategoryPopup);
+        Assert.assertTrue(clickDeleteYesCategoryPopup.isDisplayed());
+        clickDeleteYesCategoryPopup.click();
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    private WebElement clickCustomersTab;
+    /**
+     * Method to click on customers tab.
+     * @throws IOException 
+     */
+    public void clickCustomersTab() throws IOException{
+    	TearDownProcessPage sp=new TearDownProcessPage(driver);
+        log.info("click on customers tab");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
+        Assert.assertTrue(clickCustomersTab.isDisplayed());
+        clickCustomersTab.click();
+        
+    }
+
+    @FindBy(how=How.XPATH, using="/html/body/div[9]/div[3]/div/button[1]/span")
+    private WebElement clickDeleteYesCustomerPopup;
+    /**
+     * Method to click on delete customer popup.
+     * @throws IOException 
+     */
+    public void clickDeleteYesCustomerPopup() throws IOException{
+    	TearDownProcessPage sp=new TearDownProcessPage(driver);
+        log.info("click on delete customer popup");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCustomerPopup);
+        Assert.assertTrue(clickDeleteYesCustomerPopup.isDisplayed());
+        clickDeleteYesCustomerPopup.click();
+        
+    }
+
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
