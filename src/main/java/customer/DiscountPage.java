@@ -180,108 +180,70 @@ public class DiscountPage extends BasePage{
         Assert.assertTrue(verifyErrorMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    
-    private WebElement selectUserCompany;
+  
+    @FindBy(how=How.XPATH, using="//input[@name='discount.code']")
+    private WebElement enterDiscountCode;
     /**
-     * Method to select user company.
+     * Method to enter discount code.
      * @throws IOException 
      */
-    public void selectUserCompany() throws IOException{
+    public void enterDiscountCode() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
-        WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
-        Select se = new Select(Usercompanyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(3));
-
-    }
-    
-    private WebElement selectAccountType;
-    /**
-     * Method to select account type.
-     * @throws IOException 
-     */
-    public void selectAccountType() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
-        Select se = new Select(AccountTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(4));
-
-    }    
-
-    
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Select']")
-    private WebElement clickSelectButton;
-    /**
-     * Method to click on select Button.
-     * @throws IOException 
-     */
-    public void clickSelectButton() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Click on select Button");
+        log.info("Enter Discount Code.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
-        Assert.assertTrue(clickSelectButton.isDisplayed());
-        clickSelectButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountCode);
+        Assert.assertTrue(enterDiscountCode.isDisplayed());
+        enterDiscountCode.sendKeys(sp.ExcelRead().get(3));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
-    private WebElement enterLoginName;
+    @FindBy(how=How.XPATH, using="//input[@name='discount.descriptions[0].content']")
+    private WebElement enterDiscountDescription;
     /**
-     * Method to Enter Login Name.
+     * Method to enter discount description.
      * @throws IOException 
      */
-    public void enterLoginName() throws IOException{
+    public void enterDiscountDescription() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
-        log.info("Enter Login Name");
+        log.info("Enter Discount Description");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
-        Assert.assertTrue(enterLoginName.isDisplayed());
-        enterLoginName.sendKeys(sp.ExcelRead().get(5));
+        WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountDescription);
+        Assert.assertTrue(enterDiscountDescription.isDisplayed());
+        enterDiscountDescription.sendKeys(sp.ExcelRead().get(4));
+        
+    }
+  
+    private WebElement selectDiscountType;
+    /**
+     * Method to select Discount Type.
+     * @throws IOException 
+     */
+    public void selectDiscountType() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        WebElement DTelement = driver.findElement(By.xpath("//select[@name='discount.type']"));
+        Select se = new Select(DTelement);
+        se.selectByVisibleText(sp.ExcelRead().get(5));
+
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//input[@name='discount.rate']")
+    private WebElement enterDiscountRate;
+    /**
+     * Method to enter discount rate.
+     * @throws IOException 
+     */
+    public void enterDiscountRate() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Enter Discount rate.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountRate);
+        Assert.assertTrue(enterDiscountRate.isDisplayed());
+        enterDiscountRate.sendKeys(sp.ExcelRead().get(6));
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Use Company Billing Cycle']")
-    private WebElement clickUseCompanyBillingCycleButton;
-    /**
-     * Method to Click Use Company Billing Cycle Button.
-     * @throws IOException 
-     */
-    public void clickUseCompanyBillingCycleButton() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Click Use Company Billing Cycle Button");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickUseCompanyBillingCycleButton);
-        Assert.assertTrue(clickUseCompanyBillingCycleButton.isDisplayed());
-        clickUseCompanyBillingCycleButton.click();
-        
-    }
-    
-    private WebElement selectBillingCycleUnit;
-    /**
-     * Method to select billing cycle unit.
-     * @throws IOException 
-     */
-    public void selectBillingCycleUnit() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
-        Select se = new Select(BCUelement);
-        se.selectByVisibleText(sp.ExcelRead().get(6));
-
-    }
-
-    private WebElement selectBillingCycleDay;
-    /**
-     * Method to select billing cycle day.
-     * @throws IOException 
-     */
-    public void selectBillingCycleDay() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        WebElement BCDelement = driver.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
-        Select se = new Select(BCDelement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
-
-    }
-    
+      
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
     private WebElement clickSaveChangesButton;
     /**
@@ -312,182 +274,101 @@ public class DiscountPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']")
-    private WebElement selectCustomer;
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    private WebElement clickCustomersTab;
     /**
-     * Method to select customer.
+     * Method to click on customers tab.
      * @throws IOException 
      */
-    public void selectCustomer() throws IOException{
+    public void clickCustomersTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
-        log.info("Select Customer");
+        log.info("click on customers tab");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectCustomer);
-        Assert.assertTrue(selectCustomer.isDisplayed());
-        selectCustomer.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
+        Assert.assertTrue(clickCustomersTab.isDisplayed());
+        clickCustomersTab.click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']")
-    private WebElement clickAddSubAccountButton;
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
+    private WebElement clickCustomerA;
     /**
-     * Method to Click Add Sub Account Button.
+     * Method to Click on Customer A.
      * @throws IOException 
      */
-    public void clickAddSubAccountButton() throws IOException{
+    public void clickCustomerA() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
-        log.info("Click Add Sub Account Button");
+        log.info("Click on customer A");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddSubAccountButton);
-        Assert.assertTrue(clickAddSubAccountButton.isDisplayed());
-        clickAddSubAccountButton.click();
-        
+        String CustomerName = sp.ExcelRead().get(7);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
     }
     
     
-    @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
-    private WebElement enterLoginName1;
+    @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Create Order']")
+    private WebElement clickCreateOrderButton;
     /**
-     * Method to Enter Login Name.
+     * Method to Click on Create Order Button.
      * @throws IOException 
      */
-    public void enterLoginName1() throws IOException{
+    public void clickCreateOrderButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
-        log.info("Enter Login Name");
+        log.info("Click on Create Order Button.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName1);
-        Assert.assertTrue(enterLoginName1.isDisplayed());
-        enterLoginName1.sendKeys(sp.ExcelRead().get(8));
-        
-    }
-    
-    
-    @FindBy(how=How.XPATH, using="//*[@id='ait-20']/div[1]/a/span")
-    private WebElement expandContactInfo;
-    /**
-     * Method to Expand Contact Info in add customer page.
-     * @throws IOException 
-     */
-    public void expandContactInfo() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Expand Contact Info in add customer page");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, expandContactInfo);
-        Assert.assertTrue(expandContactInfo.isDisplayed());
-        expandContactInfo.click();
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='metaField_224.value']")
-    private WebElement enterEmailID;
-    /**
-     * Method to Enter Email ID.
-     * @throws IOException 
-     */
-    public void enterEmailID() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Enter EmailID");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID);
-        Assert.assertTrue(enterEmailID.isDisplayed());
-        enterEmailID.sendKeys(sp.ExcelRead().get(9));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//*[@id='payment-methods']/div[1]/a/span")
-    private WebElement expandPaymentMethod;
-    /**
-     * Method to Expand Payment Method in add customer page.
-     * @throws IOException 
-     */
-    public void expandPaymentMethod() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Expand Payment Method in add customer page");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, expandPaymentMethod);
-        Assert.assertTrue(expandPaymentMethod.isDisplayed());
-        expandPaymentMethod.click();
-        
-    }
-    
-    private WebElement selectPaymentMethodType;
-    /**
-     * Method to select payment method type.
-     * @throws IOException 
-     */
-    public void selectPaymentMethodType() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
-        Select se = new Select(PMTelement);
-        se.selectByVisibleText(sp.ExcelRead().get(10));
-
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
-    private WebElement enterCCCardholderName;
-    /**
-     * Method to Enter CC Cardholder name.
-     * @throws IOException 
-     */
-    public void enterCCCardholderName() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Enter CC Cardholder name");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderName);
-        Assert.assertTrue(enterCCCardholderName.isDisplayed());
-        enterCCCardholderName.sendKeys(sp.ExcelRead().get(11));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
-    private WebElement enterCCNumber;
-    /**
-     * Method to Enter CC Number.
-     * @throws IOException 
-     */
-    public void enterCCNumber() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Enter CC Number");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCCNumber);
-        Assert.assertTrue(enterCCNumber.isDisplayed());
-        enterCCNumber.sendKeys(sp.ExcelRead().get(12));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_226.value']")
-    private WebElement enterCCExpiryDate;
-    /**
-     * Method to Enter CC Number.
-     * @throws IOException 
-     */
-    public void enterCCExpiryDate() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Enter CC Number");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCCExpiryDate);
-        Assert.assertTrue(enterCCExpiryDate.isDisplayed());
-        enterCCExpiryDate.sendKeys(sp.ExcelRead().get(12));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Instrument']")
-    private WebElement clickAddInstrumentButton;
-    /**
-     * Method to click add instrument button.
-     * @throws IOException 
-     */
-    public void clickAddInstrumentButton() throws IOException{
-    	DiscountPage sp=new DiscountPage(driver);
-        log.info("Click Add Instrument Button");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddInstrumentButton);
-        Assert.assertTrue(clickAddInstrumentButton.isDisplayed());
-        clickAddInstrumentButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
+        Assert.assertTrue(clickCreateOrderButton.isDisplayed());
+        clickCreateOrderButton.click();
         
     }
     
     
+    @FindBy(how=How.XPATH, using="//*[@id='ui-id-8']n")
+    private WebElement clickProductSubTab;
+    /**
+     * Method to click on Product sub tab.
+     * @throws IOException 
+     */
+    public void clickProductSubTab() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Click on Product Sub Tab.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickProductSubTab);
+        Assert.assertTrue(clickProductSubTab.isDisplayed());
+        clickProductSubTab.click();
+        
+    }
+    
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingFl']")
+    private WebElement selectProduct;
+    /**
+     * Method to Select a Product.
+     * @throws IOException 
+     */
+    public void selectProduct() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Select a product.");
+        WaitClass.sleep(10000);
+        String ProductName = sp.ExcelRead().get(8);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
+    private WebElement clickUpdateButton;
+    /**
+     * Method to click on update button.
+     * @throws IOException 
+     */
+    public void clickUpdateButton() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("click on update button.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
+        Assert.assertTrue(clickUpdateButton.isDisplayed());
+        clickUpdateButton.click();
+        
+    }
+        
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
         WaitClass.sleep(5000);
