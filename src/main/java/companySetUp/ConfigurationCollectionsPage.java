@@ -285,7 +285,7 @@ public class ConfigurationCollectionsPage extends BasePage{
 
     }
     
-    @FindBy(how=How.XPATH,using="obj[2].paymentRetry")
+    @FindBy(how=How.XPATH,using="//input[@name='obj[2].paymentRetry']")
     private WebElement selectPaymentCheckbox1;
     /**
      * Method to select Payment Checkbox.
@@ -297,6 +297,51 @@ public class ConfigurationCollectionsPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 5, selectPaymentCheckbox1);
         Assert.assertTrue(selectPaymentCheckbox1.isDisplayed());
         selectPaymentCheckbox1.click();
+
+    }
+    
+    @FindBy(how=How.XPATH,using="//input[@name='obj[2].statusStr']")
+    private WebElement enterIDSteps3;
+    /**
+     * Method to enter IDSteps3.
+     * @throws IOException 
+     */
+    public void enterIDSteps3() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Verifying the ID Step3 is available or not");
+        WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps3);
+        Assert.assertTrue(enterIDSteps3.isDisplayed());
+        enterIDSteps3.sendKeys(sp.ExcelRead().get(9));
+
+    }
+    
+    @FindBy(how=How.XPATH,using="//input[@name='obj[2].days']")
+    private WebElement enterForDays3;
+    /**
+     * Method to enter For Days3.
+     * @throws IOException 
+     */
+    public void enterForDays3() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Verifying the For Days is available or not");
+        WaitClass.WaitForElementisDisplay(driver, 5, enterForDays3);
+        Assert.assertTrue(enterForDays3.isDisplayed());
+        enterForDays3.sendKeys(sp.ExcelRead().get(10));
+
+    }
+    
+    @FindBy(how=How.XPATH,using="//input[@name='obj[3].suspended']")
+    private WebElement selectSuspendCheckbox1;
+    /**
+     * Method to select Suspend Checkbox.
+     * @throws IOException 
+     */
+    public void selectSuspendCheckbox1() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Verifying the Suspend Checkbox is available or not");
+        WaitClass.WaitForElementisDisplay(driver, 5, selectSuspendCheckbox1);
+        Assert.assertTrue(selectSuspendCheckbox1.isDisplayed());
+        selectSuspendCheckbox1.click();
 
     }
     
@@ -329,6 +374,151 @@ public class ConfigurationCollectionsPage extends BasePage{
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+    }
+    
+  
+    
+    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[23]/a")
+    private WebElement clickPluginsLink;
+    /**
+     * Method to click on Plugins Link.
+     * @throws IOException 
+     */
+    public void clickPluginsLink() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Click on Plugins Link");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickPluginsLink);
+        Assert.assertTrue(clickPluginsLink.isDisplayed());
+        clickPluginsLink.click();
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='17']/strong")
+    private WebElement clickCategory17;
+    /**
+     * Method to click on category 17 - Generic internal events listener.
+     * @throws IOException 
+     */
+    public void clickCategory17() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("click on category 17 - Generic internal events listener.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCategory17);
+        Assert.assertTrue(clickCategory17.isDisplayed());
+        clickCategory17.click();
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")
+    private WebElement clickAddNewButton;
+    /**
+     * Method to click on Add New button.
+     * @throws IOException 
+     */
+    public void clickAddNewButton() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("click on Add New button.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
+        Assert.assertTrue(clickAddNewButton.isDisplayed());
+        clickAddNewButton.click();
+        
+    }
+
+    private WebElement selectTypeID;
+    /**
+     * Method to select TypeID.
+     * @throws IOException 
+     */
+    public void selectTypeID() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        WebElement TypeIDelement = driver.findElement(By.xpath("//select[@name='typeId']"));
+        Select se = new Select(TypeIDelement);
+        se.selectByVisibleText(sp.ExcelRead().get(11));
+
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//input[@name='processingOrder']")
+    private WebElement enterProcessingOrder;
+    /**
+     * Method to Enter Processing Order.
+     * @throws IOException 
+     */
+    public void enterProcessingOrder() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Enter Processing Order.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterProcessingOrder);
+        Assert.assertTrue(enterProcessingOrder.isDisplayed());
+        enterProcessingOrder.sendKeys(sp.ExcelRead().get(12));  
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//input[@name='plgDynamic.1.name']")
+    private WebElement enterLeftAttribute;
+    /**
+     * Method to Enter Left Attribute.
+     * @throws IOException 
+     */
+    public void enterLeftAttribute() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Enter Left Attribute.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterLeftAttribute);
+        Assert.assertTrue(enterLeftAttribute.isDisplayed());
+        enterLeftAttribute.sendKeys(sp.ExcelRead().get(13));  
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='plgDynamic.1.value']")
+    private WebElement enterRightAttribute;
+    /**
+     * Method to Enter Right Attribute.
+     * @throws IOException 
+     */
+    public void enterRightAttribute() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Enter Right Attribute.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterRightAttribute);
+        Assert.assertTrue(enterRightAttribute.isDisplayed());
+        enterRightAttribute.sendKeys(sp.ExcelRead().get(14));  
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='plugin-parameters']/div/div/div[2]/table/tbody/tr/td[3]/a/img")
+    private WebElement clickPlusIcon;
+    /**
+     * Method to click on Plus Icon.
+     * @throws IOException 
+     */
+    public void clickPlusIcon() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Click on Plus Icon.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickPlusIcon);
+        Assert.assertTrue(clickPlusIcon.isDisplayed());
+        clickPlusIcon.click();  
+    }
+    
+    
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Plug-in']")
+    private WebElement clickSavePluginButton;
+    /**
+     * Method to click on Save Plugin Button.
+     * @throws IOException 
+     */
+    public void clickSavePluginButton() throws IOException{
+    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
+        log.info("Click on Save Plugin Button.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
+        Assert.assertTrue(clickSavePluginButton.isDisplayed());
+        clickSavePluginButton.click();  
     }
     
     public void navigateBottom(){

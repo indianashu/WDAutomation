@@ -150,19 +150,18 @@ public class AddProductPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test Category1']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test Category1']")
     private WebElement selectCategoryName;
     /**
-     * Method to click on a category name "New Test Category1".
+     * Method to click on a category name.
      * @throws IOException 
      */
     public void selectCategoryName() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
-        log.info("Click on a category name New Test Category1");
+        log.info("Click on a category name.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectCategoryName);
-        Assert.assertTrue(selectCategoryName.isDisplayed());
-        selectCategoryName.click();
+        String CategoryName = sp.ExcelRead().get(3);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
     }
     
@@ -408,7 +407,7 @@ public class AddProductPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Abc']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Abc']")
     private WebElement clickProductName;
     /**
      * Method to click on Product name Test Abc.
@@ -418,9 +417,8 @@ public class AddProductPage extends BasePage{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Click on Product Name Test Abc");
         WaitClass.sleep(10000); 
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductName);
-        Assert.assertTrue(clickProductName.isDisplayed());
-        clickProductName.click();
+        String ProductName = sp.ExcelRead().get(4);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
     
