@@ -30,19 +30,19 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class SignupPage extends BasePage{
+public class SignupChildCompanyPage extends BasePage{
     /**
      * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
      * then this will take care of initialization of the driver
      *
      * @param webdriver
      */
-    public SignupPage(WebDriver webdriver) {
+    public SignupChildCompanyPage(WebDriver webdriver) {
         super(webdriver);
     }
 
-    Logger log=Logger.getLogger(SignupPage.class);
-    SignupPage signupPage;
+    Logger log=Logger.getLogger(SignupChildCompanyPage.class);
+    SignupChildCompanyPage signupChildCompanyPage;
     PropertyValExtractors p = new PropertyValExtractors();
   
     public  ArrayList<String> ExcelRead() throws IOException{
@@ -52,7 +52,7 @@ public class SignupPage extends BasePage{
 		File file=new File("/Users/ashutosh/Documents/Web Data Consulting/WDAutomation/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("SignupData");
+		XSSFSheet sheet=wb.getSheet("SignupChildComp");
 	
 		Iterator<Row> row=sheet.iterator();
 		//System.out.println();
@@ -76,6 +76,109 @@ public class SignupPage extends BasePage{
 		return rl;
     }
     
+    @FindBy(how=How.XPATH,using="//input[@name='j_username']")
+    private WebElement enterLoginID;
+    /**
+     * Method to enter login ID.
+     * @throws IOException 
+     */
+    public void enterLoginID() throws IOException{
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
+    	
+        log.info("Enter Login ID for logging in.");
+        WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
+        Assert.assertTrue(enterLoginID.isDisplayed());
+        enterLoginID.sendKeys(sp.ExcelRead().get(0));
+    }
+
+    @FindBy(how=How.XPATH,using="//input[@name='j_password']")
+    private WebElement enterPassword;
+    /**
+     * Method to enter Password.
+     * @throws IOException 
+     */
+    public void enterPassword() throws IOException{
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
+        log.info("Enter Password for login");
+        WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
+        Assert.assertTrue(enterPassword.isDisplayed());
+        enterPassword.sendKeys(sp.ExcelRead().get(1));
+
+    }
+
+    private WebElement selectCompany;
+    /**
+     * Method to select Comapny.
+     * @throws IOException 
+     */
+    public void selectCompany() throws IOException{
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
+        WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
+        Select se = new Select(Companyelement);
+        se.selectByVisibleText(sp.ExcelRead().get(2));
+
+    }
+
+    @FindBy(how=How.XPATH,using="//a[@class='submit save']")
+    private WebElement clickLoginButton;
+    /**
+     * Method to Click on  Save Changes Button
+     */
+    public void clickLoginButton(){
+        log.info("Verifying the login button is available or not");
+		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
+        Assert.assertTrue(clickLoginButton.isDisplayed());
+        clickLoginButton.click();
+    }
+
+    @FindBy(how=How.XPATH, using="//ul[@class='top-nav']")
+    private WebElement labelSuccessfulLogin;
+    /**
+     * Method to verify Label is present after successful login.
+     * @throws IOException 
+     */
+    public void verifyLabelSuccessfulLogin() throws IOException{
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
+        log.info("Verifying if Label is available or not");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, labelSuccessfulLogin);
+        Assert.assertTrue(labelSuccessfulLogin.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
+    }
+
+    
+    private WebElement enterURL;
+    /**
+     * Method to enter signup url to create child company.
+     * @throws IOException 
+     */
+    public void enterURL() throws IOException{
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
+        log.info("enter signup url to create child company");
+        driver.get("http://www.simplebilling.co.in:8080/signup");
+//        WaitClass.WaitForElementisDisplay(driver, 5, enterURL);
+//        Assert.assertTrue(enterURL.isDisplayed());
+//        ((WebDriver) enterURL).get("http://www.simplebilling.co.in:8080/signup");
+
+    }
+    
+    //@FindBy(how=How.XPATH, using="//*[@id="company-edit-form"]/fieldset/div[1]/div[2]/div[1]/span/h")
+    private WebElement labelRootCompany;
+    /**
+     * Method to verify Label root company is present after successful login.
+     * @throws IOException 
+     */
+    public void labelRootCompany() throws IOException{
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
+        log.info("Verifying if Label is available or not");
+        String RootCompanyName = sp.ExcelRead().get(3); 
+        String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
+        System.out.println("Company Name:********" +ActualRootCompany+ "*********");
+        log.info("Click on customer name");
+        WaitClass.sleep(10000);
+        //WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
+        //Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
+        Assert.assertEquals(ActualRootCompany, RootCompanyName);
+    }
 
     @FindBy(how=How.XPATH,using="//input[@name=\"user.userName\"]")
     private WebElement enterLoginName;
@@ -84,12 +187,12 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginName() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
     	
         log.info("Verifying the Login Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
-        enterLoginName.sendKeys(sp.ExcelRead().get(0));
+        enterLoginName.sendKeys(sp.ExcelRead().get(4));
     }
 
     @FindBy(how=How.XPATH,using="//input[@name=\"contact.firstName\"]")
@@ -99,11 +202,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterFirstName() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterFirstName);
         Assert.assertTrue(enterFirstName.isDisplayed());
-        enterFirstName.sendKeys(sp.ExcelRead().get(1));
+        enterFirstName.sendKeys(sp.ExcelRead().get(5));
 
     }
 
@@ -114,11 +217,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterLastName() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the Last Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLastName);
         Assert.assertTrue(enterLastName.isDisplayed());
-        enterLastName.sendKeys(sp.ExcelRead().get(2));
+        enterLastName.sendKeys(sp.ExcelRead().get(6));
 
     }
 
@@ -129,11 +232,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterPhoneCountryCode() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
     	log.info("Verifying the Phone Country Code is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPhoneCountryCode);
         Assert.assertTrue(enterPhoneCountryCode.isDisplayed());        
-        enterPhoneCountryCode.sendKeys(sp.ExcelRead().get(3));
+        enterPhoneCountryCode.sendKeys(sp.ExcelRead().get(7));
 
     }
 
@@ -144,11 +247,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterPhoneAreaCode() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the Phone Area Code is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPhoneAreaCode);
         Assert.assertTrue(enterPhoneAreaCode.isDisplayed());
-         enterPhoneAreaCode.sendKeys(sp.ExcelRead().get(4));
+         enterPhoneAreaCode.sendKeys(sp.ExcelRead().get(8));
 
     }
 
@@ -159,11 +262,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterPhoneNumber() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the Phone Number is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPhoneNumber);
         Assert.assertTrue(enterPhoneNumber.isDisplayed());
-        enterPhoneNumber.sendKeys(sp.ExcelRead().get(5));
+        enterPhoneNumber.sendKeys(sp.ExcelRead().get(9));
 
     }
 
@@ -174,11 +277,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterEmail() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the Email is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterEmail);
         Assert.assertTrue(enterEmail.isDisplayed());
-        enterEmail.sendKeys(sp.ExcelRead().get(6));
+        enterEmail.sendKeys(sp.ExcelRead().get(10));
 
     }
 
@@ -188,11 +291,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void selectLanguage() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         WebElement languageelement = driver.findElement(By.xpath("//select[@name='languageId']"));
         Select se = new Select(languageelement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
-        
+        se.selectByVisibleText(sp.ExcelRead().get(11));
+
     }
 
     private WebElement selectCurrency;
@@ -201,10 +304,10 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void selectCurrency() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         WebElement currencyelement = driver.findElement(By.xpath("//select[@name='currencyId']"));
         Select se = new Select(currencyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(8));
+        se.selectByVisibleText(sp.ExcelRead().get(12));
 
     }
 
@@ -215,11 +318,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterOrgName() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
     	log.info("Verifying the OrgName is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterOrgName);
         Assert.assertTrue(enterOrgName.isDisplayed());
-        enterOrgName.sendKeys(sp.ExcelRead().get(9));
+        enterOrgName.sendKeys(sp.ExcelRead().get(13));
 
     }
 
@@ -230,12 +333,12 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterAddress() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the Address is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterAddress);
         Assert.assertTrue(enterAddress.isDisplayed());
         
-        enterAddress.sendKeys(sp.ExcelRead().get(10));
+        enterAddress.sendKeys(sp.ExcelRead().get(14));
 
     }
 
@@ -246,11 +349,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterAddress2() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the Address2 is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterAddress2);
         Assert.assertTrue(enterAddress2.isDisplayed());
-        enterAddress2.sendKeys(sp.ExcelRead().get(11));
+        enterAddress2.sendKeys(sp.ExcelRead().get(15));
 
     }
 
@@ -261,11 +364,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterCity() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the City is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterCity);
         Assert.assertTrue(enterCity.isDisplayed());
-        enterCity.sendKeys(sp.ExcelRead().get(12));
+        enterCity.sendKeys(sp.ExcelRead().get(16));
 
     }
 
@@ -276,11 +379,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterStateProvince() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the City is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterStateProvince);
         Assert.assertTrue(enterStateProvince.isDisplayed());
-        enterStateProvince.sendKeys(sp.ExcelRead().get(13));
+        enterStateProvince.sendKeys(sp.ExcelRead().get(17));
 
     }
 
@@ -290,10 +393,10 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void selectCountry() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         WebElement countryelement = driver.findElement(By.xpath("//select[@name='contact.countryCode']"));
         Select se = new Select(countryelement);
-        se.selectByVisibleText(sp.ExcelRead().get(14));
+        se.selectByVisibleText(sp.ExcelRead().get(18));
 
     }
 
@@ -304,11 +407,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void enterZipCode() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying the City is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterZipCode);
         Assert.assertTrue(enterZipCode.isDisplayed());
-        enterZipCode.sendKeys(sp.ExcelRead().get(15));
+        enterZipCode.sendKeys(sp.ExcelRead().get(19));
 
     }
 
@@ -331,11 +434,11 @@ public class SignupPage extends BasePage{
      * @throws IOException 
      */
     public void verifyLabelConfirmationMessage() throws IOException{
-    	SignupPage sp=new SignupPage(driver);
+    	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying if Label is available or not");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, labelConfirmationMessage);
-        Assert.assertTrue(labelConfirmationMessage.getText().contains(sp.ExcelRead().get(16)), "Assert Failed as its unable to search text in Logged in Page");
+        Assert.assertTrue(labelConfirmationMessage.getText().contains(sp.ExcelRead().get(20)), "Assert Failed as its unable to search text in Logged in Page");
     }
 
     public void navigateBottom(){

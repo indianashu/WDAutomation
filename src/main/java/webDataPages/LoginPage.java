@@ -86,7 +86,7 @@ public class LoginPage extends BasePage{
     public void enterLoginID() throws IOException{
     	LoginPage sp=new LoginPage(driver);
     	
-        log.info("Verifying the Login ID is available or not");
+        log.info("Enter Login ID for logging in.");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
         Assert.assertTrue(enterLoginID.isDisplayed());
         enterLoginID.sendKeys(sp.ExcelRead().get(0));
@@ -100,7 +100,7 @@ public class LoginPage extends BasePage{
      */
     public void enterPassword() throws IOException{
     	LoginPage sp=new LoginPage(driver);
-        log.info("Verifying the First Name is available or not");
+        log.info("Enter Password for login");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
         enterPassword.sendKeys(sp.ExcelRead().get(1));
