@@ -322,7 +322,7 @@ public class DiscountPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='ui-id-8']n")
+    @FindBy(how=How.XPATH, using="//*[@id='ui-id-8']")
     private WebElement clickProductSubTab;
     /**
      * Method to click on Product sub tab.
@@ -352,6 +352,69 @@ public class DiscountPage extends BasePage{
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='ui-id-9']")
+    private WebElement clickDiscountSubTab;
+    /**
+     * Method to click on Discount sub tab.
+     * @throws IOException 
+     */
+    public void clickDiscountSubTab() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Click on Discount Sub Tab.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDiscountSubTab);
+        Assert.assertTrue(clickDiscountSubTab.isDisplayed());
+        clickDiscountSubTab.click();
+        
+    }
+    
+  
+    private WebElement selectDiscount;
+    /**
+     * Method to select Discount.
+     * @throws IOException 
+     */
+    public void selectDiscount() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        WebElement Discountelement = driver.findElement(By.xpath("//select[@name='discount.0.id']"));
+        Select se = new Select(Discountelement);
+        se.selectByVisibleText(sp.ExcelRead().get(9));
+
+    }
+    
+  
+    //@FindBy(how=How.XPATH, using="//*[@id='discount-messages']/ul/li")
+    private WebElement verifyErrorMessage;
+    /**
+     * Method to Verify Error Message shown on selecting Discount.
+     * @throws IOException 
+     */
+    public void verifyErrorMessage() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Verify Error Message shown on selecting Discount.");
+        WaitClass.sleep(10000);
+        String ExpectedErrorMsg = sp.ExcelRead().get(10);
+        String ActualErrorMsg = driver.findElement(By.xpath("//*[@id='discount-messages']/ul/li")).getText();
+        Assert.assertEquals(ActualErrorMsg, ExpectedErrorMsg);
+        
+    }
+    
+    private WebElement selectDiscountableItem;
+    /**
+     * Method to select Discountable Item.
+     * @throws IOException 
+     */
+    public void selectDiscountableItem() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        WebElement Discountelement = driver.findElement(By.xpath("//select[@name='discountableItem.0.lineLevelDetails']"));
+        Select se = new Select(Discountelement);
+        se.selectByVisibleText(sp.ExcelRead().get(11));
+
+    }
+    
+    
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
     private WebElement clickUpdateButton;

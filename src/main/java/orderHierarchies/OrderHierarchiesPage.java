@@ -538,6 +538,70 @@ public class OrderHierarchiesPage extends BasePage{
         
     }
     
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Dependency']")
+    private WebElement clickDependencyButton;
+    /**
+     * Method to click on dependency button.
+     * @throws IOException 
+     */
+    public void clickDependencyButton() throws IOException{
+    	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        log.info("click on dependency button.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDependencyButton);
+        Assert.assertTrue(clickDependencyButton.isDisplayed());
+        clickDependencyButton.click();
+        
+    }
+  
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Local Minutes']")
+    private WebElement clickDependentProduct;
+    /**
+     * Method to click on dependent product.
+     * @throws IOException 
+     */
+    public void clickDependentProduct() throws IOException{
+    	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        log.info("click on dependenct product.");
+        WaitClass.sleep(10000);
+        String DependentProduct = sp.ExcelRead().get(18);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+DependentProduct+"']")).click();
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//button[@id='currentOrder']//*[text()='Current order']")
+    private WebElement clickCurrentOrderButton;
+    /**
+     * Method to click on Current Order button.
+     * @throws IOException 
+     */
+    public void clickCurrentOrderButton() throws IOException{
+    	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        log.info("click on Current Order button.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCurrentOrderButton);
+        Assert.assertTrue(clickCurrentOrderButton.isDisplayed());
+        clickCurrentOrderButton.click();
+        
+    } 
+    
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
+    private WebElement clickUpdateButton;
+    /**
+     * Method to click on Update button.
+     * @throws IOException 
+     */
+    public void clickUpdateButton() throws IOException{
+    	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        log.info("click on Update button.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
+        Assert.assertTrue(clickUpdateButton.isDisplayed());
+        clickUpdateButton.click();
+        
+    }
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
