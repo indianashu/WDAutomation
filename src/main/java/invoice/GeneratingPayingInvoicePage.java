@@ -1,6 +1,7 @@
 package invoice;
 
 import baseClassPackage.BasePage;
+import customer.MakePaymentPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -149,124 +150,9 @@ public class GeneratingPayingInvoicePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")
-    private WebElement clickAddNewButton;
-    /**
-     * Method to click on Add New Button.
-     * @throws IOException 
-     */
-    public void clickAddNewButton() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click on Add New Button");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
-        Assert.assertTrue(clickAddNewButton.isDisplayed());
-        clickAddNewButton.click();
+    
+    
         
-    }
-    
-    
-    private WebElement selectUserCompany;
-    /**
-     * Method to select user company.
-     * @throws IOException 
-     */
-    public void selectUserCompany() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
-        Select se = new Select(Usercompanyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(3));
-
-    }
-    
-    private WebElement selectAccountType;
-    /**
-     * Method to select account type.
-     * @throws IOException 
-     */
-    public void selectAccountType() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
-        Select se = new Select(AccountTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(4));
-
-    }    
-
-    
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Select']")
-    private WebElement clickSelectButton;
-    /**
-     * Method to click on select Button.
-     * @throws IOException 
-     */
-    public void clickSelectButton() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click on select Button");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
-        Assert.assertTrue(clickSelectButton.isDisplayed());
-        clickSelectButton.click();
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
-    private WebElement enterLoginName;
-    /**
-     * Method to Enter Login Name.
-     * @throws IOException 
-     */
-    public void enterLoginName() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Login Name");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
-        Assert.assertTrue(enterLoginName.isDisplayed());
-        enterLoginName.sendKeys(sp.ExcelRead().get(5));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Use Company Billing Cycle']")
-    private WebElement clickUseCompanyBillingCycleButton;
-    /**
-     * Method to Click Use Company Billing Cycle Button.
-     * @throws IOException 
-     */
-    public void clickUseCompanyBillingCycleButton() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click Use Company Billing Cycle Button");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickUseCompanyBillingCycleButton);
-        Assert.assertTrue(clickUseCompanyBillingCycleButton.isDisplayed());
-        clickUseCompanyBillingCycleButton.click();
-        
-    }
-    
-    private WebElement selectBillingCycleUnit;
-    /**
-     * Method to select billing cycle unit.
-     * @throws IOException 
-     */
-    public void selectBillingCycleUnit() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
-        Select se = new Select(BCUelement);
-        se.selectByVisibleText(sp.ExcelRead().get(6));
-
-    }
-
-    private WebElement selectBillingCycleDay;
-    /**
-     * Method to select billing cycle day.
-     * @throws IOException 
-     */
-    public void selectBillingCycleDay() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        WebElement BCDelement = driver.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
-        Select se = new Select(BCDelement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
-
-    }
-    
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
     private WebElement clickSaveChangesButton;
     /**
@@ -297,20 +183,18 @@ public class GeneratingPayingInvoicePage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']")
-    private WebElement selectCustomer;
+  //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
+    private WebElement clickCustomerName;
     /**
-     * Method to select customer.
+     * Method to click on customer name.
      * @throws IOException 
      */
-    public void selectCustomer() throws IOException{
+    public void clickCustomerName() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Select Customer");
+        log.info("Click on Customer Name.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectCustomer);
-        Assert.assertTrue(selectCustomer.isDisplayed());
-        selectCustomer.click();
-        
+        String CustomerName = sp.ExcelRead().get(3);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
     }
     
     
@@ -339,7 +223,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(sp.ExcelRead().get(8));
+        se.selectByVisibleText(sp.ExcelRead().get(4));
 
     }
 
@@ -352,22 +236,10 @@ public class GeneratingPayingInvoicePage extends BasePage{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(9));
+        se.selectByVisibleText(sp.ExcelRead().get(5));
 
     }
-    
-    private WebElement selectActiveSince;
-    /**
-     * Method to select Active since.
-     * @throws IOException 
-     */
-    public void selectActiveSince() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        WebElement ASelement = driver.findElement(By.xpath("//input[@name='activeSince']"));
-        Select se = new Select(ASelement);
-        se.selectByVisibleText(sp.ExcelRead().get(10));
-
-    }  
+      
     
     @FindBy(how=How.XPATH, using="//*[@id='ui-id-8']")
     private WebElement clickProductSubTab;
@@ -395,42 +267,11 @@ public class GeneratingPayingInvoicePage extends BasePage{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click Product from list");
         WaitClass.sleep(10000);
-        String ProductName = sp.ExcelRead().get(11);
+        String ProductName = sp.ExcelRead().get(6);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='change--3.startDate']")
-    private WebElement enterEffectiveDate;
-    /**
-     * Method to Enter Effective Date.
-     * @throws IOException 
-     */
-    public void enterEffectiveDate() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Effective Date");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEffectiveDate);
-        Assert.assertTrue(enterEffectiveDate.isDisplayed());
-        enterEffectiveDate.sendKeys(sp.ExcelRead().get(12));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='change--3.quantityAsDecimal']")
-    private WebElement enterQuantity;
-    /**
-     * Method to Enter Quantity.
-     * @throws IOException 
-     */
-    public void enterQuantity() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Quantity");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity);
-        Assert.assertTrue(enterQuantity.isDisplayed());
-        enterQuantity.sendKeys(sp.ExcelRead().get(13));
-        
-    }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
     private WebElement clickUpdateButton;
@@ -448,21 +289,48 @@ public class GeneratingPayingInvoicePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//span[@class='newOrderLine']")
-    private WebElement verifyNewOrder;
+    private WebElement selectPeriod1;
     /**
-     * Method to verify NEW is shown.
+     * Method to select Period.
      * @throws IOException 
      */
-    public void verifyNewOrder() throws IOException{
+    public void selectPeriod1() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Verifying if NEW is shown or not");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyNewOrder);
-        Assert.assertTrue(verifyNewOrder.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+        WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
+        Select se = new Select(Periodelement);
+        se.selectByVisibleText(sp.ExcelRead().get(7));
+
+    }
+
+    private WebElement selectOrderType1;
+    /**
+     * Method to select Order Type.
+     * @throws IOException 
+     */
+    public void selectOrderType1() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
+        Select se = new Select(OrderTypeelement);
+        se.selectByVisibleText(sp.ExcelRead().get(8));
+
     }
     
     
+  
+  //@FindBy(how=How.XPATH, using="//a[@class='cell']//*[text()='401']")
+    private WebElement selectMonthlyOrder;
+    /**
+     * Method to Select Monthly Order from list.
+     * @throws IOException 
+     */
+    public void selectMonthlyOrder() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click Monthly Order from list");
+        WaitClass.sleep(10000);
+        String OrderNumber = sp.ExcelRead().get(9);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+OrderNumber+"']")).click();
+        
+    }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Generate Invoice']")
     private WebElement clickGenerateInvoiceButton;
@@ -480,183 +348,264 @@ public class GeneratingPayingInvoicePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[10]/a/span")
-    private WebElement clickProductsTab;
+  
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[5]/a/span")
+    private WebElement clickOrdersTab;
     /**
-     * Method to Click on Products Tab.
+     * Method to Click on Orders Tab.
      * @throws IOException 
      */
-    public void clickProductsTab() throws IOException{
+    public void clickOrdersTab() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click on Products Tab.");
+        log.info("Click on Orders Tab");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
-        Assert.assertTrue(clickProductsTab.isDisplayed());
-        clickProductsTab.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
+        Assert.assertTrue(clickOrdersTab.isDisplayed());
+        clickOrdersTab.click();
+        
+    }
+    
+  //@FindBy(how=How.XPATH, using="//a[@class='cell']//*[text()='501']")
+    private WebElement selectOneTimeOrder;
+    /**
+     * Method to Select One Time Order from list.
+     * @throws IOException 
+     */
+    public void selectOneTimeOrder() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click OneTime Order from list");
+        WaitClass.sleep(10000);
+        String OrderNumber = sp.ExcelRead().get(10);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+OrderNumber+"']")).click();
         
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Category']")
-    private WebElement clickAddCategoryButton;
+    @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Apply to Invoice']")
+    private WebElement clickApplyToInvoiceButton;
     /**
-     * Method to Click on Add Category Button.
+     * Method to Click on Apply to invoice button.
      * @throws IOException 
      */
-    public void clickAddCategoryButton() throws IOException{
+    public void clickApplyToInvoiceButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click on Add Category Button.");
+        log.info("Click on Apply to invoice button");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
-        Assert.assertTrue(clickAddCategoryButton.isDisplayed());
-        clickAddCategoryButton.click();
-        
-    }
-  
-    @FindBy(how=How.XPATH, using="//input[@name='description']")
-    private WebElement enterCategoryName;
-    /**
-     * Method to Enter Category Name.
-     * @throws IOException 
-     */
-    public void enterCategoryName() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Category Name.");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
-        Assert.assertTrue(enterCategoryName.isDisplayed());
-        enterCategoryName.sendKeys(sp.ExcelRead().get(14));
+        WaitClass.WaitForElementisDisplay(driver, 10, clickApplyToInvoiceButton);
+        Assert.assertTrue(clickApplyToInvoiceButton.isDisplayed());
+        clickApplyToInvoiceButton.click();
         
     }
     
   
-   // @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Code']")
-    private WebElement clickCategoryName;
+    @FindBy(how=How.XPATH, using="//input[@name='invoiceId']")
+    private WebElement clickInvoiceRadioButton;
     /**
-     * Method to Click on Category Name.
+     * Method to Click on Invoice Radio button.
      * @throws IOException 
      */
-    public void clickCategoryName() throws IOException{
+    public void clickInvoiceRadioButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click on Category Name.");
+        log.info("Click on Invoice Radio button");
         WaitClass.sleep(10000);
-        String CategoryName = sp.ExcelRead().get(14);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickInvoiceRadioButton);
+        Assert.assertTrue(clickInvoiceRadioButton.isDisplayed());
+        clickInvoiceRadioButton.click();
+        
+    }
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit okay']//*[text()='Apply']")
+    private WebElement clickApplyButton;
+    /**
+     * Method to Click on Apply button.
+     * @throws IOException 
+     */
+    public void clickApplyButton() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click on Apply button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickApplyButton);
+        Assert.assertTrue(clickApplyButton.isDisplayed());
+        clickApplyButton.click();
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[3]/a")
+    private WebElement clickInvoicesTab;
+    /**
+     * Method to Click on Invoices Tab.
+     * @throws IOException 
+     */
+    public void clickInvoicesTab() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click on Invoices Tab");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickInvoicesTab);
+        Assert.assertTrue(clickInvoicesTab.isDisplayed());
+        clickInvoicesTab.click();
+        
+    }
+  
+    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Sarah Wilson']")
+    private WebElement clickInvoiceCreated;
+    /**
+     * Method to Click on Invoice Created.
+     * @throws IOException 
+     */
+    public void clickInvoiceCreated() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click on Invoice created.");
+        WaitClass.sleep(10000);
+        String CustomerName = sp.ExcelRead().get(3);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
+        
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit payment']//*[text()='Pay Invoice']")
+    private WebElement clickPayInvoiceButton;
+    /**
+     * Method to Click on Pay Invoice Button.
+     * @throws IOException 
+     */
+    public void clickPayInvoiceButton() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click on Pay Invoice Button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickPayInvoiceButton);
+        Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
+        clickPayInvoiceButton.click();
         
     } 
+    
   
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Product']")
-    private WebElement clickAddProductButton;
+    @FindBy(how=How.XPATH, using="//input[@name='processNow']")
+    private WebElement clickProcessRealTimeCheckbox;
     /**
-     * Method to Click on Add Product Button.
+     * Method to Click on Process Payment in Real-Time checkbox.
      * @throws IOException 
      */
-    public void clickAddProductButton() throws IOException{
+    public void clickProcessRealTimeCheckbox() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click on Add Product Button.");
+        log.info("Click on Process Payment in Real-Time checkbox");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
-        Assert.assertTrue(clickAddProductButton.isDisplayed());
-        clickAddProductButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickProcessRealTimeCheckbox);
+        Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
+        clickProcessRealTimeCheckbox.click();
         
     }
     
   
-    @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
-    private WebElement enterDescription;
+    @FindBy(how=How.XPATH, using="//input[@name='paymentMethod_0.processingOrder']")
+    private WebElement enterProcessOrder;
     /**
-     * Method to Enter Product Description.
+     * Method to Enter value for Process Order.
      * @throws IOException 
      */
-    public void enterDescription() throws IOException{
+    public void enterProcessOrder() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Product Description.");
+        log.info("Enter value for Process Order.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDescription);
-        Assert.assertTrue(enterDescription.isDisplayed());
-        enterDescription.sendKeys(sp.ExcelRead().get(15));
+        WaitClass.WaitForElementisDisplay(driver, 10, enterProcessOrder);
+        Assert.assertTrue(enterProcessOrder.isDisplayed());
+        enterProcessOrder.sendKeys(sp.ExcelRead().get(11));
         
     }
     
+    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_86.value']")
+    private WebElement enterCardHolderName;
+    /**
+     * Method to Enter card holder name.
+     * @throws IOException 
+     */
+    public void enterCardHolderName() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Enter card holder name");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
+        Assert.assertTrue(enterCardHolderName.isDisplayed());
+        enterCardHolderName.sendKeys(sp.ExcelRead().get(12));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_85.value']")
+    private WebElement enterCardNumber;
+    /**
+     * Method to Enter card number.
+     * @throws IOException 
+     */
+    public void enterCardNumber() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Enter card number");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
+        Assert.assertTrue(enterCardNumber.isDisplayed());
+        enterCardNumber.sendKeys(sp.ExcelRead().get(13));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_83.value']")
+    private WebElement enterCardExpiry;
+    /**
+     * Method to Enter card expiry date.
+     * @throws IOException 
+     */
+    public void enterCardExpiry() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Enter card number");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
+        Assert.assertTrue(enterCardExpiry.isDisplayed());
+        enterCardExpiry.sendKeys(sp.ExcelRead().get(14));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//a[@class='submit payment']//*[text()='Review Payment']")
+    private WebElement clickReviewPaymentButton;
+    /**
+     * Method to Click on Review Payment Button.
+     * @throws IOException 
+     */
+    public void clickReviewPaymentButton() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click on Review Payment Button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickReviewPaymentButton);
+        Assert.assertTrue(clickReviewPaymentButton.isDisplayed());
+        clickReviewPaymentButton.click();
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//a[@class='submit payment']//*[text()='Make Payment']")
+    private WebElement clickMakePaymentButton;
+    /**
+     * Method to Click on Make Payment Button.
+     * @throws IOException 
+     */
+    public void clickMakePaymentButton() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click on Review Payment Button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickMakePaymentButton);
+        Assert.assertTrue(clickMakePaymentButton.isDisplayed());
+        clickMakePaymentButton.click();
+        
+    }
   
-    @FindBy(how=How.XPATH, using="//input[@name='product.number']")
-    private WebElement enterProductCode;
+    //@FindBy(how=How.XPATH, using="//*[@id='column2']/div/div[7]/div/table/tbody/tr/td[6]")
+    private WebElement verifyPaymentSuccessfulMsg;
     /**
-     * Method to Enter Product Code.
+     * Method to verify payment status is successful.
      * @throws IOException 
      */
-    public void enterProductCode() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Product Code.");
+    public void verifyPaymentSuccessfulMsg() throws IOException{
+    	MakePaymentPage sp=new MakePaymentPage(driver);
+        log.info("Verifying if payment status is successful.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
-        Assert.assertTrue(enterProductCode.isDisplayed());
-        enterProductCode.sendKeys(sp.ExcelRead().get(16));
-        
-    }
-    
-  
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterProductRate;
-    /**
-     * Method to Enter Product Rate.
-     * @throws IOException 
-     */
-    public void enterProductRate() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Product Rate.");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProductRate);
-        Assert.assertTrue(enterProductRate.isDisplayed());
-        enterProductRate.sendKeys(sp.ExcelRead().get(17));
-        
-    }
-    
-  
-    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
-    private WebElement clickCustomerName;
-    /**
-     * Method to click on customer name.
-     * @throws IOException 
-     */
-    public void clickCustomerName() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click on Customer Name.");
-        WaitClass.sleep(10000);
-        String CustomerName = sp.ExcelRead().get(5);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
-    }
-    
-  
-    @FindBy(how=How.XPATH, using="//input[@name='dueDateValue']")
-    private WebElement enterDueDate;
-    /**
-     * Method to Enter Due Date.
-     * @throws IOException 
-     */
-    public void enterDueDate() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Enter Due Date.");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDueDate);
-        Assert.assertTrue(enterDueDate.isDisplayed());
-        enterDueDate.sendKeys(sp.ExcelRead().get(18));
-        
-    }
-    
-    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='abc']")
-    private WebElement selectProduct1;
-    /**
-     * Method to Select Product from list.
-     * @throws IOException 
-     */
-    public void selectProduct1() throws IOException{
-    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
-        log.info("Click Product from list");
-        WaitClass.sleep(10000);
-        String ProductName = sp.ExcelRead().get(15);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
-        
+        String ExpectedMsg = "Successful";
+        String ActualMsg = driver.findElement(By.xpath("//*[@id='column2']/div/div[7]/div/table/tbody/tr/td[6]")).getText();
+        Assert.assertEquals(ActualMsg, ExpectedMsg);        
     }
     
     public void navigateBottom(){
