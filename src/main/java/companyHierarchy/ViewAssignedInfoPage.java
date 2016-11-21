@@ -280,8 +280,6 @@ public class ViewAssignedInfoPage extends BasePage{
         Assert.assertEquals(ActualName, AssetName);
         
     } 
-
- 
     
     @FindBy(how=How.XPATH, using="//*[@id='header']/ul/a")
     private WebElement clickRedCross;
@@ -299,6 +297,39 @@ public class ViewAssignedInfoPage extends BasePage{
         
     }
     
+  
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    private WebElement clickCustomersTab;
+    /**
+     * Method to click on Customers Tab
+     * @throws IOException 
+     */
+    public void clickCustomersTab() throws IOException{
+    	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
+        log.info("Click on Customers Tab");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
+        Assert.assertTrue(clickCustomersTab.isDisplayed());
+        clickCustomersTab.click();
+        
+    }
+    
+  
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='ashutosh sandhal']")
+    private WebElement verifyChildCustomer;
+    /**
+     * Method to Verify Child Customer is created or not.
+     * @throws IOException 
+     */
+    public void verifyChildCustomer() throws IOException{
+    	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
+        log.info("Verify Child Customer is created or not");
+        WaitClass.sleep(10000);
+        String CustomerName = sp.ExcelRead().get(7);
+        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='ashutosh sandhal']")).getText();
+        Assert.assertEquals(ActualName, CustomerName);
+        
+    }
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
