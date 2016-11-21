@@ -30,19 +30,19 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class collectionConfigurationPage extends BasePage{
+public class CollectionConfigurationPage extends BasePage{
     /**
      * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
      * then this will take care of initialization of the driver
      *
      * @param webdriver
      */
-    public collectionConfigurationPage(WebDriver webdriver) {
+    public CollectionConfigurationPage(WebDriver webdriver) {
         super(webdriver);
     }
 
-    Logger log=Logger.getLogger(collectionConfigurationPage.class);
-    collectionConfigurationPage orderPage;
+    Logger log=Logger.getLogger(CollectionConfigurationPage.class);
+    CollectionConfigurationPage collectionConfigurationPage;
     PropertyValExtractors p = new PropertyValExtractors();
   
     public  ArrayList<String> ExcelRead() throws IOException{
@@ -84,7 +84,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginID() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
     	
         log.info("Verifying the Login ID is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
@@ -99,7 +99,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterPassword() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
@@ -113,7 +113,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
         Select se = new Select(Companyelement);
         se.selectByVisibleText(sp.ExcelRead().get(2));
@@ -126,7 +126,7 @@ public class collectionConfigurationPage extends BasePage{
      * Method to Click on  Save Changes Button
      */
     public void clickLoginButton(){
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verifying the login button is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
         Assert.assertTrue(clickLoginButton.isDisplayed());
@@ -141,7 +141,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickCustomerTab() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Customer Tab after successful login");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
@@ -157,7 +157,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickBillingCustomer2() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Billing Customer2");
         WaitClass.sleep(10000);
         String BillingCustomer= sp.ExcelRead().get(3);
@@ -173,7 +173,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickEditButton() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Edit Button");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickEditButton);
@@ -188,7 +188,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void selectPaymentMethod() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         WebElement PMelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMelement);
         se.selectByVisibleText(sp.ExcelRead().get(4));
@@ -203,7 +203,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterCardHolderName() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Cardholder Name");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
@@ -219,7 +219,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterCardNumber() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Cardholder Number");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
@@ -235,7 +235,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterCardExpiry() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Cardholder Number");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
@@ -252,7 +252,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickSaveChangesButton() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Save Changes Button");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
@@ -268,7 +268,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void verifyConfirmationMsg() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
@@ -283,7 +283,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickConfigurationTab() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Configuration Tab after successful login");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
@@ -299,7 +299,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickCollectionsLink() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Collections Link.");
         WaitClass.sleep(10000);  
         WaitClass.WaitForElementisDisplay(driver, 10, clickCollectionsLink);
@@ -316,7 +316,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterRunCollectionDate() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate);
@@ -332,7 +332,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickRunCollectionsButton() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Run Collections Button.");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsButton);
@@ -349,7 +349,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickRunCollectionsPopup() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Run Collections Popup.");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsPopup);
@@ -365,7 +365,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void verifyBillingCustomer1Status() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer1");
         String CustomerID=sp.ExcelRead().get(9);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
@@ -383,7 +383,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void verifyBillingCustomer2Status() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
@@ -401,7 +401,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterRunCollectionDate1() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate1);
@@ -416,7 +416,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void verifyBillingCustomer2Status1() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
@@ -434,7 +434,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterRunCollectionDate2() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate2);
@@ -449,7 +449,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void verifyBillingCustomer2Status2() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
@@ -467,7 +467,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void enterRunCollectionDate3() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate3);
@@ -482,7 +482,7 @@ public class collectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void verifyBillingCustomer2Status3() throws IOException{
-    	collectionConfigurationPage sp=new collectionConfigurationPage(driver);
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
