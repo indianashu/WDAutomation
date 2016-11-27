@@ -462,6 +462,58 @@ public class DiscountPage extends BasePage{
         Assert.assertEquals(ActualErrorMsg, ExpectedErrorMsg);
         
     }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[5]/a/span")
+    private WebElement clickOrdersTab;
+    /**
+     * Method to click on Orders Tab.
+     * @throws IOException 
+     */
+    public void clickOrdersTab() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("click on Orders Tab.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
+        Assert.assertTrue(clickOrdersTab.isDisplayed());
+        clickOrdersTab.click();
+        
+    }
+  
+    @FindBy(how=How.XPATH, using="//a[@class='cell']//*[text()='604']")
+    private WebElement clickOrder;
+    /**
+     * Method to click on Order..
+     * @throws IOException 
+     */
+    public void clickOrder() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("click on Order.");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickOrder);
+        Assert.assertTrue(clickOrder.isDisplayed());
+        clickOrder.click();
+        
+    }
+  
+    private WebElement verifyAmountDifference;
+    /**
+     * Method to Verify Amount is shown with discount.
+     * @throws IOException 
+     */
+    public void verifyAmountDifference() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Verify Amount is shown with discount.");
+        WaitClass.sleep(10000);
+       String Amount1 = driver.findElement(By.xpath("//*[@id='column2']/div/div[6]/div/table/tbody/tr/td[4]")).getText();
+       System.out.println("Amount 1 --->: " +Amount1);
+       String Amount2 = driver.findElement(By.xpath("//*[@id='column2']/div/div[6]/div/table/tbody/tr/td[5]")).getText();
+       System.out.println("Amount 2 --->: " +Amount2);
+       //Assert.assertEquals(Amount1, Amount2);
+       Assert.assertNotEquals(Amount1, Amount2);
+       
+        
+    }
         
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);

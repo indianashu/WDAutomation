@@ -26,7 +26,7 @@
 
 		<classes>
 
-			<class name ="billingProcessTest.approvingReviewReportforRealBillingTest"/>
+			<class name ="customerTest.verifyDiscountOrderTest"/>
 			<!--<class name="SignupTest.SignupTest" /> 
 			<class name ="loginWebData.WebDataLoginTest"/>
 			<class name = "companySetupTest.configureAccountTypeTest" />
@@ -38,7 +38,8 @@
 			<class name = "companySetupTest.configureAddBillingPeriodTest" />
 			<class name = "companySetupTest.configureAddAddNewInfoTypeTest" />
 			<class name = "categoryProductsTest.addEditCategoryTest" />
-			<class name = "customerTest.addNewCustomerTest" />-->
+			<class name = "customerTest.addNewCustomerTest" />
+			<class name ="billingProcessTest.approvingReviewReportforRealBillingTest"/>-->
 
 		</classes>
 
