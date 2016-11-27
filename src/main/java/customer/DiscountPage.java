@@ -109,7 +109,7 @@ public class DiscountPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -429,6 +429,37 @@ public class DiscountPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
+        
+    }
+    
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingFl']")
+    private WebElement selectProduct1;
+    /**
+     * Method to Select a Product.
+     * @throws IOException 
+     */
+    public void selectProduct1() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Select a product.");
+        WaitClass.sleep(10000);
+        String ProductName = sp.ExcelRead().get(12);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        
+    }
+    
+  //@FindBy(how=How.XPATH, using="//*[@id='review-box']/div[3]")
+    private WebElement verifyAmount;
+    /**
+     * Method to Verify Amount is shown with discount.
+     * @throws IOException 
+     */
+    public void verifyAmount() throws IOException{
+    	DiscountPage sp=new DiscountPage(driver);
+        log.info("Verify Amount is shown with discount.");
+        WaitClass.sleep(10000);
+        String ExpectedErrorMsg = sp.ExcelRead().get(13);
+        String ActualErrorMsg = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+        Assert.assertEquals(ActualErrorMsg, ExpectedErrorMsg);
         
     }
         
