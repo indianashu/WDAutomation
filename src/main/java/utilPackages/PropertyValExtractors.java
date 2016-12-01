@@ -89,6 +89,8 @@ public class PropertyValExtractors {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/executableFiles/chromedriver.exe");
 		}else if (System.getProperty("os.name").equals("Windows 10")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/executableFiles/chromedriver.exe");
+		}else if (System.getProperty("os.name").equals("Linux")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/executableFiles/chromedriver1");
 		}
 	}
 }
