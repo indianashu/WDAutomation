@@ -135,7 +135,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[@href='/config/index']//*[text()='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
