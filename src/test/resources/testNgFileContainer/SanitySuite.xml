@@ -26,10 +26,12 @@
 
 		<classes>
 
-			<class name = "companySetupTest.configureAccountTypeTest" />
-			<!--<class name="SignupTest.SignupTest" /> 
-			<class name ="customerTest.verifyDiscountOrderTest"/>
 			<class name ="loginWebData.WebDataLoginTest"/>
+			<!--
+			<class name="SignupTest.SignupTest" /> 
+			<class name ="customerTest.verifyDiscountOrderTest"/>
+			
+			<class name = "companySetupTest.configureAccountTypeTest" />
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
 			<class name = "companySetupTest.configurePaymentMethodTest" />
 			<class name = "companySetupTest.configurePaymentMethCreditCardTest" />

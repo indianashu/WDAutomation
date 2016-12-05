@@ -155,7 +155,10 @@ public class LoginPage extends BasePage{
     public void enterURL() throws IOException{
     	LoginPage sp=new LoginPage(driver);
         log.info("enter signup url to create child company");
-        driver.get("http://www.simplebilling.co.in:8080/signup");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url");
+        driver.get(url);
 //        WaitClass.WaitForElementisDisplay(driver, 5, enterURL);
 //        Assert.assertTrue(enterURL.isDisplayed());
 //        ((WebDriver) enterURL).get("http://www.simplebilling.co.in:8080/signup");

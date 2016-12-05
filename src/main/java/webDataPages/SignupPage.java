@@ -49,7 +49,7 @@ public class SignupPage extends BasePage{
     	
 
 		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File("/Users/ashutosh/Documents/Web Data Consulting/WDAutomation/Webdata_TestData.xlsx");
+		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
 		XSSFSheet sheet=wb.getSheet("SignupData");
@@ -77,7 +77,7 @@ public class SignupPage extends BasePage{
     }
     
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"user.userName\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='user.userName']")
     private WebElement enterLoginName;
     /**
      * Method to enter login Name.
@@ -92,7 +92,7 @@ public class SignupPage extends BasePage{
         enterLoginName.sendKeys(sp.ExcelRead().get(0));
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.firstName\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.firstName']")
     private WebElement enterFirstName;
     /**
      * Method to enter First Name.
@@ -107,7 +107,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.lastName\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.lastName']")
     private WebElement enterLastName;
     /**
      * Method to enter Last Name.
@@ -122,7 +122,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.phoneCountryCode1\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.phoneCountryCode1']")
     private WebElement enterPhoneCountryCode;
     /**
      * Method to enter Phone Country Code.
@@ -137,7 +137,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.phoneAreaCode\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.phoneAreaCode']")
     private WebElement enterPhoneAreaCode;
     /**
      * Method to enter Phone Area Code.
@@ -152,7 +152,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.phoneNumber\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.phoneNumber']")
     private WebElement enterPhoneNumber;
     /**
      * Method to enter Phone Number.
@@ -167,7 +167,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.email\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.email']")
     private WebElement enterEmail;
     /**
      * Method to enter Email.
@@ -208,7 +208,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.organizationName\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.organizationName']")
     private WebElement enterOrgName;
     /**
      * Method to enter Organization Name.
@@ -223,7 +223,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.address1\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.address1']")
     private WebElement enterAddress;
     /**
      * Method to enter Address.
@@ -239,7 +239,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.address2\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.address2']")
     private WebElement enterAddress2;
     /**
      * Method to enter Address2.
@@ -254,7 +254,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.city\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.city']")
     private WebElement enterCity;
     /**
      * Method to enter City.
@@ -269,7 +269,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.stateProvince\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.stateProvince']")
     private WebElement enterStateProvince;
     /**
      * Method to enter State/Province.
@@ -297,7 +297,7 @@ public class SignupPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name=\"contact.postalCode\"]")
+    @FindBy(how=How.XPATH,using="//input[@name='contact.postalCode']")
     private WebElement enterZipCode;
     /**
      * Method to enter ZipCode.

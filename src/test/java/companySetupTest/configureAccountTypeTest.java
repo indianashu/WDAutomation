@@ -33,6 +33,7 @@ public class configureAccountTypeTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
+        driver.manage().window().maximize();
         configurationAccountTypePage=configurationAccountTypePage.getPage(driver, ConfigurationAccountTypePage.class);
 
     }
@@ -46,11 +47,11 @@ public class configureAccountTypeTest {
     	configurationAccountTypePage.clickConfigurationTab();
     	configurationAccountTypePage.clickAccountType();
     	configurationAccountTypePage.clickAddNewButton();
-    	configurationAccountTypePage.enterAccountName();
-    	configurationAccountTypePage.enterBillingCycle();
-    	configurationAccountTypePage.selectInvoiceDesing();
-    	configurationAccountTypePage.clickSaveChangesButton();
-    	configurationAccountTypePage.verifyConfirmationMsg();
+//    	configurationAccountTypePage.enterAccountName();
+//    	configurationAccountTypePage.enterBillingCycle();
+//    	configurationAccountTypePage.selectInvoiceDesing();
+//    	configurationAccountTypePage.clickSaveChangesButton();
+//    	configurationAccountTypePage.verifyConfirmationMsg();
 
 
     }
