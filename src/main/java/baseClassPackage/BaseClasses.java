@@ -99,14 +99,19 @@ public class BaseClasses {
 				e.printStackTrace();
 			}
 
-
-
 		}
 		else{
 			log.info("######### Not going to remote machine, it will be running on master machine ##########");
 			if(browser.equalsIgnoreCase("firefox")||browser.equalsIgnoreCase("ff")){
 				if(driverHolder.get(user)==null){
 					log.info("Firefox Driver is selected");
+					if (System.getProperty("os.name").equals("Mac OS X")) {
+						System.setProperty("webdriver.gecko.driver",
+								System.getProperty("user.dir") + "/src/main/resources/executableFiles/geckodriver");
+					} else if (System.getProperty("os.name").equals("Linux")) {
+						System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")
+								+ "/src/main/resources/executableFiles/linuxdriver/geckodriver");
+					}
 					driver=new FirefoxDriver();
 					driver.manage().window().maximize();
 					driverHolder.put(user, driver);

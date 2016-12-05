@@ -47,11 +47,11 @@ public class configureAccountTypeTest {
     	configurationAccountTypePage.clickConfigurationTab();
     	configurationAccountTypePage.clickAccountType();
     	configurationAccountTypePage.clickAddNewButton();
-//    	configurationAccountTypePage.enterAccountName();
-//    	configurationAccountTypePage.enterBillingCycle();
-//    	configurationAccountTypePage.selectInvoiceDesing();
-//    	configurationAccountTypePage.clickSaveChangesButton();
-//    	configurationAccountTypePage.verifyConfirmationMsg();
+    	configurationAccountTypePage.enterAccountName();
+    	configurationAccountTypePage.enterBillingCycle();
+    	configurationAccountTypePage.selectInvoiceDesing();
+    	configurationAccountTypePage.clickSaveChangesButton();
+    	configurationAccountTypePage.verifyConfirmationMsg();
 
 
     }
