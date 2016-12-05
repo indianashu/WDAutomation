@@ -25,13 +25,15 @@
 		</groups>
 
 		<classes>
-
-			<class name = "companySetupTest.configureAccountTypeTest" />
+			<class name ="loginWebData.WebDataLoginTest"/>	
+		</classes>				
+		<classes>			
+			<class name = "companySetupTest.configureAccountTypeTest"/>
+		</classes>
+		
 			<!--
 			<class name="SignupTest.SignupTest" /> 
 			<class name ="customerTest.verifyDiscountOrderTest"/>
-			<class name ="loginWebData.WebDataLoginTest"/>
-			
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
 			<class name = "companySetupTest.configurePaymentMethodTest" />
 			<class name = "companySetupTest.configurePaymentMethCreditCardTest" />
@@ -43,7 +45,7 @@
 			<class name = "customerTest.addNewCustomerTest" />
 			<class name ="billingProcessTest.approvingReviewReportforRealBillingTest"/>-->
 
-		</classes>
+		
 
 	</test>
 
