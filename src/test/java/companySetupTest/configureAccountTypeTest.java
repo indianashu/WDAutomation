@@ -35,7 +35,7 @@ public class configureAccountTypeTest {
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
         driver.manage().window().maximize();
-        configurationAccountTypePage=configurationAccountTypePage.getPage(driver, ConfigurationAccountTypePage.class);
+        configurationAccountTypePage=ConfigurationAccountTypePage.getPage(driver, ConfigurationAccountTypePage.class);
 
     }
 

@@ -33,7 +33,7 @@ public class verifyDiscountOrderTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        discountPage=discountPage.getPage(driver, DiscountPage.class);
+        discountPage=DiscountPage.getPage(driver, DiscountPage.class);
 
     }
 
