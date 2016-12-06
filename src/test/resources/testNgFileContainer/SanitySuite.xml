@@ -26,8 +26,9 @@
 
 		<classes>
 			<class name ="loginWebData.WebDataLoginTest"/>			
-			<class name = "companySetupTest.configureAccountTypeTest"/>
 			<class name="SignupTest.SignupTest" />
+			<class name = "companySetupTest.configureAccountTypeTest"/>
+			
 						
 		</classes>
 		
