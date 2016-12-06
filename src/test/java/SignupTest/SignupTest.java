@@ -16,6 +16,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -37,8 +38,6 @@ public class SignupTest {
         WaitClass.waitForUrl(driver, url, 10);
         signupPage=SignupPage.getPage(driver, SignupPage.class);
 
-        //homePage=HomePage.getPage(driver, HomePage.class);
-        //dashboardPage=DashboardPage.getPage(driver, DashboardPage.class);
 
     }
 
@@ -65,6 +64,10 @@ public class SignupTest {
         signupPage.verifyLabelConfirmationMessage();
 
 
+    }
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
     }
 
 }
