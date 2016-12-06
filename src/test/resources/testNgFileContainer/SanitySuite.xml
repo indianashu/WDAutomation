@@ -1,36 +1,15 @@
-<suite name="WebData-Sanity" parallel="none">
+<suite name="WebData-Sanity-All">
 
-	<listeners>
-
-		<!-- <listener class-name="utilPackages.MyReporterListener"></listener> -->
-
-	</listeners>
-
-	<test name="WebData-Sanity">
-
-		<groups>
-
-			<define name="All">
-
-				<include name="Sanity" />
-
-			</define>
-
-			<run>
-
-				<include name="All" />
-
-			</run>
-
-		</groups>
-
+	<test name="Sanity1">
 		<classes>
-			<class name ="loginWebData.WebDataLoginTest"/>	
-		</classes>				
-		<classes>			
+			<class name ="loginWebData.WebDataLoginTest"/>			
+		</classes>
+	</test>
+	<test name="Sanity2">
+		<classes>
 			<class name = "companySetupTest.configureAccountTypeTest"/>
 		</classes>
-		
+	</test>
 			<!--
 			<class name="SignupTest.SignupTest" /> 
 			<class name ="customerTest.verifyDiscountOrderTest"/>
@@ -47,6 +26,6 @@
 
 		
 
-	</test>
+	
 
 </suite>
