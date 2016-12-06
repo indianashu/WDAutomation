@@ -152,25 +152,31 @@ public class BaseClasses {
 
 	public static void closeAllDriver() {
 		log.info("###### Closing all the browser at the end of the execution #####");
-		for (String key : driverHolder.keySet()) {
-			driverHolder.get(key).close();
-			driverHolder.get(key).quit();
-		}
+		  if(driverHolder.size()>0){
+		   for (String key : driverHolder.keySet()) {
+		    driverHolder.get(key).close();
+		    driverHolder.get(key).quit();
+		   }
+		  }
+		  else
+		   log.info("##### No users to be closed at the end of exeuction ######");
+
 	}
 
 	public static void closeDriver(String user) {
 
 		for (String key : driverHolder.keySet()) {
-			if(key.equalsIgnoreCase(user)){
-				log.info("###### Closing "+user+" browser at the end of the execution #####");
-				driverHolder.get(key).close();
-				driverHolder.get(key).quit();
+			   if(key.equalsIgnoreCase(user)){
+			    log.info("###### Closing "+user+" browser at the end of the execution #####");
+			    driverHolder.get(key).close();
+			    driverHolder.get(key).quit();
+			    driverHolder.remove(key);
 
-			}
-			else {
-				log.error("The given name of the user is not found so can't close");
-				System.exit(0);
-			}
+			   }
+			   else {
+			    log.error("The given name of the user is not found so can't close");
+			    System.exit(0);
+			   }
 		}
 	}
 
