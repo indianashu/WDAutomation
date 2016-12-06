@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,7 +34,7 @@ public class configureAddBillingPeriodTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        configurationBillingProcessPage=configurationBillingProcessPage.getPage(driver, ConfigurationBillingProcessPage.class);
+        configurationBillingProcessPage=ConfigurationBillingProcessPage.getPage(driver, ConfigurationBillingProcessPage.class);
 
     }
 
@@ -54,6 +55,11 @@ public class configureAddBillingPeriodTest {
     	configurationBillingProcessPage.verifyConfirmationMsg();
 
 
+    }
+    
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
     }
 
 }
