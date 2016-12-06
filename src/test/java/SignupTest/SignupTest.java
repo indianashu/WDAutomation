@@ -41,7 +41,7 @@ public class SignupTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Sign up new company",priority = 1)
+    @Test(groups={"Sanity"},description="Sign up new company")
     public void userSignin() throws IOException{
         signupPage.enterLoginName();
         signupPage.enterFirstName();

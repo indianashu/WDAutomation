@@ -39,7 +39,7 @@ public class configureAccountTypeTest {
 
     }
 
-    @Test(groups={"Sanity1"},description="ConfigureAccountType",priority = 1)
+    @Test(groups={"Sanity"},description="ConfigureAccountType")
     public void userSignin() throws IOException{
     	configurationAccountTypePage.enterLoginID();
     	configurationAccountTypePage.enterPassword();

@@ -41,7 +41,7 @@ public class WebDataLoginTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Login")
     public void userSignin() throws IOException{
         loginPage.enterLoginID();
         loginPage.enterPassword();
