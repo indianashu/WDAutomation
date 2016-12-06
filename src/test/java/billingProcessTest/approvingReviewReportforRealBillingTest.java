@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,11 +34,11 @@ public class approvingReviewReportforRealBillingTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        billingPage=billingPage.getPage(driver, BillingPage.class);
+        billingPage=BillingPage.getPage(driver, BillingPage.class);
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Approve Review Report")
     public void userSignin() throws IOException{
     	billingPage.enterLoginID();
     	billingPage.enterPassword();
@@ -56,5 +57,9 @@ public class approvingReviewReportforRealBillingTest {
     	billingPage.verifyInvoiceCustomer();
     }
 
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
+    }
 }
 

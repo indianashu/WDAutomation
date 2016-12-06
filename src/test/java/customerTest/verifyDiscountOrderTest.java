@@ -38,7 +38,7 @@ public class verifyDiscountOrderTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Verify Order Discount")
     public void userSignin() throws IOException{
     	discountPage.enterLoginID();
     	discountPage.enterPassword();

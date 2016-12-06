@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,11 +34,11 @@ public class addNewCustomerTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        customerPage=customerPage.getPage(driver, CustomerPage.class);
+        customerPage=CustomerPage.getPage(driver, CustomerPage.class);
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Add New Customer")
     public void userSignin() throws IOException{
     	customerPage.enterLoginID();
     	customerPage.enterPassword();
@@ -55,7 +56,11 @@ public class addNewCustomerTest {
     	customerPage.clickSaveChangesButton();
     	customerPage.verifyConfirmationMsg();
 
-
+    }
+    
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
     }
 
 }

@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,11 +34,11 @@ public class editConfigureAccountTypeTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        editconfigurationAccountTypePage=editconfigurationAccountTypePage.getPage(driver, EditConfigurationAccountTypePage.class);
+        editconfigurationAccountTypePage=EditConfigurationAccountTypePage.getPage(driver, EditConfigurationAccountTypePage.class);
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Edit Configuration Account Type")
     public void userSignin() throws IOException{
     	editconfigurationAccountTypePage.enterLoginID();
     	editconfigurationAccountTypePage.enterPassword();
@@ -57,7 +58,11 @@ public class editConfigureAccountTypeTest {
     	editconfigurationAccountTypePage.clickSaveChangesButton();
     	editconfigurationAccountTypePage.verifyConfirmationMsg();
 
-
+    }
+    
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
     }
 
 }

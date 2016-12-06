@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,11 +34,11 @@ public class configureAddCollectionTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        configurationCollectionsPage=configurationCollectionsPage.getPage(driver, ConfigurationCollectionsPage.class);
+        configurationCollectionsPage=ConfigurationCollectionsPage.getPage(driver, ConfigurationCollectionsPage.class);
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Configure Add Collection")
     public void userSignin() throws IOException{
     	configurationCollectionsPage.enterLoginID();
     	configurationCollectionsPage.enterPassword();
@@ -56,9 +57,11 @@ public class configureAddCollectionTest {
     	configurationCollectionsPage.selectPaymentCheckbox1();
     	configurationCollectionsPage.clickSaveChangesButton();
     	configurationCollectionsPage.verifyConfirmationMsg();
-    	
-    	
 
-
+    }
+    
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
     }
 }

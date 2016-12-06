@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,11 +34,11 @@ public class configureAddNewInfoTypeTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        configurationNewInformationTypePage=configurationNewInformationTypePage.getPage(driver, ConfigurationNewInformationTypePage.class);
+        configurationNewInformationTypePage=ConfigurationNewInformationTypePage.getPage(driver, ConfigurationNewInformationTypePage.class);
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Configure Add New Info Type")
     public void userSignin() throws IOException{
     	configurationNewInformationTypePage.enterLoginID();
     	configurationNewInformationTypePage.enterPassword();
@@ -57,6 +58,11 @@ public class configureAddNewInfoTypeTest {
     	configurationNewInformationTypePage.verifyConfirmationMsg();
 
 
+    }
+    
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
     }
 
 }

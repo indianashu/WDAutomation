@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,11 +34,11 @@ public class agentConfigurationPluginTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        agentConfigurationPluginPage=agentConfigurationPluginPage.getPage(driver, AgentConfigurationPluginPage.class);
+        agentConfigurationPluginPage=AgentConfigurationPluginPage.getPage(driver, AgentConfigurationPluginPage.class);
 
     }
 
-    @Test(groups={"Sanity"},description="Login",priority = 1)
+    @Test(groups={"Sanity"},description="Agent Configuration Plugin")
     public void userSignin() throws IOException{
     	agentConfigurationPluginPage.enterLoginID();
     	agentConfigurationPluginPage.enterPassword();
@@ -46,5 +47,9 @@ public class agentConfigurationPluginTest {
     	agentConfigurationPluginPage.clickAgentTab();    	
     }
 
+    @AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
+    }
 }
 
