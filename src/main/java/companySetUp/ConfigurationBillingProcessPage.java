@@ -149,7 +149,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[4]/a")
+    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Billing Process']")
     private WebElement clickBillingProcess;
     /**
      * Method to click on Billing Process.

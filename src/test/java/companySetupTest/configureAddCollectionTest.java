@@ -45,7 +45,7 @@ public class configureAddCollectionTest {
     	configurationCollectionsPage.selectCompany();
     	configurationCollectionsPage.clickLoginButton();
     	configurationCollectionsPage.clickConfigurationTab();
-    	configurationCollectionsPage.clickCollection();
+    	configurationCollectionsPage.clickCollections();
     	configurationCollectionsPage.enterIDSteps();
     	configurationCollectionsPage.enterForDays();
     	configurationCollectionsPage.selectPaymentCheckbox();

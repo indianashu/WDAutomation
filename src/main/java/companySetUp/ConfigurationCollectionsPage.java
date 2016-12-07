@@ -149,19 +149,19 @@ public class ConfigurationCollectionsPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[7]/a")
-    private WebElement clickCollection;
+    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Collections']")
+    private WebElement clickCollections;
     /**
-     * Method to click on Collection.
+     * Method to click on Collections.
      * @throws IOException 
      */
-    public void clickCollection() throws IOException{
+    public void clickCollections() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Collection");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCollection);
-        Assert.assertTrue(clickCollection.isDisplayed());
-        clickCollection.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCollections);
+        Assert.assertTrue(clickCollections.isDisplayed());
+        clickCollections.click();
         
     }
     
@@ -378,7 +378,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     
   
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[23]/a")
+    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Plug-ins']")
     private WebElement clickPluginsLink;
     /**
      * Method to click on Plugins Link.
@@ -395,7 +395,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='17']/strong")
+    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/plugin/plugins/17?template=show']//*[text()='Generic internal events listener']")
     private WebElement clickCategory17;
     /**
      * Method to click on category 17 - Generic internal events listener.

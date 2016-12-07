@@ -149,10 +149,10 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[20]/a")
+    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Order Periods']")
     private WebElement clickOrderPeriods;
     /**
-     * Method to click on Payment Method.
+     * Method to click on Order Periods.
      * @throws IOException 
      */
     public void clickOrderPeriods() throws IOException{

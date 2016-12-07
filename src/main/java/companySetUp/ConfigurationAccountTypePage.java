@@ -151,7 +151,7 @@ public class ConfigurationAccountTypePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[2]/a")
+    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Account Type']")
     private WebElement clickAccountType;
     /**
      * Method to click on Account Type.

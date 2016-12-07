@@ -151,7 +151,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[22]/a")
+    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Payment Method']")
     private WebElement clickPaymentMethod;
     /**
      * Method to click on Payment Method.

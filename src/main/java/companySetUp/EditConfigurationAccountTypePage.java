@@ -151,7 +151,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[2]/a")
+    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Account Type']")
     private WebElement clickAccountType;
     /**
      * Method to click on Account Type.
@@ -258,7 +258,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Distributor']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Distributor']")
     private WebElement clickAccountTypeCreated;
     /**
      * Method to click on account type created.
@@ -268,9 +268,8 @@ public class EditConfigurationAccountTypePage extends BasePage{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on account type created");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAccountTypeCreated);
-        Assert.assertTrue(clickAccountTypeCreated.isDisplayed());
-        clickAccountTypeCreated.click();
+       String AccountName = sp.ExcelRead().get(3);
+       driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+AccountName+"']")).click();
         
     }
     
