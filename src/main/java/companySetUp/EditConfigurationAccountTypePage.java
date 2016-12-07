@@ -135,7 +135,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[@href='/config/index']//*[text()='Configuration']")
+    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/config/index']//*[text()='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -228,7 +228,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']")
+    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
     private WebElement clickSaveChangesButton;
     /**
      * Method to click on Save Changes Button.
@@ -273,7 +273,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit edit']")
+    @FindBy(how=How.XPATH, using="//a[@class='submit edit']//*[text()='Edit']")
     private WebElement clickEditAccountTypeCreated;
     /**
      * Method to click on Edit Account Type created.

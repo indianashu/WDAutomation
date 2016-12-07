@@ -228,7 +228,7 @@ public class ConfigurationAccountTypePage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']")
+    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
     private WebElement clickSaveChangesButton;
     /**
      * Method to click on Save Changes Button.
