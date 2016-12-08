@@ -133,7 +133,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/config/index']//*[text()='Configuration']")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -149,7 +149,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Collections']")
+    @FindBy(how=How.XPATH, using="//a[.='Collections']")
     private WebElement clickCollections;
     /**
      * Method to click on Collections.
@@ -378,7 +378,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     
   
     
-    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Plug-ins']")
+    @FindBy(how=How.XPATH, using="//a[.='Plug-ins']")
     private WebElement clickPluginsLink;
     /**
      * Method to click on Plugins Link.
@@ -395,7 +395,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/plugin/plugins/17?template=show']//*[text()='Generic internal events listener']")
+    @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'17')]]")
     private WebElement clickCategory17;
     /**
      * Method to click on category 17 - Generic internal events listener.

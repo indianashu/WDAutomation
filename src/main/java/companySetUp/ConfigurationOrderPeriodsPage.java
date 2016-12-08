@@ -133,7 +133,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/config/index']//*[text()='Configuration']")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -149,7 +149,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Order Periods']")
+    @FindBy(how=How.XPATH, using="//a[.='Order Periods']")
     private WebElement clickOrderPeriods;
     /**
      * Method to click on Order Periods.

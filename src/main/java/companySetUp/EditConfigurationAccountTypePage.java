@@ -135,7 +135,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/config/index']//*[text()='Configuration']")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -151,7 +151,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Account Type']")
+    @FindBy(how=How.XPATH, using="//a[.='Account Type']")
     private WebElement clickAccountType;
     /**
      * Method to click on Account Type.

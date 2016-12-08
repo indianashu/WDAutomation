@@ -135,7 +135,7 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/config/index']//*[text()='Configuration']")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -151,7 +151,7 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Payment Method']")
+    @FindBy(how=How.XPATH, using="//a[.='Payment Method']")
     private WebElement clickPaymentMethod;
     /**
      * Method to click on Payment Method.

@@ -133,7 +133,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/config/index']//*[text()='Configuration']")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -149,7 +149,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//li[@class='']//*[text()='Billing Process']")
+    @FindBy(how=How.XPATH, using="//a[.='Billing Process']")
     private WebElement clickBillingProcess;
     /**
      * Method to click on Billing Process.
