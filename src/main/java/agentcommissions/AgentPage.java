@@ -136,7 +136,7 @@ public class AgentPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[2]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Agents']")
     private WebElement clickAgentTab;
     /**
      * Method to click on Agent tab after successful login.
@@ -228,7 +228,7 @@ public class AgentPage extends BasePage{
 
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer Tab.
@@ -365,7 +365,7 @@ public class AgentPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductTab;
     /**
      * Method to click on Product Tab.
@@ -413,7 +413,7 @@ public class AgentPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Commissioned Product']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Commissioned Product']")
     private WebElement clickProductCategoryName;
     /**
      * Method to click on Product Category Name - Commissioned Product.
@@ -423,9 +423,8 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Product Category Name - Commissioned Product");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductCategoryName);
-        Assert.assertTrue(clickProductCategoryName.isDisplayed());
-        clickProductCategoryName.click();
+        String ProductName = sp.ExcelRead().get(11);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
     

@@ -136,7 +136,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[12]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -152,7 +152,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[23]/a")
+    @FindBy(how=How.XPATH, using="//a[.='Plug-ins']")
     private WebElement clickPlugin;
     /**
      * Method to click on Plugin after successful login.
@@ -168,7 +168,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='25']/strong")
+    @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'25')]]")
     private WebElement clickAgentCommissionCalProcess;
     /**
      * Method to click on Agent Commission Calculation Process #25.
@@ -278,7 +278,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[1]/a")
+    @FindBy(how=How.XPATH, using="//a[.='All']")
     private WebElement clickAllLink;
     /**
      * Method to click on All Link.
