@@ -52,7 +52,7 @@ public class CreatingOrdersPage extends BasePage{
 		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("CreatingOrders");
+		XSSFSheet sheet=wb.getSheet("BillingCreateOrders");
 		
 		Iterator<Row> row=sheet.iterator();
 		//System.out.println();
@@ -133,7 +133,7 @@ public class CreatingOrdersPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -403,7 +403,7 @@ public class CreatingOrdersPage extends BasePage{
     }
   
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductsTab;
     /**
      * Method to Click on Products Tab.
