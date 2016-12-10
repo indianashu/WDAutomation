@@ -135,7 +135,7 @@ public class AddingAssetPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomersTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -212,18 +212,18 @@ public class AddingAssetPage extends BasePage{
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
-    private WebElement enterLoginName;
+    private WebElement enterCustomerLoginName;
     /**
      * Method to Enter Login Name.
      * @throws IOException 
      */
-    public void enterLoginName() throws IOException{
+    public void enterCustomerLoginName() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter Login Name");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
-        Assert.assertTrue(enterLoginName.isDisplayed());
-        enterLoginName.sendKeys(sp.ExcelRead().get(5));
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCustomerLoginName);
+        Assert.assertTrue(enterCustomerLoginName.isDisplayed());
+        enterCustomerLoginName.sendKeys(sp.ExcelRead().get(5));
         
     }
       
@@ -456,7 +456,7 @@ public class AddingAssetPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[10]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products Tab.
