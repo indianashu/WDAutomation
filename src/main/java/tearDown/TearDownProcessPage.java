@@ -109,7 +109,7 @@ public class TearDownProcessPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -134,7 +134,7 @@ public class TearDownProcessPage extends BasePage{
     }
 
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[4]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Payments']")
     private WebElement clickPaymentsTab;
     /**
      * Method to click on Payments tab after successful login.
@@ -156,7 +156,7 @@ public class TearDownProcessPage extends BasePage{
      * Method to Click on Customer A.
      * @throws IOException 
      */
-    public void clickBillingCustomer2() throws IOException{
+    public void clickCustomerA() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Customer A");
         WaitClass.sleep(10000);
@@ -248,7 +248,7 @@ public class TearDownProcessPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[3]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Invoices']")
     private WebElement clickInvoicesTab;
     /**
      * Method to click on Invoices tab after successful login.
@@ -313,7 +313,7 @@ public class TearDownProcessPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[5]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Orders']")
     private WebElement clickOrdersTab;
     /**
      * Method to Click on Orders Tab.
@@ -361,7 +361,7 @@ public class TearDownProcessPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products Tab.
@@ -459,7 +459,7 @@ public class TearDownProcessPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomersTab;
     /**
      * Method to click on customers tab.
