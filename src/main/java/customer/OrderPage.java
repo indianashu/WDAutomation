@@ -109,7 +109,7 @@ public class OrderPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -133,7 +133,7 @@ public class OrderPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -297,7 +297,7 @@ public class OrderPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']")
+   // @FindBy(how=How.XPATH, using="//a[@class='cell double']")
     private WebElement selectCustomer;
     /**
      * Method to select customer.
@@ -307,9 +307,8 @@ public class OrderPage extends BasePage{
     	OrderPage sp=new OrderPage(driver);
         log.info("Select Customer");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectCustomer);
-        Assert.assertTrue(selectCustomer.isDisplayed());
-        selectCustomer.click();
+        String CustomerName = sp.ExcelRead().get(5);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
     }
     

@@ -136,7 +136,7 @@ public class AddProductWithAssetPage extends BasePage{
 
   
    
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationsTab;
     /**
      * Method to click on Configurations tab after successful login.
@@ -153,7 +153,7 @@ public class AddProductWithAssetPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[23]/a")
+    @FindBy(how=How.XPATH, using="//a[.='Plug-ins']")
     private WebElement clickPluginsLink;
     /**
      * Method to click on Plugins Link.
@@ -170,7 +170,7 @@ public class AddProductWithAssetPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='17']/strong")
+    @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'17')]]")
     private WebElement clickCategory17;
     /**
      * Method to click on Category 17 - Generic internal events listener.
@@ -250,7 +250,7 @@ public class AddProductWithAssetPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[10]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products tab after successful login.

@@ -133,7 +133,7 @@ public class DiscountPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Discounts']")
     private WebElement clickDiscountTab;
     /**
      * Method to click on Discount tab after successful login.
@@ -274,7 +274,7 @@ public class DiscountPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomersTab;
     /**
      * Method to click on customers tab.
@@ -457,14 +457,14 @@ public class DiscountPage extends BasePage{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Verify Amount is shown with discount.");
         WaitClass.sleep(10000);
-        String ExpectedErrorMsg = sp.ExcelRead().get(13);
+        String ExpectedErrorMsg = sp.ExcelRead().get(14);
         String ActualErrorMsg = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
         Assert.assertEquals(ActualErrorMsg, ExpectedErrorMsg);
         
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[5]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Orders']")
     private WebElement clickOrdersTab;
     /**
      * Method to click on Orders Tab.
@@ -480,7 +480,7 @@ public class DiscountPage extends BasePage{
         
     }
   
-    @FindBy(how=How.XPATH, using="//a[@class='cell']//*[text()='604']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell']//*[text()='604']")
     private WebElement clickOrder;
     /**
      * Method to click on Order..
@@ -490,9 +490,8 @@ public class DiscountPage extends BasePage{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("click on Order.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickOrder);
-        Assert.assertTrue(clickOrder.isDisplayed());
-        clickOrder.click();
+        String OrderNumber = sp.ExcelRead().get(13);
+        driver.findElement(By.xpath("//a[@class='cell']//*[text()='"+OrderNumber+"']")).click();
         
     }
   

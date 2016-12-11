@@ -15,6 +15,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,19 +31,19 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class CustomerPage extends BasePage{
+public class CustomerParentChildPage extends BasePage{
     /**
      * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
      * then this will take care of initialization of the driver
      *
      * @param webdriver
      */
-    public CustomerPage(WebDriver webdriver) {
+    public CustomerParentChildPage(WebDriver webdriver) {
         super(webdriver);
     }
 
-    Logger log=Logger.getLogger(CustomerPage.class);
-    CustomerPage customerPage;
+    Logger log=Logger.getLogger(CustomerParentChildPage.class);
+    CustomerParentChildPage customerParentChildPage;
     PropertyValExtractors p = new PropertyValExtractors();
   
     public  ArrayList<String> ExcelRead() throws IOException{
@@ -52,7 +53,7 @@ public class CustomerPage extends BasePage{
 		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("AddCustomer");
+		XSSFSheet sheet=wb.getSheet("AddCustomerChild");
 		
 		Iterator<Row> row=sheet.iterator();
 		//System.out.println();
@@ -84,7 +85,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginID() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
     	
         log.info("Verifying the Login ID is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
@@ -99,7 +100,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void enterPassword() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
@@ -109,11 +110,11 @@ public class CustomerPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
         Select se = new Select(Companyelement);
         se.selectByVisibleText(sp.ExcelRead().get(2));
@@ -126,7 +127,7 @@ public class CustomerPage extends BasePage{
      * Method to Click on  Save Changes Button
      */
     public void clickLoginButton(){
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verifying the login button is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
         Assert.assertTrue(clickLoginButton.isDisplayed());
@@ -140,7 +141,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void clickCustomerTab() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Customer Tab after successful login");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
@@ -156,7 +157,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddNewButton() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Add New Button");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
@@ -172,7 +173,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void selectUserCompany() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
         Select se = new Select(Usercompanyelement);
         se.selectByVisibleText(sp.ExcelRead().get(3));
@@ -185,7 +186,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void selectAccountType() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
         Select se = new Select(AccountTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(4));
@@ -200,7 +201,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void clickSelectButton() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on select Button");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
@@ -216,7 +217,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginName() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter Login Name");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
@@ -225,46 +226,128 @@ public class CustomerPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Use Company Billing Cycle']")
-    private WebElement clickUseCompanyBillingCycleButton;
+    @FindBy(how=How.XPATH, using="//input[@name='metaField_224.value']")
+    private WebElement enterEmailID;
     /**
-     * Method to Click Use Company Billing Cycle Button.
+     * Method to Enter Email ID.
      * @throws IOException 
      */
-    public void clickUseCompanyBillingCycleButton() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    public void enterEmailID() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Enter EmailID");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID);
+        Assert.assertTrue(enterEmailID.isDisplayed());
+        enterEmailID.sendKeys(sp.ExcelRead().get(6));
+        
+    }
+    @FindBy(how=How.XPATH, using="//input[@name='user.isParent']")
+    private WebElement clickAllowSubAccountCheckbox;
+    /**
+     * Method to Click on Allow Sub-Account Checkbox.
+     * @throws IOException 
+     */
+    public void clickAllowSubAccountCheckbox() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click Use Company Billing Cycle Button");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickUseCompanyBillingCycleButton);
-        Assert.assertTrue(clickUseCompanyBillingCycleButton.isDisplayed());
-        clickUseCompanyBillingCycleButton.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickAllowSubAccountCheckbox);
+        Assert.assertTrue(clickAllowSubAccountCheckbox.isDisplayed());
+        clickAllowSubAccountCheckbox.click();
         
     }
     
-    private WebElement selectBillingCycleUnit;
+    @FindBy(how=How.XPATH, using="//*[@id='payment-methods']/div[1]/a/span")
+    private WebElement expandPaymentMethod;
     /**
-     * Method to select billing cycle unit.
+     * Method to Expand Payment Method in add customer page.
      * @throws IOException 
      */
-    public void selectBillingCycleUnit() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
-        Select se = new Select(BCUelement);
-        se.selectByVisibleText(sp.ExcelRead().get(6));
-
+    public void expandPaymentMethod() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Expand Payment Method in add customer page");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, expandPaymentMethod);
+        Assert.assertTrue(expandPaymentMethod.isDisplayed());
+        expandPaymentMethod.click();
+        
     }
-
-    private WebElement selectBillingCycleDay;
+    
+    private WebElement selectPaymentMethodType;
     /**
-     * Method to select billing cycle day.
+     * Method to select payment method type.
      * @throws IOException 
      */
-    public void selectBillingCycleDay() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        WebElement BCDelement = driver.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
-        Select se = new Select(BCDelement);
+    public void selectPaymentMethodType() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
+        Select se = new Select(PMTelement);
         se.selectByVisibleText(sp.ExcelRead().get(7));
 
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
+    private WebElement enterCCCardholderName;
+    /**
+     * Method to Enter CC Cardholder name.
+     * @throws IOException 
+     */
+    public void enterCCCardholderName() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Enter CC Cardholder name");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderName);
+        Assert.assertTrue(enterCCCardholderName.isDisplayed());
+        enterCCCardholderName.sendKeys(sp.ExcelRead().get(8));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
+    private WebElement enterCCNumber;
+    /**
+     * Method to Enter CC Number.
+     * @throws IOException 
+     */
+    public void enterCCNumber() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Enter CC Number");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCCNumber);
+        Assert.assertTrue(enterCCNumber.isDisplayed());
+        enterCCNumber.sendKeys(sp.ExcelRead().get(9));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_226.value']")
+    private WebElement enterCCExpiryDate;
+    /**
+     * Method to Enter CC Number.
+     * @throws IOException 
+     */
+    public void enterCCExpiryDate() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Enter CC Number");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCCExpiryDate);
+        Assert.assertTrue(enterCCExpiryDate.isDisplayed());
+        enterCCExpiryDate.sendKeys(sp.ExcelRead().get(10));
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Instrument']")
+    private WebElement clickAddInstrumentButton;
+    /**
+     * Method to click add instrument button.
+     * @throws IOException 
+     */
+    public void clickAddInstrumentButton() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Click Add Instrument Button");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickAddInstrumentButton);
+        Assert.assertTrue(clickAddInstrumentButton.isDisplayed());
+        clickAddInstrumentButton.click();
+        
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
@@ -274,7 +357,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void clickSaveChangesButton() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Save Changes Button");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
@@ -290,12 +373,14 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void verifyConfirmationMsg() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
+    
+
     
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']")
     private WebElement selectCustomer;
@@ -304,7 +389,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void selectCustomer() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Select Customer");
         WaitClass.sleep(10000);
         String CustomerName = sp.ExcelRead().get(5);
@@ -319,7 +404,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddSubAccountButton() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click Add Sub Account Button");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddSubAccountButton);
@@ -336,12 +421,12 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginName1() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter Login Name");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName1);
         Assert.assertTrue(enterLoginName1.isDisplayed());
-        enterLoginName1.sendKeys(sp.ExcelRead().get(8));
+        enterLoginName1.sendKeys(sp.ExcelRead().get(11));
         
     }
     
@@ -353,7 +438,7 @@ public class CustomerPage extends BasePage{
      * @throws IOException 
      */
     public void expandContactInfo() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Expand Contact Info in add customer page");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, expandContactInfo);
@@ -363,113 +448,119 @@ public class CustomerPage extends BasePage{
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='metaField_224.value']")
-    private WebElement enterEmailID;
+    private WebElement enterEmailID1;
     /**
      * Method to Enter Email ID.
      * @throws IOException 
      */
-    public void enterEmailID() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
+    public void enterEmailID1() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter EmailID");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID);
-        Assert.assertTrue(enterEmailID.isDisplayed());
-        enterEmailID.sendKeys(sp.ExcelRead().get(9));
+        WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID1);
+        Assert.assertTrue(enterEmailID1.isDisplayed());
+        enterEmailID1.sendKeys(sp.ExcelRead().get(12));
         
     }
-    
-    @FindBy(how=How.XPATH, using="//*[@id='payment-methods']/div[1]/a/span")
-    private WebElement expandPaymentMethod;
+  
+    //@FindBy(how=How.XPATH, using="//div[@class='row']//*[text()='22 Brian Smith']")
+    private WebElement verifyParentID;
     /**
-     * Method to Expand Payment Method in add customer page.
+     * Method to Verify Parent ID.
      * @throws IOException 
      */
-    public void expandPaymentMethod() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        log.info("Expand Payment Method in add customer page");
+    public void verifyParentID() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Verify Parent ID");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, expandPaymentMethod);
-        Assert.assertTrue(expandPaymentMethod.isDisplayed());
-        expandPaymentMethod.click();
+        String ParentID = sp.ExcelRead().get(13);
+        String ActualParentID = driver.findElement(By.xpath("//*[@id='user-edit-form']/fieldset/div[1]/div[1]/div[11]/span/a")).getText();
+        Assert.assertEquals(ActualParentID, ParentID);
         
     }
     
-    private WebElement selectPaymentMethodType;
+    //@FindBy(how=How.XPATH, using="//*[@id='22']/img")
+    private WebElement verifyParentChildImage;
     /**
-     * Method to select payment method type.
+     * Method to verify parent child image is present or not.
      * @throws IOException 
      */
-    public void selectPaymentMethodType() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
-        Select se = new Select(PMTelement);
-        se.selectByVisibleText(sp.ExcelRead().get(10));
-
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
-    private WebElement enterCCCardholderName;
-    /**
-     * Method to Enter CC Cardholder name.
-     * @throws IOException 
-     */
-    public void enterCCCardholderName() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        log.info("Enter CC Cardholder name");
+    public void verifyParentChildImage() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("verify parent child image is present or not");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderName);
-        Assert.assertTrue(enterCCCardholderName.isDisplayed());
-        enterCCCardholderName.sendKeys(sp.ExcelRead().get(11));
+        String ParentID = sp.ExcelRead().get(14);
+        WebElement image1 = driver.findElement(By.xpath("//*[@id='"+ParentID+"']/img"));
+        Boolean imageLoaded1 = (Boolean) ((JavascriptExecutor)driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", image1);
+        if (!imageLoaded1)
+        {
+             System.out.println("1. Image is not present");
+             Assert.assertFalse(false);
+        }
+        else
+        {
+            System.out.println("1. Got it");
+            Assert.assertFalse(true);
+        }
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
-    private WebElement enterCCNumber;
+    private WebElement verifyChildImage;
     /**
-     * Method to Enter CC Number.
+     * Method to verify child image is present or not.
      * @throws IOException 
      */
-    public void enterCCNumber() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        log.info("Enter CC Number");
+    public void verifyChildImage() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("verify child image is present or not");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCCNumber);
-        Assert.assertTrue(enterCCNumber.isDisplayed());
-        enterCCNumber.sendKeys(sp.ExcelRead().get(12));
+        String ChildID = sp.ExcelRead().get(15);
+        WebElement image1 = driver.findElement(By.xpath("//*[@id='"+ChildID+"']/td[6]/img"));
+        Boolean imageLoaded1 = (Boolean) ((JavascriptExecutor)driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", image1);
+        if (!imageLoaded1)
+        {
+             System.out.println("1. Image is not present");
+             Assert.assertFalse(false);
+        }
+        else
+        {
+            System.out.println("1. Got it");
+            Assert.assertFalse(true);
+        }
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_226.value']")
-    private WebElement enterCCExpiryDate;
+  
+    private WebElement selectCustomerA;
     /**
-     * Method to Enter CC Number.
+     * Method to select customer.
      * @throws IOException 
      */
-    public void enterCCExpiryDate() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        log.info("Enter CC Number");
+    public void selectCustomerA() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Select Customer");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCCExpiryDate);
-        Assert.assertTrue(enterCCExpiryDate.isDisplayed());
-        enterCCExpiryDate.sendKeys(sp.ExcelRead().get(12));
+        String CustomerA = sp.ExcelRead().get(11);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerA+"']")).click();;
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Instrument']")
-    private WebElement clickAddInstrumentButton;
+    private WebElement verifyChildCustomer;
     /**
-     * Method to click add instrument button.
+     * Method to verify child customer.
      * @throws IOException 
      */
-    public void clickAddInstrumentButton() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        log.info("Click Add Instrument Button");
+    public void verifyChildCustomer() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Verify child customer");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddInstrumentButton);
-        Assert.assertTrue(clickAddInstrumentButton.isDisplayed());
-        clickAddInstrumentButton.click();
+        String CustomerA = sp.ExcelRead().get(11);
+        driver.findElement(By.xpath("//td[@class='value']//*[text()='"+CustomerA+"']")).click();;
         
     }
+    
+    
+    
     
     
     public void navigateBottom(){

@@ -134,7 +134,7 @@ public class ProductCategoryPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[10]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products tab after successful login.

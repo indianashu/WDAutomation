@@ -193,7 +193,7 @@ public class ViewAssignedInfoPage extends BasePage{
     
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products Tab
@@ -210,7 +210,7 @@ public class ViewAssignedInfoPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Asset Category1']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Asset Category1']")
     private WebElement clickCategoryName;
     /**
      * Method to click on CategoryName
@@ -221,14 +221,14 @@ public class ViewAssignedInfoPage extends BasePage{
         log.info("Click on Category Name");
         WaitClass.sleep(10000);
         String CategoryName = sp.ExcelRead().get(4);
-        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='Asset Category1']")).getText();
+        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).getText();
         Assert.assertEquals(ActualName, CategoryName);
         WaitClass.sleep(5000);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='Asset Category1']")).click();
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
     }
   
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='SIM Cards']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='SIM Cards']")
     private WebElement clickProductName;
     /**
      * Method to click on Product Name
@@ -239,10 +239,10 @@ public class ViewAssignedInfoPage extends BasePage{
         log.info("Click on Product Name");
         WaitClass.sleep(10000);
         String ProductName = sp.ExcelRead().get(5);
-        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='SIM Cards']")).getText();
+        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).getText();
         Assert.assertEquals(ActualName, ProductName);
         WaitClass.sleep(5000);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='SIM Cards']")).click();
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
     
@@ -265,7 +265,7 @@ public class ViewAssignedInfoPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='SIM-001']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='SIM-001']")
     private WebElement verifyAssetName;
     /**
      * Method to verify Asset Name
@@ -276,7 +276,7 @@ public class ViewAssignedInfoPage extends BasePage{
         log.info("Verify Asset Name.");
         WaitClass.sleep(10000);
         String AssetName = sp.ExcelRead().get(6);
-        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='SIM Cards']")).getText();
+        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+AssetName+"']")).getText();
         Assert.assertEquals(ActualName, AssetName);
         
     } 
@@ -298,7 +298,7 @@ public class ViewAssignedInfoPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomersTab;
     /**
      * Method to click on Customers Tab
@@ -326,7 +326,7 @@ public class ViewAssignedInfoPage extends BasePage{
         log.info("Verify Child Customer is created or not");
         WaitClass.sleep(10000);
         String CustomerName = sp.ExcelRead().get(7);
-        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='ashutosh sandhal']")).getText();
+        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).getText();
         Assert.assertEquals(ActualName, CustomerName);
         
     }

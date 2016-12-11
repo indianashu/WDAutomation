@@ -134,7 +134,7 @@ public class MakePaymentPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[3]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Invoices']")
     private WebElement clickInvoicesTab;
     /**
      * Method to click on Invoice tab after successful login.
@@ -158,13 +158,10 @@ public class MakePaymentPage extends BasePage{
      */
     public void clickCustomerName() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
-    	String CustomerName = sp.ExcelRead().get(8);
-    	driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']"));
-        log.info("Click on customer name");
+    	log.info("Click on customer name");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerName);
-        Assert.assertTrue(clickCustomerName.isDisplayed());
-        clickCustomerName.click();
+    	String CustomerName = sp.ExcelRead().get(8);
+    	driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
     }   
     

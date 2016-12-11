@@ -134,7 +134,7 @@ public class CollectionConfigurationPage extends BasePage{
     }
 
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -276,7 +276,7 @@ public class CollectionConfigurationPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[12]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationTab;
     /**
      * Method to click on Configuration tab after successful login.
@@ -292,7 +292,7 @@ public class CollectionConfigurationPage extends BasePage{
         
     }
     
-  @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[7]/a")
+  @FindBy(how=How.XPATH, using="//a[.='Collections']")
     private WebElement clickCollectionsLink;
     /**
      * Method to Click on Collections Link.
