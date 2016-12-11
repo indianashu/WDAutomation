@@ -108,7 +108,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{

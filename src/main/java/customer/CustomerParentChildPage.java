@@ -545,21 +545,51 @@ public class CustomerParentChildPage extends BasePage{
         
     }
     
+    private WebElement verifyParentCustomer;
+    /**
+     * Method to verify Parent customer.
+     * @throws IOException 
+     */
+    public void verifyParentCustomer() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Verify child customer");
+        WaitClass.sleep(10000);
+        String ParentID = sp.ExcelRead().get(14);
+        String ParentName = sp.ExcelRead().get(16);
+        String ActualParentName = driver.findElement(By.xpath("//*[@id='"+ParentID+"']")).getText();
+        Assert.assertEquals(ActualParentName, ParentName);
+        
+    }
+    
+    private WebElement verifyChildInvoicingText;
+    /**
+     * Method to verify Child Invoicing Text.
+     * @throws IOException 
+     */
+    public void verifyChildInvoicingText() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Verify child customer");
+        WaitClass.sleep(10000);
+        String ChildInvoicing = sp.ExcelRead().get(17);
+        String ActualChildInvoicing = driver.findElement(By.xpath("//*[@id='column2']/div[4]/div/table/tbody/tr[10]/td[1]")).getText();
+        Assert.assertEquals(ActualChildInvoicing, ChildInvoicing);
+        
+    }
+  
     private WebElement verifyChildCustomer;
     /**
-     * Method to verify child customer.
+     * Method to verify Child customer.
      * @throws IOException 
      */
     public void verifyChildCustomer() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verify child customer");
         WaitClass.sleep(10000);
-        String CustomerA = sp.ExcelRead().get(11);
-        driver.findElement(By.xpath("//td[@class='value']//*[text()='"+CustomerA+"']")).click();;
+        String ChildName = sp.ExcelRead().get(11);
+        String ActualChildName = driver.findElement(By.xpath("//*[@id='column2']/div[4]/div/table/tbody/tr[9]/td[1]")).getText();
+        Assert.assertEquals(ActualChildName, ChildName);
         
     }
-    
-    
     
     
     

@@ -110,7 +110,7 @@ public class OrderHierarchiesPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -134,7 +134,7 @@ public class OrderHierarchiesPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[10]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Products']")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products tab after successful login.
@@ -416,7 +416,7 @@ public class OrderHierarchiesPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomersTab;
     /**
      * Method to click on customers tab.

@@ -134,7 +134,7 @@ public class ReportsPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -299,7 +299,7 @@ public class ReportsPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='TestCustomer3']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='TestCustomer3']")
     private WebElement selectCustomer;
     /**
      * Method to select a customer - TestCustomer3.
@@ -307,13 +307,10 @@ public class ReportsPage extends BasePage{
      */
     public void selectCustomer() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
-//    	String abc = sp.ExcelRead().get(7);
-//    	@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='"+abc+"']")
         log.info("select a customer - TestCustomer3");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectCustomer);
-        Assert.assertTrue(selectCustomer.isDisplayed());
-        selectCustomer.click();
+        String CustomerName = sp.ExcelRead().get(5);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
     }    
 
@@ -350,7 +347,7 @@ public class ReportsPage extends BasePage{
         
     }    
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Commission Product']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Commission Product']")
     private WebElement selectProduct;
     /**
      * Method to click on a product from the list.
@@ -360,9 +357,8 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on a product from the list");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectProduct);
-        Assert.assertTrue(selectProduct.isDisplayed());
-        selectProduct.click();
+        String ProductName = sp.ExcelRead().get(16);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
     
@@ -530,7 +526,7 @@ public class ReportsPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Reports']")
     private WebElement clickReportsTab;
     /**
      * Method to Click on Reports Tab.

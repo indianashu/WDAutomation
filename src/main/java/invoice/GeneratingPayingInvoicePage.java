@@ -134,7 +134,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -149,8 +149,6 @@ public class GeneratingPayingInvoicePage extends BasePage{
         clickCustomerTab.click();
         
     }
-    
-    
     
         
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
@@ -431,7 +429,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[3]/a")
+    @FindBy(how=How.XPATH, using="//a[.='Invoices']")
     private WebElement clickInvoicesTab;
     /**
      * Method to Click on Invoices Tab.
@@ -447,7 +445,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
         
     }
   
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Sarah Wilson']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Sarah Wilson']")
     private WebElement clickInvoiceCreated;
     /**
      * Method to Click on Invoice Created.

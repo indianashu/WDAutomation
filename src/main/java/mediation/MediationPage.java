@@ -135,7 +135,7 @@ public class MediationPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[13]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
     private WebElement clickConfigurationsTab;
     /**
      * Method to click on Configurations tab after successful login.
@@ -151,7 +151,7 @@ public class MediationPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[23]/a")
+    @FindBy(how=How.XPATH, using="//a[.='Plug-ins']")
     private WebElement clickPluginsLink;
     /**
      * Method to click on plugins link.
@@ -167,7 +167,7 @@ public class MediationPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='15']/strong")
+    @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'15')]]")
     private WebElement clickMediationReader;
     /**
      * Method to click on Mediation Reader link.
@@ -340,7 +340,7 @@ public class MediationPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='16']/strong")
+    @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'16')]]")
     private WebElement clickMediationProcessor;
     /**
      * Method to click on Mediation Processor link.
@@ -403,7 +403,7 @@ public class MediationPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='21']/strong")
+    @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'21')]]")
     private WebElement clickMediationErrorHandler;
     /**
      * Method to click on mediation error handler link.
@@ -449,7 +449,7 @@ public class MediationPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[1]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Customers']")
     private WebElement clickCustomersTab;
     /**
      * Method to click on Customers Tab.
@@ -526,7 +526,7 @@ public class MediationPage extends BasePage{
     }
     
       
-    @FindBy(how=How.XPATH, using="//*[@id='left-column']/div/ul/li[14]/a")
+    @FindBy(how=How.XPATH, using="//a[contains(text(),'Mediation')]")
     private WebElement clickMediationsLink;
     /**
      * Method to click on Mediations Link.
@@ -620,7 +620,7 @@ public class MediationPage extends BasePage{
         
     }
    
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[7]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Mediation']")
     private WebElement clickMediationsTab;
     /**
      * Method to click on Mediations Tab.
