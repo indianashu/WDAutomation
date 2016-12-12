@@ -109,7 +109,7 @@ public class ConfigurationNewInformationTypePage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -267,8 +267,9 @@ public class ConfigurationNewInformationTypePage extends BasePage{
      */
     public void selectMetafieldType() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
-        WebElement MetafieldTypeelement = driver.findElement(By.xpath("//select[@name='fieldType0']"));
-        Select se = new Select(MetafieldTypeelement);
+    	WebElement MetafieldTypeelement = driver.findElement(By.xpath("//select[@name='fieldType0']"));
+    	WaitClass.sleep(10000);
+    	Select se = new Select(MetafieldTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(5));
 
     }

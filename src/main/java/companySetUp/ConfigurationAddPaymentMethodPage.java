@@ -222,7 +222,8 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     public void enterMethodName() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Verifying the Method Name is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, enterMethodName);
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterMethodName);
         Assert.assertTrue(enterMethodName.isDisplayed());
         enterMethodName.sendKeys(sp.ExcelRead().get(4));
 
@@ -237,7 +238,8 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     public void selectIsRecurring() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Verifying the Is Recurring is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, selectIsRecurring);
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, selectIsRecurring);
         Assert.assertTrue(selectIsRecurring.isDisplayed());
         selectIsRecurring.click();
 
@@ -250,6 +252,7 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
      */
     public void selectAccountType() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
+    	WaitClass.sleep(10000);
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypes']"));
         Select se = new Select(AccountTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(5));

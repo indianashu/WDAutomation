@@ -191,7 +191,8 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void enterDescription() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying the Description is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, enterDescription);
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterDescription);
         Assert.assertTrue(enterDescription.isDisplayed());
         enterDescription.sendKeys(sp.ExcelRead().get(3));
 
@@ -204,6 +205,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
      */
     public void selectUnit() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
+    	WaitClass.sleep(10000);
         WebElement Unitelement = driver.findElement(By.xpath("//select[@name='periodUnitId']"));
         Select se = new Select(Unitelement);
         se.selectByVisibleText(sp.ExcelRead().get(4));
@@ -219,7 +221,8 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void enterValue() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying the Description is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, enterValue);
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterValue);
         Assert.assertTrue(enterValue.isDisplayed());
         enterValue.sendKeys(sp.ExcelRead().get(5));
 

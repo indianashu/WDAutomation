@@ -371,8 +371,8 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying if Collections are created/updated Successfully or not");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
+        WaitClass.sleep(20000);
+        WaitClass.WaitForElementisDisplay(driver, 20, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     

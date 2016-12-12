@@ -192,9 +192,10 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void selectGenerateReport() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Verifying the Is Recurring is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, selectGenerateReport);
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, selectGenerateReport);
         Assert.assertTrue(selectGenerateReport.isDisplayed());
-        selectGenerateReport.clear();
+        //selectGenerateReport.clear();
         selectGenerateReport.click();
 
     }
