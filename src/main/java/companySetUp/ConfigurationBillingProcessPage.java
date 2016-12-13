@@ -157,7 +157,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
      */
     public void clickBillingProcess() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
-        log.info("Click on Order Periods");
+        log.info("Click on Billing Process");
         WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickBillingProcess);
         Assert.assertTrue(clickBillingProcess.isDisplayed());
@@ -177,43 +177,11 @@ public class ConfigurationBillingProcessPage extends BasePage{
         log.info("Verifying the Next Run Date is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterNextRunDate);
         Assert.assertTrue(enterNextRunDate.isDisplayed());
+        enterNextRunDate.clear();
         enterNextRunDate.sendKeys(sp.ExcelRead().get(3));
-
     }
-    
-    
 
-    @FindBy(how=How.XPATH,using="//input[@name='generateReport']")
-    private WebElement selectGenerateReport;
-    /**
-     * Method to select Generate Report.
-     * @throws IOException 
-     */
-    public void selectGenerateReport() throws IOException{
-    	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
-        log.info("Verifying the Is Recurring is available or not");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectGenerateReport);
-        Assert.assertTrue(selectGenerateReport.isDisplayed());
-        //selectGenerateReport.clear();
-        selectGenerateReport.click();
 
-    }
-    
-    private WebElement selectBillingPeriod;
-    /**
-     * Method to select Billing Period.
-     * @throws IOException 
-     */
-    public void selectBillingPeriod() throws IOException{
-    	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
-        WebElement Billingelement = driver.findElement(By.xpath("//select[@name='periodUnitId']"));
-        Select se = new Select(Billingelement);
-        se.selectByVisibleText(sp.ExcelRead().get(4));
-
-    }
-    
-    
     @FindBy(how=How.XPATH,using="//input[@name='maximumPeriods']")
     private WebElement enterMaxPeriodInvoice;
     /**
@@ -225,23 +193,8 @@ public class ConfigurationBillingProcessPage extends BasePage{
         log.info("Verifying the Maximum Order Periods to Invoice is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterMaxPeriodInvoice);
         Assert.assertTrue(enterMaxPeriodInvoice.isDisplayed());
-        enterMaxPeriodInvoice.sendKeys(sp.ExcelRead().get(5));
-
-    }
-    
-    @FindBy(how=How.XPATH,using="//input[@name='proratingType']")
-    private WebElement selectNeverProrate;
-    /**
-     * Method to select Never enable prorating.
-     * @throws IOException 
-     */
-    public void selectNeverProrate() throws IOException{
-    	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
-        log.info("Verifying the Never enable prorating is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, selectNeverProrate);
-        Assert.assertTrue(selectNeverProrate.isDisplayed());
-        selectNeverProrate.clear();
-        selectNeverProrate.click();
+        enterMaxPeriodInvoice.clear();
+        enterMaxPeriodInvoice.sendKeys(sp.ExcelRead().get(4));
 
     }
     

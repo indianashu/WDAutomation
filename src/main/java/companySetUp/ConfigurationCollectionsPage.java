@@ -164,37 +164,40 @@ public class ConfigurationCollectionsPage extends BasePage{
         clickCollections.click();
         
     }
-    
+
     @FindBy(how=How.XPATH,using="//input[@name='obj[0].statusStr']")
     private WebElement enterIDSteps;
     /**
      * Method to enter IDSteps.
-     * @throws IOException 
+     * @throws IOException
      */
     public void enterIDSteps() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the IDStep is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps);
         Assert.assertTrue(enterIDSteps.isDisplayed());
         enterIDSteps.sendKeys(sp.ExcelRead().get(3));
 
     }
-    
+
     @FindBy(how=How.XPATH,using="//input[@name='obj[0].days']")
     private WebElement enterForDays;
     /**
      * Method to enter For Days.
-     * @throws IOException 
+     * @throws IOException
      */
     public void enterForDays() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterForDays);
         Assert.assertTrue(enterForDays.isDisplayed());
+        enterForDays.click();
         enterForDays.sendKeys(sp.ExcelRead().get(4));
 
     }
-    
+
     @FindBy(how=How.XPATH,using="//input[@name='obj[0].paymentRetry']")
     private WebElement selectPaymentCheckbox;
     /**
@@ -219,23 +222,26 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterIDSteps1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Description is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps1);
         Assert.assertTrue(enterIDSteps1.isDisplayed());
         enterIDSteps1.sendKeys(sp.ExcelRead().get(5));
 
     }
-    
+
     @FindBy(how=How.XPATH,using="//input[@name='obj[1].days']")
     private WebElement enterForDays1;
     /**
      * Method to enter For Days1.
-     * @throws IOException 
+     * @throws IOException
      */
     public void enterForDays1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterForDays1);
         Assert.assertTrue(enterForDays1.isDisplayed());
+        enterForDays1.click();
         enterForDays1.sendKeys(sp.ExcelRead().get(6));
 
     }
@@ -254,7 +260,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         selectNotificationCheckbox.click();
 
     }
-    
+
     @FindBy(how=How.XPATH,using="//input[@name='obj[2].statusStr']")
     private WebElement enterIDSteps2;
     /**
@@ -264,23 +270,26 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterIDSteps2() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the ID Step2 is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps2);
         Assert.assertTrue(enterIDSteps2.isDisplayed());
         enterIDSteps2.sendKeys(sp.ExcelRead().get(7));
 
     }
-    
+
     @FindBy(how=How.XPATH,using="//input[@name='obj[2].days']")
     private WebElement enterForDays2;
     /**
      * Method to enter For Days2.
-     * @throws IOException 
+     * @throws IOException
      */
     public void enterForDays2() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterForDays2);
         Assert.assertTrue(enterForDays2.isDisplayed());
+        enterForDays2.click();
         enterForDays2.sendKeys(sp.ExcelRead().get(8));
 
     }
@@ -299,8 +308,8 @@ public class ConfigurationCollectionsPage extends BasePage{
         selectPaymentCheckbox1.click();
 
     }
-    
-    @FindBy(how=How.XPATH,using="//input[@name='obj[2].statusStr']")
+
+    @FindBy(how=How.XPATH,using="//input[@name='obj[3].statusStr']")
     private WebElement enterIDSteps3;
     /**
      * Method to enter IDSteps3.
@@ -309,23 +318,26 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterIDSteps3() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the ID Step3 is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps3);
         Assert.assertTrue(enterIDSteps3.isDisplayed());
         enterIDSteps3.sendKeys(sp.ExcelRead().get(9));
 
     }
-    
-    @FindBy(how=How.XPATH,using="//input[@name='obj[2].days']")
+
+    @FindBy(how=How.XPATH,using="//input[@name='obj[3].days']")
     private WebElement enterForDays3;
     /**
      * Method to enter For Days3.
-     * @throws IOException 
+     * @throws IOException
      */
     public void enterForDays3() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, enterForDays3);
         Assert.assertTrue(enterForDays3.isDisplayed());
+        enterForDays3.click();
         enterForDays3.sendKeys(sp.ExcelRead().get(10));
 
     }
@@ -376,7 +388,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-  
+  //Configure Collections Plugins - userAgeingNotificationTask
     
     @FindBy(how=How.XPATH, using="//a[.='Plug-ins']")
     private WebElement clickPluginsLink;

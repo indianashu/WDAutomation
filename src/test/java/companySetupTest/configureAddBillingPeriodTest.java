@@ -46,12 +46,9 @@ public class configureAddBillingPeriodTest {
     	configurationBillingProcessPage.clickLoginButton();
     	configurationBillingProcessPage.clickConfigurationTab();
     	configurationBillingProcessPage.clickBillingProcess();
-    	configurationBillingProcessPage.enterNextRunDate();
-    	configurationBillingProcessPage.selectGenerateReport();
-    	configurationBillingProcessPage.selectBillingPeriod();
-    	configurationBillingProcessPage.enterMaxPeriodInvoice();
-    	configurationBillingProcessPage.selectNeverProrate();
-    	configurationBillingProcessPage.clickSaveChangesButton();
+        configurationBillingProcessPage.enterMaxPeriodInvoice();
+        configurationBillingProcessPage.enterNextRunDate();
+        configurationBillingProcessPage.clickSaveChangesButton();
     	configurationBillingProcessPage.verifyConfirmationMsg();
 
 

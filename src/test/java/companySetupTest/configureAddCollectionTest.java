@@ -55,8 +55,19 @@ public class configureAddCollectionTest {
     	configurationCollectionsPage.enterIDSteps2();
     	configurationCollectionsPage.enterForDays2();
     	configurationCollectionsPage.selectPaymentCheckbox1();
+        configurationCollectionsPage.enterIDSteps3();
+    	configurationCollectionsPage.enterForDays3();
+    	configurationCollectionsPage.selectSuspendCheckbox1();
     	configurationCollectionsPage.clickSaveChangesButton();
     	configurationCollectionsPage.verifyConfirmationMsg();
+		configurationCollectionsPage.clickPluginsLink();
+		configurationCollectionsPage.clickCategory17();
+		configurationCollectionsPage.clickAddNewButton();
+		configurationCollectionsPage.selectTypeID();
+		configurationCollectionsPage.enterLeftAttribute();
+		configurationCollectionsPage.enterRightAttribute();
+		configurationCollectionsPage.clickPlusIcon();
+		configurationCollectionsPage.clickSavePluginButton();
 
     }
     
