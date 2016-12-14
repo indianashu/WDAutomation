@@ -207,6 +207,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectPaymentCheckbox() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Payment Checkbox is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, selectPaymentCheckbox);
         Assert.assertTrue(selectPaymentCheckbox.isDisplayed());
         selectPaymentCheckbox.click();
@@ -255,6 +256,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectNotificationCheckbox() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Notification Checkbox is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, selectNotificationCheckbox);
         Assert.assertTrue(selectNotificationCheckbox.isDisplayed());
         selectNotificationCheckbox.click();
@@ -303,6 +305,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectPaymentCheckbox1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Payment Checkbox is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, selectPaymentCheckbox1);
         Assert.assertTrue(selectPaymentCheckbox1.isDisplayed());
         selectPaymentCheckbox1.click();
@@ -351,6 +354,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectSuspendCheckbox1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Suspend Checkbox is available or not");
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 5, selectSuspendCheckbox1);
         Assert.assertTrue(selectSuspendCheckbox1.isDisplayed());
         selectSuspendCheckbox1.click();
