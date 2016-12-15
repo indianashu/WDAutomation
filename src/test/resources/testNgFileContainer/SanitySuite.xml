@@ -25,28 +25,21 @@
 		</groups>
 
 		<classes>
+
 			<class name = "companySetupTest.configureAccountTypeTest"/>
-			<class name = "companySetupTest.editConfigureAccountTypeTest" />
-				
-		</classes>
-		
-			<!--
-			<class name ="loginWebData.WebDataLoginTest"/>
-			<class name = "companySetupTest.configureAccountTypeTest"/>
-			<class name="SignupTest.SignupTest" />
-			<class name ="customerTest.verifyDiscountOrderTest"/>
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
 			<class name = "companySetupTest.configurePaymentMethodTest" />
 			<class name = "companySetupTest.configurePaymentMethCreditCardTest" />
 			<class name = "companySetupTest.configureAddOrderPeriodTest" />
 			<class name = "companySetupTest.configureAddCollectionTest" />
 			<class name = "companySetupTest.configureAddBillingPeriodTest" />
-			<class name = "companySetupTest.configureAddAddNewInfoTypeTest" />
+			<class name = "companySetupTest.configureAddNewInfoTypeTest" />
 			<class name = "categoryProductsTest.addEditCategoryTest" />
-			<class name = "customerTest.addNewCustomerTest" />
-			<class name ="billingProcessTest.approvingReviewReportforRealBillingTest"/>-->
+			<class name = "categoryProductsTest.addAllowAssetManagementTest" />
+			<class name = "categoryProductsTest.addEditProductTest" />
+			<class name = "categoryProductsTest.copyProductTest" />
 
-		
+		</classes>
 
 	</test>
 

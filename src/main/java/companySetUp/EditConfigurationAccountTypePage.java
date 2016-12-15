@@ -144,7 +144,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void clickConfigurationTab() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on Configuration Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
         Assert.assertTrue(clickConfigurationTab.isDisplayed());
         clickConfigurationTab.click();
@@ -160,7 +160,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void clickAccountType() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on Account Type");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAccountType);
         Assert.assertTrue(clickAccountType.isDisplayed());
         clickAccountType.click();
@@ -175,8 +175,8 @@ public class EditConfigurationAccountTypePage extends BasePage{
      */
     public void clickAddNewButton() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
-        log.info("Click on Account Type");
-        WaitClass.sleep(10000);
+        log.info("Click on Add New");
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -191,7 +191,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void enterAccountName() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Enter Account Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterAccountName);
         Assert.assertTrue(enterAccountName.isDisplayed());
         enterAccountName.sendKeys(sp.ExcelRead().get(3));
@@ -207,7 +207,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void enterBillingCycle() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Enter Billing Cycle");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterBillingCycle);
         Assert.assertTrue(enterBillingCycle.isDisplayed());
         enterBillingCycle.clear();
@@ -237,7 +237,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -253,7 +253,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -267,7 +267,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void clickAccountTypeCreated() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on account type created");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
        String AccountName = sp.ExcelRead().get(3);
        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+AccountName+"']")).click();
         
@@ -282,7 +282,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void clickEditAccountTypeCreated() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on Edit Account Type created");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickEditAccountTypeCreated);
         Assert.assertTrue(clickEditAccountTypeCreated.isDisplayed());
         clickEditAccountTypeCreated.click();
@@ -298,7 +298,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void enterEditAccountName() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Edit Account Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEditAccountName);
         Assert.assertTrue(enterEditAccountName.isDisplayed());
         enterEditAccountName.clear();
