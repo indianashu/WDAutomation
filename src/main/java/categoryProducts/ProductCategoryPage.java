@@ -225,7 +225,7 @@ public class ProductCategoryPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Category1']")
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Category1']")
     private WebElement clickCategoryName;
     /**
      * Method to click on Category Name.
@@ -235,9 +235,8 @@ public class ProductCategoryPage extends BasePage{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Save Changes Button");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCategoryName);
-        Assert.assertTrue(clickCategoryName.isDisplayed());
-        clickCategoryName.click();
+        String CategoryName = sp.ExcelRead().get(3);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
     }
     
