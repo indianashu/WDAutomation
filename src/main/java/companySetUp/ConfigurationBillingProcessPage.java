@@ -197,7 +197,50 @@ public class ConfigurationBillingProcessPage extends BasePage{
         enterMaxPeriodInvoice.sendKeys(sp.ExcelRead().get(4));
 
     }
-    
+
+    @FindBy(how=How.XPATH,using="//input[@name='generateReport']")
+    private WebElement selectGenerateReport;
+    /**
+     * Method to select Generate Report.
+     * @throws IOException
+     */
+    public void selectGenerateReport() throws IOException{
+        ConfigurationBillingProcessPage sp = new ConfigurationBillingProcessPage(driver);
+        log.info("Verifying the Is Recurring is available or not");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, selectGenerateReport);
+        Assert.assertTrue(selectGenerateReport.isDisplayed());
+        //selectGenerateReport.clear();
+        selectGenerateReport.click();
+
+    }
+
+    private WebElement selectBillingPeriod;
+    /**
+     * Method to select Billing Period.
+     * @throws IOException
+     */
+    public void selectBillingPeriod() throws IOException{
+        ConfigurationBillingProcessPage sp = new ConfigurationBillingProcessPage(driver);
+        WebElement Billingelement = driver.findElement(By.xpath("//select[@name='periodUnitId']"));
+        Select se = new Select(Billingelement);
+        se.selectByVisibleText(sp.ExcelRead().get(4));
+    }
+
+    @FindBy(how=How.XPATH,using="//input[@name='proratingType']")
+    private WebElement selectNeverProrate;
+    /**
+     * Method to select Never enable prorating.
+     * @throws IOException
+     */
+    public void selectNeverProrate() throws IOException {
+        ConfigurationBillingProcessPage sp = new ConfigurationBillingProcessPage(driver);
+        log.info("Verifying the Never enable prorating is available or not");
+        WaitClass.WaitForElementisDisplay(driver, 5, selectNeverProrate);
+        Assert.assertTrue(selectNeverProrate.isDisplayed());
+        selectNeverProrate.clear();
+        selectNeverProrate.click();
+    }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
     private WebElement clickSaveChangesButton;
