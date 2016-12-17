@@ -289,6 +289,21 @@ public class ProductCategoryPage extends BasePage{
 
     }
 
+    @FindBy(how=How.XPATH, using="//input[@name='global']")
+    private WebElement clickGlobalCheckbox;
+    /**
+     * Method to click Global checkbox.
+     * @throws IOException 
+     */
+    public void clickGlobalCheckbox() throws IOException{
+    	ProductCategoryPage sp=new ProductCategoryPage(driver);
+        log.info("Click Allow Assest Mgmt checkbox");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickGlobalCheckbox);
+        Assert.assertTrue(clickGlobalCheckbox.isDisplayed());
+        clickGlobalCheckbox.click(); 
+    }
+    
     @FindBy(how=How.XPATH, using="//input[@name='allowAssetManagement']")
     private WebElement clickAllowAssestMgmt;
     /**

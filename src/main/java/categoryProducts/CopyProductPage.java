@@ -31,19 +31,19 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class AddProductPage extends BasePage{
+public class CopyProductPage extends BasePage{
     /**
      * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
      * then this will take care of initialization of the driver
      *
      * @param webdriver
      */
-    public AddProductPage(WebDriver webdriver) {
+    public CopyProductPage(WebDriver webdriver) {
         super(webdriver);
     }
 
-    Logger log=Logger.getLogger(AddProductPage.class);
-    AddProductPage addProductPage;
+    Logger log=Logger.getLogger(CopyProductPage.class);
+    CopyProductPage addProductPage;
     PropertyValExtractors p = new PropertyValExtractors();
   
     public  ArrayList<String> ExcelRead() throws IOException{
@@ -53,7 +53,7 @@ public class AddProductPage extends BasePage{
 		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("AddProduct");
+		XSSFSheet sheet=wb.getSheet("CopyProduct");
 		
 		Iterator<Row> row=sheet.iterator();
 		//System.out.println();
@@ -85,7 +85,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginID() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
     	
         log.info("Verifying the Login ID is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
@@ -100,7 +100,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void enterPassword() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
@@ -114,7 +114,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
         Select se = new Select(Companyelement);
         se.selectByVisibleText(sp.ExcelRead().get(2));
@@ -127,7 +127,7 @@ public class AddProductPage extends BasePage{
      * Method to Click on  Save Changes Button
      */
     public void clickLoginButton(){
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Verifying the login button is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
         Assert.assertTrue(clickLoginButton.isDisplayed());
@@ -141,7 +141,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void clickProductsTab() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Products Tab after successful login");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
@@ -150,6 +150,39 @@ public class AddProductPage extends BasePage{
         
     }
     
+    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Category']")
+    private WebElement clickAddCategoryButton;
+    /**
+     * Method to click on Add Category Button.
+     * @throws IOException 
+     */
+    public void clickAddCategoryButton() throws IOException{
+    	ProductCategoryPage sp=new ProductCategoryPage(driver);
+        log.info("Click on Add Category Button");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
+        Assert.assertTrue(clickAddCategoryButton.isDisplayed());
+        clickAddCategoryButton.click();
+        
+    }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='description']")
+    private WebElement enterCategoryName;
+    /**
+     * Method to Enter Category Name.
+     * @throws IOException 
+     */
+    public void enterCategoryName() throws IOException{
+    	ProductCategoryPage sp=new ProductCategoryPage(driver);
+        log.info("Enter Category Name");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
+        Assert.assertTrue(enterCategoryName.isDisplayed());
+        enterCategoryName.sendKeys(sp.ExcelRead().get(3));
+        
+    }
+    
+    
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test Category1']")
     private WebElement selectCategoryName;
     /**
@@ -157,7 +190,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void selectCategoryName() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on a category name.");
         WaitClass.sleep(2000);
         String CategoryName = sp.ExcelRead().get(3);
@@ -172,7 +205,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddProductButton() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Add Product Button");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
@@ -188,7 +221,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void enterEnglishDescription() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter English Description");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription);
@@ -204,7 +237,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void enterProductCode() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Product Code");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
@@ -212,47 +245,17 @@ public class AddProductPage extends BasePage{
         enterProductCode.sendKeys(sp.ExcelRead().get(5));
         
     }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.standardAvailability']")
-    private WebElement selectStandardAvailability;
-    /**
-     * Method to Uncheck Standard Availability Checkbox.
-     * @throws IOException 
-     */
-    public void selectStandardAvailability() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Uncheck Standard Availability Checkbox");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, selectStandardAvailability);
-        Assert.assertTrue(selectStandardAvailability.isDisplayed());
-        selectStandardAvailability.click();
-//        WaitClass.sleep(1000);
-//        driver.findElement(By.xpath("//*[@name=\"product.accountTypes\"]/option[2]")).click();
-    }
-    
-    private WebElement selectAvailableAccountTypes;
-    /**
-     * Method to select Available Account Types.
-     * @throws IOException 
-     */
-    public void selectAvailableAccountTypes() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        WebElement Accountelement = driver.findElement(By.xpath("//select[@name='product.accountTypes']"));
-        Select se = new Select(Accountelement);
-        se.selectByVisibleText(sp.ExcelRead().get(6));
-
-    }
-    
+        
     private WebElement selectCompanies;
     /**
      * Method to select companies.
      * @throws IOException 
      */
     public void selectCompanies() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
         Select se = new Select(Companieselement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
+        se.selectByVisibleText(sp.ExcelRead().get(6));
 
     }
 
@@ -263,13 +266,13 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void enterPriceDate() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Date");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate);
         Assert.assertTrue(enterPriceDate.isDisplayed());
         enterPriceDate.clear();
-        enterPriceDate.sendKeys(sp.ExcelRead().get(8));
+        enterPriceDate.sendKeys(sp.ExcelRead().get(7));
         
     }
     
@@ -279,10 +282,10 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void selectPriceCompany() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
         Select se = new Select(Companieselement);
-        se.selectByVisibleText(sp.ExcelRead().get(9));
+        se.selectByVisibleText(sp.ExcelRead().get(8));
 
     }
     
@@ -292,10 +295,10 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void selectPriceCurrency() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
         Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(10));
+        se.selectByVisibleText(sp.ExcelRead().get(9));
 
     }
     
@@ -306,75 +309,13 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void enterPriceRate() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Rate");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
         Assert.assertTrue(enterPriceRate.isDisplayed());
-        enterPriceRate1.clear();
-        enterPriceRate.sendKeys(sp.ExcelRead().get(11));
-        
-    }
-    
-    
-    @FindBy(how=How.XPATH, using="//*[@name=\"mydate\"]")
-    private WebElement enterPriceDate1;
-    /**
-     * Method to Uncheck Standard Availability Checkbox.
-     * @throws IOException 
-     */
-    public void enterPriceDate1() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Uncheck Standard Availability Checkbox");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate1);
-        Assert.assertTrue(enterPriceDate1.isDisplayed());
-        enterPriceDate1.clear();
-        enterPriceDate1.sendKeys(sp.ExcelRead().get(12));
-        
-    }
-    
-    private WebElement selectPriceCompany1;
-    /**
-     * Method to select company in Prices.
-     * @throws IOException 
-     */
-    public void selectPriceCompany1() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
-        Select se = new Select(Companieselement);
-        se.selectByVisibleText(sp.ExcelRead().get(13));
-
-    }
-    
-    private WebElement selectPriceCurrency1;
-    /**
-     * Method to select price currency.
-     * @throws IOException 
-     */
-    public void selectPriceCurrency1() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-        Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(14));
-
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRate1;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRate1() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Enter Price Rate");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate1);
-        enterPriceRate1.clear();
-        Assert.assertTrue(enterPriceRate1.isDisplayed());
-        enterPriceRate1.clear();
-        enterPriceRate1.sendKeys(sp.ExcelRead().get(15));
+        enterPriceRate.clear();
+        enterPriceRate.sendKeys(sp.ExcelRead().get(10));
         
     }
     
@@ -385,7 +326,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddPriceButton() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Add Price Button");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
@@ -402,7 +343,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void clickSaveChangesButton() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Save Changes Button");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
@@ -417,7 +358,7 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void verifyConfirmationMsg() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
@@ -427,130 +368,73 @@ public class AddProductPage extends BasePage{
     
     //////////////////////////////////////////////////////////////////////
     
-    @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
-    private WebElement enterEnglishDescription3;
+
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Copy Product Desc']")
+    private WebElement selectCopyCategory;
     /**
-     * Method to Enter English Description.
+     * Method to select copy category.
      * @throws IOException 
      */
-    public void enterEnglishDescription3() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
+    public void selectCopyCategory() throws IOException{
+    	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter English Description");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription3);
-        Assert.assertTrue(enterEnglishDescription3.isDisplayed());
-        enterEnglishDescription3.sendKeys(sp.ExcelRead().get(16));
+        String CategoryName = sp.ExcelRead().get(3);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.number']")
-    private WebElement enterProductCode3;
-    /**
-     * Method to Enter Product Code.
-     * @throws IOException 
-     */
-    public void enterProductCode3() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Enter Product Code");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode3);
-        Assert.assertTrue(enterProductCode3.isDisplayed());
-        enterProductCode3.sendKeys(sp.ExcelRead().get(17));
-        
-    }
-        
-    private WebElement selectCompanies3;
-    /**
-     * Method to select companies.
-     * @throws IOException 
-     */
-    public void selectCompanies3() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
-        Select se = new Select(Companieselement);
-        se.selectByVisibleText(sp.ExcelRead().get(18));
-
     }
 
-       
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRate3;
+    
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Copy Product Desc']")
+    private WebElement selectProduct;
     /**
-     * Method to Enter Price Rate.
+     * Method to select product.
      * @throws IOException 
      */
-    public void enterPriceRate3() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Enter Price Rate");
+    public void selectProduct() throws IOException{
+    	CopyProductPage sp=new CopyProductPage(driver);
+        log.info("Enter English Description");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate3);
-        Assert.assertTrue(enterPriceRate3.isDisplayed());
-        enterPriceRate3.clear();
-        enterPriceRate3.sendKeys(sp.ExcelRead().get(19));
-        
-    }
-    
-    
-    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Abc']")
-    private WebElement clickProductName;
-    /**
-     * Method to click on Product name Test Abc.
-     * @throws IOException 
-     */
-    public void clickProductName() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Click on Product Name Test Abc");
-        WaitClass.sleep(2000);
-        String ProductName = sp.ExcelRead().get(16);
+        String ProductName = sp.ExcelRead().get(4);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit edit']//*[text()='Edit']")
-    private WebElement clickEditProduct;
+  
+    @FindBy(how=How.XPATH, using="//a[@class='submit copy']//*[text()='Copy Product']")
+    private WebElement clickCopyProductButton;
     /**
-     * Method to Click Edit button.
+     * Method to click copy product button.
      * @throws IOException 
      */
-    public void clickEditProduct() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Enter Edit Button");
+    public void clickCopyProductButton() throws IOException{
+    	CopyProductPage sp=new CopyProductPage(driver);
+        log.info("Click Copy Product Button");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickEditProduct);
-        Assert.assertTrue(clickEditProduct.isDisplayed());
-        clickEditProduct.click();
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCopyProductButton);
+        Assert.assertTrue(clickCopyProductButton.isDisplayed());
+        clickCopyProductButton.click();
+        
     }
     
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
-    private WebElement editEnglishDescription;
+       
+    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
+    private WebElement enterPriceRate1;
     /**
-     * Method to Edit English Description.
+     * Method to Enter Price Rate.
      * @throws IOException 
      */
-    public void editEnglishDescription() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Edit English Description");
+    public void enterPriceRate1() throws IOException{
+    	CopyProductPage sp=new CopyProductPage(driver);
+        log.info("Enter Price Rate");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, editEnglishDescription);
-        Assert.assertTrue(editEnglishDescription.isDisplayed());
-        editEnglishDescription.sendKeys(sp.ExcelRead().get(20)); 
+        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate1);
+        Assert.assertTrue(enterPriceRate1.isDisplayed());
+        enterPriceRate1.clear();
+        enterPriceRate1.sendKeys(sp.ExcelRead().get(11));
+        
     }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
-    private WebElement editProductCode;
-    /**
-     * Method to Edit Product Code.
-     * @throws IOException 
-     */
-    public void editProductCode() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        log.info("Edit Product Code");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, editProductCode);
-        Assert.assertTrue(editProductCode.isDisplayed());
-        editProductCode.sendKeys(sp.ExcelRead().get(21)); 
-    }   
+   
     
     
     public void navigateBottom(){

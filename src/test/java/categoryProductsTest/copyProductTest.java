@@ -19,11 +19,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
-import categoryProducts.AddProductPage;
+import categoryProducts.CopyProductPage;
 
 
 public class copyProductTest {
-	AddProductPage addProductPage;
+	CopyProductPage copyProductPage;
     WebDriver driver,driver2;
 
     @BeforeClass(alwaysRun=true)
@@ -34,17 +34,43 @@ public class copyProductTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        addProductPage=AddProductPage.getPage(driver, AddProductPage.class);
+        copyProductPage=CopyProductPage.getPage(driver, CopyProductPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Copy Product")
     public void userSignin() throws IOException{
-    	addProductPage.enterLoginID();
-    	addProductPage.enterPassword();
-    	addProductPage.selectCompany();
-    	addProductPage.clickLoginButton();
-    	addProductPage.clickProductsTab();
+    	copyProductPage.enterLoginID();
+    	copyProductPage.enterPassword();
+    	copyProductPage.selectCompany();
+    	copyProductPage.clickLoginButton();
+    	copyProductPage.clickProductsTab();
+    	copyProductPage.clickAddCategoryButton();
+    	copyProductPage.enterCategoryName();
+    	copyProductPage.clickSaveChangesButton();
+    	copyProductPage.verifyConfirmationMsg();
+    	copyProductPage.selectCategoryName();
+    	copyProductPage.clickAddProductButton();
+    	copyProductPage.enterEnglishDescription();
+    	copyProductPage.enterProductCode();
+    	copyProductPage.selectCompanies();
+    	copyProductPage.enterPriceDate();
+    	copyProductPage.selectPriceCompany();
+    	copyProductPage.selectPriceCurrency();
+    	copyProductPage.enterPriceRate();
+    	copyProductPage.clickAddPriceButton();
+    	copyProductPage.clickSaveChangesButton();
+    	copyProductPage.verifyConfirmationMsg();
+    	copyProductPage.clickProductsTab();
+    	copyProductPage.selectCopyCategory();
+    	copyProductPage.selectProduct();
+    	copyProductPage.clickCopyProductButton();
+    	copyProductPage.enterPriceRate1();
+    	copyProductPage.clickAddPriceButton();
+    	copyProductPage.clickSaveChangesButton();
+    	copyProductPage.verifyConfirmationMsg();
+    	
+    	
     	
     }
     

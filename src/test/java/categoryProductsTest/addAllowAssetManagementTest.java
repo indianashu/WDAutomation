@@ -47,7 +47,7 @@ public class addAllowAssetManagementTest {
     	productCategoryPage.clickProductsTab();
     	productCategoryPage.clickAddCategoryButton();
     	productCategoryPage.enterAssetCategoryName();
-    	productCategoryPage.selectCompanies();
+    	productCategoryPage.clickGlobalCheckbox();
     	productCategoryPage.clickAllowAssestMgmt();
     	productCategoryPage.enterAssetName();
     	productCategoryPage.clickAvaiableCheckbox();

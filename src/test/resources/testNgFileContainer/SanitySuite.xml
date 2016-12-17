@@ -37,6 +37,7 @@
 			<class name = "categoryProductsTest.addEditCategoryTest" />
 			<class name = "categoryProductsTest.addAllowAssetManagementTest" />
 			<class name = "categoryProductsTest.addEditProductTest" />
+			<class name = "categoryProductsTest.addProductWithAssetTest" />
 			<class name = "categoryProductsTest.copyProductTest" />
 
 		</classes>
