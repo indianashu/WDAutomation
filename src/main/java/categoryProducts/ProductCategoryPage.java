@@ -298,7 +298,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickGlobalCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Allow Assest Mgmt checkbox");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(3000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickGlobalCheckbox);
         Assert.assertTrue(clickGlobalCheckbox.isDisplayed());
         clickGlobalCheckbox.click(); 

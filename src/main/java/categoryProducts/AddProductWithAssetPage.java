@@ -276,7 +276,7 @@ public class AddProductWithAssetPage extends BasePage{
     public void selectCategoryName() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on a category name.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(3000);
         String CategoryName = sp.ExcelRead().get(5);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
