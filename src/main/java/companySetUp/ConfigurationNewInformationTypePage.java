@@ -211,7 +211,43 @@ public class ConfigurationNewInformationTypePage extends BasePage{
         enterName.sendKeys(sp.ExcelRead().get(3));
         
     }
-    
+
+    @FindBy(how=How.XPATH, using="//*[@name='displayOrder']")
+    private WebElement enterdisplayOrder;
+    /**
+     * Method to Enter Name.
+     * @throws IOException
+     */
+    public void enterdisplayOrder() throws IOException{
+        ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
+        log.info("Display Order is available or not");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterdisplayOrder);
+        Assert.assertTrue(enterdisplayOrder.isDisplayed());
+        enterdisplayOrder.sendKeys(sp.ExcelRead().get(6));
+
+    }
+
+    @FindBy(how=How.XPATH, using="//*[@name='useForNotifications']")
+    private WebElement checkuseForNotifications;
+    /**
+     * Method to Enter Name.
+     * @throws IOException
+     */
+    public void checkuseForNotifications() throws IOException{
+        ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
+        log.info("Display Order is available or not");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, checkuseForNotifications);
+        Assert.assertTrue(checkuseForNotifications.isDisplayed());
+        checkuseForNotifications.click();
+        log.info("click on yes button");
+        WaitClass.sleep(2000);
+        WebElement clickYesPopup = driver.findElement(By.xpath("/html/body/div[4]/div[3]/div/button[1]/span"));
+        Assert.assertTrue(clickYesPopup.isDisplayed());
+        clickYesPopup.click();
+    }
+
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Add New Metafield']")
     private WebElement clickAddNewMetafieldButton;
     /**
@@ -225,8 +261,7 @@ public class ConfigurationNewInformationTypePage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewMetafieldButton);
         Assert.assertTrue(clickAddNewMetafieldButton.isDisplayed());
         clickAddNewMetafieldButton.click();
-        
-    }  
+    }
     
     @FindBy(how=How.XPATH, using="//span[@class='description']")
     private WebElement clickDecription;

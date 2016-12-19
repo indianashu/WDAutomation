@@ -61,13 +61,31 @@ public class addEditProductTest {
         addProductPage.selectPriceCurrency1();
         addProductPage.enterPriceRate1();
         addProductPage.clickAddPriceButton();
+        addProductPage.navigateBottom();
         addProductPage.clickSaveChangesButton();
         addProductPage.verifyConfirmationMsg();
+        addProductPage.clickProductsTab();
+        addProductPage.selectCategoryName();
+        addProductPage.clickAddProductButton();
+        addProductPage.enterEnglishDescription3();
+        addProductPage.enterProductCode3();
+        addProductPage.selectCompanies3();
+        addProductPage.enterPriceDate();
+        addProductPage.selectPriceCompany();
+        addProductPage.selectPriceCurrency();
+        addProductPage.enterPriceRate3();
+        addProductPage.clickAddPriceButton();
+        addProductPage.navigateBottom();
+        addProductPage.clickSaveChangesButton();
+        addProductPage.selectCategoryName();
         addProductPage.clickProductName();
+        addProductPage.navigateBottom();
         addProductPage.clickEditProduct();
         addProductPage.editEnglishDescription();
         addProductPage.editProductCode();
+        addProductPage.navigateBottom();
         addProductPage.clickSaveChangesButton();
+
     }
     
     @AfterClass(alwaysRun=true)

@@ -31,6 +31,7 @@ public class JavaScriptExec {
 	public static void scrollToElementOnPage(WebDriver driver,WebElement element){
 		log.info("##### Scrolling down to find element######");
 		JavascriptExecutor javascriptExecutor=(JavascriptExecutor)driver;
+		WaitClass.sleep(2000);
 		javascriptExecutor.executeScript("arguments[0].scrollIntoView();", element);
 		WaitClass.WaitForElementisDisplay(driver, 5, element);
 	}

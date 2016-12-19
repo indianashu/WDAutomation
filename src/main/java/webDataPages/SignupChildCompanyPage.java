@@ -140,7 +140,7 @@ public class SignupChildCompanyPage extends BasePage{
     public void verifyLabelSuccessfulLogin() throws IOException{
     	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying if Label is available or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyLabelSuccessfulLogin);
         Assert.assertTrue(verifyLabelSuccessfulLogin.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -174,7 +174,7 @@ public class SignupChildCompanyPage extends BasePage{
         String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
         System.out.println("Company Name:********" +ActualRootCompany+ "*********");
         log.info("Click on customer name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         //WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
         //Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
         Assert.assertEquals(ActualRootCompany, RootCompanyName);
@@ -436,7 +436,7 @@ public class SignupChildCompanyPage extends BasePage{
     public void verifyLabelConfirmationMessage() throws IOException{
     	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying if Label is available or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, labelConfirmationMessage);
         Assert.assertTrue(labelConfirmationMessage.getText().contains(sp.ExcelRead().get(20)), "Assert Failed as its unable to search text in Logged in Page");
     }

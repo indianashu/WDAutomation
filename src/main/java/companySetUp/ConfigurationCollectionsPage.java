@@ -244,6 +244,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 5, enterForDays1);
         Assert.assertTrue(enterForDays1.isDisplayed());
         enterForDays1.click();
+        WaitClass.sleep(1000);
         enterForDays1.sendKeys(sp.ExcelRead().get(6));
 
     }
@@ -293,6 +294,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 5, enterForDays2);
         Assert.assertTrue(enterForDays2.isDisplayed());
         enterForDays2.click();
+        WaitClass.sleep(1000);
         enterForDays2.sendKeys(sp.ExcelRead().get(8));
 
     }
@@ -342,6 +344,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 5, enterForDays3);
         Assert.assertTrue(enterForDays3.isDisplayed());
         enterForDays3.click();
+        WaitClass.sleep(1000);
         enterForDays3.sendKeys(sp.ExcelRead().get(10));
 
     }

@@ -49,7 +49,6 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.clickCategory17();
     	addProductWithAssetPage.clickAddNewButton();
     	addProductWithAssetPage.selectTypeId();
-    	addProductWithAssetPage.enterProcessingOrder();
     	addProductWithAssetPage.clickSavePluginButton();
     	addProductWithAssetPage.clickProductsTab();
     	addProductWithAssetPage.selectCategoryName();
@@ -60,9 +59,11 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.selectAllowAssetManagement();
     	addProductWithAssetPage.enterPriceRate();
     	addProductWithAssetPage.clickAddPriceButton();
+		addProductWithAssetPage.navigateBottom();
     	addProductWithAssetPage.clickSaveChangesButton();
     	addProductWithAssetPage.verifyConfirmationMsg();
     	addProductWithAssetPage.clickProductName();
+		addProductWithAssetPage.navigateBottom();
     	addProductWithAssetPage.clickAddAssetButton();
     	addProductWithAssetPage.enterIdentifier1();
     	addProductWithAssetPage.checkIsGlobal();
@@ -75,11 +76,8 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.enterTaxID1();
     	addProductWithAssetPage.clickSaveChangesButton();
     	addProductWithAssetPage.verifyConfirmationMsg();
-    	
-    	
-    	
-    	
     }
+
     @AfterClass(alwaysRun=true)
     public void tearDown(){
      BaseClasses.closeDriver("User1");

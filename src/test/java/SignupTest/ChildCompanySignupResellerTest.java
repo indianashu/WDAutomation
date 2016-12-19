@@ -30,7 +30,7 @@ public class ChildCompanySignupResellerTest {
         driver= BaseClasses.setup( "User1");
         PropertyValExtractors p=new PropertyValExtractors();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url");
+        String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
         signupChildCompanyInvoiceAsSellerPage=SignupChildCompanyInvoiceAsSellerPage.getPage(driver, SignupChildCompanyInvoiceAsSellerPage.class);
@@ -66,8 +66,6 @@ public class ChildCompanySignupResellerTest {
     	signupChildCompanyInvoiceAsSellerPage.selectCountry();
     	signupChildCompanyInvoiceAsSellerPage.enterZipCode();
     	signupChildCompanyInvoiceAsSellerPage.clickSaveChangesButton();
-    	signupChildCompanyInvoiceAsSellerPage.verifyLabelConfirmationMessage();
-
 
     }
     @AfterClass(alwaysRun=true)

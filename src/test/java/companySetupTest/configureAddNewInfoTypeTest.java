@@ -49,8 +49,10 @@ public class configureAddNewInfoTypeTest {
     	configurationNewInformationTypePage.clickAccountTypeCreated();
     	configurationNewInformationTypePage.enterAccountName();
     	configurationNewInformationTypePage.enterName();
+        configurationNewInformationTypePage.enterdisplayOrder();
+        configurationNewInformationTypePage.checkuseForNotifications();
     	configurationNewInformationTypePage.clickAddNewMetafieldButton();
-    	configurationNewInformationTypePage.clickDecription();
+    	//configurationNewInformationTypePage.clickDecription();
     	configurationNewInformationTypePage.enterMetafieldName();
     	configurationNewInformationTypePage.selectMetafieldType();
     	configurationNewInformationTypePage.clickUpdateButton();

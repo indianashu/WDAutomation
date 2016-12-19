@@ -143,7 +143,7 @@ public class AddProductPage extends BasePage{
     public void clickProductsTab() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Click on Products Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
@@ -159,7 +159,7 @@ public class AddProductPage extends BasePage{
     public void selectCategoryName() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Click on a category name.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String CategoryName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
@@ -174,7 +174,7 @@ public class AddProductPage extends BasePage{
     public void clickAddProductButton() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Click on Add Product Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
         Assert.assertTrue(clickAddProductButton.isDisplayed());
         clickAddProductButton.click();
@@ -190,7 +190,7 @@ public class AddProductPage extends BasePage{
     public void enterEnglishDescription() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter English Description");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
         enterEnglishDescription.sendKeys(sp.ExcelRead().get(4));
@@ -206,7 +206,7 @@ public class AddProductPage extends BasePage{
     public void enterProductCode() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Product Code");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(sp.ExcelRead().get(5));
@@ -222,12 +222,12 @@ public class AddProductPage extends BasePage{
     public void selectStandardAvailability() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Uncheck Standard Availability Checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, selectStandardAvailability);
         Assert.assertTrue(selectStandardAvailability.isDisplayed());
         selectStandardAvailability.click();
-//        WaitClass.sleep(1000);
-//        driver.findElement(By.xpath("//*[@name=\"product.accountTypes\"]/option[2]")).click();
+        WaitClass.sleep(1000);
+        driver.findElement(By.xpath("//*[@name=\"product.accountTypes\"]/option[2]")).click();
     }
     
     private WebElement selectAvailableAccountTypes;
@@ -265,7 +265,7 @@ public class AddProductPage extends BasePage{
     public void enterPriceDate() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Price Date");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate);
         Assert.assertTrue(enterPriceDate.isDisplayed());
         enterPriceDate.clear();
@@ -308,7 +308,7 @@ public class AddProductPage extends BasePage{
     public void enterPriceRate() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Price Rate");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
         Assert.assertTrue(enterPriceRate.isDisplayed());
         enterPriceRate1.clear();
@@ -326,7 +326,7 @@ public class AddProductPage extends BasePage{
     public void enterPriceDate1() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Uncheck Standard Availability Checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate1);
         Assert.assertTrue(enterPriceDate1.isDisplayed());
         enterPriceDate1.clear();
@@ -369,7 +369,7 @@ public class AddProductPage extends BasePage{
     public void enterPriceRate1() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Price Rate");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate1);
         Assert.assertTrue(enterPriceRate1.isDisplayed());
         enterPriceRate1.clear();
@@ -386,7 +386,7 @@ public class AddProductPage extends BasePage{
     public void clickAddPriceButton() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Click on Add Price Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
         Assert.assertTrue(clickAddPriceButton.isDisplayed());
         clickAddPriceButton.click();
@@ -403,7 +403,7 @@ public class AddProductPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -412,13 +412,13 @@ public class AddProductPage extends BasePage{
     @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
     private WebElement verifyConfirmationMsg;
     /**
-     * Method to verify Account Type is created Successfully.
+     * Method to verify Product is created Successfully.
      * @throws IOException 
      */
     public void verifyConfirmationMsg() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
-        log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        log.info("Verifying if Product is created Successfully or not");
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -435,7 +435,7 @@ public class AddProductPage extends BasePage{
     public void enterEnglishDescription3() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter English Description");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription3);
         Assert.assertTrue(enterEnglishDescription3.isDisplayed());
         enterEnglishDescription3.sendKeys(sp.ExcelRead().get(16));
@@ -451,7 +451,7 @@ public class AddProductPage extends BasePage{
     public void enterProductCode3() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Product Code");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode3);
         Assert.assertTrue(enterProductCode3.isDisplayed());
         enterProductCode3.sendKeys(sp.ExcelRead().get(17));
@@ -481,7 +481,7 @@ public class AddProductPage extends BasePage{
     public void enterPriceRate3() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Price Rate");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate3);
         Assert.assertTrue(enterPriceRate3.isDisplayed());
         enterPriceRate3.clear();
@@ -493,13 +493,13 @@ public class AddProductPage extends BasePage{
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Abc']")
     private WebElement clickProductName;
     /**
-     * Method to click on Product name Test Abc.
+     * Method to click on Product name Test Code.
      * @throws IOException 
      */
     public void clickProductName() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
-        log.info("Click on Product Name Test Abc");
-        WaitClass.sleep(10000);
+        log.info("Click on Product Name Test Code");
+        WaitClass.sleep(2000);
         String ProductName = sp.ExcelRead().get(16);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -512,9 +512,10 @@ public class AddProductPage extends BasePage{
      * @throws IOException 
      */
     public void clickEditProduct() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickEditProduct);
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Edit Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickEditProduct);
         Assert.assertTrue(clickEditProduct.isDisplayed());
         clickEditProduct.click();
@@ -530,13 +531,14 @@ public class AddProductPage extends BasePage{
     public void editEnglishDescription() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Edit English Description");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, editEnglishDescription);
         Assert.assertTrue(editEnglishDescription.isDisplayed());
+        editEnglishDescription.clear();
         editEnglishDescription.sendKeys(sp.ExcelRead().get(20)); 
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
+    @FindBy(how=How.XPATH, using="//input[@name='product.number']")
     private WebElement editProductCode;
     /**
      * Method to Edit Product Code.
@@ -545,16 +547,17 @@ public class AddProductPage extends BasePage{
     public void editProductCode() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Edit Product Code");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, editProductCode);
         Assert.assertTrue(editProductCode.isDisplayed());
+        editProductCode.clear();
         editProductCode.sendKeys(sp.ExcelRead().get(21)); 
     }   
     
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 

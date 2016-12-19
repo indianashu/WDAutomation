@@ -59,6 +59,7 @@ public class copyProductTest {
     	copyProductPage.selectPriceCurrency();
     	copyProductPage.enterPriceRate();
     	copyProductPage.clickAddPriceButton();
+		copyProductPage.navigateBottom();
     	copyProductPage.clickSaveChangesButton();
     	copyProductPage.verifyConfirmationMsg();
     	copyProductPage.clickProductsTab();
@@ -67,6 +68,7 @@ public class copyProductTest {
     	copyProductPage.clickCopyProductButton();
     	copyProductPage.enterPriceRate1();
     	copyProductPage.clickAddPriceButton();
+		copyProductPage.navigateBottom();
     	copyProductPage.clickSaveChangesButton();
     	copyProductPage.verifyConfirmationMsg();
     	

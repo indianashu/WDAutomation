@@ -30,7 +30,7 @@ public class ChildCompanySignupTest {
         driver= BaseClasses.setup( "User1");
         PropertyValExtractors p=new PropertyValExtractors();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url");
+        String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
         signupChildCompanyPage=SignupChildCompanyPage.getPage(driver, SignupChildCompanyPage.class);
@@ -65,8 +65,6 @@ public class ChildCompanySignupTest {
     	signupChildCompanyPage.selectCountry();
     	signupChildCompanyPage.enterZipCode();
     	signupChildCompanyPage.clickSaveChangesButton();
-    	signupChildCompanyPage.verifyLabelConfirmationMessage();
-
 
     }
     @AfterClass(alwaysRun=true)

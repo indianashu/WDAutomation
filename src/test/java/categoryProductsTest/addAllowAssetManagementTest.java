@@ -57,6 +57,7 @@ public class addAllowAssetManagementTest {
     	productCategoryPage.clickOrderSavedCheckbox();
     	productCategoryPage.clickAddMetaFieldPlus();
     	productCategoryPage.enterMetafieldName();
+		productCategoryPage.navigateBottom();
     	productCategoryPage.clickSaveChangesButton();
     	productCategoryPage.verifyConfirmationMsg();
     	

@@ -143,7 +143,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickProductsTab() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Products Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
@@ -159,7 +159,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Add Category Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
@@ -175,7 +175,7 @@ public class ProductCategoryPage extends BasePage{
     public void enterCategoryName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Category Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
         Assert.assertTrue(enterCategoryName.isDisplayed());
         enterCategoryName.sendKeys(sp.ExcelRead().get(3));
@@ -205,7 +205,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -220,7 +220,7 @@ public class ProductCategoryPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -234,7 +234,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickCategoryName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String CategoryName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
@@ -249,7 +249,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickEditButton() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickEditButton);
         Assert.assertTrue(clickEditButton.isDisplayed());
         clickEditButton.click();
@@ -265,7 +265,7 @@ public class ProductCategoryPage extends BasePage{
     public void enterNewCategoryName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Category Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterNewCategoryName);
         Assert.assertTrue(enterNewCategoryName.isDisplayed());
         enterNewCategoryName.clear();
@@ -282,7 +282,7 @@ public class ProductCategoryPage extends BasePage{
     public void enterAssetCategoryName() throws IOException{
         ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Asset Category Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterAssetCategoryName);
         Assert.assertTrue(enterAssetCategoryName.isDisplayed());
         enterAssetCategoryName.sendKeys(sp.ExcelRead().get(6));
@@ -298,7 +298,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickGlobalCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Allow Assest Mgmt checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickGlobalCheckbox);
         Assert.assertTrue(clickGlobalCheckbox.isDisplayed());
         clickGlobalCheckbox.click(); 
@@ -313,7 +313,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickAllowAssestMgmt() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Allow Assest Mgmt checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAllowAssestMgmt);
         Assert.assertTrue(clickAllowAssestMgmt.isDisplayed());
         clickAllowAssestMgmt.click(); 
@@ -328,7 +328,7 @@ public class ProductCategoryPage extends BasePage{
     public void enterAssetName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Asset Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterAssetName);
         Assert.assertTrue(enterAssetName.isDisplayed());
         enterAssetName.sendKeys(sp.ExcelRead().get(7));
@@ -343,7 +343,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickAvaiableCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Available Checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAvaiableCheckbox);
         Assert.assertTrue(clickAvaiableCheckbox.isDisplayed());
         clickAvaiableCheckbox.click(); 
@@ -358,7 +358,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickDefaultCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Default Checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDefaultCheckbox);
         Assert.assertTrue(clickDefaultCheckbox.isDisplayed());
         clickDefaultCheckbox.click(); 
@@ -373,7 +373,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickAddPlus() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Add Plus in Asset Statuses");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddPlus);
         Assert.assertTrue(clickAddPlus.isDisplayed());
         clickAddPlus.click(); 
@@ -388,7 +388,7 @@ public class ProductCategoryPage extends BasePage{
     public void enterAssetName2() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Asset Name2");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterAssetName2);
         Assert.assertTrue(enterAssetName2.isDisplayed());
         enterAssetName2.sendKeys(sp.ExcelRead().get(8));
@@ -403,7 +403,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickOrderSavedCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Order Saved Checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickOrderSavedCheckbox);
         Assert.assertTrue(clickOrderSavedCheckbox.isDisplayed());
         clickOrderSavedCheckbox.click(); 
@@ -418,7 +418,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickAddMetaFieldPlus() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Add Metafield Plus");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddMetaFieldPlus);
         Assert.assertTrue(clickAddMetaFieldPlus.isDisplayed());
         clickAddMetaFieldPlus.click(); 
@@ -433,7 +433,7 @@ public class ProductCategoryPage extends BasePage{
     public void enterMetafieldName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Meta field name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterMetafieldName);
         Assert.assertTrue(enterMetafieldName.isDisplayed());
         enterMetafieldName.sendKeys(sp.ExcelRead().get(9));
@@ -443,7 +443,7 @@ public class ProductCategoryPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 
