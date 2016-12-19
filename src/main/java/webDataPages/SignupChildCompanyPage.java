@@ -49,7 +49,7 @@ public class SignupChildCompanyPage extends BasePage{
     	
 
 		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File("/Users/ashutosh/Documents/Web Data Consulting/WDAutomation/Webdata_TestData.xlsx");
+		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
 		XSSFSheet sheet=wb.getSheet("SignupChildComp");
@@ -108,7 +108,7 @@ public class SignupChildCompanyPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -132,7 +132,7 @@ public class SignupChildCompanyPage extends BasePage{
     }
 
     @FindBy(how=How.XPATH, using="//ul[@class='top-nav']")
-    private WebElement labelSuccessfulLogin;
+    private WebElement verifyLabelSuccessfulLogin;
     /**
      * Method to verify Label is present after successful login.
      * @throws IOException 
@@ -141,8 +141,8 @@ public class SignupChildCompanyPage extends BasePage{
     	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("Verifying if Label is available or not");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, labelSuccessfulLogin);
-        Assert.assertTrue(labelSuccessfulLogin.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
+        WaitClass.WaitForElementisDisplay(driver, 10, verifyLabelSuccessfulLogin);
+        Assert.assertTrue(verifyLabelSuccessfulLogin.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
     }
 
     
@@ -154,11 +154,11 @@ public class SignupChildCompanyPage extends BasePage{
     public void enterURL() throws IOException{
     	SignupChildCompanyPage sp=new SignupChildCompanyPage(driver);
         log.info("enter signup url to create child company");
-        driver.get("http://www.simplebilling.co.in:8080/signup");
-//        WaitClass.WaitForElementisDisplay(driver, 5, enterURL);
-//        Assert.assertTrue(enterURL.isDisplayed());
-//        ((WebDriver) enterURL).get("http://www.simplebilling.co.in:8080/signup");
-
+ //       driver.get("http://www.simplebilling.co.in:8080/signup");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url");
+        driver.get(url);
     }
     
     //@FindBy(how=How.XPATH, using="//*[@id="company-edit-form"]/fieldset/div[1]/div[2]/div[1]/span/h")

@@ -49,7 +49,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage{
     	
 
 		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File("/Users/ashutosh/Documents/Web Data Consulting/WDAutomation/Webdata_TestData.xlsx");
+		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
 		FileInputStream fs=new FileInputStream(file);
 		XSSFWorkbook wb=new XSSFWorkbook(fs);
 		XSSFSheet sheet=wb.getSheet("SignupChildCompInvoice");
@@ -154,7 +154,11 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage{
     public void enterURL() throws IOException{
     	SignupChildCompanyInvoiceAsSellerPage sp=new SignupChildCompanyInvoiceAsSellerPage(driver);
         log.info("enter signup url to create child company");
-        driver.get("http://www.simplebilling.co.in:8080/signup");
+        //driver.get("http://www.simplebilling.co.in:8080/signup");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url");
+        driver.get(url);
 
     }
     
