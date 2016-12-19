@@ -143,7 +143,7 @@ public class CopyProductPage extends BasePage{
     public void clickProductsTab() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Products Tab after successful login");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
@@ -159,7 +159,7 @@ public class CopyProductPage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Add Category Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
@@ -175,7 +175,7 @@ public class CopyProductPage extends BasePage{
     public void enterCategoryName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Category Name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
         Assert.assertTrue(enterCategoryName.isDisplayed());
         enterCategoryName.sendKeys(sp.ExcelRead().get(3));
@@ -192,7 +192,7 @@ public class CopyProductPage extends BasePage{
     public void selectCategoryName() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on a category name.");
-        WaitClass.sleep(3000);
+        WaitClass.sleep(10000);
         String CategoryName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
@@ -207,7 +207,7 @@ public class CopyProductPage extends BasePage{
     public void clickAddProductButton() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Add Product Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
         Assert.assertTrue(clickAddProductButton.isDisplayed());
         clickAddProductButton.click();
@@ -223,7 +223,7 @@ public class CopyProductPage extends BasePage{
     public void enterEnglishDescription() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter English Description");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
         enterEnglishDescription.sendKeys(sp.ExcelRead().get(4));
@@ -239,7 +239,7 @@ public class CopyProductPage extends BasePage{
     public void enterProductCode() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Product Code");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(sp.ExcelRead().get(5));
@@ -268,7 +268,7 @@ public class CopyProductPage extends BasePage{
     public void enterPriceDate() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Date");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate);
         Assert.assertTrue(enterPriceDate.isDisplayed());
         enterPriceDate.clear();
@@ -311,7 +311,7 @@ public class CopyProductPage extends BasePage{
     public void enterPriceRate() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Rate");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
         Assert.assertTrue(enterPriceRate.isDisplayed());
         enterPriceRate.clear();
@@ -328,7 +328,7 @@ public class CopyProductPage extends BasePage{
     public void clickAddPriceButton() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Add Price Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
         Assert.assertTrue(clickAddPriceButton.isDisplayed());
         clickAddPriceButton.click();
@@ -345,7 +345,7 @@ public class CopyProductPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -360,7 +360,7 @@ public class CopyProductPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -378,7 +378,7 @@ public class CopyProductPage extends BasePage{
     public void selectCopyCategory() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter English Description");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         String CategoryName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
@@ -394,7 +394,7 @@ public class CopyProductPage extends BasePage{
     public void selectProduct() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter English Description");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         String ProductName = sp.ExcelRead().get(4);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -410,7 +410,7 @@ public class CopyProductPage extends BasePage{
     public void clickCopyProductButton() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click Copy Product Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCopyProductButton);
         Assert.assertTrue(clickCopyProductButton.isDisplayed());
         clickCopyProductButton.click();
@@ -427,7 +427,7 @@ public class CopyProductPage extends BasePage{
     public void enterPriceRate1() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Rate");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate1);
         Assert.assertTrue(enterPriceRate1.isDisplayed());
         enterPriceRate1.clear();
