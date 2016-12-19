@@ -50,9 +50,15 @@ public class addNewCustomerTest {
     	customerPage.selectAccountType();
     	customerPage.clickSelectButton();
     	customerPage.enterLoginName();
+    	customerPage.enterEmail();
     	customerPage.clickUseCompanyBillingCycleButton();
     	customerPage.selectBillingCycleUnit();
     	customerPage.selectBillingCycleDay();
+    	customerPage.expandPaymentMethod();
+    	customerPage.selectPaymentMethodType();
+    	customerPage.enterCCCardholderName();
+    	customerPage.enterCCNumber();
+    	customerPage.enterCCExpiryDate();
     	customerPage.clickSaveChangesButton();
     	customerPage.verifyConfirmationMsg();
 

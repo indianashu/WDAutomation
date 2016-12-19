@@ -143,7 +143,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -159,7 +159,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Add New Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -203,7 +203,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on select Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -219,7 +219,7 @@ public class CustomerParentChildPage extends BasePage{
     public void enterLoginName() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(5));
@@ -235,7 +235,7 @@ public class CustomerParentChildPage extends BasePage{
     public void enterEmailID() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter EmailID");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID);
         Assert.assertTrue(enterEmailID.isDisplayed());
         enterEmailID.sendKeys(sp.ExcelRead().get(6));
@@ -250,7 +250,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickAllowSubAccountCheckbox() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click Use Company Billing Cycle Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAllowSubAccountCheckbox);
         Assert.assertTrue(clickAllowSubAccountCheckbox.isDisplayed());
         clickAllowSubAccountCheckbox.click();
@@ -266,7 +266,7 @@ public class CustomerParentChildPage extends BasePage{
     public void expandPaymentMethod() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Expand Payment Method in add customer page");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, expandPaymentMethod);
         Assert.assertTrue(expandPaymentMethod.isDisplayed());
         expandPaymentMethod.click();
@@ -343,7 +343,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickAddInstrumentButton() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click Add Instrument Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddInstrumentButton);
         Assert.assertTrue(clickAddInstrumentButton.isDisplayed());
         clickAddInstrumentButton.click();
@@ -359,7 +359,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -375,7 +375,7 @@ public class CustomerParentChildPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -391,7 +391,7 @@ public class CustomerParentChildPage extends BasePage{
     public void selectCustomer() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Select Customer");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String CustomerName = sp.ExcelRead().get(5);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
@@ -406,12 +406,13 @@ public class CustomerParentChildPage extends BasePage{
     public void clickAddSubAccountButton() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click Add Sub Account Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddSubAccountButton);
         Assert.assertTrue(clickAddSubAccountButton.isDisplayed());
         clickAddSubAccountButton.click();
         
     }
+    
     
     
     @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
@@ -423,13 +424,27 @@ public class CustomerParentChildPage extends BasePage{
     public void enterLoginName1() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName1);
         Assert.assertTrue(enterLoginName1.isDisplayed());
         enterLoginName1.sendKeys(sp.ExcelRead().get(11));
         
     }
     
+  //@FindBy(how=How.XPATH, using="//a[@class='cell double']")
+    private WebElement selectChildCustomer;
+    /**
+     * Method to select child customer.
+     * @throws IOException 
+     */
+    public void selectChildCustomer() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Select Child Customer");
+        WaitClass.sleep(2000);
+        String CustomerName = sp.ExcelRead().get(11);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
+        
+    }
     
     @FindBy(how=How.XPATH, using="//*[@id='ait-20']/div[1]/a/span")
     private WebElement expandContactInfo;
@@ -440,7 +455,7 @@ public class CustomerParentChildPage extends BasePage{
     public void expandContactInfo() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Expand Contact Info in add customer page");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, expandContactInfo);
         Assert.assertTrue(expandContactInfo.isDisplayed());
         expandContactInfo.click();
@@ -456,7 +471,7 @@ public class CustomerParentChildPage extends BasePage{
     public void enterEmailID1() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter EmailID");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID1);
         Assert.assertTrue(enterEmailID1.isDisplayed());
         enterEmailID1.sendKeys(sp.ExcelRead().get(12));
@@ -472,7 +487,7 @@ public class CustomerParentChildPage extends BasePage{
     public void verifyParentID() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verify Parent ID");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ParentID = sp.ExcelRead().get(13);
         String ActualParentID = driver.findElement(By.xpath("//*[@id='user-edit-form']/fieldset/div[1]/div[1]/div[11]/span/a")).getText();
         Assert.assertEquals(ActualParentID, ParentID);
@@ -488,7 +503,7 @@ public class CustomerParentChildPage extends BasePage{
     public void verifyParentChildImage() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("verify parent child image is present or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ParentID = sp.ExcelRead().get(14);
         WebElement image1 = driver.findElement(By.xpath("//*[@id='"+ParentID+"']/img"));
         Boolean imageLoaded1 = (Boolean) ((JavascriptExecutor)driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", image1);
@@ -513,7 +528,7 @@ public class CustomerParentChildPage extends BasePage{
     public void verifyChildImage() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("verify child image is present or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ChildID = sp.ExcelRead().get(15);
         WebElement image1 = driver.findElement(By.xpath("//*[@id='"+ChildID+"']/td[6]/img"));
         Boolean imageLoaded1 = (Boolean) ((JavascriptExecutor)driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", image1);
@@ -530,20 +545,7 @@ public class CustomerParentChildPage extends BasePage{
         
     }
     
-  
-    private WebElement selectCustomerA;
-    /**
-     * Method to select customer.
-     * @throws IOException 
-     */
-    public void selectCustomerA() throws IOException{
-    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
-        log.info("Select Customer");
-        WaitClass.sleep(10000);
-        String CustomerA = sp.ExcelRead().get(11);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerA+"']")).click();;
-        
-    }
+
     
     private WebElement verifyParentCustomer;
     /**
@@ -553,7 +555,7 @@ public class CustomerParentChildPage extends BasePage{
     public void verifyParentCustomer() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verify child customer");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ParentID = sp.ExcelRead().get(14);
         String ParentName = sp.ExcelRead().get(16);
         String ActualParentName = driver.findElement(By.xpath("//*[@id='"+ParentID+"']")).getText();
@@ -569,7 +571,7 @@ public class CustomerParentChildPage extends BasePage{
     public void verifyChildInvoicingText() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verify child customer");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ChildInvoicing = sp.ExcelRead().get(17);
         String ActualChildInvoicing = driver.findElement(By.xpath("//*[@id='column2']/div[4]/div/table/tbody/tr[10]/td[1]")).getText();
         Assert.assertEquals(ActualChildInvoicing, ChildInvoicing);
@@ -584,14 +586,29 @@ public class CustomerParentChildPage extends BasePage{
     public void verifyChildCustomer() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verify child customer");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ChildName = sp.ExcelRead().get(11);
         String ActualChildName = driver.findElement(By.xpath("//*[@id='column2']/div[4]/div/table/tbody/tr[9]/td[1]")).getText();
         Assert.assertEquals(ActualChildName, ChildName);
         
     }
     
-    
+  
+    private WebElement verifySubAccount;
+    /**
+     * Method to verify Sub Account.
+     * @throws IOException 
+     */
+    public void verifySubAccount() throws IOException{
+    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Verify child customer");
+        WaitClass.sleep(2000);
+        String ChildName = sp.ExcelRead().get(11);
+        String ActualChildName = driver.findElement(By.xpath("//*[@id='column2']/div[4]/div/table/tbody/tr[9]")).getText();
+        Assert.assertEquals(ActualChildName, ChildName);
+        //System.out.println("The value is ------>" + ActualChildName);
+        
+    }
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);

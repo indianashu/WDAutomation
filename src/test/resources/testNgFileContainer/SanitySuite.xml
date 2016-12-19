@@ -26,7 +26,8 @@
 
 		<classes>
 
-			<class name = "SignupTest.ChildCompanySignupTest"/>
+			<class name = "customerTest.addNewSubCustomerTest" />
+			<!-- <class name = "SignupTest.ChildCompanySignupTest"/>
 			<class name = "SignupTest.ChildCompanySignupResellerTest"/>
 		 	<class name = "companySetupTest.configureAccountTypeTest"/>
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
@@ -41,7 +42,7 @@
 			<class name = "categoryProductsTest.addEditProductTest" />
 			<class name = "categoryProductsTest.addProductWithAssetTest" />
 			<class name = "categoryProductsTest.copyProductTest" />
-			<class name = "companyHierarchy.viewCompanyHierarchyChildCompanyTest" />
+			<class name = "companyHierarchy.viewCompanyHierarchyChildCompanyTest" /> -->
 
 		</classes>
 

@@ -109,7 +109,7 @@ public class CustomerPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -142,7 +142,7 @@ public class CustomerPage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -158,7 +158,7 @@ public class CustomerPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Add New Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -202,7 +202,7 @@ public class CustomerPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on select Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -218,12 +218,29 @@ public class CustomerPage extends BasePage{
     public void enterLoginName() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(5));
         
     }
+    
+    @FindBy(how=How.XPATH, using="//input[@name='user.Email']")
+    private WebElement enterEmail;
+    /**
+     * Method to Enter Email.
+     * @throws IOException 
+     */
+    public void enterEmail() throws IOException{
+    	CustomerPage sp=new CustomerPage(driver);
+        log.info("Enter Email");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterEmail);
+        Assert.assertTrue(enterEmail.isDisplayed());
+        enterEmail.sendKeys(sp.ExcelRead().get(6));
+        
+    }
+    
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Use Company Billing Cycle']")
     private WebElement clickUseCompanyBillingCycleButton;
@@ -234,7 +251,7 @@ public class CustomerPage extends BasePage{
     public void clickUseCompanyBillingCycleButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click Use Company Billing Cycle Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickUseCompanyBillingCycleButton);
         Assert.assertTrue(clickUseCompanyBillingCycleButton.isDisplayed());
         clickUseCompanyBillingCycleButton.click();
@@ -250,7 +267,7 @@ public class CustomerPage extends BasePage{
     	CustomerPage sp=new CustomerPage(driver);
         WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
         Select se = new Select(BCUelement);
-        se.selectByVisibleText(sp.ExcelRead().get(6));
+        se.selectByVisibleText(sp.ExcelRead().get(7));
 
     }
 
@@ -263,7 +280,7 @@ public class CustomerPage extends BasePage{
     	CustomerPage sp=new CustomerPage(driver);
         WebElement BCDelement = driver.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
         Select se = new Select(BCDelement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
+        se.selectByVisibleText(sp.ExcelRead().get(8));
 
     }
     
@@ -276,7 +293,7 @@ public class CustomerPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -292,7 +309,7 @@ public class CustomerPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -306,45 +323,45 @@ public class CustomerPage extends BasePage{
     public void selectCustomer() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Select Customer");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String CustomerName = sp.ExcelRead().get(5);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Sub-Account']")
-    private WebElement clickAddSubAccountButton;
-    /**
-     * Method to Click Add Sub Account Button.
-     * @throws IOException 
-     */
-    public void clickAddSubAccountButton() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        log.info("Click Add Sub Account Button");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddSubAccountButton);
-        Assert.assertTrue(clickAddSubAccountButton.isDisplayed());
-        clickAddSubAccountButton.click();
-        
-    }
+//    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Sub-Account']")
+//    private WebElement clickAddSubAccountButton;
+//    /**
+//     * Method to Click Add Sub Account Button.
+//     * @throws IOException 
+//     */
+//    public void clickAddSubAccountButton() throws IOException{
+//    	CustomerPage sp=new CustomerPage(driver);
+//        log.info("Click Add Sub Account Button");
+//        WaitClass.sleep(10000);
+//        WaitClass.WaitForElementisDisplay(driver, 10, clickAddSubAccountButton);
+//        Assert.assertTrue(clickAddSubAccountButton.isDisplayed());
+//        clickAddSubAccountButton.click();
+//        
+//    }
     
     
-    @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
-    private WebElement enterLoginName1;
-    /**
-     * Method to Enter Login Name.
-     * @throws IOException 
-     */
-    public void enterLoginName1() throws IOException{
-    	CustomerPage sp=new CustomerPage(driver);
-        log.info("Enter Login Name");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName1);
-        Assert.assertTrue(enterLoginName1.isDisplayed());
-        enterLoginName1.sendKeys(sp.ExcelRead().get(8));
-        
-    }
-    
+//    @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
+//    private WebElement enterLoginName1;
+//    /**
+//     * Method to Enter Login Name.
+//     * @throws IOException 
+//     */
+//    public void enterLoginName1() throws IOException{
+//    	CustomerPage sp=new CustomerPage(driver);
+//        log.info("Enter Login Name");
+//        WaitClass.sleep(10000);
+//        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName1);
+//        Assert.assertTrue(enterLoginName1.isDisplayed());
+//        enterLoginName1.sendKeys(sp.ExcelRead().get(8));
+//        
+//    }
+//    
     
     @FindBy(how=How.XPATH, using="//*[@id='ait-20']/div[1]/a/span")
     private WebElement expandContactInfo;
@@ -387,7 +404,7 @@ public class CustomerPage extends BasePage{
     public void expandPaymentMethod() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Expand Payment Method in add customer page");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, expandPaymentMethod);
         Assert.assertTrue(expandPaymentMethod.isDisplayed());
         expandPaymentMethod.click();
@@ -416,7 +433,7 @@ public class CustomerPage extends BasePage{
     public void enterCCCardholderName() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter CC Cardholder name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderName);
         Assert.assertTrue(enterCCCardholderName.isDisplayed());
         enterCCCardholderName.sendKeys(sp.ExcelRead().get(11));
@@ -432,7 +449,7 @@ public class CustomerPage extends BasePage{
     public void enterCCNumber() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter CC Number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCNumber);
         Assert.assertTrue(enterCCNumber.isDisplayed());
         enterCCNumber.sendKeys(sp.ExcelRead().get(12));
@@ -448,7 +465,7 @@ public class CustomerPage extends BasePage{
     public void enterCCExpiryDate() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter CC Number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCExpiryDate);
         Assert.assertTrue(enterCCExpiryDate.isDisplayed());
         enterCCExpiryDate.sendKeys(sp.ExcelRead().get(12));
@@ -474,7 +491,7 @@ public class CustomerPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 

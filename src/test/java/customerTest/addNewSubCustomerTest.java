@@ -19,11 +19,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
-import customer.CustomerPage;
+import customer.CustomerParentChildPage;;
 
 
 public class addNewSubCustomerTest {
-	CustomerPage customerPage;
+	CustomerParentChildPage customerParentChildPage;
     WebDriver driver,driver2;
 
     @BeforeClass(alwaysRun=true)
@@ -34,39 +34,54 @@ public class addNewSubCustomerTest {
         String url=p.getVal("url1");
         driver.get(url);
         WaitClass.waitForUrl(driver, url, 10);
-        customerPage=CustomerPage.getPage(driver, CustomerPage.class);
+        customerParentChildPage=CustomerParentChildPage.getPage(driver, CustomerParentChildPage.class);
 
     }
 
-    @Test(groups={"Sanity"},description="Add New Sub Customer")
+    @Test(groups={"Sanity"},description="Add New Customer and Sub Customer")
     public void userSignin() throws IOException{
-    	customerPage.enterLoginID();
-    	customerPage.enterPassword();
-    	customerPage.selectCompany();
-    	customerPage.clickLoginButton();
-    	customerPage.clickCustomerTab();
-    	customerPage.clickAddNewButton();
-    	customerPage.selectUserCompany();
-    	customerPage.selectAccountType();
-    	customerPage.clickSelectButton();
-    	customerPage.enterLoginName();
-    	customerPage.clickUseCompanyBillingCycleButton();
-    	customerPage.selectBillingCycleUnit();
-    	customerPage.selectBillingCycleDay();
-    	customerPage.clickSaveChangesButton();
-    	customerPage.verifyConfirmationMsg();
-    	customerPage.selectCustomer();
-    	customerPage.clickAddSubAccountButton();
-    	customerPage.selectUserCompany();
-    	customerPage.selectAccountType();
-    	customerPage.clickSelectButton();
-    	customerPage.enterLoginName1();
-    	customerPage.clickUseCompanyBillingCycleButton();
-    	customerPage.selectBillingCycleUnit();
-    	customerPage.selectBillingCycleDay();
-    	customerPage.clickSaveChangesButton();
-    	customerPage.verifyConfirmationMsg();
-
+    	customerParentChildPage.enterLoginID();
+    	customerParentChildPage.enterPassword();
+    	customerParentChildPage.selectCompany();
+    	customerParentChildPage.clickLoginButton();
+    	customerParentChildPage.clickCustomerTab();
+		customerParentChildPage.clickAddNewButton();
+		customerParentChildPage.selectUserCompany();
+		customerParentChildPage.selectAccountType();
+		customerParentChildPage.clickSelectButton();
+		customerParentChildPage.enterLoginName();
+		customerParentChildPage.enterEmailID();
+		customerParentChildPage.clickAllowSubAccountCheckbox();
+		customerParentChildPage.enterCCCardholderName();
+		customerParentChildPage.enterCCNumber();
+		customerParentChildPage.enterCCExpiryDate();
+		customerParentChildPage.clickSaveChangesButton();
+		customerParentChildPage.verifyConfirmationMsg();
+		customerParentChildPage.clickCustomerTab();
+		customerParentChildPage.selectCustomer();
+		customerParentChildPage.clickAddSubAccountButton();
+		customerParentChildPage.selectUserCompany();
+		customerParentChildPage.selectAccountType();
+		customerParentChildPage.clickSelectButton();
+		customerParentChildPage.enterLoginName1();
+		customerParentChildPage.verifyParentID();
+		customerParentChildPage.enterEmailID1();
+		customerParentChildPage.enterCCCardholderName();
+		customerParentChildPage.enterCCNumber();
+		customerParentChildPage.enterCCExpiryDate();
+		customerParentChildPage.clickSaveChangesButton();
+		customerParentChildPage.verifyConfirmationMsg();
+		customerParentChildPage.selectChildCustomer();
+		customerParentChildPage.verifyParentCustomer();
+		customerParentChildPage.verifyChildInvoicingText();
+		customerParentChildPage.selectCustomer();
+		customerParentChildPage.verifyChildCustomer();
+    	customerParentChildPage.verifySubAccount();
+    	customerParentChildPage.verifyChildImage();
+    	customerParentChildPage.verifyParentChildImage();
+    	
+    	
+    	
     }
     
     @AfterClass(alwaysRun=true)
