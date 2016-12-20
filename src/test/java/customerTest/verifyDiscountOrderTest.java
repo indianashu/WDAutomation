@@ -46,6 +46,7 @@ public class verifyDiscountOrderTest {
     	discountPage.clickLoginButton();
     	discountPage.clickDiscountTab();
     	discountPage.clickAddNewButton();
+		discountPage.clickSaveChangesButton();
     	discountPage.verifyErrorMsg();
     	discountPage.enterDiscountDescription();
     	discountPage.enterDiscountCode();
@@ -53,6 +54,8 @@ public class verifyDiscountOrderTest {
     	discountPage.enterDiscountRate();
     	discountPage.clickSaveChangesButton();
     	discountPage.verifyConfirmationMsg();
+		discountPage.createPlanCategory();
+        discountPage.createPlanTypeProduct();
     	discountPage.clickCustomersTab();
     	discountPage.clickCustomerA();
     	discountPage.clickCreateOrderButton();
@@ -73,11 +76,7 @@ public class verifyDiscountOrderTest {
     	discountPage.clickUpdateButton();
     	discountPage.verifyAmount();
     	discountPage.clickSaveChangesButton();
-    	discountPage.clickOrdersTab();
-    	discountPage.clickOrder();
-    	discountPage.verifyAmountDifference();
-    	
-    	
+
     }
     
     @AfterClass(alwaysRun=true)

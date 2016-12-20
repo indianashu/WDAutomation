@@ -50,9 +50,11 @@ public class addNewSubCustomerTest {
 		customerParentChildPage.selectAccountType();
 		customerParentChildPage.clickSelectButton();
 		customerParentChildPage.enterLoginName();
-		customerParentChildPage.enterEmailID();
 		customerParentChildPage.clickAllowSubAccountCheckbox();
-		customerParentChildPage.enterCCCardholderName();
+		customerParentChildPage.navigateBottom();
+		customerParentChildPage.enterEmailID();
+		customerParentChildPage.selectPaymentMethodType();
+		customerParentChildPage.enterCCCardholderParentName();
 		customerParentChildPage.enterCCNumber();
 		customerParentChildPage.enterCCExpiryDate();
 		customerParentChildPage.clickSaveChangesButton();
@@ -65,22 +67,22 @@ public class addNewSubCustomerTest {
 		customerParentChildPage.clickSelectButton();
 		customerParentChildPage.enterLoginName1();
 		customerParentChildPage.verifyParentID();
+		customerParentChildPage.navigateBottom();
 		customerParentChildPage.enterEmailID1();
-		customerParentChildPage.enterCCCardholderName();
+		customerParentChildPage.selectPaymentMethodType();
+		customerParentChildPage.enterCCCardholderChildName();
 		customerParentChildPage.enterCCNumber();
 		customerParentChildPage.enterCCExpiryDate();
 		customerParentChildPage.clickSaveChangesButton();
 		customerParentChildPage.verifyConfirmationMsg();
-		customerParentChildPage.selectChildCustomer();
+/*		customerParentChildPage.selectChildCustomer();
 		customerParentChildPage.verifyParentCustomer();
 		customerParentChildPage.verifyChildInvoicingText();
 		customerParentChildPage.selectCustomer();
 		customerParentChildPage.verifyChildCustomer();
     	customerParentChildPage.verifySubAccount();
     	customerParentChildPage.verifyChildImage();
-    	customerParentChildPage.verifyParentChildImage();
-    	
-    	
+    	customerParentChildPage.verifyParentChildImage();*/
     	
     }
     

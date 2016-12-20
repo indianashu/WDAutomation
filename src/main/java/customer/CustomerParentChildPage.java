@@ -143,7 +143,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -235,8 +235,8 @@ public class CustomerParentChildPage extends BasePage{
     public void enterEmailID() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter EmailID");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID);
+        WaitClass.sleep(1000);
+        enterEmailID = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterEmailID.isDisplayed());
         enterEmailID.sendKeys(sp.ExcelRead().get(6));
         
@@ -249,7 +249,7 @@ public class CustomerParentChildPage extends BasePage{
      */
     public void clickAllowSubAccountCheckbox() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
-        log.info("Click Use Company Billing Cycle Button");
+        log.info("Click Allow SubAccount Checkbox");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAllowSubAccountCheckbox);
         Assert.assertTrue(clickAllowSubAccountCheckbox.isDisplayed());
@@ -286,23 +286,39 @@ public class CustomerParentChildPage extends BasePage{
 
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
-    private WebElement enterCCCardholderName;
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.cardholder.name')]/following::input[1]")
+    private WebElement enterCCCardholderParentName;
     /**
      * Method to Enter CC Cardholder name.
      * @throws IOException 
      */
-    public void enterCCCardholderName() throws IOException{
+    public void enterCCCardholderParentName() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
-        log.info("Enter CC Cardholder name");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderName);
-        Assert.assertTrue(enterCCCardholderName.isDisplayed());
-        enterCCCardholderName.sendKeys(sp.ExcelRead().get(8));
+        log.info("Enter CC Cardholder Parent name");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderParentName);
+        Assert.assertTrue(enterCCCardholderParentName.isDisplayed());
+        enterCCCardholderParentName.sendKeys(sp.ExcelRead().get(8));
         
     }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
+
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.cardholder.name')]/following::input[1]")
+    private WebElement enterCCCardholderChildName;
+    /**
+     * Method to Enter CC Cardholder name.
+     * @throws IOException
+     */
+    public void enterCCCardholderChildName() throws IOException{
+        CustomerParentChildPage sp=new CustomerParentChildPage(driver);
+        log.info("Enter CC Cardholder Child name");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderChildName);
+        Assert.assertTrue(enterCCCardholderChildName.isDisplayed());
+        enterCCCardholderChildName.sendKeys(sp.ExcelRead().get(11));
+
+    }
+
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.number')]/following::input[1]")
     private WebElement enterCCNumber;
     /**
      * Method to Enter CC Number.
@@ -311,14 +327,14 @@ public class CustomerParentChildPage extends BasePage{
     public void enterCCNumber() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter CC Number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCNumber);
         Assert.assertTrue(enterCCNumber.isDisplayed());
         enterCCNumber.sendKeys(sp.ExcelRead().get(9));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_226.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.expiry.date')]/following::input[1]")
     private WebElement enterCCExpiryDate;
     /**
      * Method to Enter CC Number.
@@ -327,7 +343,7 @@ public class CustomerParentChildPage extends BasePage{
     public void enterCCExpiryDate() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter CC Number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCExpiryDate);
         Assert.assertTrue(enterCCExpiryDate.isDisplayed());
         enterCCExpiryDate.sendKeys(sp.ExcelRead().get(10));
@@ -404,6 +420,7 @@ public class CustomerParentChildPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddSubAccountButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickAddSubAccountButton);
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click Add Sub Account Button");
         WaitClass.sleep(2000);
@@ -462,7 +479,6 @@ public class CustomerParentChildPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='metaField_224.value']")
     private WebElement enterEmailID1;
     /**
      * Method to Enter Email ID.
@@ -471,8 +487,8 @@ public class CustomerParentChildPage extends BasePage{
     public void enterEmailID1() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter EmailID");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEmailID1);
+        WaitClass.sleep(1000);
+        enterEmailID1 = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterEmailID1.isDisplayed());
         enterEmailID1.sendKeys(sp.ExcelRead().get(12));
         
@@ -482,18 +498,19 @@ public class CustomerParentChildPage extends BasePage{
     private WebElement verifyParentID;
     /**
      * Method to Verify Parent ID.
-     * @throws IOException 
+     * @throws IOException
      */
     public void verifyParentID() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Verify Parent ID");
-        WaitClass.sleep(2000);
-        String ParentID = sp.ExcelRead().get(13);
-        String ActualParentID = driver.findElement(By.xpath("//*[@id='user-edit-form']/fieldset/div[1]/div[1]/div[11]/span/a")).getText();
-        Assert.assertEquals(ActualParentID, ParentID);
-        
+        WaitClass.sleep(1000);
+        String ParentID = driver.findElement(By.xpath("//*[@name='user.parentId']")).getAttribute("value");
+        String Parent = sp.ExcelRead().get(13);
+        String ActualParentID = driver.findElement(By.xpath("//label[contains(.,'Parent ID')]/following::a[1]")).getText();
+        Assert.assertEquals(ActualParentID, ParentID + " " + Parent);
+
     }
-    
+
     //@FindBy(how=How.XPATH, using="//*[@id='22']/img")
     private WebElement verifyParentChildImage;
     /**
@@ -554,7 +571,7 @@ public class CustomerParentChildPage extends BasePage{
      */
     public void verifyParentCustomer() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
-        log.info("Verify child customer");
+        log.info("Verify Parent customer");
         WaitClass.sleep(2000);
         String ParentID = sp.ExcelRead().get(14);
         String ParentName = sp.ExcelRead().get(16);
@@ -612,7 +629,7 @@ public class CustomerParentChildPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 

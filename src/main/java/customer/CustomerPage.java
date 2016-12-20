@@ -222,10 +222,9 @@ public class CustomerPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(5));
-        
+
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='user.Email']")
     private WebElement enterEmail;
     /**
      * Method to Enter Email.
@@ -234,8 +233,8 @@ public class CustomerPage extends BasePage{
     public void enterEmail() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter Email");
-        WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEmail);
+        WaitClass.sleep(1000);
+        enterEmail = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterEmail.isDisplayed());
         enterEmail.sendKeys(sp.ExcelRead().get(6));
         
@@ -418,13 +417,14 @@ public class CustomerPage extends BasePage{
      */
     public void selectPaymentMethodType() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
+        WaitClass.sleep(2000);
         WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMTelement);
         se.selectByVisibleText(sp.ExcelRead().get(10));
 
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.cardholder.name')]/following::input[1]")
     private WebElement enterCCCardholderName;
     /**
      * Method to Enter CC Cardholder name.
@@ -440,7 +440,7 @@ public class CustomerPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_229.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.number')]/following::input[1]")
     private WebElement enterCCNumber;
     /**
      * Method to Enter CC Number.
@@ -456,7 +456,7 @@ public class CustomerPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_226.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.expiry.date')]/following::input[1]")
     private WebElement enterCCExpiryDate;
     /**
      * Method to Enter CC Number.
@@ -468,7 +468,7 @@ public class CustomerPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCExpiryDate);
         Assert.assertTrue(enterCCExpiryDate.isDisplayed());
-        enterCCExpiryDate.sendKeys(sp.ExcelRead().get(12));
+        enterCCExpiryDate.sendKeys(sp.ExcelRead().get(13));
         
     }
     

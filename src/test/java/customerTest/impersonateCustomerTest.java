@@ -48,6 +48,7 @@ public class impersonateCustomerTest {
     	impersonateCustomerPage.selectCustomer();
     	impersonateCustomerPage.clickImpersonateUserImage();
     	impersonateCustomerPage.verifyCustomerName();
+        impersonateCustomerPage.selectCustomer();
     	impersonateCustomerPage.clickResumeAsAdmin();
     	impersonateCustomerPage.verifyAdminLogin();
     }

@@ -197,7 +197,7 @@ public class ImpersonateCustomerPage extends BasePage{
 		public void verifyCustomerName() throws IOException {
 			ImpersonateCustomerPage sp = new ImpersonateCustomerPage(driver);
 			log.info("Verify Customer Name");
-			WaitClass.sleep(2000);
+			WaitClass.sleep(1000);
 			WaitClass.WaitForElementisDisplay(driver, 10, verifyCustomerName);
 			Assert.assertTrue(verifyCustomerName.isDisplayed());
 			String ActualCustomer = verifyCustomerName.getText();
@@ -232,7 +232,7 @@ public class ImpersonateCustomerPage extends BasePage{
     public void verifyAdminLogin() throws IOException{
     	ImpersonateCustomerPage sp=new ImpersonateCustomerPage(driver);
         log.info("Verify Label shown is of admin.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyAdminLogin);
         Assert.assertTrue(verifyAdminLogin.getText().contains(sp.ExcelRead().get(2)), "Assert Failed as its unable to search text in Logged in Page");
     }

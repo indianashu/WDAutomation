@@ -257,18 +257,18 @@ public class DiscountPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
-        
+        WaitClass.sleep(1000);
     }
     
     @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
     private WebElement verifyConfirmationMsg;
     /**
-     * Method to verify Account Type is created Successfully.
+     * Method to verify Discount is created Successfully.
      * @throws IOException 
      */
     public void verifyConfirmationMsg() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
-        log.info("Verifying if Account Type is created Successfully or not");
+        log.info("Verifying if Discount is created Successfully or not");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
@@ -312,9 +312,10 @@ public class DiscountPage extends BasePage{
      * @throws IOException 
      */
     public void clickCreateOrderButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Create Order Button.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -378,6 +379,7 @@ public class DiscountPage extends BasePage{
      */
     public void selectDiscount() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
+        WaitClass.sleep(1000);
         WebElement Discountelement = driver.findElement(By.xpath("//select[@name='discount.0.id']"));
         Select se = new Select(Discountelement);
         se.selectByVisibleText(sp.ExcelRead().get(9));
@@ -513,7 +515,101 @@ public class DiscountPage extends BasePage{
        
         
     }
-        
+
+    /**
+     * Method to Create Plan Type Category after successful login.
+     * @throws IOException
+     */
+    public void createPlanCategory() throws IOException{
+        DiscountPage sp=new DiscountPage(driver);
+        log.info("Create Plan Type Category");
+
+        log.info("Click Products Tab");
+        WaitClass.sleep(1000);
+        WebElement clickProductsTab = driver.findElement(By.xpath("//a[.='Products']"));
+        Assert.assertTrue(clickProductsTab.isDisplayed());
+        clickProductsTab.click();
+
+        log.info("Click on Add Category Button");
+        WaitClass.sleep(2000);
+        WebElement clickAddCategoryButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Category']"));
+        Assert.assertTrue(clickAddCategoryButton.isDisplayed());
+        clickAddCategoryButton.click();
+
+        log.info("Enter Category Name");
+        WaitClass.sleep(1000);
+        WebElement enterCategoryName = driver.findElement(By.xpath("//input[@name='description']"));
+        Assert.assertTrue(enterCategoryName.isDisplayed());
+        enterCategoryName.sendKeys(sp.ExcelRead().get(15));
+
+        log.info("Select Plan order line type");
+        WaitClass.sleep(1000);
+        WebElement orderLineTypeId = driver.findElement(By.xpath("//*[@name='orderLineTypeId']"));
+        Select se = new Select(orderLineTypeId);
+        se.selectByVisibleText(sp.ExcelRead().get(16));
+
+        log.info("Click on Save Changes Button");
+        WaitClass.sleep(1000);
+        WebElement clickSaveChangesButton = driver.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
+        Assert.assertTrue(clickSaveChangesButton.isDisplayed());
+        clickSaveChangesButton.click();
+        WaitClass.sleep(1000);
+    }
+
+    /**
+     * Method to Create Plan Type Product.
+     * @throws IOException
+     */
+    public void createPlanTypeProduct() throws IOException{
+        DiscountPage sp=new DiscountPage(driver);
+        log.info("Create Plan Type Product");
+
+        log.info("Click on a category name.");
+        WaitClass.sleep(1000);
+        String CategoryName = sp.ExcelRead().get(15);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
+
+        log.info("Click on Add Product Button");
+        WaitClass.sleep(1000);
+        WebElement clickAddProductButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Product']"));
+        Assert.assertTrue(clickAddProductButton.isDisplayed());
+        clickAddProductButton.click();
+
+        log.info("Enter English Description");
+        WaitClass.sleep(2000);
+        WebElement enterEnglishDescription = driver.findElement(By.xpath("//input[@name='product.descriptions[0].content']"));
+        Assert.assertTrue(enterEnglishDescription.isDisplayed());
+        enterEnglishDescription.sendKeys(sp.ExcelRead().get(17));
+
+        log.info("Enter Product Code");
+        WaitClass.sleep(1000);
+        WebElement enterProductCode = driver.findElement(By.xpath("//input[@name='product.number']"));
+        Assert.assertTrue(enterProductCode.isDisplayed());
+        enterProductCode.sendKeys(sp.ExcelRead().get(17));
+
+        WaitClass.sleep(1000);
+        JavaScriptExec.scrolltoBottomofPage(driver);
+
+        log.info("Enter Price Rate");
+        WaitClass.sleep(1000);
+        WebElement enterPriceRate = driver.findElement(By.xpath("//input[@name='product.rate']"));
+        Assert.assertTrue(enterPriceRate.isDisplayed());
+        enterPriceRate.sendKeys(sp.ExcelRead().get(18));
+
+        log.info("Click on Add Price Button");
+        WaitClass.sleep(1000);
+        WebElement clickAddPriceButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
+        Assert.assertTrue(clickAddPriceButton.isDisplayed());
+        clickAddPriceButton.click();
+
+        log.info("Click on Save Changes Button");
+        WaitClass.sleep(1000);
+        WebElement clickSaveChangesButton = driver.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
+        Assert.assertTrue(clickSaveChangesButton.isDisplayed());
+        clickSaveChangesButton.click();
+        WaitClass.sleep(1000);
+    }
+
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
         WaitClass.sleep(2000);
