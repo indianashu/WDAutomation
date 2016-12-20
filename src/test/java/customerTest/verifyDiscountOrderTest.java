@@ -44,10 +44,40 @@ public class verifyDiscountOrderTest {
     	discountPage.enterPassword();
     	discountPage.selectCompany();
     	discountPage.clickLoginButton();
+    	discountPage.clickDiscountTab();
+    	discountPage.clickAddNewButton();
+    	discountPage.verifyErrorMsg();
+    	discountPage.enterDiscountDescription();
+    	discountPage.enterDiscountCode();
+    	discountPage.selectDiscountType();
+    	discountPage.enterDiscountRate();
+    	discountPage.clickSaveChangesButton();
+    	discountPage.verifyConfirmationMsg();
+    	discountPage.clickCustomersTab();
+    	discountPage.clickCustomerA();
+    	discountPage.clickCreateOrderButton();
+    	discountPage.clickProductSubTab();
+    	discountPage.selectProduct();
+    	discountPage.clickDiscountSubTab();
+    	discountPage.selectDiscount();
+    	discountPage.verifyErrorMessage();
+    	discountPage.selectDiscountableItem();
+    	discountPage.clickUpdateButton();
+    	discountPage.clickSaveChangesButton();
+    	discountPage.verifyConfirmationMsg();
+    	discountPage.clickCustomersTab();
+    	discountPage.clickCustomerA();
+    	discountPage.clickCreateOrderButton();
+    	discountPage.clickProductSubTab();
+    	discountPage.selectProduct1();
+    	discountPage.clickUpdateButton();
+    	discountPage.verifyAmount();
+    	discountPage.clickSaveChangesButton();
     	discountPage.clickOrdersTab();
     	discountPage.clickOrder();
     	discountPage.verifyAmountDifference();
-
+    	
+    	
     }
     
     @AfterClass(alwaysRun=true)

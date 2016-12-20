@@ -139,10 +139,10 @@ public class DiscountPage extends BasePage{
      * Method to click on Discount tab after successful login.
      * @throws IOException 
      */
-    public void clickCustomerTab() throws IOException{
+    public void clickDiscountTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Discount Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDiscountTab);
         Assert.assertTrue(clickDiscountTab.isDisplayed());
         clickDiscountTab.click();
@@ -158,7 +158,7 @@ public class DiscountPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Add New Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -175,7 +175,7 @@ public class DiscountPage extends BasePage{
     public void verifyErrorMsg() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("verify Error message is shown when click on save changes button without entering data.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyErrorMsg);
         Assert.assertTrue(verifyErrorMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -190,7 +190,7 @@ public class DiscountPage extends BasePage{
     public void enterDiscountCode() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Enter Discount Code.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountCode);
         Assert.assertTrue(enterDiscountCode.isDisplayed());
         enterDiscountCode.sendKeys(sp.ExcelRead().get(3));
@@ -206,7 +206,7 @@ public class DiscountPage extends BasePage{
     public void enterDiscountDescription() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Enter Discount Description");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountDescription);
         Assert.assertTrue(enterDiscountDescription.isDisplayed());
         enterDiscountDescription.sendKeys(sp.ExcelRead().get(4));
@@ -236,7 +236,7 @@ public class DiscountPage extends BasePage{
     public void enterDiscountRate() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Enter Discount rate.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountRate);
         Assert.assertTrue(enterDiscountRate.isDisplayed());
         enterDiscountRate.sendKeys(sp.ExcelRead().get(6));
@@ -253,7 +253,7 @@ public class DiscountPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -269,7 +269,7 @@ public class DiscountPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -283,7 +283,7 @@ public class DiscountPage extends BasePage{
     public void clickCustomersTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("click on customers tab");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
@@ -299,7 +299,7 @@ public class DiscountPage extends BasePage{
     public void clickCustomerA() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on customer A");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String CustomerName = sp.ExcelRead().get(7);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
     }
@@ -314,7 +314,7 @@ public class DiscountPage extends BasePage{
     public void clickCreateOrderButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Create Order Button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -331,7 +331,7 @@ public class DiscountPage extends BasePage{
     public void clickProductSubTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Product Sub Tab.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductSubTab);
         Assert.assertTrue(clickProductSubTab.isDisplayed());
         clickProductSubTab.click();
@@ -347,7 +347,7 @@ public class DiscountPage extends BasePage{
     public void selectProduct() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Select a product.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ProductName = sp.ExcelRead().get(8);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -363,7 +363,7 @@ public class DiscountPage extends BasePage{
     public void clickDiscountSubTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Discount Sub Tab.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDiscountSubTab);
         Assert.assertTrue(clickDiscountSubTab.isDisplayed());
         clickDiscountSubTab.click();
@@ -394,7 +394,7 @@ public class DiscountPage extends BasePage{
     public void verifyErrorMessage() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Verify Error Message shown on selecting Discount.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ExpectedErrorMsg = sp.ExcelRead().get(10);
         String ActualErrorMsg = driver.findElement(By.xpath("//*[@id='discount-messages']/ul/li")).getText();
         Assert.assertEquals(ActualErrorMsg, ExpectedErrorMsg);
@@ -425,7 +425,7 @@ public class DiscountPage extends BasePage{
     public void clickUpdateButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("click on update button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
@@ -441,7 +441,7 @@ public class DiscountPage extends BasePage{
     public void selectProduct1() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Select a product.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ProductName = sp.ExcelRead().get(12);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -456,7 +456,7 @@ public class DiscountPage extends BasePage{
     public void verifyAmount() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Verify Amount is shown with discount.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ExpectedErrorMsg = sp.ExcelRead().get(14);
         String ActualErrorMsg = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
         Assert.assertEquals(ActualErrorMsg, ExpectedErrorMsg);
@@ -473,7 +473,7 @@ public class DiscountPage extends BasePage{
     public void clickOrdersTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("click on Orders Tab.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
         Assert.assertTrue(clickOrdersTab.isDisplayed());
         clickOrdersTab.click();
@@ -489,7 +489,7 @@ public class DiscountPage extends BasePage{
     public void clickOrder() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("click on Order.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String OrderNumber = sp.ExcelRead().get(13);
         driver.findElement(By.xpath("//a[@class='cell']//*[text()='"+OrderNumber+"']")).click();
         
@@ -503,7 +503,7 @@ public class DiscountPage extends BasePage{
     public void verifyAmountDifference() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Verify Amount is shown with discount.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
        String Amount1 = driver.findElement(By.xpath("//*[@id='column2']/div/div[6]/div/table/tbody/tr/td[4]")).getText();
        System.out.println("Amount 1 --->: " +Amount1);
        String Amount2 = driver.findElement(By.xpath("//*[@id='column2']/div/div[6]/div/table/tbody/tr/td[5]")).getText();
@@ -516,7 +516,7 @@ public class DiscountPage extends BasePage{
         
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 
