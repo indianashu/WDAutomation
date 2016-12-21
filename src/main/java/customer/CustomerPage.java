@@ -142,7 +142,7 @@ public class CustomerPage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(5000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -327,6 +327,22 @@ public class CustomerPage extends BasePage{
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
     }
+    
+    private WebElement getCustomerID;
+    /**
+     * Method to Get customer ID.
+     * @throws IOException 
+     */
+    public void getCustomerID() throws IOException{
+    	CustomerPage sp=new CustomerPage(driver);
+        log.info("Get Customer ID");
+        WaitClass.sleep(2000);
+        String CustomerID = driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText();
+        System.out.print("Customer ID is ------>" + CustomerID + "<------- Got it.");
+        
+    }
+    
+    
     
 //    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Sub-Account']")
 //    private WebElement clickAddSubAccountButton;
