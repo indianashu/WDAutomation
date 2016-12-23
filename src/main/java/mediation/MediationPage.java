@@ -111,7 +111,7 @@ public class MediationPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -144,7 +144,7 @@ public class MediationPage extends BasePage{
     public void clickConfigurationsTab() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Configurations Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationsTab);
         Assert.assertTrue(clickConfigurationsTab.isDisplayed());
         clickConfigurationsTab.click();
@@ -160,7 +160,7 @@ public class MediationPage extends BasePage{
     public void clickPluginsLink() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on plugins link");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickPluginsLink);
         Assert.assertTrue(clickPluginsLink.isDisplayed());
         clickPluginsLink.click();
@@ -176,7 +176,7 @@ public class MediationPage extends BasePage{
     public void clickMediationReader() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediation Reader link.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickMediationReader);
         Assert.assertTrue(clickMediationReader.isDisplayed());
         clickMediationReader.click();
@@ -193,7 +193,7 @@ public class MediationPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Add New Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -222,7 +222,7 @@ public class MediationPage extends BasePage{
     public void enterOrderMediationReader() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Order.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterOrderMediationReader);
         Assert.assertTrue(enterOrderMediationReader.isDisplayed());
         enterOrderMediationReader.sendKeys(sp.ExcelRead().get(4));
@@ -239,7 +239,7 @@ public class MediationPage extends BasePage{
     public void enterFormatFile() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Format File.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterFormatFile);
         Assert.assertTrue(enterFormatFile.isDisplayed());
         enterFormatFile.sendKeys(sp.ExcelRead().get(5));
@@ -255,7 +255,7 @@ public class MediationPage extends BasePage{
     public void enterSufix() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Sufix.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterSufix);
         Assert.assertTrue(enterSufix.isDisplayed());
         enterSufix.sendKeys(sp.ExcelRead().get(6));
@@ -271,7 +271,7 @@ public class MediationPage extends BasePage{
     public void enterDateFormat() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Sufix.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterDateFormat);
         Assert.assertTrue(enterDateFormat.isDisplayed());
         enterDateFormat.sendKeys(sp.ExcelRead().get(7));
@@ -287,7 +287,7 @@ public class MediationPage extends BasePage{
     public void enterSeparator() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Sufix.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterSeparator);
         Assert.assertTrue(enterSeparator.isDisplayed());
         enterSeparator.sendKeys(sp.ExcelRead().get(8));
@@ -303,7 +303,7 @@ public class MediationPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Save Plugin Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
@@ -319,7 +319,7 @@ public class MediationPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -334,7 +334,7 @@ public class MediationPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -349,7 +349,7 @@ public class MediationPage extends BasePage{
     public void clickMediationProcessor() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediation Processor link.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickMediationProcessor);
         Assert.assertTrue(clickMediationProcessor.isDisplayed());
         clickMediationProcessor.click();
@@ -378,7 +378,7 @@ public class MediationPage extends BasePage{
     public void enterOrderMediationProcessor() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Order.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterOrderMediationProcessor);
         Assert.assertTrue(enterOrderMediationProcessor.isDisplayed());
         enterOrderMediationProcessor.sendKeys(sp.ExcelRead().get(10));
@@ -395,7 +395,7 @@ public class MediationPage extends BasePage{
     public void enterDefaultItemIDMediationProcessor() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Default Item ID.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterDefaultItemIDMediationProcessor);
         Assert.assertTrue(enterDefaultItemIDMediationProcessor.isDisplayed());
         enterDefaultItemIDMediationProcessor.sendKeys(sp.ExcelRead().get(11));
@@ -412,7 +412,7 @@ public class MediationPage extends BasePage{
     public void clickMediationErrorHandler() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Mediation Error Handler Link.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickMediationErrorHandler);
         Assert.assertTrue(clickMediationErrorHandler.isDisplayed());
         clickMediationErrorHandler.click();
@@ -441,7 +441,7 @@ public class MediationPage extends BasePage{
     public void enterOrderMediationErrorHandler() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Order.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterOrderMediationErrorHandler);
         Assert.assertTrue(enterOrderMediationErrorHandler.isDisplayed());
         enterOrderMediationErrorHandler.sendKeys(sp.ExcelRead().get(13));
@@ -458,7 +458,7 @@ public class MediationPage extends BasePage{
     public void clickCustomersTab() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Customers Tab");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
@@ -502,7 +502,7 @@ public class MediationPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on select Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -518,7 +518,7 @@ public class MediationPage extends BasePage{
     public void enterLoginName() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(16));
@@ -535,7 +535,7 @@ public class MediationPage extends BasePage{
     public void clickMediationsLink() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediations Link.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickMediationsLink);
         Assert.assertTrue(clickMediationsLink.isDisplayed());
         clickMediationsLink.click();
@@ -552,7 +552,7 @@ public class MediationPage extends BasePage{
     public void enterConfigurationName() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Configuration Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterConfigurationName);
         Assert.assertTrue(enterConfigurationName.isDisplayed());
         enterConfigurationName.sendKeys(sp.ExcelRead().get(17));
@@ -568,7 +568,7 @@ public class MediationPage extends BasePage{
     public void enterExecutionOrder() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Execution Order");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterExecutionOrder);
         Assert.assertTrue(enterExecutionOrder.isDisplayed());
         enterExecutionOrder.sendKeys(sp.ExcelRead().get(18));
@@ -584,7 +584,7 @@ public class MediationPage extends BasePage{
     public void clickMediation() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Mediation");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String Mediation = sp.ExcelRead().get(17);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+Mediation+"']")).click();
     } 
@@ -598,7 +598,7 @@ public class MediationPage extends BasePage{
     public void uploadMediationCSVFile() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("upload Mediation csv file");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WebElement FileUpload = driver.findElement(By.xpath("//input[@name='cdrs']"));
         FileUpload.sendKeys(System.getProperty("user.dir") +"/MediationTest.csv");
         
@@ -613,7 +613,7 @@ public class MediationPage extends BasePage{
     public void clickTriggerConfigButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on trigger this config button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickTriggerConfigButton);
         Assert.assertTrue(clickTriggerConfigButton.isDisplayed());
         clickTriggerConfigButton.click();
@@ -629,17 +629,15 @@ public class MediationPage extends BasePage{
     public void clickMediationsTab() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediations Tabs");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickMediationsTab);
         Assert.assertTrue(clickMediationsTab.isDisplayed());
         clickMediationsTab.click();        
     }
     
-    
-    
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 

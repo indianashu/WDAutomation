@@ -38,7 +38,7 @@ public class addingAssetOrderTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Adding Asset to Order")
+    @Test(groups={"Sanity"},description="Adding Asset to Order Test Case")
     public void userSignin() throws IOException{
     	addingAssetPage.enterLoginID();
     	addingAssetPage.enterPassword();
@@ -64,6 +64,7 @@ public class addingAssetOrderTest {
     	addingAssetPage.clickAddToOrderButton();
     	addingAssetPage.verifyAddedAsset();
     	addingAssetPage.clickUpdateButton();
+    	addingAssetPage.navigateBottom();
     	addingAssetPage.clickSaveChangesButton();
     	addingAssetPage.verifyAssetOrderPreview();
     	addingAssetPage.clickProductsTab();

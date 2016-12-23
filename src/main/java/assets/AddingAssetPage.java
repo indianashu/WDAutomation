@@ -111,7 +111,7 @@ public class AddingAssetPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -144,7 +144,7 @@ public class AddingAssetPage extends BasePage{
     public void clickCustomersTab() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
@@ -160,7 +160,7 @@ public class AddingAssetPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Add New Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -204,7 +204,7 @@ public class AddingAssetPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on select Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -220,7 +220,7 @@ public class AddingAssetPage extends BasePage{
     public void enterCustomerLoginName() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCustomerLoginName);
         Assert.assertTrue(enterCustomerLoginName.isDisplayed());
         enterCustomerLoginName.sendKeys(sp.ExcelRead().get(5));
@@ -236,7 +236,7 @@ public class AddingAssetPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -252,22 +252,22 @@ public class AddingAssetPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
     
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
-    private WebElement clickCustomerA;
+    private WebElement clickAssetCustomer;
     /**
-     * Method to Click on Customer A.
+     * Method to Click on Customer from the customer list.
      * @throws IOException 
      */
     public void clickCustomerA() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
-        log.info("Click on customer A");
-        WaitClass.sleep(10000);
+        log.info("Click on customer from the customer list.");
+        WaitClass.sleep(2000);
         String CustomerName = sp.ExcelRead().get(5);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
     }
@@ -282,7 +282,7 @@ public class AddingAssetPage extends BasePage{
     public void clickCreateOrderButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Create Order Button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -337,7 +337,7 @@ public class AddingAssetPage extends BasePage{
     public void clickProductSubTab() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Product Sub Tab.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductSubTab);
         Assert.assertTrue(clickProductSubTab.isDisplayed());
         clickProductSubTab.click();
@@ -353,7 +353,7 @@ public class AddingAssetPage extends BasePage{
     public void selectProduct() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Select a product.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ProductName = sp.ExcelRead().get(9);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -368,7 +368,7 @@ public class AddingAssetPage extends BasePage{
     public void clickUpdateButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on update button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
@@ -385,7 +385,7 @@ public class AddingAssetPage extends BasePage{
     public void clickAssetCheckbox() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on update button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAssetCheckbox);
         Assert.assertTrue(clickAssetCheckbox.isDisplayed());
         clickAssetCheckbox.click();
@@ -402,7 +402,7 @@ public class AddingAssetPage extends BasePage{
     public void clickAddSelectedButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on add selected button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddSelectedButton);
         Assert.assertTrue(clickAddSelectedButton.isDisplayed());
         clickAddSelectedButton.click();
@@ -419,7 +419,7 @@ public class AddingAssetPage extends BasePage{
     public void clickAddToOrderButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on add to order button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddToOrderButton);
         Assert.assertTrue(clickAddToOrderButton.isDisplayed());
         clickAddToOrderButton.click();
@@ -434,7 +434,7 @@ public class AddingAssetPage extends BasePage{
     public void verifyAddedAsset() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("verify added asset.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ExpectedAsset = sp.ExcelRead().get(10);
         String ActualAsset = driver.findElement(By.xpath("//*[@id='change--3-update-form']/div[1]/div/div[10]/div/label[2]")).getText();
         Assert.assertEquals(ActualAsset, ExpectedAsset);
@@ -449,7 +449,7 @@ public class AddingAssetPage extends BasePage{
     public void verifyAssetOrderPreview() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Verify asset is shown in order preview pane.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ExpectedAsset = sp.ExcelRead().get(10);
         String ActualAsset = driver.findElement(By.xpath("//*[@id='column2']/div/div[7]/div[2]/table/tbody/tr/td[2]")).getText();
         Assert.assertEquals(ActualAsset, ExpectedAsset);
@@ -465,7 +465,7 @@ public class AddingAssetPage extends BasePage{
     public void clickProductsTab() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on Products Tab.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
@@ -481,7 +481,7 @@ public class AddingAssetPage extends BasePage{
     public void clickProductCategory() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on Product category.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ProductCategory = sp.ExcelRead().get(11);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductCategory+"']")).click();
     }
@@ -496,7 +496,7 @@ public class AddingAssetPage extends BasePage{
     public void clickShowAssetsButton() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on show assets button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickShowAssetsButton);
         Assert.assertTrue(clickShowAssetsButton.isDisplayed());
         clickShowAssetsButton.click();
@@ -512,7 +512,7 @@ public class AddingAssetPage extends BasePage{
     public void verifyAssetStatus() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Verify asset is shown in order preview pane.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ExpectedStatus = sp.ExcelRead().get(12);
         String ActualStatus = driver.findElement(By.xpath("//a[@class='cell']//*[text()='Inuse']")).getText();
         Assert.assertEquals(ActualStatus, ExpectedStatus);
@@ -521,7 +521,7 @@ public class AddingAssetPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 
