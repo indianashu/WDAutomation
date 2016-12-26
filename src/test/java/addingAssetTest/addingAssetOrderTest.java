@@ -50,13 +50,13 @@ public class addingAssetOrderTest {
     	addingAssetPage.selectAccountType();
     	addingAssetPage.clickSelectButton();
     	addingAssetPage.enterCustomerLoginName();
+		addingAssetPage.navigateBottom();
     	addingAssetPage.clickSaveChangesButton();
     	addingAssetPage.verifyConfirmationMsg();
     	addingAssetPage.clickCustomerA();
     	addingAssetPage.clickCreateOrderButton();
     	addingAssetPage.selectPeriod();
     	addingAssetPage.selectOrderType();
-    	addingAssetPage.selectActiveSince();
     	addingAssetPage.clickProductSubTab();
     	addingAssetPage.selectProduct();
     	addingAssetPage.clickAssetCheckbox();

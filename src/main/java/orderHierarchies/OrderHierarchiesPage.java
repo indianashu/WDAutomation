@@ -255,13 +255,27 @@ public class OrderHierarchiesPage extends BasePage{
     public void enterProductRate() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("enter product rate.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProductRate);
         Assert.assertTrue(enterProductRate.isDisplayed());
         enterProductRate.sendKeys(sp.ExcelRead().get(6));
-        
     }
-    
+
+    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Price']")
+    private WebElement clickAddPriceButton;
+    /**
+     * Method to click on Add Price Button.
+     * @throws IOException
+     */
+    public void clickAddPriceButton() throws IOException{
+        OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        log.info("Click on Add Price Button");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
+        Assert.assertTrue(clickAddPriceButton.isDisplayed());
+        clickAddPriceButton.click();
+
+    }
     
     @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
     private WebElement enterEnglishDescription1;
@@ -336,6 +350,7 @@ public class OrderHierarchiesPage extends BasePage{
      */
     public void selectProductCategoryDependency() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        WaitClass.sleep(1000);
         WebElement PCelement = driver.findElement(By.xpath("//select[@name='product.dependencyItemTypes']"));
         Select se = new Select(PCelement);
         se.selectByVisibleText(sp.ExcelRead().get(10));
@@ -349,9 +364,8 @@ public class OrderHierarchiesPage extends BasePage{
      */
     public void selectProductDependency() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
-        WebElement Productelement = driver.findElement(By.xpath("//select[@name='product.dependencyItems']"));
-        Select se = new Select(Productelement);
-        se.selectByVisibleText(sp.ExcelRead().get(11));
+        WaitClass.sleep(1000);
+        driver.findElement(By.xpath("//*[@id='product.dependencyItems']/option[2]")).click();
 
     }
     
@@ -381,7 +395,7 @@ public class OrderHierarchiesPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickDependencyPlusIcon);
         Assert.assertTrue(clickDependencyPlusIcon.isDisplayed());
         clickDependencyPlusIcon.click();
-        
+        JavaScriptExec.scrollToElementOnPage(driver,clickDependencyPlusIcon);
     }
     
     
@@ -395,7 +409,7 @@ public class OrderHierarchiesPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -442,7 +456,7 @@ public class OrderHierarchiesPage extends BasePage{
     public void clickCustomerA() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("click on a customer.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         String CustomerName = sp.ExcelRead().get(13);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
@@ -456,9 +470,10 @@ public class OrderHierarchiesPage extends BasePage{
      * @throws IOException 
      */
     public void clickCreateOrderButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("click on create order button.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -472,6 +487,7 @@ public class OrderHierarchiesPage extends BasePage{
      */
     public void selectOrderPeriod() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        WaitClass.sleep(1000);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
         se.selectByVisibleText(sp.ExcelRead().get(14));
@@ -485,6 +501,7 @@ public class OrderHierarchiesPage extends BasePage{
      */
     public void selectOrderType() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
+        WaitClass.sleep(1000);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(15));

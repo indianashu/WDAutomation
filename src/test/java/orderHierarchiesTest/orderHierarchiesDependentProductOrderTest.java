@@ -51,7 +51,7 @@ public class orderHierarchiesDependentProductOrderTest {
     	orderHierarchiesPage.selectOrderType();
     	orderHierarchiesPage.clickProductsSubTab();
     	orderHierarchiesPage.selectProductsSubTab();
-    	orderHierarchiesPage.verifyWarningMsg();
+//    	orderHierarchiesPage.verifyWarningMsg();
     	orderHierarchiesPage.clickDependencyButton();
     	orderHierarchiesPage.clickDependentProduct();
     	orderHierarchiesPage.clickCurrentOrderButton();

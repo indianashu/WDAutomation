@@ -50,21 +50,19 @@ public class basicOrderCreationTest {
     	orderPage.selectAccountType();
     	orderPage.clickSelectButton();
     	orderPage.enterLoginName();
-    	orderPage.expandPaymentMethod();
+		orderPage.navigateBottom();
     	orderPage.selectPaymentMethodType();
     	orderPage.enterCCCardholderName();
     	orderPage.enterCCNumber();
     	orderPage.enterCCExpiryDate();
-    	orderPage.clickAddInstrumentButton();
     	orderPage.clickSaveChangesButton();
     	orderPage.verifyConfirmationMsg();
     	orderPage.clickCreateOrderButton();
-    	orderPage.selectOrderType();
-    	orderPage.selectPeriod();
+		orderPage.selectPeriod();
+		orderPage.selectOrderType();
     	orderPage.selectActiveSince();
     	orderPage.clickProductsSubTab();
     	orderPage.selectProduct();
-    	orderPage.enterEffectiveDate();
     	orderPage.enterQuantity();
     	orderPage.clickUpdateButton();
     	orderPage.verifyNewOrder();
@@ -75,7 +73,6 @@ public class basicOrderCreationTest {
     	orderPage.clickSelectedProduct();
     	orderPage.clickChangeButton();
     	orderPage.enterChangeQty();
-    	orderPage.clickUpdateButton();
     	orderPage.clickSaveChangesButton();
     	orderPage.verifyConfirmationMsg();
     	

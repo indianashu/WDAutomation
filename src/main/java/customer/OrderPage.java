@@ -292,7 +292,7 @@ public class OrderPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	OrderPage sp=new OrderPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -335,7 +335,6 @@ public class OrderPage extends BasePage{
      */
     public void selectPaymentMethodType() throws IOException{
     	OrderPage sp=new OrderPage(driver);
-        WaitClass.sleep(2000);
         WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMTelement);
         se.selectByVisibleText(sp.ExcelRead().get(6));
@@ -413,6 +412,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickCreateOrderButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	OrderPage sp=new OrderPage(driver);
         log.info("Click Add Sub Account Button");
         WaitClass.sleep(2000);
@@ -429,6 +429,7 @@ public class OrderPage extends BasePage{
      */
     public void selectPeriod() throws IOException{
     	OrderPage sp=new OrderPage(driver);
+        WaitClass.sleep(1000);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
         se.selectByVisibleText(sp.ExcelRead().get(10));
@@ -442,6 +443,7 @@ public class OrderPage extends BasePage{
      */
     public void selectOrderType() throws IOException{
     	OrderPage sp=new OrderPage(driver);
+        WaitClass.sleep(1000);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(11));
@@ -455,10 +457,10 @@ public class OrderPage extends BasePage{
      */
     public void selectActiveSince() throws IOException{
     	OrderPage sp=new OrderPage(driver);
+        WaitClass.sleep(1000);
         WebElement ASelement = driver.findElement(By.xpath("//input[@name='activeSince']"));
-        Select se = new Select(ASelement);
-        se.selectByVisibleText(sp.ExcelRead().get(12));
-
+        ASelement.clear();
+        ASelement.sendKeys(sp.ExcelRead().get(12));
     }  
     
     @FindBy(how=How.XPATH, using="//*[@id='ui-id-8']")
@@ -520,6 +522,7 @@ public class OrderPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity);
         Assert.assertTrue(enterQuantity.isDisplayed());
+        enterQuantity.clear();
         enterQuantity.sendKeys(sp.ExcelRead().get(15));
         
     }
@@ -562,6 +565,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickEditOrderButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickEditOrderButton);
     	OrderPage sp=new OrderPage(driver);
         log.info("Click Edit This Order Button");
         WaitClass.sleep(2000);
@@ -584,7 +588,7 @@ public class OrderPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickChangeLog);
         Assert.assertTrue(clickChangeLog.isDisplayed());
         clickChangeLog.click();
-        
+
     }
     
 //    @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Generate Invoice']")
@@ -647,8 +651,18 @@ public class OrderPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterChangeQty);
         Assert.assertTrue(enterChangeQty.isDisplayed());
+        enterChangeQty.clear();
         enterChangeQty.sendKeys(sp.ExcelRead().get(16));
-        
+
+        /**
+         * Click Update Button.
+         */
+        log.info("Click Update Button");
+        WaitClass.sleep(1000);
+        WebElement clickUpdateButton = driver.findElement(By.xpath("//a[@class='submit save']//following::span[text()='Update']"));
+        Assert.assertTrue(clickUpdateButton.isDisplayed());
+        clickUpdateButton.click();
+
     }
     
     public void navigateBottom(){

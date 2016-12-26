@@ -26,8 +26,7 @@
 
 		<classes>
 
-			<class name = "customerTest.getCustomerIDTest" />
-			<!-- <class name = "SignupTest.ChildCompanySignupTest"/>
+			<class name = "SignupTest.ChildCompanySignupTest"/>
 			<class name = "SignupTest.ChildCompanySignupResellerTest"/>
 		 	<class name = "companySetupTest.configureAccountTypeTest"/>
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
@@ -46,7 +45,10 @@
 			<class name = "customerTest.addNewCustomerTest" />
 			<class name = "customerTest.addNewSubCustomerTest" />
 			<class name = "customerTest.verifyDiscountOrderTest" />
-			<class name = "customerTest.impersonateCustomerTest" /> -->
+			<class name = "customerTest.impersonateCustomerTest" />
+			<class name = "ordersTest.basicOrderCreationTest" />
+			<class name = "addingAssetTest.addingAssetOrderTest"/>
+			<class name = "orderHierarchiesTest.orderHierarchiesDependentProductCreationTest"/>
 
 		</classes>
 
