@@ -635,6 +635,98 @@ public class MediationPage extends BasePage{
         clickMediationsTab.click();        
     }
     
+  
+    @FindBy(how=How.XPATH, using="//table/tbody/tr[1]/td[6]")
+    private WebElement verifyNumberOrders;
+    /**
+     * Method to Verify Orders created are greater than Zero.
+     * @throws IOException 
+     */
+    public void verifyNumberOrders() throws IOException{
+    	MediationPage sp=new MediationPage(driver);
+        log.info("Verify Orders created are greater than Zero.");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, verifyNumberOrders);
+        Assert.assertTrue(verifyNumberOrders.isDisplayed());
+        String OrderNumber = driver.findElement(By.xpath("//table/tbody/tr[1]/td[6]")).getText();  
+        int OrderValue = Integer.parseInt(OrderNumber);
+        if (OrderValue > 0) {
+        	Assert.assertTrue(true, "Number Orders created are greater than Zero.");
+        }else{
+        	Assert.assertFalse(false, "Number Orders created are Zero.");
+        }
+    }
+    
+    
+  
+   // @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Mediation 2.0']")
+    private WebElement clickMediationName;
+    /**
+     * Method to click on Mediation Created.
+     * @throws IOException 
+     */
+    public void clickMediationName() throws IOException{
+    	MediationPage sp=new MediationPage(driver);
+        log.info("click on Mediation name");
+        WaitClass.sleep(2000);
+        String MediationName = sp.ExcelRead().get(17);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+MediationName+"']")).click();
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[3]/td[2]")
+    private WebElement verifyDoneBillableValue;
+    /**
+     * Method to Verify value for Done and Billable.
+     * @throws IOException 
+     */
+    public void verifyDoneBillableValue() throws IOException{
+    	MediationPage sp=new MediationPage(driver);
+        log.info("Verify value for Done and Billable.");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, verifyDoneBillableValue);
+        Assert.assertTrue(verifyDoneBillableValue.isDisplayed());
+        String Number = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[3]/td[2]")).getText();  
+        int Value = Integer.parseInt(Number);
+        if (Value > 0) {
+        	Assert.assertTrue(true, "Done & Billable value is greater than Zero.");
+        }else{
+        	Assert.assertFalse(false, "Done & Billable value is Zero.");
+        }
+    }
+    
+  
+    @FindBy(how=How.XPATH, using="//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[3]/td[3]/a")
+    private WebElement clickDoneBillableViewLink;
+    /**
+     * Method to click on Done Billable View Link.
+     * @throws IOException 
+     */
+    public void clickDoneBillableViewLink() throws IOException{
+    	MediationPage sp=new MediationPage(driver);
+        log.info("click on Done Billable View Link.");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickDoneBillableViewLink);
+        Assert.assertTrue(clickDoneBillableViewLink.isDisplayed());
+        clickDoneBillableViewLink.click();        
+    }
+    
+    @FindBy(how=How.XPATH, using="//a[.='Orders']")
+    private WebElement clickOrdersTab;
+    /**
+     * Method to click on Orders Tab.
+     * @throws IOException 
+     */
+    public void clickOrdersTab() throws IOException{
+    	MediationPage sp=new MediationPage(driver);
+        log.info("click on Orders Tabs");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
+        Assert.assertTrue(clickOrdersTab.isDisplayed());
+        clickOrdersTab.click();        
+    }
+    
+    
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
         WaitClass.sleep(2000);

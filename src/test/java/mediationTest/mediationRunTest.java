@@ -62,6 +62,10 @@ public class mediationRunTest {
     	mediationPage.uploadMediationCSVFile();
     	mediationPage.clickTriggerConfigButton();
     	mediationPage.clickMediationsTab();
+    	mediationPage.verifyNumberOrders();
+    	mediationPage.clickMediationName();
+    	mediationPage.clickDoneBillableViewLink();
+    	mediationPage.clickOrdersTab();
     	
     }
     
