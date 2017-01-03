@@ -110,7 +110,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -143,7 +143,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -160,7 +160,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -176,7 +176,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -190,7 +190,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickCustomerName() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Customer Name.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String CustomerName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
     }
@@ -205,7 +205,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickCreateOrderButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click Add Sub Account Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -248,7 +248,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickProductSubTab() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click Products Tab");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductSubTab);
         Assert.assertTrue(clickProductSubTab.isDisplayed());
         clickProductSubTab.click();
@@ -264,9 +264,43 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void selectProduct() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click Product from list");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ProductName = sp.ExcelRead().get(6);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        
+    }
+
+    
+    @FindBy(how=How.XPATH, using="//input[@id='change--3.useItem']")
+    private WebElement clickCheckboxToChangeName;
+    /**
+     * Method to Click Checkbox to change product description.
+     * @throws IOException 
+     */
+    public void clickCheckboxToChangeName() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click Checkbox to change product description");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCheckboxToChangeName);
+        Assert.assertTrue(clickCheckboxToChangeName.isDisplayed());
+        clickCheckboxToChangeName.click();
+        
+    }
+    
+    @FindBy(how=How.XPATH, using=" //input[@name='change--3.description']")
+    private WebElement changeProductDescription;
+    /**
+     * Method to Change product description.
+     * @throws IOException 
+     */
+    public void changeProductDescription() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Change product description");
+        WaitClass.sleep(10000);
+        WaitClass.WaitForElementisDisplay(driver, 10, changeProductDescription);
+        Assert.assertTrue(changeProductDescription.isDisplayed());
+        changeProductDescription.clear();
+        changeProductDescription.sendKeys(sp.ExcelRead().get(7));
         
     }
     
@@ -296,7 +330,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
+        se.selectByVisibleText(sp.ExcelRead().get(8));
 
     }
 
@@ -309,10 +343,41 @@ public class GeneratingPayingInvoicePage extends BasePage{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(8));
+        se.selectByVisibleText(sp.ExcelRead().get(9));
 
     }
     
+    
+    private WebElement selectProduct1;
+    /**
+     * Method to Select Product from list.
+     * @throws IOException 
+     */
+    public void selectProduct1() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Click Product from list");
+        WaitClass.sleep(2000);
+        String ProductName = sp.ExcelRead().get(10);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        
+    }
+    
+    @FindBy(how=How.XPATH, using=" //input[@name='change--3.description']")
+    private WebElement changeProductDescription1;
+    /**
+     * Method to Change product description.
+     * @throws IOException 
+     */
+    public void changeProductDescription1() throws IOException{
+    	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
+        log.info("Change product description");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, changeProductDescription1);
+        Assert.assertTrue(changeProductDescription1.isDisplayed());
+        changeProductDescription1.clear();
+        changeProductDescription1.sendKeys(sp.ExcelRead().get(11));
+        
+    }
     
   
   //@FindBy(how=How.XPATH, using="//a[@class='cell']//*[text()='401']")
@@ -324,8 +389,8 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void selectMonthlyOrder() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click Monthly Order from list");
-        WaitClass.sleep(10000);
-        String OrderNumber = sp.ExcelRead().get(9);
+        WaitClass.sleep(2000);
+        String OrderNumber = sp.ExcelRead().get(12);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+OrderNumber+"']")).click();
         
     }
@@ -339,7 +404,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickGenerateInvoiceButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Generate Invoice Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickGenerateInvoiceButton);
         Assert.assertTrue(clickGenerateInvoiceButton.isDisplayed());
         clickGenerateInvoiceButton.click();
@@ -347,7 +412,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='navList']/li[5]/a/span")
+    @FindBy(how=How.XPATH, using="//a[.='Orders']")
     private WebElement clickOrdersTab;
     /**
      * Method to Click on Orders Tab.
@@ -356,7 +421,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickOrdersTab() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Orders Tab");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
         Assert.assertTrue(clickOrdersTab.isDisplayed());
         clickOrdersTab.click();
@@ -372,8 +437,8 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void selectOneTimeOrder() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click OneTime Order from list");
-        WaitClass.sleep(10000);
-        String OrderNumber = sp.ExcelRead().get(10);
+        WaitClass.sleep(2000);
+        String OrderNumber = sp.ExcelRead().get(13);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+OrderNumber+"']")).click();
         
     }
@@ -388,7 +453,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickApplyToInvoiceButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Apply to invoice button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickApplyToInvoiceButton);
         Assert.assertTrue(clickApplyToInvoiceButton.isDisplayed());
         clickApplyToInvoiceButton.click();
@@ -405,7 +470,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickInvoiceRadioButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Invoice Radio button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickInvoiceRadioButton);
         Assert.assertTrue(clickInvoiceRadioButton.isDisplayed());
         clickInvoiceRadioButton.click();
@@ -421,7 +486,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickApplyButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Apply button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickApplyButton);
         Assert.assertTrue(clickApplyButton.isDisplayed());
         clickApplyButton.click();
@@ -438,7 +503,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickInvoicesTab() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Invoices Tab");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickInvoicesTab);
         Assert.assertTrue(clickInvoicesTab.isDisplayed());
         clickInvoicesTab.click();
@@ -454,7 +519,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickInvoiceCreated() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Invoice created.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String CustomerName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
@@ -470,7 +535,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickPayInvoiceButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Pay Invoice Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickPayInvoiceButton);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
         clickPayInvoiceButton.click();
@@ -487,7 +552,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickProcessRealTimeCheckbox() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Process Payment in Real-Time checkbox");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProcessRealTimeCheckbox);
         Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
         clickProcessRealTimeCheckbox.click();
@@ -504,10 +569,10 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void enterProcessOrder() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Enter value for Process Order.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProcessOrder);
         Assert.assertTrue(enterProcessOrder.isDisplayed());
-        enterProcessOrder.sendKeys(sp.ExcelRead().get(11));
+        enterProcessOrder.sendKeys(sp.ExcelRead().get(14));
         
     }
     
@@ -520,10 +585,10 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void enterCardHolderName() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Enter card holder name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
         Assert.assertTrue(enterCardHolderName.isDisplayed());
-        enterCardHolderName.sendKeys(sp.ExcelRead().get(12));
+        enterCardHolderName.sendKeys(sp.ExcelRead().get(15));
         
     }
     
@@ -536,10 +601,10 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void enterCardNumber() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Enter card number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
-        enterCardNumber.sendKeys(sp.ExcelRead().get(13));
+        enterCardNumber.sendKeys(sp.ExcelRead().get(16));
         
     }
     
@@ -552,10 +617,10 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void enterCardExpiry() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Enter card number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
         Assert.assertTrue(enterCardExpiry.isDisplayed());
-        enterCardExpiry.sendKeys(sp.ExcelRead().get(14));
+        enterCardExpiry.sendKeys(sp.ExcelRead().get(17));
         
     }
     
@@ -568,7 +633,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickReviewPaymentButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Review Payment Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickReviewPaymentButton);
         Assert.assertTrue(clickReviewPaymentButton.isDisplayed());
         clickReviewPaymentButton.click();
@@ -584,7 +649,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickMakePaymentButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Review Payment Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickMakePaymentButton);
         Assert.assertTrue(clickMakePaymentButton.isDisplayed());
         clickMakePaymentButton.click();
@@ -600,7 +665,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void verifyPaymentSuccessfulMsg() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Verifying if payment status is successful.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ExpectedMsg = "Successful";
         String ActualMsg = driver.findElement(By.xpath("//*[@id='column2']/div/div[7]/div/table/tbody/tr/td[6]")).getText();
         Assert.assertEquals(ActualMsg, ExpectedMsg);        
@@ -608,7 +673,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 

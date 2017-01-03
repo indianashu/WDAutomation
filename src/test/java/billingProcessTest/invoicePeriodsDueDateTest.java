@@ -38,28 +38,30 @@ public class invoicePeriodsDueDateTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Invoice Periods Due Date")
+    @Test(groups={"Sanity"},description="Invoice Periods and Due Date.")
     public void userSignin() throws IOException{
     	billingPage.enterLoginID();
     	billingPage.enterPassword();
     	billingPage.selectCompany();
     	billingPage.clickLoginButton();
+    	billingPage.clickBillingTab();
+    	billingPage.clickLastBillingRun();
+    	billingPage.clickShowInvoiceButton();
+    	billingPage.clickBillingCustomer2();
+    	billingPage.verifyDueDate();
     	billingPage.clickConfigurationTab();
     	billingPage.clickBillingProcessLink();
-    	billingPage.clickGenerateReviewReport();
+    	billingPage.enterNextRunDate1();
     	billingPage.clickSaveChangesButton();
     	billingPage.clickRunBillingButton();
+    	billingPage.verifyConfirmationMsg();
     	billingPage.clickBillingTab();
-    	billingPage.verifyOrderNumbers();
-    	billingPage.verifyOrderNumbersItalics();
-    	billingPage.clickBillingReview();
-    	billingPage.clickShowOrdersButton();
-    	billingPage.verifyTableOrders();
-    	billingPage.clickBillingTab();
-    	billingPage.clickBillingReview();
+    	billingPage.clickLastBillingRun();
     	billingPage.clickShowInvoiceButton();
-    	billingPage.verifyTableInvoices();
-    	billingPage.verifyInvoiceCustomer();
+    	billingPage.clickBillingCustomer1();
+    	billingPage.verifyDueDate1();
+    	
+   
     }
     
     @AfterClass(alwaysRun=true)
