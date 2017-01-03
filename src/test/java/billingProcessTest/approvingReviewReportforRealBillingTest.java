@@ -38,7 +38,7 @@ public class approvingReviewReportforRealBillingTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Approve Review Report")
+    @Test(groups={"Sanity"},description="Approving review report for real billing run.")
     public void userSignin() throws IOException{
     	billingPage.enterLoginID();
     	billingPage.enterPassword();

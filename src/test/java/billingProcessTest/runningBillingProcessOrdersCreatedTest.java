@@ -38,7 +38,7 @@ public class runningBillingProcessOrdersCreatedTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Running Billing Process")
+    @Test(groups={"Sanity"},description="Running Billing Process for the orders created.")
     public void userSignin() throws IOException{
     	billingPage.enterLoginID();
     	billingPage.enterPassword();
