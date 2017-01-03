@@ -49,7 +49,7 @@
 						<version>2.17</version>
 						<configuration>
 							<suiteXmlFiles>
-								<suiteXmlFile>src/test/resources/testNgFileContainer/SanitySuite.xml</suiteXmlFile>
+								<suiteXmlFile>src/test/resources/testNgFileContainer/${suitename}</suiteXmlFile>
 							</suiteXmlFiles>
 							<additionalClasspathElements>
 								<additionalClasspathElement>src/main/resources/propertyFilePackage</additionalClasspathElement>
@@ -60,6 +60,7 @@
 									<value>utilPackages.ListenerClass</value>
 								</property>
 							</properties>
+							<reportsDirectory>${basedir}/Result/current</reportsDirectory>
 						</configuration>
 					</plugin>
 				</plugins>
