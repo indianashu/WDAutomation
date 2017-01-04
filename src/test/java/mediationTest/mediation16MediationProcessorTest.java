@@ -44,13 +44,13 @@ public class mediation16MediationProcessorTest {
     	mediationPage.enterPassword();
     	mediationPage.selectCompany();
     	mediationPage.clickLoginButton();
+        String ItemId = mediationPage.fetchDefaultItemID();
     	mediationPage.clickConfigurationsTab();
     	mediationPage.clickPluginsLink();
     	mediationPage.clickMediationProcessor();
     	mediationPage.clickAddNewButton();
     	mediationPage.selectTypeIdMediationProcessor();
-    	mediationPage.enterOrderMediationProcessor();
-    	mediationPage.enterDefaultItemIDMediationProcessor();
+    	mediationPage.enterDefaultItemIDMediationProcessor(ItemId);
     	mediationPage.clickSavePluginButton();
     	mediationPage.verifyConfirmationMsg();
     	

@@ -583,7 +583,7 @@ public class OrderHierarchiesPage extends BasePage{
         log.info("click on dependenct product.");
         WaitClass.sleep(2000);
         String DependentProduct = sp.ExcelRead().get(18);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+DependentProduct+"']")).click();
+        driver.findElement(By.xpath("//a[not(@href)]/strong[text()='"+DependentProduct+"']")).click();
     }
     
   
@@ -604,7 +604,7 @@ public class OrderHierarchiesPage extends BasePage{
     } 
     
   
-    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
+    @FindBy(how=How.XPATH, using="//a[3]//following::span[text()='Update']")
     private WebElement clickUpdateButton;
     /**
      * Method to click on Update button.

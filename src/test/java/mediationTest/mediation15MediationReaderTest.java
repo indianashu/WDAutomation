@@ -49,7 +49,6 @@ public class mediation15MediationReaderTest {
     	mediationPage.clickMediationReader();
     	mediationPage.clickAddNewButton();
     	mediationPage.selectTypeIdMediationReader();
-    	mediationPage.enterOrderMediationReader();
     	mediationPage.enterFormatFile();
     	mediationPage.enterSufix();
     	mediationPage.enterDateFormat();

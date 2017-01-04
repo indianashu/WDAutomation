@@ -357,7 +357,7 @@ public class AddingAssetPage extends BasePage{
     public void selectProduct() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Select a product.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(4000);
         String ProductName = sp.ExcelRead().get(9);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -389,7 +389,7 @@ public class AddingAssetPage extends BasePage{
     public void clickAssetCheckbox() throws IOException{
     	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("click on update button.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(4000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAssetCheckbox);
         Assert.assertTrue(clickAssetCheckbox.isDisplayed());
         clickAssetCheckbox.click();

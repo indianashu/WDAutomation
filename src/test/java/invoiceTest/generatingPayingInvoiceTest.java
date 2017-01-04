@@ -59,8 +59,6 @@ public class generatingPayingInvoiceTest {
     	generatingPayingInvoicePage.clickCustomerTab();
     	generatingPayingInvoicePage.clickCustomerName();
     	generatingPayingInvoicePage.clickCreateOrderButton();
-    	generatingPayingInvoicePage.selectPeriod1();
-    	generatingPayingInvoicePage.selectOrderType1();
     	generatingPayingInvoicePage.clickProductSubTab();
     	generatingPayingInvoicePage.selectProduct1();
     	generatingPayingInvoicePage.clickCheckboxToChangeName();
@@ -81,9 +79,6 @@ public class generatingPayingInvoiceTest {
     	generatingPayingInvoicePage.clickPayInvoiceButton();
     	generatingPayingInvoicePage.clickProcessRealTimeCheckbox();
     	generatingPayingInvoicePage.enterProcessOrder();
-    	generatingPayingInvoicePage.enterCardHolderName();
-    	generatingPayingInvoicePage.enterCardNumber();
-    	generatingPayingInvoicePage.enterCardExpiry();
     	generatingPayingInvoicePage.clickReviewPaymentButton();
     	generatingPayingInvoicePage.clickMakePaymentButton();
     	generatingPayingInvoicePage.verifyPaymentSuccessfulMsg();

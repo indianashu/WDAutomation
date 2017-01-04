@@ -47,11 +47,13 @@ public class verifyInvoiceDateDueDateTest {
     	generatingInvoicePage.clickProductsTab();
     	generatingInvoicePage.clickAddCategoryButton();
     	generatingInvoicePage.enterCategoryName();
+		generatingInvoicePage.clickSaveChangesButton();
     	generatingInvoicePage.clickCategoryName();
     	generatingInvoicePage.clickAddProductButton();
     	generatingInvoicePage.enterProductDescription();
     	generatingInvoicePage.enterProductCode();
     	generatingInvoicePage.enterProductRate();
+		generatingInvoicePage.navigateBottom();
     	generatingInvoicePage.clickSaveChangesButton();
     	generatingInvoicePage.verifyConfirmationMsg();
     	generatingInvoicePage.clickCustomerTab();

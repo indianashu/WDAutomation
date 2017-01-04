@@ -47,9 +47,9 @@ public class mediationRunTest {
     	mediationPage.clickCustomersTab();
     	mediationPage.clickAddNewButton();
     	mediationPage.selectAccountType();
-    	mediationPage.selectCompany();
     	mediationPage.clickSelectButton();
     	mediationPage.enterLoginName();
+		mediationPage.navigateBottom();
     	mediationPage.clickSaveChangesButton();
     	mediationPage.verifyConfirmationMsg();
     	mediationPage.clickConfigurationsTab();

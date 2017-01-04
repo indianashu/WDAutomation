@@ -49,7 +49,6 @@ public class mediation21MediationErrorHandlerTest {
     	mediationPage.clickMediationErrorHandler();
     	mediationPage.clickAddNewButton();
     	mediationPage.selectTypeIdMediationErrorHandler();
-    	mediationPage.enterOrderMediationErrorHandler();
     	mediationPage.clickSavePluginButton();
     	mediationPage.verifyConfirmationMsg();
     	

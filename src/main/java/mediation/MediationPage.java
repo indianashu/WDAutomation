@@ -319,7 +319,6 @@ public class MediationPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -392,16 +391,35 @@ public class MediationPage extends BasePage{
      * Method to enter value for Default Item ID.
      * @throws IOException 
      */
-    public void enterDefaultItemIDMediationProcessor() throws IOException{
-    	MediationPage sp=new MediationPage(driver);
+    public void enterDefaultItemIDMediationProcessor(String ItemId) throws IOException{
+        MediationPage sp=new MediationPage(driver);
         log.info("enter value for Default Item ID.");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterDefaultItemIDMediationProcessor);
         Assert.assertTrue(enterDefaultItemIDMediationProcessor.isDisplayed());
-        enterDefaultItemIDMediationProcessor.sendKeys(sp.ExcelRead().get(11));
+        enterDefaultItemIDMediationProcessor.sendKeys(ItemId);
         
     }
-    
+
+    public String fetchDefaultItemID() throws IOException{
+        MediationPage sp=new MediationPage(driver);
+        driver.findElement(By.xpath("//a[.='Products']")).click();
+        String CategoryName = sp.ExcelRead().get(19);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
+        String ItemName = sp.ExcelRead().get(20);
+        WaitClass.sleep(1000);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ItemName+"']")).click();
+        WaitClass.sleep(1000);
+
+        WebElement clickEditProduct = driver.findElement(By.xpath("//a[@class='submit edit']//*[text()='Edit']"));
+        JavaScriptExec.scrolltoBottomofPage(driver);
+        WaitClass.sleep(2000);
+        driver.findElement(By.xpath("//a[@class='submit edit']//*[text()='Edit']")).click();
+        WaitClass.sleep(1000);
+        String ItemId = driver.findElement(By.xpath("//label[contains(.,'Product ID')]/following::span[1]")).getText();;
+        log.info("Item ID." + ItemId);
+        return ItemId;
+    }
   
     @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'21')]]")
     private WebElement clickMediationErrorHandler;
@@ -526,7 +544,7 @@ public class MediationPage extends BasePage{
     }
     
       
-    @FindBy(how=How.XPATH, using="//a[contains(text(),'Mediation')]")
+    @FindBy(how=How.XPATH, using="//a[@href='/jbilling/mediationConfig/list']")
     private WebElement clickMediationsLink;
     /**
      * Method to click on Mediations Link.
@@ -535,11 +553,11 @@ public class MediationPage extends BasePage{
     public void clickMediationsLink() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediations Link.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickMediationsLink);
         Assert.assertTrue(clickMediationsLink.isDisplayed());
         clickMediationsLink.click();
-        
+        WaitClass.sleep(1000);
     }
     
   
@@ -552,14 +570,14 @@ public class MediationPage extends BasePage{
     public void enterConfigurationName() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Configuration Name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterConfigurationName);
         Assert.assertTrue(enterConfigurationName.isDisplayed());
         enterConfigurationName.sendKeys(sp.ExcelRead().get(17));
         
     }
    
-    @FindBy(how=How.XPATH, using="//input[@name='name']")
+    @FindBy(how=How.XPATH, using="//input[@name='orderValue']")
     private WebElement enterExecutionOrder;
     /**
      * Method to Enter Execution Order.
@@ -568,7 +586,7 @@ public class MediationPage extends BasePage{
     public void enterExecutionOrder() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Execution Order");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterExecutionOrder);
         Assert.assertTrue(enterExecutionOrder.isDisplayed());
         enterExecutionOrder.sendKeys(sp.ExcelRead().get(18));
