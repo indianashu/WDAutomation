@@ -109,7 +109,7 @@ public class CollectionConfigurationPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -143,7 +143,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -159,12 +159,26 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickBillingCustomer2() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Billing Customer2");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String BillingCustomer= sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
         
     }
    
+    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing Customer2']")
+    private WebElement clickBillingCustomer1;
+    /**
+     * Method to Click on Billing Customer1.
+     * @throws IOException 
+     */
+    public void clickBillingCustomer1() throws IOException{
+    	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
+        log.info("Click on Billing Customer1");
+        WaitClass.sleep(2000);
+        String BillingCustomer= sp.ExcelRead().get(19);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
+        
+    }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit edit']//*[text()='Edit']")
     private WebElement clickEditButton;
@@ -175,7 +189,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickEditButton() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Edit Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickEditButton);
         Assert.assertTrue(clickEditButton.isDisplayed());
         clickEditButton.click();
@@ -205,7 +219,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterCardHolderName() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Cardholder Name");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
         Assert.assertTrue(enterCardHolderName.isDisplayed());
         enterCardHolderName.sendKeys(sp.ExcelRead().get(5));
@@ -221,7 +235,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterCardNumber() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Cardholder Number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
         enterCardNumber.sendKeys(sp.ExcelRead().get(6));
@@ -237,7 +251,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterCardExpiry() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Cardholder Number");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
         Assert.assertTrue(enterCardExpiry.isDisplayed());
         enterCardExpiry.sendKeys(sp.ExcelRead().get(7));
@@ -254,7 +268,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -270,7 +284,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -285,7 +299,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickConfigurationTab() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Configuration Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
         Assert.assertTrue(clickConfigurationTab.isDisplayed());
         clickConfigurationTab.click();
@@ -301,7 +315,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickCollectionsLink() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Collections Link.");
-        WaitClass.sleep(10000);  
+        WaitClass.sleep(2000);  
         WaitClass.WaitForElementisDisplay(driver, 10, clickCollectionsLink);
         Assert.assertTrue(clickCollectionsLink.isDisplayed());
         clickCollectionsLink.click();
@@ -318,7 +332,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterRunCollectionDate() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate);
         Assert.assertTrue(enterRunCollectionDate.isDisplayed());
         enterRunCollectionDate.sendKeys(sp.ExcelRead().get(8));
@@ -334,7 +348,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickRunCollectionsButton() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Run Collections Button.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsButton);
         Assert.assertTrue(clickRunCollectionsButton.isDisplayed());
         clickRunCollectionsButton.click();
@@ -351,7 +365,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickRunCollectionsPopup() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Run Collections Popup.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsPopup);
         Assert.assertTrue(clickRunCollectionsPopup.isDisplayed());
         clickRunCollectionsPopup.click();
@@ -370,7 +384,7 @@ public class CollectionConfigurationPage extends BasePage{
         String CustomerID=sp.ExcelRead().get(9);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
         System.out.println("Status of the Billing Customer1---->" +ActualStatus);
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String StatusExpected = sp.ExcelRead().get(10);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -388,7 +402,7 @@ public class CollectionConfigurationPage extends BasePage{
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
         System.out.println("Status of the Billing Customer2---->" +ActualStatus);
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String StatusExpected = sp.ExcelRead().get(12);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -403,7 +417,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterRunCollectionDate1() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate1);
         Assert.assertTrue(enterRunCollectionDate1.isDisplayed());
         enterRunCollectionDate1.sendKeys(sp.ExcelRead().get(13));
@@ -421,7 +435,7 @@ public class CollectionConfigurationPage extends BasePage{
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
         System.out.println("Status of the Billing Customer2---->" +ActualStatus);
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String StatusExpected = sp.ExcelRead().get(14);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -436,7 +450,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterRunCollectionDate2() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate2);
         Assert.assertTrue(enterRunCollectionDate2.isDisplayed());
         enterRunCollectionDate2.sendKeys(sp.ExcelRead().get(15));
@@ -454,7 +468,7 @@ public class CollectionConfigurationPage extends BasePage{
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
         System.out.println("Status of the Billing Customer2---->" +ActualStatus);
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String StatusExpected = sp.ExcelRead().get(16);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -469,7 +483,7 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterRunCollectionDate3() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate3);
         Assert.assertTrue(enterRunCollectionDate3.isDisplayed());
         enterRunCollectionDate3.sendKeys(sp.ExcelRead().get(17));
@@ -487,7 +501,7 @@ public class CollectionConfigurationPage extends BasePage{
         String CustomerID=sp.ExcelRead().get(11);
         String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
         System.out.println("Status of the Billing Customer2---->" +ActualStatus);
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String StatusExpected = sp.ExcelRead().get(18);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -496,7 +510,7 @@ public class CollectionConfigurationPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 
