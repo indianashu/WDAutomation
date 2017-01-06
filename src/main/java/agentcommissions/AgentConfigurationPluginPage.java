@@ -112,7 +112,7 @@ public class AgentConfigurationPluginPage extends BasePage{
 
     private WebElement selectCompany;
     /**
-     * Method to select Comapny.
+     * Method to select Company.
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
@@ -142,10 +142,10 @@ public class AgentConfigurationPluginPage extends BasePage{
      * Method to click on Configuration tab after successful login.
      * @throws IOException 
      */
-    public void clickAgentTab() throws IOException{
+    public void clickConfigurationTab() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Configuration Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
         Assert.assertTrue(clickConfigurationTab.isDisplayed());
         clickConfigurationTab.click();
@@ -161,7 +161,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickPlugin() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Plugin after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickPlugin);
         Assert.assertTrue(clickPlugin.isDisplayed());
         clickPlugin.click();
@@ -177,7 +177,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAgentCommissionCalProcess() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Agent Commission Calculation Process #25.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAgentCommissionCalProcess);
         Assert.assertTrue(clickAgentCommissionCalProcess.isDisplayed());
         clickAgentCommissionCalProcess.click();
@@ -193,7 +193,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on add new button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -224,7 +224,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void enterOrder() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Enter Order");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterOrder);
         Assert.assertTrue(enterOrder.isDisplayed());
         enterOrder.sendKeys(sp.ExcelRead().get(4));
@@ -240,7 +240,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Save Plugin Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
@@ -257,7 +257,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -273,7 +273,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -287,7 +287,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAllLink() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on All Link");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAllLink);
         Assert.assertTrue(clickAllLink.isDisplayed());
         clickAllLink.click();
@@ -303,7 +303,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAgentCommissionType() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Agent Commission Type #61");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAgentCommissionType);
         Assert.assertTrue(clickAgentCommissionType.isDisplayed());
         clickAgentCommissionType.click();
@@ -319,7 +319,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void verifyInvoice() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Verifying if Invoice value is there or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyInvoice);
         verifyInvoice.getText();
         Assert.assertTrue(verifyInvoice.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
@@ -327,7 +327,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 

@@ -38,13 +38,29 @@ public class productCreationTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Product Creation")
+    @Test(groups={"Sanity"},description="Agents and Commissions - Products creation")
     public void userSignin() throws IOException{
     	agentPage.enterLoginID();
     	agentPage.enterPassword();
     	agentPage.selectCompany();
     	agentPage.clickLoginButton();
-    	agentPage.clickAgentTab();    	
+    	agentPage.clickProductTab();
+    	agentPage.clickAddCategoryButton();
+    	agentPage.enterCategoryName();
+    	agentPage.clickSaveChangesButton();
+    	agentPage.verifyConfirmationMsg();
+    	agentPage.clickProductTab();
+    	agentPage.clickProductCategoryName();
+    	agentPage.clickAddProductButton();
+    	agentPage.enterEnglishDescription();
+    	agentPage.enterProductCode();
+    	agentPage.enterStdCommission();
+    	agentPage.enterMasterCommission();
+    	agentPage.enterPriceRate();
+    	agentPage.clickAddPriceButton();
+    	agentPage.clickSaveChangesButton();
+    	agentPage.verifyConfirmationMsg();
+    	
     }
     
     @AfterClass(alwaysRun=true)

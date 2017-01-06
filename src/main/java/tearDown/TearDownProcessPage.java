@@ -143,7 +143,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickPaymentsTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickPaymentsTab);
         Assert.assertTrue(clickPaymentsTab.isDisplayed());
         clickPaymentsTab.click();
@@ -159,7 +159,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickCustomerA() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Customer A");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String BillingCustomer= sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
         
@@ -175,7 +175,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickUnlink() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on unlink link");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickUnlink);
         Assert.assertTrue(clickUnlink.isDisplayed());
         clickUnlink.click();
@@ -192,7 +192,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickYesPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on yes button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickYesPopup);
         Assert.assertTrue(clickYesPopup.isDisplayed());
         clickYesPopup.click();
@@ -208,7 +208,7 @@ public class TearDownProcessPage extends BasePage{
     public void verifyPaymentUnlinkedSuccessfully() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Verify Payment is unlinked successfully");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         //WaitClass.WaitForElementisDisplay(driver, 10, verifyPaymentUnlinkedSuccessfully);
         String PaymentMsgExpected = "Payment unlinked successfully";
         String PaymentMsgActual = driver.findElement(By.xpath("//div[@class='msg-box successfully']")).getText();
@@ -226,7 +226,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -242,7 +242,7 @@ public class TearDownProcessPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -257,7 +257,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickInvoicesTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Invoices Tab after successful login");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickInvoicesTab);
         Assert.assertTrue(clickInvoicesTab.isDisplayed());
         clickInvoicesTab.click();
@@ -273,7 +273,7 @@ public class TearDownProcessPage extends BasePage{
   public void clickCustomerB() throws IOException{
   	TearDownProcessPage sp=new TearDownProcessPage(driver);
       log.info("Click on Customer A");
-      WaitClass.sleep(10000);
+      WaitClass.sleep(2000);
       String BillingCustomer= sp.ExcelRead().get(4);
       driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
       
@@ -289,7 +289,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteInvoiceButton() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete invoice button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteInvoiceButton);
         Assert.assertTrue(clickDeleteInvoiceButton.isDisplayed());
         clickDeleteInvoiceButton.click();
@@ -305,7 +305,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickYesDeleteInvoiceProductPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Yes delete invoice/product popup.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickYesDeleteInvoiceProductPopup);
         Assert.assertTrue(clickYesDeleteInvoiceProductPopup.isDisplayed());
         clickYesDeleteInvoiceProductPopup.click();
@@ -322,7 +322,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickOrdersTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Orders Tab.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
         Assert.assertTrue(clickOrdersTab.isDisplayed());
         clickOrdersTab.click();
@@ -337,8 +337,8 @@ public class TearDownProcessPage extends BasePage{
      */
     public void clickCustomerC() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
-        log.info("Click on Customer A");
-        WaitClass.sleep(10000);
+        log.info("Click on Customer C");
+        WaitClass.sleep(2000);
         String BillingCustomer= sp.ExcelRead().get(5);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
         
@@ -353,7 +353,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteButton() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteButton);
         Assert.assertTrue(clickDeleteButton.isDisplayed());
         clickDeleteButton.click();
@@ -370,7 +370,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickProductsTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on products tab.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
@@ -386,7 +386,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickProductCategory() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on a product category");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ProductCategory= sp.ExcelRead().get(6);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductCategory+"']")).click();
         
@@ -401,7 +401,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickProduct() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on a product.");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         String ProductName= sp.ExcelRead().get(7);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -417,7 +417,7 @@ public class TearDownProcessPage extends BasePage{
     public void verifyNoProducts() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Verify there are no products in the selected category");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         //WaitClass.WaitForElementisDisplay(driver, 10, verifyPaymentUnlinkedSuccessfully);
         String MsgExpected = "No products found.";
         String MsgActual = driver.findElement(By.xpath("//*[@id='column2']/div[1]/strong/em")).getText();
@@ -435,7 +435,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteCategoryButton() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete category button");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteCategoryButton);
         Assert.assertTrue(clickDeleteCategoryButton.isDisplayed());
         clickDeleteCategoryButton.click();
@@ -451,7 +451,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteYesCategoryPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete category popup");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCategoryPopup);
         Assert.assertTrue(clickDeleteYesCategoryPopup.isDisplayed());
         clickDeleteYesCategoryPopup.click();
@@ -468,7 +468,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickCustomersTab() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on customers tab");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
@@ -484,7 +484,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteYesCustomerPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete customer popup");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCustomerPopup);
         Assert.assertTrue(clickDeleteYesCustomerPopup.isDisplayed());
         clickDeleteYesCustomerPopup.click();
@@ -494,7 +494,7 @@ public class TearDownProcessPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(2000);
     }
 
 

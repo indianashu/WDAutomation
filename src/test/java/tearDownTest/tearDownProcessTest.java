@@ -53,6 +53,20 @@ public class tearDownProcessTest {
     	tearDownProcessPage.clickCustomerB();
     	tearDownProcessPage.clickDeleteInvoiceButton();
     	tearDownProcessPage.clickYesDeleteInvoiceProductPopup();
+    	tearDownProcessPage.clickOrdersTab();
+    	tearDownProcessPage.clickCustomerC();
+    	tearDownProcessPage.clickDeleteButton();
+    	tearDownProcessPage.clickProductsTab();
+    	tearDownProcessPage.clickProductCategory();
+    	tearDownProcessPage.clickProduct();
+    	tearDownProcessPage.verifyNoProducts();
+    	tearDownProcessPage.clickDeleteCategoryButton();
+    	tearDownProcessPage.clickDeleteYesCategoryPopup();
+    	tearDownProcessPage.clickCustomersTab();
+    	tearDownProcessPage.clickCustomerA();
+    	tearDownProcessPage.clickDeleteButton();
+    	tearDownProcessPage.clickDeleteYesCustomerPopup();
+    	
     	
     }
     

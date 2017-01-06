@@ -38,13 +38,33 @@ public class agentCommissionBalanceProcessTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Agent Commission Balance Process")
+    @Test(groups={"Sanity"},description="Agents and Commissions - The Commissions Balance Process")
     public void userSignin() throws IOException{
     	agentCommissionProcessPage.enterLoginID();
     	agentCommissionProcessPage.enterPassword();
     	agentCommissionProcessPage.selectCompany();
     	agentCommissionProcessPage.clickLoginButton();
-    	agentCommissionProcessPage.clickAgentTab();    	
+    	agentCommissionProcessPage.clickAgentTab();
+    	agentCommissionProcessPage.selectAgent();
+    	agentCommissionProcessPage.clickShowCommissionButton();
+    	agentCommissionProcessPage.verifyCommissionDisplay();
+    	agentCommissionProcessPage.clickCustomerTab();
+    	agentCommissionProcessPage.clickCustomerB();
+    	agentCommissionProcessPage.clickCreateOrderButton();
+    	agentCommissionProcessPage.selectOrderPeriod();
+    	agentCommissionProcessPage.selectType();
+    	agentCommissionProcessPage.clickProductsSubTab();
+    	agentCommissionProcessPage.clickOnProduct();
+    	agentCommissionProcessPage.clickUpdateButton();
+    	agentCommissionProcessPage.clickSaveChangesButton();
+    	agentCommissionProcessPage.clickGenerateInvoiceButton();
+    	agentCommissionProcessPage.clickConfigurationTab();
+    	agentCommissionProcessPage.clickAgentCommissionProcess();
+    	agentCommissionProcessPage.enterNextRunDate();
+    	agentCommissionProcessPage.enterPeriodValue();
+    	agentCommissionProcessPage.clickSaveChangesButton();
+    	agentCommissionProcessPage.clickRunCommissionButton();
+    	agentCommissionProcessPage.verifyCommissionDisplay();
     }
     
     @AfterClass(alwaysRun=true)
