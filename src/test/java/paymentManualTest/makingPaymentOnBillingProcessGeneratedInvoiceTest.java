@@ -48,20 +48,15 @@ public class makingPaymentOnBillingProcessGeneratedInvoiceTest {
     	makePaymentPage.clickCustomerName();
     	makePaymentPage.clickPayInvoiceButton();
     	makePaymentPage.selectInvoice();
-    	makePaymentPage.enterPaymentAmount();
+		makePaymentPage.checkPaymentProcessRealTime();
     	makePaymentPage.enterProcessingOrder();
-    	makePaymentPage.enterCardHolderName();
-    	makePaymentPage.enterCardNumber();
-    	makePaymentPage.enterCardExpiry();
+		makePaymentPage.navigateBottom();
     	makePaymentPage.clickReviewPaymentButton();
     	makePaymentPage.clickMakePaymentButton();
     	makePaymentPage.verifyConfirmationMsg();
     	makePaymentPage.verifyCustomerName();
     	makePaymentPage.verifyPaymentAmount();
-    	
-    	
-    	
-    	    	
+
     }
 
     @AfterClass(alwaysRun=true)

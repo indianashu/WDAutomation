@@ -51,7 +51,6 @@ public class runningBillingProcessOrdersCreatedTest {
     	billingPage.clickRunBillingButton();
     	billingPage.clickBillingTab();
     	billingPage.verifyOrderNumbers();
-    	billingPage.verifyOrderNumbersItalics();
     	billingPage.clickBillingReview();
     	billingPage.clickShowOrdersButton();
     	billingPage.verifyTableOrders();

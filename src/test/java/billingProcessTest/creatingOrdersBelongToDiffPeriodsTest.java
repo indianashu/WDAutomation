@@ -55,6 +55,8 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterProductCode();
     	creatingOrdersPage.enterPriceDate();
     	creatingOrdersPage.enterPriceRate();
+		creatingOrdersPage.clickAddPriceButton();
+		creatingOrdersPage.navigateBottom();
     	creatingOrdersPage.clickSaveChangesButton();
     	creatingOrdersPage.verifyConfirmationMsg();
     	creatingOrdersPage.clickProductsTab();
@@ -64,17 +66,16 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterProductCode1();
     	creatingOrdersPage.enterPriceDate1();
     	creatingOrdersPage.enterPriceRate1();
+		creatingOrdersPage.clickAddPriceButton();
+		creatingOrdersPage.navigateBottom();
     	creatingOrdersPage.clickSaveChangesButton();
     	creatingOrdersPage.verifyConfirmationMsg();
     	creatingOrdersPage.clickCustomerTab();
     	creatingOrdersPage.clickCustomer1();
     	creatingOrdersPage.clickCreateOrderButton();
-    	creatingOrdersPage.selectPeriod();
-    	creatingOrdersPage.selectOrderType();
     	creatingOrdersPage.selectActiveSince();
     	creatingOrdersPage.clickProductSubTab();
     	creatingOrdersPage.selectProduct();
-    	creatingOrdersPage.enterEffectiveDate();
     	creatingOrdersPage.enterQuantity();
     	creatingOrdersPage.clickUpdateButton();
     	creatingOrdersPage.clickSaveChangesButton();
@@ -87,7 +88,6 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.selectActiveSince1();
     	creatingOrdersPage.clickProductSubTab();
     	creatingOrdersPage.selectProduct1();
-    	creatingOrdersPage.enterEffectiveDate1();
     	creatingOrdersPage.enterQuantity1();
     	creatingOrdersPage.clickUpdateButton();
     	creatingOrdersPage.clickSaveChangesButton();
@@ -100,17 +100,15 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.selectActiveSince3();
     	creatingOrdersPage.clickProductSubTab();
     	creatingOrdersPage.selectProduct2a();
-    	creatingOrdersPage.enterEffectiveDate1();
     	creatingOrdersPage.enterQuantity2();
     	creatingOrdersPage.clickUpdateButton();
     	creatingOrdersPage.clickProductSubTab();
     	creatingOrdersPage.selectProduct1();
-    	creatingOrdersPage.enterEffectiveDate2();
     	creatingOrdersPage.enterQuantity3();
-    	creatingOrdersPage.clickUpdateButton();
+    	creatingOrdersPage.clickUpdateButton2();
     	creatingOrdersPage.clickSaveChangesButton();
     	creatingOrdersPage.verifyConfirmationMsg();
-    	
+
     }
 
     @AfterClass(alwaysRun=true)

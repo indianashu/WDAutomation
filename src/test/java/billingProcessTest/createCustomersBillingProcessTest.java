@@ -53,14 +53,17 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.selectBillingCycleUnit();
     	createCustomerPage.selectBillingCycleDay();
     	createCustomerPage.enterProcessingOrder();
+		createCustomerPage.selectPaymentMethodType();
     	createCustomerPage.enterCardHolderName();
     	createCustomerPage.enterCardNumber();
     	createCustomerPage.enterCardExpiry();
+		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
     	createCustomerPage.clickCustomer1();
     	createCustomerPage.clickEditButton();
     	createCustomerPage.enterNextInvoiceDate();
+		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
     	createCustomerPage.clickCustomerTab();
@@ -72,15 +75,18 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.selectBillingCycleUnit();
     	createCustomerPage.selectBillingCycleDay();
     	createCustomerPage.enterProcessingOrder();
+		createCustomerPage.selectPaymentMethodType();
     	createCustomerPage.enterCardHolderName1();
     	createCustomerPage.enterCardNumber();
     	createCustomerPage.enterCardExpiry();
+		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
     	createCustomerPage.clickCustomer2();
     	createCustomerPage.clickEditButton();
     	createCustomerPage.enterNextInvoiceDate1();
     	createCustomerPage.enterDueDateDays();
+		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
     	

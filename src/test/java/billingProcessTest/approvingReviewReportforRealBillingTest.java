@@ -44,6 +44,9 @@ public class approvingReviewReportforRealBillingTest {
     	billingPage.enterPassword();
     	billingPage.selectCompany();
     	billingPage.clickLoginButton();
+        billingPage.clickConfigurationTab();
+        billingPage.clickBillingProcessLink();
+    	billingPage.clickRunBillingButton();
     	billingPage.clickBillingTab();
     	billingPage.verifyOrderNumbers();
     	billingPage.verifyOrderNumbersItalics();
@@ -55,6 +58,9 @@ public class approvingReviewReportforRealBillingTest {
     	billingPage.clickShowInvoiceButton();
     	billingPage.verifyTableInvoices();
     	billingPage.verifyInvoiceCustomer();
+        billingPage.clickBillingTab();
+    	billingPage.clickBillingReview();
+        billingPage.clickApproveButton();
     }
 
     @AfterClass(alwaysRun=true)

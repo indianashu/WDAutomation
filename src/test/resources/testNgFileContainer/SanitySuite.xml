@@ -58,6 +58,13 @@
 			<class name = "invoiceTest.generatingInvoiceManuallyTest"/>
 			<class name = "invoiceTest.verifyInvoiceDateDueDateTest"/>
 			<class name = "invoiceTest.generatingPayingInvoiceTest"/>
+			<class name = "billingProcessTest.createCustomersBillingProcessTest"/>
+			<class name = "billingProcessTest.creatingOrdersBelongToDiffPeriodsTest"/>
+			<class name = "billingProcessTest.approvingReviewReportforRealBillingTest"/>
+			<class name = "billingProcessTest.runningBillingProcessOrdersCreatedTest"/>
+			<class name = "billingProcessTest.invoicePeriodsDueDateTest"/>
+			<class name = "collectionsTest.runningCollectionToCheckStatusChangeTest"/>
+			<class name = "paymentManualTest.makingPaymentOnBillingProcessGeneratedInvoiceTest"/>
 
 		</classes>
 

@@ -187,6 +187,7 @@ public class CollectionConfigurationPage extends BasePage{
      * @throws IOException 
      */
     public void clickEditButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickEditButton);
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Edit Button");
         WaitClass.sleep(2000);
@@ -226,7 +227,7 @@ public class CollectionConfigurationPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_85.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.number')]/following::input[1]")
     private WebElement enterCardNumber;
     /**
      * Method to enter Card Number.
@@ -238,6 +239,7 @@ public class CollectionConfigurationPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
+        enterCardNumber.clear();
         enterCardNumber.sendKeys(sp.ExcelRead().get(6));
         
     }
@@ -335,11 +337,12 @@ public class CollectionConfigurationPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate);
         Assert.assertTrue(enterRunCollectionDate.isDisplayed());
+        enterRunCollectionDate.clear();
         enterRunCollectionDate.sendKeys(sp.ExcelRead().get(8));
         
     } 
     
-    @FindBy(how=How.XPATH, using="//input[@class='submit confirm']")
+    @FindBy(how=How.XPATH, using="//input[@value='Run Collections']")
     private WebElement clickRunCollectionsButton;
     /**
      * Method to Click on Run Collections Button.
@@ -348,7 +351,10 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickRunCollectionsButton() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Run Collections Button.");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
+        String value=sp.ExcelRead().get(12);
+        driver.findElement(By.xpath("//input[@value='"+value+"']")).click();
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsButton);
         Assert.assertTrue(clickRunCollectionsButton.isDisplayed());
         clickRunCollectionsButton.click();
@@ -381,8 +387,8 @@ public class CollectionConfigurationPage extends BasePage{
     public void verifyBillingCustomer1Status() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer1");
-        String CustomerID=sp.ExcelRead().get(9);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
+        String CustomerID=sp.ExcelRead().get(19);
+        String ActualStatus = driver.findElement(By.xpath("//*[text()='"+CustomerID+"']/following::span[2]")).getText();
         System.out.println("Status of the Billing Customer1---->" +ActualStatus);
         WaitClass.sleep(2000);
         String StatusExpected = sp.ExcelRead().get(10);
@@ -399,10 +405,9 @@ public class CollectionConfigurationPage extends BasePage{
     public void verifyBillingCustomer2Status() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         WaitClass.sleep(2000);
+        String ActualStatus = driver.findElement(By.xpath("//td[text()='Status']/following::td[1]")).getText();
+        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         String StatusExpected = sp.ExcelRead().get(12);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -420,6 +425,7 @@ public class CollectionConfigurationPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate1);
         Assert.assertTrue(enterRunCollectionDate1.isDisplayed());
+        enterRunCollectionDate1.clear();
         enterRunCollectionDate1.sendKeys(sp.ExcelRead().get(13));
         
     }
@@ -432,10 +438,9 @@ public class CollectionConfigurationPage extends BasePage{
     public void verifyBillingCustomer2Status1() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         WaitClass.sleep(2000);
+        String ActualStatus = driver.findElement(By.xpath("//td[text()='Status']/following::td[1]")).getText();
+        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         String StatusExpected = sp.ExcelRead().get(14);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -453,6 +458,7 @@ public class CollectionConfigurationPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate2);
         Assert.assertTrue(enterRunCollectionDate2.isDisplayed());
+        enterRunCollectionDate2.clear();
         enterRunCollectionDate2.sendKeys(sp.ExcelRead().get(15));
         
     }
@@ -465,10 +471,9 @@ public class CollectionConfigurationPage extends BasePage{
     public void verifyBillingCustomer2Status2() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         WaitClass.sleep(2000);
+        String ActualStatus = driver.findElement(By.xpath("//td[text()='Status']/following::td[1]")).getText();
+        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         String StatusExpected = sp.ExcelRead().get(16);
         Assert.assertEquals(ActualStatus, StatusExpected);
         
@@ -486,6 +491,7 @@ public class CollectionConfigurationPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate3);
         Assert.assertTrue(enterRunCollectionDate3.isDisplayed());
+        enterRunCollectionDate3.clear();
         enterRunCollectionDate3.sendKeys(sp.ExcelRead().get(17));
         
     }
@@ -498,10 +504,9 @@ public class CollectionConfigurationPage extends BasePage{
     public void verifyBillingCustomer2Status3() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verify status of Billing Customer2");
-        String CustomerID=sp.ExcelRead().get(11);
-        String ActualStatus = driver.findElement(By.xpath("//a[@id='"+CustomerID+"']//*[text()='Active']")).getText();
-        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         WaitClass.sleep(2000);
+        String ActualStatus = driver.findElement(By.xpath("//td[text()='Status']/following::td[1]")).getText();
+        System.out.println("Status of the Billing Customer2---->" +ActualStatus);
         String StatusExpected = sp.ExcelRead().get(18);
         Assert.assertEquals(ActualStatus, StatusExpected);
         

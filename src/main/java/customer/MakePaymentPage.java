@@ -190,7 +190,7 @@ public class MakePaymentPage extends BasePage{
     public void selectInvoice() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Select an Invoice");
-        WaitClass.sleep(10000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, selectInvoice);
         Assert.assertTrue(selectInvoice.isDisplayed());
         selectInvoice.click();
@@ -214,7 +214,22 @@ public class MakePaymentPage extends BasePage{
         
     }
 
-    
+    @FindBy(how=How.XPATH, using="//*[@name='processNow']")
+    private WebElement checkPaymentProcessRealTime;
+    /**
+     * Method to Enter Payment Amount.
+     * @throws IOException
+     */
+    public void checkPaymentProcessRealTime() throws IOException{
+        MakePaymentPage sp=new MakePaymentPage(driver);
+        log.info("Check Payment Process Real-Time");
+        WaitClass.sleep(1000);
+        WaitClass.WaitForElementisDisplay(driver, 10, checkPaymentProcessRealTime);
+        Assert.assertTrue(checkPaymentProcessRealTime.isDisplayed());
+        checkPaymentProcessRealTime.click();
+
+    }
+
     @FindBy(how=How.XPATH, using="//input[@name='paymentMethod_0.processingOrder']")
     private WebElement enterProcessingOrder;
     /**
@@ -224,7 +239,7 @@ public class MakePaymentPage extends BasePage{
     public void enterProcessingOrder() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProcessingOrder);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(4));
@@ -323,16 +338,18 @@ public class MakePaymentPage extends BasePage{
      */
     public void verifyConfirmationMsg() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
-        log.info("Verifying if Account Type is created Successfully or not");
+        log.info("Verifying if payment is created Successfully or not");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
-        Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+        String ExpectedMsg = "Successful";
+        String CustomerName = sp.ExcelRead().get(5);
+        String ActualMsg = driver.findElement(By.xpath("//*[text()='"+CustomerName+"']/following::span[5]")).getText();
+        Assert.assertEquals(ActualMsg, ExpectedMsg);
     }
     
   
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='payment-edit-form']/fieldset/div[2]/div[2]/div[2]/span/span")
+    @FindBy(how=How.XPATH, using="//a[@class='cell double']//strong/span")
     private WebElement verifyCustomerName;
     /**
      * Method to verify customer name
@@ -348,7 +365,7 @@ public class MakePaymentPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='payment-edit-form']/fieldset/div[2]/div[1]/div[3]/span/span")
+    @FindBy(how=How.XPATH, using="//a[@class='cell']/following::span[4]")
     private WebElement verifyPaymentAmount;
     /**
      * Method to verify Payment Amount

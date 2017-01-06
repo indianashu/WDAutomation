@@ -51,10 +51,7 @@ public class invoicePeriodsDueDateTest {
     	billingPage.verifyDueDate();
     	billingPage.clickConfigurationTab();
     	billingPage.clickBillingProcessLink();
-    	billingPage.enterNextRunDate1();
-    	billingPage.clickSaveChangesButton();
     	billingPage.clickRunBillingButton();
-    	billingPage.verifyConfirmationMsg();
     	billingPage.clickBillingTab();
     	billingPage.clickLastBillingRun();
     	billingPage.clickShowInvoiceButton();
