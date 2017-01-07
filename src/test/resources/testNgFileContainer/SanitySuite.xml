@@ -65,6 +65,12 @@
 			<class name = "billingProcessTest.invoicePeriodsDueDateTest"/>
 			<class name = "collectionsTest.runningCollectionToCheckStatusChangeTest"/>
 			<class name = "paymentManualTest.makingPaymentOnBillingProcessGeneratedInvoiceTest"/>
+			<class name = "reportsTest.invoiceReportTotalAmountInvoicedTest"/>
+			<class name = "agentcommissionsTest.agentCreationTest"/>
+			<class name = "agentcommissionsTest.productCreationTest"/>
+			<class name = "agentcommissionsTest.agentConfigurationPluginTest"/>
+			<class name = "agentcommissionsTest.agentCommissionBalanceProcessTest"/>
+			<class name = "tearDownTest.tearDownProcessTest"/>
 
 		</classes>
 

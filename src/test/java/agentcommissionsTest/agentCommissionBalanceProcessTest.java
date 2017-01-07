@@ -58,13 +58,17 @@ public class agentCommissionBalanceProcessTest {
     	agentCommissionProcessPage.clickUpdateButton();
     	agentCommissionProcessPage.clickSaveChangesButton();
     	agentCommissionProcessPage.clickGenerateInvoiceButton();
-    	agentCommissionProcessPage.clickConfigurationTab();
+       	agentCommissionProcessPage.clickConfigurationTab();
     	agentCommissionProcessPage.clickAgentCommissionProcess();
-    	agentCommissionProcessPage.enterNextRunDate();
-    	agentCommissionProcessPage.enterPeriodValue();
+		agentCommissionProcessPage.enterPeriodValue();
+		agentCommissionProcessPage.enterNextRunDate();
     	agentCommissionProcessPage.clickSaveChangesButton();
-    	agentCommissionProcessPage.clickRunCommissionButton();
-    	agentCommissionProcessPage.verifyCommissionDisplay();
+     	agentCommissionProcessPage.clickRunCommissionButton();
+        agentCommissionProcessPage.clickAgentTab();
+        agentCommissionProcessPage.selectAgent();
+        agentCommissionProcessPage.clickShowCommissionButton();
+        agentCommissionProcessPage.clickCommission();
+    	agentCommissionProcessPage.verifyCommissionAmount();
     }
     
     @AfterClass(alwaysRun=true)

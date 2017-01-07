@@ -45,29 +45,35 @@ public class tearDownProcessTest {
     	tearDownProcessPage.selectCompany();
     	tearDownProcessPage.clickLoginButton();
     	tearDownProcessPage.clickPaymentsTab();
-    	tearDownProcessPage.clickCustomerA();
+    	tearDownProcessPage.clickPaymentCustomer();
     	tearDownProcessPage.clickUnlink();
     	tearDownProcessPage.clickYesPopup();
     	tearDownProcessPage.verifyPaymentUnlinkedSuccessfully();
+        tearDownProcessPage.clickPaymentCustomer();
+        tearDownProcessPage.clickDeleteButton();
+        tearDownProcessPage.clickYesDeletePaymentPopup();
     	tearDownProcessPage.clickInvoicesTab();
-    	tearDownProcessPage.clickCustomerB();
+    	tearDownProcessPage.clickInvoiceCustomer();
     	tearDownProcessPage.clickDeleteInvoiceButton();
-    	tearDownProcessPage.clickYesDeleteInvoiceProductPopup();
+    	tearDownProcessPage.clickYesDeleteInvoicePopup();
     	tearDownProcessPage.clickOrdersTab();
-    	tearDownProcessPage.clickCustomerC();
+    	tearDownProcessPage.clickOrderCustomer();
     	tearDownProcessPage.clickDeleteButton();
+        tearDownProcessPage.clickYesDeleteOrderPopup();
     	tearDownProcessPage.clickProductsTab();
     	tearDownProcessPage.clickProductCategory();
     	tearDownProcessPage.clickProduct();
+        tearDownProcessPage.clickDeleteButton();
+        tearDownProcessPage.clickYesDeleteProductPopup();
+        tearDownProcessPage.clickProductCategory();
     	tearDownProcessPage.verifyNoProducts();
     	tearDownProcessPage.clickDeleteCategoryButton();
     	tearDownProcessPage.clickDeleteYesCategoryPopup();
     	tearDownProcessPage.clickCustomersTab();
-    	tearDownProcessPage.clickCustomerA();
+    	tearDownProcessPage.clickPaymentCustomer();
     	tearDownProcessPage.clickDeleteButton();
     	tearDownProcessPage.clickDeleteYesCustomerPopup();
-    	
-    	
+
     }
     
     @AfterClass(alwaysRun=true)

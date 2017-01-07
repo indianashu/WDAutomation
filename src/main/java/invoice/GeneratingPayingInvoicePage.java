@@ -529,7 +529,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
         WaitClass.sleep(2000);
         String CustomerName = sp.ExcelRead().get(15);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
-        
+        WaitClass.sleep(2000);
     }
     
   
@@ -542,11 +542,11 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickPayInvoiceButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Pay Invoice Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickPayInvoiceButton);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
         clickPayInvoiceButton.click();
-        
+        WaitClass.sleep(2000);
     } 
     
   

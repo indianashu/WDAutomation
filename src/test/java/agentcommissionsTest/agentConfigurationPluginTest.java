@@ -49,7 +49,6 @@ public class agentConfigurationPluginTest {
     	agentConfigurationPluginPage.clickAgentCommissionCalProcess();
     	agentConfigurationPluginPage.clickAddNewButton();
     	agentConfigurationPluginPage.selectType();
-    	agentConfigurationPluginPage.enterOrder();
     	agentConfigurationPluginPage.clickSavePluginButton();
     	agentConfigurationPluginPage.verifyConfirmationMsg();
     	agentConfigurationPluginPage.clickConfigurationTab();

@@ -321,6 +321,7 @@ public class ReportsPage extends BasePage{
      * @throws IOException 
      */
     public void clickCreateOrderButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on create order button");
         WaitClass.sleep(2000);
@@ -357,6 +358,8 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on a product from the list");
         WaitClass.sleep(2000);
+        driver.findElement(By.xpath("//*[text()='Next']")).click();
+        WaitClass.sleep(1000);
         String ProductName = sp.ExcelRead().get(16);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -401,6 +404,7 @@ public class ReportsPage extends BasePage{
      * @throws IOException 
      */
     public void clickMakePaymentButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickMakePaymentButton);
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on a make payment button");
         WaitClass.sleep(2000);
@@ -426,8 +430,24 @@ public class ReportsPage extends BasePage{
         clickInvoice.click();
         
     }
+
+    @FindBy(how=How.XPATH, using="//input[@name='processNow']")
+    private WebElement clickProcessRealTimeCheckbox;
+    /**
+     * Method to Click on Process Payment in Real-Time checkbox.
+     * @throws IOException
+     */
+    public void clickProcessRealTimeCheckbox() throws IOException{
+        ReportsPage sp=new ReportsPage(driver);
+        log.info("Click on Process Payment in Real-Time checkbox");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickProcessRealTimeCheckbox);
+        Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
+        clickProcessRealTimeCheckbox.click();
+
+    }
     
-    @FindBy(how=How.XPATH, using="//input[@name='invoiceId']")
+    @FindBy(how=How.XPATH, using="//*[@name='paymentMethod_0.processingOrder']")
     private WebElement enterProcessingOrder;
     /**
      * Method to Enter Processing Order.
@@ -442,10 +462,21 @@ public class ReportsPage extends BasePage{
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(6));
         
     }
+
+    private WebElement selectPaymentMethodType;
+    /**
+     * Method to select payment method type.
+     * @throws IOException
+     */
+    public void selectPaymentMethodType() throws IOException{
+        ReportsPage sp=new ReportsPage(driver);
+        WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
+        Select se = new Select(PMTelement);
+        se.selectByVisibleText(sp.ExcelRead().get(17));
+
+    }
     
-  
-    
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_86.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.cardholder.name')]/following::input[1]")
     private WebElement enterCardHolderName;
     /**
      * Method to Enter card holder name.
@@ -454,14 +485,14 @@ public class ReportsPage extends BasePage{
     public void enterCardHolderName() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter card holder name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
         Assert.assertTrue(enterCardHolderName.isDisplayed());
         enterCardHolderName.sendKeys(sp.ExcelRead().get(7));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_85.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.number')]/following::input[1]")
     private WebElement enterCardNumber;
     /**
      * Method to Enter card number.
@@ -470,14 +501,14 @@ public class ReportsPage extends BasePage{
     public void enterCardNumber() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter card number");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
         enterCardNumber.sendKeys(sp.ExcelRead().get(8));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_83.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.expiry.date')]/following::input[1]")
     private WebElement enterCardExpiry;
     /**
      * Method to Enter card expiry date.
@@ -486,7 +517,7 @@ public class ReportsPage extends BasePage{
     public void enterCardExpiry() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter card number");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
         Assert.assertTrue(enterCardExpiry.isDisplayed());
         enterCardExpiry.sendKeys(sp.ExcelRead().get(9));
@@ -502,6 +533,7 @@ public class ReportsPage extends BasePage{
      * @throws IOException 
      */
     public void clickReviewPaymentButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickReviewPaymentButton);
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on Review Payment Button");
         WaitClass.sleep(2000);
@@ -519,10 +551,12 @@ public class ReportsPage extends BasePage{
      */
     public void verifyConfirmationMsgInfo() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
-        log.info("verify message - info");
+        log.info("Verifying if payment status is successful.");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsgInfo);
-        Assert.assertTrue(verifyConfirmationMsgInfo.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+        String ExpectedMsg = "Successful";
+        String CustomerName = sp.ExcelRead().get(5);
+        String ActualMsg = driver.findElement(By.xpath("//*[text()='"+CustomerName+"']/following::span[5]")).getText();
+        Assert.assertEquals(ActualMsg, ExpectedMsg);
     }
     
   
@@ -571,11 +605,11 @@ public class ReportsPage extends BasePage{
     public void clickTotalAmountInvoiced() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on Total Amount Invoiced Report");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickTotalAmountInvoiced);
         Assert.assertTrue(clickTotalAmountInvoiced.isDisplayed());
         clickTotalAmountInvoiced.click();
-        
+        WaitClass.sleep(2000);
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='start_date']")
@@ -617,6 +651,7 @@ public class ReportsPage extends BasePage{
      */
     public void selectPeriodBreakDown() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
+        WaitClass.sleep(2000);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
         se.selectByVisibleText(sp.ExcelRead().get(12));
@@ -630,6 +665,7 @@ public class ReportsPage extends BasePage{
      */
     public void selectViewFormatHTML() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
+        WaitClass.sleep(1000);
         WebElement Formatelement = driver.findElement(By.xpath("//select[@name='format']"));
         Select se = new Select(Formatelement);
         se.selectByVisibleText(sp.ExcelRead().get(13));

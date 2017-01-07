@@ -319,7 +319,7 @@ public class DiscountPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
-        
+        WaitClass.sleep(3000);
     }
     
     
@@ -336,7 +336,7 @@ public class DiscountPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductSubTab);
         Assert.assertTrue(clickProductSubTab.isDisplayed());
         clickProductSubTab.click();
-        
+        WaitClass.sleep(1000);
     }
     
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingFl']")
@@ -351,7 +351,7 @@ public class DiscountPage extends BasePage{
         WaitClass.sleep(2000);
         String ProductName = sp.ExcelRead().get(8);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
-        
+        WaitClass.sleep(1000);
     }
     
   

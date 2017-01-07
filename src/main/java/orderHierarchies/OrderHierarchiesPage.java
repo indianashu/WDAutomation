@@ -459,7 +459,7 @@ public class OrderHierarchiesPage extends BasePage{
         WaitClass.sleep(1000);
         String CustomerName = sp.ExcelRead().get(13);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
-        
+        WaitClass.sleep(1000);
     }
     
   
@@ -477,7 +477,7 @@ public class OrderHierarchiesPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
-        
+        WaitClass.sleep(1000);
     }
 
     private WebElement selectOrderPeriod;

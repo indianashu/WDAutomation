@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import org.apache.log4j.Logger;
@@ -238,6 +240,7 @@ public class AgentCommissionProcessPage extends BasePage{
      * @throws IOException 
      */
     public void clickCreateOrderButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Create Order Button");
         WaitClass.sleep(2000);
@@ -254,6 +257,7 @@ public class AgentCommissionProcessPage extends BasePage{
      */
     public void selectOrderPeriod() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
+        WaitClass.sleep(1000);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@id='orderPeriod']"));
         Select se = new Select(Periodelement);
         se.selectByVisibleText(sp.ExcelRead().get(5));
@@ -267,6 +271,7 @@ public class AgentCommissionProcessPage extends BasePage{
      */
     public void selectType() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
+        WaitClass.sleep(1000);
         WebElement Typeelement = driver.findElement(By.xpath("//select[@id='billingTypeId']"));
         Select se = new Select(Typeelement);
         se.selectByVisibleText(sp.ExcelRead().get(6));
@@ -328,6 +333,7 @@ public class AgentCommissionProcessPage extends BasePage{
      * @throws IOException 
      */
     public void clickGenerateInvoiceButton() throws IOException{
+        JavaScriptExec.scrollToElementOnPage(driver,clickGenerateInvoiceButton);
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Generate Invoice button");
         WaitClass.sleep(2000);
@@ -381,8 +387,9 @@ public class AgentCommissionProcessPage extends BasePage{
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterNextRunDate);
         Assert.assertTrue(enterNextRunDate.isDisplayed());
-        enterNextRunDate.sendKeys(sp.ExcelRead().get(8));
-        
+        SimpleDateFormat DtFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = new Date();
+        enterNextRunDate.sendKeys(DtFormat.format(date).toString());
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='periodValue']")
@@ -393,7 +400,7 @@ public class AgentCommissionProcessPage extends BasePage{
      */
     public void enterPeriodValue() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
-        log.info("Enter next run date");
+        log.info("Enter Period Value");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPeriodValue);
         Assert.assertTrue(enterPeriodValue.isDisplayed());
@@ -433,19 +440,36 @@ public class AgentCommissionProcessPage extends BasePage{
         clickRunCommissionButton.click();
         
     }
-    
-    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
-    private WebElement verifyConfirmationMsg;
+
+    @FindBy(how=How.XPATH, using="//*[@id='process-1']/td[2]/a")
+    private WebElement clickCommission;
+    /**
+     * Method to click on Save Changes Button.
+     * @throws IOException
+     */
+    public void clickCommission() throws IOException{
+        AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
+        log.info("Click on Save Changes Button");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, clickCommission);
+        Assert.assertTrue(clickCommission.isDisplayed());
+        clickCommission.click();
+
+    }
+
+    @FindBy(how=How.XPATH, using="//*[@class='col02']/following::td[1]")
+    private WebElement verifyCommissionAmount;
     /**
      * Method to verify Account Type is created Successfully.
      * @throws IOException 
      */
-    public void verifyConfirmationMsg() throws IOException{
+    public void verifyCommissionAmount() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
-        log.info("Verifying if Account Type is created Successfully or not");
+        log.info("Verifying Commission Amount");
         WaitClass.sleep(2000);
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
-        Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+        String ExpectedAmount = sp.ExcelRead().get(10);
+        WaitClass.WaitForElementisDisplay(driver, 10, verifyCommissionAmount);
+        Assert.assertEquals(verifyCommissionAmount.getText(), ExpectedAmount);
     }
 
     public void navigateBottom(){

@@ -335,23 +335,34 @@ public class AgentPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='user.userName']")
+    @FindBy(how=How.XPATH, using="//input[@name='user.partnerId']")
     private WebElement enterAgentID;
     /**
      * Method to Enter Agent ID.
      * @throws IOException 
      */
-    public void enterAgentID() throws IOException{
+    public void enterAgentID(String AgentId) throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Agent ID");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterAgentID);
         Assert.assertTrue(enterAgentID.isDisplayed());
-        enterAgentID.sendKeys(sp.ExcelRead().get(10));
+        enterAgentID.sendKeys(AgentId);
         
     }
-    
-    ///////////////
+
+    private WebElement selectPaymentMethodType;
+    /**
+     * Method to select payment method type.
+     * @throws IOException
+     */
+    public void selectPaymentMethodType() throws IOException{
+        AgentPage sp=new AgentPage(driver);
+        WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
+        Select se = new Select(PMTelement);
+        se.selectByVisibleText(sp.ExcelRead().get(20));
+
+    }
     
     @FindBy(how=How.XPATH, using="//input[@name='paymentMethod_0.processingOrder']")
     private WebElement enterProcessingOrder;
@@ -362,14 +373,14 @@ public class AgentPage extends BasePage{
     public void enterProcessingOrder() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProcessingOrder);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(17));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_86.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.cardholder.name')]/following::input[1]")
     private WebElement enterCardHolderName;
     /**
      * Method to Enter card holder name.
@@ -378,14 +389,14 @@ public class AgentPage extends BasePage{
     public void enterCardHolderName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card holder name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
         Assert.assertTrue(enterCardHolderName.isDisplayed());
         enterCardHolderName.sendKeys(sp.ExcelRead().get(9));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_85.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.number')]/following::input[1]")
     private WebElement enterCardNumber;
     /**
      * Method to Enter card number.
@@ -394,14 +405,14 @@ public class AgentPage extends BasePage{
     public void enterCardNumber() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card number");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
         enterCardNumber.sendKeys(sp.ExcelRead().get(18));
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='0_metaField_83.value']")
+    @FindBy(how=How.XPATH, using="//label[contains(.,'cc.expiry.date')]/following::input[1]")
     private WebElement enterCardExpiry;
     /**
      * Method to Enter card expiry date.
@@ -433,7 +444,23 @@ public class AgentPage extends BasePage{
         clickSaveChangesButton.click();
         
     }
-    
+
+    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
+    private WebElement verifyAgentAndFetchAgentId;
+    /**
+     * Method to verify Agent is created Successfully.
+     * @throws IOException
+     */
+    public String verifyAgentAndFetchAgentId() throws IOException{
+        AgentPage sp=new AgentPage(driver);
+        log.info("Verifying if Agent is created Successfully or not");
+        WaitClass.sleep(2000);
+        WaitClass.WaitForElementisDisplay(driver, 10, verifyAgentAndFetchAgentId);
+        Assert.assertTrue(verifyAgentAndFetchAgentId.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+        String AgentId = driver.findElement(By.xpath("//td[text()='Agent ID']/following::td[1]")).getText();
+        return AgentId;
+    }
+
     @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
     private WebElement verifyConfirmationMsg;
     /**

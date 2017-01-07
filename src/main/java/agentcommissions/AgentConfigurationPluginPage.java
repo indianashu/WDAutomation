@@ -307,7 +307,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickAgentCommissionType);
         Assert.assertTrue(clickAgentCommissionType.isDisplayed());
         clickAgentCommissionType.click();
-        
+        WaitClass.sleep(2000);
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='preference.value']")
