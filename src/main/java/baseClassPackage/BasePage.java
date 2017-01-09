@@ -1,6 +1,16 @@
 package baseClassPackage;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -26,5 +36,36 @@ public class BasePage {
 		log.info("####### Initializing the Pagefactory Model Base class #####");
 		return PageFactory.initElements(driver, Page);
 	}
+	
+	 public  static ArrayList<String> ExcelRead(String sheetName) throws IOException{
+	    	
+
+			ArrayList<String> rl=new ArrayList<String>();
+			File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
+			FileInputStream fs=new FileInputStream(file);
+			XSSFWorkbook wb=new XSSFWorkbook(fs);
+			XSSFSheet sheet=wb.getSheet(sheetName);
+			
+			Iterator<Row> row=sheet.iterator();
+			//System.out.println();
+			while(row.hasNext()){
+				Iterator<Cell> cell=row.next().iterator();
+				int i=0;
+				
+				while(cell.hasNext()){
+						
+					Cell c1=cell.next();
+					c1.setCellType(c1.CELL_TYPE_STRING);
+					String sample=c1.getStringCellValue();
+					//log.info("***************************"+sample+"********************");
+					
+			rl.add(sample);
+			
+				}
+				System.out.println(rl);
+			}
+			
+			return rl;
+	    }
 
 }
