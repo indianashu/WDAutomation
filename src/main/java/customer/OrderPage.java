@@ -419,6 +419,7 @@ public class OrderPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
+        WaitClass.sleep(2000);
         
     }
     

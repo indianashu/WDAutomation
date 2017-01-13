@@ -210,7 +210,7 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
-        
+        WaitClass.sleep(2000);
     }
     
     @FindBy(how=How.XPATH,using="//input[@name='methodName']")

@@ -358,7 +358,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on a product from the list");
         WaitClass.sleep(2000);
-        driver.findElement(By.xpath("//*[text()='Next']")).click();
+        driver.findElement(By.xpath("//a[text()='20']")).click();
         WaitClass.sleep(1000);
         String ProductName = sp.ExcelRead().get(16);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
