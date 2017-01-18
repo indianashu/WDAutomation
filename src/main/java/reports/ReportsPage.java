@@ -609,7 +609,7 @@ public class ReportsPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickTotalAmountInvoiced);
         Assert.assertTrue(clickTotalAmountInvoiced.isDisplayed());
         clickTotalAmountInvoiced.click();
-        WaitClass.sleep(2000);
+        WaitClass.sleep(5000);
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='start_date']")
