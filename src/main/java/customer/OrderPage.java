@@ -490,9 +490,9 @@ public class OrderPage extends BasePage{
     	OrderPage sp=new OrderPage(driver);
         log.info("Click Product from list");
         WaitClass.sleep(2000);
-       String ProductName = sp.ExcelRead().get(13);
-       driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
-        
+        String ProductName = sp.ExcelRead().get(13);
+        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        WaitClass.sleep(2000); 
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='change--3.startDate']")
