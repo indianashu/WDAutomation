@@ -493,7 +493,7 @@ public class TearDownProcessPage extends BasePage{
         WaitClass.sleep(2000);
     }
     
-    @FindBy(how=How.XPATH, using="//following::span[text()='Yes']")
+    @FindBy(how=How.XPATH, using="//following::span[text()='Yes']/following::span[5]")
     private WebElement clickDeleteYesCategoryPopup;
     /**
      * Method to click on delete category popup.
@@ -502,7 +502,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteYesCategoryPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete category popup");
-        WaitClass.sleep(1000);
+        WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCategoryPopup);
         Assert.assertTrue(clickDeleteYesCategoryPopup.isDisplayed());
         clickDeleteYesCategoryPopup.click();
