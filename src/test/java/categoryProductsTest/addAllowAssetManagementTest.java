@@ -33,17 +33,19 @@ public class addAllowAssetManagementTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         productCategoryPage=ProductCategoryPage.getPage(driver, ProductCategoryPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Add Allow Asset Management")
     public void userSignin() throws IOException{
+/*
     	productCategoryPage.enterLoginID();
     	productCategoryPage.enterPassword();
     	productCategoryPage.selectCompany();
     	productCategoryPage.clickLoginButton();
+*/
     	productCategoryPage.clickProductsTab();
     	productCategoryPage.clickAddCategoryButton();
     	productCategoryPage.enterAssetCategoryName();
@@ -62,7 +64,7 @@ public class addAllowAssetManagementTest {
     	productCategoryPage.verifyConfirmationMsg();
     	
     }
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

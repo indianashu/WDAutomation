@@ -651,7 +651,7 @@ public class ReportsPage extends BasePage{
      */
     public void selectPeriodBreakDown() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
         se.selectByVisibleText(sp.ExcelRead().get(12));
@@ -683,11 +683,25 @@ public class ReportsPage extends BasePage{
     public void clickRunReportButton() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click Run Report Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickRunReportButton);
         Assert.assertTrue(clickRunReportButton.isDisplayed());
         clickRunReportButton.click();
-        
+        WaitClass.sleep(2000);
+    }
+
+    public void closeWindow() throws IOException{
+        WaitClass.sleep(2000);
+        log.info("close window");
+        String originalHandle = driver.getWindowHandle();
+
+        for(String handle : driver.getWindowHandles()) {
+            if (!handle.equals(originalHandle)) {
+                driver.switchTo().window(handle);
+                driver.close();
+            }
+        }
+        driver.switchTo().window(originalHandle);
     }
     
     private WebElement selectViewFormatPDF;
@@ -697,6 +711,7 @@ public class ReportsPage extends BasePage{
      */
     public void selectViewFormatPDF() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
+        WaitClass.sleep(2000);
         WebElement Formatelement = driver.findElement(By.xpath("//select[@name='format']"));
         Select se = new Select(Formatelement);
         se.selectByVisibleText(sp.ExcelRead().get(14));

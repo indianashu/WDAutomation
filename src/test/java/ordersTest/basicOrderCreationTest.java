@@ -33,17 +33,19 @@ public class basicOrderCreationTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         orderPage=OrderPage.getPage(driver, OrderPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Basic Order Creation")
     public void userSignin() throws IOException{
+/*
     	orderPage.enterLoginID();
     	orderPage.enterPassword();
     	orderPage.selectCompany();
     	orderPage.clickLoginButton();
+*/
     	orderPage.clickCustomerTab();
     	orderPage.clickAddNewButton();
     	orderPage.selectUserCompany();
@@ -78,7 +80,7 @@ public class basicOrderCreationTest {
     	
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

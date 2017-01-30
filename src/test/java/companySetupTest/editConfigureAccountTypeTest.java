@@ -33,20 +33,22 @@ public class editConfigureAccountTypeTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         editconfigurationAccountTypePage=EditConfigurationAccountTypePage.getPage(driver, EditConfigurationAccountTypePage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Edit Configuration Account Type")
     public void userSignin() throws IOException{
+/*
     	editconfigurationAccountTypePage.enterLoginID();
     	editconfigurationAccountTypePage.enterPassword();
     	editconfigurationAccountTypePage.selectCompany();
     	editconfigurationAccountTypePage.clickLoginButton();
-    	editconfigurationAccountTypePage.clickConfigurationTab();
-    	editconfigurationAccountTypePage.clickAccountType();
-    	editconfigurationAccountTypePage.clickAddNewButton();
+*/
+        editconfigurationAccountTypePage.clickConfigurationTab();
+        editconfigurationAccountTypePage.clickAccountType();
+        editconfigurationAccountTypePage.clickAddNewButton();
     	editconfigurationAccountTypePage.enterAccountName();
     	editconfigurationAccountTypePage.enterBillingCycle();
     	editconfigurationAccountTypePage.selectInvoiceDesing();
@@ -60,7 +62,7 @@ public class editConfigureAccountTypeTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

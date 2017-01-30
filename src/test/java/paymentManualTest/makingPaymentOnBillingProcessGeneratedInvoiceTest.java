@@ -33,17 +33,19 @@ public class makingPaymentOnBillingProcessGeneratedInvoiceTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         makePaymentPage=MakePaymentPage.getPage(driver, MakePaymentPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Making Payment (manually) on Billing Process Generated Invoice.")
     public void userSignin() throws IOException{
+/*
     	makePaymentPage.enterLoginID();
     	makePaymentPage.enterPassword();
     	makePaymentPage.selectCompany();
     	makePaymentPage.clickLoginButton();
+*/
     	makePaymentPage.clickInvoicesTab();
     	makePaymentPage.clickCustomerName();
     	makePaymentPage.clickPayInvoiceButton();
@@ -59,7 +61,7 @@ public class makingPaymentOnBillingProcessGeneratedInvoiceTest {
 
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

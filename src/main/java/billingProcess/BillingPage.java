@@ -332,7 +332,7 @@ public class BillingPage extends BasePage{
         clickApproveButton.click();
         WaitClass.sleep(1000);
         driver.findElement(By.xpath("//span[text()='Yes']")).click();
-
+        WaitClass.sleep(1000);
     }
     
   

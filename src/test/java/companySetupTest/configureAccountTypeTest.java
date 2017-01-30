@@ -33,7 +33,7 @@ public class configureAccountTypeTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         driver.manage().window().maximize();
         configurationAccountTypePage=ConfigurationAccountTypePage.getPage(driver, ConfigurationAccountTypePage.class);
 
@@ -41,10 +41,12 @@ public class configureAccountTypeTest {
 
     @Test(groups={"Sanity"},description="ConfigureAccountType")
     public void userSignin() throws IOException{
+/*
     	configurationAccountTypePage.enterLoginID();
     	configurationAccountTypePage.enterPassword();
     	configurationAccountTypePage.selectCompany();
     	configurationAccountTypePage.clickLoginButton();
+*/
     	configurationAccountTypePage.clickConfigurationTab();
     	configurationAccountTypePage.clickAccountType();
     	configurationAccountTypePage.clickAddNewButton();
@@ -57,7 +59,7 @@ public class configureAccountTypeTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

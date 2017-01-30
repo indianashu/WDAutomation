@@ -276,7 +276,7 @@ public class TearDownProcessPage extends BasePage{
       WaitClass.sleep(2000);
       String Customer= sp.ExcelRead().get(3);
       driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+Customer+"']")).click();
-      
+      WaitClass.sleep(2000);
   }
     
   
@@ -490,7 +490,7 @@ public class TearDownProcessPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteCategoryButton);
         Assert.assertTrue(clickDeleteCategoryButton.isDisplayed());
         clickDeleteCategoryButton.click();
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
     }
     
     @FindBy(how=How.XPATH, using="//following::span[text()='Yes']/following::span[5]")
@@ -502,7 +502,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteYesCategoryPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete category popup");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(1000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCategoryPopup);
         Assert.assertTrue(clickDeleteYesCategoryPopup.isDisplayed());
         clickDeleteYesCategoryPopup.click();

@@ -33,17 +33,19 @@ public class agentCommissionBalanceProcessTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         agentCommissionProcessPage=AgentCommissionProcessPage.getPage(driver, AgentCommissionProcessPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Agents and Commissions - The Commissions Balance Process")
     public void userSignin() throws IOException{
+/*
     	agentCommissionProcessPage.enterLoginID();
     	agentCommissionProcessPage.enterPassword();
     	agentCommissionProcessPage.selectCompany();
     	agentCommissionProcessPage.clickLoginButton();
+*/
     	agentCommissionProcessPage.clickAgentTab();
     	agentCommissionProcessPage.selectAgent();
     	agentCommissionProcessPage.clickShowCommissionButton();
@@ -71,7 +73,7 @@ public class agentCommissionBalanceProcessTest {
     	agentCommissionProcessPage.verifyCommissionAmount();
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

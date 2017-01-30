@@ -372,14 +372,16 @@ public class ConfigurationCollectionsPage extends BasePage{
      * Method to click on Save Changes Button.
      * @throws IOException 
      */
-    public void clickSaveChangesButton() throws IOException{
+    public String clickSaveChangesButton() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Save Changes Button");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
-        
+        WaitClass.sleep(1000);
+        String gracePeriodId = driver.findElement(By.xpath("//*[@id='ageingStepTable']/tbody/tr[2]/td[1]/strong")).getText();
+        return gracePeriodId;
     }
     
     @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
@@ -499,13 +501,13 @@ public class ConfigurationCollectionsPage extends BasePage{
      * Method to Enter Right Attribute.
      * @throws IOException 
      */
-    public void enterRightAttribute() throws IOException{
+    public void enterRightAttribute(String gracePeriodId) throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Enter Right Attribute.");
         WaitClass.sleep(2000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterRightAttribute);
         Assert.assertTrue(enterRightAttribute.isDisplayed());
-        enterRightAttribute.sendKeys(sp.ExcelRead().get(14));  
+        enterRightAttribute.sendKeys(gracePeriodId);
     }
     
   

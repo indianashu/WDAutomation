@@ -33,7 +33,7 @@ public class viewCompanyHierarchyChildCompanyTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         viewAssignedInfoPage=ViewAssignedInfoPage.getPage(driver, ViewAssignedInfoPage.class);
 
     }
@@ -41,10 +41,12 @@ public class viewCompanyHierarchyChildCompanyTest {
     @Test(groups={"Sanity"},description="Verify that Root Company has ability to impersonate Child Company and view all & only information assigned to Child Company.")
     public void userSignin() throws IOException{
     	
+/*
     	viewAssignedInfoPage.enterLoginID();
     	viewAssignedInfoPage.enterPassword();
     	viewAssignedInfoPage.selectCompany();
     	viewAssignedInfoPage.clickLoginButton();
+*/
     	viewAssignedInfoPage.clickImpersonate();
     	viewAssignedInfoPage.selectChildCompany();
     	viewAssignedInfoPage.clickSelectButton();
@@ -61,7 +63,7 @@ public class viewCompanyHierarchyChildCompanyTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

@@ -33,17 +33,19 @@ public class mediation16MediationProcessorTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         mediationPage=MediationPage.getPage(driver, MediationPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Mediation 2.1")
     public void userSignin() throws IOException{
+/*
     	mediationPage.enterLoginID();
     	mediationPage.enterPassword();
     	mediationPage.selectCompany();
     	mediationPage.clickLoginButton();
+*/
         String ItemId = mediationPage.fetchDefaultItemID();
     	mediationPage.clickConfigurationsTab();
     	mediationPage.clickPluginsLink();
@@ -56,7 +58,7 @@ public class mediation16MediationProcessorTest {
     	
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

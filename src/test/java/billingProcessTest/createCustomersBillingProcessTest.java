@@ -33,17 +33,19 @@ public class createCustomersBillingProcessTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         createCustomerPage=CreateCustomerPage.getPage(driver, CreateCustomerPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Create Two Customers for Billing Process.")
     public void userSignin() throws IOException{
+/*
     	createCustomerPage.enterLoginID();
     	createCustomerPage.enterPassword();
     	createCustomerPage.selectCompany();
     	createCustomerPage.clickLoginButton();
+*/
     	createCustomerPage.clickCustomerTab();
     	createCustomerPage.clickAddNewButton();
     	createCustomerPage.selectUserCompany();
@@ -92,7 +94,7 @@ public class createCustomersBillingProcessTest {
     	
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

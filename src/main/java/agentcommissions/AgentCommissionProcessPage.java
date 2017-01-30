@@ -307,7 +307,7 @@ public class AgentCommissionProcessPage extends BasePage{
         WaitClass.sleep(2000);
         String ProductName = sp.ExcelRead().get(7);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
-        
+        WaitClass.sleep(1000);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
@@ -323,7 +323,7 @@ public class AgentCommissionProcessPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
-        
+        WaitClass.sleep(1000);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Generate Invoice']")
@@ -422,7 +422,7 @@ public class AgentCommissionProcessPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
-        
+        WaitClass.sleep(1000);
     }
    
     @FindBy(how=How.XPATH, using="//a[@class='submit apply']//*[text()='Run Commission Process']")

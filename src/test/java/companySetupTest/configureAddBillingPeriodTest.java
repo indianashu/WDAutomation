@@ -33,18 +33,20 @@ public class configureAddBillingPeriodTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         configurationBillingProcessPage=ConfigurationBillingProcessPage.getPage(driver, ConfigurationBillingProcessPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Configure Add Billing Period")
     public void userSignin() throws IOException{
+/*
     	configurationBillingProcessPage.enterLoginID();
     	configurationBillingProcessPage.enterPassword();
     	configurationBillingProcessPage.selectCompany();
     	configurationBillingProcessPage.clickLoginButton();
-    	configurationBillingProcessPage.clickConfigurationTab();
+*/
+        configurationBillingProcessPage.clickConfigurationTab();
     	configurationBillingProcessPage.clickBillingProcess();
         configurationBillingProcessPage.enterMaxPeriodInvoice();
         configurationBillingProcessPage.enterNextRunDate();
@@ -54,7 +56,7 @@ public class configureAddBillingPeriodTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

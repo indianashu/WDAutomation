@@ -537,7 +537,7 @@ public class OrderHierarchiesPage extends BasePage{
         WaitClass.sleep(2000);
         String ProductName=sp.ExcelRead().get(16);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
-        
+        WaitClass.sleep(2000);
     }
     
     private WebElement verifyWarningMsg;

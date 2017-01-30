@@ -33,17 +33,19 @@ public class agentConfigurationPluginTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         agentConfigurationPluginPage=AgentConfigurationPluginPage.getPage(driver, AgentConfigurationPluginPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Agents and Commissions - The Commissions plug-in and preference")
     public void userSignin() throws IOException{
+/*
     	agentConfigurationPluginPage.enterLoginID();
     	agentConfigurationPluginPage.enterPassword();
     	agentConfigurationPluginPage.selectCompany();
     	agentConfigurationPluginPage.clickLoginButton();
+*/
     	agentConfigurationPluginPage.clickConfigurationTab();
     	agentConfigurationPluginPage.clickPlugin();
     	agentConfigurationPluginPage.clickAgentCommissionCalProcess();
@@ -55,9 +57,10 @@ public class agentConfigurationPluginTest {
     	agentConfigurationPluginPage.clickAllLink();
     	agentConfigurationPluginPage.clickAgentCommissionType();
     	agentConfigurationPluginPage.verifyInvoice();
+        agentConfigurationPluginPage.clickConfigurationTab();
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

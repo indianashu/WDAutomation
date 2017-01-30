@@ -33,18 +33,20 @@ public class configureAddCollectionTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         configurationCollectionsPage=ConfigurationCollectionsPage.getPage(driver, ConfigurationCollectionsPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Configure Add Collection")
     public void userSignin() throws IOException{
+/*
     	configurationCollectionsPage.enterLoginID();
     	configurationCollectionsPage.enterPassword();
     	configurationCollectionsPage.selectCompany();
     	configurationCollectionsPage.clickLoginButton();
-    	configurationCollectionsPage.clickConfigurationTab();
+*/
+		configurationCollectionsPage.clickConfigurationTab();
     	configurationCollectionsPage.clickCollections();
     	configurationCollectionsPage.enterIDSteps();
     	configurationCollectionsPage.enterForDays();
@@ -58,20 +60,20 @@ public class configureAddCollectionTest {
         configurationCollectionsPage.enterIDSteps3();
     	configurationCollectionsPage.enterForDays3();
     	configurationCollectionsPage.selectSuspendCheckbox1();
-    	configurationCollectionsPage.clickSaveChangesButton();
+    	String gracePeriodId = configurationCollectionsPage.clickSaveChangesButton();
     	configurationCollectionsPage.verifyConfirmationMsg();
 		configurationCollectionsPage.clickPluginsLink();
 		configurationCollectionsPage.clickCategory17();
 		configurationCollectionsPage.clickAddNewButton();
 		configurationCollectionsPage.selectTypeID();
 		configurationCollectionsPage.enterLeftAttribute();
-		configurationCollectionsPage.enterRightAttribute();
+		configurationCollectionsPage.enterRightAttribute(gracePeriodId);
 		configurationCollectionsPage.clickPlusIcon();
 		configurationCollectionsPage.clickSavePluginButton();
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

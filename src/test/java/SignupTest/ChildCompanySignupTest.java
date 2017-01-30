@@ -32,7 +32,7 @@ public class ChildCompanySignupTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         signupChildCompanyPage=SignupChildCompanyPage.getPage(driver, SignupChildCompanyPage.class);
 
 
@@ -40,11 +40,13 @@ public class ChildCompanySignupTest {
 
     @Test(groups={"Sanity"},description="Child Company Sign up new company")
     public void userSignin() throws IOException{
+/*
     	signupChildCompanyPage.enterLoginID();
     	signupChildCompanyPage.enterPassword();
     	signupChildCompanyPage.selectCompany();
     	signupChildCompanyPage.clickLoginButton();
     	signupChildCompanyPage.verifyLabelSuccessfulLogin();
+*/
     	signupChildCompanyPage.enterURL();
     	signupChildCompanyPage.labelRootCompany();
     	signupChildCompanyPage.enterLoginName();
@@ -67,7 +69,7 @@ public class ChildCompanySignupTest {
     	signupChildCompanyPage.clickSaveChangesButton();
 
     }
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

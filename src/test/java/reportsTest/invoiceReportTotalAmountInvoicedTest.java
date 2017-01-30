@@ -33,17 +33,19 @@ public class invoiceReportTotalAmountInvoicedTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         reportsPage=ReportsPage.getPage(driver, ReportsPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Invoice Reports: Total Amount Invoiced.")
     public void userSignin() throws IOException{
+/*
     	reportsPage.enterLoginID();
     	reportsPage.enterPassword();
     	reportsPage.selectCompany();
     	reportsPage.clickLoginButton();
+*/
     	reportsPage.clickCustomerTab();
     	reportsPage.clickAddNewButton();
     	reportsPage.selectAccountType();
@@ -80,24 +82,25 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.selectPeriodBreakDown();
     	reportsPage.selectViewFormatHTML();
     	reportsPage.clickRunReportButton();
-    	reportsPage.clickReportsTab();
-    	reportsPage.clickInvoiceReports();
-    	reportsPage.clickTotalAmountInvoiced();
-    	reportsPage.selectPeriodBreakDown();
+		reportsPage.closeWindow();
+    	//reportsPage.clickReportsTab();
+    	//reportsPage.clickInvoiceReports();
+    	//reportsPage.clickTotalAmountInvoiced();
+    	//reportsPage.selectPeriodBreakDown();
     	reportsPage.selectViewFormatPDF();
     	reportsPage.clickRunReportButton();
     	//reportsPage.clickSaveReport();
-    	reportsPage.clickReportsTab();
-    	reportsPage.clickInvoiceReports();
-    	reportsPage.clickTotalAmountInvoiced();
-    	reportsPage.selectPeriodBreakDown();
+    	//reportsPage.clickReportsTab();
+    	//reportsPage.clickInvoiceReports();
+    	//reportsPage.clickTotalAmountInvoiced();
+    	//reportsPage.selectPeriodBreakDown();
     	reportsPage.selectViewFormatExcel();
     	reportsPage.clickRunReportButton();
     	//reportsPage.clickSaveReport();
     	    	
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

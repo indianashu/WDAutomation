@@ -33,17 +33,19 @@ public class verifyDiscountOrderTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         discountPage=DiscountPage.getPage(driver, DiscountPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Verify Order Discount")
     public void userSignin() throws IOException{
+/*
     	discountPage.enterLoginID();
     	discountPage.enterPassword();
     	discountPage.selectCompany();
     	discountPage.clickLoginButton();
+*/
     	discountPage.clickDiscountTab();
     	discountPage.clickAddNewButton();
 		discountPage.clickSaveChangesButton();
@@ -79,7 +81,7 @@ public class verifyDiscountOrderTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

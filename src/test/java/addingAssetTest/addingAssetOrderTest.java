@@ -33,17 +33,19 @@ public class addingAssetOrderTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         addingAssetPage=AddingAssetPage.getPage(driver, AddingAssetPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Adding Asset to Order Test Case")
     public void userSignin() throws IOException{
+/*
     	addingAssetPage.enterLoginID();
     	addingAssetPage.enterPassword();
     	addingAssetPage.selectCompany();
     	addingAssetPage.clickLoginButton();
+*/
     	addingAssetPage.clickCustomersTab();
     	addingAssetPage.clickAddNewButton();
     	addingAssetPage.selectUserCompany();
@@ -74,7 +76,7 @@ public class addingAssetOrderTest {
     	addingAssetPage.verifyAssetStatus();
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

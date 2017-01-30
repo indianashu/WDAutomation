@@ -33,17 +33,19 @@ public class runningCollectionToCheckStatusChangeTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         collectionConfigurationPage=CollectionConfigurationPage.getPage(driver, CollectionConfigurationPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Running collection to see changed status of Customer.")
     public void userSignin() throws IOException{
+/*
     	collectionConfigurationPage.enterLoginID();
     	collectionConfigurationPage.enterPassword();
     	collectionConfigurationPage.selectCompany();
     	collectionConfigurationPage.clickLoginButton();
+*/
     	collectionConfigurationPage.clickCustomerTab();
     	collectionConfigurationPage.clickBillingCustomer2();
     	collectionConfigurationPage.clickEditButton();
@@ -94,7 +96,7 @@ public class runningCollectionToCheckStatusChangeTest {
     	
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

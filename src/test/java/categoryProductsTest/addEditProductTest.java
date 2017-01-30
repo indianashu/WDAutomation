@@ -33,18 +33,20 @@ public class addEditProductTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         addProductPage=AddProductPage.getPage(driver, AddProductPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Add Edit Product")
     public void userSignin() throws IOException{
+/*
     	addProductPage.enterLoginID();
     	addProductPage.enterPassword();
     	addProductPage.selectCompany();
     	addProductPage.clickLoginButton();
-    	addProductPage.clickProductsTab();
+*/
+        addProductPage.clickProductsTab();
         addProductPage.selectCategoryName();
         addProductPage.clickAddProductButton();
         addProductPage.enterEnglishDescription();
@@ -88,7 +90,7 @@ public class addEditProductTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

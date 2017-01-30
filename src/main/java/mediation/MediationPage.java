@@ -197,7 +197,7 @@ public class MediationPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
-        
+        WaitClass.sleep(2000);
     }
     private WebElement selectTypeIdMediationReader;
     /**

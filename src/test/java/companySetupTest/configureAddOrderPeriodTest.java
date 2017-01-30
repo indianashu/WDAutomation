@@ -33,18 +33,20 @@ public class configureAddOrderPeriodTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         configurationOrderPeriodsPage=ConfigurationOrderPeriodsPage.getPage(driver, ConfigurationOrderPeriodsPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Confiure Add Order Period")
     public void userSignin() throws IOException{
+/*
     	configurationOrderPeriodsPage.enterLoginID();
     	configurationOrderPeriodsPage.enterPassword();
     	configurationOrderPeriodsPage.selectCompany();
     	configurationOrderPeriodsPage.clickLoginButton();
-    	configurationOrderPeriodsPage.clickConfigurationTab();
+*/
+        configurationOrderPeriodsPage.clickConfigurationTab();
     	configurationOrderPeriodsPage.clickOrderPeriods();
     	configurationOrderPeriodsPage.clickAddNewButton();
     	configurationOrderPeriodsPage.enterDescription();
@@ -55,7 +57,7 @@ public class configureAddOrderPeriodTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }
