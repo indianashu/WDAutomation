@@ -141,7 +141,7 @@ public class LoginPage extends BasePage{
     public void verifyLabelSuccessfulLogin() throws IOException{
     	LoginPage sp=new LoginPage(driver);
         log.info("Verifying if Label is available or not");
-        WaitClass.sleep(1000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, labelSuccessfulLogin);
         Assert.assertTrue(labelSuccessfulLogin.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -178,7 +178,7 @@ public class LoginPage extends BasePage{
         String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
         System.out.println("Company Name:********" +ActualRootCompany+ "*********");
         log.info("Click on customer name");
-        WaitClass.sleep(1000);
+        WaitClass.sleep(10000);
         //WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
         //Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
         Assert.assertEquals(ActualRootCompany, RootCompanyName);
@@ -186,7 +186,7 @@ public class LoginPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
     }
 
 

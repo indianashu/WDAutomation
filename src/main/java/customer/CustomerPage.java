@@ -142,7 +142,7 @@ public class CustomerPage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Customer Tab after successful login");
-        WaitClass.sleep(5000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -158,7 +158,7 @@ public class CustomerPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Add New Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -202,7 +202,7 @@ public class CustomerPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on select Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -218,7 +218,7 @@ public class CustomerPage extends BasePage{
     public void enterLoginName() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(5));
@@ -233,7 +233,7 @@ public class CustomerPage extends BasePage{
     public void enterEmail() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter Email");
-        WaitClass.sleep(1000);
+        WaitClass.sleep(10000);
         enterEmail = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterEmail.isDisplayed());
         enterEmail.sendKeys(sp.ExcelRead().get(6));
@@ -250,7 +250,7 @@ public class CustomerPage extends BasePage{
     public void clickUseCompanyBillingCycleButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click Use Company Billing Cycle Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickUseCompanyBillingCycleButton);
         Assert.assertTrue(clickUseCompanyBillingCycleButton.isDisplayed());
         clickUseCompanyBillingCycleButton.click();
@@ -292,7 +292,7 @@ public class CustomerPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -308,7 +308,7 @@ public class CustomerPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -322,7 +322,7 @@ public class CustomerPage extends BasePage{
     public void selectCustomer() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Select Customer");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         String CustomerName = sp.ExcelRead().get(5);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
@@ -336,7 +336,7 @@ public class CustomerPage extends BasePage{
     public void getCustomerID() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Get Customer ID");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         String CustomerID = driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText();
         System.out.print("Customer ID is ------>" + CustomerID + "<------- Got it.");
         
@@ -419,7 +419,7 @@ public class CustomerPage extends BasePage{
     public void expandPaymentMethod() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Expand Payment Method in add customer page");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, expandPaymentMethod);
         Assert.assertTrue(expandPaymentMethod.isDisplayed());
         expandPaymentMethod.click();
@@ -433,11 +433,11 @@ public class CustomerPage extends BasePage{
      */
     public void selectPaymentMethodType() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMTelement);
         se.selectByVisibleText(sp.ExcelRead().get(10));
-
+        WaitClass.sleep(10000);
     }
     
     @FindBy(how=How.XPATH, using="//label[contains(.,'cc.cardholder.name')]/following::input[1]")
@@ -449,11 +449,11 @@ public class CustomerPage extends BasePage{
     public void enterCCCardholderName() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter CC Cardholder name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCCardholderName);
         Assert.assertTrue(enterCCCardholderName.isDisplayed());
         enterCCCardholderName.sendKeys(sp.ExcelRead().get(11));
-        
+        WaitClass.sleep(10000);
     }
     
     @FindBy(how=How.XPATH, using="//label[contains(.,'cc.number')]/following::input[1]")
@@ -465,7 +465,7 @@ public class CustomerPage extends BasePage{
     public void enterCCNumber() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter CC Number");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCNumber);
         Assert.assertTrue(enterCCNumber.isDisplayed());
         enterCCNumber.sendKeys(sp.ExcelRead().get(12));
@@ -481,7 +481,7 @@ public class CustomerPage extends BasePage{
     public void enterCCExpiryDate() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter CC Number");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCCExpiryDate);
         Assert.assertTrue(enterCCExpiryDate.isDisplayed());
         enterCCExpiryDate.sendKeys(sp.ExcelRead().get(13));
@@ -507,7 +507,7 @@ public class CustomerPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
     }
 
 

@@ -193,7 +193,7 @@ public class ImpersonatePage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(5000);
+        WaitClass.sleep(10000);
     }
 
 

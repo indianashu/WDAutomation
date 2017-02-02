@@ -146,7 +146,7 @@ public class AgentPage extends BasePage{
     public void clickAgentTab() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Agent Tab after successful login");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAgentTab);
         Assert.assertTrue(clickAgentTab.isDisplayed());
         clickAgentTab.click();
@@ -162,7 +162,7 @@ public class AgentPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on add new button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -179,7 +179,7 @@ public class AgentPage extends BasePage{
     public void enterLoginName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(3));
@@ -195,7 +195,7 @@ public class AgentPage extends BasePage{
     public void enterEmail() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Product Code");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEmail);
         Assert.assertTrue(enterEmail.isDisplayed());
         enterEmail.sendKeys(sp.ExcelRead().get(4));
@@ -237,7 +237,7 @@ public class AgentPage extends BasePage{
     public void getAgentID() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Get Customer ID");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         String AgentID = driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText();
         System.out.print("Agent ID is ------>" + AgentID + "<------- Got it.");
         return;
@@ -253,7 +253,7 @@ public class AgentPage extends BasePage{
     public void clickCustomerTab() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Customer Tab");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
@@ -269,7 +269,7 @@ public class AgentPage extends BasePage{
     public void clickAddNewCustomerButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Customer Tab");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewCustomerButton);
         Assert.assertTrue(clickAddNewCustomerButton.isDisplayed());
         clickAddNewCustomerButton.click();
@@ -312,7 +312,7 @@ public class AgentPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on select Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -328,7 +328,7 @@ public class AgentPage extends BasePage{
     public void enterLoginName1() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Login Name");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName1);
         Assert.assertTrue(enterLoginName1.isDisplayed());
         enterLoginName1.sendKeys(sp.ExcelRead().get(9));
@@ -344,7 +344,7 @@ public class AgentPage extends BasePage{
     public void enterAgentID(String AgentId) throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Agent ID");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterAgentID);
         Assert.assertTrue(enterAgentID.isDisplayed());
         enterAgentID.sendKeys(AgentId);
@@ -373,7 +373,7 @@ public class AgentPage extends BasePage{
     public void enterProcessingOrder() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(1000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProcessingOrder);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(17));
@@ -389,7 +389,7 @@ public class AgentPage extends BasePage{
     public void enterCardHolderName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card holder name");
-        WaitClass.sleep(1000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
         Assert.assertTrue(enterCardHolderName.isDisplayed());
         enterCardHolderName.sendKeys(sp.ExcelRead().get(9));
@@ -405,7 +405,7 @@ public class AgentPage extends BasePage{
     public void enterCardNumber() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card number");
-        WaitClass.sleep(1000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
         enterCardNumber.sendKeys(sp.ExcelRead().get(18));
@@ -421,7 +421,7 @@ public class AgentPage extends BasePage{
     public void enterCardExpiry() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card number");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
         Assert.assertTrue(enterCardExpiry.isDisplayed());
         enterCardExpiry.sendKeys(sp.ExcelRead().get(19));
@@ -438,7 +438,7 @@ public class AgentPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -454,7 +454,7 @@ public class AgentPage extends BasePage{
     public String verifyAgentAndFetchAgentId() throws IOException{
         AgentPage sp=new AgentPage(driver);
         log.info("Verifying if Agent is created Successfully or not");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyAgentAndFetchAgentId);
         Assert.assertTrue(verifyAgentAndFetchAgentId.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
         String AgentId = driver.findElement(By.xpath("//td[text()='Agent ID']/following::td[1]")).getText();
@@ -470,7 +470,7 @@ public class AgentPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -484,7 +484,7 @@ public class AgentPage extends BasePage{
     public void clickProductTab() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Product Tab");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductTab);
         Assert.assertTrue(clickProductTab.isDisplayed());
         clickProductTab.click();
@@ -500,7 +500,7 @@ public class AgentPage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Add Category Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
@@ -516,7 +516,7 @@ public class AgentPage extends BasePage{
     public void enterCategoryName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Name for Category");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
         Assert.assertTrue(enterCategoryName.isDisplayed());
         enterCategoryName.sendKeys(sp.ExcelRead().get(11));
@@ -532,7 +532,7 @@ public class AgentPage extends BasePage{
     public void clickProductCategoryName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Product Category Name - Commissioned Product");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         String ProductName = sp.ExcelRead().get(11);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -547,7 +547,7 @@ public class AgentPage extends BasePage{
     public void clickAddProductButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Add Product Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
         Assert.assertTrue(clickAddProductButton.isDisplayed());
         clickAddProductButton.click();
@@ -563,7 +563,7 @@ public class AgentPage extends BasePage{
     public void enterEnglishDescription() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter English Description");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
         enterEnglishDescription.sendKeys(sp.ExcelRead().get(12));
@@ -579,7 +579,7 @@ public class AgentPage extends BasePage{
     public void enterProductCode() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Product Code");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(sp.ExcelRead().get(13));
@@ -595,7 +595,7 @@ public class AgentPage extends BasePage{
     public void enterStdCommission() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Standard Agent Commission");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterStdCommission);
         Assert.assertTrue(enterStdCommission.isDisplayed());
         enterStdCommission.sendKeys(sp.ExcelRead().get(14));
@@ -612,7 +612,7 @@ public class AgentPage extends BasePage{
     public void enterMasterCommission() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Master Agent Commission");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterMasterCommission);
         Assert.assertTrue(enterMasterCommission.isDisplayed());
         enterMasterCommission.sendKeys(sp.ExcelRead().get(15));
@@ -628,7 +628,7 @@ public class AgentPage extends BasePage{
     public void enterPriceRate() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Price Rate");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
         Assert.assertTrue(enterPriceRate.isDisplayed());
         enterPriceRate.sendKeys(sp.ExcelRead().get(16));
@@ -644,7 +644,7 @@ public class AgentPage extends BasePage{
     public void clickAddPriceButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Add Price Button");
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
         Assert.assertTrue(clickAddPriceButton.isDisplayed());
         clickAddPriceButton.click();
@@ -652,7 +652,7 @@ public class AgentPage extends BasePage{
     }
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(2000);
+        WaitClass.sleep(10000);
     }
 
 
