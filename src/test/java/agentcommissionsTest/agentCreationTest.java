@@ -33,17 +33,19 @@ public class agentCreationTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         agentPage=AgentPage.getPage(driver, AgentPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Agents and Commissions - Agent creation")
     public void userSignin() throws IOException{
+/*
     	agentPage.enterLoginID();
     	agentPage.enterPassword();
     	agentPage.selectCompany();
     	agentPage.clickLoginButton();
+*/
     	agentPage.clickAgentTab();
     	agentPage.clickAddNewButton();
     	agentPage.enterLoginName();
@@ -69,7 +71,7 @@ public class agentCreationTest {
     	agentPage.verifyConfirmationMsg();
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

@@ -33,17 +33,19 @@ public class orderHierarchiesDependentProductOrderTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         orderHierarchiesPage=OrderHierarchiesPage.getPage(driver, OrderHierarchiesPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Order Hierarchy Dependent Product Order")
     public void userSignin() throws IOException{
+/*
     	orderHierarchiesPage.enterLoginID();
     	orderHierarchiesPage.enterPassword();
     	orderHierarchiesPage.selectCompany();
     	orderHierarchiesPage.clickLoginButton();
+*/
     	orderHierarchiesPage.clickCustomersTab();
     	orderHierarchiesPage.clickCustomerA();
     	orderHierarchiesPage.clickCreateOrderButton();
@@ -61,7 +63,7 @@ public class orderHierarchiesDependentProductOrderTest {
     	
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

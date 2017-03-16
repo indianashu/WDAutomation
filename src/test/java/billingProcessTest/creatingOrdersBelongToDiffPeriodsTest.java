@@ -33,17 +33,19 @@ public class creatingOrdersBelongToDiffPeriodsTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         creatingOrdersPage=CreatingOrdersPage.getPage(driver, CreatingOrdersPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Creating Orders Belonging to Different Periods")
     public void userSignin() throws IOException{
+/*
     	creatingOrdersPage.enterLoginID();
     	creatingOrdersPage.enterPassword();
     	creatingOrdersPage.selectCompany();
     	creatingOrdersPage.clickLoginButton();
+*/
     	creatingOrdersPage.clickProductsTab();
     	creatingOrdersPage.clickAddCategoryButton();
     	creatingOrdersPage.enterProductCategoryName();
@@ -111,7 +113,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
 
     }
 
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

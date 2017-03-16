@@ -33,17 +33,19 @@ public class productCreationTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         agentPage=AgentPage.getPage(driver, AgentPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Agents and Commissions - Products creation")
     public void userSignin() throws IOException{
+/*
     	agentPage.enterLoginID();
     	agentPage.enterPassword();
     	agentPage.selectCompany();
     	agentPage.clickLoginButton();
+*/
     	agentPage.clickProductTab();
     	agentPage.clickAddCategoryButton();
     	agentPage.enterCategoryName();
@@ -64,7 +66,7 @@ public class productCreationTest {
     	
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

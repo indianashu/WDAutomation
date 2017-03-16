@@ -33,19 +33,21 @@ public class configurePaymentMethodTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         configurationAddPaymentMethodPage=ConfigurationAddPaymentMethodPage.getPage(driver, ConfigurationAddPaymentMethodPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Configure Payment Method")
     public void userSignin() throws IOException{
+/*
     	configurationAddPaymentMethodPage.enterLoginID();
     	configurationAddPaymentMethodPage.enterPassword();
     	configurationAddPaymentMethodPage.selectCompany();
     	configurationAddPaymentMethodPage.clickLoginButton();
-    	configurationAddPaymentMethodPage.clickConfigurationTab();
-    	configurationAddPaymentMethodPage.clickPaymentMethod();;
+*/
+        configurationAddPaymentMethodPage.clickConfigurationTab();
+        configurationAddPaymentMethodPage.clickPaymentMethod();;
     	configurationAddPaymentMethodPage.clickAddNewButton();
     	configurationAddPaymentMethodPage.selectPaymentMethodTemplate();
     	configurationAddPaymentMethodPage.clickSelectButton();
@@ -58,7 +60,7 @@ public class configurePaymentMethodTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

@@ -33,19 +33,21 @@ public class configureAddNewInfoTypeTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         configurationNewInformationTypePage=ConfigurationNewInformationTypePage.getPage(driver, ConfigurationNewInformationTypePage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Configure Add New Info Type")
     public void userSignin() throws IOException{
+/*
     	configurationNewInformationTypePage.enterLoginID();
     	configurationNewInformationTypePage.enterPassword();
     	configurationNewInformationTypePage.selectCompany();
     	configurationNewInformationTypePage.clickLoginButton();
-    	configurationNewInformationTypePage.clickConfigurationTab();
-    	configurationNewInformationTypePage.clickAccountType();
+*/
+        configurationNewInformationTypePage.clickConfigurationTab();
+        configurationNewInformationTypePage.clickAccountType();
     	configurationNewInformationTypePage.clickAccountTypeCreated();
     	configurationNewInformationTypePage.enterAccountName();
     	configurationNewInformationTypePage.enterName();
@@ -62,7 +64,7 @@ public class configureAddNewInfoTypeTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

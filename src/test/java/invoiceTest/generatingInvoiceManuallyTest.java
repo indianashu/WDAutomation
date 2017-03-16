@@ -33,17 +33,19 @@ public class generatingInvoiceManuallyTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         generatingInvoicePage=GeneratingInvoicePage.getPage(driver, GeneratingInvoicePage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Generating an Invoice Manually")
     public void userSignin() throws IOException{
+/*
     	generatingInvoicePage.enterLoginID();
     	generatingInvoicePage.enterPassword();
     	generatingInvoicePage.selectCompany();
     	generatingInvoicePage.clickLoginButton();
+*/
     	generatingInvoicePage.clickCustomerTab();
     	generatingInvoicePage.clickCustomerName();
     	generatingInvoicePage.clickCreateOrderButton();
@@ -60,7 +62,7 @@ public class generatingInvoiceManuallyTest {
     	generatingInvoicePage.verifyConfirmationMsg();
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

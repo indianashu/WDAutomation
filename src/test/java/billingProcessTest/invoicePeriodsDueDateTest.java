@@ -33,17 +33,19 @@ public class invoicePeriodsDueDateTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         billingPage=BillingPage.getPage(driver, BillingPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Invoice Periods and Due Date.")
     public void userSignin() throws IOException{
+/*
     	billingPage.enterLoginID();
     	billingPage.enterPassword();
     	billingPage.selectCompany();
     	billingPage.clickLoginButton();
+*/
     	billingPage.clickBillingTab();
     	billingPage.clickLastBillingRun();
     	billingPage.clickShowInvoiceButton();
@@ -61,7 +63,7 @@ public class invoicePeriodsDueDateTest {
    
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

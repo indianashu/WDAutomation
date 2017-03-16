@@ -33,18 +33,20 @@ public class addNewCustomerTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         customerPage=CustomerPage.getPage(driver, CustomerPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Add New Customer")
     public void userSignin() throws IOException{
+/*
     	customerPage.enterLoginID();
     	customerPage.enterPassword();
     	customerPage.selectCompany();
     	customerPage.clickLoginButton();
-    	customerPage.clickCustomerTab();
+*/
+        customerPage.clickCustomerTab();
     	customerPage.clickAddNewButton();
     	customerPage.selectUserCompany();
     	customerPage.selectAccountType();
@@ -64,7 +66,7 @@ public class addNewCustomerTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

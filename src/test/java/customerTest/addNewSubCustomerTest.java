@@ -33,17 +33,19 @@ public class addNewSubCustomerTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         customerParentChildPage=CustomerParentChildPage.getPage(driver, CustomerParentChildPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Add New Customer and Sub Customer")
     public void userSignin() throws IOException{
+/*
     	customerParentChildPage.enterLoginID();
     	customerParentChildPage.enterPassword();
     	customerParentChildPage.selectCompany();
     	customerParentChildPage.clickLoginButton();
+*/
     	customerParentChildPage.clickCustomerTab();
 		customerParentChildPage.clickAddNewButton();
 		customerParentChildPage.selectUserCompany();
@@ -86,7 +88,7 @@ public class addNewSubCustomerTest {
     	
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

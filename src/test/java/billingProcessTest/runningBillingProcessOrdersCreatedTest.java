@@ -33,17 +33,19 @@ public class runningBillingProcessOrdersCreatedTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         billingPage=BillingPage.getPage(driver, BillingPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Running Billing Process for the orders created.")
     public void userSignin() throws IOException{
+/*
     	billingPage.enterLoginID();
     	billingPage.enterPassword();
     	billingPage.selectCompany();
     	billingPage.clickLoginButton();
+*/
     	billingPage.clickConfigurationTab();
     	billingPage.clickBillingProcessLink();
     	billingPage.clickGenerateReviewReport();
@@ -61,7 +63,7 @@ public class runningBillingProcessOrdersCreatedTest {
     	billingPage.verifyInvoiceCustomer();
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

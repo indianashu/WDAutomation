@@ -33,17 +33,19 @@ public class impersonateCustomerTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         impersonateCustomerPage=ImpersonateCustomerPage.getPage(driver, ImpersonateCustomerPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Impersonate a Customer")
     public void userSignin() throws IOException{
+/*
     	impersonateCustomerPage.enterLoginID();
     	impersonateCustomerPage.enterPassword();
     	impersonateCustomerPage.selectCompany();
     	impersonateCustomerPage.clickLoginButton();
+*/
     	impersonateCustomerPage.clickCustomerTab();
     	impersonateCustomerPage.selectCustomer();
     	impersonateCustomerPage.clickImpersonateUserImage();
@@ -53,7 +55,7 @@ public class impersonateCustomerTest {
     	impersonateCustomerPage.verifyAdminLogin();
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

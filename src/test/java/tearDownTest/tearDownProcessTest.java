@@ -33,17 +33,19 @@ public class tearDownProcessTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+        //WaitClass.waitForUrl(driver, url, 10);
         tearDownProcessPage=TearDownProcessPage.getPage(driver, TearDownProcessPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Tear Down Process")
     public void userSignin() throws IOException{
+/*
     	tearDownProcessPage.enterLoginID();
     	tearDownProcessPage.enterPassword();
     	tearDownProcessPage.selectCompany();
     	tearDownProcessPage.clickLoginButton();
+*/
     	tearDownProcessPage.clickPaymentsTab();
     	tearDownProcessPage.clickPaymentCustomer();
     	tearDownProcessPage.clickUnlink();
@@ -76,7 +78,7 @@ public class tearDownProcessTest {
 
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }

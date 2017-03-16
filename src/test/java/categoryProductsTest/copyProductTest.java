@@ -33,17 +33,19 @@ public class copyProductTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
+       //WaitClass.waitForUrl(driver, url, 10);
         copyProductPage=CopyProductPage.getPage(driver, CopyProductPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Copy Product")
     public void userSignin() throws IOException{
+/*
     	copyProductPage.enterLoginID();
     	copyProductPage.enterPassword();
     	copyProductPage.selectCompany();
     	copyProductPage.clickLoginButton();
+*/
     	copyProductPage.clickProductsTab();
     	copyProductPage.clickAddCategoryButton();
     	copyProductPage.enterCategoryName();
@@ -76,7 +78,7 @@ public class copyProductTest {
     	
     }
     
-    @AfterClass(alwaysRun=true)
+    @AfterClass(alwaysRun=false)
     public void tearDown(){
      BaseClasses.closeDriver("User1");
     }
