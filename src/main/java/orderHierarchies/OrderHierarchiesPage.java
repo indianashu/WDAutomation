@@ -587,7 +587,7 @@ public class OrderHierarchiesPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//button[@id='currentOrder']//*[text()='Current order']")
+    @FindBy(how=How.XPATH, using="//button[@id='currentOrder']")
     private WebElement clickCurrentOrderButton;
     /**
      * Method to click on Current Order button.
@@ -604,7 +604,7 @@ public class OrderHierarchiesPage extends BasePage{
     } 
     
   
-    @FindBy(how=How.XPATH, using="//a[3]//following::span[text()='Update']")
+    @FindBy(how=How.XPATH, using="//a//following::span[text()='Update'][2]")
     private WebElement clickUpdateButton;
     /**
      * Method to click on Update button.

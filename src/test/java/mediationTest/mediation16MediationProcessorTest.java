@@ -47,7 +47,7 @@ public class mediation16MediationProcessorTest {
     	mediationPage.clickLoginButton();
 */
         String ItemId = mediationPage.fetchDefaultItemID();
-    	mediationPage.clickConfigurationsTab();
+    	//mediationPage.clickConfigurationsTab();
     	mediationPage.clickPluginsLink();
     	mediationPage.clickMediationProcessor();
     	mediationPage.clickAddNewButton();

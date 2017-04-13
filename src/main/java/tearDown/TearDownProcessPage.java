@@ -183,7 +183,7 @@ public class TearDownProcessPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="/html/body/div[5]/div[3]/div/button[1]/span")
+    @FindBy(how=How.XPATH, using="//*[text()='Yes']")
     private WebElement clickYesPopup;
     /**
      * Method to click on yes popup.
@@ -297,7 +297,7 @@ public class TearDownProcessPage extends BasePage{
         
     } 
     
-    @FindBy(how=How.XPATH, using="//following::span[text()='Yes'][2]")
+    @FindBy(how=How.XPATH, using="//*[text()='Yes']/following::button[3]")
     private WebElement clickYesDeleteInvoicePopup;
     /**
      * Method to Click on Yes delete invoice/product popup.
@@ -314,7 +314,7 @@ public class TearDownProcessPage extends BasePage{
         
     }
 
-    @FindBy(how=How.XPATH, using="//following::span[text()='Yes'][3]")
+    @FindBy(how=How.XPATH, using="//*[text()='Yes']/following::button[3]")
     private WebElement clickYesDeleteProductPopup;
     /**
      * Method to Click on Yes delete invoice/product popup.
@@ -379,7 +379,7 @@ public class TearDownProcessPage extends BasePage{
         
     }
 
-    @FindBy(how=How.XPATH, using="//following::span[text()='Yes'][2]")
+    @FindBy(how=How.XPATH, using="//*[text()='Yes']/following::button[3]")
     private WebElement clickYesDeletePaymentPopup;
     /**
      * Method to Click on Yes delete invoice/product popup.
@@ -396,7 +396,7 @@ public class TearDownProcessPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH, using="//following::span[text()='Yes']")
+    @FindBy(how=How.XPATH, using="//*[text()='Yes']")
     private WebElement clickYesDeleteOrderPopup;
     /**
      * Method to Click on Yes delete invoice/product popup.
@@ -493,7 +493,7 @@ public class TearDownProcessPage extends BasePage{
         WaitClass.sleep(10000);
     }
     
-    @FindBy(how=How.XPATH, using="//following::span[text()='Yes']/following::span[5]")
+    @FindBy(how=How.XPATH, using="//button[text()='Yes']")
     private WebElement clickDeleteYesCategoryPopup;
     /**
      * Method to click on delete category popup.
@@ -526,7 +526,7 @@ public class TearDownProcessPage extends BasePage{
         
     }
 
-    @FindBy(how=How.XPATH, using="//following::span[text()='Yes']")
+    @FindBy(how=How.XPATH, using="//button[text()='Yes']")
     private WebElement clickDeleteYesCustomerPopup;
     /**
      * Method to click on delete customer popup.

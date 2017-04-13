@@ -162,10 +162,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Plugin after successful login");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPlugin);
-        Assert.assertTrue(clickPlugin.isDisplayed());
-        clickPlugin.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/plugin/list");
     }
     
     @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'25')]]")
@@ -288,10 +285,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on All Link");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAllLink);
-        Assert.assertTrue(clickAllLink.isDisplayed());
-        clickAllLink.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/config/index");
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Agent Commission Type']")

@@ -159,10 +159,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Order Periods");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickOrderPeriods);
-        Assert.assertTrue(clickOrderPeriods.isDisplayed());
-        clickOrderPeriods.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/orderPeriod/list");
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")

@@ -53,7 +53,7 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.enterCardNumber();
     	collectionConfigurationPage.clickSaveChangesButton();
     	collectionConfigurationPage.verifyConfirmationMsg();
-    	collectionConfigurationPage.clickConfigurationTab();
+    	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
     	collectionConfigurationPage.enterRunCollectionDate();
     	collectionConfigurationPage.clickRunCollectionsButton();
@@ -63,7 +63,7 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.verifyBillingCustomer1Status();
     	collectionConfigurationPage.clickBillingCustomer2();
     	collectionConfigurationPage.verifyBillingCustomer2Status();
-    	collectionConfigurationPage.clickConfigurationTab();
+    	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
     	collectionConfigurationPage.enterRunCollectionDate1();
     	collectionConfigurationPage.clickRunCollectionsButton();
@@ -73,7 +73,7 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.verifyBillingCustomer1Status();
     	collectionConfigurationPage.clickBillingCustomer2();
     	collectionConfigurationPage.verifyBillingCustomer2Status1();
-    	collectionConfigurationPage.clickConfigurationTab();
+    	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
     	collectionConfigurationPage.enterRunCollectionDate2();
     	collectionConfigurationPage.clickRunCollectionsButton();
@@ -83,7 +83,7 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.verifyBillingCustomer1Status();
     	collectionConfigurationPage.clickBillingCustomer2();
     	collectionConfigurationPage.verifyBillingCustomer2Status2();
-    	collectionConfigurationPage.clickConfigurationTab();
+    	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
     	collectionConfigurationPage.enterRunCollectionDate3();
     	collectionConfigurationPage.clickRunCollectionsButton();

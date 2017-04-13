@@ -159,10 +159,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Click on Billing Process");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickBillingProcess);
-        Assert.assertTrue(clickBillingProcess.isDisplayed());
-        clickBillingProcess.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/billingconfiguration/index");
     }
     
     

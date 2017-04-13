@@ -318,10 +318,7 @@ public class CollectionConfigurationPage extends BasePage{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Collections Link.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCollectionsLink);
-        Assert.assertTrue(clickCollectionsLink.isDisplayed());
-        clickCollectionsLink.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/config/aging");
     }
     
   
@@ -362,7 +359,7 @@ public class CollectionConfigurationPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='runCollection']/span")
+    @FindBy(how=How.XPATH, using="//*[@id='runCollection']")
     private WebElement clickRunCollectionsPopup;
     /**
      * Method to Click on Run Collections Popup.

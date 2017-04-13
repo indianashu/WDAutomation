@@ -46,7 +46,7 @@ public class configureAddNewInfoTypeTest {
     	configurationNewInformationTypePage.selectCompany();
     	configurationNewInformationTypePage.clickLoginButton();
 */
-        configurationNewInformationTypePage.clickConfigurationTab();
+        //configurationNewInformationTypePage.clickConfigurationTab();
         configurationNewInformationTypePage.clickAccountType();
     	configurationNewInformationTypePage.clickAccountTypeCreated();
     	configurationNewInformationTypePage.enterAccountName();

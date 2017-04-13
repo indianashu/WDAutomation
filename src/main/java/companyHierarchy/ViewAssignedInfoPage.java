@@ -135,7 +135,7 @@ public class ViewAssignedInfoPage extends BasePage{
     }
 
   
-    @FindBy(how=How.XPATH,using="//*[@id='impersonate']")
+    @FindBy(how=How.XPATH,using="//*[@class='fa fa-plus-square']")
     private WebElement clickImpersonate;
     /**
      * Method to Click on  Impersonate Link
@@ -165,7 +165,7 @@ public class ViewAssignedInfoPage extends BasePage{
     }
   
     
-    @FindBy(how=How.XPATH,using="//a[@class='submit select']//*[text()='Select']")
+    @FindBy(how=How.XPATH,using="//*[text()='OK']")
     private WebElement clickSelectButton;
     /**
      * Method to Click on  Select Button
@@ -190,8 +190,8 @@ public class ViewAssignedInfoPage extends BasePage{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Child Company Name is shown.");
         WaitClass.sleep(10000);
-        String ExpectedName = sp.ExcelRead().get(3);
-        String ActualName = driver.findElement(By.xpath("//*[@id='header']/ul/a")).getText();
+        String ExpectedName = sp.ExcelRead().get(9);
+        String ActualName = driver.findElement(By.xpath("//*[@id='header']//span[@class='right-text']")).getText();
         Assert.assertEquals(ActualName, ExpectedName);
     }
     
@@ -302,7 +302,7 @@ public class ViewAssignedInfoPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='header']/ul/a")
+    @FindBy(how=How.XPATH, using="//span[@class='right-text']//a")
     private WebElement clickRedCross;
     /**
      * Method to click on Red Cross

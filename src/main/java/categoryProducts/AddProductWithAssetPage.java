@@ -163,10 +163,7 @@ public class AddProductWithAssetPage extends BasePage{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Plugins Link.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPluginsLink);
-        Assert.assertTrue(clickPluginsLink.isDisplayed());
-        clickPluginsLink.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/plugin/list");
     }
     
   

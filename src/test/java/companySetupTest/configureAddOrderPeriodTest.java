@@ -46,7 +46,7 @@ public class configureAddOrderPeriodTest {
     	configurationOrderPeriodsPage.selectCompany();
     	configurationOrderPeriodsPage.clickLoginButton();
 */
-        configurationOrderPeriodsPage.clickConfigurationTab();
+        //configurationOrderPeriodsPage.clickConfigurationTab();
     	configurationOrderPeriodsPage.clickOrderPeriods();
     	configurationOrderPeriodsPage.clickAddNewButton();
     	configurationOrderPeriodsPage.enterDescription();

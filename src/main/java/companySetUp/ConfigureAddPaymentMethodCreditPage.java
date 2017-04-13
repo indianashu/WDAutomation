@@ -161,10 +161,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Payment Method");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPaymentMethod);
-        Assert.assertTrue(clickPaymentMethod.isDisplayed());
-        clickPaymentMethod.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/paymentMethodType/list");
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")

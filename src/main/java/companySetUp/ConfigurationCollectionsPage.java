@@ -159,10 +159,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Collection");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCollections);
-        Assert.assertTrue(clickCollections.isDisplayed());
-        clickCollections.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/config/aging");
     }
 
     @FindBy(how=How.XPATH,using="//input[@name='obj[0].statusStr']")
@@ -410,10 +407,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Plugins Link");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPluginsLink);
-        Assert.assertTrue(clickPluginsLink.isDisplayed());
-        clickPluginsLink.click();
-        
+        driver.navigate().to("http://localhost:8080/jbilling/plugin/list");
     }
     
   

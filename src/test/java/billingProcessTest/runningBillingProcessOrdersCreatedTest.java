@@ -46,7 +46,7 @@ public class runningBillingProcessOrdersCreatedTest {
     	billingPage.selectCompany();
     	billingPage.clickLoginButton();
 */
-    	billingPage.clickConfigurationTab();
+    	//billingPage.clickConfigurationTab();
     	billingPage.clickBillingProcessLink();
     	billingPage.clickGenerateReviewReport();
     	billingPage.clickSaveChangesButton();
