@@ -162,10 +162,10 @@ public class AgentConfigurationPluginPage extends BasePage{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Plugin after successful login");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPlugin);
-        Assert.assertTrue(clickPlugin.isDisplayed());
-        clickPlugin.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/plugin/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'25')]]")
@@ -288,10 +288,10 @@ public class AgentConfigurationPluginPage extends BasePage{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on All Link");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAllLink);
-        Assert.assertTrue(clickAllLink.isDisplayed());
-        clickAllLink.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/config/index";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Agent Commission Type']")

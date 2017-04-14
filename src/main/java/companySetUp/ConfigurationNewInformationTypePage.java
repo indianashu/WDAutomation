@@ -159,10 +159,10 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Click on Account Type");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAccountType);
-        Assert.assertTrue(clickAccountType.isDisplayed());
-        clickAccountType.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/accountType/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Direct Customer']")
@@ -243,7 +243,7 @@ public class ConfigurationNewInformationTypePage extends BasePage{
         checkuseForNotifications.click();
         log.info("click on yes button");
         WaitClass.sleep(10000);
-        WebElement clickYesPopup = driver.findElement(By.xpath("/html/body/div[4]/div[3]/div/button[1]/span"));
+        WebElement clickYesPopup = driver.findElement(By.xpath("//*[text()='Yes']"));
         Assert.assertTrue(clickYesPopup.isDisplayed());
         clickYesPopup.click();
     }

@@ -46,7 +46,7 @@ public class mediation21MediationErrorHandlerTest {
     	mediationPage.selectCompany();
     	mediationPage.clickLoginButton();
 */
-        mediationPage.clickConfigurationsTab();
+        //mediationPage.clickConfigurationsTab();
     	mediationPage.clickPluginsLink();
     	mediationPage.clickMediationErrorHandler();
     	mediationPage.clickAddNewButton();

@@ -318,10 +318,10 @@ public class CollectionConfigurationPage extends BasePage{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Collections Link.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCollectionsLink);
-        Assert.assertTrue(clickCollectionsLink.isDisplayed());
-        clickCollectionsLink.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/config/aging";
+        driver.get(url);
     }
     
   
@@ -362,7 +362,7 @@ public class CollectionConfigurationPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//*[@id='runCollection']/span")
+    @FindBy(how=How.XPATH, using="//*[@id='runCollection']")
     private WebElement clickRunCollectionsPopup;
     /**
      * Method to Click on Run Collections Popup.

@@ -132,7 +132,7 @@ public class LoginPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//ul[@class='top-nav']")
+    @FindBy(how=How.XPATH, using="//span[@class='right-text']")
     private WebElement labelSuccessfulLogin;
     /**
      * Method to verify Label is present after successful login.

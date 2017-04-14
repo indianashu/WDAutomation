@@ -159,10 +159,10 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Order Periods");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickOrderPeriods);
-        Assert.assertTrue(clickOrderPeriods.isDisplayed());
-        clickOrderPeriods.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/orderPeriod/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")

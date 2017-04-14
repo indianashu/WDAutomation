@@ -369,10 +369,10 @@ public class AgentCommissionProcessPage extends BasePage{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Agent Commission Process Link in left menu bar");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAgentCommissionProcess);
-        Assert.assertTrue(clickAgentCommissionProcess.isDisplayed());
-        clickAgentCommissionProcess.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/config/partnerCommission";
+        driver.get(url);
     }
    
     @FindBy(how=How.XPATH, using="//input[@name='nextRunDate']")

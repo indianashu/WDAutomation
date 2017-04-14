@@ -161,10 +161,10 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Click on Payment Method");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPaymentMethod);
-        Assert.assertTrue(clickPaymentMethod.isDisplayed());
-        clickPaymentMethod.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/paymentMethodType/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")

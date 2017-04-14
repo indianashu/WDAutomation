@@ -163,10 +163,10 @@ public class AddProductWithAssetPage extends BasePage{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Plugins Link.");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPluginsLink);
-        Assert.assertTrue(clickPluginsLink.isDisplayed());
-        clickPluginsLink.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/plugin/list";
+        driver.get(url);
     }
     
   

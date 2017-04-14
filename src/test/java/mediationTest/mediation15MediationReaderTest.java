@@ -46,7 +46,7 @@ public class mediation15MediationReaderTest {
     	mediationPage.selectCompany();
     	mediationPage.clickLoginButton();
 */
-    	mediationPage.clickConfigurationsTab();
+    	//mediationPage.clickConfigurationsTab();
     	mediationPage.clickPluginsLink();
     	mediationPage.clickMediationReader();
     	mediationPage.clickAddNewButton();

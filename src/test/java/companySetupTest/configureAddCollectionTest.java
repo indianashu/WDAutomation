@@ -46,7 +46,7 @@ public class configureAddCollectionTest {
     	configurationCollectionsPage.selectCompany();
     	configurationCollectionsPage.clickLoginButton();
 */
-		configurationCollectionsPage.clickConfigurationTab();
+		//configurationCollectionsPage.clickConfigurationTab();
     	configurationCollectionsPage.clickCollections();
     	configurationCollectionsPage.enterIDSteps();
     	configurationCollectionsPage.enterForDays();

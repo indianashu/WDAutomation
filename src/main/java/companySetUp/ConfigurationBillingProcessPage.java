@@ -159,10 +159,10 @@ public class ConfigurationBillingProcessPage extends BasePage{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Click on Billing Process");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickBillingProcess);
-        Assert.assertTrue(clickBillingProcess.isDisplayed());
-        clickBillingProcess.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/billingconfiguration/index";
+        driver.get(url);
     }
     
     

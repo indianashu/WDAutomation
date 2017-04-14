@@ -159,10 +159,10 @@ public class BillingPage extends BasePage{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Add New Button");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickBillingProcessLink);
-        Assert.assertTrue(clickBillingProcessLink.isDisplayed());
-        clickBillingProcessLink.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/billingconfiguration/index";
+        driver.get(url);
     }
    
     
@@ -331,7 +331,7 @@ public class BillingPage extends BasePage{
         Assert.assertTrue(clickApproveButton.isDisplayed());
         clickApproveButton.click();
         WaitClass.sleep(10000);
-        driver.findElement(By.xpath("//span[text()='Yes']")).click();
+        driver.findElement(By.xpath("//button[text()='Yes']")).click();
         WaitClass.sleep(10000);
     }
     

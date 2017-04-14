@@ -46,7 +46,7 @@ public class configurePaymentMethCreditCardTest {
     	configureAddPaymentMethodCreditPage.selectCompany();
     	configureAddPaymentMethodCreditPage.clickLoginButton();
 */
-        configureAddPaymentMethodCreditPage.clickConfigurationTab();
+        //configureAddPaymentMethodCreditPage.clickConfigurationTab();
     	configureAddPaymentMethodCreditPage.clickPaymentMethod();;
     	configureAddPaymentMethodCreditPage.clickAddNewButton();
     	configureAddPaymentMethodCreditPage.selectPaymentMethodTemplate();

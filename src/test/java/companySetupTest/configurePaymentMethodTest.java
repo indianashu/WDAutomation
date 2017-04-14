@@ -46,7 +46,7 @@ public class configurePaymentMethodTest {
     	configurationAddPaymentMethodPage.selectCompany();
     	configurationAddPaymentMethodPage.clickLoginButton();
 */
-        configurationAddPaymentMethodPage.clickConfigurationTab();
+        //configurationAddPaymentMethodPage.clickConfigurationTab();
         configurationAddPaymentMethodPage.clickPaymentMethod();;
     	configurationAddPaymentMethodPage.clickAddNewButton();
     	configurationAddPaymentMethodPage.selectPaymentMethodTemplate();

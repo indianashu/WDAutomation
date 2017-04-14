@@ -207,7 +207,7 @@ public class ImpersonateCustomerPage extends BasePage{
 		}
 	
     
-    @FindBy(how=How.XPATH, using="//*[@id='header']/ul/li[2]/a")
+    @FindBy(how=How.XPATH, using="//span[@class='right-text']//a")
     private WebElement clickResumeAsAdmin;
     /**
      * Method to click on Resume as Admin Link.
@@ -223,7 +223,7 @@ public class ImpersonateCustomerPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='header']/ul/li[1]")
+    @FindBy(how=How.XPATH, using="//span[@class='right-text']")
     private WebElement verifyAdminLogin;
     /**
      * Method to verify Label shown is of admin.

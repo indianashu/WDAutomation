@@ -54,7 +54,7 @@ public class mediationRunTest {
 		mediationPage.navigateBottom();
     	mediationPage.clickSaveChangesButton();
     	mediationPage.verifyConfirmationMsg();
-    	mediationPage.clickConfigurationsTab();
+    	//mediationPage.clickConfigurationsTab();
     	mediationPage.clickMediationsLink();
     	mediationPage.clickAddNewButton();
     	mediationPage.enterConfigurationName();

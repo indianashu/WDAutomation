@@ -150,7 +150,7 @@ public class ConfigurationAccountTypePage extends BasePage{
         clickConfigurationTab.click();
         
     }
-    
+
     @FindBy(how=How.XPATH, using="//a[.='Account Type']")
     private WebElement clickAccountType;
     /**
@@ -161,10 +161,10 @@ public class ConfigurationAccountTypePage extends BasePage{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Click on Account Type");
         WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAccountType);
-        Assert.assertTrue(clickAccountType.isDisplayed());
-        clickAccountType.click();
-        
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/accountType/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")
