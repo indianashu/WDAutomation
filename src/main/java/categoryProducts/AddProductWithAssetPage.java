@@ -163,7 +163,10 @@ public class AddProductWithAssetPage extends BasePage{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Plugins Link.");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/plugin/list");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/plugin/list";
+        driver.get(url);
     }
     
   

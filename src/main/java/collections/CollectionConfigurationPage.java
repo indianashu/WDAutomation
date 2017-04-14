@@ -318,7 +318,10 @@ public class CollectionConfigurationPage extends BasePage{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Collections Link.");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/config/aging");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/config/aging";
+        driver.get(url);
     }
     
   

@@ -159,7 +159,10 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Click on Account Type");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/accountType/list");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/accountType/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Direct Customer']")

@@ -161,7 +161,10 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Payment Method");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/paymentMethodType/list");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/paymentMethodType/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")

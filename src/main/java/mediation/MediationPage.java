@@ -161,7 +161,10 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on plugins link");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/plugin/list");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/plugin/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'15')]]")
@@ -551,7 +554,10 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediations Link.");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/mediationConfig/list");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/mediationConfig/list";
+        driver.get(url);
         WaitClass.sleep(10000);
     }
     

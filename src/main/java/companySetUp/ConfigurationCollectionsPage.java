@@ -159,7 +159,10 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Collection");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/config/aging");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/config/aging";
+        driver.get(url);
     }
 
     @FindBy(how=How.XPATH,using="//input[@name='obj[0].statusStr']")
@@ -407,7 +410,10 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Plugins Link");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/plugin/list");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/plugin/list";
+        driver.get(url);
     }
     
   

@@ -159,7 +159,10 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Order Periods");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/orderPeriod/list");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/orderPeriod/list";
+        driver.get(url);
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add New']")

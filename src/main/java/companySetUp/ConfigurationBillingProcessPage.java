@@ -159,7 +159,10 @@ public class ConfigurationBillingProcessPage extends BasePage{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Click on Billing Process");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/billingconfiguration/index");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/billingconfiguration/index";
+        driver.get(url);
     }
     
     

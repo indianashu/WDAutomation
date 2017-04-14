@@ -159,7 +159,10 @@ public class BillingPage extends BasePage{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Add New Button");
         WaitClass.sleep(10000);
-        driver.navigate().to("http://localhost:8080/jbilling/billingconfiguration/index");
+        PropertyValExtractors p=new PropertyValExtractors();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/billingconfiguration/index";
+        driver.get(url);
     }
    
     
