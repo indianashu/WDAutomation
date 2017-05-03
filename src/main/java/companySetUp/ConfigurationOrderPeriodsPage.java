@@ -245,7 +245,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Order Period created successfully']")
+    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
     private WebElement verifyConfirmationMsg;
     /**
      * Method to verify Order Period is created Successfully.
