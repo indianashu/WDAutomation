@@ -142,7 +142,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void clickConfigurationTab() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Click on Configuration Tab after successful login");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
         Assert.assertTrue(clickConfigurationTab.isDisplayed());
         clickConfigurationTab.click();
@@ -158,11 +158,10 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void clickBillingProcess() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Click on Billing Process");
-        WaitClass.sleep(10000);
-        WaitClass.WaitForElementisDisplay(driver, 10, clickBillingProcess);
-        Assert.assertTrue(clickBillingProcess.isDisplayed());
-        clickBillingProcess.click();
-        
+        JavaScriptExec.sleep();
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url1") + "/billingconfiguration/index";
+        driver.get(url);
     }
     
     
@@ -207,7 +206,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void selectGenerateReport() throws IOException{
         ConfigurationBillingProcessPage sp = new ConfigurationBillingProcessPage(driver);
         log.info("Verifying the Is Recurring is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, selectGenerateReport);
         Assert.assertTrue(selectGenerateReport.isDisplayed());
         //selectGenerateReport.clear();
@@ -251,7 +250,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -267,16 +266,15 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Verifying if Billing Period is saved Successfully or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
     }
-
 
 }
 

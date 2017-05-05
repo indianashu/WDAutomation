@@ -46,7 +46,7 @@ public class approvingReviewReportforRealBillingTest {
     	billingPage.selectCompany();
     	billingPage.clickLoginButton();
 */
-        billingPage.clickConfigurationTab();
+        //billingPage.clickConfigurationTab();
         billingPage.clickBillingProcessLink();
     	billingPage.clickRunBillingButton();
     	billingPage.clickBillingTab();

@@ -60,7 +60,7 @@ public class agentCommissionBalanceProcessTest {
     	agentCommissionProcessPage.clickUpdateButton();
     	agentCommissionProcessPage.clickSaveChangesButton();
     	agentCommissionProcessPage.clickGenerateInvoiceButton();
-       	agentCommissionProcessPage.clickConfigurationTab();
+       	//agentCommissionProcessPage.clickConfigurationTab();
     	agentCommissionProcessPage.clickAgentCommissionProcess();
 		agentCommissionProcessPage.enterPeriodValue();
 		agentCommissionProcessPage.enterNextRunDate();

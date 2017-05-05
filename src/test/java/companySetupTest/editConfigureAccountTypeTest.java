@@ -46,7 +46,7 @@ public class editConfigureAccountTypeTest {
     	editconfigurationAccountTypePage.selectCompany();
     	editconfigurationAccountTypePage.clickLoginButton();
 */
-        editconfigurationAccountTypePage.clickConfigurationTab();
+        //editconfigurationAccountTypePage.clickConfigurationTab();
         editconfigurationAccountTypePage.clickAccountType();
         editconfigurationAccountTypePage.clickAddNewButton();
     	editconfigurationAccountTypePage.enterAccountName();

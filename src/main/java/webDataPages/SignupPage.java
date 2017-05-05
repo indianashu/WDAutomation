@@ -333,15 +333,14 @@ public class SignupPage extends BasePage{
     public void verifyLabelConfirmationMessage() throws IOException{
     	SignupPage sp=new SignupPage(driver);
         log.info("Verifying if Label is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, labelConfirmationMessage);
         Assert.assertTrue(labelConfirmationMessage.getText().contains(sp.ExcelRead().get(16)), "Assert Failed as its unable to search text in Logged in Page");
     }
 
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
     }
-
 
 }

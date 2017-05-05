@@ -46,18 +46,18 @@ public class agentConfigurationPluginTest {
     	agentConfigurationPluginPage.selectCompany();
     	agentConfigurationPluginPage.clickLoginButton();
 */
-    	agentConfigurationPluginPage.clickConfigurationTab();
+    	//agentConfigurationPluginPage.clickConfigurationTab();
     	agentConfigurationPluginPage.clickPlugin();
     	agentConfigurationPluginPage.clickAgentCommissionCalProcess();
     	agentConfigurationPluginPage.clickAddNewButton();
     	agentConfigurationPluginPage.selectType();
     	agentConfigurationPluginPage.clickSavePluginButton();
     	agentConfigurationPluginPage.verifyConfirmationMsg();
-    	agentConfigurationPluginPage.clickConfigurationTab();
+    	//agentConfigurationPluginPage.clickConfigurationTab();
     	agentConfigurationPluginPage.clickAllLink();
     	agentConfigurationPluginPage.clickAgentCommissionType();
     	agentConfigurationPluginPage.verifyInvoice();
-        agentConfigurationPluginPage.clickConfigurationTab();
+        //agentConfigurationPluginPage.clickConfigurationTab();
     }
 
     @AfterClass(alwaysRun=false)

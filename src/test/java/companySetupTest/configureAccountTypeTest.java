@@ -47,7 +47,7 @@ public class configureAccountTypeTest {
     	configurationAccountTypePage.selectCompany();
     	configurationAccountTypePage.clickLoginButton();
 */
-    	configurationAccountTypePage.clickConfigurationTab();
+    	//configurationAccountTypePage.clickConfigurationTab();
     	configurationAccountTypePage.clickAccountType();
     	configurationAccountTypePage.clickAddNewButton();
     	configurationAccountTypePage.enterAccountName();

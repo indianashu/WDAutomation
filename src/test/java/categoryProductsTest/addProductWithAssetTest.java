@@ -46,7 +46,7 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.selectCompany();
     	addProductWithAssetPage.clickLoginButton();
 */
-    	addProductWithAssetPage.clickConfigurationsTab();
+    	//addProductWithAssetPage.clickConfigurationsTab();
     	addProductWithAssetPage.clickPluginsLink();
     	addProductWithAssetPage.clickCategory17();
     	addProductWithAssetPage.clickAddNewButton();
