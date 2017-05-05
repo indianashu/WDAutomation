@@ -16,7 +16,7 @@ public class JavaScriptExec {
 	
 	public WebDriver driver;
 	static Logger log=Logger.getLogger(JavaScriptExec.class);
-	
+
 	public JavaScriptExec(WebDriver driver){
 		this.driver=driver;
 	}
@@ -31,7 +31,7 @@ public class JavaScriptExec {
 	public static void scrollToElementOnPage(WebDriver driver,WebElement element){
 		log.info("##### Scrolling down to find element######");
 		JavascriptExecutor javascriptExecutor=(JavascriptExecutor)driver;
-		WaitClass.sleep(10000);
+		JavaScriptExec.sleep();
 		javascriptExecutor.executeScript("arguments[0].scrollIntoView();", element);
 		WaitClass.WaitForElementisDisplay(driver, 5, element);
 	}
@@ -41,4 +41,11 @@ public class JavaScriptExec {
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	}
+
+	public static void sleep(){
+		PropertyValExtractors p = new PropertyValExtractors();
+		p.getPropertyFile("test", "configuration.properties");
+		WaitClass.sleep(Integer.parseInt(p.getVal("sleepTime")));
+	}
+
 }

@@ -144,7 +144,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void clickConfigurationTab() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Configuration Tab after successful login");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
         Assert.assertTrue(clickConfigurationTab.isDisplayed());
         clickConfigurationTab.click();
@@ -160,8 +160,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void clickPaymentMethod() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Payment Method");
-        WaitClass.sleep(10000);
-        PropertyValExtractors p=new PropertyValExtractors();
+        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1") + "/paymentMethodType/list";
         driver.get(url);
@@ -176,7 +175,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Add New");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -206,7 +205,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Select Button");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -222,7 +221,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void enterMethodName() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Verifying the Method Name is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterMethodName);
         Assert.assertTrue(enterMethodName.isDisplayed());
         enterMethodName.sendKeys(sp.ExcelRead().get(4));
@@ -238,7 +237,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void selectIsRecurring() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Verifying the Is Recurring is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 5, selectIsRecurring);
         Assert.assertTrue(selectIsRecurring.isDisplayed());
         selectIsRecurring.click();
@@ -252,7 +251,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
      */
     public void selectAccountType() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
-    	WaitClass.sleep(10000);
+    	JavaScriptExec.sleep();
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypes']"));
         Select se = new Select(AccountTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(5));
@@ -268,7 +267,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -284,15 +283,14 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
     }
-
 
 }

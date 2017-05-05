@@ -140,7 +140,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage{
     public void verifyLabelSuccessfulLogin() throws IOException{
     	SignupChildCompanyInvoiceAsSellerPage sp=new SignupChildCompanyInvoiceAsSellerPage(driver);
         log.info("Verifying if Label is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, labelSuccessfulLogin);
         Assert.assertTrue(labelSuccessfulLogin.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -155,7 +155,6 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage{
     	SignupChildCompanyInvoiceAsSellerPage sp=new SignupChildCompanyInvoiceAsSellerPage(driver);
         log.info("enter signup url to create child company");
         //driver.get("http://www.simplebilling.co.in:8080/signup");
-        PropertyValExtractors p=new PropertyValExtractors();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url");
         driver.get(url);
@@ -175,7 +174,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage{
         String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
         System.out.println("Company Name:********" +ActualRootCompany+ "*********");
         log.info("Click on customer name");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         //WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
         //Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
         Assert.assertEquals(ActualRootCompany, RootCompanyName);
@@ -452,15 +451,14 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage{
     public void verifyLabelConfirmationMessage() throws IOException{
     	SignupChildCompanyInvoiceAsSellerPage sp=new SignupChildCompanyInvoiceAsSellerPage(driver);
         log.info("Verifying if Label is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, labelConfirmationMessage);
         Assert.assertTrue(labelConfirmationMessage.getText().contains(sp.ExcelRead().get(20)), "Assert Failed as its unable to search text in Logged in Page");
     }
 
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
     }
-
 
 }
