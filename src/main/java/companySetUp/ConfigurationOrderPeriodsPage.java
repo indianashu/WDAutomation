@@ -142,7 +142,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickConfigurationTab() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Configuration Tab after successful login");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
         Assert.assertTrue(clickConfigurationTab.isDisplayed());
         clickConfigurationTab.click();
@@ -158,8 +158,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickOrderPeriods() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Order Periods");
-        WaitClass.sleep(10000);
-        PropertyValExtractors p=new PropertyValExtractors();
+        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1") + "/orderPeriod/list";
         driver.get(url);
@@ -174,7 +173,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Add New");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -191,7 +190,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void enterDescription() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying the Description is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterDescription);
         Assert.assertTrue(enterDescription.isDisplayed());
         enterDescription.sendKeys(sp.ExcelRead().get(3));
@@ -205,7 +204,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
      */
     public void selectUnit() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
-    	WaitClass.sleep(10000);
+    	JavaScriptExec.sleep();
         WebElement Unitelement = driver.findElement(By.xpath("//select[@name='periodUnitId']"));
         Select se = new Select(Unitelement);
         se.selectByVisibleText(sp.ExcelRead().get(4));
@@ -221,7 +220,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void enterValue() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying the Description is available or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterValue);
         Assert.assertTrue(enterValue.isDisplayed());
         enterValue.sendKeys(sp.ExcelRead().get(5));
@@ -238,7 +237,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -254,15 +253,14 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying if Order Period is created Successfully or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
     }
-
 
 }

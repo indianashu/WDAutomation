@@ -143,7 +143,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickImpersonate(){
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Impersonate Link");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
 		WaitClass.WaitForElementisDisplay(driver, 5, clickImpersonate);
         Assert.assertTrue(clickImpersonate.isDisplayed());
         clickImpersonate.click();
@@ -157,7 +157,7 @@ public class ViewAssignedInfoPage extends BasePage{
      */
     public void selectChildCompany() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
-    	WaitClass.sleep(10000);
+    	JavaScriptExec.sleep();
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entityId']"));
         Select se = new Select(Companyelement);
         se.selectByVisibleText(sp.ExcelRead().get(3));
@@ -173,7 +173,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickSelectButton(){
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Select Button");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
 		WaitClass.WaitForElementisDisplay(driver, 5, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -189,7 +189,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void verifyChildCompanyName() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Child Company Name is shown.");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         String ExpectedName = sp.ExcelRead().get(9);
         String ActualName = driver.findElement(By.xpath("//*[@id='header']//span[@class='right-text']")).getText();
         Assert.assertEquals(ActualName, ExpectedName);
@@ -206,7 +206,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickProductsTab() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Products Tab");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
@@ -223,11 +223,11 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickCategoryName() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Category Name");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         String CategoryName = sp.ExcelRead().get(4);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).getText();
         Assert.assertEquals(ActualName, CategoryName);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
     }
@@ -241,11 +241,11 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickProductName() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Product Name");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(5);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).getText();
         Assert.assertEquals(ActualName, ProductName);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
@@ -261,7 +261,7 @@ public class ViewAssignedInfoPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickShowAssetsButton);
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Show Assets Button");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickShowAssetsButton);
         Assert.assertTrue(clickShowAssetsButton.isDisplayed());
         clickShowAssetsButton.click();
@@ -279,7 +279,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void verifyAssetName() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Asset Name.");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         String AssetName = sp.ExcelRead().get(6);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+AssetName+"']")).getText();
         Assert.assertEquals(ActualName, AssetName);
@@ -295,7 +295,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void verifyAssetName1() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Asset Name.");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         String AssetName = sp.ExcelRead().get(7);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+AssetName+"']")).getText();
         Assert.assertEquals(ActualName, AssetName);
@@ -311,7 +311,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickRedCross() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Red Cross");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickRedCross);
         Assert.assertTrue(clickRedCross.isDisplayed());
         clickRedCross.click();
@@ -328,7 +328,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickCustomersTab() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Customers Tab");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
@@ -345,7 +345,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void verifyChildCustomer() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Child Customer is created or not");
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead().get(8);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).getText();
         Assert.assertEquals(ActualName, CustomerName);
@@ -354,8 +354,7 @@ public class ViewAssignedInfoPage extends BasePage{
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
-        WaitClass.sleep(10000);
+        JavaScriptExec.sleep();
     }
-
 
 }
