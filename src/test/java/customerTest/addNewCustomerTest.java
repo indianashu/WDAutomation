@@ -40,12 +40,11 @@ public class addNewCustomerTest {
 
     @Test(groups={"Sanity"},description="Add New Customer")
     public void userSignin() throws IOException{
-/*
     	customerPage.enterLoginID();
     	customerPage.enterPassword();
     	customerPage.selectCompany();
     	customerPage.clickLoginButton();
-*/
+
         customerPage.clickCustomerTab();
     	customerPage.clickAddNewButton();
     	customerPage.selectUserCompany();
