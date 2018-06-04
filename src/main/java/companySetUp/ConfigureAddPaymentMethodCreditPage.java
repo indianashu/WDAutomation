@@ -175,7 +175,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigureAddPaymentMethodCreditPage sp=new ConfigureAddPaymentMethodCreditPage(driver);
         log.info("Click on Add New");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();

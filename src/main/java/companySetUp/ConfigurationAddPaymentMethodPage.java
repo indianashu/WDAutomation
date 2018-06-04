@@ -135,22 +135,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
-    
     @FindBy(how=How.XPATH, using="//a[.='Payment Method']")
     private WebElement clickPaymentMethod;
     /**
@@ -162,7 +146,7 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
         log.info("Click on Payment Method");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/paymentMethodType/list";
+        String url=p.getVal("url2") + "/paymentMethodType/list";
         driver.get(url);
     }
     
@@ -175,7 +159,7 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Click on Add New");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();

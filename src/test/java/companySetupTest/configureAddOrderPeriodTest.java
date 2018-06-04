@@ -40,13 +40,12 @@ public class configureAddOrderPeriodTest {
 
     @Test(groups={"Sanity"},description="Confiure Add Order Period")
     public void userSignin() throws IOException{
-/*
+
     	configurationOrderPeriodsPage.enterLoginID();
     	configurationOrderPeriodsPage.enterPassword();
     	configurationOrderPeriodsPage.selectCompany();
     	configurationOrderPeriodsPage.clickLoginButton();
-*/
-        //configurationOrderPeriodsPage.clickConfigurationTab();
+    	
     	configurationOrderPeriodsPage.clickOrderPeriods();
     	configurationOrderPeriodsPage.clickAddNewButton();
     	configurationOrderPeriodsPage.enterDescription();

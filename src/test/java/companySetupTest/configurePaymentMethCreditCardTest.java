@@ -40,13 +40,12 @@ public class configurePaymentMethCreditCardTest {
 
     @Test(groups={"Sanity"},description="Configure Payment Method Credit Card")
     public void userSignin() throws IOException{
-/*
+
     	configureAddPaymentMethodCreditPage.enterLoginID();
     	configureAddPaymentMethodCreditPage.enterPassword();
     	configureAddPaymentMethodCreditPage.selectCompany();
     	configureAddPaymentMethodCreditPage.clickLoginButton();
-*/
-        //configureAddPaymentMethodCreditPage.clickConfigurationTab();
+    	
     	configureAddPaymentMethodCreditPage.clickPaymentMethod();;
     	configureAddPaymentMethodCreditPage.clickAddNewButton();
     	configureAddPaymentMethodCreditPage.selectPaymentMethodTemplate();

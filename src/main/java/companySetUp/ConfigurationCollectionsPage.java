@@ -394,7 +394,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         log.info("Click on Plugins Link");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/plugin/list";
+        String url=p.getVal("url2") + "/plugin/list";
         driver.get(url);
     }
     
@@ -519,7 +519,7 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Save Plugin Button.");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();  

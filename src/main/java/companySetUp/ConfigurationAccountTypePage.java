@@ -135,7 +135,7 @@ public class ConfigurationAccountTypePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='menu.link.configuration']/div/div/ul/a[2]/li/span")
+    @FindBy(how=How.XPATH, using="//a[.='Account Type']")
     private WebElement clickAccountType;
     /**
      * Method to click on Account Type.
@@ -165,7 +165,7 @@ public class ConfigurationAccountTypePage extends BasePage{
         clickAddNewButton.click();
         
     }
-    @FindBy(how=How.XPATH, using="//input[@name='description']")
+    @FindBy(how=How.XPATH, using="//input[@name='accountType.descriptions[0].content']")
     private WebElement enterAccountName;
     /**
      * Method to Enter Account Name.

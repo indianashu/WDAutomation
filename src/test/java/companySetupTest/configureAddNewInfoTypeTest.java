@@ -40,13 +40,12 @@ public class configureAddNewInfoTypeTest {
 
     @Test(groups={"Sanity"},description="Configure Add New Info Type")
     public void userSignin() throws IOException{
-/*
+
     	configurationNewInformationTypePage.enterLoginID();
     	configurationNewInformationTypePage.enterPassword();
     	configurationNewInformationTypePage.selectCompany();
     	configurationNewInformationTypePage.clickLoginButton();
-*/
-        //configurationNewInformationTypePage.clickConfigurationTab();
+    	
         configurationNewInformationTypePage.clickAccountType();
     	configurationNewInformationTypePage.clickAccountTypeCreated();
     	configurationNewInformationTypePage.enterAccountName();
