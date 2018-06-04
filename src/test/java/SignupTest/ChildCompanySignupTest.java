@@ -40,13 +40,13 @@ public class ChildCompanySignupTest {
 
     @Test(groups={"Sanity"},description="Child Company Sign up new company")
     public void userSignin() throws IOException{
-/*
+
     	signupChildCompanyPage.enterLoginID();
     	signupChildCompanyPage.enterPassword();
     	signupChildCompanyPage.selectCompany();
     	signupChildCompanyPage.clickLoginButton();
     	signupChildCompanyPage.verifyLabelSuccessfulLogin();
-*/
+
     	signupChildCompanyPage.enterURL();
     	signupChildCompanyPage.labelRootCompany();
     	signupChildCompanyPage.enterLoginName();

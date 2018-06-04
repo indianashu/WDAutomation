@@ -132,24 +132,8 @@ public class ConfigurationBillingProcessPage extends BasePage{
         Assert.assertTrue(clickLoginButton.isDisplayed());
         clickLoginButton.click();
     }
-
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
     
-    @FindBy(how=How.XPATH, using="//a[.='Billing Process']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.configuration']/div/div/ul/a[5]/li/span")
     private WebElement clickBillingProcess;
     /**
      * Method to click on Billing Process.
@@ -160,7 +144,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
         log.info("Click on Billing Process");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/billingconfiguration/index";
+        String url=p.getVal("url2") + "/billingconfiguration/index";
         driver.get(url);
     }
     
@@ -226,7 +210,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
         se.selectByVisibleText(sp.ExcelRead().get(4));
     }
 
-    @FindBy(how=How.XPATH,using="//input[@name='proratingType']")
+    @FindBy(how=How.XPATH,using="//select[@name='proratingType']")
     private WebElement selectNeverProrate;
     /**
      * Method to select Never enable prorating.
@@ -236,9 +220,8 @@ public class ConfigurationBillingProcessPage extends BasePage{
         ConfigurationBillingProcessPage sp = new ConfigurationBillingProcessPage(driver);
         log.info("Verifying the Never enable prorating is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, selectNeverProrate);
-        Assert.assertTrue(selectNeverProrate.isDisplayed());
-        selectNeverProrate.clear();
-        selectNeverProrate.click();
+        Select se = new Select(selectNeverProrate);
+        se.selectByVisibleText("Never enable prorating");
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
@@ -266,7 +249,7 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Verifying if Billing Period is saved Successfully or not");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }

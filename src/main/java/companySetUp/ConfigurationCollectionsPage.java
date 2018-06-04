@@ -132,22 +132,6 @@ public class ConfigurationCollectionsPage extends BasePage{
         Assert.assertTrue(clickLoginButton.isDisplayed());
         clickLoginButton.click();
     }
-
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
     
     @FindBy(how=How.XPATH, using="//a[.='Collections']")
     private WebElement clickCollections;
@@ -160,7 +144,7 @@ public class ConfigurationCollectionsPage extends BasePage{
         log.info("Click on Collection");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/config/aging";
+        String url=p.getVal("url2") + "/config/aging";
         driver.get(url);
     }
 

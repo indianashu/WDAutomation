@@ -41,12 +41,12 @@ public class configureAccountTypeTest {
 
     @Test(groups={"Sanity"},description="ConfigureAccountType")
     public void userSignin() throws IOException{
-/*
+
     	configurationAccountTypePage.enterLoginID();
     	configurationAccountTypePage.enterPassword();
     	configurationAccountTypePage.selectCompany();
     	configurationAccountTypePage.clickLoginButton();
-*/
+
     	//configurationAccountTypePage.clickConfigurationTab();
     	configurationAccountTypePage.clickAccountType();
     	configurationAccountTypePage.clickAddNewButton();
