@@ -40,12 +40,12 @@ public class addAllowAssetManagementTest {
 
     @Test(groups={"Sanity"},description="Add Allow Asset Management")
     public void userSignin() throws IOException{
-/*
+
     	productCategoryPage.enterLoginID();
     	productCategoryPage.enterPassword();
     	productCategoryPage.selectCompany();
     	productCategoryPage.clickLoginButton();
-*/
+
     	productCategoryPage.clickProductsTab();
     	productCategoryPage.clickAddCategoryButton();
     	productCategoryPage.enterAssetCategoryName();
