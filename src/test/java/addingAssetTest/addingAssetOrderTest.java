@@ -40,12 +40,12 @@ public class addingAssetOrderTest {
 
     @Test(groups={"Sanity"},description="Adding Asset to Order Test Case")
     public void userSignin() throws IOException{
-/*
-    	addingAssetPage.enterLoginID();
+
+    	/*addingAssetPage.enterLoginID();
     	addingAssetPage.enterPassword();
     	addingAssetPage.selectCompany();
-    	addingAssetPage.clickLoginButton();
-*/
+    	addingAssetPage.clickLoginButton();*/
+
     	addingAssetPage.clickCustomersTab();
     	addingAssetPage.clickAddNewButton();
     	addingAssetPage.selectUserCompany();
