@@ -3,6 +3,7 @@ package companyHierarchy;
 import baseClassPackage.BasePage;
 import companySetUp.ConfigurationAccountTypePage;
 
+import java.awt.List;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -335,7 +336,7 @@ public class ViewAssignedInfoPage extends BasePage{
         
     }
     
-  
+	
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='ashutosh sandhal']")
     private WebElement verifyChildCustomer;
     /**
@@ -345,10 +346,25 @@ public class ViewAssignedInfoPage extends BasePage{
     public void verifyChildCustomer() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Child Customer is created or not");
-        JavaScriptExec.scrollToElementOnPage(driver, verifyChildCustomer);
-        String CustomerName = sp.ExcelRead().get(8);
-        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).getText();
-        Assert.assertEquals(ActualName, CustomerName);
+        java.util.List<WebElement> pagination = driver.findElements(By.xpath("//*[@id='column1']/div[2]/div[2]/a"));
+    	int size= pagination.size();
+    	if(size>0){
+    		System.out.println("pagination exists");
+    		// click on pagination link
+    		for (int i = 2; i < size; i++) {
+
+    			try {
+    				navigateBottom();
+    				driver.findElement(By.xpath("//*[@id='column1']/div[2]/div[2]/a["+i+"]")).click();
+    				String CustomerName = sp.ExcelRead().get(8);
+    		        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).getText();
+    		        Assert.assertEquals(ActualName, CustomerName);
+    			} catch (Exception e) {
+    				e.printStackTrace();
+    			}
+    		}
+    	}
+        
         
     }
     
