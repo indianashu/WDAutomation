@@ -134,7 +134,7 @@ public class CustomerParentChildPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -159,7 +159,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Add New Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -226,21 +226,21 @@ public class CustomerParentChildPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='metaField_224.value']")
-    private WebElement enterEmailID;
+    private WebElement enterEmail;
     /**
-     * Method to Enter Email ID.
+     * Method to Enter Email.
      * @throws IOException 
      */
-    public void enterEmailID() throws IOException{
-    	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
-        log.info("Enter EmailID");
-        JavaScriptExec.sleep();
-        enterEmailID = driver.findElement(By.cssSelector("input[id^='metaField_']"));
-        Assert.assertTrue(enterEmailID.isDisplayed());
-        enterEmailID.sendKeys(sp.ExcelRead().get(6));
+    public void enterEmail() throws IOException{
+    	CustomerPage sp=new CustomerPage(driver);
+        log.info("Enter Email");
+        navigateBottom();
+        enterEmail = driver.findElement(By.cssSelector("input[id^='metaField_']"));
+        Assert.assertTrue(enterEmail.isDisplayed());
+        enterEmail.sendKeys(sp.ExcelRead().get(6));
         
     }
+    
     @FindBy(how=How.XPATH, using="//input[@name='user.isParent']")
     private WebElement clickAllowSubAccountCheckbox;
     /**
@@ -375,7 +375,7 @@ public class CustomerParentChildPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -423,7 +423,7 @@ public class CustomerParentChildPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickAddSubAccountButton);
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Click Add Sub Account Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddSubAccountButton);
         Assert.assertTrue(clickAddSubAccountButton.isDisplayed());
         clickAddSubAccountButton.click();
@@ -487,7 +487,7 @@ public class CustomerParentChildPage extends BasePage{
     public void enterEmailID1() throws IOException{
     	CustomerParentChildPage sp=new CustomerParentChildPage(driver);
         log.info("Enter EmailID");
-        JavaScriptExec.sleep();
+        navigateBottom();
         enterEmailID1 = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterEmailID1.isDisplayed());
         enterEmailID1.sendKeys(sp.ExcelRead().get(12));

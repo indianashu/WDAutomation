@@ -133,7 +133,7 @@ public class DiscountPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Discounts']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.discounts']/a")
     private WebElement clickDiscountTab;
     /**
      * Method to click on Discount tab after successful login.
@@ -158,7 +158,7 @@ public class DiscountPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Add New Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -274,7 +274,7 @@ public class DiscountPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomersTab;
     /**
      * Method to click on customers tab.
@@ -315,7 +315,7 @@ public class DiscountPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Create Order Button.");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -466,7 +466,7 @@ public class DiscountPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[.='Orders']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.orders']/a")
     private WebElement clickOrdersTab;
     /**
      * Method to click on Orders Tab.
@@ -526,12 +526,12 @@ public class DiscountPage extends BasePage{
 
         log.info("Click Products Tab");
         JavaScriptExec.sleep();
-        WebElement clickProductsTab = driver.findElement(By.xpath("//a[.='Products']"));
+        WebElement clickProductsTab = driver.findElement(By.xpath("//*[@id='menu.link.products']/a"));
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
 
         log.info("Click on Add Category Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WebElement clickAddCategoryButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Category']"));
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
