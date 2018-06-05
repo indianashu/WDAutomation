@@ -159,7 +159,7 @@ public class CustomerPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Add New Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -234,7 +234,7 @@ public class CustomerPage extends BasePage{
     public void enterEmail() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Enter Email");
-        JavaScriptExec.sleep();
+        navigateBottom();
         enterEmail = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterEmail.isDisplayed());
         enterEmail.sendKeys(sp.ExcelRead().get(6));
@@ -293,7 +293,7 @@ public class CustomerPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CustomerPage sp=new CustomerPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();

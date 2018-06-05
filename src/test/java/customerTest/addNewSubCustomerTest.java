@@ -54,7 +54,7 @@ public class addNewSubCustomerTest {
 		customerParentChildPage.enterLoginName();
 		customerParentChildPage.clickAllowSubAccountCheckbox();
 		customerParentChildPage.navigateBottom();
-		customerParentChildPage.enterEmailID();
+		customerParentChildPage.enterEmail();
 		customerParentChildPage.selectPaymentMethodType();
 		customerParentChildPage.enterCCCardholderParentName();
 		customerParentChildPage.enterCCNumber();
