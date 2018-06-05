@@ -134,7 +134,7 @@ public class ProductCategoryPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products tab after successful login.
@@ -159,7 +159,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Add Category Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
@@ -249,7 +249,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickEditButton() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickEditButton);
         Assert.assertTrue(clickEditButton.isDisplayed());
         clickEditButton.click();
@@ -328,7 +328,7 @@ public class ProductCategoryPage extends BasePage{
     public void enterAssetName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Asset Name");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, enterAssetName);
         Assert.assertTrue(enterAssetName.isDisplayed());
         enterAssetName.sendKeys(sp.ExcelRead().get(7));
@@ -418,7 +418,7 @@ public class ProductCategoryPage extends BasePage{
     public void clickAddMetaFieldPlus() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Add Metafield Plus");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddMetaFieldPlus);
         Assert.assertTrue(clickAddMetaFieldPlus.isDisplayed());
         clickAddMetaFieldPlus.click(); 

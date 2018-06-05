@@ -160,7 +160,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
         log.info("Click on Order Periods");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/orderPeriod/list";
+        String url=p.getVal("url2") + "/orderPeriod/list";
         driver.get(url);
     }
     
@@ -173,7 +173,7 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Add New");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();

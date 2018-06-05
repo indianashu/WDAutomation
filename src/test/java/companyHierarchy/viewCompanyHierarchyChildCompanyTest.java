@@ -41,12 +41,12 @@ public class viewCompanyHierarchyChildCompanyTest {
     @Test(groups={"Sanity"},description="Verify that Root Company has ability to impersonate Child Company and view all & only information assigned to Child Company.")
     public void userSignin() throws IOException{
     	
-/*
+
     	viewAssignedInfoPage.enterLoginID();
     	viewAssignedInfoPage.enterPassword();
     	viewAssignedInfoPage.selectCompany();
     	viewAssignedInfoPage.clickLoginButton();
-*/
+
     	viewAssignedInfoPage.clickImpersonate();
     	viewAssignedInfoPage.selectChildCompany();
     	viewAssignedInfoPage.clickSelectButton();

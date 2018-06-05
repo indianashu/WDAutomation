@@ -40,13 +40,12 @@ public class configureAddCollectionTest {
 
     @Test(groups={"Sanity"},description="Configure Add Collection")
     public void userSignin() throws IOException{
-/*
+
     	configurationCollectionsPage.enterLoginID();
     	configurationCollectionsPage.enterPassword();
     	configurationCollectionsPage.selectCompany();
     	configurationCollectionsPage.clickLoginButton();
-*/
-		//configurationCollectionsPage.clickConfigurationTab();
+    	
     	configurationCollectionsPage.clickCollections();
     	configurationCollectionsPage.enterIDSteps();
     	configurationCollectionsPage.enterForDays();
@@ -60,7 +59,9 @@ public class configureAddCollectionTest {
         configurationCollectionsPage.enterIDSteps3();
     	configurationCollectionsPage.enterForDays3();
     	configurationCollectionsPage.selectSuspendCheckbox1();
+    	
     	String gracePeriodId = configurationCollectionsPage.clickSaveChangesButton();
+    	
     	configurationCollectionsPage.verifyConfirmationMsg();
 		configurationCollectionsPage.clickPluginsLink();
 		configurationCollectionsPage.clickCategory17();

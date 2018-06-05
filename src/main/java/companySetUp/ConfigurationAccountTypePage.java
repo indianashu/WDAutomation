@@ -135,22 +135,6 @@ public class ConfigurationAccountTypePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 15, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
-
     @FindBy(how=How.XPATH, using="//a[.='Account Type']")
     private WebElement clickAccountType;
     /**
@@ -162,7 +146,7 @@ public class ConfigurationAccountTypePage extends BasePage{
         log.info("Click on Account Type");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/accountType/list";
+        String url=p.getVal("url2") + "/accountType/list";
         driver.get(url);
     }
     
@@ -175,13 +159,13 @@ public class ConfigurationAccountTypePage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Click on Add New");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
         
     }
-    @FindBy(how=How.XPATH, using="//input[@name='description']")
+    @FindBy(how=How.XPATH, using="//input[@name='accountType.descriptions[0].content']")
     private WebElement enterAccountName;
     /**
      * Method to Enter Account Name.
@@ -236,7 +220,7 @@ public class ConfigurationAccountTypePage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -255,10 +239,9 @@ public class ConfigurationAccountTypePage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
-    
+
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);
         JavaScriptExec.sleep();
     }
-
 }

@@ -133,22 +133,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
-    
     @FindBy(how=How.XPATH, using="//a[.='Account Type']")
     private WebElement clickAccountType;
     /**
@@ -160,7 +144,7 @@ public class ConfigurationNewInformationTypePage extends BasePage{
         log.info("Click on Account Type");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/accountType/list";
+        String url=p.getVal("url2") + "/accountType/list";
         driver.get(url);
     }
     
@@ -317,7 +301,7 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void clickUpdateButton() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Click on Update Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();

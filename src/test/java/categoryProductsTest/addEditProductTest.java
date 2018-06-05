@@ -40,12 +40,12 @@ public class addEditProductTest {
 
     @Test(groups={"Sanity"},description="Add Edit Product")
     public void userSignin() throws IOException{
-/*
+
     	addProductPage.enterLoginID();
     	addProductPage.enterPassword();
     	addProductPage.selectCompany();
     	addProductPage.clickLoginButton();
-*/
+
         addProductPage.clickProductsTab();
         addProductPage.selectCategoryName();
         addProductPage.clickAddProductButton();

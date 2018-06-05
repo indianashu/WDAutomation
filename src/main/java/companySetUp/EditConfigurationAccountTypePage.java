@@ -135,22 +135,6 @@ public class EditConfigurationAccountTypePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
-    
     @FindBy(how=How.XPATH, using="//a[.='Account Type']")
     private WebElement clickAccountType;
     /**
@@ -162,7 +146,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         log.info("Click on Account Type");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/accountType/list";
+        String url=p.getVal("url2") + "/accountType/list";
         driver.get(url);
     }
     
@@ -175,13 +159,13 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on Add New");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
         
     }
-    @FindBy(how=How.XPATH, using="//input[@name='description']")
+    @FindBy(how=How.XPATH, using="//input[@name='accountType.descriptions[0].content']")
     private WebElement enterAccountName;
     /**
      * Method to Enter Account Name.
@@ -214,12 +198,12 @@ public class EditConfigurationAccountTypePage extends BasePage{
         
     }
     
-    private WebElement selectInvoiceDesing;
+    private WebElement selectInvoiceDesign;
     /**
      * Method to select Invoice Design.
      * @throws IOException 
      */
-    public void selectInvoiceDesing() throws IOException{
+    public void selectInvoiceDesign() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         WebElement InvoiceDesignelement = driver.findElement(By.xpath("//select[@name='invoiceDesign']"));
         Select se = new Select(InvoiceDesignelement);
@@ -236,7 +220,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	EditConfigurationAccountTypePage sp=new EditConfigurationAccountTypePage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -288,7 +272,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='description']")
+    @FindBy(how=How.XPATH, using="//input[@name='accountType.descriptions[0].content']")
     private WebElement enterEditAccountName;
     /**
      * Method to Enter Account Name.

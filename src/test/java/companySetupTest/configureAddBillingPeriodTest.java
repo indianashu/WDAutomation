@@ -40,16 +40,17 @@ public class configureAddBillingPeriodTest {
 
     @Test(groups={"Sanity"},description="Configure Add Billing Period")
     public void userSignin() throws IOException{
-/*
+
     	configurationBillingProcessPage.enterLoginID();
     	configurationBillingProcessPage.enterPassword();
     	configurationBillingProcessPage.selectCompany();
     	configurationBillingProcessPage.clickLoginButton();
-*/
-        configurationBillingProcessPage.clickConfigurationTab();
+
+        //configurationBillingProcessPage.clickConfigurationTab();
     	configurationBillingProcessPage.clickBillingProcess();
-        configurationBillingProcessPage.enterMaxPeriodInvoice();
         configurationBillingProcessPage.enterNextRunDate();
+        configurationBillingProcessPage.enterMaxPeriodInvoice();
+        configurationBillingProcessPage.selectNeverProrate();
         configurationBillingProcessPage.clickSaveChangesButton();
     	configurationBillingProcessPage.verifyConfirmationMsg();
 

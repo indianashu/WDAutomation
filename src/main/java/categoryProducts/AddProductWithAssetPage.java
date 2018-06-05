@@ -136,23 +136,6 @@ public class AddProductWithAssetPage extends BasePage{
 
   
    
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationsTab;
-    /**
-     * Method to click on Configurations tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationsTab() throws IOException{
-    	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
-        log.info("Click on Configurations Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationsTab);
-        Assert.assertTrue(clickConfigurationsTab.isDisplayed());
-        clickConfigurationsTab.click();
-        
-    }
-    
-  
     @FindBy(how=How.XPATH, using="//a[.='Plug-ins']")
     private WebElement clickPluginsLink;
     /**
@@ -164,7 +147,7 @@ public class AddProductWithAssetPage extends BasePage{
         log.info("Click on Plugins Link.");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/plugin/list";
+        String url=p.getVal("url2") + "/plugin/list";
         driver.get(url);
     }
     
@@ -242,7 +225,7 @@ public class AddProductWithAssetPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Save Plugin Button.");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
@@ -250,7 +233,7 @@ public class AddProductWithAssetPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products tab after successful login.

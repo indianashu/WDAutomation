@@ -134,7 +134,7 @@ public class AddProductPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products tab after successful login.
@@ -265,7 +265,7 @@ public class AddProductPage extends BasePage{
     public void enterPriceDate() throws IOException{
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Price Date");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate);
         Assert.assertTrue(enterPriceDate.isDisplayed());
         enterPriceDate.clear();
@@ -515,7 +515,7 @@ public class AddProductPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickEditProduct);
     	AddProductPage sp=new AddProductPage(driver);
         log.info("Enter Edit Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickEditProduct);
         Assert.assertTrue(clickEditProduct.isDisplayed());
         clickEditProduct.click();
