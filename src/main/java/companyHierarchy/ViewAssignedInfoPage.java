@@ -197,7 +197,7 @@ public class ViewAssignedInfoPage extends BasePage{
     
     
   
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products Tab
@@ -319,7 +319,7 @@ public class ViewAssignedInfoPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomersTab;
     /**
      * Method to click on Customers Tab
@@ -345,7 +345,7 @@ public class ViewAssignedInfoPage extends BasePage{
     public void verifyChildCustomer() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Child Customer is created or not");
-        JavaScriptExec.sleep();
+        JavaScriptExec.scrollToElementOnPage(driver, verifyChildCustomer);
         String CustomerName = sp.ExcelRead().get(8);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).getText();
         Assert.assertEquals(ActualName, CustomerName);

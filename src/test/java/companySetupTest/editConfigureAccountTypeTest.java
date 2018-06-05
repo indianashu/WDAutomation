@@ -50,7 +50,7 @@ public class editConfigureAccountTypeTest {
         editconfigurationAccountTypePage.clickAddNewButton();
     	editconfigurationAccountTypePage.enterAccountName();
     	editconfigurationAccountTypePage.enterBillingCycle();
-    	editconfigurationAccountTypePage.selectInvoiceDesing();
+    	editconfigurationAccountTypePage.selectInvoiceDesign();
     	editconfigurationAccountTypePage.clickSaveChangesButton();
     	editconfigurationAccountTypePage.verifyConfirmationMsg();
     	editconfigurationAccountTypePage.clickAccountTypeCreated();
