@@ -134,7 +134,7 @@ public class TearDownProcessPage extends BasePage{
     }
 
     
-    @FindBy(how=How.XPATH, using="//a[.='Payments']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.payments.refunds']/a")
     private WebElement clickPaymentsTab;
     /**
      * Method to click on Payments tab after successful login.
@@ -166,7 +166,7 @@ public class TearDownProcessPage extends BasePage{
     }
    
     
-    @FindBy(how=How.XPATH, using="//*[@id='column2']/div/div[2]/div/table[4]/tbody/tr/td[4]/a/span")
+    @FindBy(how=How.XPATH, using="//*[@id='column2']/div[1]/div[2]/div/table[4]/tbody/tr/td[4]/a/span")
     private WebElement clickUnlink;
     /**
      * Method to click on unlink link.
@@ -248,7 +248,7 @@ public class TearDownProcessPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[.='Invoices']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.invoices']/a")
     private WebElement clickInvoicesTab;
     /**
      * Method to click on Invoices tab after successful login.
@@ -331,7 +331,7 @@ public class TearDownProcessPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Orders']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.orders']/a")
     private WebElement clickOrdersTab;
     /**
      * Method to Click on Orders Tab.
@@ -372,7 +372,7 @@ public class TearDownProcessPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickDeleteButton);
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteButton);
         Assert.assertTrue(clickDeleteButton.isDisplayed());
         clickDeleteButton.click();
@@ -413,7 +413,7 @@ public class TearDownProcessPage extends BasePage{
 
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products Tab.
@@ -510,7 +510,7 @@ public class TearDownProcessPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomersTab;
     /**
      * Method to click on customers tab.

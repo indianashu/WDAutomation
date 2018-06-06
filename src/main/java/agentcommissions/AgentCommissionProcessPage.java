@@ -138,7 +138,7 @@ public class AgentCommissionProcessPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Agents']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.partners']/a")
     private WebElement clickAgentTab;
     /**
      * Method to click on Agent tab after successful login.
@@ -177,6 +177,7 @@ public class AgentCommissionProcessPage extends BasePage{
      * @throws IOException 
      */
     public void clickShowCommissionButton() throws IOException{
+    	JavaScriptExec.scrollToElementOnPage(driver,clickShowCommissionButton);
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Show Commission Button");
         JavaScriptExec.sleep();
@@ -202,7 +203,7 @@ public class AgentCommissionProcessPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer Tab.
@@ -343,22 +344,6 @@ public class AgentCommissionProcessPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on configuration tab.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
-        log.info("Click on Configuration Tab");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
-    
     @FindBy(how=How.XPATH, using="//a[.='Agent Commission Process']")
     private WebElement clickAgentCommissionProcess;
     /**
@@ -370,7 +355,7 @@ public class AgentCommissionProcessPage extends BasePage{
         log.info("Click on Agent Commission Process Link in left menu bar");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/config/partnerCommission";
+        String url=p.getVal("url2") + "/config/partnerCommission";
         driver.get(url);
     }
    

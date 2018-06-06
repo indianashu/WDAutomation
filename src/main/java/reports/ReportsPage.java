@@ -552,7 +552,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Verifying if payment status is successful.");
         JavaScriptExec.sleep();
-        String ExpectedMsg = "Entered";
+        String ExpectedMsg = "Successful";
         String CustomerName = sp.ExcelRead().get(5);
         String ActualMsg = driver.findElement(By.xpath("//*[text()='"+CustomerName+"']/following::span[5]")).getText();
         Assert.assertEquals(ActualMsg, ExpectedMsg);

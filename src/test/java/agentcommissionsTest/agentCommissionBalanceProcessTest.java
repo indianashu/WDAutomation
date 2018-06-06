@@ -40,12 +40,12 @@ public class agentCommissionBalanceProcessTest {
 
     @Test(groups={"Sanity"},description="Agents and Commissions - The Commissions Balance Process")
     public void userSignin() throws IOException{
-/*
-    	agentCommissionProcessPage.enterLoginID();
+
+    	/*agentCommissionProcessPage.enterLoginID();
     	agentCommissionProcessPage.enterPassword();
     	agentCommissionProcessPage.selectCompany();
-    	agentCommissionProcessPage.clickLoginButton();
-*/
+    	agentCommissionProcessPage.clickLoginButton();*/
+
     	agentCommissionProcessPage.clickAgentTab();
     	agentCommissionProcessPage.selectAgent();
     	agentCommissionProcessPage.clickShowCommissionButton();
@@ -60,7 +60,6 @@ public class agentCommissionBalanceProcessTest {
     	agentCommissionProcessPage.clickUpdateButton();
     	agentCommissionProcessPage.clickSaveChangesButton();
     	agentCommissionProcessPage.clickGenerateInvoiceButton();
-       	//agentCommissionProcessPage.clickConfigurationTab();
     	agentCommissionProcessPage.clickAgentCommissionProcess();
 		agentCommissionProcessPage.enterPeriodValue();
 		agentCommissionProcessPage.enterNextRunDate();

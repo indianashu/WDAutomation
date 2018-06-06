@@ -40,13 +40,12 @@ public class agentConfigurationPluginTest {
 
     @Test(groups={"Sanity"},description="Agents and Commissions - The Commissions plug-in and preference")
     public void userSignin() throws IOException{
-/*
-    	agentConfigurationPluginPage.enterLoginID();
+
+    	/*agentConfigurationPluginPage.enterLoginID();
     	agentConfigurationPluginPage.enterPassword();
     	agentConfigurationPluginPage.selectCompany();
-    	agentConfigurationPluginPage.clickLoginButton();
-*/
-    	//agentConfigurationPluginPage.clickConfigurationTab();
+    	agentConfigurationPluginPage.clickLoginButton();*/
+
     	agentConfigurationPluginPage.clickPlugin();
     	agentConfigurationPluginPage.clickAgentCommissionCalProcess();
     	agentConfigurationPluginPage.clickAddNewButton();

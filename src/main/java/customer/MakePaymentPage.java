@@ -18,6 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -134,7 +135,7 @@ public class MakePaymentPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Invoices']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.invoices']/a")
     private WebElement clickInvoicesTab;
     /**
      * Method to click on Invoice tab after successful login.
@@ -174,7 +175,7 @@ public class MakePaymentPage extends BasePage{
     public void clickPayInvoiceButton() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on pay invoice Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickPayInvoiceButton);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
         clickPayInvoiceButton.click();
@@ -226,7 +227,8 @@ public class MakePaymentPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, checkPaymentProcessRealTime);
         Assert.assertTrue(checkPaymentProcessRealTime.isDisplayed());
-        checkPaymentProcessRealTime.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(checkPaymentProcessRealTime).click().perform();
 
     }
 
@@ -305,7 +307,7 @@ public class MakePaymentPage extends BasePage{
     public void clickReviewPaymentButton() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Review Payment Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickReviewPaymentButton);
         Assert.assertTrue(clickReviewPaymentButton.isDisplayed());
         clickReviewPaymentButton.click();
@@ -323,7 +325,7 @@ public class MakePaymentPage extends BasePage{
     public void clickMakePaymentButton() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Review Payment Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickMakePaymentButton);
         Assert.assertTrue(clickMakePaymentButton.isDisplayed());
         clickMakePaymentButton.click();

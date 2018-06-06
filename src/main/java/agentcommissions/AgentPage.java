@@ -137,7 +137,7 @@ public class AgentPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Agents']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.partners']/a")
     private WebElement clickAgentTab;
     /**
      * Method to click on Agent tab after successful login.
@@ -162,7 +162,7 @@ public class AgentPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on add new button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -438,7 +438,7 @@ public class AgentPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -475,7 +475,7 @@ public class AgentPage extends BasePage{
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductTab;
     /**
      * Method to click on Product Tab.
@@ -500,7 +500,7 @@ public class AgentPage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Add Category Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();

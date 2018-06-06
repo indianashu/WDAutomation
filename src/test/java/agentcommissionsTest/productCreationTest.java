@@ -40,12 +40,12 @@ public class productCreationTest {
 
     @Test(groups={"Sanity"},description="Agents and Commissions - Products creation")
     public void userSignin() throws IOException{
-/*
-    	agentPage.enterLoginID();
+
+    	/*agentPage.enterLoginID();
     	agentPage.enterPassword();
     	agentPage.selectCompany();
-    	agentPage.clickLoginButton();
-*/
+    	agentPage.clickLoginButton();*/
+
     	agentPage.clickProductTab();
     	agentPage.clickAddCategoryButton();
     	agentPage.enterCategoryName();
