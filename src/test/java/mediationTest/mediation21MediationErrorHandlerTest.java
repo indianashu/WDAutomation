@@ -40,12 +40,12 @@ public class mediation21MediationErrorHandlerTest {
 
     @Test(groups={"Sanity"},description="Mediation 2.2")
     public void userSignin() throws IOException{
-/*
-    	mediationPage.enterLoginID();
+
+    	/*mediationPage.enterLoginID();
     	mediationPage.enterPassword();
     	mediationPage.selectCompany();
-    	mediationPage.clickLoginButton();
-*/
+    	mediationPage.clickLoginButton();*/
+
         //mediationPage.clickConfigurationsTab();
     	mediationPage.clickPluginsLink();
     	mediationPage.clickMediationErrorHandler();
