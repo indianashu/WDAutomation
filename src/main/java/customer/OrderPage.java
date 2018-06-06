@@ -133,7 +133,7 @@ public class OrderPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -158,7 +158,7 @@ public class OrderPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	OrderPage sp=new OrderPage(driver);
         log.info("Click on Add New Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -415,7 +415,7 @@ public class OrderPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	OrderPage sp=new OrderPage(driver);
         log.info("Click Add Sub Account Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();

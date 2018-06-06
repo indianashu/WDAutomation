@@ -134,7 +134,7 @@ public class OrderHierarchiesPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to click on Products tab after successful login.
@@ -159,7 +159,7 @@ public class OrderHierarchiesPage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("Click on Add Category Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
@@ -430,7 +430,7 @@ public class OrderHierarchiesPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomersTab;
     /**
      * Method to click on customers tab.

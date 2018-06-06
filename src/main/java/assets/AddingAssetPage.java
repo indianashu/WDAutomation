@@ -134,7 +134,7 @@ public class AddingAssetPage extends BasePage{
 		clickLoginButton.click();
 	}
 
-	@FindBy(how=How.XPATH, using="//a[.='Customers']")
+	@FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
 	private WebElement clickCustomersTab;
 	/**
 	 * Method to click on Customer tab after successful login.
@@ -157,7 +157,7 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickAddNewButton() throws IOException{
 		log.info("Click on Add New Button");
-		JavaScriptExec.sleep();
+		navigateBottom();
 		WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
 		Assert.assertTrue(clickAddNewButton.isDisplayed());
 		JavaScriptExec.sleep();
@@ -274,7 +274,7 @@ public class AddingAssetPage extends BasePage{
 	public void clickCreateOrderButton() throws IOException{
 		JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
 		log.info("Click on Create Order Button.");
-		JavaScriptExec.sleep();
+		navigateBottom();
 		WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
 		Assert.assertTrue(clickCreateOrderButton.isDisplayed());
 		clickCreateOrderButton.click();
@@ -437,12 +437,12 @@ public class AddingAssetPage extends BasePage{
 		log.info("Verify asset is shown in order preview pane.");
 		JavaScriptExec.sleep();
 		String ExpectedAsset = AddingAssetPage.ExcelRead(sheetName).get(10);
-		String ActualAsset = driver.findElement(By.xpath("//*[@id='column2']/div/div[7]/div[2]/table/tbody/tr/td[2]")).getText();
+		String ActualAsset = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[7]/div[2]/table/tbody/tr/td[2]")).getText();
 		Assert.assertEquals(ActualAsset, ExpectedAsset);
 
 	}
 
-	@FindBy(how=How.XPATH, using="//a[.='Products']")
+	@FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
 	private WebElement clickProductsTab;
 	/**
 	 * Method to click on Products Tab.
@@ -459,15 +459,33 @@ public class AddingAssetPage extends BasePage{
 
 
 	private WebElement clickProductCategory;
+
 	/**
 	 * Method to click on Products Category.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickProductCategory() throws IOException{
+	public void clickProductCategory() throws IOException {
 		log.info("click on Product category.");
 		JavaScriptExec.sleep();
-		String ProductCategory = AddingAssetPage.ExcelRead(sheetName).get(11);
-		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductCategory+"']")).click();
+		java.util.List<WebElement> pagination = driver.findElements(By.xpath("//*[@id='column1']/div[2]/div[2]/a"));
+		int size = pagination.size();
+		if (size > 0) {
+			System.out.println("pagination exists");
+			// click on pagination link
+			for (int i = 2; i < size; i++) {
+
+				try {
+					navigateBottom();
+					driver.findElement(By.xpath("//*[@id='column1']/div[2]/div[2]/a[" + i + "]")).click();
+					String ProductCategory = AddingAssetPage.ExcelRead(sheetName).get(11);
+					driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductCategory + "']"))
+							.click();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 

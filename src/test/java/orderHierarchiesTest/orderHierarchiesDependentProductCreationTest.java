@@ -40,12 +40,12 @@ public class orderHierarchiesDependentProductCreationTest {
 
     @Test(groups={"Sanity"},description="Order Hierarchy Dependent Product Creation")
     public void userSignin() throws IOException{
-/*
-    	orderHierarchiesPage.enterLoginID();
+
+    	/*orderHierarchiesPage.enterLoginID();
     	orderHierarchiesPage.enterPassword();
     	orderHierarchiesPage.selectCompany();
-    	orderHierarchiesPage.clickLoginButton();
-*/
+    	orderHierarchiesPage.clickLoginButton();*/
+
     	orderHierarchiesPage.clickProductsTab();
     	orderHierarchiesPage.clickAddCategoryButton();
     	orderHierarchiesPage.enterProductCategoryName();
