@@ -133,7 +133,7 @@ public class GeneratingInvoicePage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -205,7 +205,7 @@ public class GeneratingInvoicePage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	GeneratingInvoicePage sp=new GeneratingInvoicePage(driver);
         log.info("Click Add Sub Account Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -347,7 +347,7 @@ public class GeneratingInvoicePage extends BasePage{
         Assert.assertTrue(verifyNewOrder.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Orders']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.orders']/a")
     private WebElement clickOrdersTab;
     /**
      * Method to Click on Orders Tab.
@@ -389,14 +389,14 @@ public class GeneratingInvoicePage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickGenerateInvoiceButton);
     	GeneratingInvoicePage sp=new GeneratingInvoicePage(driver);
         log.info("Click on Generate Invoice Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickGenerateInvoiceButton);
         Assert.assertTrue(clickGenerateInvoiceButton.isDisplayed());
         clickGenerateInvoiceButton.click();
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to Click on Products Tab.
@@ -422,7 +422,7 @@ public class GeneratingInvoicePage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	GeneratingInvoicePage sp=new GeneratingInvoicePage(driver);
         log.info("Click on Add Category Button.");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
@@ -521,7 +521,7 @@ public class GeneratingInvoicePage extends BasePage{
     public void enterProductRate() throws IOException{
     	GeneratingInvoicePage sp=new GeneratingInvoicePage(driver);
         log.info("Enter Product Rate.");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, enterProductRate);
         Assert.assertTrue(enterProductRate.isDisplayed());
         enterProductRate.sendKeys(sp.ExcelRead().get(13));

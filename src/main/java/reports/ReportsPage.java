@@ -18,6 +18,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -134,7 +135,7 @@ public class ReportsPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -159,7 +160,7 @@ public class ReportsPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on Add New Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -324,7 +325,7 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on create order button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -357,8 +358,6 @@ public class ReportsPage extends BasePage{
     public void selectProduct() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on a product from the list");
-        JavaScriptExec.sleep();
-        driver.findElement(By.xpath("//a[text()='20']")).click();
         JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(16);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
@@ -407,7 +406,7 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickMakePaymentButton);
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on a make payment button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickMakePaymentButton);
         Assert.assertTrue(clickMakePaymentButton.isDisplayed());
         clickMakePaymentButton.click();
@@ -441,9 +440,9 @@ public class ReportsPage extends BasePage{
         ReportsPage sp=new ReportsPage(driver);
         log.info("Click on Process Payment in Real-Time checkbox");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProcessRealTimeCheckbox);
         Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
-        clickProcessRealTimeCheckbox.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
 
     }
     
@@ -536,7 +535,7 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickReviewPaymentButton);
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on Review Payment Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickReviewPaymentButton);
         Assert.assertTrue(clickReviewPaymentButton.isDisplayed());
         clickReviewPaymentButton.click();
@@ -553,14 +552,14 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Verifying if payment status is successful.");
         JavaScriptExec.sleep();
-        String ExpectedMsg = "Successful";
+        String ExpectedMsg = "Entered";
         String CustomerName = sp.ExcelRead().get(5);
         String ActualMsg = driver.findElement(By.xpath("//*[text()='"+CustomerName+"']/following::span[5]")).getText();
         Assert.assertEquals(ActualMsg, ExpectedMsg);
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[.='Reports']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.reports']/a")
     private WebElement clickReportsTab;
     /**
      * Method to Click on Reports Tab.
@@ -684,9 +683,9 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click Run Report Button");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRunReportButton);
         Assert.assertTrue(clickRunReportButton.isDisplayed());
-        clickRunReportButton.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(clickRunReportButton).click().perform();
         JavaScriptExec.sleep();
     }
 

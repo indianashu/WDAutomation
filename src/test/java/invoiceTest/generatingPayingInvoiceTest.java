@@ -40,12 +40,12 @@ public class generatingPayingInvoiceTest {
 
     @Test(groups={"Sanity"},description="Generating and Paying Invoice")
     public void userSignin() throws IOException{
-/*
-    	generatingPayingInvoicePage.enterLoginID();
+
+    	/*generatingPayingInvoicePage.enterLoginID();
     	generatingPayingInvoicePage.enterPassword();
     	generatingPayingInvoicePage.selectCompany();
-    	generatingPayingInvoicePage.clickLoginButton();
-*/
+    	generatingPayingInvoicePage.clickLoginButton();*/
+
     	generatingPayingInvoicePage.clickCustomerTab();
     	generatingPayingInvoicePage.clickCustomerName();
     	generatingPayingInvoicePage.clickCreateOrderButton();

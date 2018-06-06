@@ -40,12 +40,12 @@ public class verifyInvoiceDateDueDateTest {
 
     @Test(groups={"Sanity"},description="Generating an Invoice Manually")
     public void userSignin() throws IOException{
-/*
-    	generatingInvoicePage.enterLoginID();
+
+    	/*generatingInvoicePage.enterLoginID();
     	generatingInvoicePage.enterPassword();
     	generatingInvoicePage.selectCompany();
-    	generatingInvoicePage.clickLoginButton();
-*/
+    	generatingInvoicePage.clickLoginButton();*/
+
     	generatingInvoicePage.clickProductsTab();
     	generatingInvoicePage.clickAddCategoryButton();
     	generatingInvoicePage.enterCategoryName();
