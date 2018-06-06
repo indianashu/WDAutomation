@@ -17,6 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -162,7 +163,7 @@ public class MediationPage extends BasePage{
         log.info("Click on plugins link");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/plugin/list";
+        String url=p.getVal("url2") + "/plugin/list";
         driver.get(url);
     }
     
@@ -192,7 +193,7 @@ public class MediationPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Add New Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
@@ -228,23 +229,6 @@ public class MediationPage extends BasePage{
         
     }
     
-  
-    @FindBy(how=How.XPATH, using="//input[@name='plg-parm-format_file']")
-    private WebElement enterFormatFile;
-    /**
-     * Method to enter value for Format File.
-     * @throws IOException 
-     */
-    public void enterFormatFile() throws IOException{
-    	MediationPage sp=new MediationPage(driver);
-        log.info("enter value for Format File.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterFormatFile);
-        Assert.assertTrue(enterFormatFile.isDisplayed());
-        enterFormatFile.sendKeys(sp.ExcelRead().get(5));
-        
-    }
-    
     @FindBy(how=How.XPATH, using="//input[@name='plg-parm-suffix']")
     private WebElement enterSufix;
     /**
@@ -257,7 +241,7 @@ public class MediationPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterSufix);
         Assert.assertTrue(enterSufix.isDisplayed());
-        enterSufix.sendKeys(sp.ExcelRead().get(6));
+        enterSufix.sendKeys(sp.ExcelRead().get(5));
         
     }
     
@@ -273,7 +257,7 @@ public class MediationPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterDateFormat);
         Assert.assertTrue(enterDateFormat.isDisplayed());
-        enterDateFormat.sendKeys(sp.ExcelRead().get(7));
+        enterDateFormat.sendKeys(sp.ExcelRead().get(6));
         
     }
     
@@ -289,7 +273,7 @@ public class MediationPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterSeparator);
         Assert.assertTrue(enterSeparator.isDisplayed());
-        enterSeparator.sendKeys(sp.ExcelRead().get(8));
+        enterSeparator.sendKeys(sp.ExcelRead().get(7));
         
     }
     
@@ -302,8 +286,7 @@ public class MediationPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Save Plugin Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
         
@@ -363,7 +346,7 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         WebElement PCelement = driver.findElement(By.xpath("//select[@name='typeId']"));
         Select se = new Select(PCelement);
-        se.selectByVisibleText(sp.ExcelRead().get(9));
+        se.selectByVisibleText(sp.ExcelRead().get(8));
 
     }
   
@@ -400,25 +383,21 @@ public class MediationPage extends BasePage{
         
     }
 
-    public String fetchDefaultItemID() throws IOException{
-        MediationPage sp=new MediationPage(driver);
-        driver.findElement(By.xpath("//a[.='Products']")).click();
-        String CategoryName = sp.ExcelRead().get(19);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
-        String ItemName = sp.ExcelRead().get(20);
-        JavaScriptExec.sleep();
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ItemName+"']")).click();
-        JavaScriptExec.sleep();
+	public String fetchDefaultItemID() throws IOException {
+		MediationPage sp = new MediationPage(driver);
+		driver.findElement(By.xpath("//*[@id='menu.link.products']/a")).click();
+		driver.findElement(By.xpath("//a[@class='submit show']//*[text()='Show All']")).click();
 
-        WebElement clickEditProduct = driver.findElement(By.xpath("//a[@class='submit edit']//*[text()='Edit']"));
-        JavaScriptExec.scrolltoBottomofPage(driver);
-        JavaScriptExec.sleep();
-        driver.findElement(By.xpath("//a[@class='submit edit']//*[text()='Edit']")).click();
-        JavaScriptExec.sleep();
-        String ItemId = driver.findElement(By.xpath("//label[contains(.,'Product ID')]/following::span[1]")).getText();;
-        log.info("Item ID." + ItemId);
-        return ItemId;
-    }
+		String ItemName = sp.ExcelRead().get(19);
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ItemName + "']")).click();
+
+		driver.findElement(By.xpath("//a[@class='submit edit']//*[text()='Edit']")).click();
+		JavaScriptExec.sleep();
+		String ItemId = driver.findElement(By.xpath("//label[contains(.,'Product ID')]/following::span[1]")).getText();
+		System.out.println(ItemId);
+		log.info("Item ID." + ItemId);
+		return ItemId;
+	}
   
     @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'21')]]")
     private WebElement clickMediationErrorHandler;
@@ -445,7 +424,7 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         WebElement PCelement = driver.findElement(By.xpath("//select[@name='typeId']"));
         Select se = new Select(PCelement);
-        se.selectByVisibleText(sp.ExcelRead().get(12));
+        se.selectByVisibleText(sp.ExcelRead().get(11));
 
     }
   
@@ -466,7 +445,7 @@ public class MediationPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomersTab;
     /**
      * Method to click on Customers Tab.
@@ -554,7 +533,7 @@ public class MediationPage extends BasePage{
         log.info("click on Mediations Link.");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/mediationConfig/list";
+        String url=p.getVal("url2") + "/mediationConfig/list";
         driver.get(url);
         JavaScriptExec.sleep();
     }
@@ -572,7 +551,7 @@ public class MediationPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterConfigurationName);
         Assert.assertTrue(enterConfigurationName.isDisplayed());
-        enterConfigurationName.sendKeys(sp.ExcelRead().get(17));
+        enterConfigurationName.sendKeys(sp.ExcelRead().get(16));
         
     }
    
@@ -588,23 +567,26 @@ public class MediationPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterExecutionOrder);
         Assert.assertTrue(enterExecutionOrder.isDisplayed());
-        enterExecutionOrder.sendKeys(sp.ExcelRead().get(18));
+        enterExecutionOrder.sendKeys(sp.ExcelRead().get(17));
         
     }
   
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Mediation 2.0']")
-    private WebElement clickMediation;
-    /**
-     * Method to Click on Mediation.
-     * @throws IOException 
-     */
-    public void clickMediation() throws IOException{
-    	MediationPage sp=new MediationPage(driver);
-        log.info("Click on Mediation");
-        JavaScriptExec.sleep();
-        String Mediation = sp.ExcelRead().get(17);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+Mediation+"']")).click();
-    } 
+	private WebElement clickMediation;
+
+	/**
+	 * Method to Click on Mediation.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickMediation() throws IOException {
+		MediationPage sp = new MediationPage(driver);
+		log.info("Click on Mediation");
+		JavaScriptExec.sleep();
+		String Mediation = sp.ExcelRead().get(16);
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + Mediation + "']")).click();
+
+	}
     
     
     private WebElement uploadMediationCSVFile;
@@ -637,7 +619,7 @@ public class MediationPage extends BasePage{
         
     }
    
-    @FindBy(how=How.XPATH, using="//a[.='Mediation']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.mediation']/a")
     private WebElement clickMediationsTab;
     /**
      * Method to click on Mediations Tab.
@@ -686,7 +668,7 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediation name");
         JavaScriptExec.sleep();
-        String MediationName = sp.ExcelRead().get(17);
+        String MediationName = sp.ExcelRead().get(16);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+MediationName+"']")).click();
     }
     
@@ -728,7 +710,7 @@ public class MediationPage extends BasePage{
         clickDoneBillableViewLink.click();        
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Orders']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.orders']/a")
     private WebElement clickOrdersTab;
     /**
      * Method to click on Orders Tab.
@@ -743,6 +725,49 @@ public class MediationPage extends BasePage{
         clickOrdersTab.click();        
     }
     
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.configuration']/div/div/ul/a[13]/li")
+    private WebElement clickfileFormatTab;
+    /**
+     * Method to click on File Format Tab.
+     * @throws IOException 
+     */
+    public void clickfileFormatTab() throws IOException{
+    	MediationPage sp=new MediationPage(driver);
+        log.info("click on File Format Tabs");
+        JavaScriptExec.sleep();
+        Assert.assertTrue(clickfileFormatTab.isDisplayed());
+        clickfileFormatTab.click();        
+    }
+    
+	@FindBy(how = How.XPATH, using = "//input[@id='fileFormat.name']")
+	private WebElement enterFormatFile;
+
+	/**
+	 * Method to enter value for Format File.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterFormatFile() throws IOException {
+		MediationPage sp = new MediationPage(driver);
+		log.info("enter value for Format File.");
+		Assert.assertTrue(enterFormatFile.isDisplayed());
+		enterFormatFile.sendKeys(sp.ExcelRead().get(4));
+
+	}
+	
+	private WebElement uploadFileFormatXML;
+    /**
+     * Method to upload Mediation csv file.
+     * @throws IOException 
+     */
+    public void uploadFileFormatXML() throws IOException{
+    	MediationPage sp=new MediationPage(driver);
+        log.info("upload File Formats xml file");
+        JavaScriptExec.sleep();
+        WebElement FileUpload = driver.findElement(By.xpath("//input[@name='format_file']"));
+        FileUpload.sendKeys(System.getProperty("user.dir") +"/asterisk.xml");
+        
+    }
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);

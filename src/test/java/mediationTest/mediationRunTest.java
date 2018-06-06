@@ -40,12 +40,12 @@ public class mediationRunTest {
 
     @Test(groups={"Sanity"},description="Mediation 2.3 - Mediation Run Test")
     public void userSignin() throws IOException{
-/*
-    	mediationPage.enterLoginID();
+
+    	/*mediationPage.enterLoginID();
     	mediationPage.enterPassword();
     	mediationPage.selectCompany();
-    	mediationPage.clickLoginButton();
-*/
+    	mediationPage.clickLoginButton();*/
+
     	mediationPage.clickCustomersTab();
     	mediationPage.clickAddNewButton();
     	mediationPage.selectAccountType();

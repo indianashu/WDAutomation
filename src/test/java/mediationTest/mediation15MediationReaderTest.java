@@ -40,18 +40,23 @@ public class mediation15MediationReaderTest {
 
     @Test(groups={"Sanity"},description="Mediation 2.0")
     public void userSignin() throws IOException{
-/*
-    	mediationPage.enterLoginID();
+
+    	/*mediationPage.enterLoginID();
     	mediationPage.enterPassword();
     	mediationPage.selectCompany();
-    	mediationPage.clickLoginButton();
-*/
-    	//mediationPage.clickConfigurationsTab();
+    	mediationPage.clickLoginButton();*/
+    	
+    	mediationPage.clickConfigurationsTab();
+    	mediationPage.clickfileFormatTab();
+    	mediationPage.clickAddNewButton();
+    	mediationPage.enterFormatFile();
+    	mediationPage.uploadFileFormatXML();
+    	mediationPage.clickSaveChangesButton();
+    	
     	mediationPage.clickPluginsLink();
     	mediationPage.clickMediationReader();
     	mediationPage.clickAddNewButton();
     	mediationPage.selectTypeIdMediationReader();
-    	mediationPage.enterFormatFile();
     	mediationPage.enterSufix();
     	mediationPage.enterDateFormat();
     	mediationPage.enterSeparator();
