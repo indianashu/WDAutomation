@@ -136,22 +136,6 @@ public class AgentConfigurationPluginPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
-    
     @FindBy(how=How.XPATH, using="//a[.='Plug-ins']")
     private WebElement clickPlugin;
     /**
@@ -163,7 +147,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         log.info("Click on Plugin after successful login");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/plugin/list";
+        String url=p.getVal("url2") + "/plugin/list";
         driver.get(url);
     }
     
@@ -239,7 +223,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Save Plugin Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
@@ -288,7 +272,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         log.info("Click on All Link");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/config/index";
+        String url=p.getVal("url2") + "/config/index";
         driver.get(url);
     }
     

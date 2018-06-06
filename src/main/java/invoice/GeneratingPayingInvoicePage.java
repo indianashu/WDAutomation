@@ -676,7 +676,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
         GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Verifying if payment status is successful.");
         JavaScriptExec.sleep();
-        String ExpectedMsg = "Entered";
+        String ExpectedMsg = "Successful";
         String CustomerName = sp.ExcelRead().get(15);
         String ActualMsg = driver.findElement(By.xpath("//*[text()='"+CustomerName+"']/following::span[5]")).getText();
         Assert.assertEquals(ActualMsg, ExpectedMsg);        

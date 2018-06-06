@@ -40,12 +40,12 @@ public class agentCreationTest {
 
     @Test(groups={"Sanity"},description="Agents and Commissions - Agent creation")
     public void userSignin() throws IOException{
-/*
-    	agentPage.enterLoginID();
+
+    	/*agentPage.enterLoginID();
     	agentPage.enterPassword();
     	agentPage.selectCompany();
-    	agentPage.clickLoginButton();
-*/
+    	agentPage.clickLoginButton();*/
+
     	agentPage.clickAgentTab();
     	agentPage.clickAddNewButton();
     	agentPage.enterLoginName();

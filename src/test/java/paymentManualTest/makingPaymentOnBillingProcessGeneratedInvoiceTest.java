@@ -40,19 +40,18 @@ public class makingPaymentOnBillingProcessGeneratedInvoiceTest {
 
     @Test(groups={"Sanity"},description="Making Payment (manually) on Billing Process Generated Invoice.")
     public void userSignin() throws IOException{
-/*
-    	makePaymentPage.enterLoginID();
+
+    	/*makePaymentPage.enterLoginID();
     	makePaymentPage.enterPassword();
     	makePaymentPage.selectCompany();
-    	makePaymentPage.clickLoginButton();
-*/
+    	makePaymentPage.clickLoginButton();*/
+
     	makePaymentPage.clickInvoicesTab();
     	makePaymentPage.clickCustomerName();
     	makePaymentPage.clickPayInvoiceButton();
     	makePaymentPage.selectInvoice();
 		makePaymentPage.checkPaymentProcessRealTime();
     	makePaymentPage.enterProcessingOrder();
-		makePaymentPage.navigateBottom();
     	makePaymentPage.clickReviewPaymentButton();
     	makePaymentPage.clickMakePaymentButton();
     	makePaymentPage.verifyConfirmationMsg();
