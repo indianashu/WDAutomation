@@ -40,12 +40,12 @@ public class creatingOrdersBelongToDiffPeriodsTest {
 
     @Test(groups={"Sanity"},description="Creating Orders Belonging to Different Periods")
     public void userSignin() throws IOException{
-/*
-    	creatingOrdersPage.enterLoginID();
+
+    	/*creatingOrdersPage.enterLoginID();
     	creatingOrdersPage.enterPassword();
     	creatingOrdersPage.selectCompany();
-    	creatingOrdersPage.clickLoginButton();
-*/
+    	creatingOrdersPage.clickLoginButton();*/
+
     	creatingOrdersPage.clickProductsTab();
     	creatingOrdersPage.clickAddCategoryButton();
     	creatingOrdersPage.enterProductCategoryName();

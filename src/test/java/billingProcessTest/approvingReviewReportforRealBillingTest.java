@@ -40,13 +40,12 @@ public class approvingReviewReportforRealBillingTest {
 
     @Test(groups={"Sanity"},description="Approving review report for real billing run.")
     public void userSignin() throws IOException{
-/*
-    	billingPage.enterLoginID();
+
+    	/*billingPage.enterLoginID();
     	billingPage.enterPassword();
     	billingPage.selectCompany();
-    	billingPage.clickLoginButton();
-*/
-        //billingPage.clickConfigurationTab();
+    	billingPage.clickLoginButton();*/
+
         billingPage.clickBillingProcessLink();
     	billingPage.clickRunBillingButton();
     	billingPage.clickBillingTab();

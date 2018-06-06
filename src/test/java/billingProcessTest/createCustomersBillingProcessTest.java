@@ -40,20 +40,18 @@ public class createCustomersBillingProcessTest {
 
     @Test(groups={"Sanity"},description="Create Two Customers for Billing Process.")
     public void userSignin() throws IOException{
-/*
-    	createCustomerPage.enterLoginID();
+
+    	/*createCustomerPage.enterLoginID();
     	createCustomerPage.enterPassword();
     	createCustomerPage.selectCompany();
-    	createCustomerPage.clickLoginButton();
-*/
+    	createCustomerPage.clickLoginButton();*/
+
     	createCustomerPage.clickCustomerTab();
     	createCustomerPage.clickAddNewButton();
     	createCustomerPage.selectUserCompany();
     	createCustomerPage.selectAccountType();
     	createCustomerPage.clickSelectButton();
     	createCustomerPage.enterLoginName();
-    	createCustomerPage.selectBillingCycleUnit();
-    	createCustomerPage.selectBillingCycleDay();
     	createCustomerPage.enterProcessingOrder();
 		createCustomerPage.selectPaymentMethodType();
     	createCustomerPage.enterCardHolderName();
@@ -65,6 +63,8 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.clickCustomer1();
     	createCustomerPage.clickEditButton();
     	createCustomerPage.enterNextInvoiceDate();
+    	createCustomerPage.selectBillingCycleUnit();
+    	createCustomerPage.selectBillingCycleDay();
 		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
@@ -74,8 +74,6 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.selectAccountType();
     	createCustomerPage.clickSelectButton();
     	createCustomerPage.enterLoginName1();
-    	createCustomerPage.selectBillingCycleUnit();
-    	createCustomerPage.selectBillingCycleDay();
     	createCustomerPage.enterProcessingOrder();
 		createCustomerPage.selectPaymentMethodType();
     	createCustomerPage.enterCardHolderName1();
@@ -86,6 +84,8 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.verifyConfirmationMsg();
     	createCustomerPage.clickCustomer2();
     	createCustomerPage.clickEditButton();
+    	createCustomerPage.selectBillingCycleUnit();
+    	createCustomerPage.selectBillingCycleDay();
     	createCustomerPage.enterNextInvoiceDate1();
     	createCustomerPage.enterDueDateDays();
 		createCustomerPage.navigateBottom();
