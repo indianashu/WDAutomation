@@ -40,12 +40,12 @@ public class invoiceReportTotalAmountInvoicedTest {
 
     @Test(groups={"Sanity"},description="Invoice Reports: Total Amount Invoiced.")
     public void userSignin() throws IOException{
-/*
-    	reportsPage.enterLoginID();
+
+    	/*reportsPage.enterLoginID();
     	reportsPage.enterPassword();
     	reportsPage.selectCompany();
-    	reportsPage.clickLoginButton();
-*/
+    	reportsPage.clickLoginButton();*/
+
     	reportsPage.clickCustomerTab();
     	reportsPage.clickAddNewButton();
     	reportsPage.selectAccountType();

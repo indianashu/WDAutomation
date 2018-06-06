@@ -40,12 +40,12 @@ public class generatingInvoiceManuallyTest {
 
     @Test(groups={"Sanity"},description="Generating an Invoice Manually")
     public void userSignin() throws IOException{
-/*
+
     	generatingInvoicePage.enterLoginID();
     	generatingInvoicePage.enterPassword();
     	generatingInvoicePage.selectCompany();
     	generatingInvoicePage.clickLoginButton();
-*/
+
     	generatingInvoicePage.clickCustomerTab();
     	generatingInvoicePage.clickCustomerName();
     	generatingInvoicePage.clickCreateOrderButton();
