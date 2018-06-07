@@ -134,7 +134,7 @@ public class CreateCustomerPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -157,6 +157,7 @@ public class CreateCustomerPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddNewButton() throws IOException{
+    	JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);
     	CreateCustomerPage sp=new CreateCustomerPage(driver);
         log.info("Click on Add New Button");
         JavaScriptExec.sleep();

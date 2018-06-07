@@ -133,22 +133,6 @@ public class BillingPage extends BasePage{
         clickLoginButton.click();
     }
 
-    @FindBy(how=How.XPATH, using="//a[.='Configuration']")
-    private WebElement clickConfigurationTab;
-    /**
-     * Method to click on Configuration tab after successful login.
-     * @throws IOException 
-     */
-    public void clickConfigurationTab() throws IOException{
-    	BillingPage sp=new BillingPage(driver);
-        log.info("Click on Configuration Tab after successful login");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-        Assert.assertTrue(clickConfigurationTab.isDisplayed());
-        clickConfigurationTab.click();
-        
-    }
-    
     @FindBy(how=How.XPATH, using="//a[.='Billing Process']")
     private WebElement clickBillingProcessLink;
     /**
@@ -160,7 +144,7 @@ public class BillingPage extends BasePage{
         log.info("Click on Add New Button");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/billingconfiguration/index";
+        String url=p.getVal("url2") + "/billingconfiguration/index";
         driver.get(url);
     }
    
@@ -189,6 +173,7 @@ public class BillingPage extends BasePage{
      * @throws IOException 
      */
     public void clickSaveChangesButton() throws IOException{
+    	JavaScriptExec.scrollToElementOnPage(driver, clickSaveChangesButton);
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Save Changes Button");
         JavaScriptExec.sleep();
@@ -220,6 +205,7 @@ public class BillingPage extends BasePage{
      * @throws IOException 
      */
     public void clickRunBillingButton() throws IOException{
+    	JavaScriptExec.scrollToElementOnPage(driver, clickRunBillingButton);
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Run Billing Button");
         JavaScriptExec.sleep();
@@ -230,7 +216,7 @@ public class BillingPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[.='Billing']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.billing']/a")
     private WebElement clickBillingTab;
     /**
      * Method to Click on Billing Tab.
@@ -378,8 +364,6 @@ public class BillingPage extends BasePage{
         Assert.assertEquals(Period1, ActualPeriod1);
         Assert.assertEquals(Type1, ActualType1);
 
-        driver.findElement(By.xpath("//*[text()='"+CustName+"']/following::strong/span")).click();
-        JavaScriptExec.sleep();
         String Period2 = driver.findElement(By.xpath("//td[text()='Period:']/following::td[1]")).getText();
         String ActualPeriod2 = sp.ExcelRead().get(14);
         Assert.assertEquals(Period2, ActualPeriod2);

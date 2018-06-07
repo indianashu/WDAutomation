@@ -167,7 +167,7 @@ public class CreatingOrdersPage extends BasePage{
     }
     
     
-    @FindBy(how=How.XPATH, using="//a[.='Products']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductsTab;
     /**
      * Method to Click on Products Tab.
@@ -191,6 +191,7 @@ public class CreatingOrdersPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddCategoryButton() throws IOException{
+    	JavaScriptExec.scrollToElementOnPage(driver, clickAddCategoryButton);
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
         log.info("Click on Add Category Button");
         JavaScriptExec.sleep();
@@ -401,7 +402,7 @@ public class CreatingOrdersPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
