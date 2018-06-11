@@ -147,8 +147,6 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Agent Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAgentTab);
-        Assert.assertTrue(clickAgentTab.isDisplayed());
         clickAgentTab.click();
         
     }
@@ -244,7 +242,7 @@ public class AgentPage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer Tab.
@@ -269,7 +267,7 @@ public class AgentPage extends BasePage{
     public void clickAddNewCustomerButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Customer Tab");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewCustomerButton);
         Assert.assertTrue(clickAddNewCustomerButton.isDisplayed());
         clickAddNewCustomerButton.click();
