@@ -19,6 +19,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -47,7 +48,8 @@ public class MediationPage extends BasePage{
     Logger log=Logger.getLogger(MediationPage.class);
     MediationPage orderHierarchiesPage;
     PropertyValExtractors p = new PropertyValExtractors();
-  
+    Actions actions = new Actions(driver);
+    
     public  ArrayList<String> ExcelRead() throws IOException{
     	
 
@@ -286,7 +288,7 @@ public class MediationPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Save Plugin Button");
-        JavaScriptExec.scrolltoBottomofPage(driver);
+        navigateBottom();
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
         
@@ -367,7 +369,7 @@ public class MediationPage extends BasePage{
     }
     
   
-    @FindBy(how=How.XPATH, using="//input[@name='plg-parm-DEFAULT ITEM ID']")
+    @FindBy(how=How.XPATH, using="//input[@name='plg-parm-Call Item ID']")
     private WebElement enterDefaultItemIDMediationProcessor;
     /**
      * Method to enter value for Default Item ID.
@@ -390,10 +392,8 @@ public class MediationPage extends BasePage{
 
 		String ItemName = sp.ExcelRead().get(19);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ItemName + "']")).click();
-
-		driver.findElement(By.xpath("//a[@class='submit edit']//*[text()='Edit']")).click();
 		JavaScriptExec.sleep();
-		String ItemId = driver.findElement(By.xpath("//label[contains(.,'Product ID')]/following::span[1]")).getText();
+		String ItemId = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[1]/tbody/tr[1]/td[2]")).getText();
 		System.out.println(ItemId);
 		log.info("Item ID." + ItemId);
 		return ItemId;
@@ -484,7 +484,7 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
         Select se = new Select(AccountTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(15));
+        se.selectByVisibleText(sp.ExcelRead().get(14));
 
     }    
 
@@ -517,7 +517,7 @@ public class MediationPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
-        enterLoginName.sendKeys(sp.ExcelRead().get(16));
+        enterLoginName.sendKeys(sp.ExcelRead().get(15));
         
     }
     
