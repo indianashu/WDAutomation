@@ -40,12 +40,12 @@ public class invoicePeriodsDueDateTest {
 
     @Test(groups={"Sanity"},description="Invoice Periods and Due Date.")
     public void userSignin() throws IOException{
-/*
-    	billingPage.enterLoginID();
+
+    	/*billingPage.enterLoginID();
     	billingPage.enterPassword();
     	billingPage.selectCompany();
-    	billingPage.clickLoginButton();
-*/
+    	billingPage.clickLoginButton();*/
+
     	billingPage.clickBillingTab();
     	billingPage.clickLastBillingRun();
     	billingPage.clickShowInvoiceButton();
@@ -53,6 +53,8 @@ public class invoicePeriodsDueDateTest {
     	billingPage.verifyDueDate();
     	//billingPage.clickConfigurationTab();
     	billingPage.clickBillingProcessLink();
+    	billingPage.enterNextRunDate1();
+    	billingPage.clickSaveChangesButton();
     	billingPage.clickRunBillingButton();
     	billingPage.clickBillingTab();
     	billingPage.clickLastBillingRun();

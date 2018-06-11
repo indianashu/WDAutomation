@@ -144,7 +144,6 @@ public class CreateCustomerPage extends BasePage{
     	CreateCustomerPage sp=new CreateCustomerPage(driver);
         log.info("Click on Customer Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
         

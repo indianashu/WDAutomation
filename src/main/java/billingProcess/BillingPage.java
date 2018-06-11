@@ -161,6 +161,7 @@ public class BillingPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterNextRunDate);
         Assert.assertTrue(enterNextRunDate.isDisplayed());
+        enterNextRunDate.clear();
         enterNextRunDate.sendKeys(sp.ExcelRead().get(3));
         
     }
@@ -176,7 +177,7 @@ public class BillingPage extends BasePage{
     	JavaScriptExec.scrollToElementOnPage(driver, clickSaveChangesButton);
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -363,7 +364,9 @@ public class BillingPage extends BasePage{
         String ActualType1 = sp.ExcelRead().get(13);
         Assert.assertEquals(Period1, ActualPeriod1);
         Assert.assertEquals(Type1, ActualType1);
-
+        
+        driver.findElement(By.xpath("//table[@id='orders']/tbody/tr[2]/td[2]/a")).click();
+        JavaScriptExec.sleep();
         String Period2 = driver.findElement(By.xpath("//td[text()='Period:']/following::td[1]")).getText();
         String ActualPeriod2 = sp.ExcelRead().get(14);
         Assert.assertEquals(Period2, ActualPeriod2);
@@ -532,6 +535,7 @@ public class BillingPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterNextRunDate1);
         Assert.assertTrue(enterNextRunDate1.isDisplayed());
+        enterNextRunDate1.clear();
         enterNextRunDate1.sendKeys(sp.ExcelRead().get(9));
         
     }
