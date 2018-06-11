@@ -41,11 +41,11 @@ public class ChildCompanySignupResellerTest {
     @Test(groups={"Sanity"},description="Child Company Sign up as Invoice Reseller New Company")
     public void userSignin() throws IOException{
 
-    	signupChildCompanyInvoiceAsSellerPage.enterLoginID();
+    	/*signupChildCompanyInvoiceAsSellerPage.enterLoginID();
     	signupChildCompanyInvoiceAsSellerPage.enterPassword();
     	signupChildCompanyInvoiceAsSellerPage.selectCompany();
     	signupChildCompanyInvoiceAsSellerPage.clickLoginButton();
-    	signupChildCompanyInvoiceAsSellerPage.verifyLabelSuccessfulLogin();
+    	signupChildCompanyInvoiceAsSellerPage.verifyLabelSuccessfulLogin();*/
 
     	signupChildCompanyInvoiceAsSellerPage.enterURL();
     	signupChildCompanyInvoiceAsSellerPage.labelRootCompany();
