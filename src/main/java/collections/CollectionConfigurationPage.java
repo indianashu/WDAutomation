@@ -134,7 +134,7 @@ public class CollectionConfigurationPage extends BasePage{
     }
 
     
-    @FindBy(how=How.XPATH, using="//a[.='Customers']")
+    @FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
     private WebElement clickCustomerTab;
     /**
      * Method to click on Customer tab after successful login.
@@ -319,7 +319,7 @@ public class CollectionConfigurationPage extends BasePage{
         log.info("Click on Collections Link.");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/config/aging";
+        String url=p.getVal("url2") + "/config/aging";
         driver.get(url);
     }
     
