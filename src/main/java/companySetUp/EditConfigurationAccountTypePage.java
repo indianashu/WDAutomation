@@ -272,7 +272,7 @@ public class EditConfigurationAccountTypePage extends BasePage{
         
     }
     
-    @FindBy(how=How.XPATH, using="//input[@name='accountType.descriptions[0].content']")
+    @FindBy(how=How.XPATH, using="//input[@name='accountType.descriptions[1].content']")
     private WebElement enterEditAccountName;
     /**
      * Method to Enter Account Name.

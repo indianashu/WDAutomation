@@ -162,7 +162,7 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage{
         log.info("Click on Payment Method");
         JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
-        String url=p.getVal("url1") + "/paymentMethodType/list";
+        String url=p.getVal("url2") + "/paymentMethodType/list";
         driver.get(url);
     }
     

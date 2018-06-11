@@ -41,10 +41,10 @@ public class editConfigureAccountTypeTest {
     @Test(groups={"Sanity"},description="Edit Configuration Account Type")
     public void userSignin() throws IOException{
 
-    	editconfigurationAccountTypePage.enterLoginID();
+    	/*editconfigurationAccountTypePage.enterLoginID();
     	editconfigurationAccountTypePage.enterPassword();
     	editconfigurationAccountTypePage.selectCompany();
-    	editconfigurationAccountTypePage.clickLoginButton();
+    	editconfigurationAccountTypePage.clickLoginButton();*/
 
         editconfigurationAccountTypePage.clickAccountType();
         editconfigurationAccountTypePage.clickAddNewButton();
