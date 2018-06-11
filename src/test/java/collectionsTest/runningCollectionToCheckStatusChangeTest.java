@@ -40,12 +40,12 @@ public class runningCollectionToCheckStatusChangeTest {
 
     @Test(groups={"Sanity"},description="Running collection to see changed status of Customer.")
     public void userSignin() throws IOException{
-/*
-    	collectionConfigurationPage.enterLoginID();
+
+    	/*collectionConfigurationPage.enterLoginID();
     	collectionConfigurationPage.enterPassword();
     	collectionConfigurationPage.selectCompany();
-    	collectionConfigurationPage.clickLoginButton();
-*/
+    	collectionConfigurationPage.clickLoginButton();*/
+
     	collectionConfigurationPage.clickCustomerTab();
     	collectionConfigurationPage.clickBillingCustomer2();
     	collectionConfigurationPage.clickEditButton();
