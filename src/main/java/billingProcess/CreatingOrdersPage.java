@@ -177,7 +177,6 @@ public class CreatingOrdersPage extends BasePage{
     	CreatingOrdersPage sp=new CreatingOrdersPage(driver);
         log.info("Click on Products Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
         

@@ -40,12 +40,12 @@ public class runningBillingProcessOrdersCreatedTest {
 
     @Test(groups={"Sanity"},description="Running Billing Process for the orders created.")
     public void userSignin() throws IOException{
-/*
-    	billingPage.enterLoginID();
+
+    	/*billingPage.enterLoginID();
     	billingPage.enterPassword();
     	billingPage.selectCompany();
-    	billingPage.clickLoginButton();
-*/
+    	billingPage.clickLoginButton();*/
+
     	billingPage.clickBillingProcessLink();
     	billingPage.clickGenerateReviewReport();
     	billingPage.clickSaveChangesButton();
