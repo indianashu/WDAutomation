@@ -272,7 +272,7 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Name is available or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterMetafieldName);
+        WaitClass.WaitForElementisDisplay(driver, 20, enterMetafieldName);
         Assert.assertTrue(enterMetafieldName.isDisplayed());
         enterMetafieldName.sendKeys(sp.ExcelRead().get(4));
         
