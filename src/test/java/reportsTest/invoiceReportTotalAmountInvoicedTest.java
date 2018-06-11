@@ -63,6 +63,7 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.selectCustomer();
     	reportsPage.clickCreateOrderButton();
     	reportsPage.clickProductsSubTab();
+    	reportsPage.selectCategory();
     	reportsPage.selectProduct();
     	reportsPage.clickUpdateButton();
     	reportsPage.clickSaveChangesButton();
