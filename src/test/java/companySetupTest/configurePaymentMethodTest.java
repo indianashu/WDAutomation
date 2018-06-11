@@ -41,10 +41,10 @@ public class configurePaymentMethodTest {
     @Test(groups={"Sanity"},description="Configure Payment Method")
     public void userSignin() throws IOException{
 
-    	configurationAddPaymentMethodPage.enterLoginID();
+    	/*configurationAddPaymentMethodPage.enterLoginID();
     	configurationAddPaymentMethodPage.enterPassword();
     	configurationAddPaymentMethodPage.selectCompany();
-    	configurationAddPaymentMethodPage.clickLoginButton();
+    	configurationAddPaymentMethodPage.clickLoginButton();*/
 
         configurationAddPaymentMethodPage.clickPaymentMethod();;
     	configurationAddPaymentMethodPage.clickAddNewButton();
