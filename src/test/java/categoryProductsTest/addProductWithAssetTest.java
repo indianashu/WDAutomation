@@ -41,10 +41,10 @@ public class addProductWithAssetTest {
     @Test(groups={"Sanity"},description="Add Product with Asset")
     public void userSignin() throws IOException{
 
-    	addProductWithAssetPage.enterLoginID();
+    	/*addProductWithAssetPage.enterLoginID();
     	addProductWithAssetPage.enterPassword();
     	addProductWithAssetPage.selectCompany();
-    	addProductWithAssetPage.clickLoginButton();
+    	addProductWithAssetPage.clickLoginButton();*/
     	
     	addProductWithAssetPage.clickPluginsLink();
     	addProductWithAssetPage.clickCategory17();

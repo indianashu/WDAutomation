@@ -473,7 +473,7 @@ public class AddingAssetPage extends BasePage{
 		if (size > 0) {
 			System.out.println("pagination exists");
 			// click on pagination link
-			for (int i = 2; i < size; i++) {
+			for (int i = 1; i < size; i++) {
 
 				try {
 					navigateBottom();

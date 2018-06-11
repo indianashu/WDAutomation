@@ -41,10 +41,10 @@ public class addEditCategoryTest {
     @Test(groups={"Sanity"},description="Add Edit Category")
     public void userSignin() throws IOException{
 
-    	productCategoryPage.enterLoginID();
+    	/*productCategoryPage.enterLoginID();
     	productCategoryPage.enterPassword();
     	productCategoryPage.selectCompany();
-    	productCategoryPage.clickLoginButton();
+    	productCategoryPage.clickLoginButton();*/
 
     	productCategoryPage.clickProductsTab();
     	productCategoryPage.clickAddCategoryButton();

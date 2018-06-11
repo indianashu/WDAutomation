@@ -41,10 +41,10 @@ public class addEditProductTest {
     @Test(groups={"Sanity"},description="Add Edit Product")
     public void userSignin() throws IOException{
 
-    	addProductPage.enterLoginID();
+    	/*addProductPage.enterLoginID();
     	addProductPage.enterPassword();
     	addProductPage.selectCompany();
-    	addProductPage.clickLoginButton();
+    	addProductPage.clickLoginButton();*/
 
         addProductPage.clickProductsTab();
         addProductPage.selectCategoryName();
@@ -52,6 +52,7 @@ public class addEditProductTest {
         addProductPage.enterEnglishDescription();
         addProductPage.enterProductCode();
         addProductPage.selectStandardAvailability();
+        addProductPage.selectAvailableAccountTypes();
         addProductPage.selectCompanies();
         addProductPage.enterPriceDate();
         addProductPage.selectPriceCompany();
@@ -59,8 +60,8 @@ public class addEditProductTest {
         addProductPage.enterPriceRate();
         addProductPage.clickAddPriceButton();
         addProductPage.enterPriceDate1();
-        addProductPage.selectPriceCompany1();
-        addProductPage.selectPriceCurrency1();
+        addProductPage.selectPriceCompany();
+        addProductPage.selectPriceCurrency();
         addProductPage.enterPriceRate1();
         addProductPage.clickAddPriceButton();
         addProductPage.navigateBottom();
@@ -71,7 +72,7 @@ public class addEditProductTest {
         addProductPage.clickAddProductButton();
         addProductPage.enterEnglishDescription3();
         addProductPage.enterProductCode3();
-        addProductPage.selectCompanies3();
+        addProductPage.selectCompanies();
         addProductPage.enterPriceDate();
         addProductPage.selectPriceCompany();
         addProductPage.selectPriceCurrency();
@@ -79,14 +80,14 @@ public class addEditProductTest {
         addProductPage.clickAddPriceButton();
         addProductPage.navigateBottom();
         addProductPage.clickSaveChangesButton();
-        addProductPage.selectCategoryName();
+        /*addProductPage.selectCategoryName();
         addProductPage.clickProductName();
         addProductPage.navigateBottom();
         addProductPage.clickEditProduct();
         addProductPage.editEnglishDescription();
         addProductPage.editProductCode();
         addProductPage.navigateBottom();
-        addProductPage.clickSaveChangesButton();
+        addProductPage.clickSaveChangesButton();*/
 
     }
     

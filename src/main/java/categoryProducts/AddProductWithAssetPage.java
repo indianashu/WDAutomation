@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
@@ -17,6 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -45,7 +47,8 @@ public class AddProductWithAssetPage extends BasePage{
     Logger log=Logger.getLogger(AddProductWithAssetPage.class);
     AddProductWithAssetPage addProductWithAssetPage;
     PropertyValExtractors p = new PropertyValExtractors();
-  
+    Actions actions = new Actions(driver);
+    
     public  ArrayList<String> ExcelRead() throws IOException{
     	
 
@@ -249,36 +252,38 @@ public class AddProductWithAssetPage extends BasePage{
         
     }
     
-    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test Category1']")
-    private WebElement selectCategoryName;
-    /**
-     * Method to click on a category name.
-     * @throws IOException 
-     */
-    public void selectCategoryName() throws IOException{
-    	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
-        log.info("Click on a category name.");
-        JavaScriptExec.sleep();
-        String CategoryName = sp.ExcelRead().get(5);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Product']")
-    private WebElement clickAddProductButton;
-    /**
-     * Method to click on Add Product Button".
-     * @throws IOException 
-     */
-    public void clickAddProductButton() throws IOException{
-    	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
-        log.info("Click on Add Product Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
-        Assert.assertTrue(clickAddProductButton.isDisplayed());
-        clickAddProductButton.click();
-        
-    }
+	/**
+	 * Method to click on a category name.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCategoryName() throws IOException {
+		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
+		JavaScriptExec.sleep();
+		String CategoryName = sp.ExcelRead().get(5);
+		WebElement selectCategoryName = driver
+				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']"));
+		actions.moveToElement(selectCategoryName).click(selectCategoryName).perform();
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Product']")
+	private WebElement clickAddProductButton;
+
+	/**
+	 * Method to click on Add Product Button".
+	 * 
+	 * @throws IOException
+	 */
+	public void clickAddProductButton() throws IOException {
+		JavaScriptExec.scrollToElementOnPage(driver, clickAddProductButton);
+		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
+		log.info("Click on Add Product Button");
+		JavaScriptExec.sleep();
+		WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
+		actions.moveToElement(clickAddProductButton).click().perform();
+
+	}
     
     @FindBy(how=How.XPATH, using="//input[@name='product.descriptions[0].content']")
     private WebElement enterEnglishDescription;
