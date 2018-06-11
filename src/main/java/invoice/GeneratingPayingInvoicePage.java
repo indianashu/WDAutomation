@@ -2,6 +2,7 @@ package invoice;
 
 import baseClassPackage.BasePage;
 import customer.MakePaymentPage;
+import reports.ReportsPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,7 +47,8 @@ public class GeneratingPayingInvoicePage extends BasePage{
     Logger log=Logger.getLogger(GeneratingPayingInvoicePage.class);
     GeneratingPayingInvoicePage generatingPayingInvoicePage;
     PropertyValExtractors p = new PropertyValExtractors();
-  
+    Actions actions = new Actions(driver);
+    
     public  ArrayList<String> ExcelRead() throws IOException{
     	
 
@@ -174,12 +176,14 @@ public class GeneratingPayingInvoicePage extends BasePage{
      * Method to verify Account Type is created Successfully.
      * @throws IOException 
      */
-    public void verifyConfirmationMsg() throws IOException{
+    public String verifyConfirmationMsg() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+        String OrderId = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[1]/strong/em")).getText();
+        return OrderId;
     }
     
   //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
@@ -259,6 +263,20 @@ public class GeneratingPayingInvoicePage extends BasePage{
         
     }
     
+    private WebElement selectCategory;
+    /**
+     * Method to select account type.
+     * @throws IOException 
+     */
+    public void selectCategory() throws IOException{
+    	ReportsPage sp=new ReportsPage(driver);
+    	JavaScriptExec.sleep();
+        WebElement categoryElement = driver.findElement(By.xpath("//select[@name='typeId']"));
+        Select se = new Select(categoryElement);
+        se.selectByVisibleText("New Test category");
+
+    }
+    
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='abc']")
     private WebElement selectProduct;
     /**
@@ -268,7 +286,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void selectProduct() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click Product from list");
-        JavaScriptExec.sleep();
+        navigateBottom();
         String ProductName = sp.ExcelRead().get(6);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
@@ -392,12 +410,11 @@ public class GeneratingPayingInvoicePage extends BasePage{
      * Method to Select Monthly Order from list.
      * @throws IOException 
      */
-    public void selectMonthlyOrder() throws IOException{
+    public void selectMonthlyOrder(String orderId) throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click Monthly Order from list");
         JavaScriptExec.sleep();
-        String OrderNumber = sp.ExcelRead().get(3);
-        driver.findElement(By.xpath("//tr[2]//strong/span[text()='"+OrderNumber+"']")).click();
+        driver.findElement(By.xpath("//a[@class='cell']//*[text()='"+orderId+"']")).click();
         
     }
     
@@ -441,12 +458,11 @@ public class GeneratingPayingInvoicePage extends BasePage{
      * Method to Select One Time Order from list.
      * @throws IOException 
      */
-    public void selectOneTimeOrder() throws IOException{
+    public void selectOneTimeOrder(String orderId) throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click OneTime Order from list");
         JavaScriptExec.sleep();
-        String OrderNumber = sp.ExcelRead().get(3);
-        driver.findElement(By.xpath("//tr[1]//strong/span[text()='"+OrderNumber+"']")).click();
+        driver.findElement(By.xpath("//a[@class='cell']//*[text()='"+orderId+"']")).click();
         
     }
     
@@ -546,8 +562,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
         navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickPayInvoiceButton);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
-        clickPayInvoiceButton.click();
-        JavaScriptExec.sleep();
+        actions.moveToElement(clickPayInvoiceButton).click(clickPayInvoiceButton).perform();
     } 
     
   
@@ -563,7 +578,6 @@ public class GeneratingPayingInvoicePage extends BasePage{
         navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickProcessRealTimeCheckbox);
         Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
-        Actions actions = new Actions(driver);
         actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
         
     }
