@@ -468,24 +468,9 @@ public class AddingAssetPage extends BasePage{
 	public void clickProductCategory() throws IOException {
 		log.info("click on Product category.");
 		JavaScriptExec.sleep();
-		java.util.List<WebElement> pagination = driver.findElements(By.xpath("//*[@id='column1']/div[2]/div[2]/a"));
-		int size = pagination.size();
-		if (size > 0) {
-			System.out.println("pagination exists");
-			// click on pagination link
-			for (int i = 1; i < size; i++) {
+		String ProductCategory = AddingAssetPage.ExcelRead(sheetName).get(11);
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductCategory + "']")).click();
 
-				try {
-					navigateBottom();
-					driver.findElement(By.xpath("//*[@id='column1']/div[2]/div[2]/a[" + i + "]")).click();
-					String ProductCategory = AddingAssetPage.ExcelRead(sheetName).get(11);
-					driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductCategory + "']"))
-							.click();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}
 	}
 
 
