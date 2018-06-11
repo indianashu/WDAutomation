@@ -41,10 +41,10 @@ public class tearDownProcessTest {
     @Test(groups={"Sanity"},description="Tear Down Process")
     public void userSignin() throws IOException{
 
-    	tearDownProcessPage.enterLoginID();
+    	/*tearDownProcessPage.enterLoginID();
     	tearDownProcessPage.enterPassword();
     	tearDownProcessPage.selectCompany();
-    	tearDownProcessPage.clickLoginButton();
+    	tearDownProcessPage.clickLoginButton();*/
 
     	tearDownProcessPage.clickPaymentsTab();
     	tearDownProcessPage.clickPaymentCustomer();
