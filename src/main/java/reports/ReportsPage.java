@@ -1,6 +1,7 @@
 package reports;
 
 import baseClassPackage.BasePage;
+import invoice.GeneratingPayingInvoicePage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,6 +47,7 @@ public class ReportsPage extends BasePage{
     Logger log=Logger.getLogger(ReportsPage.class);
     ReportsPage reportsPage;
     PropertyValExtractors p = new PropertyValExtractors();
+    Actions actions = new Actions(driver);
   
     public  ArrayList<String> ExcelRead() throws IOException{
     	
@@ -311,24 +313,25 @@ public class ReportsPage extends BasePage{
         log.info("select a customer - TestCustomer3");
         JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead().get(5);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
-        
+        WebElement webElement= driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']"));
+        WaitClass.WaitForElementisDisplay(driver, 10, webElement);
+        actions.moveToElement(webElement).click(webElement).perform();
     }    
 
     @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Create Order']")
     private WebElement clickCreateOrderButton;
     /**
-     * Method to click on create order button.
+     * Method to Click Create Order Button.
      * @throws IOException 
      */
     public void clickCreateOrderButton() throws IOException{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
-    	ReportsPage sp=new ReportsPage(driver);
-        log.info("Click on create order button");
+        ReportsPage sp=new ReportsPage(driver);
+        log.info("Click Create Order Button");
         navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
-        clickCreateOrderButton.click();
+        actions.moveToElement(clickCreateOrderButton).click().perform();
         
     }
     
@@ -348,6 +351,20 @@ public class ReportsPage extends BasePage{
         clickProductsSubTab.click();
         
     }    
+    
+    private WebElement selectCategory;
+    /**
+     * Method to select account type.
+     * @throws IOException 
+     */
+    public void selectCategory() throws IOException{
+    	ReportsPage sp=new ReportsPage(driver);
+    	JavaScriptExec.sleep();
+        WebElement categoryElement = driver.findElement(By.xpath("//select[@name='typeId']"));
+        Select se = new Select(categoryElement);
+        se.selectByVisibleText("New Test category");
+
+    }
     
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Commission Product']")
     private WebElement selectProduct;
@@ -664,7 +681,7 @@ public class ReportsPage extends BasePage{
      */
     public void selectViewFormatHTML() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
-        JavaScriptExec.sleep();
+        navigateBottom();
         WebElement Formatelement = driver.findElement(By.xpath("//select[@name='format']"));
         Select se = new Select(Formatelement);
         se.selectByVisibleText(sp.ExcelRead().get(13));
@@ -682,7 +699,7 @@ public class ReportsPage extends BasePage{
     public void clickRunReportButton() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click Run Report Button");
-        JavaScriptExec.sleep();
+        navigateBottom();
         Assert.assertTrue(clickRunReportButton.isDisplayed());
         Actions actions = new Actions(driver);
         actions.moveToElement(clickRunReportButton).click().perform();

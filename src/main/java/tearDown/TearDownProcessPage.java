@@ -17,6 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -44,7 +45,8 @@ public class TearDownProcessPage extends BasePage{
     Logger log=Logger.getLogger(TearDownProcessPage.class);
     TearDownProcessPage orderPage;
     PropertyValExtractors p = new PropertyValExtractors();
-  
+    Actions actions = new Actions(driver);
+    
     public  ArrayList<String> ExcelRead() throws IOException{
     	
 
@@ -161,7 +163,8 @@ public class TearDownProcessPage extends BasePage{
         log.info("Click on Payment Customer");
         JavaScriptExec.sleep();
         String Customer= sp.ExcelRead().get(3);
-        driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+Customer+"']")).click();
+        WebElement webElement = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+Customer+"']"));
+        actions.moveToElement(webElement).click(webElement).perform();
         
     }
    

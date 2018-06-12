@@ -41,10 +41,10 @@ public class configureAddCollectionTest {
     @Test(groups={"Sanity"},description="Configure Add Collection")
     public void userSignin() throws IOException{
 
-    	configurationCollectionsPage.enterLoginID();
+    	/*configurationCollectionsPage.enterLoginID();
     	configurationCollectionsPage.enterPassword();
     	configurationCollectionsPage.selectCompany();
-    	configurationCollectionsPage.clickLoginButton();
+    	configurationCollectionsPage.clickLoginButton();*/
     	
     	configurationCollectionsPage.clickCollections();
     	configurationCollectionsPage.enterIDSteps();

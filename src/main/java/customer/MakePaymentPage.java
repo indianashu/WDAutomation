@@ -46,7 +46,8 @@ public class MakePaymentPage extends BasePage{
     Logger log=Logger.getLogger(MakePaymentPage.class);
     MakePaymentPage makePaymentPage;
     PropertyValExtractors p = new PropertyValExtractors();
-  
+ 	Actions actions = new Actions(driver);
+ 	
     public  ArrayList<String> ExcelRead() throws IOException{
     	
 
@@ -178,7 +179,7 @@ public class MakePaymentPage extends BasePage{
         navigateBottom();
         WaitClass.WaitForElementisDisplay(driver, 10, clickPayInvoiceButton);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
-        clickPayInvoiceButton.click();
+        actions.moveToElement(clickPayInvoiceButton).click(clickPayInvoiceButton).perform();
         
     }
     

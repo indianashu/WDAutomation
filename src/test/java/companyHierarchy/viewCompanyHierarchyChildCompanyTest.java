@@ -42,10 +42,10 @@ public class viewCompanyHierarchyChildCompanyTest {
     public void userSignin() throws IOException{
     	
 
-    	viewAssignedInfoPage.enterLoginID();
+    	/*viewAssignedInfoPage.enterLoginID();
     	viewAssignedInfoPage.enterPassword();
     	viewAssignedInfoPage.selectCompany();
-    	viewAssignedInfoPage.clickLoginButton();
+    	viewAssignedInfoPage.clickLoginButton();*/
 
     	viewAssignedInfoPage.clickImpersonate();
     	viewAssignedInfoPage.selectChildCompany();

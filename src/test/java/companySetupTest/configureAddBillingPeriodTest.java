@@ -41,10 +41,10 @@ public class configureAddBillingPeriodTest {
     @Test(groups={"Sanity"},description="Configure Add Billing Period")
     public void userSignin() throws IOException{
 
-    	configurationBillingProcessPage.enterLoginID();
+    	/*configurationBillingProcessPage.enterLoginID();
     	configurationBillingProcessPage.enterPassword();
     	configurationBillingProcessPage.selectCompany();
-    	configurationBillingProcessPage.clickLoginButton();
+    	configurationBillingProcessPage.clickLoginButton();*/
 
         //configurationBillingProcessPage.clickConfigurationTab();
     	configurationBillingProcessPage.clickBillingProcess();

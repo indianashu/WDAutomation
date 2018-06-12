@@ -40,12 +40,12 @@ public class addNewSubCustomerTest {
 
     @Test(groups={"Sanity"},description="Add New Customer and Sub Customer")
     public void userSignin() throws IOException{
-/*
-    	customerParentChildPage.enterLoginID();
+
+    	/*customerParentChildPage.enterLoginID();
     	customerParentChildPage.enterPassword();
     	customerParentChildPage.selectCompany();
-    	customerParentChildPage.clickLoginButton();
-*/
+    	customerParentChildPage.clickLoginButton();*/
+
     	customerParentChildPage.clickCustomerTab();
 		customerParentChildPage.clickAddNewButton();
 		customerParentChildPage.selectUserCompany();

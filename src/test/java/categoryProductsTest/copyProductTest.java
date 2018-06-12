@@ -41,10 +41,10 @@ public class copyProductTest {
     @Test(groups={"Sanity"},description="Copy Product")
     public void userSignin() throws IOException{
 
-    	copyProductPage.enterLoginID();
+    	/*copyProductPage.enterLoginID();
     	copyProductPage.enterPassword();
     	copyProductPage.selectCompany();
-    	copyProductPage.clickLoginButton();
+    	copyProductPage.clickLoginButton();*/
 
     	copyProductPage.clickProductsTab();
     	copyProductPage.clickAddCategoryButton();

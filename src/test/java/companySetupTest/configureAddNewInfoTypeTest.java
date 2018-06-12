@@ -41,10 +41,10 @@ public class configureAddNewInfoTypeTest {
     @Test(groups={"Sanity"},description="Configure Add New Info Type")
     public void userSignin() throws IOException{
 
-    	configurationNewInformationTypePage.enterLoginID();
+    	/*configurationNewInformationTypePage.enterLoginID();
     	configurationNewInformationTypePage.enterPassword();
     	configurationNewInformationTypePage.selectCompany();
-    	configurationNewInformationTypePage.clickLoginButton();
+    	configurationNewInformationTypePage.clickLoginButton();*/
     	
         configurationNewInformationTypePage.clickAccountType();
     	configurationNewInformationTypePage.clickAccountTypeCreated();
@@ -53,7 +53,7 @@ public class configureAddNewInfoTypeTest {
         configurationNewInformationTypePage.enterdisplayOrder();
         configurationNewInformationTypePage.checkuseForNotifications();
     	configurationNewInformationTypePage.clickAddNewMetafieldButton();
-    	//configurationNewInformationTypePage.clickDecription();
+    	configurationNewInformationTypePage.clickDecription();
     	configurationNewInformationTypePage.enterMetafieldName();
     	configurationNewInformationTypePage.selectMetafieldType();
     	configurationNewInformationTypePage.clickUpdateButton();

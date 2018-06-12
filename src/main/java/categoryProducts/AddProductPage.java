@@ -226,8 +226,6 @@ public class AddProductPage extends BasePage{
         WaitClass.WaitForElementisDisplay(driver, 10, selectStandardAvailability);
         Assert.assertTrue(selectStandardAvailability.isDisplayed());
         selectStandardAvailability.click();
-        JavaScriptExec.sleep();
-        driver.findElement(By.xpath("//*[@name=\"product.accountTypes\"]/option[2]")).click();
     }
     
     private WebElement selectAvailableAccountTypes;
@@ -334,32 +332,6 @@ public class AddProductPage extends BasePage{
         
     }
     
-    private WebElement selectPriceCompany1;
-    /**
-     * Method to select company in Prices.
-     * @throws IOException 
-     */
-    public void selectPriceCompany1() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
-        Select se = new Select(Companieselement);
-        se.selectByVisibleText(sp.ExcelRead().get(13));
-
-    }
-    
-    private WebElement selectPriceCurrency1;
-    /**
-     * Method to select price currency.
-     * @throws IOException 
-     */
-    public void selectPriceCurrency1() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-        Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(14));
-
-    }
-    
     @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
     private WebElement enterPriceRate1;
     /**
@@ -456,23 +428,7 @@ public class AddProductPage extends BasePage{
         Assert.assertTrue(enterProductCode3.isDisplayed());
         enterProductCode3.sendKeys(sp.ExcelRead().get(17));
         
-    }
-        
-    private WebElement selectCompanies3;
-    /**
-     * Method to select companies.
-     * @throws IOException 
-     */
-    public void selectCompanies3() throws IOException{
-    	AddProductPage sp=new AddProductPage(driver);
-        WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
-        Select se = new Select(Companieselement);
-        se.selectByVisibleText(sp.ExcelRead().get(18));
-
-    }
-
-       
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
+    }@FindBy(how=How.XPATH, using="//input[@name='product.rate']")
     private WebElement enterPriceRate3;
     /**
      * Method to Enter Price Rate.
