@@ -141,8 +141,6 @@ public class LoginPage extends BasePage{
     public void verifyLabelSuccessfulLogin() throws IOException{
     	LoginPage sp=new LoginPage(driver);
         log.info("Verifying if Label is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, labelSuccessfulLogin);
         Assert.assertTrue(labelSuccessfulLogin.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
     }
 

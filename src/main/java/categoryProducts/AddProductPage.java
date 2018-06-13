@@ -309,7 +309,7 @@ public class AddProductPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
         Assert.assertTrue(enterPriceRate.isDisplayed());
-        enterPriceRate1.clear();
+        enterPriceRate.clear();
         enterPriceRate.sendKeys(sp.ExcelRead().get(11));
         
     }

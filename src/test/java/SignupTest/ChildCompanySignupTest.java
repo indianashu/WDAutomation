@@ -38,7 +38,7 @@ public class ChildCompanySignupTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Child Company Sign up new company")
+    @Test(groups={"Sanity", "Product Historical Feature"},description="Child Company Sign up new company")
     public void userSignin() throws IOException{
 
     	/*signupChildCompanyPage.enterLoginID();
