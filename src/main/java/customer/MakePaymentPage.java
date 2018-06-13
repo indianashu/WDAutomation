@@ -177,7 +177,7 @@ public class MakePaymentPage extends BasePage{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on pay invoice Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPayInvoiceButton);
+        WaitClass.WaitForElementisDisplay(driver, 20, clickPayInvoiceButton);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
         actions.moveToElement(clickPayInvoiceButton).click(clickPayInvoiceButton).perform();
         
