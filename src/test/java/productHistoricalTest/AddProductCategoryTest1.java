@@ -34,6 +34,7 @@ public class AddProductCategoryTest1 {
 		addProductCategoryPage.enterPassword();
 		addProductCategoryPage.selectCompany();
 		addProductCategoryPage.clickLoginButton();
+		
 		addProductCategoryPage.clickProductsTab();
 		addProductCategoryPage.clickAddCategoryButton();
 		addProductCategoryPage.enterCategoryName();
@@ -41,6 +42,7 @@ public class AddProductCategoryTest1 {
 		addProductCategoryPage.selectCompany2();
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();
+		
 		addProductCategoryPage.clickAddProductButton();
 		addProductCategoryPage.enterEnglishDescription();
 		addProductCategoryPage.enterProductCode();

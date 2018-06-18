@@ -70,6 +70,7 @@ public class AddProductCategoryPage1 extends BasePage {
 
 		return rl;
 	}
+	
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginID;
