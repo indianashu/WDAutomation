@@ -159,8 +159,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Click on Add New");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
         
@@ -189,8 +187,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Click on Select Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
         JavaScriptExec.sleep();
@@ -205,8 +201,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     public void enterMethodName() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Verifying the Method Name is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterMethodName);
         Assert.assertTrue(enterMethodName.isDisplayed());
         enterMethodName.sendKeys(sp.ExcelRead().get(4));
 
@@ -221,8 +215,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     public void selectIsRecurring() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Verifying the Is Recurring is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, selectIsRecurring);
         Assert.assertTrue(selectIsRecurring.isDisplayed());
         selectIsRecurring.click();
 
@@ -235,7 +227,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
      */
     public void selectAccountType() throws IOException{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
-        JavaScriptExec.sleep();
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypes']"));
         Select se = new Select(AccountTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(5));
@@ -252,7 +243,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Click on Save Changes Button");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -268,7 +258,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage{
     	ConfigurationAddPaymentMethodPage sp=new ConfigurationAddPaymentMethodPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     

@@ -54,6 +54,7 @@ public class addEditProductTest {
         addProductPage.selectStandardAvailability();
         addProductPage.selectAvailableAccountTypes();
         addProductPage.selectCompanies();
+        addProductPage.navigateBottom();
         addProductPage.enterPriceDate();
         addProductPage.selectPriceCompany();
         addProductPage.selectPriceCurrency();
@@ -64,7 +65,6 @@ public class addEditProductTest {
         addProductPage.selectPriceCurrency();
         addProductPage.enterPriceRate1();
         addProductPage.clickAddPriceButton();
-        addProductPage.navigateBottom();
         addProductPage.clickSaveChangesButton();
         addProductPage.verifyConfirmationMsg();
         addProductPage.clickProductsTab();
@@ -73,13 +73,14 @@ public class addEditProductTest {
         addProductPage.enterEnglishDescription3();
         addProductPage.enterProductCode3();
         addProductPage.selectCompanies();
+        addProductPage.navigateBottom();
         addProductPage.enterPriceDate();
         addProductPage.selectPriceCompany();
         addProductPage.selectPriceCurrency();
         addProductPage.enterPriceRate3();
         addProductPage.clickAddPriceButton();
-        addProductPage.navigateBottom();
         addProductPage.clickSaveChangesButton();
+        addProductPage.verifyConfirmationMsg();
         /*addProductPage.selectCategoryName();
         addProductPage.clickProductName();
         addProductPage.navigateBottom();

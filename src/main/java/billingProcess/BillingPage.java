@@ -146,6 +146,7 @@ public class BillingPage extends BasePage{
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/billingconfiguration/index";
         driver.get(url);
+        JavaScriptExec.sleep();
     }
    
     
@@ -158,8 +159,6 @@ public class BillingPage extends BasePage{
     public void enterNextRunDate() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Enter Next Run Date");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterNextRunDate);
         Assert.assertTrue(enterNextRunDate.isDisplayed());
         enterNextRunDate.clear();
         enterNextRunDate.sendKeys(sp.ExcelRead().get(3));
@@ -177,8 +176,6 @@ public class BillingPage extends BasePage{
     	JavaScriptExec.scrollToElementOnPage(driver, clickSaveChangesButton);
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Save Changes Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -194,7 +191,6 @@ public class BillingPage extends BasePage{
     	BillingPage sp=new BillingPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -209,10 +205,9 @@ public class BillingPage extends BasePage{
     	JavaScriptExec.scrollToElementOnPage(driver, clickRunBillingButton);
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Run Billing Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRunBillingButton);
         Assert.assertTrue(clickRunBillingButton.isDisplayed());
         clickRunBillingButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -227,7 +222,6 @@ public class BillingPage extends BasePage{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click Billing Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickBillingTab);
         Assert.assertTrue(clickBillingTab.isDisplayed());
         clickBillingTab.click();
         
@@ -264,7 +258,6 @@ public class BillingPage extends BasePage{
         log.info("Verify order numbers");
         String FontStyle = driver.findElement(By.xpath("//a[@class='cell']/following::span[2]")).getCssValue("font-style");
         System.out.println("FontStyle---->" +FontStyle);
-        JavaScriptExec.sleep();
         String FontStyleExpected = sp.ExcelRead().get(5);
         Assert.assertEquals(FontStyle, FontStyleExpected);
         
@@ -280,10 +273,9 @@ public class BillingPage extends BasePage{
     public void clickBillingReview() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click Billing Review");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickBillingReview);
         Assert.assertTrue(clickBillingReview.isDisplayed());
         clickBillingReview.click();
+        JavaScriptExec.sleep();
         
     } 
   
@@ -296,10 +288,9 @@ public class BillingPage extends BasePage{
     public void clickShowOrdersButton() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Show Orders Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickShowOrdersButton);
         Assert.assertTrue(clickShowOrdersButton.isDisplayed());
         clickShowOrdersButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -312,11 +303,8 @@ public class BillingPage extends BasePage{
     public void clickApproveButton() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Approve Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickApproveButton);
         Assert.assertTrue(clickApproveButton.isDisplayed());
         clickApproveButton.click();
-        JavaScriptExec.sleep();
         driver.findElement(By.xpath("//button[text()='Yes']")).click();
         JavaScriptExec.sleep();
     }
@@ -331,10 +319,9 @@ public class BillingPage extends BasePage{
     public void clickShowInvoiceButton() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Show Invoice Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickShowInvoiceButton);
         Assert.assertTrue(clickShowInvoiceButton.isDisplayed());
         clickShowInvoiceButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -398,7 +385,6 @@ public class BillingPage extends BasePage{
     public void verifyInvoiceCustomer() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Verify invoice customer in the table.");
-        JavaScriptExec.sleep();
         String BillingCustomerExpected = sp.ExcelRead().get(6);
         String BillingCustomerActual = driver.findElement(By.xpath("//a[@class='cell double']")).getText();
         System.out.println("Billing Customer Name is -------->" +BillingCustomerActual);
@@ -449,8 +435,6 @@ public class BillingPage extends BasePage{
     public void clickGenerateReviewReport() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Uncheck Generate Review Report.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickGenerateReviewReport);
         Assert.assertTrue(clickGenerateReviewReport.isDisplayed());
         clickGenerateReviewReport.click();
         
@@ -485,7 +469,6 @@ public class BillingPage extends BasePage{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on last billing run");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickLastBillingRun);
         Assert.assertTrue(clickLastBillingRun.isDisplayed());
         clickLastBillingRun.click();
         
@@ -532,8 +515,6 @@ public class BillingPage extends BasePage{
     public void enterNextRunDate1() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Enter Next Run Date");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterNextRunDate1);
         Assert.assertTrue(enterNextRunDate1.isDisplayed());
         enterNextRunDate1.clear();
         enterNextRunDate1.sendKeys(sp.ExcelRead().get(9));

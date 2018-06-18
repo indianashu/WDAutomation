@@ -56,12 +56,11 @@ public class agentCreationTest {
 		String AgentId = agentPage.verifyAgentAndFetchAgentId();
     	agentPage.clickCustomerTab();
     	agentPage.clickAddNewCustomerButton();
-    	agentPage.selectUserCompany();
+    	//agentPage.selectUserCompany();
     	agentPage.selectAccountType();
     	agentPage.clickSelectButton();
     	agentPage.enterLoginName1();
     	agentPage.enterAgentID(AgentId);
-		agentPage.navigateBottom();
     	agentPage.enterProcessingOrder();
 		agentPage.selectPaymentMethodType();
     	agentPage.enterCardHolderName();

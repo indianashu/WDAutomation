@@ -40,12 +40,12 @@ public class verifyDiscountOrderTest {
 
     @Test(groups={"Sanity"},description="Verify Order Discount")
     public void userSignin() throws IOException{
-/*
-    	discountPage.enterLoginID();
+
+    	/*discountPage.enterLoginID();
     	discountPage.enterPassword();
     	discountPage.selectCompany();
-    	discountPage.clickLoginButton();
-*/
+    	discountPage.clickLoginButton();*/
+
     	discountPage.clickDiscountTab();
     	discountPage.clickAddNewButton();
 		discountPage.clickSaveChangesButton();

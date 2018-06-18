@@ -47,7 +47,6 @@ public class addNewCustomerTest {
 
         customerPage.clickCustomerTab();
     	customerPage.clickAddNewButton();
-    	customerPage.selectUserCompany();
     	customerPage.selectAccountType();
     	customerPage.clickSelectButton();
     	customerPage.enterLoginName();

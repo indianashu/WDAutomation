@@ -160,10 +160,9 @@ public class AgentPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on add new button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -177,8 +176,6 @@ public class AgentPage extends BasePage{
     public void enterLoginName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Login Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(3));
         
@@ -193,8 +190,6 @@ public class AgentPage extends BasePage{
     public void enterEmail() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Product Code");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEmail);
         Assert.assertTrue(enterEmail.isDisplayed());
         enterEmail.sendKeys(sp.ExcelRead().get(4));
         
@@ -252,7 +247,6 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Customer Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
         
@@ -268,7 +262,6 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Customer Tab");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewCustomerButton);
         Assert.assertTrue(clickAddNewCustomerButton.isDisplayed());
         clickAddNewCustomerButton.click();
         
@@ -310,10 +303,9 @@ public class AgentPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on select Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -326,8 +318,6 @@ public class AgentPage extends BasePage{
     public void enterLoginName1() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Login Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName1);
         Assert.assertTrue(enterLoginName1.isDisplayed());
         enterLoginName1.sendKeys(sp.ExcelRead().get(9));
         
@@ -342,8 +332,6 @@ public class AgentPage extends BasePage{
     public void enterAgentID(String AgentId) throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Agent ID");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterAgentID);
         Assert.assertTrue(enterAgentID.isDisplayed());
         enterAgentID.sendKeys(AgentId);
         
@@ -359,6 +347,7 @@ public class AgentPage extends BasePage{
         WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMTelement);
         se.selectByVisibleText(sp.ExcelRead().get(20));
+        JavaScriptExec.sleep();
 
     }
     
@@ -371,8 +360,7 @@ public class AgentPage extends BasePage{
     public void enterProcessingOrder() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProcessingOrder);
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(17));
         
@@ -387,8 +375,6 @@ public class AgentPage extends BasePage{
     public void enterCardHolderName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card holder name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCardHolderName);
         Assert.assertTrue(enterCardHolderName.isDisplayed());
         enterCardHolderName.sendKeys(sp.ExcelRead().get(9));
         
@@ -403,8 +389,6 @@ public class AgentPage extends BasePage{
     public void enterCardNumber() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card number");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
         enterCardNumber.sendKeys(sp.ExcelRead().get(18));
         
@@ -419,8 +403,6 @@ public class AgentPage extends BasePage{
     public void enterCardExpiry() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card number");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCardExpiry);
         Assert.assertTrue(enterCardExpiry.isDisplayed());
         enterCardExpiry.sendKeys(sp.ExcelRead().get(19));
         
@@ -436,8 +418,7 @@ public class AgentPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Save Changes Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -453,7 +434,6 @@ public class AgentPage extends BasePage{
         AgentPage sp=new AgentPage(driver);
         log.info("Verifying if Agent is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyAgentAndFetchAgentId);
         Assert.assertTrue(verifyAgentAndFetchAgentId.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
         String AgentId = driver.findElement(By.xpath("//td[text()='Agent ID']/following::td[1]")).getText();
         return AgentId;
@@ -469,7 +449,6 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -483,7 +462,6 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Product Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductTab);
         Assert.assertTrue(clickProductTab.isDisplayed());
         clickProductTab.click();
         
@@ -498,10 +476,10 @@ public class AgentPage extends BasePage{
     public void clickAddCategoryButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Add Category Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -514,8 +492,6 @@ public class AgentPage extends BasePage{
     public void enterCategoryName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Name for Category");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
         Assert.assertTrue(enterCategoryName.isDisplayed());
         enterCategoryName.sendKeys(sp.ExcelRead().get(11));
         
@@ -530,9 +506,9 @@ public class AgentPage extends BasePage{
     public void clickProductCategoryName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Product Category Name - Commissioned Product");
-        JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(11);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -545,10 +521,9 @@ public class AgentPage extends BasePage{
     public void clickAddProductButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Add Product Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
         Assert.assertTrue(clickAddProductButton.isDisplayed());
         clickAddProductButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -561,8 +536,6 @@ public class AgentPage extends BasePage{
     public void enterEnglishDescription() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter English Description");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
         enterEnglishDescription.sendKeys(sp.ExcelRead().get(12));
         
@@ -577,8 +550,6 @@ public class AgentPage extends BasePage{
     public void enterProductCode() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Product Code");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(sp.ExcelRead().get(13));
         
@@ -593,8 +564,6 @@ public class AgentPage extends BasePage{
     public void enterStdCommission() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Standard Agent Commission");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterStdCommission);
         Assert.assertTrue(enterStdCommission.isDisplayed());
         enterStdCommission.sendKeys(sp.ExcelRead().get(14));
         
@@ -610,8 +579,6 @@ public class AgentPage extends BasePage{
     public void enterMasterCommission() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Master Agent Commission");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterMasterCommission);
         Assert.assertTrue(enterMasterCommission.isDisplayed());
         enterMasterCommission.sendKeys(sp.ExcelRead().get(15));
         
@@ -626,8 +593,7 @@ public class AgentPage extends BasePage{
     public void enterPriceRate() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterPriceRate.isDisplayed());
         enterPriceRate.sendKeys(sp.ExcelRead().get(16));
         
@@ -642,8 +608,6 @@ public class AgentPage extends BasePage{
     public void clickAddPriceButton() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Add Price Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
         Assert.assertTrue(clickAddPriceButton.isDisplayed());
         clickAddPriceButton.click();
         

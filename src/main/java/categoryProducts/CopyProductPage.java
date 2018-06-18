@@ -144,7 +144,6 @@ public class CopyProductPage extends BasePage{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Products Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
         
@@ -160,7 +159,6 @@ public class CopyProductPage extends BasePage{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Add Category Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
         
@@ -175,8 +173,6 @@ public class CopyProductPage extends BasePage{
     public void enterCategoryName() throws IOException{
         CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Category Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
         Assert.assertTrue(enterCategoryName.isDisplayed());
         enterCategoryName.sendKeys(sp.ExcelRead().get(3));
         
@@ -192,7 +188,6 @@ public class CopyProductPage extends BasePage{
     public void selectCategoryName() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on a category name.");
-        JavaScriptExec.sleep();
         String CategoryName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
@@ -208,7 +203,6 @@ public class CopyProductPage extends BasePage{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Add Product Button");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
         Assert.assertTrue(clickAddProductButton.isDisplayed());
         clickAddProductButton.click();
         
@@ -223,8 +217,6 @@ public class CopyProductPage extends BasePage{
     public void enterEnglishDescription() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter English Description");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
         enterEnglishDescription.sendKeys(sp.ExcelRead().get(4));
         
@@ -239,8 +231,6 @@ public class CopyProductPage extends BasePage{
     public void enterProductCode() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Product Code");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(sp.ExcelRead().get(5));
         
@@ -268,8 +258,6 @@ public class CopyProductPage extends BasePage{
     public void enterPriceDate() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Date");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceDate);
         Assert.assertTrue(enterPriceDate.isDisplayed());
         enterPriceDate.clear();
         enterPriceDate.sendKeys(sp.ExcelRead().get(7));
@@ -311,8 +299,6 @@ public class CopyProductPage extends BasePage{
     public void enterPriceRate() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
         Assert.assertTrue(enterPriceRate.isDisplayed());
         enterPriceRate.clear();
         enterPriceRate.sendKeys(sp.ExcelRead().get(10));
@@ -328,8 +314,6 @@ public class CopyProductPage extends BasePage{
     public void clickAddPriceButton() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Add Price Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
         Assert.assertTrue(clickAddPriceButton.isDisplayed());
         clickAddPriceButton.click();
         
@@ -345,8 +329,6 @@ public class CopyProductPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -361,7 +343,6 @@ public class CopyProductPage extends BasePage{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Verifying if Product Category is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -411,8 +392,6 @@ public class CopyProductPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCopyProductButton);
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Click Copy Product Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCopyProductButton);
         Assert.assertTrue(clickCopyProductButton.isDisplayed());
         clickCopyProductButton.click();
         
@@ -428,8 +407,6 @@ public class CopyProductPage extends BasePage{
     public void enterPriceRate1() throws IOException{
     	CopyProductPage sp=new CopyProductPage(driver);
         log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate1);
         Assert.assertTrue(enterPriceRate1.isDisplayed());
         enterPriceRate1.clear();
         enterPriceRate1.sendKeys(sp.ExcelRead().get(11));

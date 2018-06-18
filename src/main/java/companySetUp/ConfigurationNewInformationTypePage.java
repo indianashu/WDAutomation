@@ -157,8 +157,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void clickAccountTypeCreated() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Click on account type created");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAccountTypeCreated);
         Assert.assertTrue(clickAccountTypeCreated.isDisplayed());
         clickAccountTypeCreated.click();
         
@@ -172,8 +170,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void enterAccountName() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Add Information Type Button is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddInformationTypeButton);
         Assert.assertTrue(clickAddInformationTypeButton.isDisplayed());
         clickAddInformationTypeButton.click();
         
@@ -188,8 +184,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void enterName() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Name is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterName);
         Assert.assertTrue(enterName.isDisplayed());
         enterName.sendKeys(sp.ExcelRead().get(3));
         
@@ -204,8 +198,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void enterdisplayOrder() throws IOException{
         ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Display Order is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterdisplayOrder);
         Assert.assertTrue(enterdisplayOrder.isDisplayed());
         enterdisplayOrder.sendKeys(sp.ExcelRead().get(6));
 
@@ -220,12 +212,9 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void checkuseForNotifications() throws IOException{
         ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Display Order is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, checkuseForNotifications);
         Assert.assertTrue(checkuseForNotifications.isDisplayed());
         checkuseForNotifications.click();
         log.info("click on yes button");
-        JavaScriptExec.sleep();
         WebElement clickYesPopup = driver.findElement(By.xpath("//*[text()='Yes']"));
         Assert.assertTrue(clickYesPopup.isDisplayed());
         clickYesPopup.click();
@@ -240,10 +229,9 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void clickAddNewMetafieldButton() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Add Information Type Button is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewMetafieldButton);
         Assert.assertTrue(clickAddNewMetafieldButton.isDisplayed());
         clickAddNewMetafieldButton.click();
+        JavaScriptExec.sleep();
     }
     
     @FindBy(how=How.XPATH, using="//span[@class='description']")
@@ -271,8 +259,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void enterMetafieldName() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Name is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 20, enterMetafieldName);
         Assert.assertTrue(enterMetafieldName.isDisplayed());
         enterMetafieldName.sendKeys(sp.ExcelRead().get(4));
         
@@ -286,7 +272,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void selectMetafieldType() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
     	WebElement MetafieldTypeelement = driver.findElement(By.xpath("//select[@name='fieldType0']"));
-    	JavaScriptExec.sleep();
     	Select se = new Select(MetafieldTypeelement);
         se.selectByVisibleText(sp.ExcelRead().get(5));
 
@@ -301,10 +286,9 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void clickUpdateButton() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Click on Update Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -317,8 +301,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -333,7 +315,6 @@ public class ConfigurationNewInformationTypePage extends BasePage{
     	ConfigurationNewInformationTypePage sp=new ConfigurationNewInformationTypePage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     

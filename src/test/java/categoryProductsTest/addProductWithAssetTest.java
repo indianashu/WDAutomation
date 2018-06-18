@@ -50,6 +50,7 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.clickCategory17();
     	addProductWithAssetPage.clickAddNewButton();
     	addProductWithAssetPage.selectTypeId();
+    	addProductWithAssetPage.navigateBottom();
     	addProductWithAssetPage.clickSavePluginButton();
     	addProductWithAssetPage.clickProductsTab();
     	addProductWithAssetPage.selectCategoryName();
@@ -58,9 +59,9 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.enterProductCode();
     	addProductWithAssetPage.clickGlobalCheckbox();
     	addProductWithAssetPage.selectAllowAssetManagement();
+		addProductWithAssetPage.navigateBottom();
     	addProductWithAssetPage.enterPriceRate();
     	addProductWithAssetPage.clickAddPriceButton();
-		addProductWithAssetPage.navigateBottom();
     	addProductWithAssetPage.clickSaveChangesButton();
     	addProductWithAssetPage.verifyConfirmationMsg();
     	addProductWithAssetPage.clickProductName();

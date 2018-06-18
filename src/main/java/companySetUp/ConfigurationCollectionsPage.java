@@ -157,8 +157,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterIDSteps() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the IDStep is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps);
         Assert.assertTrue(enterIDSteps.isDisplayed());
         enterIDSteps.sendKeys(sp.ExcelRead().get(3));
 
@@ -173,11 +171,8 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterForDays() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterForDays);
         Assert.assertTrue(enterForDays.isDisplayed());
         enterForDays.click();
-        JavaScriptExec.sleep();
         enterForDays.sendKeys(sp.ExcelRead().get(4));
 
     }
@@ -191,8 +186,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectPaymentCheckbox() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Payment Checkbox is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, selectPaymentCheckbox);
         Assert.assertTrue(selectPaymentCheckbox.isDisplayed());
         selectPaymentCheckbox.click();
 
@@ -207,8 +200,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterIDSteps1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Description is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps1);
         Assert.assertTrue(enterIDSteps1.isDisplayed());
         enterIDSteps1.sendKeys(sp.ExcelRead().get(5));
 
@@ -223,11 +214,8 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterForDays1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterForDays1);
         Assert.assertTrue(enterForDays1.isDisplayed());
         enterForDays1.click();
-        JavaScriptExec.sleep();
         enterForDays1.sendKeys(sp.ExcelRead().get(6));
 
     }
@@ -241,8 +229,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectNotificationCheckbox() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Notification Checkbox is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, selectNotificationCheckbox);
         Assert.assertTrue(selectNotificationCheckbox.isDisplayed());
         selectNotificationCheckbox.click();
 
@@ -257,8 +243,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterIDSteps2() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the ID Step2 is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps2);
         Assert.assertTrue(enterIDSteps2.isDisplayed());
         enterIDSteps2.sendKeys(sp.ExcelRead().get(7));
 
@@ -273,11 +257,8 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterForDays2() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterForDays2);
         Assert.assertTrue(enterForDays2.isDisplayed());
         enterForDays2.click();
-        JavaScriptExec.sleep();
         enterForDays2.sendKeys(sp.ExcelRead().get(8));
 
     }
@@ -291,8 +272,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectPaymentCheckbox1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Payment Checkbox is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, selectPaymentCheckbox1);
         Assert.assertTrue(selectPaymentCheckbox1.isDisplayed());
         selectPaymentCheckbox1.click();
 
@@ -307,8 +286,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterIDSteps3() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the ID Step3 is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterIDSteps3);
         Assert.assertTrue(enterIDSteps3.isDisplayed());
         enterIDSteps3.sendKeys(sp.ExcelRead().get(9));
 
@@ -323,11 +300,8 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterForDays3() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the For Days is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterForDays3);
         Assert.assertTrue(enterForDays3.isDisplayed());
         enterForDays3.click();
-        JavaScriptExec.sleep();
         enterForDays3.sendKeys(sp.ExcelRead().get(10));
 
     }
@@ -341,8 +315,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void selectSuspendCheckbox1() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying the Suspend Checkbox is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, selectSuspendCheckbox1);
         Assert.assertTrue(selectSuspendCheckbox1.isDisplayed());
         selectSuspendCheckbox1.click();
 
@@ -377,7 +349,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Verifying if Collections are created/updated Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 20, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -392,10 +363,10 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void clickPluginsLink() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Plugins Link");
-        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/plugin/list";
         driver.get(url);
+        JavaScriptExec.sleep();
     }
     
   
@@ -409,7 +380,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("click on category 17 - Generic internal events listener.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCategory17);
         Assert.assertTrue(clickCategory17.isDisplayed());
         clickCategory17.click();
         
@@ -425,10 +395,9 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("click on Add New button.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
+        JavaScriptExec.sleep();
         
     }
 
@@ -471,8 +440,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void enterLeftAttribute() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Enter Left Attribute.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLeftAttribute);
         Assert.assertTrue(enterLeftAttribute.isDisplayed());
         enterLeftAttribute.sendKeys(sp.ExcelRead().get(13));  
     }
@@ -487,7 +454,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Enter Right Attribute.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRightAttribute);
         Assert.assertTrue(enterRightAttribute.isDisplayed());
         enterRightAttribute.sendKeys(gracePeriodId);
     }
@@ -502,8 +468,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void clickPlusIcon() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Plus Icon.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPlusIcon);
         Assert.assertTrue(clickPlusIcon.isDisplayed());
         clickPlusIcon.click();  
     }
@@ -520,7 +484,6 @@ public class ConfigurationCollectionsPage extends BasePage{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("Click on Save Plugin Button.");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();  
     }

@@ -144,7 +144,6 @@ public class ConfigurationAccountTypePage extends BasePage{
     public void clickAccountType() throws IOException{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Click on Account Type");
-        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/accountType/list";
         driver.get(url);
@@ -159,8 +158,6 @@ public class ConfigurationAccountTypePage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Click on Add New");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
         
@@ -174,8 +171,6 @@ public class ConfigurationAccountTypePage extends BasePage{
     public void enterAccountName() throws IOException{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Enter Account Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterAccountName);
         Assert.assertTrue(enterAccountName.isDisplayed());
         enterAccountName.sendKeys(sp.ExcelRead().get(3));
         
@@ -190,8 +185,6 @@ public class ConfigurationAccountTypePage extends BasePage{
     public void enterBillingCycle() throws IOException{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Enter Billing Cycle");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterBillingCycle);
         Assert.assertTrue(enterBillingCycle.isDisplayed());
         enterBillingCycle.clear();
         enterBillingCycle.sendKeys(sp.ExcelRead().get(4));
@@ -221,7 +214,6 @@ public class ConfigurationAccountTypePage extends BasePage{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Click on Save Changes Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -235,8 +227,6 @@ public class ConfigurationAccountTypePage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ConfigurationAccountTypePage sp=new ConfigurationAccountTypePage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
 

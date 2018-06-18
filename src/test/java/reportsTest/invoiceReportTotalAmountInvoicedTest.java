@@ -74,6 +74,7 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.clickMakePaymentButton();
     	reportsPage.clickInvoice();
 		reportsPage.clickProcessRealTimeCheckbox();
+		reportsPage.navigateBottom();
     	reportsPage.clickReviewPaymentButton();
     	reportsPage.clickMakePaymentButton();
     	reportsPage.verifyConfirmationMsgInfo();

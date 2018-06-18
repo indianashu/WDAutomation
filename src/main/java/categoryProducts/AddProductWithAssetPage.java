@@ -165,7 +165,6 @@ public class AddProductWithAssetPage extends BasePage{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("click on Category 17 - Generic internal events listener.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCategory17);
         Assert.assertTrue(clickCategory17.isDisplayed());
         clickCategory17.click();
         
@@ -180,8 +179,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("click on Add New Button.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
         
@@ -228,8 +225,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Save Plugin Button.");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
         
@@ -246,7 +241,6 @@ public class AddProductWithAssetPage extends BasePage{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Products Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
         
@@ -279,8 +273,6 @@ public class AddProductWithAssetPage extends BasePage{
 		JavaScriptExec.scrollToElementOnPage(driver, clickAddProductButton);
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Click on Add Product Button");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickAddProductButton);
 		actions.moveToElement(clickAddProductButton).click().perform();
 
 	}
@@ -294,8 +286,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void enterEnglishDescription() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Enter English Description");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
         enterEnglishDescription.sendKeys(sp.ExcelRead().get(6));
         
@@ -310,8 +300,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void enterProductCode() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Enter Product Code");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(sp.ExcelRead().get(7));
         
@@ -326,8 +314,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void selectAllowAssetManagement() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Check Allow Assest Management Checkbox.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, selectAllowAssetManagement);
         Assert.assertTrue(selectAllowAssetManagement.isDisplayed());
         selectAllowAssetManagement.click();
         
@@ -342,8 +328,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void clickGlobalCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Allow Assest Mgmt checkbox");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickGlobalCheckbox);
         Assert.assertTrue(clickGlobalCheckbox.isDisplayed());
         clickGlobalCheckbox.click(); 
     }
@@ -384,8 +368,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void enterPriceRate() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
         Assert.assertTrue(enterPriceRate.isDisplayed());
         enterPriceRate.sendKeys(sp.ExcelRead().get(10));
         
@@ -401,8 +383,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void clickAddPriceButton() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Add Price Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddPriceButton);
         Assert.assertTrue(clickAddPriceButton.isDisplayed());
         clickAddPriceButton.click();
         
@@ -418,8 +398,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -434,7 +412,6 @@ public class AddProductWithAssetPage extends BasePage{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -465,7 +442,6 @@ public class AddProductWithAssetPage extends BasePage{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Click on Add Asset Button");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddAssetButton);
         Assert.assertTrue(clickAddAssetButton.isDisplayed());
         clickAddAssetButton.click();
         
@@ -481,8 +457,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void enterIdentifier1() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Enter value for Identifier");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterIdentifier1);
         Assert.assertTrue(enterIdentifier1.isDisplayed());
         enterIdentifier1.sendKeys(sp.ExcelRead().get(11));
         
@@ -498,8 +472,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void checkIsGlobal() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Check Is Global Checkbox.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, checkIsGlobal);
         Assert.assertTrue(checkIsGlobal.isDisplayed());
         checkIsGlobal.click();
         
@@ -514,7 +486,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void enterTaxID() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Enter value for TaxID.");
-        JavaScriptExec.sleep();
         enterTaxID = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterTaxID.isDisplayed());
         enterTaxID.sendKeys(sp.ExcelRead().get(12));
@@ -530,8 +501,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void enterIdentifier2() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Enter value for Identifier");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterIdentifier2);
         Assert.assertTrue(enterIdentifier2.isDisplayed());
         enterIdentifier2.sendKeys(sp.ExcelRead().get(13));
         
@@ -546,7 +515,6 @@ public class AddProductWithAssetPage extends BasePage{
     public void enterTaxID1() throws IOException{
     	AddProductWithAssetPage sp=new AddProductWithAssetPage(driver);
         log.info("Enter value for TaxID.");
-        JavaScriptExec.sleep();
         enterTaxID1 = driver.findElement(By.cssSelector("input[id^='metaField_']"));
         Assert.assertTrue(enterTaxID1.isDisplayed());
         enterTaxID1.sendKeys(sp.ExcelRead().get(14));

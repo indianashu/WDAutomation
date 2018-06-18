@@ -146,7 +146,6 @@ public class MakePaymentPage extends BasePage{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Customer Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickInvoicesTab);
         Assert.assertTrue(clickInvoicesTab.isDisplayed());
         clickInvoicesTab.click();
         
@@ -161,7 +160,6 @@ public class MakePaymentPage extends BasePage{
     public void clickCustomerName() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
     	log.info("Click on customer name");
-        JavaScriptExec.sleep();
     	String CustomerName = sp.ExcelRead().get(8);
     	driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
@@ -177,7 +175,6 @@ public class MakePaymentPage extends BasePage{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on pay invoice Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 20, clickPayInvoiceButton);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
         actions.moveToElement(clickPayInvoiceButton).click(clickPayInvoiceButton).perform();
         
@@ -193,7 +190,6 @@ public class MakePaymentPage extends BasePage{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Select an Invoice");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, selectInvoice);
         Assert.assertTrue(selectInvoice.isDisplayed());
         selectInvoice.click();
         
@@ -225,8 +221,6 @@ public class MakePaymentPage extends BasePage{
     public void checkPaymentProcessRealTime() throws IOException{
         MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Check Payment Process Real-Time");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, checkPaymentProcessRealTime);
         Assert.assertTrue(checkPaymentProcessRealTime.isDisplayed());
         Actions actions = new Actions(driver);
         actions.moveToElement(checkPaymentProcessRealTime).click().perform();
@@ -242,8 +236,6 @@ public class MakePaymentPage extends BasePage{
     public void enterProcessingOrder() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterProcessingOrder);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(4));
         
@@ -308,8 +300,6 @@ public class MakePaymentPage extends BasePage{
     public void clickReviewPaymentButton() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Review Payment Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickReviewPaymentButton);
         Assert.assertTrue(clickReviewPaymentButton.isDisplayed());
         clickReviewPaymentButton.click();
         
@@ -326,8 +316,6 @@ public class MakePaymentPage extends BasePage{
     public void clickMakePaymentButton() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Review Payment Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickMakePaymentButton);
         Assert.assertTrue(clickMakePaymentButton.isDisplayed());
         clickMakePaymentButton.click();
         
@@ -347,6 +335,7 @@ public class MakePaymentPage extends BasePage{
         String CustomerName = sp.ExcelRead().get(5);
         String ActualMsg = driver.findElement(By.xpath("//*[text()='"+CustomerName+"']/following::span[5]")).getText();
         Assert.assertEquals(ActualMsg, ExpectedMsg);
+        JavaScriptExec.sleep();
     }
     
   
@@ -361,8 +350,6 @@ public class MakePaymentPage extends BasePage{
     public void verifyCustomerName() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Verifying if customer name.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyCustomerName);
         Assert.assertEquals(verifyCustomerName.getText(), sp.ExcelRead().get(8));
         Assert.assertTrue(verifyCustomerName.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
@@ -378,7 +365,6 @@ public class MakePaymentPage extends BasePage{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Verifying if customer name.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyPaymentAmount);
         Assert.assertEquals(verifyPaymentAmount.getText(), sp.ExcelRead().get(9));
         Assert.assertTrue(verifyPaymentAmount.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
