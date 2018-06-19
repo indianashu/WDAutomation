@@ -402,7 +402,7 @@ public class AgentCommissionProcessPage extends BasePage{
         
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='process-1']/td[2]/a")
+    @FindBy(how=How.XPATH, using="//*[@id='process-14']/td[2]/a")
     private WebElement clickCommission;
     /**
      * Method to click on Save Changes Button.
@@ -427,7 +427,6 @@ public class AgentCommissionProcessPage extends BasePage{
         log.info("Verifying Commission Amount");
         JavaScriptExec.sleep();
         String ExpectedAmount = sp.ExcelRead().get(10);
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyCommissionAmount);
         Assert.assertEquals(verifyCommissionAmount.getText(), ExpectedAmount);
     }
 

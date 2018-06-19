@@ -285,9 +285,9 @@ public class DiscountPage extends BasePage{
     public void clickCustomerA() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on customer A");
-        JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead().get(7);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
+        JavaScriptExec.sleep();
     }
     
     
@@ -301,9 +301,9 @@ public class DiscountPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Create Order Button.");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
+        JavaScriptExec.sleep();
     }
     
     
@@ -316,9 +316,9 @@ public class DiscountPage extends BasePage{
     public void clickProductSubTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Product Sub Tab.");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickProductSubTab.isDisplayed());
         clickProductSubTab.click();
+        JavaScriptExec.sleep();
     }
     
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingFl']")
@@ -332,6 +332,7 @@ public class DiscountPage extends BasePage{
         log.info("Select a product.");
         String ProductName = sp.ExcelRead().get(8);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        JavaScriptExec.sleep();
     }
     
   
@@ -344,9 +345,9 @@ public class DiscountPage extends BasePage{
     public void clickDiscountSubTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Discount Sub Tab.");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickDiscountSubTab.isDisplayed());
         clickDiscountSubTab.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -407,6 +408,7 @@ public class DiscountPage extends BasePage{
         log.info("click on update button.");
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -421,6 +423,7 @@ public class DiscountPage extends BasePage{
         log.info("Select a product.");
         String ProductName = sp.ExcelRead().get(12);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        JavaScriptExec.sleep();
         
     }
     

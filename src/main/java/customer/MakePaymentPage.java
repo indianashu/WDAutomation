@@ -148,6 +148,7 @@ public class MakePaymentPage extends BasePage{
         JavaScriptExec.sleep();
         Assert.assertTrue(clickInvoicesTab.isDisplayed());
         clickInvoicesTab.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -172,9 +173,9 @@ public class MakePaymentPage extends BasePage{
      * @throws IOException 
      */
     public void clickPayInvoiceButton() throws IOException{
+    	JavaScriptExec.scrollToElementOnPage(driver, clickPayInvoiceButton);
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on pay invoice Button");
-        navigateBottom();
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
         actions.moveToElement(clickPayInvoiceButton).click(clickPayInvoiceButton).perform();
         
@@ -300,8 +301,10 @@ public class MakePaymentPage extends BasePage{
     public void clickReviewPaymentButton() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Review Payment Button");
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickReviewPaymentButton.isDisplayed());
         clickReviewPaymentButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -316,6 +319,7 @@ public class MakePaymentPage extends BasePage{
     public void clickMakePaymentButton() throws IOException{
     	MakePaymentPage sp=new MakePaymentPage(driver);
         log.info("Click on Review Payment Button");
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickMakePaymentButton.isDisplayed());
         clickMakePaymentButton.click();
         

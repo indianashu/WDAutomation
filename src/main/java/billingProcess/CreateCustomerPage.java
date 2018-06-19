@@ -257,6 +257,7 @@ public class CreateCustomerPage extends BasePage{
     public void enterProcessingOrder() throws IOException{
     	CreateCustomerPage sp=new CreateCustomerPage(driver);
         log.info("Click on Save Changes Button");
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(8));
         

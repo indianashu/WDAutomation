@@ -454,6 +454,7 @@ public class ReportsPage extends BasePage{
     public void enterProcessingOrder() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter Processing Order");
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
         enterProcessingOrder.sendKeys(sp.ExcelRead().get(6));
         
@@ -574,9 +575,9 @@ public class ReportsPage extends BasePage{
     public void clickInvoiceReports() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on Invoice Reports");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickInvoiceReports.isDisplayed());
         clickInvoiceReports.click();
+        JavaScriptExec.sleep();
         
     } 
     

@@ -187,9 +187,9 @@ public class OrderHierarchiesPage extends BasePage{
     public void clickProductCategory() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("enter product category name.");
-        JavaScriptExec.sleep();
         String ProductCategory = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductCategory+"']")).click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -246,6 +246,7 @@ public class OrderHierarchiesPage extends BasePage{
     public void enterProductRate() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("enter product rate.");
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProductRate.isDisplayed());
         enterProductRate.sendKeys(sp.ExcelRead().get(6));
     }
@@ -487,9 +488,9 @@ public class OrderHierarchiesPage extends BasePage{
     public void clickProductsSubTab() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("click on products sub tab.");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickProductsSubTab.isDisplayed());
         clickProductsSubTab.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -532,9 +533,9 @@ public class OrderHierarchiesPage extends BasePage{
     public void clickDependencyButton() throws IOException{
     	OrderHierarchiesPage sp=new OrderHierarchiesPage(driver);
         log.info("click on dependency button.");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickDependencyButton.isDisplayed());
         clickDependencyButton.click();
+        JavaScriptExec.sleep();
         
     }
   

@@ -146,7 +146,6 @@ public class TearDownProcessPage extends BasePage{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Customer Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickPaymentsTab);
         Assert.assertTrue(clickPaymentsTab.isDisplayed());
         clickPaymentsTab.click();
         
@@ -161,10 +160,10 @@ public class TearDownProcessPage extends BasePage{
     public void clickPaymentCustomer() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Payment Customer");
-        JavaScriptExec.sleep();
         String Customer= sp.ExcelRead().get(3);
         WebElement webElement = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+Customer+"']"));
         actions.moveToElement(webElement).click(webElement).perform();
+        JavaScriptExec.sleep();
         
     }
    
@@ -178,10 +177,9 @@ public class TearDownProcessPage extends BasePage{
     public void clickUnlink() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on unlink link");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickUnlink);
         Assert.assertTrue(clickUnlink.isDisplayed());
         clickUnlink.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -195,8 +193,6 @@ public class TearDownProcessPage extends BasePage{
     public void clickYesPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on yes button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickYesPopup);
         Assert.assertTrue(clickYesPopup.isDisplayed());
         clickYesPopup.click();
         
@@ -261,7 +257,6 @@ public class TearDownProcessPage extends BasePage{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Invoices Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickInvoicesTab);
         Assert.assertTrue(clickInvoicesTab.isDisplayed());
         clickInvoicesTab.click();
         
@@ -276,7 +271,6 @@ public class TearDownProcessPage extends BasePage{
   public void clickInvoiceCustomer() throws IOException{
   	TearDownProcessPage sp=new TearDownProcessPage(driver);
       log.info("Click on Invoice Customer");
-      JavaScriptExec.sleep();
       String Customer= sp.ExcelRead().get(3);
       driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+Customer+"']")).click();
       JavaScriptExec.sleep();
@@ -293,8 +287,6 @@ public class TearDownProcessPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickDeleteInvoiceButton);
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete invoice button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteInvoiceButton);
         Assert.assertTrue(clickDeleteInvoiceButton.isDisplayed());
         clickDeleteInvoiceButton.click();
         
@@ -310,10 +302,8 @@ public class TearDownProcessPage extends BasePage{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Yes delete invoice/product popup.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickYesDeleteInvoicePopup);
         Assert.assertTrue(clickYesDeleteInvoicePopup.isDisplayed());
         clickYesDeleteInvoicePopup.click();
-        JavaScriptExec.sleep();
         
     }
 
@@ -326,9 +316,7 @@ public class TearDownProcessPage extends BasePage{
     public void clickYesDeleteProductPopup() throws IOException{
         TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Yes delete invoice/product popup.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickYesDeleteProductPopup);
-        Assert.assertTrue(clickYesDeleteProductPopup.isDisplayed());
+        //Assert.assertTrue(clickYesDeleteProductPopup.isDisplayed());
         clickYesDeleteProductPopup.click();
         JavaScriptExec.sleep();
 
@@ -344,7 +332,6 @@ public class TearDownProcessPage extends BasePage{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Orders Tab.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
         Assert.assertTrue(clickOrdersTab.isDisplayed());
         clickOrdersTab.click();
         
@@ -375,10 +362,9 @@ public class TearDownProcessPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickDeleteButton);
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteButton);
         Assert.assertTrue(clickDeleteButton.isDisplayed());
-        clickDeleteButton.click();
+        actions.moveToElement(clickDeleteButton).click().perform();
+        JavaScriptExec.sleep();
         
     }
 
@@ -392,10 +378,8 @@ public class TearDownProcessPage extends BasePage{
         TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Yes delete payment popup.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickYesDeletePaymentPopup);
         Assert.assertTrue(clickYesDeletePaymentPopup.isDisplayed());
         clickYesDeletePaymentPopup.click();
-        JavaScriptExec.sleep();
 
     }
 
@@ -409,10 +393,8 @@ public class TearDownProcessPage extends BasePage{
         TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on Yes delete order popup.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickYesDeleteOrderPopup);
         Assert.assertTrue(clickYesDeleteOrderPopup.isDisplayed());
         clickYesDeleteOrderPopup.click();
-        JavaScriptExec.sleep();
 
     }
 
@@ -426,7 +408,6 @@ public class TearDownProcessPage extends BasePage{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on products tab.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
         
@@ -441,10 +422,9 @@ public class TearDownProcessPage extends BasePage{
     public void clickProductCategory() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on a product category");
-        JavaScriptExec.sleep();
         String ProductCategory= sp.ExcelRead().get(4);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductCategory+"']")).click();
-        
+        JavaScriptExec.sleep();
     }
     
   //a[@class='cell double']//*[text()='plans']
@@ -456,9 +436,9 @@ public class TearDownProcessPage extends BasePage{
     public void clickProduct() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("Click on a product.");
-        JavaScriptExec.sleep();
         String ProductName= sp.ExcelRead().get(5);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -489,8 +469,6 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteCategoryButton() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete category button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteCategoryButton);
         Assert.assertTrue(clickDeleteCategoryButton.isDisplayed());
         clickDeleteCategoryButton.click();
         JavaScriptExec.sleep();
@@ -505,8 +483,6 @@ public class TearDownProcessPage extends BasePage{
     public void clickDeleteYesCategoryPopup() throws IOException{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete category popup");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCategoryPopup);
         Assert.assertTrue(clickDeleteYesCategoryPopup.isDisplayed());
         clickDeleteYesCategoryPopup.click();
         JavaScriptExec.sleep();
@@ -523,7 +499,6 @@ public class TearDownProcessPage extends BasePage{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on customers tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
         
@@ -539,7 +514,6 @@ public class TearDownProcessPage extends BasePage{
     	TearDownProcessPage sp=new TearDownProcessPage(driver);
         log.info("click on delete customer popup");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDeleteYesCustomerPopup);
         Assert.assertTrue(clickDeleteYesCustomerPopup.isDisplayed());
         clickDeleteYesCustomerPopup.click();
         JavaScriptExec.sleep();

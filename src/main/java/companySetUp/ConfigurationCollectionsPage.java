@@ -379,9 +379,9 @@ public class ConfigurationCollectionsPage extends BasePage{
     public void clickCategory17() throws IOException{
     	ConfigurationCollectionsPage sp=new ConfigurationCollectionsPage(driver);
         log.info("click on category 17 - Generic internal events listener.");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickCategory17.isDisplayed());
         clickCategory17.click();
+        JavaScriptExec.sleep();
         
     }
     

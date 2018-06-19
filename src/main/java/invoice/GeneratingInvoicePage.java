@@ -257,6 +257,7 @@ public class GeneratingInvoicePage extends BasePage{
         log.info("Click Products Tab");
         Assert.assertTrue(clickProductSubTab.isDisplayed());
         clickProductSubTab.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -269,9 +270,9 @@ public class GeneratingInvoicePage extends BasePage{
     public void selectProduct() throws IOException{
     	GeneratingInvoicePage sp=new GeneratingInvoicePage(driver);
         log.info("Click Product from list");
-        JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(7);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -548,9 +549,9 @@ public class GeneratingInvoicePage extends BasePage{
     public void selectProduct1() throws IOException{
     	GeneratingInvoicePage sp=new GeneratingInvoicePage(driver);
         log.info("Click Product from list");
-        JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(11);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        JavaScriptExec.sleep();
         
     }
 

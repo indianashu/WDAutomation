@@ -173,9 +173,9 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Add New");
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
+        JavaScriptExec.sleep();
         
     }
     

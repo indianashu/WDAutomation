@@ -561,6 +561,7 @@ public class OrderPage extends BasePage{
         log.info("Click Change Log");
         Assert.assertTrue(clickChangeLog.isDisplayed());
         clickChangeLog.click();
+        JavaScriptExec.sleep();
 
     }
     
@@ -591,6 +592,7 @@ public class OrderPage extends BasePage{
         log.info("Click Selected Product");
         Assert.assertTrue(clickSelectedProduct.isDisplayed());
         clickSelectedProduct.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -603,9 +605,9 @@ public class OrderPage extends BasePage{
     public void clickChangeButton() throws IOException{
     	OrderPage sp=new OrderPage(driver);
         log.info("Click Change Button");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickChangeButton.isDisplayed());
         clickChangeButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -626,10 +628,10 @@ public class OrderPage extends BasePage{
          * Click Update Button.
          */
         log.info("Click Update Button");
-        JavaScriptExec.sleep();
         WebElement clickUpdateButton = driver.findElement(By.xpath("//a[@class='submit save']//following::span[text()='Update']"));
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
+        JavaScriptExec.sleep();
 
     }
     

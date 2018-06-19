@@ -52,7 +52,6 @@ public class makingPaymentOnBillingProcessGeneratedInvoiceTest {
     	makePaymentPage.selectInvoice();
 		makePaymentPage.checkPaymentProcessRealTime();
     	makePaymentPage.enterProcessingOrder();
-    	makePaymentPage.navigateBottom();
     	makePaymentPage.clickReviewPaymentButton();
     	makePaymentPage.clickMakePaymentButton();
     	makePaymentPage.verifyConfirmationMsg();

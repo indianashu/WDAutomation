@@ -54,7 +54,6 @@ public class orderHierarchiesDependentProductCreationTest {
     	orderHierarchiesPage.clickAddProductButton();
     	orderHierarchiesPage.enterEnglishDescription();
     	orderHierarchiesPage.enterProductCode();
-		orderHierarchiesPage.navigateBottom();
     	orderHierarchiesPage.enterProductRate();
 		orderHierarchiesPage.clickAddPriceButton();
     	orderHierarchiesPage.clickSaveChangesButton();

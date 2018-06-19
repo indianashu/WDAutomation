@@ -476,9 +476,9 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickInvoiceRadioButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Invoice Radio button");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickInvoiceRadioButton.isDisplayed());
         clickInvoiceRadioButton.click();
+        JavaScriptExec.sleep();
         
     }
   
@@ -493,7 +493,6 @@ public class GeneratingPayingInvoicePage extends BasePage{
         log.info("Click on Apply button");
         Assert.assertTrue(clickApplyButton.isDisplayed());
         clickApplyButton.click();
-        JavaScriptExec.sleep();
         
     }
     
@@ -522,9 +521,9 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickInvoiceCreated() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Invoice created.");
-        JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead().get(15);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
+        JavaScriptExec.sleep();
     }
     
   
@@ -537,9 +536,10 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickPayInvoiceButton() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Pay Invoice Button");
-        navigateBottom();
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickPayInvoiceButton.isDisplayed());
         actions.moveToElement(clickPayInvoiceButton).click(clickPayInvoiceButton).perform();
+        JavaScriptExec.sleep();
     } 
     
   
@@ -552,7 +552,6 @@ public class GeneratingPayingInvoicePage extends BasePage{
     public void clickProcessRealTimeCheckbox() throws IOException{
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Process Payment in Real-Time checkbox");
-        navigateBottom();
         Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
         actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
         
@@ -643,6 +642,7 @@ public class GeneratingPayingInvoicePage extends BasePage{
      * @throws IOException 
      */
     public void clickMakePaymentButton() throws IOException{
+    	JavaScriptExec.scrollToElementOnPage(driver,clickMakePaymentButton);
     	GeneratingPayingInvoicePage sp=new GeneratingPayingInvoicePage(driver);
         log.info("Click on Review Payment Button");
         Assert.assertTrue(clickMakePaymentButton.isDisplayed());

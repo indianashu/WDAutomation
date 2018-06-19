@@ -290,7 +290,6 @@ public class AddingAssetPage extends BasePage{
 	 * @throws IOException 
 	 */
 	public void selectOrderType() throws IOException{
-		JavaScriptExec.sleep();
 		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
 		Select se = new Select(OrderTypeelement);
 		se.selectByVisibleText(AddingAssetPage.ExcelRead(sheetName).get(7));
@@ -348,6 +347,7 @@ public class AddingAssetPage extends BasePage{
 		log.info("click on update button.");
 		Assert.assertTrue(clickUpdateButton.isDisplayed());
 		clickUpdateButton.click();
+        JavaScriptExec.sleep();
 
 	}
 

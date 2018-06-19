@@ -163,6 +163,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         log.info("Click on Agent Commission Calculation Process #25.");
         Assert.assertTrue(clickAgentCommissionCalProcess.isDisplayed());
         clickAgentCommissionCalProcess.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -253,7 +254,6 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        JavaScriptExec.sleep();
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -266,10 +266,10 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAllLink() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on All Link");
-        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/config/index";
         driver.get(url);
+        JavaScriptExec.sleep();
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Agent Commission Type']")
@@ -295,7 +295,6 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void verifyInvoice() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Verifying if Invoice value is there or not");
-        JavaScriptExec.sleep();
         verifyInvoice.getText();
         Assert.assertTrue(verifyInvoice.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }

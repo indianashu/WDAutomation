@@ -68,13 +68,12 @@ public class createCustomersBillingProcessTest {
 		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
-    	//createCustomerPage.clickCustomerTab();
+    	createCustomerPage.clickCustomerTab();
     	createCustomerPage.clickAddNewButton();
     	//createCustomerPage.selectUserCompany();
     	createCustomerPage.selectAccountType();
     	createCustomerPage.clickSelectButton();
     	createCustomerPage.enterLoginName1();
-		createCustomerPage.navigateBottom();
     	createCustomerPage.enterProcessingOrder();
 		createCustomerPage.selectPaymentMethodType();
     	createCustomerPage.enterCardHolderName1();
