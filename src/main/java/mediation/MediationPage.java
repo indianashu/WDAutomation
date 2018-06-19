@@ -148,7 +148,6 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Configurations Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationsTab);
         Assert.assertTrue(clickConfigurationsTab.isDisplayed());
         clickConfigurationsTab.click();
         
@@ -178,10 +177,9 @@ public class MediationPage extends BasePage{
     public void clickMediationReader() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediation Reader link.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickMediationReader);
         Assert.assertTrue(clickMediationReader.isDisplayed());
         clickMediationReader.click();
+        JavaScriptExec.sleep();
         
     }
 
@@ -195,8 +193,6 @@ public class MediationPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Add New Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
         JavaScriptExec.sleep();
@@ -211,6 +207,7 @@ public class MediationPage extends BasePage{
         WebElement PCelement = driver.findElement(By.xpath("//select[@name='typeId']"));
         Select se = new Select(PCelement);
         se.selectByVisibleText(sp.ExcelRead().get(3));
+        JavaScriptExec.sleep();
 
     }
 
@@ -225,7 +222,6 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Order.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterOrderMediationReader);
         Assert.assertTrue(enterOrderMediationReader.isDisplayed());
         enterOrderMediationReader.sendKeys(sp.ExcelRead().get(4));
         
@@ -240,8 +236,6 @@ public class MediationPage extends BasePage{
     public void enterSufix() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Sufix.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterSufix);
         Assert.assertTrue(enterSufix.isDisplayed());
         enterSufix.sendKeys(sp.ExcelRead().get(5));
         
@@ -256,8 +250,6 @@ public class MediationPage extends BasePage{
     public void enterDateFormat() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Sufix.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDateFormat);
         Assert.assertTrue(enterDateFormat.isDisplayed());
         enterDateFormat.sendKeys(sp.ExcelRead().get(6));
         
@@ -272,8 +264,6 @@ public class MediationPage extends BasePage{
     public void enterSeparator() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("enter value for Sufix.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterSeparator);
         Assert.assertTrue(enterSeparator.isDisplayed());
         enterSeparator.sendKeys(sp.ExcelRead().get(7));
         
@@ -288,7 +278,7 @@ public class MediationPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Save Plugin Button");
-        navigateBottom();
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
         
@@ -303,7 +293,7 @@ public class MediationPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Save Changes Button");
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -316,9 +306,8 @@ public class MediationPage extends BasePage{
      */
     public void verifyConfirmationMsg() throws IOException{
     	MediationPage sp=new MediationPage(driver);
-        log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
+        log.info("Verifying if Account Type is created Successfully or not");
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -332,10 +321,9 @@ public class MediationPage extends BasePage{
     public void clickMediationProcessor() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediation Processor link.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickMediationProcessor);
         Assert.assertTrue(clickMediationProcessor.isDisplayed());
         clickMediationProcessor.click();
+		JavaScriptExec.sleep();
         
     }
     
@@ -378,8 +366,6 @@ public class MediationPage extends BasePage{
     public void enterDefaultItemIDMediationProcessor(String ItemId) throws IOException{
         MediationPage sp=new MediationPage(driver);
         log.info("enter value for Default Item ID.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDefaultItemIDMediationProcessor);
         Assert.assertTrue(enterDefaultItemIDMediationProcessor.isDisplayed());
         enterDefaultItemIDMediationProcessor.sendKeys(ItemId);
         
@@ -389,6 +375,7 @@ public class MediationPage extends BasePage{
 		MediationPage sp = new MediationPage(driver);
 		driver.findElement(By.xpath("//*[@id='menu.link.products']/a")).click();
 		driver.findElement(By.xpath("//a[@class='submit show']//*[text()='Show All']")).click();
+		JavaScriptExec.sleep();
 
 		String ItemName = sp.ExcelRead().get(19);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ItemName + "']")).click();
@@ -408,8 +395,6 @@ public class MediationPage extends BasePage{
     public void clickMediationErrorHandler() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Mediation Error Handler Link.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickMediationErrorHandler);
         Assert.assertTrue(clickMediationErrorHandler.isDisplayed());
         clickMediationErrorHandler.click();
         
@@ -425,6 +410,7 @@ public class MediationPage extends BasePage{
         WebElement PCelement = driver.findElement(By.xpath("//select[@name='typeId']"));
         Select se = new Select(PCelement);
         se.selectByVisibleText(sp.ExcelRead().get(11));
+        JavaScriptExec.sleep();
 
     }
   
@@ -455,7 +441,6 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on Customers Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
         
@@ -498,10 +483,9 @@ public class MediationPage extends BasePage{
     public void clickSelectButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Click on select Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -514,8 +498,6 @@ public class MediationPage extends BasePage{
     public void enterLoginName() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Login Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterLoginName);
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead().get(15));
         
@@ -535,7 +517,6 @@ public class MediationPage extends BasePage{
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/mediationConfig/list";
         driver.get(url);
-        JavaScriptExec.sleep();
     }
     
   
@@ -548,8 +529,6 @@ public class MediationPage extends BasePage{
     public void enterConfigurationName() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Configuration Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterConfigurationName);
         Assert.assertTrue(enterConfigurationName.isDisplayed());
         enterConfigurationName.sendKeys(sp.ExcelRead().get(16));
         
@@ -564,8 +543,6 @@ public class MediationPage extends BasePage{
     public void enterExecutionOrder() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("Enter Execution Order");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterExecutionOrder);
         Assert.assertTrue(enterExecutionOrder.isDisplayed());
         enterExecutionOrder.sendKeys(sp.ExcelRead().get(17));
         
@@ -597,9 +574,9 @@ public class MediationPage extends BasePage{
     public void uploadMediationCSVFile() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("upload Mediation csv file");
-        JavaScriptExec.sleep();
         WebElement FileUpload = driver.findElement(By.xpath("//input[@name='cdrs']"));
         FileUpload.sendKeys(System.getProperty("user.dir") +"/MediationTest.csv");
+        JavaScriptExec.sleep();
         
     }
     
@@ -612,8 +589,6 @@ public class MediationPage extends BasePage{
     public void clickTriggerConfigButton() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on trigger this config button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickTriggerConfigButton);
         Assert.assertTrue(clickTriggerConfigButton.isDisplayed());
         clickTriggerConfigButton.click();
         
@@ -629,7 +604,6 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Mediations Tabs");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickMediationsTab);
         Assert.assertTrue(clickMediationsTab.isDisplayed());
         clickMediationsTab.click();        
     }
@@ -645,7 +619,6 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("Verify Orders created are greater than Zero.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyNumberOrders);
         Assert.assertTrue(verifyNumberOrders.isDisplayed());
         String OrderNumber = driver.findElement(By.xpath("//table/tbody/tr[1]/td[6]")).getText();  
         int OrderValue = Integer.parseInt(OrderNumber);
@@ -705,7 +678,6 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Done Billable View Link.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDoneBillableViewLink);
         Assert.assertTrue(clickDoneBillableViewLink.isDisplayed());
         clickDoneBillableViewLink.click();        
     }
@@ -720,7 +692,6 @@ public class MediationPage extends BasePage{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on Orders Tabs");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickOrdersTab);
         Assert.assertTrue(clickOrdersTab.isDisplayed());
         clickOrdersTab.click();        
     }
@@ -734,9 +705,8 @@ public class MediationPage extends BasePage{
     public void clickfileFormatTab() throws IOException{
     	MediationPage sp=new MediationPage(driver);
         log.info("click on File Format Tabs");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickfileFormatTab.isDisplayed());
-        clickfileFormatTab.click();        
+        clickfileFormatTab.click();       
     }
     
 	@FindBy(how = How.XPATH, using = "//input[@id='fileFormat.name']")

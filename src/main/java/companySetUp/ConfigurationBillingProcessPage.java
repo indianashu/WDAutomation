@@ -158,7 +158,6 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void enterNextRunDate() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Verifying the Next Run Date is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, enterNextRunDate);
         Assert.assertTrue(enterNextRunDate.isDisplayed());
         enterNextRunDate.clear();
         enterNextRunDate.sendKeys(sp.ExcelRead().get(3));
@@ -174,7 +173,6 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void enterMaxPeriodInvoice() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Verifying the Maximum Order Periods to Invoice is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, enterMaxPeriodInvoice);
         Assert.assertTrue(enterMaxPeriodInvoice.isDisplayed());
         enterMaxPeriodInvoice.clear();
         enterMaxPeriodInvoice.sendKeys(sp.ExcelRead().get(4));
@@ -219,7 +217,6 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void selectNeverProrate() throws IOException {
         ConfigurationBillingProcessPage sp = new ConfigurationBillingProcessPage(driver);
         log.info("Verifying the Never enable prorating is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, selectNeverProrate);
         Select se = new Select(selectNeverProrate);
         se.selectByVisibleText("Never enable prorating");
     }
@@ -234,7 +231,6 @@ public class ConfigurationBillingProcessPage extends BasePage{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Click on Save Changes Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -249,8 +245,6 @@ public class ConfigurationBillingProcessPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	ConfigurationBillingProcessPage sp=new ConfigurationBillingProcessPage(driver);
         log.info("Verifying if Billing Period is saved Successfully or not");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     

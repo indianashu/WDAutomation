@@ -144,8 +144,6 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickImpersonate(){
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Impersonate Link");
-        JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 5, clickImpersonate);
         Assert.assertTrue(clickImpersonate.isDisplayed());
         clickImpersonate.click();
     }
@@ -174,8 +172,6 @@ public class ViewAssignedInfoPage extends BasePage{
     public void clickSelectButton(){
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Select Button");
-        JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 5, clickSelectButton);
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
     }
@@ -208,7 +204,6 @@ public class ViewAssignedInfoPage extends BasePage{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Products Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
         
@@ -228,7 +223,6 @@ public class ViewAssignedInfoPage extends BasePage{
         String CategoryName = sp.ExcelRead().get(4);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).getText();
         Assert.assertEquals(ActualName, CategoryName);
-        JavaScriptExec.sleep();
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CategoryName+"']")).click();
         
     }
@@ -246,7 +240,6 @@ public class ViewAssignedInfoPage extends BasePage{
         String ProductName = sp.ExcelRead().get(5);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).getText();
         Assert.assertEquals(ActualName, ProductName);
-        JavaScriptExec.sleep();
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         
     }
@@ -296,7 +289,6 @@ public class ViewAssignedInfoPage extends BasePage{
     public void verifyAssetName1() throws IOException{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Verify Asset Name.");
-        JavaScriptExec.sleep();
         String AssetName = sp.ExcelRead().get(7);
         String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+AssetName+"']")).getText();
         Assert.assertEquals(ActualName, AssetName);
@@ -313,7 +305,6 @@ public class ViewAssignedInfoPage extends BasePage{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Red Cross");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRedCross);
         Assert.assertTrue(clickRedCross.isDisplayed());
         clickRedCross.click();
         
@@ -330,7 +321,6 @@ public class ViewAssignedInfoPage extends BasePage{
     	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
         log.info("Click on Customers Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
         
@@ -338,35 +328,21 @@ public class ViewAssignedInfoPage extends BasePage{
     
 	
     //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='ashutosh sandhal']")
-    private WebElement verifyChildCustomer;
-    /**
-     * Method to Verify Child Customer is created or not.
-     * @throws IOException 
-     */
-    public void verifyChildCustomer() throws IOException{
-    	ViewAssignedInfoPage sp=new ViewAssignedInfoPage(driver);
-        log.info("Verify Child Customer is created or not");
-        java.util.List<WebElement> pagination = driver.findElements(By.xpath("//*[@id='column1']/div[2]/div[2]/a"));
-    	int size= pagination.size();
-    	if(size>0){
-    		System.out.println("pagination exists");
-    		// click on pagination link
-    		for (int i = 2; i < size; i++) {
+	private WebElement verifyChildCustomer;
 
-    			try {
-    				navigateBottom();
-    				driver.findElement(By.xpath("//*[@id='column1']/div[2]/div[2]/a["+i+"]")).click();
-    				String CustomerName = sp.ExcelRead().get(8);
-    		        String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).getText();
-    		        Assert.assertEquals(ActualName, CustomerName);
-    			} catch (Exception e) {
-    				e.printStackTrace();
-    			}
-    		}
-    	}
-        
-        
-    }
+	/**
+	 * Method to Verify Child Customer is created or not.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyChildCustomer() throws IOException {
+		ViewAssignedInfoPage sp = new ViewAssignedInfoPage(driver);
+		log.info("Verify Child Customer is created or not");
+		String CustomerName = sp.ExcelRead().get(8);
+		String ActualName = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"))
+				.getText();
+		Assert.assertEquals(ActualName, CustomerName);
+	}
     
     public void navigateBottom(){
         JavaScriptExec.scrolltoBottomofPage(driver);

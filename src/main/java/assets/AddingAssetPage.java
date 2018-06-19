@@ -157,11 +157,8 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickAddNewButton() throws IOException{
 		log.info("Click on Add New Button");
-		navigateBottom();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
 		Assert.assertTrue(clickAddNewButton.isDisplayed());
 		JavaScriptExec.sleep();
-		JavaScriptExec.scrollToElementOnPage(driver,clickAddNewButton);
 		clickAddNewButton.click();
 
 	}
@@ -200,10 +197,9 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickSelectButton() throws IOException{
 		log.info("Click on select Button");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickSelectButton);
 		Assert.assertTrue(clickSelectButton.isDisplayed());
 		clickSelectButton.click();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -215,8 +211,6 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void enterCustomerLoginName() throws IOException{
 		log.info("Enter Login Name");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, enterCustomerLoginName);
 		Assert.assertTrue(enterCustomerLoginName.isDisplayed());
 		enterCustomerLoginName.sendKeys(AddingAssetPage.ExcelRead(sheetName).get(5));
 
@@ -230,8 +224,6 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickSaveChangesButton() throws IOException{
 		log.info("Click on Save Changes Button");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 
@@ -246,7 +238,6 @@ public class AddingAssetPage extends BasePage{
 	public void verifyConfirmationMsg() throws IOException{
 		log.info("Verifying if Account Type is created Successfully or not");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
 	}
 
@@ -274,10 +265,9 @@ public class AddingAssetPage extends BasePage{
 	public void clickCreateOrderButton() throws IOException{
 		JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
 		log.info("Click on Create Order Button.");
-		navigateBottom();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
 		Assert.assertTrue(clickCreateOrderButton.isDisplayed());
 		clickCreateOrderButton.click();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -300,7 +290,6 @@ public class AddingAssetPage extends BasePage{
 	 * @throws IOException 
 	 */
 	public void selectOrderType() throws IOException{
-		JavaScriptExec.sleep();
 		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
 		Select se = new Select(OrderTypeelement);
 		se.selectByVisibleText(AddingAssetPage.ExcelRead(sheetName).get(7));
@@ -328,10 +317,10 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickProductSubTab() throws IOException{
 		log.info("Click on Product Sub Tab.");
-		JavaScriptExec.sleep();
 		WaitClass.WaitForElementisDisplay(driver, 10, clickProductSubTab);
 		Assert.assertTrue(clickProductSubTab.isDisplayed());
 		clickProductSubTab.click();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -343,10 +332,7 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void selectProduct() throws IOException{
 		log.info("Select a product.");
-
-		JavaScriptExec.sleep();
 		String ProductName = AddingAssetPage.ExcelRead(sheetName).get(9);
-
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
 
 	}
@@ -359,10 +345,9 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickUpdateButton() throws IOException{
 		log.info("click on update button.");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
 		Assert.assertTrue(clickUpdateButton.isDisplayed());
 		clickUpdateButton.click();
+        JavaScriptExec.sleep();
 
 	}
 
@@ -376,7 +361,6 @@ public class AddingAssetPage extends BasePage{
 	public void clickAssetCheckbox() throws IOException{
 		log.info("click on update button.");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickAssetCheckbox);
 		Assert.assertTrue(clickAssetCheckbox.isDisplayed());
 		clickAssetCheckbox.click();
 
@@ -391,8 +375,6 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickAddSelectedButton() throws IOException{
 		log.info("click on add selected button.");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickAddSelectedButton);
 		Assert.assertTrue(clickAddSelectedButton.isDisplayed());
 		clickAddSelectedButton.click();
 
@@ -407,8 +389,6 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void clickAddToOrderButton() throws IOException{
 		log.info("click on add to order button.");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickAddToOrderButton);
 		Assert.assertTrue(clickAddToOrderButton.isDisplayed());
 		clickAddToOrderButton.click();
 
@@ -451,7 +431,6 @@ public class AddingAssetPage extends BasePage{
 	public void clickProductsTab() throws IOException{
 		log.info("click on Products Tab.");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
 		Assert.assertTrue(clickProductsTab.isDisplayed());
 		clickProductsTab.click();
 
@@ -484,7 +463,6 @@ public class AddingAssetPage extends BasePage{
 		JavaScriptExec.scrollToElementOnPage(driver,clickShowAssetsButton);
 		log.info("click on show assets button.");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickShowAssetsButton);
 		Assert.assertTrue(clickShowAssetsButton.isDisplayed());
 		clickShowAssetsButton.click();
 
@@ -502,7 +480,6 @@ public class AddingAssetPage extends BasePage{
 		String ExpectedStatus = AddingAssetPage.ExcelRead(sheetName).get(12);
 		String ActualStatus = driver.findElement(By.xpath("//a[@class='cell']//*[text()='In Use']")).getText();
 		Assert.assertEquals(ActualStatus, ExpectedStatus);
-		JavaScriptExec.sleep();
 	}
 
 	public void navigateBottom(){

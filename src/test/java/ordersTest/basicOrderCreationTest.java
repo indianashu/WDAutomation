@@ -40,15 +40,15 @@ public class basicOrderCreationTest {
 
     @Test(groups={"Sanity"},description="Basic Order Creation")
     public void userSignin() throws IOException{
-/*
-    	orderPage.enterLoginID();
+
+    	/*orderPage.enterLoginID();
     	orderPage.enterPassword();
     	orderPage.selectCompany();
-    	orderPage.clickLoginButton();
-*/
+    	orderPage.clickLoginButton();*/
+
     	orderPage.clickCustomerTab();
     	orderPage.clickAddNewButton();
-    	orderPage.selectUserCompany();
+    	//orderPage.selectUserCompany();
     	orderPage.selectAccountType();
     	orderPage.clickSelectButton();
     	orderPage.enterLoginName();

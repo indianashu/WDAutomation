@@ -144,7 +144,6 @@ public class CollectionConfigurationPage extends BasePage{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Customer Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
         
@@ -159,7 +158,6 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickBillingCustomer2() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Billing Customer2");
-        JavaScriptExec.sleep();
         String BillingCustomer= sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer+"']")).click();
         
@@ -190,10 +188,9 @@ public class CollectionConfigurationPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickEditButton);
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Edit Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickEditButton);
         Assert.assertTrue(clickEditButton.isDisplayed());
         clickEditButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -236,8 +233,6 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterCardNumber() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Cardholder Number");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCardNumber);
         Assert.assertTrue(enterCardNumber.isDisplayed());
         enterCardNumber.clear();
         enterCardNumber.sendKeys(sp.ExcelRead().get(6));
@@ -270,8 +265,6 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -287,7 +280,6 @@ public class CollectionConfigurationPage extends BasePage{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -317,10 +309,10 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickCollectionsLink() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Collections Link.");
-        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/config/aging";
         driver.get(url);
+        JavaScriptExec.sleep();
     }
     
   
@@ -333,8 +325,6 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterRunCollectionDate() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate);
         Assert.assertTrue(enterRunCollectionDate.isDisplayed());
         enterRunCollectionDate.clear();
         enterRunCollectionDate.sendKeys(sp.ExcelRead().get(8));
@@ -350,13 +340,11 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickRunCollectionsButton() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Run Collections Button.");
-        JavaScriptExec.sleep();
         String value=sp.ExcelRead().get(12);
         driver.findElement(By.xpath("//input[@value='"+value+"']")).click();
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsButton);
         Assert.assertTrue(clickRunCollectionsButton.isDisplayed());
         clickRunCollectionsButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -370,10 +358,9 @@ public class CollectionConfigurationPage extends BasePage{
     public void clickRunCollectionsPopup() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Click on Run Collections Popup.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRunCollectionsPopup);
         Assert.assertTrue(clickRunCollectionsPopup.isDisplayed());
         clickRunCollectionsPopup.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -422,7 +409,6 @@ public class CollectionConfigurationPage extends BasePage{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate1);
         Assert.assertTrue(enterRunCollectionDate1.isDisplayed());
         enterRunCollectionDate1.clear();
         enterRunCollectionDate1.sendKeys(sp.ExcelRead().get(13));
@@ -454,8 +440,6 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterRunCollectionDate2() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate2);
         Assert.assertTrue(enterRunCollectionDate2.isDisplayed());
         enterRunCollectionDate2.clear();
         enterRunCollectionDate2.sendKeys(sp.ExcelRead().get(15));
@@ -487,8 +471,6 @@ public class CollectionConfigurationPage extends BasePage{
     public void enterRunCollectionDate3() throws IOException{
     	CollectionConfigurationPage sp=new CollectionConfigurationPage(driver);
         log.info("Enter Run Collection Date");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterRunCollectionDate3);
         Assert.assertTrue(enterRunCollectionDate3.isDisplayed());
         enterRunCollectionDate3.clear();
         enterRunCollectionDate3.sendKeys(sp.ExcelRead().get(17));

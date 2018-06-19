@@ -173,10 +173,9 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Add New");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -190,8 +189,6 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void enterDescription() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying the Description is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDescription);
         Assert.assertTrue(enterDescription.isDisplayed());
         enterDescription.sendKeys(sp.ExcelRead().get(3));
 
@@ -204,7 +201,6 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
      */
     public void selectUnit() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
-    	JavaScriptExec.sleep();
         WebElement Unitelement = driver.findElement(By.xpath("//select[@name='periodUnitId']"));
         Select se = new Select(Unitelement);
         se.selectByVisibleText(sp.ExcelRead().get(4));
@@ -220,8 +216,6 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void enterValue() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying the Description is available or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterValue);
         Assert.assertTrue(enterValue.isDisplayed());
         enterValue.sendKeys(sp.ExcelRead().get(5));
 
@@ -237,8 +231,6 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -254,7 +246,6 @@ public class ConfigurationOrderPeriodsPage extends BasePage{
     	ConfigurationOrderPeriodsPage sp=new ConfigurationOrderPeriodsPage(driver);
         log.info("Verifying if Order Period is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     

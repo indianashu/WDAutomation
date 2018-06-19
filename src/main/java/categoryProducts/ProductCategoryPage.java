@@ -144,7 +144,6 @@ public class ProductCategoryPage extends BasePage{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Products Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductsTab);
         Assert.assertTrue(clickProductsTab.isDisplayed());
         clickProductsTab.click();
         
@@ -160,7 +159,6 @@ public class ProductCategoryPage extends BasePage{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Add Category Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddCategoryButton);
         Assert.assertTrue(clickAddCategoryButton.isDisplayed());
         clickAddCategoryButton.click();
         
@@ -175,8 +173,6 @@ public class ProductCategoryPage extends BasePage{
     public void enterCategoryName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Category Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
         Assert.assertTrue(enterCategoryName.isDisplayed());
         enterCategoryName.sendKeys(sp.ExcelRead().get(3));
         
@@ -205,8 +201,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -221,7 +215,6 @@ public class ProductCategoryPage extends BasePage{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -250,7 +243,6 @@ public class ProductCategoryPage extends BasePage{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click on Save Changes Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickEditButton);
         Assert.assertTrue(clickEditButton.isDisplayed());
         clickEditButton.click();
         
@@ -265,8 +257,6 @@ public class ProductCategoryPage extends BasePage{
     public void enterNewCategoryName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Category Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterNewCategoryName);
         Assert.assertTrue(enterNewCategoryName.isDisplayed());
         enterNewCategoryName.clear();
         enterNewCategoryName.sendKeys(sp.ExcelRead().get(5));
@@ -282,8 +272,6 @@ public class ProductCategoryPage extends BasePage{
     public void enterAssetCategoryName() throws IOException{
         ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Asset Category Name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterAssetCategoryName);
         Assert.assertTrue(enterAssetCategoryName.isDisplayed());
         enterAssetCategoryName.sendKeys(sp.ExcelRead().get(6));
 
@@ -298,8 +286,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickGlobalCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Allow Assest Mgmt checkbox");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickGlobalCheckbox);
         Assert.assertTrue(clickGlobalCheckbox.isDisplayed());
         clickGlobalCheckbox.click(); 
     }
@@ -313,8 +299,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickAllowAssestMgmt() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Allow Assest Mgmt checkbox");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAllowAssestMgmt);
         Assert.assertTrue(clickAllowAssestMgmt.isDisplayed());
         clickAllowAssestMgmt.click(); 
     }
@@ -328,8 +312,6 @@ public class ProductCategoryPage extends BasePage{
     public void enterAssetName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Asset Name");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterAssetName);
         Assert.assertTrue(enterAssetName.isDisplayed());
         enterAssetName.sendKeys(sp.ExcelRead().get(7));
     }
@@ -343,8 +325,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickAvaiableCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Available Checkbox");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAvaiableCheckbox);
         Assert.assertTrue(clickAvaiableCheckbox.isDisplayed());
         clickAvaiableCheckbox.click(); 
     }
@@ -358,8 +338,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickDefaultCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Default Checkbox");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDefaultCheckbox);
         Assert.assertTrue(clickDefaultCheckbox.isDisplayed());
         clickDefaultCheckbox.click(); 
     }
@@ -373,8 +351,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickAddPlus() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Add Plus in Asset Statuses");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddPlus);
         Assert.assertTrue(clickAddPlus.isDisplayed());
         clickAddPlus.click(); 
     }
@@ -388,8 +364,6 @@ public class ProductCategoryPage extends BasePage{
     public void enterAssetName2() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Asset Name2");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterAssetName2);
         Assert.assertTrue(enterAssetName2.isDisplayed());
         enterAssetName2.sendKeys(sp.ExcelRead().get(8));
     }
@@ -403,8 +377,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickOrderSavedCheckbox() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Order Saved Checkbox");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickOrderSavedCheckbox);
         Assert.assertTrue(clickOrderSavedCheckbox.isDisplayed());
         clickOrderSavedCheckbox.click(); 
     }
@@ -418,8 +390,6 @@ public class ProductCategoryPage extends BasePage{
     public void clickAddMetaFieldPlus() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Click Add Metafield Plus");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddMetaFieldPlus);
         Assert.assertTrue(clickAddMetaFieldPlus.isDisplayed());
         clickAddMetaFieldPlus.click(); 
     }
@@ -433,8 +403,6 @@ public class ProductCategoryPage extends BasePage{
     public void enterMetafieldName() throws IOException{
     	ProductCategoryPage sp=new ProductCategoryPage(driver);
         log.info("Enter Meta field name");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterMetafieldName);
         Assert.assertTrue(enterMetafieldName.isDisplayed());
         enterMetafieldName.sendKeys(sp.ExcelRead().get(9));
     }

@@ -145,7 +145,6 @@ public class ImpersonateCustomerPage extends BasePage{
     	ImpersonateCustomerPage sp=new ImpersonateCustomerPage(driver);
         log.info("Click on Customer Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
         
@@ -161,7 +160,6 @@ public class ImpersonateCustomerPage extends BasePage{
     public void selectCustomer() throws IOException{
     	ImpersonateCustomerPage sp=new ImpersonateCustomerPage(driver);
         log.info("Select Customer");
-        JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead().get(3);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
@@ -178,8 +176,7 @@ public class ImpersonateCustomerPage extends BasePage{
 	public void clickImpersonateUserImage() throws IOException {
 		ImpersonateCustomerPage sp = new ImpersonateCustomerPage(driver);
 		log.info("Click on Impersonate This User Image");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickImpersonateUserImage);
+        JavaScriptExec.sleep();
 		Assert.assertTrue(clickImpersonateUserImage.isDisplayed());
 		clickImpersonateUserImage.click();
 
@@ -198,7 +195,6 @@ public class ImpersonateCustomerPage extends BasePage{
 			ImpersonateCustomerPage sp = new ImpersonateCustomerPage(driver);
 			log.info("Verify Customer Name");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, verifyCustomerName);
 			Assert.assertTrue(verifyCustomerName.isDisplayed());
 			String ActualCustomer = verifyCustomerName.getText();
 			String ExpectedCustomer = sp.ExcelRead().get(3);
@@ -217,7 +213,6 @@ public class ImpersonateCustomerPage extends BasePage{
     	ImpersonateCustomerPage sp=new ImpersonateCustomerPage(driver);
         log.info("click on Resume as Admin Link.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickResumeAsAdmin);
         Assert.assertTrue(clickResumeAsAdmin.isDisplayed());
         clickResumeAsAdmin.click();
         
@@ -233,7 +228,6 @@ public class ImpersonateCustomerPage extends BasePage{
     	ImpersonateCustomerPage sp=new ImpersonateCustomerPage(driver);
         log.info("Verify Label shown is of admin.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyAdminLogin);
         Assert.assertTrue(verifyAdminLogin.getText().contains(sp.ExcelRead().get(2)), "Assert Failed as its unable to search text in Logged in Page");
     }
         

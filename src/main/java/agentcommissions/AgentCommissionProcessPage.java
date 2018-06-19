@@ -148,7 +148,6 @@ public class AgentCommissionProcessPage extends BasePage{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Agent Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAgentTab);
         Assert.assertTrue(clickAgentTab.isDisplayed());
         clickAgentTab.click();
         
@@ -180,10 +179,9 @@ public class AgentCommissionProcessPage extends BasePage{
     	JavaScriptExec.scrollToElementOnPage(driver,clickShowCommissionButton);
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Show Commission Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickShowCommissionButton);
         Assert.assertTrue(clickShowCommissionButton.isDisplayed());
         clickShowCommissionButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -196,8 +194,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void verifyCommissionDisplay() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Verifiy No Commission is Display");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyCommissionDisplay);
         Assert.assertTrue(verifyCommissionDisplay.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
         
     }
@@ -213,7 +209,6 @@ public class AgentCommissionProcessPage extends BasePage{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Customer Tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomerTab);
         Assert.assertTrue(clickCustomerTab.isDisplayed());
         clickCustomerTab.click();
         
@@ -228,7 +223,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void clickCustomerB() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Customer - CustomerB");
-        JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead().get(4);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
@@ -244,8 +238,6 @@ public class AgentCommissionProcessPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Create Order Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
         JavaScriptExec.sleep();
@@ -258,7 +250,6 @@ public class AgentCommissionProcessPage extends BasePage{
      */
     public void selectOrderPeriod() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
-        JavaScriptExec.sleep();
         WebElement Periodelement = driver.findElement(By.xpath("//select[@id='orderPeriod']"));
         Select se = new Select(Periodelement);
         se.selectByVisibleText(sp.ExcelRead().get(5));
@@ -272,7 +263,6 @@ public class AgentCommissionProcessPage extends BasePage{
      */
     public void selectType() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
-        JavaScriptExec.sleep();
         WebElement Typeelement = driver.findElement(By.xpath("//select[@id='billingTypeId']"));
         Select se = new Select(Typeelement);
         se.selectByVisibleText(sp.ExcelRead().get(6));
@@ -289,10 +279,10 @@ public class AgentCommissionProcessPage extends BasePage{
     public void clickProductsSubTab() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Product Tab");
-        JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, clickProductsSubTab);
         Assert.assertTrue(clickProductsSubTab.isDisplayed());
         clickProductsSubTab.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -305,7 +295,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void clickOnProduct() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("click on a product listed in the list");
-        JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(7);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         JavaScriptExec.sleep();
@@ -320,8 +309,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void clickUpdateButton() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Update Button to add the product to order");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
         JavaScriptExec.sleep();
@@ -337,8 +324,6 @@ public class AgentCommissionProcessPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickGenerateInvoiceButton);
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Generate Invoice button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickGenerateInvoiceButton);
         Assert.assertTrue(clickGenerateInvoiceButton.isDisplayed());
         clickGenerateInvoiceButton.click();
         
@@ -368,8 +353,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void enterNextRunDate() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Enter next run date");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterNextRunDate);
         Assert.assertTrue(enterNextRunDate.isDisplayed());
         SimpleDateFormat DtFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
@@ -385,8 +368,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void enterPeriodValue() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Enter Period Value");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterPeriodValue);
         Assert.assertTrue(enterPeriodValue.isDisplayed());
         enterPeriodValue.sendKeys(sp.ExcelRead().get(9));
         
@@ -402,8 +383,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         JavaScriptExec.sleep();
@@ -418,14 +397,12 @@ public class AgentCommissionProcessPage extends BasePage{
     public void clickRunCommissionButton() throws IOException{
     	AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickRunCommissionButton);
         Assert.assertTrue(clickRunCommissionButton.isDisplayed());
         clickRunCommissionButton.click();
         
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='process-1']/td[2]/a")
+    @FindBy(how=How.XPATH, using="//*[@id='process-14']/td[2]/a")
     private WebElement clickCommission;
     /**
      * Method to click on Save Changes Button.
@@ -434,8 +411,6 @@ public class AgentCommissionProcessPage extends BasePage{
     public void clickCommission() throws IOException{
         AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCommission);
         Assert.assertTrue(clickCommission.isDisplayed());
         clickCommission.click();
         JavaScriptExec.sleep();
@@ -452,7 +427,6 @@ public class AgentCommissionProcessPage extends BasePage{
         log.info("Verifying Commission Amount");
         JavaScriptExec.sleep();
         String ExpectedAmount = sp.ExcelRead().get(10);
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyCommissionAmount);
         Assert.assertEquals(verifyCommissionAmount.getText(), ExpectedAmount);
     }
 

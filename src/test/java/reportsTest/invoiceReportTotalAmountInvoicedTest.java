@@ -51,7 +51,6 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.selectAccountType();
     	reportsPage.clickSelectButton();
     	reportsPage.enterLoginName();
-		reportsPage.navigateBottom();
     	reportsPage.enterProcessingOrder();
 		reportsPage.selectPaymentMethodType();
     	reportsPage.enterCardHolderName();
@@ -74,6 +73,7 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.clickMakePaymentButton();
     	reportsPage.clickInvoice();
 		reportsPage.clickProcessRealTimeCheckbox();
+		reportsPage.navigateBottom();
     	reportsPage.clickReviewPaymentButton();
     	reportsPage.clickMakePaymentButton();
     	reportsPage.verifyConfirmationMsgInfo();

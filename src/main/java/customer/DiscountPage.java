@@ -143,7 +143,6 @@ public class DiscountPage extends BasePage{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Discount Tab after successful login");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDiscountTab);
         Assert.assertTrue(clickDiscountTab.isDisplayed());
         clickDiscountTab.click();
         
@@ -158,8 +157,7 @@ public class DiscountPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Add New Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
+        JavaScriptExec.sleep();
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
         
@@ -176,7 +174,6 @@ public class DiscountPage extends BasePage{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("verify Error message is shown when click on save changes button without entering data.");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyErrorMsg);
         Assert.assertTrue(verifyErrorMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -190,8 +187,6 @@ public class DiscountPage extends BasePage{
     public void enterDiscountCode() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Enter Discount Code.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountCode);
         Assert.assertTrue(enterDiscountCode.isDisplayed());
         enterDiscountCode.sendKeys(sp.ExcelRead().get(3));
         
@@ -206,8 +201,6 @@ public class DiscountPage extends BasePage{
     public void enterDiscountDescription() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Enter Discount Description");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountDescription);
         Assert.assertTrue(enterDiscountDescription.isDisplayed());
         enterDiscountDescription.sendKeys(sp.ExcelRead().get(4));
         
@@ -236,8 +229,6 @@ public class DiscountPage extends BasePage{
     public void enterDiscountRate() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Enter Discount rate.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, enterDiscountRate);
         Assert.assertTrue(enterDiscountRate.isDisplayed());
         enterDiscountRate.sendKeys(sp.ExcelRead().get(6));
         
@@ -253,11 +244,8 @@ public class DiscountPage extends BasePage{
     public void clickSaveChangesButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
-        JavaScriptExec.sleep();
     }
     
     @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
@@ -270,7 +258,6 @@ public class DiscountPage extends BasePage{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Verifying if Discount is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -284,7 +271,6 @@ public class DiscountPage extends BasePage{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("click on customers tab");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
         Assert.assertTrue(clickCustomersTab.isDisplayed());
         clickCustomersTab.click();
         
@@ -299,9 +285,9 @@ public class DiscountPage extends BasePage{
     public void clickCustomerA() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on customer A");
-        JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead().get(7);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
+        JavaScriptExec.sleep();
     }
     
     
@@ -315,8 +301,6 @@ public class DiscountPage extends BasePage{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Create Order Button.");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickCreateOrderButton);
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
         JavaScriptExec.sleep();
@@ -332,8 +316,6 @@ public class DiscountPage extends BasePage{
     public void clickProductSubTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Product Sub Tab.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickProductSubTab);
         Assert.assertTrue(clickProductSubTab.isDisplayed());
         clickProductSubTab.click();
         JavaScriptExec.sleep();
@@ -348,7 +330,6 @@ public class DiscountPage extends BasePage{
     public void selectProduct() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Select a product.");
-        JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(8);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         JavaScriptExec.sleep();
@@ -364,10 +345,9 @@ public class DiscountPage extends BasePage{
     public void clickDiscountSubTab() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Click on Discount Sub Tab.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickDiscountSubTab);
         Assert.assertTrue(clickDiscountSubTab.isDisplayed());
         clickDiscountSubTab.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -379,7 +359,6 @@ public class DiscountPage extends BasePage{
      */
     public void selectDiscount() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
-        JavaScriptExec.sleep();
         WebElement Discountelement = driver.findElement(By.xpath("//select[@name='discount.0.id']"));
         Select se = new Select(Discountelement);
         se.selectByVisibleText(sp.ExcelRead().get(9));
@@ -427,10 +406,9 @@ public class DiscountPage extends BasePage{
     public void clickUpdateButton() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("click on update button.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickUpdateButton);
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -443,9 +421,9 @@ public class DiscountPage extends BasePage{
     public void selectProduct1() throws IOException{
     	DiscountPage sp=new DiscountPage(driver);
         log.info("Select a product.");
-        JavaScriptExec.sleep();
         String ProductName = sp.ExcelRead().get(12);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -537,19 +515,16 @@ public class DiscountPage extends BasePage{
         clickAddCategoryButton.click();
 
         log.info("Enter Category Name");
-        JavaScriptExec.sleep();
         WebElement enterCategoryName = driver.findElement(By.xpath("//input[@name='description']"));
         Assert.assertTrue(enterCategoryName.isDisplayed());
         enterCategoryName.sendKeys(sp.ExcelRead().get(15));
 
         log.info("Select Plan order line type");
-        JavaScriptExec.sleep();
         WebElement orderLineTypeId = driver.findElement(By.xpath("//*[@name='orderLineTypeId']"));
         Select se = new Select(orderLineTypeId);
         se.selectByVisibleText(sp.ExcelRead().get(16));
 
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
         WebElement clickSaveChangesButton = driver.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -576,34 +551,28 @@ public class DiscountPage extends BasePage{
         clickAddProductButton.click();
 
         log.info("Enter English Description");
-        JavaScriptExec.sleep();
         WebElement enterEnglishDescription = driver.findElement(By.xpath("//input[@name='product.descriptions[0].content']"));
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
         enterEnglishDescription.sendKeys(sp.ExcelRead().get(17));
 
         log.info("Enter Product Code");
-        JavaScriptExec.sleep();
         WebElement enterProductCode = driver.findElement(By.xpath("//input[@name='product.number']"));
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(sp.ExcelRead().get(17));
-
-        JavaScriptExec.sleep();
+        
         JavaScriptExec.scrolltoBottomofPage(driver);
 
         log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
         WebElement enterPriceRate = driver.findElement(By.xpath("//input[@name='product.rate']"));
         Assert.assertTrue(enterPriceRate.isDisplayed());
         enterPriceRate.sendKeys(sp.ExcelRead().get(18));
 
         log.info("Click on Add Price Button");
-        JavaScriptExec.sleep();
         WebElement clickAddPriceButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
         Assert.assertTrue(clickAddPriceButton.isDisplayed());
         clickAddPriceButton.click();
 
         log.info("Click on Save Changes Button");
-        JavaScriptExec.sleep();
         WebElement clickSaveChangesButton = driver.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
