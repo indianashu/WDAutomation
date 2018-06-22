@@ -48,38 +48,6 @@ public class AddingAssetPage extends BasePage{
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName="AddingAsset";
 
-	/* public  ArrayList<String> ExcelRead() throws IOException{
-
-
-		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
-		FileInputStream fs=new FileInputStream(file);
-		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("AddingAsset");
-
-		Iterator<Row> row=sheet.iterator();
-		//System.out.println();
-		while(row.hasNext()){
-			Iterator<Cell> cell=row.next().iterator();
-			int i=0;
-
-			while(cell.hasNext()){
-
-				Cell c1=cell.next();
-				c1.setCellType(c1.CELL_TYPE_STRING);
-				String sample=c1.getStringCellValue();
-				//log.info("***************************"+sample+"********************");
-
-		rl.add(sample);
-
-			}
-			System.out.println(rl);
-		}
-
-		return rl;
-    }*/
-
-
 	@FindBy(how=How.XPATH,using="//input[@name='j_username']")
 	private WebElement enterLoginID;
 	/**
