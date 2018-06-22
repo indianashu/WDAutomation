@@ -34,67 +34,39 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class AgentPage extends BasePage{
-    /**
-     * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
-     * then this will take care of initialization of the driver
-     *
-     * @param webdriver
-     */
-    public AgentPage(WebDriver webdriver) {
-        super(webdriver);
-    }
+public class AgentPage extends BasePage {
+	/**
+	 * This constructor is used to initialize the webdriver in BasePage class, if
+	 * the user does not want to use page factory then this will take care of
+	 * initialization of the driver
+	 *
+	 * @param webdriver
+	 */
+	public AgentPage(WebDriver webdriver) {
+		super(webdriver);
+	}
 
-    Logger log=Logger.getLogger(AgentPage.class);
-    AgentPage agentPage;
-    PropertyValExtractors p = new PropertyValExtractors();
-  
-    public  ArrayList<String> ExcelRead() throws IOException{
-    	
+	Logger log = Logger.getLogger(AgentPage.class);
+	AgentPage agentPage;
+	PropertyValExtractors p = new PropertyValExtractors();
+	String sheetName = "Agent";
 
-		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
-		FileInputStream fs=new FileInputStream(file);
-		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("Agent");
-		
-		Iterator<Row> row=sheet.iterator();
-		//System.out.println();
-		while(row.hasNext()){
-			Iterator<Cell> cell=row.next().iterator();
-			int i=0;
-			
-			while(cell.hasNext()){
-					
-				Cell c1=cell.next();
-				c1.setCellType(c1.CELL_TYPE_STRING);
-				String sample=c1.getStringCellValue();
-				//log.info("***************************"+sample+"********************");
-				
-		rl.add(sample);
-		
-			}
-			System.out.println(rl);
-		}
-		
-		return rl;
-    }
-    
+	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
+	private WebElement enterLoginID;
 
-    @FindBy(how=How.XPATH,using="//input[@name='j_username']")
-    private WebElement enterLoginID;
-    /**
-     * Method to enter login ID.
-     * @throws IOException 
-     */
-    public void enterLoginID() throws IOException{
-    	AgentPage sp=new AgentPage(driver);
-    	
-        log.info("Verifying the Login ID is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
-        Assert.assertTrue(enterLoginID.isDisplayed());
-        enterLoginID.sendKeys(sp.ExcelRead().get(0));
-    }
+	/**
+	 * Method to enter login ID.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterLoginID() throws IOException {
+		AgentPage sp = new AgentPage(driver);
+
+		log.info("Verifying the Login ID is available or not");
+		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
+		Assert.assertTrue(enterLoginID.isDisplayed());
+		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
+	}
 
     @FindBy(how=How.XPATH,using="//input[@name='j_password']")
     private WebElement enterPassword;
@@ -107,7 +79,7 @@ public class AgentPage extends BasePage{
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
-        enterPassword.sendKeys(sp.ExcelRead().get(1));
+        enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
     }
 
@@ -120,7 +92,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
         Select se = new Select(Companyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(2));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(2));
 
     }
 
@@ -177,7 +149,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Login Name");
         Assert.assertTrue(enterLoginName.isDisplayed());
-        enterLoginName.sendKeys(sp.ExcelRead().get(3));
+        enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(3));
         
     }
     
@@ -191,7 +163,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Product Code");
         Assert.assertTrue(enterEmail.isDisplayed());
-        enterEmail.sendKeys(sp.ExcelRead().get(4));
+        enterEmail.sendKeys(sp.ExcelRead(sheetName).get(4));
         
     }
     
@@ -205,7 +177,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         WebElement AgentTypeelement = driver.findElement(By.xpath("//select[@name='type']"));
         Select se = new Select(AgentTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(5));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(5));
 
     }
 
@@ -218,7 +190,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         WebElement CommissionTypeelement = driver.findElement(By.xpath("//select[@name='commissionType']"));
         Select se = new Select(CommissionTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(6));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
 
     }
     
@@ -276,7 +248,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
         Select se = new Select(Usercompanyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(7));
 
     }
     
@@ -289,7 +261,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
         Select se = new Select(AccountTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(8));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(8));
 
     }    
 
@@ -319,7 +291,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Login Name");
         Assert.assertTrue(enterLoginName1.isDisplayed());
-        enterLoginName1.sendKeys(sp.ExcelRead().get(9));
+        enterLoginName1.sendKeys(sp.ExcelRead(sheetName).get(9));
         
     }
     
@@ -346,7 +318,7 @@ public class AgentPage extends BasePage{
         AgentPage sp=new AgentPage(driver);
         WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMTelement);
-        se.selectByVisibleText(sp.ExcelRead().get(20));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(20));
         JavaScriptExec.sleep();
 
     }
@@ -362,7 +334,7 @@ public class AgentPage extends BasePage{
         log.info("Click on Save Changes Button");
         JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
-        enterProcessingOrder.sendKeys(sp.ExcelRead().get(17));
+        enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(17));
         
     }
     
@@ -376,7 +348,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card holder name");
         Assert.assertTrue(enterCardHolderName.isDisplayed());
-        enterCardHolderName.sendKeys(sp.ExcelRead().get(9));
+        enterCardHolderName.sendKeys(sp.ExcelRead(sheetName).get(9));
         
     }
     
@@ -390,7 +362,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card number");
         Assert.assertTrue(enterCardNumber.isDisplayed());
-        enterCardNumber.sendKeys(sp.ExcelRead().get(18));
+        enterCardNumber.sendKeys(sp.ExcelRead(sheetName).get(18));
         
     }
     
@@ -404,7 +376,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter card number");
         Assert.assertTrue(enterCardExpiry.isDisplayed());
-        enterCardExpiry.sendKeys(sp.ExcelRead().get(19));
+        enterCardExpiry.sendKeys(sp.ExcelRead(sheetName).get(19));
         
     }
     //////////////
@@ -493,7 +465,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Name for Category");
         Assert.assertTrue(enterCategoryName.isDisplayed());
-        enterCategoryName.sendKeys(sp.ExcelRead().get(11));
+        enterCategoryName.sendKeys(sp.ExcelRead(sheetName).get(11));
         
     }
     
@@ -506,7 +478,7 @@ public class AgentPage extends BasePage{
     public void clickProductCategoryName() throws IOException{
     	AgentPage sp=new AgentPage(driver);
         log.info("Click on Product Category Name - Commissioned Product");
-        String ProductName = sp.ExcelRead().get(11);
+        String ProductName = sp.ExcelRead(sheetName).get(11);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         JavaScriptExec.sleep();
         
@@ -537,7 +509,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter English Description");
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
-        enterEnglishDescription.sendKeys(sp.ExcelRead().get(12));
+        enterEnglishDescription.sendKeys(sp.ExcelRead(sheetName).get(12));
         
     }
     
@@ -551,7 +523,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Product Code");
         Assert.assertTrue(enterProductCode.isDisplayed());
-        enterProductCode.sendKeys(sp.ExcelRead().get(13));
+        enterProductCode.sendKeys(sp.ExcelRead(sheetName).get(13));
         
     }
     
@@ -565,7 +537,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Standard Agent Commission");
         Assert.assertTrue(enterStdCommission.isDisplayed());
-        enterStdCommission.sendKeys(sp.ExcelRead().get(14));
+        enterStdCommission.sendKeys(sp.ExcelRead(sheetName).get(14));
         
     }
    
@@ -580,7 +552,7 @@ public class AgentPage extends BasePage{
     	AgentPage sp=new AgentPage(driver);
         log.info("Enter Master Agent Commission");
         Assert.assertTrue(enterMasterCommission.isDisplayed());
-        enterMasterCommission.sendKeys(sp.ExcelRead().get(15));
+        enterMasterCommission.sendKeys(sp.ExcelRead(sheetName).get(15));
         
     }
     
@@ -595,7 +567,7 @@ public class AgentPage extends BasePage{
         log.info("Enter Price Rate");
         JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterPriceRate.isDisplayed());
-        enterPriceRate.sendKeys(sp.ExcelRead().get(16));
+        enterPriceRate.sendKeys(sp.ExcelRead(sheetName).get(16));
         
     }
     

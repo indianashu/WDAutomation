@@ -48,38 +48,7 @@ public class ReportsPage extends BasePage{
     ReportsPage reportsPage;
     PropertyValExtractors p = new PropertyValExtractors();
     Actions actions = new Actions(driver);
-  
-    public  ArrayList<String> ExcelRead() throws IOException{
-    	
-
-		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
-		FileInputStream fs=new FileInputStream(file);
-		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("Reports");
-		
-		Iterator<Row> row=sheet.iterator();
-		//System.out.println();
-		while(row.hasNext()){
-			Iterator<Cell> cell=row.next().iterator();
-			int i=0;
-			
-			while(cell.hasNext()){
-					
-				Cell c1=cell.next();
-				c1.setCellType(c1.CELL_TYPE_STRING);
-				String sample=c1.getStringCellValue();
-				//log.info("***************************"+sample+"********************");
-				
-		rl.add(sample);
-		
-			}
-			System.out.println(rl);
-		}
-		
-		return rl;
-    }
-    
+    String sheetName="Reports";    
 
     @FindBy(how=How.XPATH,using="//input[@name='j_username']")
     private WebElement enterLoginID;
@@ -93,7 +62,7 @@ public class ReportsPage extends BasePage{
         log.info("Verifying the Login ID is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
         Assert.assertTrue(enterLoginID.isDisplayed());
-        enterLoginID.sendKeys(sp.ExcelRead().get(0));
+        enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
     }
 
     @FindBy(how=How.XPATH,using="//input[@name='j_password']")
@@ -107,7 +76,7 @@ public class ReportsPage extends BasePage{
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
-        enterPassword.sendKeys(sp.ExcelRead().get(1));
+        enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
     }
 
@@ -120,7 +89,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
         Select se = new Select(Companyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(2));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(2));
 
     }
 
@@ -178,7 +147,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
         Select se = new Select(Usercompanyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(3));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(3));
 
     }
     
@@ -191,7 +160,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
         Select se = new Select(AccountTypeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(4));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(4));
 
     }    
 
@@ -221,7 +190,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter Login Name");
         Assert.assertTrue(enterLoginName.isDisplayed());
-        enterLoginName.sendKeys(sp.ExcelRead().get(5));
+        enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
         
     }
     
@@ -250,7 +219,7 @@ public class ReportsPage extends BasePage{
 //    	ReportsPage sp=new ReportsPage(driver);
 //        WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
 //        Select se = new Select(BCUelement);
-//        se.selectByVisibleText(sp.ExcelRead().get(6));
+//        se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
 //
 //    }
 //
@@ -263,7 +232,7 @@ public class ReportsPage extends BasePage{
 //    	ReportsPage sp=new ReportsPage(driver);
 //        WebElement BCDelement = driver.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
 //        Select se = new Select(BCDelement);
-//        se.selectByVisibleText(sp.ExcelRead().get(7));
+//        se.selectByVisibleText(sp.ExcelRead(sheetName).get(7));
 //
 //    }
     
@@ -304,7 +273,7 @@ public class ReportsPage extends BasePage{
     public void selectCustomer() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("select a customer - TestCustomer3");
-        String CustomerName = sp.ExcelRead().get(5);
+        String CustomerName = sp.ExcelRead(sheetName).get(5);
         WebElement webElement= driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']"));
         actions.moveToElement(webElement).click(webElement).perform();
         JavaScriptExec.sleep();
@@ -364,7 +333,7 @@ public class ReportsPage extends BasePage{
     public void selectProduct() throws IOException{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Click on a product from the list");
-        String ProductName = sp.ExcelRead().get(16);
+        String ProductName = sp.ExcelRead(sheetName).get(16);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
         JavaScriptExec.sleep();
         
@@ -456,7 +425,7 @@ public class ReportsPage extends BasePage{
         log.info("Enter Processing Order");
         JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
-        enterProcessingOrder.sendKeys(sp.ExcelRead().get(6));
+        enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(6));
         
     }
 
@@ -469,7 +438,7 @@ public class ReportsPage extends BasePage{
         ReportsPage sp=new ReportsPage(driver);
         WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMTelement);
-        se.selectByVisibleText(sp.ExcelRead().get(17));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(17));
         JavaScriptExec.sleep();
 
     }
@@ -484,7 +453,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter card holder name");
         Assert.assertTrue(enterCardHolderName.isDisplayed());
-        enterCardHolderName.sendKeys(sp.ExcelRead().get(7));
+        enterCardHolderName.sendKeys(sp.ExcelRead(sheetName).get(7));
         
     }
     
@@ -498,7 +467,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter card number");
         Assert.assertTrue(enterCardNumber.isDisplayed());
-        enterCardNumber.sendKeys(sp.ExcelRead().get(8));
+        enterCardNumber.sendKeys(sp.ExcelRead(sheetName).get(8));
         
     }
     
@@ -512,7 +481,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Enter card number");
         Assert.assertTrue(enterCardExpiry.isDisplayed());
-        enterCardExpiry.sendKeys(sp.ExcelRead().get(9));
+        enterCardExpiry.sendKeys(sp.ExcelRead(sheetName).get(9));
         
     }
     
@@ -543,7 +512,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         log.info("Verifying if payment status is successful.");
         String ExpectedMsg = "Successful";
-        String CustomerName = sp.ExcelRead().get(5);
+        String CustomerName = sp.ExcelRead(sheetName).get(5);
         String ActualMsg = driver.findElement(By.xpath("//*[text()='"+CustomerName+"']/following::span[5]")).getText();
         Assert.assertEquals(ActualMsg, ExpectedMsg);
     }
@@ -609,7 +578,7 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, selectStartDate);
         Assert.assertTrue(selectStartDate.isDisplayed());
-        selectStartDate.sendKeys(sp.ExcelRead().get(10));
+        selectStartDate.sendKeys(sp.ExcelRead(sheetName).get(10));
         
     }
     
@@ -625,7 +594,7 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, selectEndDate);
         Assert.assertTrue(selectEndDate.isDisplayed());
-        selectEndDate.sendKeys(sp.ExcelRead().get(11));
+        selectEndDate.sendKeys(sp.ExcelRead(sheetName).get(11));
         
     }
     
@@ -638,7 +607,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(sp.ExcelRead().get(12));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(12));
 
     }
 
@@ -652,7 +621,7 @@ public class ReportsPage extends BasePage{
         navigateBottom();
         WebElement Formatelement = driver.findElement(By.xpath("//select[@name='format']"));
         Select se = new Select(Formatelement);
-        se.selectByVisibleText(sp.ExcelRead().get(13));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(13));
 
     }
     
@@ -697,7 +666,7 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.sleep();
         WebElement Formatelement = driver.findElement(By.xpath("//select[@name='format']"));
         Select se = new Select(Formatelement);
-        se.selectByVisibleText(sp.ExcelRead().get(14));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(14));
 
     }
     
@@ -710,7 +679,7 @@ public class ReportsPage extends BasePage{
     	ReportsPage sp=new ReportsPage(driver);
         WebElement Formatelement = driver.findElement(By.xpath("//select[@name='format']"));
         Select se = new Select(Formatelement);
-        se.selectByVisibleText(sp.ExcelRead().get(15));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(15));
 
     }
     
