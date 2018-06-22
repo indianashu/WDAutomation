@@ -40,36 +40,8 @@ public class AddProductCategoryPage1 extends BasePage {
 	Logger log = Logger.getLogger(AddProductCategoryPage1.class);
 	AddProductCategoryPage1 AddProductCategoryPage;
 	PropertyValExtractors p = new PropertyValExtractors();
-
-	public ArrayList<String> ExcelRead() throws IOException {
-
-		ArrayList<String> rl = new ArrayList<String>();
-		File file = new File(System.getProperty("user.dir") + "/ProductHistorical_TestData.xlsx");
-		FileInputStream fs = new FileInputStream(file);
-		XSSFWorkbook wb = new XSSFWorkbook(fs);
-		XSSFSheet sheet = wb.getSheet("AddProductCategory1");
-
-		Iterator<Row> row = sheet.iterator();
-		// System.out.println();
-		while (row.hasNext()) {
-			Iterator<Cell> cell = row.next().iterator();
-			int i = 0;
-
-			while (cell.hasNext()) {
-
-				Cell c1 = cell.next();
-				c1.setCellType(c1.CELL_TYPE_STRING);
-				String sample = c1.getStringCellValue();
-				// log.info("***************************"+sample+"********************");
-
-				rl.add(sample);
-
-			}
-			System.out.println(rl);
-		}
-
-		return rl;
-	}
+	String sheetName = "AddProductCategory1";
+	String xlsxName = "/ProductHistorical_TestData.xlsx";
 	
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
@@ -86,7 +58,7 @@ public class AddProductCategoryPage1 extends BasePage {
 		log.info("Verifying the Login ID is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
-		enterLoginID.sendKeys(sp.ExcelRead().get(0));
+		enterLoginID.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(0));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_password']")
@@ -102,7 +74,7 @@ public class AddProductCategoryPage1 extends BasePage {
 		log.info("Verifying the First Name is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
-		enterPassword.sendKeys(sp.ExcelRead().get(1));
+		enterPassword.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(1));
 
 	}
 
@@ -117,7 +89,7 @@ public class AddProductCategoryPage1 extends BasePage {
 		AddProductCategoryPage1 sp = new AddProductCategoryPage1(driver);
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
-		se.selectByVisibleText(sp.ExcelRead().get(2));
+		se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(2));
 
 	}
 
@@ -178,7 +150,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterCategoryName);
         Assert.assertTrue(enterCategoryName.isDisplayed());
-        enterCategoryName.sendKeys(sp.ExcelRead().get(3));
+        enterCategoryName.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(3));
         
     }
     
@@ -192,7 +164,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entities']"));
         Select se = new Select(Companyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(2));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(2));
 
     }
     
@@ -205,7 +177,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entities']"));
         Select se = new Select(Companyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(4));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(4));
 
     }
 
@@ -265,7 +237,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 5, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
-        enterEnglishDescription.sendKeys(sp.ExcelRead().get(5));
+        enterEnglishDescription.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(5));
         
     }
     
@@ -281,7 +253,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 5, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
-        enterProductCode.sendKeys(sp.ExcelRead().get(5));
+        enterProductCode.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(5));
         
     }
     
@@ -294,7 +266,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
         Select se = new Select(Companyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(2));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(2));
 
     }
     
@@ -307,7 +279,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
         Select se = new Select(Companyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(4));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(4));
 
     }
     
@@ -324,7 +296,7 @@ public class AddProductCategoryPage1 extends BasePage {
         WaitClass.WaitForElementisDisplay(driver, 5, enterPastPriceDate);
         Assert.assertTrue(enterPastPriceDate.isDisplayed());
         enterPastPriceDate.clear();
-        enterPastPriceDate.sendKeys(sp.ExcelRead().get(6));
+        enterPastPriceDate.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(6));
         
     }
     
@@ -337,7 +309,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
         Select se = new Select(Companieselement);
-        se.selectByVisibleText(sp.ExcelRead().get(2));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(2));
 
     }
     
@@ -350,7 +322,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
         Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(7));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(7));
 
     }
     
@@ -366,7 +338,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRatePastUSD.isDisplayed());
         enterPriceRatePastUSD.clear();
-        enterPriceRatePastUSD.sendKeys(sp.ExcelRead().get(8));
+        enterPriceRatePastUSD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(8));
         
     }
     
@@ -379,7 +351,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
         Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(9));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(9));
 
     }
     
@@ -395,7 +367,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRatePastCAD.isDisplayed());
         enterPriceRatePastCAD.clear();
-        enterPriceRatePastCAD.sendKeys(sp.ExcelRead().get(10));
+        enterPriceRatePastCAD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(10));
         
     }
     
@@ -408,7 +380,7 @@ public class AddProductCategoryPage1 extends BasePage {
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
         WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
         Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(11));
+        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(11));
 
     }
     
@@ -424,7 +396,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRatePastEuro.isDisplayed());
         enterPriceRatePastEuro.clear();
-        enterPriceRatePastEuro.sendKeys(sp.ExcelRead().get(12));
+        enterPriceRatePastEuro.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(12));
         
     }
     
@@ -458,7 +430,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRatePresentUSD.isDisplayed());
         enterPriceRatePresentUSD.clear();
-        enterPriceRatePresentUSD.sendKeys(sp.ExcelRead().get(14));
+        enterPriceRatePresentUSD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(14));
         
     }
     
@@ -475,7 +447,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRatePresentCAD.isDisplayed());
         enterPriceRatePresentCAD.clear();
-        enterPriceRatePresentCAD.sendKeys(sp.ExcelRead().get(15));
+        enterPriceRatePresentCAD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(15));
         
     }
     
@@ -491,7 +463,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRatePresentEuro.isDisplayed());
         enterPriceRatePresentEuro.clear();
-        enterPriceRatePresentEuro.sendKeys(sp.ExcelRead().get(16));
+        enterPriceRatePresentEuro.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(16));
         
     }
     
@@ -508,7 +480,7 @@ public class AddProductCategoryPage1 extends BasePage {
         WaitClass.WaitForElementisDisplay(driver, 5, enterPresentPriceDate);
         Assert.assertTrue(enterFuturePriceDate.isDisplayed());
         enterFuturePriceDate.clear();
-        enterFuturePriceDate.sendKeys(sp.ExcelRead().get(17));
+        enterFuturePriceDate.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(17));
         
     }
     
@@ -524,7 +496,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRateFutureUSD.isDisplayed());
         enterPriceRateFutureUSD.clear();
-        enterPriceRateFutureUSD.sendKeys(sp.ExcelRead().get(18));
+        enterPriceRateFutureUSD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(18));
         
     }
     
@@ -541,7 +513,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRateFutureCAD.isDisplayed());
         enterPriceRateFutureCAD.clear();
-        enterPriceRateFutureCAD.sendKeys(sp.ExcelRead().get(19));
+        enterPriceRateFutureCAD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(19));
         
     }
     
@@ -557,7 +529,7 @@ public class AddProductCategoryPage1 extends BasePage {
         JavaScriptExec.sleep();
         Assert.assertTrue(enterPriceRateFutureEuro.isDisplayed());
         enterPriceRateFutureEuro.clear();
-        enterPriceRateFutureEuro.sendKeys(sp.ExcelRead().get(16));
+        enterPriceRateFutureEuro.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(16));
         
     }
     

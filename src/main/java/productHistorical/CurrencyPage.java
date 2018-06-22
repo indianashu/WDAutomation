@@ -43,36 +43,10 @@ public class CurrencyPage extends BasePage {
 	Logger log = Logger.getLogger(CurrencyPage.class);
 	CurrencyPage CurrencyPage;
 	PropertyValExtractors p = new PropertyValExtractors();
+	String sheetName = "AddCurrency";
+	String xlsxName = "/ProductHistorical_TestData.xlsx";
 
-	public ArrayList<String> ExcelRead() throws IOException {
-
-		ArrayList<String> rl = new ArrayList<String>();
-		File file = new File(System.getProperty("user.dir") + "/ProductHistorical_TestData.xlsx");
-		FileInputStream fs = new FileInputStream(file);
-		XSSFWorkbook wb = new XSSFWorkbook(fs);
-		XSSFSheet sheet = wb.getSheet("AddCurrency");
-
-		Iterator<Row> row = sheet.iterator();
-		// System.out.println();
-		while (row.hasNext()) {
-			Iterator<Cell> cell = row.next().iterator();
-			int i = 0;
-
-			while (cell.hasNext()) {
-
-				Cell c1 = cell.next();
-				c1.setCellType(c1.CELL_TYPE_STRING);
-				String sample = c1.getStringCellValue();
-				// log.info("***************************"+sample+"********************");
-
-				rl.add(sample);
-
-			}
-			System.out.println(rl);
-		}
-
-		return rl;
-	}
+	
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginID;
@@ -88,7 +62,7 @@ public class CurrencyPage extends BasePage {
 		log.info("Verifying the Login ID is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
-		enterLoginID.sendKeys(sp.ExcelRead().get(0));
+		enterLoginID.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(0));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_password']")
@@ -104,7 +78,7 @@ public class CurrencyPage extends BasePage {
 		log.info("Verifying the First Name is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
-		enterPassword.sendKeys(sp.ExcelRead().get(1));
+		enterPassword.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(1));
 
 	}
 
@@ -119,7 +93,7 @@ public class CurrencyPage extends BasePage {
 		CurrencyPage sp = new CurrencyPage(driver);
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
-		se.selectByVisibleText(sp.ExcelRead().get(2));
+		se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(2));
 
 	}
 
@@ -215,7 +189,7 @@ public class CurrencyPage extends BasePage {
 		log.info("Verifying if Label is available or not");
 		JavaScriptExec.sleep();
 		WaitClass.WaitForElementisDisplay(driver, 5, labelConfirmationMessage);
-		Assert.assertTrue(labelConfirmationMessage.getText().contains(sp.ExcelRead().get(4)),
+		Assert.assertTrue(labelConfirmationMessage.getText().contains(sp.ExcelRead(sheetName,xlsxName).get(4)),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
@@ -246,7 +220,7 @@ public class CurrencyPage extends BasePage {
 		JavaScriptExec.sleep();
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entityId']"));
 		Select se = new Select(Companyelement);
-		se.selectByVisibleText(sp.ExcelRead().get(3));
+		se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(3));
 
 	}
 
@@ -275,7 +249,7 @@ public class CurrencyPage extends BasePage {
 	public void verifyChildCompanyName() throws IOException {
 		CurrencyPage sp = new CurrencyPage(driver);
 		log.info("Verify Child Company Name is shown.");
-		String ExpectedName = sp.ExcelRead().get(5);
+		String ExpectedName = sp.ExcelRead(sheetName,xlsxName).get(5);
 		String ActualName = driver.findElement(By.xpath("//*[@id='header']//span[@class='right-text']")).getText();
 		Assert.assertEquals(ActualName, ExpectedName);
 	}
