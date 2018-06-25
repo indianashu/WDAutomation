@@ -27,19 +27,18 @@ public class AddProductCategoryTest1 {
 
 	}
 
-	@Test(groups = { "Product Historical Feature" }, description = "Create Currency for the Child and Parent Company")
+	@Test(groups = { "Product Historical Feature" }, description = "Create Product for the Child and Parent Company")
 	public void userSignin() throws Exception {
 
-		addProductCategoryPage.enterLoginID();
+		/*addProductCategoryPage.enterLoginID();
 		addProductCategoryPage.enterPassword();
 		addProductCategoryPage.selectCompany();
-		addProductCategoryPage.clickLoginButton();
+		addProductCategoryPage.clickLoginButton();*/
 		
 		addProductCategoryPage.clickProductsTab();
 		addProductCategoryPage.clickAddCategoryButton();
 		addProductCategoryPage.enterCategoryName();
-		addProductCategoryPage.selectCompany1();
-		addProductCategoryPage.selectCompany2();
+		addProductCategoryPage.checkGlobal();
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();
 		
@@ -50,6 +49,7 @@ public class AddProductCategoryTest1 {
 		addProductCategoryPage.selectProductCompany2();
 		
 		addProductCategoryPage.selectHistoricalPrices();
+		addProductCategoryPage.selectHistoricalPrices1();
 		
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();

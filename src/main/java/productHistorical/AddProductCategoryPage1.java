@@ -144,31 +144,22 @@ public class AddProductCategoryPage1 extends BasePage {
     }
     
     
-    private WebElement selectCompany1;
-    /**
-     * Method to select companies.
-     * @throws IOException 
-     */
-    public void selectCompany1() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entities']"));
-        Select se = new Select(Companyelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,2,0));
+    @FindBy(how = How.XPATH, using = "//input[@name='global']")
+	private WebElement checkGlobal;
 
-    }
-    
-    private WebElement selectCompany2;
-    /**
-     * Method to select companies.
-     * @throws IOException 
-     */
-    public void selectCompany2() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entities']"));
-        Select se = new Select(Companyelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,4,0));
+	/**
+	 * Method to Check Global CheckBox.
+	 * 
+	 * @throws IOException
+	 */
+	public void checkGlobal() throws IOException {
+		AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
+		log.info("Check Canadian Currency Checkbox.");
+		WaitClass.WaitForElementisDisplay(driver, 5, checkGlobal);
+		Assert.assertTrue(checkGlobal.isDisplayed());
+		sp.checkGlobal.click();
 
-    }
+	}
 
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
     private WebElement clickSaveChangesButton;
@@ -275,8 +266,7 @@ public class AddProductCategoryPage1 extends BasePage {
     
     public void selectHistoricalPrices() throws IOException{
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-    	int row = 0;
-    	for (int i= row; row <=8; i++ ) {
+    	for (int i= 0; i <= 8; i++ ) {
     			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
     			Assert.assertTrue(enterPastPriceDate.isDisplayed());
     	        enterPastPriceDate.clear();
@@ -301,270 +291,39 @@ public class AddProductCategoryPage1 extends BasePage {
     	}
     	
     }
-   /* @FindBy(how=How.XPATH, using="//*[@name=\"mydate\"]")
-    private WebElement enterPastPriceDate;
-    *//**
-     * Method to Enter Price Date.
-     * @throws IOException 
-     *//*
-    public void enterPastPriceDate() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Date");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterPastPriceDate);
-        Assert.assertTrue(enterPastPriceDate.isDisplayed());
-        enterPastPriceDate.clear();
-        enterPastPriceDate.sendKeys(BasePage.getCellData(xlsxName,sheetName,6,0));
-        
-    }*/
     
-    private WebElement selectPriceCompany;
-    /**
-     * Method to select company in Prices.
-     * @throws IOException 
-     */
-    public void selectPriceCompany() throws IOException{
+    public void selectHistoricalPrices1() throws IOException{
     	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
-        Select se = new Select(Companieselement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,2,0));
-
+    	for (int i= 0; i <= 8; i++ ) {
+    			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
+    			Assert.assertTrue(enterPastPriceDate.isDisplayed());
+    	        enterPastPriceDate.clear();
+    	        enterPastPriceDate.sendKeys(BasePage.getCellData(xlsxName,sheetName,6,i));
+    	        JavaScriptExec.sleep();
+    	        
+    	        WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
+    	        Select se = new Select(Companieselement);
+    	        se.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,4,0));
+    	        
+    	        WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
+    	        Select sel = new Select(Currencyelement);
+    	        sel.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,7,i));
+    	        JavaScriptExec.sleep();
+    	        
+    	        WebElement enterPriceRatePastUSD = driver.findElement(By.xpath("//input[@name='product.rate']"));
+    	        Assert.assertTrue(enterPriceRatePastUSD.isDisplayed());
+    	        enterPriceRatePastUSD.clear();
+    	        enterPriceRatePastUSD.sendKeys(BasePage.getCellData(xlsxName,sheetName,9,i));
+    	        JavaScriptExec.sleep();
+    	        
+    	        WebElement clickAddPriceButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
+    	        Assert.assertTrue(clickAddPriceButton.isDisplayed());
+    	        clickAddPriceButton.click();
+    	            
+    	}
+    	
     }
-    
-    private WebElement selectPastCurrencyUSD;
-    /**
-     * Method to select price currency.
-     * @throws IOException 
-     */
-    public void selectCurrencyUSD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-        Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(7));
-
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRatePastUSD;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRatePastUSD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRatePastUSD.isDisplayed());
-        enterPriceRatePastUSD.clear();
-        enterPriceRatePastUSD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(8));
-        
-    }
-    
-    private WebElement selectPastCurrencyCAD;
-    /**
-     * Method to select price currency.
-     * @throws IOException 
-     */
-    public void selectCurrencyCAD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-        Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(9));
-
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRatePastCAD;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRatePastCAD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRatePastCAD.isDisplayed());
-        enterPriceRatePastCAD.clear();
-        enterPriceRatePastCAD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(10));
-        
-    }
-    
-    private WebElement selectPastCurrencyEuro;
-    /**
-     * Method to select price currency.
-     * @throws IOException 
-     */
-    public void selectCurrencyEuro() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-        Select se = new Select(Currencyelement);
-        se.selectByVisibleText(sp.ExcelRead(sheetName,xlsxName).get(11));
-
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRatePastEuro;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRatePastEuro() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRatePastEuro.isDisplayed());
-        enterPriceRatePastEuro.clear();
-        enterPriceRatePastEuro.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(12));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//*[@name=\"mydate\"]")
-    private WebElement enterPresentPriceDate;
-    /**
-     * Method to Enter Price Date.
-     * @throws IOException 
-     */
-    public void enterPresentPriceDate() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Date");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterPresentPriceDate);
-        Assert.assertTrue(enterPresentPriceDate.isDisplayed());
-        SimpleDateFormat DtFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date date = new Date();
-        enterPresentPriceDate.sendKeys(DtFormat.format(date).toString());
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRatePresentUSD;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRatePresentUSD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRatePresentUSD.isDisplayed());
-        enterPriceRatePresentUSD.clear();
-        enterPriceRatePresentUSD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(14));
-        
-    }
-    
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRatePresentCAD;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRatePresentCAD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRatePresentCAD.isDisplayed());
-        enterPriceRatePresentCAD.clear();
-        enterPriceRatePresentCAD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(15));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRatePresentEuro;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRatePresentEuro() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRatePresentEuro.isDisplayed());
-        enterPriceRatePresentEuro.clear();
-        enterPriceRatePresentEuro.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(16));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//*[@name=\"mydate\"]")
-    private WebElement enterFuturePriceDate;
-    /**
-     * Method to Enter Price Date.
-     * @throws IOException 
-     */
-    public void enterFuturePriceDate() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Date");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterPresentPriceDate);
-        Assert.assertTrue(enterFuturePriceDate.isDisplayed());
-        enterFuturePriceDate.clear();
-        enterFuturePriceDate.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(17));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRateFutureUSD;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRateFutureUSD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRateFutureUSD.isDisplayed());
-        enterPriceRateFutureUSD.clear();
-        enterPriceRateFutureUSD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(18));
-        
-    }
-    
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRateFutureCAD;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRateFutureCAD() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRateFutureCAD.isDisplayed());
-        enterPriceRateFutureCAD.clear();
-        enterPriceRateFutureCAD.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(19));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
-    private WebElement enterPriceRateFutureEuro;
-    /**
-     * Method to Enter Price Rate.
-     * @throws IOException 
-     */
-    public void enterPriceRateFutureEuro() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Enter Price Rate");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(enterPriceRateFutureEuro.isDisplayed());
-        enterPriceRateFutureEuro.clear();
-        enterPriceRateFutureEuro.sendKeys(sp.ExcelRead(sheetName,xlsxName).get(16));
-        
-    }
-    
-    @FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Price']")
-    private WebElement clickAddPriceButton;
-    /**
-     * Method to click on Add Price Button.
-     * @throws IOException 
-     */
-    public void clickAddPriceButton() throws IOException{
-    	AddProductCategoryPage1 sp=new AddProductCategoryPage1(driver);
-        log.info("Click on Add Price Button");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(clickAddPriceButton.isDisplayed());
-        clickAddPriceButton.click();
-        
-    }
+   
     
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);

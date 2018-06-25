@@ -80,9 +80,9 @@ public class BasePage {
 			File file = new File(System.getProperty("user.dir") + xlFilePath);
 			FileInputStream fs = new FileInputStream(file);
 			XSSFWorkbook wb = new XSSFWorkbook(fs);
-			System.out.println(wb);
+			
 			XSSFSheet sheet = wb.getSheet(sheetName);
-			System.out.println(sheet);
+			
 			XSSFRow row = sheet.getRow(rowNum);
 			XSSFCell cell = row.getCell(colNum);
 			
