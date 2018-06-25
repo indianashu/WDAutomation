@@ -28,7 +28,7 @@ public class AddProductCategoryTest1 {
 	}
 
 	@Test(groups = { "Product Historical Feature" }, description = "Create Currency for the Child and Parent Company")
-	public void userSignin() throws IOException {
+	public void userSignin() throws Exception {
 
 		addProductCategoryPage.enterLoginID();
 		addProductCategoryPage.enterPassword();
@@ -49,38 +49,7 @@ public class AddProductCategoryTest1 {
 		addProductCategoryPage.selectProductCompany1();
 		addProductCategoryPage.selectProductCompany2();
 		
-		addProductCategoryPage.enterPastPriceDate();
-		addProductCategoryPage.selectCurrencyUSD();
-		addProductCategoryPage.enterPriceRatePastUSD();
-		addProductCategoryPage.clickAddPriceButton();
-		addProductCategoryPage.selectCurrencyCAD();
-		addProductCategoryPage.enterPriceRatePastCAD();
-		addProductCategoryPage.clickAddPriceButton();
-		addProductCategoryPage.selectCurrencyEuro();
-		addProductCategoryPage.enterPriceRatePastEuro();
-		addProductCategoryPage.clickAddPriceButton();
-		
-		addProductCategoryPage.enterPresentPriceDate();
-		addProductCategoryPage.selectCurrencyUSD();
-		addProductCategoryPage.enterPriceRatePresentUSD();
-		addProductCategoryPage.clickAddPriceButton();
-		addProductCategoryPage.selectCurrencyCAD();
-		addProductCategoryPage.enterPriceRatePresentCAD();
-		addProductCategoryPage.clickAddPriceButton();
-		addProductCategoryPage.selectCurrencyEuro();
-		addProductCategoryPage.enterPriceRatePresentEuro();
-		addProductCategoryPage.clickAddPriceButton();
-		
-		addProductCategoryPage.enterFuturePriceDate();
-		addProductCategoryPage.selectCurrencyUSD();
-		addProductCategoryPage.enterPriceRateFutureUSD();
-		addProductCategoryPage.clickAddPriceButton();
-		addProductCategoryPage.selectCurrencyCAD();
-		addProductCategoryPage.enterPriceRateFutureCAD();
-		addProductCategoryPage.clickAddPriceButton();
-		addProductCategoryPage.selectCurrencyEuro();
-		addProductCategoryPage.enterPriceRateFutureEuro();
-		addProductCategoryPage.clickAddPriceButton();
+		addProductCategoryPage.selectHistoricalPrices();
 		
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();
