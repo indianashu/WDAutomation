@@ -30,12 +30,12 @@ public class CurrencyTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Currency for the Child and Parent Company")
 	public void userSignin() throws IOException {
 
-		/*
-		 * currencyPage.enterLoginID(); 
-		 * currencyPage.enterPassword();
-		 * currencyPage.selectCompany(); 
-		 * currencyPage.clickLoginButton();
-		 */
+		
+		 currencyPage.enterLoginID(); 
+		 currencyPage.enterPassword();
+		 currencyPage.selectCompany(); 
+		 currencyPage.clickLoginButton();
+		 
 		currencyPage.clickCurrencies();
 		currencyPage.checkCADcurrency();
 		currencyPage.checkEUROcurrency();

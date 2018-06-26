@@ -1,7 +1,8 @@
 package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
-import productHistorical.AddProductCategoryPage1;
+import productHistorical.AddProduct1Page;
+import productHistorical.AddProduct4Page;
 
 import java.io.IOException;
 
@@ -10,9 +11,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
-public class AddProductCategoryTest1 {
+public class AddProduct4Test {
 
-	AddProductCategoryPage1 addProductCategoryPage;
+	AddProduct4Page addProductCategoryPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -23,11 +24,11 @@ public class AddProductCategoryTest1 {
 		String url = p.getVal("url1");
 		driver.get(url);
 		// WaitClass.waitForUrl(driver, url, 10);
-		addProductCategoryPage = AddProductCategoryPage1.getPage(driver, AddProductCategoryPage1.class);
+		addProductCategoryPage = AddProduct4Page.getPage(driver, AddProduct4Page.class);
 
 	}
 
-	@Test(groups = { "Product Historical Feature" }, description = "Create Product for the Child and Parent Company")
+	@Test(groups = { "Product Historical Feature" }, description = "Create Product4 for the Child and Parent Company")
 	public void userSignin() throws Exception {
 
 		/*addProductCategoryPage.enterLoginID();
@@ -36,11 +37,7 @@ public class AddProductCategoryTest1 {
 		addProductCategoryPage.clickLoginButton();*/
 		
 		addProductCategoryPage.clickProductsTab();
-		addProductCategoryPage.clickAddCategoryButton();
-		addProductCategoryPage.enterCategoryName();
-		addProductCategoryPage.checkGlobal();
-		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg();
+		addProductCategoryPage.selectCategoryName();
 		
 		addProductCategoryPage.clickAddProductButton();
 		addProductCategoryPage.enterEnglishDescription();

@@ -139,9 +139,11 @@ public class CurrencyPage extends BasePage {
 	public void checkCADcurrency() throws IOException {
 		CurrencyPage sp = new CurrencyPage(driver);
 		log.info("Check Canadian Currency Checkbox.");
-		WaitClass.WaitForElementisDisplay(driver, 5, checkCADcurrency);
 		Assert.assertTrue(checkCADcurrency.isDisplayed());
-		checkCADcurrency.click();
+		if ( !checkCADcurrency.isSelected() )
+		{
+			checkCADcurrency.click();
+		}
 
 	}
 
@@ -156,9 +158,11 @@ public class CurrencyPage extends BasePage {
 	public void checkEUROcurrency() throws IOException {
 		CurrencyPage sp = new CurrencyPage(driver);
 		log.info("Check Euro Currency Checkbox.");
-		WaitClass.WaitForElementisDisplay(driver, 5, checkEUROcurrency);
 		Assert.assertTrue(checkEUROcurrency.isDisplayed());
+		if ( !checkEUROcurrency.isSelected() )
+		{
 		checkEUROcurrency.click();
+		}
 
 	}
 
