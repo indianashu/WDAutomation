@@ -51,7 +51,7 @@ public class productCreationTest {
     	agentPage.enterCategoryName();
     	agentPage.clickSaveChangesButton();
     	agentPage.verifyConfirmationMsg();
-    	agentPage.clickProductTab();
+    	//agentPage.clickProductTab();
     	agentPage.clickProductCategoryName();
     	agentPage.clickAddProductButton();
     	agentPage.enterEnglishDescription();
@@ -60,7 +60,6 @@ public class productCreationTest {
     	agentPage.enterMasterCommission();
     	agentPage.enterPriceRate();
     	agentPage.clickAddPriceButton();
-		agentPage.navigateBottom();
     	agentPage.clickSaveChangesButton();
     	agentPage.verifyConfirmationMsg();
     	

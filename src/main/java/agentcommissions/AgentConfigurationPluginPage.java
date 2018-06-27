@@ -33,67 +33,39 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class AgentConfigurationPluginPage extends BasePage{
-    /**
-     * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
-     * then this will take care of initialization of the driver
-     *
-     * @param webdriver
-     */
-    public AgentConfigurationPluginPage(WebDriver webdriver) {
-        super(webdriver);
-    }
+public class AgentConfigurationPluginPage extends BasePage {
+	/**
+	 * This constructor is used to initialize the webdriver in BasePage class, if
+	 * the user does not want to use page factory then this will take care of
+	 * initialization of the driver
+	 *
+	 * @param webdriver
+	 */
+	public AgentConfigurationPluginPage(WebDriver webdriver) {
+		super(webdriver);
+	}
 
-    Logger log=Logger.getLogger(AgentConfigurationPluginPage.class);
-    AgentConfigurationPluginPage agentConfigurationPluginPage;
-    PropertyValExtractors p = new PropertyValExtractors();
-  
-    public  ArrayList<String> ExcelRead() throws IOException{
-    	
+	Logger log = Logger.getLogger(AgentConfigurationPluginPage.class);
+	AgentConfigurationPluginPage agentConfigurationPluginPage;
+	PropertyValExtractors p = new PropertyValExtractors();
+	String sheetName = "AgentPlugin";
 
-		ArrayList<String> rl=new ArrayList<String>();
-		File file=new File(System.getProperty("user.dir") +"/Webdata_TestData.xlsx");
-		FileInputStream fs=new FileInputStream(file);
-		XSSFWorkbook wb=new XSSFWorkbook(fs);
-		XSSFSheet sheet=wb.getSheet("AgentPlugin");
-		
-		Iterator<Row> row=sheet.iterator();
-		//System.out.println();
-		while(row.hasNext()){
-			Iterator<Cell> cell=row.next().iterator();
-			int i=0;
-			
-			while(cell.hasNext()){
-					
-				Cell c1=cell.next();
-				c1.setCellType(c1.CELL_TYPE_STRING);
-				String sample=c1.getStringCellValue();
-				//log.info("***************************"+sample+"********************");
-				
-		rl.add(sample);
-		
-			}
-			System.out.println(rl);
-		}
-		
-		return rl;
-    }
-    
+	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
+	private WebElement enterLoginID;
 
-    @FindBy(how=How.XPATH,using="//input[@name='j_username']")
-    private WebElement enterLoginID;
-    /**
-     * Method to enter login ID.
-     * @throws IOException 
-     */
-    public void enterLoginID() throws IOException{
-    	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
-    	
-        log.info("Verifying the Login ID is available or not");
-        WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
-        Assert.assertTrue(enterLoginID.isDisplayed());
-        enterLoginID.sendKeys(sp.ExcelRead().get(0));
-    }
+	/**
+	 * Method to enter login ID.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterLoginID() throws IOException {
+		AgentConfigurationPluginPage sp = new AgentConfigurationPluginPage(driver);
+
+		log.info("Verifying the Login ID is available or not");
+		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
+		Assert.assertTrue(enterLoginID.isDisplayed());
+		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
+	}
 
     @FindBy(how=How.XPATH,using="//input[@name='j_password']")
     private WebElement enterPassword;
@@ -106,7 +78,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
-        enterPassword.sendKeys(sp.ExcelRead().get(1));
+        enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
     }
 
@@ -119,7 +91,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
         Select se = new Select(Companyelement);
-        se.selectByVisibleText(sp.ExcelRead().get(2));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(2));
 
     }
 
@@ -149,6 +121,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/plugin/list";
         driver.get(url);
+        JavaScriptExec.sleep();
     }
     
     @FindBy(how=How.XPATH, using="//td[preceding-sibling::td[contains(.,'25')]]")
@@ -160,10 +133,9 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAgentCommissionCalProcess() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Agent Commission Calculation Process #25.");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAgentCommissionCalProcess);
         Assert.assertTrue(clickAgentCommissionCalProcess.isDisplayed());
         clickAgentCommissionCalProcess.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -176,10 +148,9 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAddNewButton() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on add new button");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAddNewButton);
         Assert.assertTrue(clickAddNewButton.isDisplayed());
         clickAddNewButton.click();
+        JavaScriptExec.sleep();
         
     }
    
@@ -194,7 +165,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         WebElement Typeelement = driver.findElement(By.xpath("//select[@name='typeId']"));
         Select se = new Select(Typeelement);
-        se.selectByVisibleText(sp.ExcelRead().get(3));
+        se.selectByVisibleText(sp.ExcelRead(sheetName).get(3));
 
     }
     
@@ -210,7 +181,7 @@ public class AgentConfigurationPluginPage extends BasePage{
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterOrder);
         Assert.assertTrue(enterOrder.isDisplayed());
-        enterOrder.sendKeys(sp.ExcelRead().get(4));
+        enterOrder.sendKeys(sp.ExcelRead(sheetName).get(4));
         
     }
     
@@ -223,8 +194,7 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickSavePluginButton() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Save Plugin Button");
-        navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSavePluginButton);
+        JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(clickSavePluginButton.isDisplayed());
         clickSavePluginButton.click();
         
@@ -256,8 +226,6 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void verifyConfirmationMsg() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -270,10 +238,10 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAllLink() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on All Link");
-        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/config/index";
         driver.get(url);
+        JavaScriptExec.sleep();
     }
     
     @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Agent Commission Type']")
@@ -285,8 +253,6 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void clickAgentCommissionType() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Click on Agent Commission Type #61");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickAgentCommissionType);
         Assert.assertTrue(clickAgentCommissionType.isDisplayed());
         clickAgentCommissionType.click();
         JavaScriptExec.sleep();
@@ -301,8 +267,6 @@ public class AgentConfigurationPluginPage extends BasePage{
     public void verifyInvoice() throws IOException{
     	AgentConfigurationPluginPage sp=new AgentConfigurationPluginPage(driver);
         log.info("Verifying if Invoice value is there or not");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyInvoice);
         verifyInvoice.getText();
         Assert.assertTrue(verifyInvoice.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }

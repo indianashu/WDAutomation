@@ -40,12 +40,12 @@ public class impersonateCustomerTest {
 
     @Test(groups={"Sanity"},description="Impersonate a Customer")
     public void userSignin() throws IOException{
-/*
-    	impersonateCustomerPage.enterLoginID();
+
+    	/*impersonateCustomerPage.enterLoginID();
     	impersonateCustomerPage.enterPassword();
     	impersonateCustomerPage.selectCompany();
-    	impersonateCustomerPage.clickLoginButton();
-*/
+    	impersonateCustomerPage.clickLoginButton();*/
+
     	impersonateCustomerPage.clickCustomerTab();
     	impersonateCustomerPage.selectCustomer();
     	impersonateCustomerPage.clickImpersonateUserImage();

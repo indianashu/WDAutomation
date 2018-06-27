@@ -53,8 +53,9 @@ public class configureAddNewInfoTypeTest {
         configurationNewInformationTypePage.enterdisplayOrder();
         configurationNewInformationTypePage.checkuseForNotifications();
     	configurationNewInformationTypePage.clickAddNewMetafieldButton();
-    	configurationNewInformationTypePage.clickDecription();
+    	//configurationNewInformationTypePage.clickDecription();
     	configurationNewInformationTypePage.enterMetafieldName();
+    	configurationNewInformationTypePage.navigateBottom();
     	configurationNewInformationTypePage.selectMetafieldType();
     	configurationNewInformationTypePage.clickUpdateButton();
     	configurationNewInformationTypePage.clickSaveChangesButton();

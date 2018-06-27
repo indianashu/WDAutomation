@@ -44,10 +44,10 @@ public class BasePage {
 		return PageFactory.initElements(driver, Page);
 	}
 
-	public static ArrayList<String> ExcelRead(String sheetName, String xlsxName) throws IOException {
+	public static ArrayList<String> ExcelRead(String sheetName) throws IOException {
 
 		ArrayList<String> rl = new ArrayList<String>();
-		File file = new File(System.getProperty("user.dir") + xlsxName);
+		File file = new File(System.getProperty("user.dir") + "Webdata_TestData.xlsx");
 		FileInputStream fs = new FileInputStream(file);
 		XSSFWorkbook wb = new XSSFWorkbook(fs);
 		XSSFSheet sheet = wb.getSheet(sheetName);

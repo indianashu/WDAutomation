@@ -66,7 +66,6 @@ public class addingAssetOrderTest {
     	addingAssetPage.clickAddToOrderButton();
     	addingAssetPage.verifyAddedAsset();
     	addingAssetPage.clickUpdateButton();
-    	addingAssetPage.navigateBottom();
     	addingAssetPage.clickSaveChangesButton();
     	addingAssetPage.verifyAssetOrderPreview();
     	addingAssetPage.clickProductsTab();
