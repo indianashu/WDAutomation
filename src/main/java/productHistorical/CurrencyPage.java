@@ -269,7 +269,7 @@ public class CurrencyPage extends BasePage {
 	public void clickRedCross() throws IOException {
 		CurrencyPage sp = new CurrencyPage(driver);
 		log.info("Click on Red Cross");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickRedCross);
+		JavaScriptExec.sleep();
 		Assert.assertTrue(clickRedCross.isDisplayed());
 		clickRedCross.click();
 

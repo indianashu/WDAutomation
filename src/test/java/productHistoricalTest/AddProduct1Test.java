@@ -38,7 +38,7 @@ public class AddProduct1Test {
 		addProductCategoryPage.clickProductsTab();
 		addProductCategoryPage.clickAddCategoryButton();
 		addProductCategoryPage.enterCategoryName();
-		addProductCategoryPage.checkGlobal();
+		addProductCategoryPage.clickGlobalCheckbox();
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();
 		
@@ -48,8 +48,8 @@ public class AddProduct1Test {
 		addProductCategoryPage.selectProductCompany1();
 		addProductCategoryPage.selectProductCompany2();
 		
-		addProductCategoryPage.selectHistoricalPrices();
-		addProductCategoryPage.selectHistoricalPrices1();
+		addProductCategoryPage.selectHistoricalPriceForParent();
+		addProductCategoryPage.selectHistoricalPricesForChild();
 		
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();

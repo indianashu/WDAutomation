@@ -42,6 +42,7 @@ public class AddProduct3Test {
 		addProductCategoryPage.clickAddProductButton();
 		addProductCategoryPage.enterEnglishDescription();
 		addProductCategoryPage.enterProductCode();
+		addProductCategoryPage.deselectProductCompany1();
 		addProductCategoryPage.selectProductCompany2();
 		
 		addProductCategoryPage.selectHistoricalPrices();

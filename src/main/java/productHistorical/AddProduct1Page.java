@@ -3,6 +3,7 @@ package productHistorical;
 import baseClassPackage.BasePage;
 import categoryProducts.AddProductPage;
 import categoryProducts.AddProductWithAssetPage;
+import categoryProducts.ProductCategoryPage;
 import companyHierarchy.ViewAssignedInfoPage;
 
 import java.io.File;
@@ -155,22 +156,17 @@ public class AddProduct1Page extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name='global']")
-	private WebElement checkGlobal;
-
-	/**
-	 * Method to Check Global CheckBox.
-	 * 
-	 * @throws IOException
-	 */
-	public void checkGlobal() throws IOException {
-		AddProduct1Page sp = new AddProduct1Page(driver);
-		log.info("Check Canadian Currency Checkbox.");
-		WaitClass.WaitForElementisDisplay(driver, 5, checkGlobal);
-		Assert.assertTrue(checkGlobal.isDisplayed());
-		sp.checkGlobal.click();
-
-	}
+	@FindBy(how=How.XPATH, using="//*[@id='global-checkbox']")
+    private WebElement clickGlobalCheckbox;
+    /**
+     * Method to click Global checkbox.
+     * @throws IOException 
+     */
+    public void clickGlobalCheckbox() throws IOException{
+        JavaScriptExec.sleep();
+        Assert.assertTrue(clickGlobalCheckbox.isDisplayed());
+        clickGlobalCheckbox.click(); 
+    }
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
 	private WebElement clickSaveChangesButton;
@@ -291,7 +287,7 @@ public class AddProduct1Page extends BasePage {
 
 	}
 
-	public void selectHistoricalPrices() throws IOException {
+	public void selectHistoricalPriceForParent() throws IOException {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		for (int i = 0; i <= 8; i++) {
 			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
@@ -320,7 +316,7 @@ public class AddProduct1Page extends BasePage {
 
 	}
 
-	public void selectHistoricalPrices1() throws IOException {
+	public void selectHistoricalPricesForChild() throws IOException {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		for (int i = 0; i <= 8; i++) {
 			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));

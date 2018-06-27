@@ -123,12 +123,11 @@ public class AddProduct4Page extends BasePage {
 	 * @throws IOException
 	 */
 	public void selectCategoryName() throws IOException {
-		AddProduct2Page sp = new AddProduct2Page(driver);
-		JavaScriptExec.sleep();
 		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
 		WebElement selectCategoryName = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']"));
 		actions.moveToElement(selectCategoryName).click(selectCategoryName).perform();
+        JavaScriptExec.sleep();
 
 	}
 	
@@ -142,7 +141,6 @@ public class AddProduct4Page extends BasePage {
     	AddProduct4Page sp=new AddProduct4Page(driver);
         log.info("Click on Save Changes Button");
         navigateBottom();
-        WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
         
@@ -157,7 +155,6 @@ public class AddProduct4Page extends BasePage {
     	AddProduct4Page sp=new AddProduct4Page(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
     
@@ -168,11 +165,10 @@ public class AddProduct4Page extends BasePage {
      * @throws IOException 
      */
     public void clickAddProductButton() throws IOException{
-    	AddProduct4Page sp=new AddProduct4Page(driver);
         log.info("Click on Add Product Button");
-        WaitClass.WaitForElementisDisplay(driver, 5, clickAddProductButton);
         Assert.assertTrue(clickAddProductButton.isDisplayed());
         clickAddProductButton.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -185,10 +181,8 @@ public class AddProduct4Page extends BasePage {
     public void enterEnglishDescription() throws IOException{
     	AddProduct4Page sp=new AddProduct4Page(driver);
         log.info("Enter English Description");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterEnglishDescription);
         Assert.assertTrue(enterEnglishDescription.isDisplayed());
-        enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName,sheetName,5,3));
+		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 3));
         
     }
     
@@ -201,8 +195,6 @@ public class AddProduct4Page extends BasePage {
     public void enterProductCode() throws IOException{
     	AddProduct4Page sp=new AddProduct4Page(driver);
         log.info("Enter Product Code");
-        JavaScriptExec.sleep();
-        WaitClass.WaitForElementisDisplay(driver, 5, enterProductCode);
         Assert.assertTrue(enterProductCode.isDisplayed());
         enterProductCode.sendKeys(BasePage.getCellData(xlsxName,sheetName,5,3));
         

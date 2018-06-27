@@ -128,11 +128,11 @@ public class AddProduct3Page extends BasePage {
 	 */
 	public void selectCategoryName() throws IOException {
 		AddProduct3Page sp = new AddProduct3Page(driver);
-		JavaScriptExec.sleep();
 		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
 		WebElement selectCategoryName = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']"));
 		actions.moveToElement(selectCategoryName).click(selectCategoryName).perform();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -147,10 +147,9 @@ public class AddProduct3Page extends BasePage {
 	public void clickAddProductButton() throws IOException {
 		AddProduct3Page sp = new AddProduct3Page(driver);
 		log.info("Click on Add Product Button");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickAddProductButton);
 		Assert.assertTrue(clickAddProductButton.isDisplayed());
 		clickAddProductButton.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
@@ -188,6 +187,15 @@ public class AddProduct3Page extends BasePage {
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 2));
 
 	}
+	
+	
+	public void deselectProductCompany1() throws IOException {
+		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
+		Select se = new Select(Companyelement);
+		se.deselectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
+		JavaScriptExec.sleep();
+
+	}
 
 	private WebElement selectProductCompany1;
 
@@ -201,7 +209,7 @@ public class AddProduct3Page extends BasePage {
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
 		Select se = new Select(Companyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-
+		navigateBottom();
 	}
 
 	public void selectHistoricalPrices() throws IOException {

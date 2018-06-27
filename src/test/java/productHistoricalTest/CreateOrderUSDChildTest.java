@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
-public class CreateOrderTest {
+public class CreateOrderUSDChildTest {
 	
 	CreateOrderPage createOrderPage;
 	WebDriver driver, driver2;
@@ -27,15 +27,20 @@ public class CreateOrderTest {
 
 	}
 
-	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child and Parent Company")
+	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 		
-		createOrderPage.enterLoginID();
+		/*createOrderPage.enterLoginID();
 		createOrderPage.enterPassword();
 		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();
+		createOrderPage.clickLoginButton();*/
 		
-		createOrderPage.clickCustomerTab();
+		createOrderPage.clickImpersonate();
+		createOrderPage.selectChildCompany();
+		createOrderPage.clickSelectButton();
+		createOrderPage.createOrder2();
+		createOrderPage.clickRedCross();
+		
 		
 		
 	}

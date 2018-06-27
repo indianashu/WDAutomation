@@ -38,7 +38,12 @@ public class AddCustomerTest {
 		
 		addCustomerPage.clickCustomerTab();
 		addCustomerPage.createCustomerForParent();
+		addCustomerPage.clickImpersonate();
+		addCustomerPage.selectChildCompany();
+		addCustomerPage.clickSelectButton();
 		addCustomerPage.createCustomerForChild();
+		addCustomerPage.clickRedCross();
+		
 		
 	}
 

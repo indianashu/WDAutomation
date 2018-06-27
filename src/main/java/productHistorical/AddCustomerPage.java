@@ -115,9 +115,9 @@ public class AddCustomerPage extends BasePage {
 	public void clickCustomerTab() throws IOException {
 		AddCustomerPage sp = new AddCustomerPage(driver);
 		log.info("Click on Products Tab after successful login");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -131,10 +131,6 @@ public class AddCustomerPage extends BasePage {
 			clickAddNewButton.click();
 			JavaScriptExec.sleep();
 
-			WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
-			Select se = new Select(Usercompanyelement);
-			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-
 			WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
 			Select sel = new Select(AccountTypeelement);
 			sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 3, 0));
@@ -172,24 +168,53 @@ public class AddCustomerPage extends BasePage {
 		}
 
 	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='fa fa-plus-square']")
+	private WebElement clickImpersonate;
+
+	/**
+	 * Method to Click on Impersonate Link
+	 */
+	public void clickImpersonate() {
+		log.info("Click on Impersonate Link");
+		Assert.assertTrue(clickImpersonate.isDisplayed());
+		clickImpersonate.click();
+	}
+
+	private WebElement selectChildCompany;
+
+	/**
+	 * Method to select Child Company.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectChildCompany() throws IOException {
+		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entityId']"));
+		Select se = new Select(Companyelement);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 1));
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//*[text()='OK']")
+	private WebElement clickSelectButton;
+
+	/**
+	 * Method to Click on Select Button
+	 */
+	public void clickSelectButton() {
+		log.info("Click on Select Button");
+		Assert.assertTrue(clickSelectButton.isDisplayed());
+		clickSelectButton.click();
+	}
 
 	public void createCustomerForChild() throws IOException {
 		AddCustomerPage sp = new AddCustomerPage(driver);
 		for (int i = 0; i <= 2; i++) {
 			WebElement clickAddNewButton = driver
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));
-			JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);
 			Assert.assertTrue(clickAddNewButton.isDisplayed());
 			clickAddNewButton.click();
 			JavaScriptExec.sleep();
-
-			WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
-			Select se = new Select(Usercompanyelement);
-			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 1));
-
-			WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
-			Select sel = new Select(AccountTypeelement);
-			sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 3, 0));
 
 			WebElement clickSelectButton = driver
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Select']"));
@@ -209,6 +234,7 @@ public class AddCustomerPage extends BasePage {
 			JavaScriptExec.sleep();
 
 			navigateBottom();
+			
 			WebElement clickSaveChangesButton = driver
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
@@ -221,6 +247,22 @@ public class AddCustomerPage extends BasePage {
 			JavaScriptExec.sleep();
 
 		}
+
+	}
+	
+	@FindBy(how = How.XPATH, using = "//span[@class='right-text']//a")
+	private WebElement clickRedCross;
+
+	/**
+	 * Method to click on Red Cross
+	 * 
+	 * @throws IOException
+	 */
+	public void clickRedCross() throws IOException {
+		log.info("Click on Red Cross");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickRedCross.isDisplayed());
+		clickRedCross.click();
 
 	}
 

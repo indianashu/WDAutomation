@@ -127,12 +127,11 @@ public class AddProduct2Page extends BasePage {
 	 * @throws IOException
 	 */
 	public void selectCategoryName() throws IOException {
-		AddProduct2Page sp = new AddProduct2Page(driver);
-		JavaScriptExec.sleep();
 		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
 		WebElement selectCategoryName = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']"));
 		actions.moveToElement(selectCategoryName).click(selectCategoryName).perform();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -145,11 +144,10 @@ public class AddProduct2Page extends BasePage {
 	 * @throws IOException
 	 */
 	public void clickAddProductButton() throws IOException {
-		AddProduct2Page sp = new AddProduct2Page(driver);
 		log.info("Click on Add Product Button");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickAddProductButton);
 		Assert.assertTrue(clickAddProductButton.isDisplayed());
 		clickAddProductButton.click();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -201,6 +199,7 @@ public class AddProduct2Page extends BasePage {
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
 		Select se = new Select(Companyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
+		navigateBottom();
 
 	}
 

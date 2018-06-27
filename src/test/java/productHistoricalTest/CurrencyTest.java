@@ -31,10 +31,10 @@ public class CurrencyTest {
 	public void userSignin() throws IOException {
 
 		
-		 currencyPage.enterLoginID(); 
+		 /*currencyPage.enterLoginID(); 
 		 currencyPage.enterPassword();
 		 currencyPage.selectCompany(); 
-		 currencyPage.clickLoginButton();
+		 currencyPage.clickLoginButton();*/
 		 
 		currencyPage.clickCurrencies();
 		currencyPage.checkCADcurrency();
