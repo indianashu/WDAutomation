@@ -47,6 +47,7 @@ public class AddingAssetPage extends BasePage{
 	AddingAssetPage discountPage;
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName="AddingAsset";
+	String xlsxName = "/Webdata_TestData.xlsx";
 
 	@FindBy(how=How.XPATH,using="//input[@name='j_username']")
 	private WebElement enterLoginID;
@@ -300,6 +301,7 @@ public class AddingAssetPage extends BasePage{
 	 */
 	public void selectProduct() throws IOException{
 		log.info("Select a product.");
+		JavaScriptExec.sleep();
 		String ProductName = AddingAssetPage.ExcelRead(sheetName).get(9);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
 

@@ -104,73 +104,63 @@ public class LoginPage extends BasePage {
 	 */
 	public void clickLoginButton() {
 		log.info("Verifying the login button is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
-		Assert.assertTrue(clickLoginButton.isDisplayed());
-		clickLoginButton.click();
-	}
+        Assert.assertTrue(clickLoginButton.isDisplayed());
+        clickLoginButton.click();
+    }
 
-	@FindBy(how = How.XPATH, using = "//span[@class='right-text']")
-	private WebElement labelSuccessfulLogin;
+    @FindBy(how=How.XPATH, using="//span[@class='right-text']")
+    private WebElement labelSuccessfulLogin;
+    /**
+     * Method to verify Label is present after successful login.
+     * @throws IOException 
+     */
+    public void verifyLabelSuccessfulLogin() throws IOException{
+    	LoginPage sp=new LoginPage(driver);
+        log.info("Verifying if Label is available or not");
+        Assert.assertTrue(labelSuccessfulLogin.getText().contains(sp.ExcelRead(sheetName).get(3)), "Assert Failed as its unable to search text in Logged in Page");
+    }
 
-	/**
-	 * Method to verify Label is present after successful login.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyLabelSuccessfulLogin() throws IOException {
-		LoginPage sp = new LoginPage(driver);
-		log.info("Verifying if Label is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, labelSuccessfulLogin);
-		Assert.assertTrue(labelSuccessfulLogin.getText().contains(sp.ExcelRead(sheetName).get(3)),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
+    
+    private WebElement enterURL;
+    /**
+     * Method to enter signup url to create child company.
+     * @throws IOException 
+     */
+    public void enterURL() throws IOException{
+    	LoginPage sp=new LoginPage(driver);
+        log.info("enter signup url to create child company");
+        p.getPropertyFile("test", "configuration.properties");
+        String url=p.getVal("url");
+        driver.get(url);
+//        WaitClass.WaitForElementisDisplay(driver, 5, enterURL);
+//        Assert.assertTrue(enterURL.isDisplayed());
+//        ((WebDriver) enterURL).get("http://www.simplebilling.co.in:8080/signup");
 
-	private WebElement enterURL;
+    }
+    
+    //@FindBy(how=How.XPATH, using="//*[@id="company-edit-form"]/fieldset/div[1]/div[2]/div[1]/span/h")
+    private WebElement labelRootCompany;
+    /**
+     * Method to verify Label root company is present after successful login.
+     * @throws IOException 
+     */
+    public void labelRootCompany() throws IOException{
+    	LoginPage sp=new LoginPage(driver);
+        log.info("Verifying if Label is available or not");
+        String RootCompanyName = sp.ExcelRead(sheetName).get(3); 
+        String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
+        System.out.println("Company Name:********" +ActualRootCompany+ "*********");
+        log.info("Click on customer name");
+        JavaScriptExec.sleep();
+        //WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
+        //Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead().get(3)), "Assert Failed as its unable to search text in Logged in Page");
+        Assert.assertEquals(ActualRootCompany, RootCompanyName);
+    }
+    
+    public void navigateBottom(){
+        JavaScriptExec.scrolltoBottomofPage(driver);
+        JavaScriptExec.sleep();
+    }
 
-	/**
-	 * Method to enter signup url to create child company.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterURL() throws IOException {
-		LoginPage sp = new LoginPage(driver);
-		log.info("enter signup url to create child company");
-		p.getPropertyFile("test", "configuration.properties");
-		String url = p.getVal("url");
-		driver.get(url);
-		// WaitClass.WaitForElementisDisplay(driver, 5, enterURL);
-		// Assert.assertTrue(enterURL.isDisplayed());
-		// ((WebDriver) enterURL).get("http://www.simplebilling.co.in:8080/signup");
-
-	}
-
-	// @FindBy(how=How.XPATH,
-	// using="//*[@id="company-edit-form"]/fieldset/div[1]/div[2]/div[1]/span/h")
-	private WebElement labelRootCompany;
-
-	/**
-	 * Method to verify Label root company is present after successful login.
-	 * 
-	 * @throws IOException
-	 */
-	public void labelRootCompany() throws IOException {
-		LoginPage sp = new LoginPage(driver);
-		log.info("Verifying if Label is available or not");
-		String RootCompanyName = sp.ExcelRead(sheetName).get(3);
-		String ActualRootCompany = driver
-				.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
-		System.out.println("Company Name:********" + ActualRootCompany + "*********");
-		log.info("Click on customer name");
-		JavaScriptExec.sleep();
-		// WaitClass.WaitForElementisDisplay(driver, 10, labelRootCompany);
-		// Assert.assertTrue(labelRootCompany.getText().contains(sp.ExcelRead(sheetName).get(3)),
-		// "Assert Failed as its unable to search text in Logged in Page");
-		Assert.assertEquals(ActualRootCompany, RootCompanyName);
-	}
-
-	public void navigateBottom() {
-		JavaScriptExec.scrolltoBottomofPage(driver);
-		JavaScriptExec.sleep();
-	}
 
 }

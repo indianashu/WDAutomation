@@ -1,0 +1,46 @@
+<suite name="WebData-Product Historical Feature" parallel="none">
+
+	<listeners>
+
+		<!-- <listener class-name="utilPackages.MyReporterListener"></listener> -->
+
+	</listeners>
+
+	<test name="WebData-Product Historical Feature">
+
+		<groups>
+
+			<define name="All">
+
+				<include name="Product Historical Feature" />
+
+			</define>
+
+			<run>
+
+				<include name="All" />
+
+			</run>
+
+		</groups>
+
+		<classes>
+			<class name = "loginWebData.WebDataLoginTest"/>
+			<class name = "SignupTest.ChildCompanySignupTest"/> 
+			<class name = "productHistoricalTest.CurrencyTest"/>
+			<class name = "productHistoricalTest.AddProduct1Test"/>
+			<class name = "productHistoricalTest.AddProduct2Test"/>
+			<class name = "productHistoricalTest.AddProduct3Test"/>
+			<class name = "productHistoricalTest.AddProduct4Test"/>
+			<class name = "productHistoricalTest.AddCustomerTest"/>
+			<class name = "productHistoricalTest.CreateOrderUSDParentTest"/>
+			<class name = "productHistoricalTest.CreateOrderUSDChildTest"/>
+			<class name = "productHistoricalTest.CreateOrderCADParentTest"/>
+			<class name = "productHistoricalTest.CreateOrderCADChildTest"/>
+			<class name = "productHistoricalTest.CreateOrderEUROParentTest"/>
+			<class name = "productHistoricalTest.CreateOrderEUROChildTest"/>
+		</classes>
+
+	</test>
+
+</suite>

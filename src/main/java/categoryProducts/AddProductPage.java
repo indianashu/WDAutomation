@@ -106,10 +106,11 @@ public class AddProductPage extends BasePage {
 	public void clickLoginButton() {
 		AddProductPage sp = new AddProductPage(driver);
 		log.info("Verifying the login button is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
-		Assert.assertTrue(clickLoginButton.isDisplayed());
-		clickLoginButton.click();
-	}
+        Assert.assertTrue(clickLoginButton.isDisplayed());
+        clickLoginButton.click();
+    }
+
+    
 
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.products']/a")
 	private WebElement clickProductsTab;
