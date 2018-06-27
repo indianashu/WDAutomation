@@ -26,12 +26,12 @@
 
 		<classes>
 			<class name = "loginWebData.WebDataLoginTest"/>
-			<!-- <class name = "SignupTest.ChildCompanySignupTest"/> 
+			<class name = "SignupTest.ChildCompanySignupTest"/> 
 			<class name = "productHistoricalTest.CurrencyTest"/>
 			<class name = "productHistoricalTest.AddProduct1Test"/>
 			<class name = "productHistoricalTest.AddProduct2Test"/>
 			<class name = "productHistoricalTest.AddProduct3Test"/>
-			<class name = "productHistoricalTest.AddProduct4Test"/>-->
+			<class name = "productHistoricalTest.AddProduct4Test"/>
 			<class name = "productHistoricalTest.AddCustomerTest"/>
 			<class name = "productHistoricalTest.CreateOrderUSDParentTest"/>
 			<class name = "productHistoricalTest.CreateOrderUSDChildTest"/>
