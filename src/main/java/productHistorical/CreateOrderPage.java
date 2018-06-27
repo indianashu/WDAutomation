@@ -363,6 +363,7 @@ public class CreateOrderPage extends BasePage {
 			WebElement selectCustomer = driver
 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 			selectCustomer.click();
+			navigateBottom();
 			
 			JavaScriptExec.scrolltoBottomofPage(driver);
 			WebElement clickCreateOrderButton = driver
