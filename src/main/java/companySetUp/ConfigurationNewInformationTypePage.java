@@ -58,7 +58,6 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 		ConfigurationNewInformationTypePage sp = new ConfigurationNewInformationTypePage(driver);
 
 		log.info("Verifying the Login ID is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
 		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
 	}
@@ -74,7 +73,6 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 	public void enterPassword() throws IOException {
 		ConfigurationNewInformationTypePage sp = new ConfigurationNewInformationTypePage(driver);
 		log.info("Verifying the First Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
@@ -104,7 +102,6 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 	public void clickLoginButton() {
 		ConfigurationNewInformationTypePage sp = new ConfigurationNewInformationTypePage(driver);
 		log.info("Verifying the login button is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
@@ -237,7 +234,6 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 		ConfigurationNewInformationTypePage sp = new ConfigurationNewInformationTypePage(driver);
 		log.info("Description - is available or not");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickDecription);
 		Assert.assertTrue(clickDecription.isDisplayed());
 		clickDecription.click();
 
