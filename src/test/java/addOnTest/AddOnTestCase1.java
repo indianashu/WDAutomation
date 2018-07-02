@@ -7,13 +7,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import addOn.AddOnCreateCustomerPage;
+import addOn.TestCase1Page;
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
 
-public class addOnCreateCustomerTest {
-
-	AddOnCreateCustomerPage addOnCreateCustomerPage;
+public class AddOnTestCase1 {
+	TestCase1Page testCase1Page;
     WebDriver driver,driver2;
 
     @BeforeClass(alwaysRun=true)
@@ -24,24 +23,21 @@ public class addOnCreateCustomerTest {
         String url=p.getVal("url1");
         driver.get(url);
         //WaitClass.waitForUrl(driver, url, 10);
-        addOnCreateCustomerPage = AddOnCreateCustomerPage.getPage(driver, AddOnCreateCustomerPage.class);
+        testCase1Page = TestCase1Page.getPage(driver, TestCase1Page.class);
 
     }
     
-    @Test(groups={"Add ON"},description="Add ON Product and Category creation")
+    @Test(groups={"Add ON"},description="Add ON Order creation")
     public void userSignin() throws Exception{
-    	addOnCreateCustomerPage.enterLoginID();
-    	addOnCreateCustomerPage.enterPassword();
-    	addOnCreateCustomerPage.selectCompany();
-    	addOnCreateCustomerPage.clickLoginButton();
+    	testCase1Page.enterLoginID();
+    	testCase1Page.enterPassword();
+    	testCase1Page.selectCompany();
+    	testCase1Page.clickLoginButton();
     	
-    	addOnCreateCustomerPage.clickCustomerTab();
-    	addOnCreateCustomerPage.createCustomer();
+    	testCase1Page.clickCustomerTab();
     	
-    }
-    
-    @AfterClass(alwaysRun=false)
-    public void tearDown(){
-     BaseClasses.closeDriver("User1");
+    	testCase1Page.subscriptionOfPlan();
+    	testCase1Page.consumptionOfPlan();
+    	
     }
 }

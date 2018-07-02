@@ -13,10 +13,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import baseClassPackage.BasePage;
-import productHistorical.AddCustomerPage;
 import utilPackages.JavaScriptExec;
 
-public class AddOnCreateCustomerPage extends BasePage{
+public class AddOnCreateCustomerPage extends BasePage {
+	
 	public AddOnCreateCustomerPage(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -91,12 +91,11 @@ public class AddOnCreateCustomerPage extends BasePage{
 	}
 	
 	public void createCustomer() throws IOException {
-		AddCustomerPage sp = new AddCustomerPage(driver);
+		AddOnCreateCustomerPage sp = new AddOnCreateCustomerPage(driver);
 		for (int i = 0; i <= 2; i++) {
 			WebElement clickAddNewButton = driver
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));
-			JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);
-			Assert.assertTrue(clickAddNewButton.isDisplayed());
+			navigateBottom();
 			clickAddNewButton.click();
 			JavaScriptExec.sleep();
 
