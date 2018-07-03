@@ -30,10 +30,10 @@ public class AddOnCreateCustomerTest {
     
     @Test(groups={"Add ON"},description="Add ON Product and Category creation")
     public void userSignin() throws Exception{
-    	addOnCreateCustomerPage.enterLoginID();
+    	/*addOnCreateCustomerPage.enterLoginID();
     	addOnCreateCustomerPage.enterPassword();
     	addOnCreateCustomerPage.selectCompany();
-    	addOnCreateCustomerPage.clickLoginButton();
+    	addOnCreateCustomerPage.clickLoginButton();*/
     	
     	addOnCreateCustomerPage.clickCustomerTab();
     	addOnCreateCustomerPage.createCustomer();

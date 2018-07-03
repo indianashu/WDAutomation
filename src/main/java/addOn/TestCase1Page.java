@@ -136,6 +136,7 @@ public class TestCase1Page extends BasePage {
 		WebElement categoryElement = driver.findElement(By.xpath("//select[@name='typeId']"));
 		Select se2 = new Select(categoryElement);
 		se2.selectByVisibleText("SMSBundle");
+		JavaScriptExec.sleep();
 
 		String ProductName = BasePage.getCellData(xlsxName, sheetName, 4, 1);
 		WebElement selectProduct = driver
@@ -198,10 +199,11 @@ public class TestCase1Page extends BasePage {
 			WebElement categoryElement = driver.findElement(By.xpath("//select[@name='typeId']"));
 			Select se2 = new Select(categoryElement);
 			se2.selectByVisibleText("SMS");
+			JavaScriptExec.sleep();
 
 			WebElement selectProduct = driver
 					.findElement(By.xpath("//a[@class='cell double']//*[text()='SMS Local']"));
-			actions.moveToElement(selectProduct).click().perform();
+			selectProduct.click();
 			JavaScriptExec.sleep();
 
 			WebElement enterChangeQty = driver.findElement(By.xpath("//input[@class='field quantity']"));

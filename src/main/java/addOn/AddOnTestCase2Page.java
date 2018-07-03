@@ -136,6 +136,7 @@ public class AddOnTestCase2Page extends BasePage {
 		WebElement categoryElement = driver.findElement(By.xpath("//select[@name='typeId']"));
 		Select se2 = new Select(categoryElement);
 		se2.selectByVisibleText("SMSBundle");
+		JavaScriptExec.sleep();
 
 		String ProductName = BasePage.getCellData(xlsxName, sheetName, 4, 1);
 		WebElement selectProduct = driver
