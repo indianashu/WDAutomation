@@ -22,7 +22,7 @@ public class TestCase1Page extends BasePage {
 		super(webdriver);
 	}
 
-	Logger log = Logger.getLogger(AddOnCreateCustomerPage.class);
+	Logger log = Logger.getLogger(TestCase1Page.class);
 	String sheetName = "AddOrder";
 	String xlsxName = "/AddOn_TestData.xlsx";
 	Actions actions = new Actions(driver);

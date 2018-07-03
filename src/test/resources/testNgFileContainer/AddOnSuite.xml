@@ -27,7 +27,9 @@
 		<classes>
 			<class name = "addOnTest.AddOnProductCategoryTest"/>
 			<class name = "addOnTest.AddOnCreateCustomerTest"/>
-			<class name = "addOnTest.AddOnCreateOrderTest"/>
+			<class name = "addOnTest.AddOnTestCase1"/>
+			<class name = "addOnTest.AddOnTestCase2"/>
+			<class name = "addOnTest.AddOnTestCase3"/>
 		</classes>
 
 	</test>
