@@ -52,6 +52,7 @@ public class generatingInvoiceManuallyTest {
     	generatingInvoicePage.selectPeriod();
     	generatingInvoicePage.selectOrderType();
     	generatingInvoicePage.clickProductSubTab();
+    	generatingInvoicePage.selectCategory();
     	generatingInvoicePage.selectProduct();
     	generatingInvoicePage.clickUpdateButton();
     	generatingInvoicePage.clickSaveChangesButton();

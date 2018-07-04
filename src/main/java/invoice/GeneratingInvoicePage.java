@@ -255,6 +255,19 @@ public class GeneratingInvoicePage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
+	
+	private WebElement selectCategory;
+    /**
+     * Method to select account type.
+     * @throws IOException 
+     */
+    public void selectCategory() throws IOException{
+        WebElement categoryElement = driver.findElement(By.xpath("//select[@name='typeId']"));
+        Select se = new Select(categoryElement);
+        se.selectByVisibleText("New Test category");
+    	JavaScriptExec.sleep();
+
+    }
 
 	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='abc']")
 	private WebElement selectProduct;

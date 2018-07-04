@@ -47,7 +47,7 @@ public class BasePage {
 	public static ArrayList<String> ExcelRead(String sheetName) throws IOException {
 
 		ArrayList<String> rl = new ArrayList<String>();
-		File file = new File(System.getProperty("user.dir") + "Webdata_TestData.xlsx");
+		File file = new File(System.getProperty("user.dir") + "/Webdata_TestData.xlsx");
 		FileInputStream fs = new FileInputStream(file);
 		XSSFWorkbook wb = new XSSFWorkbook(fs);
 		XSSFSheet sheet = wb.getSheet(sheetName);

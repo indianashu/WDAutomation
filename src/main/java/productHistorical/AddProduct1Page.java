@@ -180,7 +180,6 @@ public class AddProduct1Page extends BasePage {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		log.info("Click on Save Changes Button");
 		navigateBottom();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 
@@ -198,7 +197,6 @@ public class AddProduct1Page extends BasePage {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		log.info("Verifying if Account Type is created Successfully or not");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
@@ -214,7 +212,6 @@ public class AddProduct1Page extends BasePage {
 	public void clickAddProductButton() throws IOException {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		log.info("Click on Add Product Button");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickAddProductButton);
 		Assert.assertTrue(clickAddProductButton.isDisplayed());
 		clickAddProductButton.click();
 
@@ -232,7 +229,6 @@ public class AddProduct1Page extends BasePage {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		log.info("Enter English Description");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 5, enterEnglishDescription);
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
 		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
@@ -250,7 +246,6 @@ public class AddProduct1Page extends BasePage {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		log.info("Enter Product Code");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 5, enterProductCode);
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 

@@ -345,6 +345,7 @@ public class CollectionConfigurationPage extends BasePage {
 		log.info("Click on Run Collections Button.");
 		String value = sp.ExcelRead(sheetName).get(12);
 		driver.findElement(By.xpath("//input[@value='" + value + "']")).click();
+		JavaScriptExec.sleep();
 		Assert.assertTrue(clickRunCollectionsButton.isDisplayed());
 		clickRunCollectionsButton.click();
 		JavaScriptExec.sleep();

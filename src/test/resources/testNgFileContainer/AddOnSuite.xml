@@ -1,0 +1,37 @@
+<suite name="WebData-Add ON Feature" parallel="none">
+
+	<listeners>
+
+		<!-- <listener class-name="utilPackages.MyReporterListener"></listener> -->
+
+	</listeners>
+
+	<test name="WebData-Add ON Feature">
+
+		<groups>
+
+			<define name="All">
+
+				<include name="Add ON" />
+
+			</define>
+
+			<run>
+
+				<include name="All" />
+
+			</run>
+
+		</groups>
+
+		<classes>
+			<class name = "addOnTest.AddOnProductCategoryTest"/>
+			<class name = "addOnTest.AddOnCreateCustomerTest"/>
+			<class name = "addOnTest.AddOnTestCase1"/>
+			<class name = "addOnTest.AddOnTestCase2"/>
+			<class name = "addOnTest.AddOnTestCase3"/>
+		</classes>
+
+	</test>
+
+</suite>

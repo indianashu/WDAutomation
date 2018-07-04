@@ -334,12 +334,12 @@ public class ConfigurationCollectionsPage extends BasePage {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Click on Save Changes Button");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 		JavaScriptExec.sleep();
 		String gracePeriodId = driver.findElement(By.xpath("//*[@id='ageingStepTable']/tbody/tr[2]/td[1]/strong"))
 				.getText();
+		System.out.println(gracePeriodId);
 		return gracePeriodId;
 	}
 
