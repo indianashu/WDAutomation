@@ -587,9 +587,9 @@ public class MediationPage extends BasePage {
 	public void clickMediation() throws IOException {
 		MediationPage sp = new MediationPage(driver);
 		log.info("Click on Mediation");
-		JavaScriptExec.sleep();
 		String Mediation = sp.ExcelRead(sheetName).get(16);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + Mediation + "']")).click();
+		JavaScriptExec.sleep();
 
 	}
 
