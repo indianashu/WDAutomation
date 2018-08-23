@@ -6,7 +6,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import org.apache.log4j.Logger;
@@ -143,7 +145,7 @@ public class AddProductPage extends BasePage {
 		log.info("Click on a category name.");
 		String CategoryName = sp.ExcelRead(sheetName).get(3);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Product']")
@@ -252,7 +254,9 @@ public class AddProductPage extends BasePage {
 		log.info("Enter Price Date");
 		Assert.assertTrue(enterPriceDate.isDisplayed());
 		enterPriceDate.clear();
-		enterPriceDate.sendKeys(sp.ExcelRead(sheetName).get(8));
+		SimpleDateFormat DtFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = new Date();
+        enterPriceDate.sendKeys(DtFormat.format(date).toString());
 
 	}
 
@@ -468,10 +472,9 @@ public class AddProductPage extends BasePage {
 		JavaScriptExec.scrollToElementOnPage(driver, clickEditProduct);
 		AddProductPage sp = new AddProductPage(driver);
 		log.info("Enter Edit Button");
-		navigateBottom();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickEditProduct);
 		Assert.assertTrue(clickEditProduct.isDisplayed());
 		clickEditProduct.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
@@ -485,8 +488,6 @@ public class AddProductPage extends BasePage {
 	public void editEnglishDescription() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
 		log.info("Edit English Description");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, editEnglishDescription);
 		Assert.assertTrue(editEnglishDescription.isDisplayed());
 		editEnglishDescription.clear();
 		editEnglishDescription.sendKeys(sp.ExcelRead(sheetName).get(20));
@@ -503,8 +504,6 @@ public class AddProductPage extends BasePage {
 	public void editProductCode() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
 		log.info("Edit Product Code");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, editProductCode);
 		Assert.assertTrue(editProductCode.isDisplayed());
 		editProductCode.clear();
 		editProductCode.sendKeys(sp.ExcelRead(sheetName).get(21));

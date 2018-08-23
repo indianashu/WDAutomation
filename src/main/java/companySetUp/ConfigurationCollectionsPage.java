@@ -424,6 +424,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		WebElement TypeIDelement = driver.findElement(By.xpath("//select[@name='typeId']"));
 		Select se = new Select(TypeIDelement);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(11));
+		JavaScriptExec.sleep();
 
 	}
 

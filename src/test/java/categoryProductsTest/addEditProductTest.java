@@ -81,14 +81,14 @@ public class addEditProductTest {
         addProductPage.clickAddPriceButton();
         addProductPage.clickSaveChangesButton();
         addProductPage.verifyConfirmationMsg();
-        /*addProductPage.selectCategoryName();
+        addProductPage.selectCategoryName();
         addProductPage.clickProductName();
         addProductPage.navigateBottom();
         addProductPage.clickEditProduct();
         addProductPage.editEnglishDescription();
         addProductPage.editProductCode();
         addProductPage.navigateBottom();
-        addProductPage.clickSaveChangesButton();*/
+        addProductPage.clickSaveChangesButton();
 
     }
     

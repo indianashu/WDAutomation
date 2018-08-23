@@ -204,6 +204,7 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 		WebElement clickYesPopup = driver.findElement(By.xpath("//*[text()='Yes']"));
 		Assert.assertTrue(clickYesPopup.isDisplayed());
 		clickYesPopup.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Add New Metafield']")
