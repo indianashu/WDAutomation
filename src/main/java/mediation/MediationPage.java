@@ -143,10 +143,10 @@ public class MediationPage extends BasePage {
 	public void clickPluginsLink() throws IOException {
 		MediationPage sp = new MediationPage(driver);
 		log.info("Click on plugins link");
-		JavaScriptExec.sleep();
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url2") + "/plugin/list";
 		driver.get(url);
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//td[preceding-sibling::td[contains(.,'15')]]")
@@ -373,6 +373,7 @@ public class MediationPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void enterDefaultItemIDMediationProcessor(String ItemId) throws IOException {
+		JavaScriptExec.sleep();
 		MediationPage sp = new MediationPage(driver);
 		log.info("enter value for Default Item ID.");
 		Assert.assertTrue(enterDefaultItemIDMediationProcessor.isDisplayed());

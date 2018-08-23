@@ -34,8 +34,8 @@
 			<class name = "companySetupTest.configurePaymentMethodTest" />
 			<class name = "companySetupTest.configureAddNewInfoTypeTest" /> 
 			<class name = "companySetupTest.configurePaymentMethCreditCardTest" /> 
-			<class name = "companySetupTest.configureAddOrderPeriodTest" />
-			<class name = "companySetupTest.configureAddCollectionTest" />
+			<!-- <class name = "companySetupTest.configureAddOrderPeriodTest" />
+			<class name = "companySetupTest.configureAddCollectionTest" /> -->
 			<class name = "companySetupTest.configureAddBillingPeriodTest" />
 			<class name = "categoryProductsTest.addEditCategoryTest" />
 			<class name = "categoryProductsTest.addAllowAssetManagementTest" />

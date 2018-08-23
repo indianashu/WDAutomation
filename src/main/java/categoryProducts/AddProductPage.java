@@ -145,7 +145,7 @@ public class AddProductPage extends BasePage {
 		log.info("Click on a category name.");
 		String CategoryName = sp.ExcelRead(sheetName).get(3);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Product']")

@@ -244,7 +244,6 @@ public class AddProductWithAssetPage extends BasePage {
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']"));
 		actions.moveToElement(selectCategoryName).click(selectCategoryName).perform();
 		JavaScriptExec.sleep();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Product']")
