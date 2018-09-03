@@ -142,9 +142,9 @@ public class AddProductWithAssetPage extends BasePage {
 	public void clickCategory17() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("click on Category 17 - Generic internal events listener.");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickCategory17.isDisplayed());
 		clickCategory17.click();
+		JavaScriptExec.sleep();
 
 	}
 
@@ -161,7 +161,7 @@ public class AddProductWithAssetPage extends BasePage {
 		log.info("click on Add New Button.");
 		Assert.assertTrue(clickAddNewButton.isDisplayed());
 		clickAddNewButton.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	private WebElement selectTypeId;
@@ -238,7 +238,6 @@ public class AddProductWithAssetPage extends BasePage {
 	 */
 	public void selectCategoryName() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
-		JavaScriptExec.sleep();
 		String CategoryName = sp.ExcelRead(sheetName).get(5);
 		WebElement selectCategoryName = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']"));
