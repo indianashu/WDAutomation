@@ -317,10 +317,9 @@ public class OrderHierarchiesPage extends BasePage {
 	public void clickDependenciesPlus() throws IOException {
 		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
 		log.info("click on Dependencies plus icon");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickDependenciesPlus.isDisplayed());
 		clickDependenciesPlus.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	private WebElement selectProductCategoryDependency;

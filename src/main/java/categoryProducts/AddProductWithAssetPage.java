@@ -290,6 +290,7 @@ public class AddProductWithAssetPage extends BasePage {
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(sp.ExcelRead(sheetName).get(7));
+		
 
 	}
 
@@ -305,8 +306,10 @@ public class AddProductWithAssetPage extends BasePage {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Check Allow Assest Management Checkbox.");
 		Assert.assertTrue(selectAllowAssetManagement.isDisplayed());
-		selectAllowAssetManagement.click();
-
+		if ( !selectAllowAssetManagement.isSelected() )
+		{
+			selectAllowAssetManagement.click();
+		}
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='global-checkbox']")
@@ -433,6 +436,7 @@ public class AddProductWithAssetPage extends BasePage {
 		JavaScriptExec.sleep();
 		String ProductName = sp.ExcelRead(sheetName).get(6);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']")).click();
+		
 
 	}
 

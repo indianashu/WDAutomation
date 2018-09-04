@@ -410,7 +410,7 @@ public class MediationPage extends BasePage {
 		log.info("Click on Mediation Error Handler Link.");
 		Assert.assertTrue(clickMediationErrorHandler.isDisplayed());
 		clickMediationErrorHandler.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	private WebElement selectTypeIdMediationErrorHandler;

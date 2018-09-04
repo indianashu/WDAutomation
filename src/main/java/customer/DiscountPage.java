@@ -236,6 +236,7 @@ public class DiscountPage extends BasePage {
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
@@ -265,9 +266,9 @@ public class DiscountPage extends BasePage {
 	public void clickCustomersTab() throws IOException {
 		DiscountPage sp = new DiscountPage(driver);
 		log.info("click on customers tab");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickCustomersTab.isDisplayed());
 		clickCustomersTab.click();
+		JavaScriptExec.sleep();
 
 	}
 
