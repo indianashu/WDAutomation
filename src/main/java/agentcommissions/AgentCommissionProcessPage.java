@@ -374,7 +374,7 @@ public class AgentCommissionProcessPage extends BasePage {
         
     }
 
-    @FindBy(how=How.XPATH, using="//*[@id='process-16']/td[2]/a")
+    @FindBy(how=How.XPATH, using="//*[@id='process-106']/td[2]/a")
     private WebElement clickCommission;
     /**
      * Method to click on Save Changes Button.
