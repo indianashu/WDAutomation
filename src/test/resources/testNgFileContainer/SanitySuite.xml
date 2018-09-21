@@ -22,8 +22,8 @@
 			<class name = "companySetupTest.configurePaymentMethodTest" />
 			<class name = "companySetupTest.configureAddNewInfoTypeTest" /> 
 			<class name = "companySetupTest.configurePaymentMethCreditCardTest" /> 
-			<!-- <class name = "companySetupTest.configureAddOrderPeriodTest" />
-			<class name = "companySetupTest.configureAddCollectionTest" /> -->
+			<class name = "companySetupTest.configureAddOrderPeriodTest" />
+			<class name = "companySetupTest.configureAddCollectionTest" />
 			<class name = "companySetupTest.configureAddBillingPeriodTest" />
 			<class name = "categoryProductsTest.addEditCategoryTest" />
 			<class name = "categoryProductsTest.addAllowAssetManagementTest" />
@@ -37,7 +37,7 @@
 			<class name = "customerTest.impersonateCustomerTest" />
 			<class name = "ordersTest.basicOrderCreationTest" />
 			<class name = "addingAssetTest.addingAssetOrderTest"/>
-			<class name = "orderHierarchiesTest.orderHierarchiesDependentProductCreationTest"/>
+			<class name = "orderHierarchiesTest.orderHierarchiesDependentProductCreationTest"/> 
 			<class name = "orderHierarchiesTest.orderHierarchiesDependentProductOrderTest"/>
 			<class name = "mediationTest.mediation15MediationReaderTest"/>
 			<class name = "mediationTest.mediation16MediationProcessorTest"/>
@@ -46,10 +46,10 @@
 			<class name = "invoiceTest.generatingInvoiceManuallyTest"/>
 			<class name = "invoiceTest.verifyInvoiceDateDueDateTest"/>
 			<class name = "invoiceTest.generatingPayingInvoiceTest"/>
-			<class name = "billingProcessTest.createCustomersBillingProcessTest"/>
+			<class name = "billingProcessTest.createCustomersBillingProcessTest"/> 
 			<class name = "billingProcessTest.creatingOrdersBelongToDiffPeriodsTest"/>
 			<class name = "billingProcessTest.approvingReviewReportforRealBillingTest"/>
-			<class name = "billingProcessTest.runningBillingProcessOrdersCreatedTest"/>
+			<!-- <class name = "billingProcessTest.runningBillingProcessOrdersCreatedTest"/> -->
 			<class name = "billingProcessTest.invoicePeriodsDueDateTest"/>
 			<class name = "collectionsTest.runningCollectionToCheckStatusChangeTest"/>
 			<class name = "paymentManualTest.makingPaymentOnBillingProcessGeneratedInvoiceTest"/>

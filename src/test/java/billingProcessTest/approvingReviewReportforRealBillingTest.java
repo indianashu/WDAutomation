@@ -62,6 +62,8 @@ public class approvingReviewReportforRealBillingTest {
         billingPage.clickBillingTab();
     	billingPage.clickBillingReview();
         billingPage.clickApproveButton();
+        billingPage.clickBillingProcessLink();
+    	billingPage.clickRunBillingButton();
     }
 
     @AfterClass(alwaysRun=false)
