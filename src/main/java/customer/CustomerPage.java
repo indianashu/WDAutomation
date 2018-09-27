@@ -436,6 +436,7 @@ public class CustomerPage extends BasePage {
 		WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
 		Select se = new Select(PMTelement);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(10));
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//label[contains(.,'cc.cardholder.name')]/following::input[1]")
