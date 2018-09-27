@@ -209,6 +209,7 @@ public class CreatingOrdersPage extends BasePage {
 		log.info("Click on Add Category Button");
 		Assert.assertTrue(clickProductCategoryName.isDisplayed());
 		clickProductCategoryName.click();
+		JavaScriptExec.sleep();
 
 	}
 

@@ -305,7 +305,11 @@ public class AddProductWithAssetPage extends BasePage {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Check Allow Assest Management Checkbox.");
 		Assert.assertTrue(selectAllowAssetManagement.isDisplayed());
-		selectAllowAssetManagement.click();
+		
+		if (!selectAllowAssetManagement.isSelected()) {
+			selectAllowAssetManagement.click();
+		}
+		
 
 	}
 

@@ -152,7 +152,7 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 		log.info("Add Information Type Button is available or not");
 		Assert.assertTrue(clickAddInformationTypeButton.isDisplayed());
 		clickAddInformationTypeButton.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='name']")
@@ -184,7 +184,7 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 		log.info("Display Order is available or not");
 		Assert.assertTrue(enterdisplayOrder.isDisplayed());
 		enterdisplayOrder.sendKeys(sp.ExcelRead(sheetName).get(6));
-
+		
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@name='useForNotifications']")
