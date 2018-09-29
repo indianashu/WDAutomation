@@ -2,6 +2,7 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.AddProduct1Page;
+import productHistorical.AddProduct1Page;
 
 import java.io.IOException;
 
@@ -11,7 +12,7 @@ import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
 public class AddProduct1Test {
-
+	
 	AddProduct1Page addProductCategoryPage;
 	WebDriver driver, driver2;
 
@@ -45,14 +46,14 @@ public class AddProduct1Test {
 		addProductCategoryPage.clickAddProductButton();
 		addProductCategoryPage.enterEnglishDescription();
 		addProductCategoryPage.enterProductCode();
-		addProductCategoryPage.selectProductCompany1();
-		addProductCategoryPage.selectProductCompany2();
+		addProductCategoryPage.clickGlobalCheckbox();
 		
 		addProductCategoryPage.selectHistoricalPriceForParent();
 		addProductCategoryPage.selectHistoricalPricesForChild();
 		
+		
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();
 
-	}
+}
 }

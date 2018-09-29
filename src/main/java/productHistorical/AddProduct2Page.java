@@ -31,8 +31,7 @@ import webDataPages.SignupChildCompanyInvoiceAsSellerPage;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class AddProduct2Page extends BasePage {
-
+public class AddProduct2Page extends BasePage  {
 	public AddProduct2Page(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -254,13 +253,13 @@ public class AddProduct2Page extends BasePage {
 	private WebElement verifyConfirmationMsg;
 
 	/**
-	 * Method to verify Account Type is created Successfully.
+	 * Method to verify Product2 is created Successfully.
 	 * 
 	 * @throws IOException
 	 */
 	public void verifyConfirmationMsg() throws IOException {
 		AddProduct2Page sp = new AddProduct2Page(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
+		log.info("Verifying if Product2 is created Successfully or not");
 		JavaScriptExec.sleep();
 		WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
@@ -273,3 +272,5 @@ public class AddProduct2Page extends BasePage {
 	}
 
 }
+
+

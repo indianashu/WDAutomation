@@ -1,6 +1,7 @@
 package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
+import productHistorical.AddProduct2Page;
 import productHistorical.AddProduct1Page;
 import productHistorical.AddProduct2Page;
 
@@ -51,3 +52,6 @@ public class AddProduct2Test {
 	}
 
 }
+
+
+

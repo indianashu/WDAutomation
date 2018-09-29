@@ -195,16 +195,20 @@ public class AddCustomerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[text()='OK']")
-	private WebElement clickSelectButton;
+	@FindBy(how = How.XPATH, using = "//*[@class='btn btn-primary']")
+	private WebElement clickOKButton;
 
 	/**
 	 * Method to Click on Select Button
 	 */
-	public void clickSelectButton() {
+	public void clickOKButton() {
+		AddCustomerPage sp = new AddCustomerPage(driver);
 		log.info("Click on Select Button");
-		Assert.assertTrue(clickSelectButton.isDisplayed());
-		clickSelectButton.click();
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickOKButton.isDisplayed());
+		clickOKButton.click();
+		JavaScriptExec.sleep();
+	
 	}
 
 	public void createCustomerForChild() throws IOException {

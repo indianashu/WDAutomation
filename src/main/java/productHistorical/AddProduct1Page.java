@@ -32,8 +32,8 @@ import webDataPages.SignupChildCompanyInvoiceAsSellerPage;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class AddProduct1Page extends BasePage {
-
+public class AddProduct1Page extends BasePage  {
+	
 	public AddProduct1Page(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -104,7 +104,7 @@ public class AddProduct1Page extends BasePage {
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
-
+	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.products']/a")
 	private WebElement clickProductsTab;
 
@@ -133,7 +133,7 @@ public class AddProduct1Page extends BasePage {
 	public void clickAddCategoryButton() throws IOException {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		log.info("Click on Add Category Button");
-		navigateBottom();
+		//navigateBottom();
 		Assert.assertTrue(clickAddCategoryButton.isDisplayed());
 		clickAddCategoryButton.click();
 
@@ -189,18 +189,18 @@ public class AddProduct1Page extends BasePage {
 	private WebElement verifyConfirmationMsg;
 
 	/**
-	 * Method to verify Account Type is created Successfully.
+	 * Method to verify Product Category is created Successfully.
 	 * 
 	 * @throws IOException
 	 */
 	public void verifyConfirmationMsg() throws IOException {
 		AddProduct1Page sp = new AddProduct1Page(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
+		log.info("Verifying if Product Category is created Successfully or not");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
-
+	
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Product']")
 	private WebElement clickAddProductButton;
 
@@ -214,9 +214,8 @@ public class AddProduct1Page extends BasePage {
 		log.info("Click on Add Product Button");
 		Assert.assertTrue(clickAddProductButton.isDisplayed());
 		clickAddProductButton.click();
-
-	}
-
+		
+		}
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 	private WebElement enterEnglishDescription;
 
@@ -250,7 +249,6 @@ public class AddProduct1Page extends BasePage {
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
 	}
-
 	private WebElement selectProductCompany1;
 
 	/**
@@ -278,10 +276,10 @@ public class AddProduct1Page extends BasePage {
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
 		Select se = new Select(Companyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-		navigateBottom();
+		//navigateBottom();
 
 	}
-
+	
 	public void selectHistoricalPriceForParent() throws IOException {
 		AddProduct1Page sp = new AddProduct1Page(driver);
 		for (int i = 0; i <= 8; i++) {
@@ -306,47 +304,45 @@ public class AddProduct1Page extends BasePage {
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
 			Assert.assertTrue(clickAddPriceButton.isDisplayed());
 			clickAddPriceButton.click();
-
 		}
 
-	}
-
-	public void selectHistoricalPricesForChild() throws IOException {
-		AddProduct1Page sp = new AddProduct1Page(driver);
-		for (int i = 0; i <= 8; i++) {
-			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
-			Assert.assertTrue(enterPastPriceDate.isDisplayed());
-			enterPastPriceDate.clear();
-			enterPastPriceDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, i));
-			JavaScriptExec.sleep();
-
-			WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
-			Select se = new Select(Companieselement);
-			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-
-			WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-			Select sel = new Select(Currencyelement);
-			sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, i));
-			JavaScriptExec.sleep();
-
-			WebElement enterPriceRatePastUSD = driver.findElement(By.xpath("//input[@name='product.rate']"));
-			Assert.assertTrue(enterPriceRatePastUSD.isDisplayed());
-			enterPriceRatePastUSD.clear();
-			enterPriceRatePastUSD.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, i));
-			JavaScriptExec.sleep();
-
-			WebElement clickAddPriceButton = driver
-					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
-			Assert.assertTrue(clickAddPriceButton.isDisplayed());
-			clickAddPriceButton.click();
-
 		}
+		public void selectHistoricalPricesForChild() throws IOException {
+			AddProduct1Page sp = new AddProduct1Page(driver);
+			for (int i = 0; i <= 8; i++) {
+				WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
+				Assert.assertTrue(enterPastPriceDate.isDisplayed());
+				enterPastPriceDate.clear();
+				enterPastPriceDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, i));
+				JavaScriptExec.sleep();
 
+				WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
+				Select se = new Select(Companieselement);
+				se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+
+				WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
+				Select sel = new Select(Currencyelement);
+				sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, i));
+				JavaScriptExec.sleep();
+
+				WebElement enterPriceRatePastUSD = driver.findElement(By.xpath("//input[@name='product.rate']"));
+				Assert.assertTrue(enterPriceRatePastUSD.isDisplayed());
+				enterPriceRatePastUSD.clear();
+				enterPriceRatePastUSD.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, i));
+				JavaScriptExec.sleep();
+
+				WebElement clickAddPriceButton = driver
+						.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
+				Assert.assertTrue(clickAddPriceButton.isDisplayed());
+				clickAddPriceButton.click();
+
+			}
+	
 	}
-
-	public void navigateBottom() {
-		JavaScriptExec.scrolltoBottomofPage(driver);
-		JavaScriptExec.sleep();
-	}
-
+		public void navigateBottom() {
+			JavaScriptExec.scrolltoBottomofPage(driver);
+			JavaScriptExec.sleep();
+		}
 }
+
+
