@@ -1,10 +1,6 @@
 package productHistorical;
 
 import baseClassPackage.BasePage;
-import categoryProducts.AddProductPage;
-import categoryProducts.AddProductWithAssetPage;
-import companyHierarchy.ViewAssignedInfoPage;
-import customer.OrderPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,19 +23,16 @@ import org.testng.Assert;
 
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import webDataPages.ImpersonatePage;
-import webDataPages.SignupChildCompanyInvoiceAsSellerPage;
 
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateOrderPage01 extends BasePage {
+public class CreateUSDParentOrderPage extends BasePage {
 
-	public CreateOrderPage01(WebDriver webdriver) {
+	public CreateUSDParentOrderPage(WebDriver webdriver) {
 		super(webdriver);
 	}
 
-	Logger log = Logger.getLogger(CreateOrderPage01.class);
+	Logger log = Logger.getLogger(CreateUSDParentOrderPage.class);
 
 	PropertyValExtractors p = new PropertyValExtractors();
 	Actions actions = new Actions(driver);
@@ -55,7 +48,7 @@ public class CreateOrderPage01 extends BasePage {
 	 * @throws Exception
 	 */
 	public void enterLoginID() throws Exception {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 
 		log.info("Verifying the Login ID is available or not");
 		Assert.assertTrue(enterLoginID.isDisplayed());
@@ -71,7 +64,7 @@ public class CreateOrderPage01 extends BasePage {
 	 * @throws Exception
 	 */
 	public void enterPassword() throws Exception {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 		log.info("Verifying the First Name is available or not");
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(BasePage.getCellData(xlsxName, sheetName, 1, 0));
@@ -86,7 +79,7 @@ public class CreateOrderPage01 extends BasePage {
 	 * @throws IOException
 	 */
 	public void selectCompany() throws Exception {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
@@ -100,7 +93,7 @@ public class CreateOrderPage01 extends BasePage {
 	 * Method to Click on Save Changes Button
 	 */
 	public void clickLoginButton() {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 		log.info("Verifying the login button is available or not");
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
@@ -120,15 +113,23 @@ public class CreateOrderPage01 extends BasePage {
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
 	}
-
-	public void selectCustomerName() throws IOException {
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
+	
+	 // @FindBy(how=How.XPATH, using="//a[@class='cell double']")
+    private WebElement selectCustomer;
+    /**
+     * Method to select customer.
+     * @throws IOException 
+     */
+    public void selectCustomer() throws IOException{
+    	CreateUSDParentOrderPage sp=new CreateUSDParentOrderPage(driver);
+    	String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
 		WebElement selectCustomer = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 		navigateBottom();
 		actions.moveToElement(selectCustomer).click().perform();
 		JavaScriptExec.sleep();
-	}
+      
+    }
 
 	public void clickCreateOrder() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
@@ -141,7 +142,7 @@ public class CreateOrderPage01 extends BasePage {
 	}
 	
 	public void selectActiveSincePast() throws IOException {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 		WebElement activeSince = driver.findElement(By.xpath("//input[@name='activeSince']"));
 		activeSince.clear();
 		activeSince.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
@@ -149,7 +150,7 @@ public class CreateOrderPage01 extends BasePage {
 	}
 
 	public void selectActiveSinceBetweenPastPresent() throws IOException {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 		WebElement activeSince = driver.findElement(By.xpath("//input[@name='activeSince']"));
 		activeSince.clear();
 		activeSince.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 1));
@@ -157,7 +158,7 @@ public class CreateOrderPage01 extends BasePage {
 	}
 	
 	public void selectActiveSinceBetweenPresentFuture() throws IOException {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 		WebElement activeSince = driver.findElement(By.xpath("//input[@name='activeSince']"));
 		activeSince.clear();
 		activeSince.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 2));
@@ -165,7 +166,7 @@ public class CreateOrderPage01 extends BasePage {
 	}
 	
 	public void selectActiveSinceFuture() throws IOException {
-		CreateOrderPage01 sp = new CreateOrderPage01(driver);
+		CreateUSDParentOrderPage sp = new CreateUSDParentOrderPage(driver);
 		WebElement activeSince = driver.findElement(By.xpath("//input[@name='activeSince']"));
 		activeSince.clear();
 		activeSince.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 3));
@@ -210,7 +211,7 @@ public class CreateOrderPage01 extends BasePage {
 	}
 
 	//@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
-	@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']/div[2]/a[1]")
 	private WebElement clickUpdateButton;
 	/**
 	 * Method to click on update button.
