@@ -1,8 +1,7 @@
 package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
-import productHistorical.CreateOrderPage;
-
+import productHistorical.CreateCADChildOrderPage;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -12,7 +11,7 @@ import utilPackages.PropertyValExtractors;
 
 public class CreateOrderCADChildTest {
 	
-	CreateOrderPage createOrderPage;
+	CreateCADChildOrderPage createCADChildOrderPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -23,26 +22,94 @@ public class CreateOrderCADChildTest {
 		String url = p.getVal("url1");
 		driver.get(url);
 		// WaitClass.waitForUrl(driver, url, 10);
-		createOrderPage = CreateOrderPage.getPage(driver, CreateOrderPage.class);
+		createCADChildOrderPage = CreateCADChildOrderPage.getPage(driver, CreateCADChildOrderPage.class);
 
 	}
 
-	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company CAD Customer")
+	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
+
+		/*createCADChildOrderPage.enterLoginID();
+		createCADChildOrderPage.enterPassword();
+		createCADChildOrderPage.selectCompany();
+		createCADChildOrderPage.clickLoginButton();*/
 		
-		/*createOrderPage.enterLoginID();
-		createOrderPage.enterPassword();
-		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();*/
+		createCADChildOrderPage.clickImpersonate();
+		createCADChildOrderPage.selectChildCompany();
+		createCADChildOrderPage.clickOKButton();
+
+		// ActiveSince=Past date
+		createCADChildOrderPage.clickCustomerTab();
+		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.clickCreateOrder();
+		createCADChildOrderPage.selectActiveSincePast();
+		createCADChildOrderPage.clickProductSubTab();
+		createCADChildOrderPage.selectCategory();
+		createCADChildOrderPage.selectProduct1();
+		createCADChildOrderPage.selectProduct2();
+		createCADChildOrderPage.selectProduct3();
+		createCADChildOrderPage.clickUpdateButton();
+		createCADChildOrderPage.expectedAmount1();
+		createCADChildOrderPage.clickSave();
+
+		// ActiveSince=Between Past and Present date
+		createCADChildOrderPage.clickCustomerTab();
+		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.clickCreateOrder();
+		createCADChildOrderPage.selectActiveSinceBetweenPastPresent();
+		createCADChildOrderPage.clickProductSubTab();
+		createCADChildOrderPage.selectCategory();
+		createCADChildOrderPage.selectProduct1();
+		createCADChildOrderPage.selectProduct2();
+		createCADChildOrderPage.selectProduct3();
+		createCADChildOrderPage.clickUpdateButton();
+		createCADChildOrderPage.expectedAmount2();
+		createCADChildOrderPage.clickSave();
+
+		// ActiveSince=Between Present and Future Date
+		createCADChildOrderPage.clickCustomerTab();
+		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.clickCreateOrder();
+		createCADChildOrderPage.selectActiveSinceBetweenPresentFuture();
+		createCADChildOrderPage.clickProductSubTab();
+		createCADChildOrderPage.selectCategory();
+		createCADChildOrderPage.selectProduct1();
+		createCADChildOrderPage.selectProduct2();
+		createCADChildOrderPage.selectProduct3();
+		createCADChildOrderPage.clickUpdateButton();
+		createCADChildOrderPage.expectedAmount3();
+		createCADChildOrderPage.clickSave();
+
+		// ActiveSince=Future Date
+		createCADChildOrderPage.clickCustomerTab();
+		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.clickCreateOrder();
+		createCADChildOrderPage.selectActiveSinceFuture();
+		createCADChildOrderPage.clickProductSubTab();
+		createCADChildOrderPage.selectCategory();
+		createCADChildOrderPage.selectProduct1();
+		createCADChildOrderPage.checkApplyNow();
+		createCADChildOrderPage.clickUpdateButton1();
 		
-		createOrderPage.clickImpersonate();
-		createOrderPage.selectChildCompany();
-		createOrderPage.clickSelectButton();
-		createOrderPage.createOrder4();
-		createOrderPage.clickRedCross();
+		createCADChildOrderPage.selectProduct2();
+		createCADChildOrderPage.checkApplyNow2();
+		createCADChildOrderPage.clickUpdateButton2();
+		
+		createCADChildOrderPage.selectProduct3();
+		createCADChildOrderPage.checkApplyNow3();
+		createCADChildOrderPage.clickUpdateButton();
+		
+		createCADChildOrderPage.clickUpdateButton();
+		createCADChildOrderPage.expectedAmount4();
+		createCADChildOrderPage.clickSave();
+
+	}
+
+
+
 		
 		
 	}
 
-}
+
 

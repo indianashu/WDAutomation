@@ -244,7 +244,7 @@ public class AddProduct4Page extends BasePage {
     	        WebElement enterPriceRatePastUSD = driver.findElement(By.xpath("//input[@name='product.rate']"));
     	        Assert.assertTrue(enterPriceRatePastUSD.isDisplayed());
     	        enterPriceRatePastUSD.clear();
-    	        enterPriceRatePastUSD.sendKeys(BasePage.getCellData(xlsxName,sheetName,8,i));
+    	        enterPriceRatePastUSD.sendKeys(BasePage.getCellData(xlsxName,sheetName,12,i));
     	        JavaScriptExec.sleep();
     	        
     	        WebElement clickAddPriceButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
@@ -276,7 +276,7 @@ public class AddProduct4Page extends BasePage {
     	        WebElement enterPriceRatePastUSD = driver.findElement(By.xpath("//input[@name='product.rate']"));
     	        Assert.assertTrue(enterPriceRatePastUSD.isDisplayed());
     	        enterPriceRatePastUSD.clear();
-    	        enterPriceRatePastUSD.sendKeys(BasePage.getCellData(xlsxName,sheetName,9,i));
+    	        enterPriceRatePastUSD.sendKeys(BasePage.getCellData(xlsxName,sheetName,13,i));
     	        JavaScriptExec.sleep();
     	        
     	        WebElement clickAddPriceButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));

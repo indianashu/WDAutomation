@@ -30,10 +30,10 @@ public class CreateOrderEUROParentTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		createEUROParentOrderPage.enterLoginID();
+		/*createEUROParentOrderPage.enterLoginID();
 		createEUROParentOrderPage.enterPassword();
 		createEUROParentOrderPage.selectCompany();
-		createEUROParentOrderPage.clickLoginButton();
+		createEUROParentOrderPage.clickLoginButton();*/
 
 		// ActiveSince=Past date
 		createEUROParentOrderPage.clickCustomerTab();

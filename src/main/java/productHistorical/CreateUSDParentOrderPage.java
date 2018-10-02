@@ -188,11 +188,43 @@ public class CreateUSDParentOrderPage extends BasePage {
 
 	public void selectProduct1() throws IOException {
 		String ProductName1 = BasePage.getCellData(xlsxName, sheetName, 5, 0);
+		JavaScriptExec.sleep();
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName1 + "']")).click();
-		/*Assert.assertTrue(selectProduct.isDisplayed());
-		actions.moveToElement(selectProduct).click().perform();*/
+		//Assert.assertTrue(selectProduct1.isDisplayed());
+		//actions.moveToElement(selectProduct1).click().perform();
 		JavaScriptExec.sleep();
 	}
+	@FindBy(how = How.XPATH, using = "//input[@name='change--3.appliedManually']")
+	private WebElement checkApplyNow;
+
+	/**
+	 * Method to Check ApplyNow CheckBox.
+	 * 
+	 * @throws IOException
+	 */
+	public void checkApplyNow() throws IOException {
+		log.info("Check ApplyNow Checkbox.");
+		Assert.assertTrue(checkApplyNow.isDisplayed());
+		if ( !checkApplyNow.isSelected() )
+		{
+			checkApplyNow.click();
+		}
+	}
+		
+		@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']/div[2]/a[1]")
+		private WebElement clickUpdateButton1;
+		/**
+		 * Method to click on update button.
+		 * @throws IOException 
+		 */
+		public void clickUpdateButton1() throws IOException{
+			log.info("click on update button.");
+			Assert.assertTrue(clickUpdateButton1.isDisplayed());
+			clickUpdateButton1.click();
+	        JavaScriptExec.sleep();
+			//actions.moveToElement(clickUpdateButton).click().perform();
+		}
+	
 
 	public void selectProduct2() throws IOException {
 		String ProductName2 = BasePage.getCellData(xlsxName, sheetName, 5, 1);
@@ -201,6 +233,36 @@ public class CreateUSDParentOrderPage extends BasePage {
 		actions.moveToElement(selectProduct1).click().perform();*/
 		JavaScriptExec.sleep();
 	}
+	@FindBy(how = How.XPATH, using = "//input[@name='change--5.appliedManually']")
+	private WebElement checkApplyNow2;
+
+	/**
+	 * Method to Check ApplyNow CheckBox.
+	 * 
+	 * @throws IOException
+	 */
+	public void checkApplyNow2() throws IOException {
+		log.info("Check ApplyNow Checkbox.");
+		Assert.assertTrue(checkApplyNow2.isDisplayed());
+		if ( !checkApplyNow2.isSelected() )
+		{
+			checkApplyNow2.click();
+		}
+	}
+		@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']/div[2]/a[1]")
+		private WebElement clickUpdateButton2;
+		/**
+		 * Method to click on update button.
+		 * @throws IOException 
+		 */
+		public void clickUpdateButton2() throws IOException{
+			log.info("click on update button.");
+			Assert.assertTrue(clickUpdateButton2.isDisplayed());
+			clickUpdateButton2.click();
+	        JavaScriptExec.sleep();
+			//actions.moveToElement(clickUpdateButton).click().perform();
+		}
+	
 
 	public void selectProduct3() throws IOException {
 		String ProductName3 = BasePage.getCellData(xlsxName, sheetName, 5, 2);
@@ -208,6 +270,22 @@ public class CreateUSDParentOrderPage extends BasePage {
 		/*Assert.assertTrue(selectProduct2.isDisplayed());
 		actions.moveToElement(selectProduct2).click().perform();*/
 		JavaScriptExec.sleep();
+	}
+	@FindBy(how = How.XPATH, using = "//input[@name='change--7.appliedManually']")
+	private WebElement checkApplyNow3;
+
+	/**
+	 * Method to Check ApplyNow CheckBox.
+	 * 
+	 * @throws IOException
+	 */
+	public void checkApplyNow3() throws IOException {
+		log.info("Check ApplyNow Checkbox.");
+		Assert.assertTrue(checkApplyNow3.isDisplayed());
+		if ( !checkApplyNow3.isSelected() )
+		{
+			checkApplyNow3.click();
+		}
 	}
 
 	//@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")

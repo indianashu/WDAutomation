@@ -25,8 +25,7 @@
 		</groups>
 
 		<classes>
-			<class name = "loginWebData.WebDataLoginTest"/>
-			<class name = "SignupTest.ChildCompanySignupTest"/> 
+			<class name = "productHistoricalTest.LoginSignupCompanyTest"/>
 			<class name = "productHistoricalTest.CurrencyTest"/>
 			<class name = "productHistoricalTest.AddProduct1Test"/>
 			<class name = "productHistoricalTest.AddProduct2Test"/>

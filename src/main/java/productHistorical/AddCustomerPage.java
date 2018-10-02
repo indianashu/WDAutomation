@@ -189,6 +189,8 @@ public class AddCustomerPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void selectChildCompany() throws IOException {
+		AddCustomerPage sp = new AddCustomerPage(driver);
+		JavaScriptExec.sleep();
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='entityId']"));
 		Select se = new Select(Companyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 1));

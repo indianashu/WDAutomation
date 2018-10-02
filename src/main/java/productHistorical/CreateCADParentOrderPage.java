@@ -114,20 +114,22 @@ public class CreateCADParentOrderPage extends BasePage {
 		clickCustomerTab.click();
 	}
 	
-	 // @FindBy(how=How.XPATH, using="//a[@class='cell double']")
+	// @FindBy(how=How.XPATH, using="//a[@class='cell double']")
     private WebElement selectCustomer;
     /**
      * Method to select customer.
      * @throws IOException 
      */
     public void selectCustomer() throws IOException{
-    	CreateCADParentOrderPage sp=new CreateCADParentOrderPage(driver);
+    	CreateUSDParentOrderPage sp=new CreateUSDParentOrderPage(driver);
     	String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 1);
 		WebElement selectCustomer = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 		navigateBottom();
 		actions.moveToElement(selectCustomer).click().perform();
 		JavaScriptExec.sleep();
+      
+    
       
     }
 

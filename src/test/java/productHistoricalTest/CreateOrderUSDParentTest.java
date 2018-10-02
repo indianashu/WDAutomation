@@ -30,10 +30,10 @@ public class CreateOrderUSDParentTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		CreateUSDParentOrderPage.enterLoginID();
+		/*CreateUSDParentOrderPage.enterLoginID();
 		CreateUSDParentOrderPage.enterPassword();
 		CreateUSDParentOrderPage.selectCompany();
-		CreateUSDParentOrderPage.clickLoginButton();
+		CreateUSDParentOrderPage.clickLoginButton();*/
 
 		// ActiveSince=Past date
 		CreateUSDParentOrderPage.clickCustomerTab();
@@ -88,10 +88,19 @@ public class CreateOrderUSDParentTest {
 		CreateUSDParentOrderPage.selectActiveSinceFuture();
 		CreateUSDParentOrderPage.clickProductSubTab();
 		CreateUSDParentOrderPage.selectCategory();
+		
 		CreateUSDParentOrderPage.selectProduct1();
+		CreateUSDParentOrderPage.checkApplyNow();
+		CreateUSDParentOrderPage.clickUpdateButton1();
+		
 		CreateUSDParentOrderPage.selectProduct2();
+		CreateUSDParentOrderPage.checkApplyNow2();
+		CreateUSDParentOrderPage.clickUpdateButton2();
+		
 		CreateUSDParentOrderPage.selectProduct3();
+		CreateUSDParentOrderPage.checkApplyNow3();
 		CreateUSDParentOrderPage.clickUpdateButton();
+		
 		CreateUSDParentOrderPage.expectedAmount4();
 		CreateUSDParentOrderPage.clickSave();
 

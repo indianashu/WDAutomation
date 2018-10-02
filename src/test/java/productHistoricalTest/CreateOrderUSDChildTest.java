@@ -29,10 +29,10 @@ public class CreateOrderUSDChildTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		createUSDChildOrderPage.enterLoginID();
+		/*createUSDChildOrderPage.enterLoginID();
 		createUSDChildOrderPage.enterPassword();
 		createUSDChildOrderPage.selectCompany();
-		createUSDChildOrderPage.clickLoginButton();
+		createUSDChildOrderPage.clickLoginButton();*/
 		
 		createUSDChildOrderPage.clickImpersonate();
 		createUSDChildOrderPage.selectChildCompany();
