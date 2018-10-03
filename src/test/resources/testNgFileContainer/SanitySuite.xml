@@ -1,31 +1,19 @@
 <suite name="WebData-Sanity" parallel="none">
-
 	<listeners>
-
 		<!-- <listener class-name="utilPackages.MyReporterListener"></listener> -->
-
 	</listeners>
 
 	<test name="WebData-Sanity">
-
 		<groups>
-
 			<define name="All">
-
 				<include name="Sanity" />
-
 			</define>
-
 			<run>
-
 				<include name="All" />
-
 			</run>
-
 		</groups>
 
 		<classes>
-
 			<class name = "loginWebData.WebDataLoginTest"/>
  			<class name = "SignupTest.ChildCompanySignupTest"/>
 			<class name = "SignupTest.ChildCompanySignupResellerTest"/>
@@ -71,9 +59,6 @@
 			<class name = "agentcommissionsTest.agentConfigurationPluginTest"/>
 			<class name = "agentcommissionsTest.agentCommissionBalanceProcessTest"/>
 			<class name = "tearDownTest.tearDownProcessTest"/>
-
 		</classes>
-
 	</test>
-
 </suite>

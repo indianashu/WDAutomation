@@ -306,10 +306,11 @@ public class AddProductWithAssetPage extends BasePage {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Check Allow Assest Management Checkbox.");
 		Assert.assertTrue(selectAllowAssetManagement.isDisplayed());
-		if ( !selectAllowAssetManagement.isSelected() )
-		{
+		
+		if (!selectAllowAssetManagement.isSelected()) {
 			selectAllowAssetManagement.click();
 		}
+		
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='global-checkbox']")
