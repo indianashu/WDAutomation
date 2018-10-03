@@ -1,7 +1,7 @@
 package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
-import productHistorical.CreateOrderPage;
+import productHistorical.CreateUSDParentOrderPage;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
 public class CreateOrderUSDParentTest {
-	
-	CreateOrderPage createOrderPage;
+
+	CreateUSDParentOrderPage CreateUSDParentOrderPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -23,23 +23,87 @@ public class CreateOrderUSDParentTest {
 		String url = p.getVal("url1");
 		driver.get(url);
 		// WaitClass.waitForUrl(driver, url, 10);
-		createOrderPage = CreateOrderPage.getPage(driver, CreateOrderPage.class);
+		CreateUSDParentOrderPage = CreateUSDParentOrderPage.getPage(driver, CreateUSDParentOrderPage.class);
 
 	}
 
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
+
+		/*CreateUSDParentOrderPage.enterLoginID();
+		CreateUSDParentOrderPage.enterPassword();
+		CreateUSDParentOrderPage.selectCompany();
+		CreateUSDParentOrderPage.clickLoginButton();*/
+
+		// ActiveSince=Past date
+		CreateUSDParentOrderPage.clickCustomerTab();
+		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.selectCustomer();
+		CreateUSDParentOrderPage.clickCreateOrder();
+		CreateUSDParentOrderPage.selectActiveSincePast();
+		CreateUSDParentOrderPage.clickProductSubTab();
+		CreateUSDParentOrderPage.selectCategory();
+		CreateUSDParentOrderPage.selectProduct1();
+		CreateUSDParentOrderPage.selectProduct2();
+		CreateUSDParentOrderPage.selectProduct3();
+		CreateUSDParentOrderPage.clickUpdateButton();
+		CreateUSDParentOrderPage.expectedAmount1();
+		CreateUSDParentOrderPage.clickSave();
+
+		// ActiveSince=Between Past and Present date
+		CreateUSDParentOrderPage.clickCustomerTab();
+		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.selectCustomer();
+		CreateUSDParentOrderPage.clickCreateOrder();
+		CreateUSDParentOrderPage.selectActiveSinceBetweenPastPresent();
+		CreateUSDParentOrderPage.clickProductSubTab();
+		CreateUSDParentOrderPage.selectCategory();
+		CreateUSDParentOrderPage.selectProduct1();
+		CreateUSDParentOrderPage.selectProduct2();
+		CreateUSDParentOrderPage.selectProduct3();
+		CreateUSDParentOrderPage.clickUpdateButton();
+		CreateUSDParentOrderPage.expectedAmount2();
+		CreateUSDParentOrderPage.clickSave();
+
+		// ActiveSince=Between Present and Future Date
+		CreateUSDParentOrderPage.clickCustomerTab();
+		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.selectCustomer();
+		CreateUSDParentOrderPage.clickCreateOrder();
+		CreateUSDParentOrderPage.selectActiveSinceBetweenPresentFuture();
+		CreateUSDParentOrderPage.clickProductSubTab();
+		CreateUSDParentOrderPage.selectCategory();
+		CreateUSDParentOrderPage.selectProduct1();
+		CreateUSDParentOrderPage.selectProduct2();
+		CreateUSDParentOrderPage.selectProduct3();
+		CreateUSDParentOrderPage.clickUpdateButton();
+		CreateUSDParentOrderPage.expectedAmount3();
+		CreateUSDParentOrderPage.clickSave();
+
+		// ActiveSince=Future Date
+		CreateUSDParentOrderPage.clickCustomerTab();
+		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.selectCustomer();
+		CreateUSDParentOrderPage.clickCreateOrder();
+		CreateUSDParentOrderPage.selectActiveSinceFuture();
+		CreateUSDParentOrderPage.clickProductSubTab();
+		CreateUSDParentOrderPage.selectCategory();
 		
-		/*createOrderPage.enterLoginID();
-		createOrderPage.enterPassword();
-		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();*/
+		CreateUSDParentOrderPage.selectProduct1();
+		CreateUSDParentOrderPage.checkApplyNow();
+		CreateUSDParentOrderPage.clickUpdateButton1();
 		
-		createOrderPage.clickCustomerTab();
-		createOrderPage.createOrder1();
+		CreateUSDParentOrderPage.selectProduct2();
+		CreateUSDParentOrderPage.checkApplyNow2();
+		CreateUSDParentOrderPage.clickUpdateButton2();
 		
+		CreateUSDParentOrderPage.selectProduct3();
+		CreateUSDParentOrderPage.checkApplyNow3();
+		CreateUSDParentOrderPage.clickUpdateButton();
 		
+		CreateUSDParentOrderPage.expectedAmount4();
+		CreateUSDParentOrderPage.clickSave();
+
 	}
 
 }
-

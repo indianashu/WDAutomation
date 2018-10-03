@@ -136,7 +136,7 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 		log.info("Click on account type created");
 		Assert.assertTrue(clickAccountTypeCreated.isDisplayed());
 		clickAccountTypeCreated.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit edit']//*[text()='Add Information Type']")

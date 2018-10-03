@@ -114,7 +114,6 @@ public class BillingPage extends BasePage {
     public void clickBillingProcessLink() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Add New Button");
-        JavaScriptExec.sleep();
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url2") + "/billingconfiguration/index";
         driver.get(url);
@@ -193,9 +192,9 @@ public class BillingPage extends BasePage {
     public void clickBillingTab() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click Billing Tab");
-        JavaScriptExec.sleep();
         Assert.assertTrue(clickBillingTab.isDisplayed());
         clickBillingTab.click();
+        JavaScriptExec.sleep();
         
     }
     
@@ -277,6 +276,7 @@ public class BillingPage extends BasePage {
         log.info("Click on Approve Button");
         Assert.assertTrue(clickApproveButton.isDisplayed());
         clickApproveButton.click();
+        JavaScriptExec.sleep();
         driver.findElement(By.xpath("//button[text()='Yes']")).click();
         JavaScriptExec.sleep();
     }
@@ -502,10 +502,9 @@ public class BillingPage extends BasePage {
     public void clickBillingCustomer1() throws IOException{
     	BillingPage sp=new BillingPage(driver);
         log.info("Click on Billing Customer1");
-        JavaScriptExec.sleep();
         String BillingCustomer1= sp.ExcelRead(sheetName).get(10);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+BillingCustomer1+"']")).click();
-        
+        JavaScriptExec.sleep();
     }
     
     private WebElement verifyDueDate1;
