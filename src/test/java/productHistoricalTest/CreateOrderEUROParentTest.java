@@ -100,7 +100,7 @@ public class CreateOrderEUROParentTest {
 		createEUROParentOrderPage.checkApplyNow3();
 		createEUROParentOrderPage.clickUpdateButton();
 		
-		createEUROParentOrderPage.clickUpdateButton();
+		
 		createEUROParentOrderPage.expectedAmount4();
 		createEUROParentOrderPage.clickSave();
 

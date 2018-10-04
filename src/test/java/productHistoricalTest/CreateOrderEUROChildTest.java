@@ -4,6 +4,7 @@ import productHistorical.CreateEUROChildOrderPage;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
@@ -34,9 +35,9 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.selectCompany();
 		createEUROChildOrderPage.clickLoginButton();*/
 		
-		createEUROChildOrderPage.clickImpersonate();
+		/*createEUROChildOrderPage.clickImpersonate();
 		createEUROChildOrderPage.selectChildCompany();
-		createEUROChildOrderPage.clickOKButton();
+		createEUROChildOrderPage.clickOKButton();*/
 
 		// ActiveSince=Past date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -99,10 +100,14 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.checkApplyNow3();
 		createEUROChildOrderPage.clickUpdateButton();
 		
-		createEUROChildOrderPage.clickUpdateButton();
+		
 		createEUROChildOrderPage.expectedAmount4();
 		createEUROChildOrderPage.clickSave();
 
+	}
+	@AfterClass(alwaysRun=true)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
 	}
 
 }

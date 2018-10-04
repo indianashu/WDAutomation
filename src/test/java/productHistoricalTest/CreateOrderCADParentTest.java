@@ -100,7 +100,7 @@ public class CreateOrderCADParentTest {
 		createCADParentOrderPage.checkApplyNow3();
 		createCADParentOrderPage.clickUpdateButton();
 		
-		createCADParentOrderPage.clickUpdateButton();
+		
 		createCADParentOrderPage.expectedAmount4();
 		createCADParentOrderPage.clickSave();
 
