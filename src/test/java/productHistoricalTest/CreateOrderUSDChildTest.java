@@ -99,7 +99,7 @@ public class CreateOrderUSDChildTest {
 		createUSDChildOrderPage.checkApplyNow3();
 		createUSDChildOrderPage.clickUpdateButton();
 		
-		createUSDChildOrderPage.clickUpdateButton();
+		
 		createUSDChildOrderPage.expectedAmount4();
 		createUSDChildOrderPage.clickSave();
 

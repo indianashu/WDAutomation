@@ -183,6 +183,7 @@ public class CreateEUROChildOrderPage extends BasePage {
      */
     public void selectCustomer() throws IOException{
     	CreateEUROChildOrderPage sp=new CreateEUROChildOrderPage(driver);
+    	JavaScriptExec.sleep();
     	String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 2);
 		WebElement selectCustomer = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
@@ -249,6 +250,7 @@ public class CreateEUROChildOrderPage extends BasePage {
 
 	public void selectProduct1() throws IOException {
 		String ProductName1 = BasePage.getCellData(xlsxName, sheetName, 6, 0);
+		JavaScriptExec.sleep();
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName1 + "']")).click();
 		/*Assert.assertTrue(selectProduct.isDisplayed());
 		actions.moveToElement(selectProduct).click().perform();*/

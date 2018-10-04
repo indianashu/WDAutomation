@@ -122,6 +122,7 @@ public class CreateCADParentOrderPage extends BasePage {
      */
     public void selectCustomer() throws IOException{
     	CreateUSDParentOrderPage sp=new CreateUSDParentOrderPage(driver);
+    	JavaScriptExec.sleep();
     	String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 1);
 		WebElement selectCustomer = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
@@ -190,6 +191,7 @@ public class CreateCADParentOrderPage extends BasePage {
 
 	public void selectProduct1() throws IOException {
 		String ProductName1 = BasePage.getCellData(xlsxName, sheetName, 5, 0);
+		JavaScriptExec.sleep();
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName1 + "']")).click();
 		/*Assert.assertTrue(selectProduct.isDisplayed());
 		actions.moveToElement(selectProduct).click().perform();*/

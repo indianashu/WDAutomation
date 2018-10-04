@@ -122,6 +122,7 @@ public class CreateUSDParentOrderPage extends BasePage {
      */
     public void selectCustomer() throws IOException{
     	CreateUSDParentOrderPage sp=new CreateUSDParentOrderPage(driver);
+    	JavaScriptExec.sleep();
     	String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
 		WebElement selectCustomer = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
