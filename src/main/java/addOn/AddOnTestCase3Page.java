@@ -140,6 +140,7 @@ public class AddOnTestCase3Page extends BasePage {
 			se2.selectByVisibleText("SMSBundle");
 
 			String ProductName = BasePage.getCellData(xlsxName, sheetName, 4, 1);
+			JavaScriptExec.sleep();
 			WebElement selectProduct = driver
 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
 			selectProduct.click();
@@ -153,6 +154,7 @@ public class AddOnTestCase3Page extends BasePage {
 
 			WebElement clickSaveButton = driver
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
+			JavaScriptExec.sleep();
 			Assert.assertTrue(clickSaveButton.isDisplayed());
 			actions.moveToElement(clickSaveButton).click().perform();
 			

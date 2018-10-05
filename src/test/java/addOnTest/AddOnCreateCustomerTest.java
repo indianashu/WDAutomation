@@ -40,8 +40,6 @@ public class AddOnCreateCustomerTest {
     	
     }
     
-    @AfterClass(alwaysRun=false)
-    public void tearDown(){
-     BaseClasses.closeDriver("User1");
+    
     }
-}
+

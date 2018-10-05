@@ -29,10 +29,10 @@ public class AddOnTestCase3 {
 
 	@Test(groups = { "Add ON" }, description = "Add ON Order creation")
 	public void userSignin() throws Exception {
-		/*testCase3Page.enterLoginID();
+		testCase3Page.enterLoginID();
 		testCase3Page.enterPassword();
 		testCase3Page.selectCompany();
-		testCase3Page.clickLoginButton();*/
+		testCase3Page.clickLoginButton();
 
 		testCase3Page.clickCustomerTab();
 
@@ -41,8 +41,9 @@ public class AddOnTestCase3 {
 
 	}
 
-	@AfterClass(alwaysRun = false)
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		BaseClasses.closeDriver("User1");
 	}
+
 }
