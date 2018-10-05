@@ -45,4 +45,5 @@ public class AddOnTestCase3 {
 	public void tearDown() {
 		BaseClasses.closeDriver("User1");
 	}
+
 }

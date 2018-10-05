@@ -158,7 +158,7 @@ public class AddOnTestCase2Page extends BasePage {
 
 	public void consumptionOfPlan() throws IOException {
 		int i = 0;
-		while(i <= 3){
+		while(i <= 2){
 
 			WebElement clickCustomerTab = driver.findElement(By.xpath("//*[@id='menu.link.customers']/a"));
 			Assert.assertTrue(clickCustomerTab.isDisplayed());

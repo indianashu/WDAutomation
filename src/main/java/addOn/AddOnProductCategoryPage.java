@@ -153,11 +153,11 @@ public class AddOnProductCategoryPage extends BasePage {
 	public void addProducts() throws IOException {
 
 		for (int i = 0; i <= 1; i++) {
-			int column = 3;
+			//int column = 3;
 
 			log.info("Click on a category name.");
 			JavaScriptExec.sleep();
-			String CategoryName = BasePage.getCellData(xlsxName, sheetName, column, i);
+			String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3, i);
 			driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 
 			log.info("Click on Add Product Button");
@@ -171,12 +171,12 @@ public class AddOnProductCategoryPage extends BasePage {
 			WebElement enterEnglishDescription = driver
 					.findElement(By.xpath("//input[@name='product.descriptions[0].content']"));
 			Assert.assertTrue(enterEnglishDescription.isDisplayed());
-			enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, column + 1, i));
+			enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, i));
 
 			log.info("Enter Product Code");
 			WebElement enterProductCode = driver.findElement(By.xpath("//input[@name='product.number']"));
 			Assert.assertTrue(enterProductCode.isDisplayed());
-			enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, column + 2, i));
+			enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, i));
 
 			log.info("Enter Price Date");
 			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
@@ -189,14 +189,14 @@ public class AddOnProductCategoryPage extends BasePage {
 			if (i == 0) {
 				WebElement enterPriceRate = driver.findElement(By.xpath("//input[@name='product.rate']"));
 				Assert.assertTrue(enterPriceRate.isDisplayed());
-				enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, column + 3, 1));
+				enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 				clickAddPriceButton();
 			} else {
 
 				WebElement enterPriceRate = driver.findElement(By.xpath("//input[@name='product.rate']"));
 				Assert.assertTrue(enterPriceRate.isDisplayed());
 				enterPriceRate.clear();
-				enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, column + 3, 0));
+				enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 1));
 
 				clickAddPriceButton();
 
@@ -206,7 +206,7 @@ public class AddOnProductCategoryPage extends BasePage {
 				 * JavaScriptExec.sleep(); Assert.assertTrue(clickAddOnPlus.isDisplayed());
 				 * clickAddOnPlus.click();
 				 */
-
+				navigateBottom();
 				WebElement selectCategory = driver.findElement(By.xpath("//select[@id='itemBundleItemType']"));
 				selectCategory.click();
 				Select se = new Select(selectCategory);

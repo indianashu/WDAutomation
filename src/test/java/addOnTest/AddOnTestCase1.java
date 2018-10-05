@@ -41,8 +41,8 @@ public class AddOnTestCase1 {
 
 	}
 
-	@AfterClass(alwaysRun = false)
+	/*@AfterClass(alwaysRun = false)
 	public void tearDown() {
-		BaseClasses.closeDriver("User1");
+		BaseClasses.closeDriver("User1");*/
 	}
-}
+
