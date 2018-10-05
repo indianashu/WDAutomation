@@ -157,7 +157,7 @@ public class AddOnProductCategoryPage extends BasePage {
 
 			log.info("Click on a category name.");
 			JavaScriptExec.sleep();
-			String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3, i);
+			String CategoryName = BasePage.getCellData(xlsxName, sheetName, column, i);
 			driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 
 			log.info("Click on Add Product Button");
