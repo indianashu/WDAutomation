@@ -51,9 +51,7 @@ public class AddOnProductCategoryTest {
     	
     }
     
-    /*@AfterClass(alwaysRun=false)
-    public void tearDown(){
-     BaseClasses.closeDriver("User1");*/
+   
     }
 
 

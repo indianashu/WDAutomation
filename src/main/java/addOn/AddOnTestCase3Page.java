@@ -154,6 +154,7 @@ public class AddOnTestCase3Page extends BasePage {
 
 			WebElement clickSaveButton = driver
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
+			JavaScriptExec.sleep();
 			Assert.assertTrue(clickSaveButton.isDisplayed());
 			actions.moveToElement(clickSaveButton).click().perform();
 			
