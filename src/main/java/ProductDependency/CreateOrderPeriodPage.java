@@ -109,23 +109,7 @@ public class CreateOrderPeriodPage extends BasePage {
 		clickLoginButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[.='Configuration']")
-	private WebElement clickConfigurationTab;
-
-	/**
-	 * Method to click on Configuration tab after successful login.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickConfigurationTab() throws IOException {
-		CreateOrderPeriodPage sp = new CreateOrderPeriodPage(driver);
-		log.info("Click on Configuration Tab after successful login");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickConfigurationTab);
-		Assert.assertTrue(clickConfigurationTab.isDisplayed());
-		clickConfigurationTab.click();
-
-	}
+	
 
 	@FindBy(how = How.XPATH, using = "//a[.='Order Periods']")
 	private WebElement clickOrderPeriods;

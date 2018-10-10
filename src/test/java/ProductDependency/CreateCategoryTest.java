@@ -50,17 +50,55 @@ public class CreateCategoryTest {
     	categoryPage.clickProductsTab();
     	categoryPage.clickAddCategoryButton();
     	categoryPage.enterCategoryName();
-    	categoryPage.selectCompanies();
     	categoryPage.clickSaveChangesButton();
     	categoryPage.verifyConfirmationMsg();
-    	
     	
     	categoryPage.clickProductsTab();
-    	categoryPage.clickAddCategoryButton();
-    	categoryPage.enterCategoryName1();
-    	categoryPage.selectCompanies();
+    	categoryPage.selectCategoryName();
+    	categoryPage.clickAddProductButton();
+    	categoryPage.enterEnglishDescription();
+    	categoryPage.enterProductCode();
+    	categoryPage.selectStandardAvailability();
+    	categoryPage.selectAvailableAccountTypes();
+    	categoryPage.enterPriceDate();
+    	categoryPage.selectPriceCompany();
+    	categoryPage.selectPriceCurrency();
+    	categoryPage.enterPriceRate();
+    	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
-    	categoryPage.verifyConfirmationMsg();
+        categoryPage.verifyConfirmationMsg();
+        
+        categoryPage.clickProductsTab();
+    	categoryPage.selectCategoryName();
+    	categoryPage.clickAddProductButton();
+    	categoryPage.enterEnglishDescription1();
+    	categoryPage.enterProductCode1();
+    	categoryPage.selectStandardAvailability();
+    	categoryPage.selectAvailableAccountTypes();
+    	categoryPage.enterPriceDate();
+    	categoryPage.selectPriceCompany();
+    	categoryPage.selectPriceCurrency();
+    	categoryPage.enterPriceRate1();
+    	categoryPage.clickAddPriceButton();
+    	categoryPage.clickSaveChangesButton();
+        categoryPage.verifyConfirmationMsg();
+    	
+        categoryPage.clickProductsTab();
+    	categoryPage.selectCategoryName();
+    	categoryPage.clickAddProductButton();
+    	categoryPage.enterEnglishDescription2();
+    	categoryPage.enterProductCode2();
+    	categoryPage.selectStandardAvailability();
+    	categoryPage.selectAvailableAccountTypes();
+    	categoryPage.enterPriceDate();
+    	categoryPage.selectPriceCompany();
+    	categoryPage.selectPriceCurrency();
+    	categoryPage.enterPriceRate2();
+    	categoryPage.clickAddPriceButton();
+    	categoryPage.clickSaveChangesButton();
+        categoryPage.verifyConfirmationMsg();
+    	
+    	
     	 
     }
 }
