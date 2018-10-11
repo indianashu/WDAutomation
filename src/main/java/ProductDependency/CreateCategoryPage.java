@@ -197,7 +197,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 
 	}
 
@@ -213,7 +213,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 
 	}
 
@@ -233,7 +233,7 @@ public class CreateCategoryPage extends BasePage   {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 
 }
 	
@@ -283,7 +283,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 1));
+		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 1));
 
 	}
 
@@ -299,7 +299,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 1));
+		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 1));
 
 	}
 
@@ -318,41 +318,22 @@ public class CreateCategoryPage extends BasePage   {
 		selectStandardAvailability.click();
 	}
 
-	private WebElement selectAvailableAccountTypes;
-
-	/**
-	 * Method to select Available Account Types.
-	 * 
-	 * @throws IOException
-	 */
-	public void selectAvailableAccountTypes() throws IOException {
-		CreateCategoryPage sp = new CreateCategoryPage(driver);
-		WebElement Accountelement = driver.findElement(By.xpath("//select[@name='product.accountTypes']"));
-		Select se = new Select(Accountelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-
-	}
+	
 
 	
 
 	@FindBy(how = How.XPATH, using = "//*[@name=\"mydate\"]")
 	private WebElement enterPriceDate;
-
-	/**
-	 * Method to Enter Price Date.
-	 * 
-	 * @throws IOException
-	 */
+	
 	public void enterPriceDate() throws IOException {
-		CreateCategoryPage sp = new CreateCategoryPage(driver);
-		log.info("Enter Price Date");
-		Assert.assertTrue(enterPriceDate.isDisplayed());
-		enterPriceDate.clear();
-		SimpleDateFormat DtFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date date = new Date();
-        enterPriceDate.sendKeys(DtFormat.format(date).toString());
+	WebElement enterPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
+	Assert.assertTrue(enterPriceDate.isDisplayed());
+	enterPriceDate.clear();
+	enterPriceDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+	JavaScriptExec.sleep();
 
 	}
+
 
 	private WebElement selectPriceCompany;
 
@@ -380,7 +361,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 		Select se = new Select(Currencyelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 
 	}
 
@@ -399,7 +380,7 @@ public class CreateCategoryPage extends BasePage   {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 1));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 1));
 
 }
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
@@ -430,7 +411,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 2));
+		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 2));
 
 	}
 
@@ -446,7 +427,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 2));
+		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 2));
 
 	}
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
@@ -464,7 +445,7 @@ public class CreateCategoryPage extends BasePage   {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 2));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 2));
 	}
 	
 		public void navigateBottom() {

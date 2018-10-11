@@ -59,7 +59,7 @@ public class CreateCategoryTest {
     	categoryPage.enterEnglishDescription();
     	categoryPage.enterProductCode();
     	categoryPage.selectStandardAvailability();
-    	categoryPage.selectAvailableAccountTypes();
+    	
     	categoryPage.enterPriceDate();
     	categoryPage.selectPriceCompany();
     	categoryPage.selectPriceCurrency();
@@ -74,7 +74,7 @@ public class CreateCategoryTest {
     	categoryPage.enterEnglishDescription1();
     	categoryPage.enterProductCode1();
     	categoryPage.selectStandardAvailability();
-    	categoryPage.selectAvailableAccountTypes();
+    	
     	categoryPage.enterPriceDate();
     	categoryPage.selectPriceCompany();
     	categoryPage.selectPriceCurrency();
@@ -89,7 +89,7 @@ public class CreateCategoryTest {
     	categoryPage.enterEnglishDescription2();
     	categoryPage.enterProductCode2();
     	categoryPage.selectStandardAvailability();
-    	categoryPage.selectAvailableAccountTypes();
+    	
     	categoryPage.enterPriceDate();
     	categoryPage.selectPriceCompany();
     	categoryPage.selectPriceCurrency();

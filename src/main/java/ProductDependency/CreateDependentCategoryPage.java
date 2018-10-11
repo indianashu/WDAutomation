@@ -360,7 +360,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		log.info("Click on Add Price Button");
 		Assert.assertTrue(clickAddPriceButton.isDisplayed());
 		clickAddPriceButton.click();
-		navigateBottom();
+		//navigateBottom();
 
 	}
 	
@@ -544,7 +544,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			JavaScriptExec.sleep();
 			WaitClass.WaitForElementisDisplay(driver, 10, enterMin);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMin.clear();
+			enterMin1.clear();
 			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 4));
 		}
 		
@@ -758,10 +758,27 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			log.info("Enter Min value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, enterMin);
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMin3);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMin.clear();
-			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 6));
+			enterMin3.clear();
+			enterMin3.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 6));
+		}
+		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
+		private WebElement entermin3;
+
+		/**
+		 * Method to Enter Price Rate.
+		 * 
+		 * @throws IOException
+		 */
+		public void entermin3() throws IOException {
+			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
+			log.info("Enter Min value");
+			JavaScriptExec.sleep();
+			WaitClass.WaitForElementisDisplay(driver, 10, entermin3);
+			Assert.assertTrue(enterPriceRate.isDisplayed());
+			entermin3.clear();
+			entermin3.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 7));
 		}
 		
 		private WebElement selectProductDependency2;
@@ -793,6 +810,42 @@ public class CreateDependentCategoryPage extends BasePage {
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			enterMax1.clear();
 			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 7));
+		}
+		
+		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
+		private WebElement enterMax4;
+
+		/**
+		 * Method to Enter Price Rate.
+		 * 
+		 * @throws IOException
+		 */
+		public void enterMax4() throws IOException {
+			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
+			log.info("Enter Max value");
+			JavaScriptExec.sleep();
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
+			Assert.assertTrue(enterPriceRate.isDisplayed());
+			enterMax1.clear();
+			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 10));
+		}
+		
+		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
+		private WebElement enterMax5;
+
+		/**
+		 * Method to Enter Price Rate.
+		 * 
+		 * @throws IOException
+		 */
+		public void enterMax5() throws IOException {
+			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
+			log.info("Enter Max value");
+			JavaScriptExec.sleep();
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
+			Assert.assertTrue(enterPriceRate.isDisplayed());
+			enterMax1.clear();
+			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 11));
 		}
 		
 		private WebElement selectProductDependency3;
@@ -841,23 +894,25 @@ public class CreateDependentCategoryPage extends BasePage {
 			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 8));
 		}
 		
-		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
-		private WebElement enterMax4;
+		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
+		private WebElement enterMin5;
 
 		/**
 		 * Method to Enter Price Rate.
 		 * 
 		 * @throws IOException
 		 */
-		public void enterMax4() throws IOException {
+		public void enterMin5() throws IOException {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-			log.info("Enter Max value");
+			log.info("Enter Min value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMin);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMax3.clear();
-			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 8));
+			enterMin3.clear();
+			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 11));
 		}
+		
+		
 		
 		@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 		private WebElement enterEnglishDescription4;

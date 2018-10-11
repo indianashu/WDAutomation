@@ -141,6 +141,7 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.selectProductCategoryDependency();
     	dependentProductPage.selectProductDependency2();
     	dependentProductPage.selectProductPeriod4();
+    	dependentProductPage.entermin3();
     	dependentProductPage.enterMax3();
     	dependentProductPage.clickDependencyPlusIcon();
     	
@@ -194,14 +195,15 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.selectProductCategoryDependency();
     	dependentProductPage.selectProductDependency2();
     	dependentProductPage.selectProductPeriod4();
-    	dependentProductPage.enterMax3();
+    	dependentProductPage.entermin3();
+    	dependentProductPage.enterMax4();
     	dependentProductPage.clickDependencyPlusIcon();
     	
     	dependentProductPage.selectProductCategoryDependency();
     	dependentProductPage.selectProductDependency3();
     	dependentProductPage.selectProductPeriod5();
-    	dependentProductPage.enterMin4();
-    	dependentProductPage.enterMax4();
+    	dependentProductPage.enterMin5();
+    	dependentProductPage.enterMax5();
     	dependentProductPage.clickDependencyPlusIcon();
     	dependentProductPage.clickSaveChangesButton();
     	dependentProductPage.verifyConfirmationMsg();
