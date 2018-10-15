@@ -36,7 +36,7 @@ public class CreateCustomerTest {
 		addCustomerPage.clickLoginButton();*/
 		
 		addCustomerPage.clickCustomerTab();
-		addCustomerPage.createCustomerForParent();
+		addCustomerPage.createCustomer();
 
 }
 }

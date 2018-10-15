@@ -326,7 +326,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 		Select se = new Select(Currencyelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 6, 0));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
 	}
 
@@ -345,7 +345,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 3));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 3));
 
 }
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
@@ -425,7 +425,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 3));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 
 	}
 	
@@ -447,7 +447,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
 		enterMin.clear();
-		enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 3));
+		enterMin.sendKeys("1");
 
 }
 	@FindBy(how = How.XPATH, using = "//*[@id='dependency']/div[2]/div/table/tbody/tr/td[6]/a/img")
@@ -512,7 +512,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 4));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 4));
 	}
 	
 	private WebElement selectProductPeriod1;
@@ -526,7 +526,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 4));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 1));
 
 	}
 	
@@ -546,7 +546,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterMin);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			enterMin1.clear();
-			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 4));
+			enterMin.sendKeys("1");
 		}
 		
 		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
@@ -564,7 +564,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			enterMax1.clear();
-			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 4));
+			enterMax1.sendKeys("5");
 		}
 		
 		@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
@@ -614,7 +614,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			//enterPriceRate1.clear();
-			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 5));
+			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 5));
 		}
 		
 		private WebElement selectProductPeriod2;
@@ -628,7 +628,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 			Select se = new Select(Productelement);
-			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 5));
+			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 2));
 
 		}
 		
@@ -647,7 +647,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterMin);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			enterMin.clear();
-			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 5));
+			enterMin.sendKeys("3");
 		}
 		
 		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
@@ -665,7 +665,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			enterMax1.clear();
-			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 5));
+			enterMax1.sendKeys("5");
 		}
 		
 		
@@ -715,7 +715,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			//enterPriceRate1.clear();
-			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 6));
+			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 6));
 		}
 		
 		private WebElement selectProductPeriod3;
@@ -729,7 +729,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 			Select se = new Select(Productelement);
-			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 6));
+			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 
 		}
 		private WebElement selectProductPeriod4;
@@ -743,7 +743,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 			Select se = new Select(Productelement);
-			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 7));
+			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 1));
 
 		}
 		
@@ -762,24 +762,21 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterMin3);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			enterMin3.clear();
-			enterMin3.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 6));
+			enterMin3.sendKeys("2");
 		}
+		
 		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
-		private WebElement entermin3;
+		private WebElement entermin6;
 
-		/**
-		 * Method to Enter Price Rate.
-		 * 
-		 * @throws IOException
-		 */
-		public void entermin3() throws IOException {
+		
+		public void entermin6() throws IOException {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			log.info("Enter Min value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, entermin3);
+			WaitClass.WaitForElementisDisplay(driver, 10, entermin6);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			entermin3.clear();
-			entermin3.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 7));
+			entermin6.clear();
+			entermin6.sendKeys("0");
 		}
 		
 		private WebElement selectProductDependency2;
@@ -807,10 +804,10 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			log.info("Enter Max value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMax3);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMax1.clear();
-			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 7));
+			enterMax3.clear();
+			enterMax3.sendKeys("3");
 		}
 		
 		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
@@ -825,10 +822,28 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			log.info("Enter Max value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMax4);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMax1.clear();
-			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 10));
+			enterMax4.clear();
+			enterMax4.sendKeys("5");
+		}
+		
+		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
+		private WebElement enterMax6;
+
+		/**
+		 * Method to Enter Price Rate.
+		 * 
+		 * @throws IOException
+		 */
+		public void enterMax6() throws IOException {
+			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
+			log.info("Enter Max value");
+			JavaScriptExec.sleep();
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMax6);
+			Assert.assertTrue(enterPriceRate.isDisplayed());
+			enterMax6.clear();
+			enterMax6.sendKeys("2");
 		}
 		
 		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
@@ -843,10 +858,10 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			log.info("Enter Max value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, enterMax1);
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMax5);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMax1.clear();
-			enterMax1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 11));
+			enterMax5.clear();
+			enterMax5.sendKeys("5");
 		}
 		
 		private WebElement selectProductDependency3;
@@ -873,7 +888,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 			Select se = new Select(Productelement);
-			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 8));
+			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 2));
 
 		}
 		
@@ -889,10 +904,10 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			log.info("Enter Min value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, enterMin);
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMin4);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMin3.clear();
-			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 8));
+			enterMin4.clear();
+			enterMin4.sendKeys("1");
 		}
 		
 		@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
@@ -907,10 +922,10 @@ public class CreateDependentCategoryPage extends BasePage {
 			CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 			log.info("Enter Min value");
 			JavaScriptExec.sleep();
-			WaitClass.WaitForElementisDisplay(driver, 10, enterMin);
+			WaitClass.WaitForElementisDisplay(driver, 10, enterMin5);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterMin3.clear();
-			enterMin.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 11));
+			enterMin5.clear();
+			enterMin5.sendKeys("3");
 		}
 		
 		
@@ -962,7 +977,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			//enterPriceRate1.clear();
-			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 9));
+			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 9));
 		}
 		
 		@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
@@ -1012,7 +1027,7 @@ public class CreateDependentCategoryPage extends BasePage {
 			WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 			Assert.assertTrue(enterPriceRate.isDisplayed());
 			//enterPriceRate1.clear();
-			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 10));
+			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 10));
 		}
 	
 	public void navigateBottom() {

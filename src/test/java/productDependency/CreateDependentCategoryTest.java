@@ -46,10 +46,10 @@ public class CreateDependentCategoryTest {
     @Test(groups={"Product Dependency Feature"},description="Add Edit Product")
     public void userSignin() throws IOException{
 
-    	/*dependentProductPage.enterLoginID();
+    	dependentProductPage.enterLoginID();
     	dependentProductPage.enterPassword();
     	dependentProductPage.selectCompany();
-    	dependentProductPage.clickLoginButton();*/
+    	dependentProductPage.clickLoginButton();
     	
     	dependentProductPage.clickProductsTab();
     	dependentProductPage.clickAddCategoryButton();
@@ -57,13 +57,15 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.clickSaveChangesButton();
     	dependentProductPage.verifyConfirmationMsg();
     	
+    	//Billing Category Product 1
+    	
     	dependentProductPage.selectCategoryName();
     	dependentProductPage.clickAddProductButton();
     	dependentProductPage.enterEnglishDescription();
     	dependentProductPage.enterProductCode();
     	dependentProductPage.selectStandardAvailability();
     	dependentProductPage.selectCompanies();
-    	dependentProductPage.enterPriceDate();
+    	//dependentProductPage.enterPriceDate();
     	dependentProductPage.selectPriceCompany();
     	dependentProductPage.selectPriceCurrency();
     	dependentProductPage.enterPriceRate();
@@ -76,6 +78,9 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.clickSaveChangesButton();
     	dependentProductPage.verifyConfirmationMsg();
     	
+    	
+    	//Billing Category Product 2
+    	
     	dependentProductPage.clickProductsTab();
     	dependentProductPage.selectCategoryName();
     	dependentProductPage.clickAddProductButton();
@@ -83,7 +88,7 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.enterProductCode1();
     	dependentProductPage.selectStandardAvailability();
     	dependentProductPage.selectCompanies();
-    	dependentProductPage.enterPriceDate();
+    	//dependentProductPage.enterPriceDate();
     	dependentProductPage.selectPriceCompany();
     	dependentProductPage.selectPriceCurrency();
     	dependentProductPage.enterPriceRate1();
@@ -98,6 +103,8 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.verifyConfirmationMsg();
     	
     	
+    	//Billing Category Product 3
+    	
     	dependentProductPage.clickProductsTab();
     	dependentProductPage.selectCategoryName();
     	dependentProductPage.clickAddProductButton();
@@ -105,7 +112,7 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.enterProductCode2();
     	dependentProductPage.selectStandardAvailability();
     	dependentProductPage.selectCompanies();
-    	dependentProductPage.enterPriceDate();
+    	//dependentProductPage.enterPriceDate();
     	dependentProductPage.selectPriceCompany();
     	dependentProductPage.selectPriceCurrency();
     	dependentProductPage.enterPriceRate2();
@@ -120,6 +127,9 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.verifyConfirmationMsg();
     	
     	
+    	
+       	//Billing Category Product 4
+    	
     	dependentProductPage.clickProductsTab();
     	dependentProductPage.selectCategoryName();
     	dependentProductPage.clickAddProductButton();
@@ -127,7 +137,7 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.enterProductCode3();
     	dependentProductPage.selectStandardAvailability();
     	dependentProductPage.selectCompanies();
-    	dependentProductPage.enterPriceDate();
+    	//dependentProductPage.enterPriceDate();
     	dependentProductPage.selectPriceCompany();
     	dependentProductPage.selectPriceCurrency();
     	dependentProductPage.enterPriceRate3();
@@ -138,15 +148,12 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.selectProductPeriod3();
     	dependentProductPage.enterMin3();
     	dependentProductPage.clickDependencyPlusIcon();
-    	
-    	
     	dependentProductPage.selectProductCategoryDependency();
     	dependentProductPage.selectProductDependency2();
     	dependentProductPage.selectProductPeriod4();
-    	dependentProductPage.entermin3();
+    	dependentProductPage.entermin6();
     	dependentProductPage.enterMax3();
     	dependentProductPage.clickDependencyPlusIcon();
-    	
     	dependentProductPage.selectProductCategoryDependency();
     	dependentProductPage.selectProductDependency3();
     	dependentProductPage.selectProductPeriod5();
@@ -158,6 +165,8 @@ public class CreateDependentCategoryTest {
     	
     	
     	
+    	//Billing Category Product 5
+    	
     	dependentProductPage.clickProductsTab();
     	dependentProductPage.selectCategoryName();
     	dependentProductPage.clickAddProductButton();
@@ -165,7 +174,7 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.enterProductCode4();
     	dependentProductPage.selectStandardAvailability();
     	dependentProductPage.selectCompanies();
-    	dependentProductPage.enterPriceDate();
+    	//dependentProductPage.enterPriceDate();
     	dependentProductPage.selectPriceCompany();
     	dependentProductPage.selectPriceCurrency();
     	dependentProductPage.enterPriceRate4();
@@ -181,6 +190,8 @@ public class CreateDependentCategoryTest {
     	
     	
     	
+    	//Billing Category Product 6
+    	
     	dependentProductPage.clickProductsTab();
     	dependentProductPage.selectCategoryName();
     	dependentProductPage.clickAddProductButton();
@@ -188,7 +199,7 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.enterProductCode5();
     	dependentProductPage.selectStandardAvailability();
     	dependentProductPage.selectCompanies();
-    	dependentProductPage.enterPriceDate();
+    	//dependentProductPage.enterPriceDate();
     	dependentProductPage.selectPriceCompany();
     	dependentProductPage.selectPriceCurrency();
     	dependentProductPage.enterPriceRate5();
@@ -197,10 +208,9 @@ public class CreateDependentCategoryTest {
     	dependentProductPage.selectProductCategoryDependency();
     	dependentProductPage.selectProductDependency2();
     	dependentProductPage.selectProductPeriod4();
-    	dependentProductPage.entermin3();
-    	dependentProductPage.enterMax4();
+    	dependentProductPage.entermin6();
+    	dependentProductPage.enterMax6();
     	dependentProductPage.clickDependencyPlusIcon();
-    	
     	dependentProductPage.selectProductCategoryDependency();
     	dependentProductPage.selectProductDependency3();
     	dependentProductPage.selectProductPeriod5();

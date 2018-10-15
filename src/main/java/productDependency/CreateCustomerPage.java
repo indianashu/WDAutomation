@@ -119,9 +119,9 @@ public class CreateCustomerPage extends BasePage {
 		clickCustomerTab.click();
 		JavaScriptExec.sleep();
 }
-	public void createCustomerForParent() throws IOException {
+	public void createCustomer() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		for (int i = 0; i <= 8; i++) {
+		for (int i = 0; i < 8; i++) {
 			WebElement clickAddNewButton = driver
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));
 			JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);

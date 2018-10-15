@@ -234,7 +234,7 @@ public class CreateCategoryPage extends BasePage   {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 
 }
 	
@@ -319,22 +319,6 @@ public class CreateCategoryPage extends BasePage   {
 		selectStandardAvailability.click();
 	}
 
-	
-
-	
-
-	@FindBy(how = How.XPATH, using = "//*[@name=\"mydate\"]")
-	private WebElement enterPriceDate;
-	
-	public void enterPriceDate() throws IOException {
-	WebElement enterPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
-	Assert.assertTrue(enterPriceDate.isDisplayed());
-	enterPriceDate.clear();
-	enterPriceDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-	JavaScriptExec.sleep();
-
-	}
-
 
 	private WebElement selectPriceCompany;
 
@@ -362,7 +346,7 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 		Select se = new Select(Currencyelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 6, 0));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
 	}
 
@@ -381,7 +365,7 @@ public class CreateCategoryPage extends BasePage   {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 1));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 1));
 
 }
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
@@ -446,7 +430,7 @@ public class CreateCategoryPage extends BasePage   {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		//enterPriceRate1.clear();
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 2));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 2));
 	}
 	
 		public void navigateBottom() {

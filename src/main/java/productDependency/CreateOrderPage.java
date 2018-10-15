@@ -1,4 +1,4 @@
-package ProductDependency;
+package productDependency;
 
 import baseClassPackage.BasePage;
 import invoice.GeneratingInvoicePage;
@@ -146,7 +146,7 @@ public class CreateOrderPage extends BasePage {
 					CreateOrderPage sp = new CreateOrderPage(driver);
 					log.info("Click on Customer Name.");
 					JavaScriptExec.sleep();
-					String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 8);
+					String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 4);
 					driver.findElement(By.xpath("//*[text()='" + CustomerName + "']/following::a[1]")).click();
 					navigateBottom();
 				}
@@ -165,7 +165,7 @@ public class CreateOrderPage extends BasePage {
 					CreateOrderPage sp = new CreateOrderPage(driver);
 					log.info("Click on Customer Name.");
 					JavaScriptExec.sleep();
-					String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 10);
+					String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 5);
 					driver.findElement(By.xpath("//*[text()='" + CustomerName + "']/following::a[1]")).click();
 				}
 	
@@ -247,7 +247,7 @@ public class CreateOrderPage extends BasePage {
 	 public void selectCustomer3() throws IOException{
 	 	CreateOrderPage sp=new CreateOrderPage(driver);
 	 	JavaScriptExec.sleep();
-	 	String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 5);
+	 	String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 3);
 	 	WebElement selectCustomer = driver
 	 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 	 	navigateBottom();
@@ -264,7 +264,7 @@ public class CreateOrderPage extends BasePage {
  	 public void selectCustomer4() throws IOException{
  	 	 CreateOrderPage sp=new CreateOrderPage(driver);
  	 	 JavaScriptExec.sleep();
- 	 	 String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 8);
+ 	 	 String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 4);
  	 	 WebElement selectCustomer = driver
  	 	 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
  	 	 navigateBottom();
@@ -281,7 +281,7 @@ public class CreateOrderPage extends BasePage {
  	 public void selectCustomer5() throws IOException{
  	 	 CreateOrderPage sp=new CreateOrderPage(driver);
  	 	 JavaScriptExec.sleep();
- 	 	 String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 10);
+ 	 	 String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 5);
  	 	 WebElement selectCustomer = driver
  	 	 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
  	 	 navigateBottom();
@@ -328,7 +328,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 2));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 1));
 
     }
     
@@ -341,7 +341,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 5));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 
     }
      
@@ -354,7 +354,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 8));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 3, 0));
 
     }
     
@@ -367,7 +367,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 10));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 2));
 
     }
     
@@ -394,7 +394,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 2));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
     }
     
@@ -407,7 +407,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 5));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
     }
     
@@ -420,7 +420,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 8));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 1));
 
     }
     
@@ -433,7 +433,7 @@ public class CreateOrderPage extends BasePage {
     	CreateOrderPage sp=new CreateOrderPage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 10));
+        se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 1));
 
     }
     
@@ -449,7 +449,7 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
 		Select se = new Select(OrderTypeelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 9));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
 	}
     
@@ -537,7 +537,7 @@ public class CreateOrderPage extends BasePage {
 	    	
 	    	CreateOrderPage sp=new CreateOrderPage(driver);
 	    	JavaScriptExec.sleep();
-	    	String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 5);
+	    	String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 3);
 			WebElement selectProduct = driver
 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
 			navigateBottom();
@@ -554,7 +554,7 @@ public class CreateOrderPage extends BasePage {
 	    	
 	    	CreateOrderPage sp=new CreateOrderPage(driver);
 	    	JavaScriptExec.sleep();
-	    	String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 8);
+	    	String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 4);
 			WebElement selectProduct = driver
 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
 			navigateBottom();
@@ -571,7 +571,7 @@ public class CreateOrderPage extends BasePage {
 	    	
 	    	CreateOrderPage sp=new CreateOrderPage(driver);
 	    	JavaScriptExec.sleep();
-	    	String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 10);
+	    	String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 5);
 			WebElement selectProduct = driver
 					.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
 			navigateBottom();
@@ -685,7 +685,7 @@ public class CreateOrderPage extends BasePage {
 	public void clickDependentProduct1() throws IOException {
 		 	CreateOrderPage sp = new CreateOrderPage(driver);
 		 	log.info("click on dependenct product.");
-		 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 1);
+		 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 2);
 		 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 		 		}
 		 		
@@ -716,7 +716,7 @@ public class CreateOrderPage extends BasePage {
 		 
 	 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 	 	 	log.info("click on dependenct product.");
-	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 3);
+	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 1);
 	 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	 	 		}
 		
@@ -732,7 +732,7 @@ public class CreateOrderPage extends BasePage {
 		 
 	 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 	 	 	log.info("click on dependenct product.");
-	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 4);
+	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 0);
 	 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	 	 		}
 	 	 		
@@ -747,7 +747,7 @@ public class CreateOrderPage extends BasePage {
 	 public void clickDependentProduct5() throws IOException {
 	 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 	 	 	log.info("click on dependenct product.");
-	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 5);
+	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 0);
 	 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	 	 		}
 	 	 		
@@ -763,7 +763,7 @@ public class CreateOrderPage extends BasePage {
 	 public void clickDependentProduct6() throws IOException {
 	 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 	 	 	log.info("click on dependenct product.");
-	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 6);
+	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 1);
 	 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	 	 		}
 	 	 		
@@ -778,7 +778,7 @@ public class CreateOrderPage extends BasePage {
 	 public void clickDependentProduct7() throws IOException {
 	 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 	 	 	log.info("click on dependenct product.");
-	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 7);
+	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 2);
 	 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	 	 		}
 	 	 		
@@ -793,7 +793,7 @@ public class CreateOrderPage extends BasePage {
 	 public void clickDependentProduct8() throws IOException {
 	 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 	 	 	log.info("click on dependenct product.");
-	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 8);
+	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 0);
 	 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	 	 		}
 	 
@@ -811,7 +811,7 @@ public class CreateOrderPage extends BasePage {
 	 public void clickDependentProduct9() throws IOException {
 	 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 	 	 	log.info("click on dependenct product.");
-	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 10);
+	 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 1);
 	 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	 	 		}
 	 
@@ -826,7 +826,7 @@ public class CreateOrderPage extends BasePage {
 		 public void clickDependentProduct10() throws IOException {
 		 	 	CreateOrderPage sp = new CreateOrderPage(driver);
 		 	 	log.info("click on dependenct product.");
-		 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 11);
+		 	 	String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 2);
 		 	 	driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 		 	 		}
 		
@@ -864,7 +864,7 @@ public class CreateOrderPage extends BasePage {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity);
 		Assert.assertTrue(enterQuantity.isDisplayed());
 		enterQuantity.clear();
-		enterQuantity.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
+		enterQuantity.sendKeys("2");
 	}
 	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
 	//*[@id="change--6.quantityAsDecimal"]
@@ -883,7 +883,7 @@ public class CreateOrderPage extends BasePage {
 		WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity1);
 		Assert.assertTrue(enterQuantity1.isDisplayed());
 		enterQuantity1.clear();
-		enterQuantity1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 1));
+		enterQuantity1.sendKeys("3");
 	}
 	
 	 @FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
@@ -963,7 +963,7 @@ public class CreateOrderPage extends BasePage {
  	 		WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity2);
  	 		Assert.assertTrue(enterQuantity1.isDisplayed());
  	 		enterQuantity5.clear();
- 	 		enterQuantity5.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 5));
+ 	 		enterQuantity5.sendKeys("2");
  	 		}
  	 	
  	 	@FindBy(how = How.XPATH, using = "//*[@id='change--12.quantityAsDecimal']")
@@ -983,7 +983,7 @@ public class CreateOrderPage extends BasePage {
  	 		Assert.assertTrue(enterQuantity6.isDisplayed());
  	 		JavaScriptExec.sleep();
  	 		enterQuantity6.clear();
- 	 		enterQuantity6.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 7));
+ 	 		enterQuantity6.sendKeys("4");
  	 		}
  	 	
  	 	
@@ -1022,7 +1022,7 @@ public class CreateOrderPage extends BasePage {
  	 		WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity9);
  	 		Assert.assertTrue(enterQuantity9.isDisplayed());
  	 		enterQuantity9.clear();
- 	 		enterQuantity9.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 10));
+ 	 		enterQuantity9.sendKeys("2");
  	 		}
  	 	
  	 	@FindBy(how = How.XPATH, using = "//*[@id='change--9.quantityAsDecimal']")
@@ -1041,7 +1041,7 @@ public class CreateOrderPage extends BasePage {
  	 		WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity10);
  	 		Assert.assertTrue(enterQuantity10.isDisplayed());
  	 		enterQuantity10.clear();
- 	 		enterQuantity10.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 11));
+ 	 		enterQuantity10.sendKeys("4");
  	 		}
  	 	
  	 	
@@ -1060,7 +1060,7 @@ public class CreateOrderPage extends BasePage {
  	 		WaitClass.WaitForElementisDisplay(driver, 10, enterQuantity7);
  	 		Assert.assertTrue(enterQuantity7.isDisplayed());
  	 		enterQuantity7.clear();
- 	 		enterQuantity7.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 8));
+ 	 		enterQuantity7.sendKeys("3");
  	 		}
 	
 	
@@ -1426,7 +1426,7 @@ public class CreateOrderPage extends BasePage {
  	 	 public void selectParentOrder() throws IOException{
  	 	 	 CreateOrderPage sp=new CreateOrderPage(driver);
  	 	 	 JavaScriptExec.sleep();
- 	 	 	 String OrderName = BasePage.getCellData(xlsxName, sheetName, 3, 5);
+ 	 	 	 String OrderName = BasePage.getCellData(xlsxName, sheetName, 3, 3);
  	 	 	 WebElement selectOrder = driver
  	 	 	 					.findElement(By.xpath("//*[@id='18241']/span')'" + OrderName + "']"));
  	 	 	 navigateBottom();

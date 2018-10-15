@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
-public class CreateOrder1Test {
+public class CreateOrder2Test {
 	
 	CreateOrderPage createOrderPage;
 	WebDriver driver, driver2;
@@ -31,54 +31,28 @@ public class CreateOrder1Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		createOrderPage.enterLoginID();
+		/*createOrderPage.enterLoginID();
 		createOrderPage.enterPassword();
 		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();
-
-		// Create order for customer Leo Holder
+		createOrderPage.clickLoginButton();*/
+		
+		
+		//Create Order for William
 		
 		createOrderPage.clickCustomerTab();
 		createOrderPage.addCompanyFilter();
-		createOrderPage.selectCustomer();
+		createOrderPage.selectCustomer1();
 		createOrderPage.clickCreateOrder();
-		createOrderPage.selectPeriod();
-		createOrderPage.selectOrderType();
 		createOrderPage.clickProductsSubTab();
 		createOrderPage.selectCategory();
-		createOrderPage.selectProduct();
+		createOrderPage.selectProduct1();
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct();
-		createOrderPage.clickCurrentOrderButton();
-		createOrderPage.enterQuantity();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.clickDependentProduct1();
+		createOrderPage.clickNewSubOrderButton();
+		createOrderPage.enterQuantity1();
+		createOrderPage.clickUpdateButton1();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 	}
 }
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 
