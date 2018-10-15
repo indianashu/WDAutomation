@@ -4,8 +4,6 @@ import baseClassPackage.BasePage;
 import productDependency.CreateDependentCategoryPage;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -71,14 +69,14 @@ public class CreateDependentCategoryPage extends BasePage {
 
 	}
 
-	private WebElement selectCompany;
+	private WebElement selectCompany1;
 
 	/**
 	 * Method to select Comapny.
 	 * 
 	 * @throws IOException
 	 */
-	public void selectCompany() throws IOException {
+	public void selectCompany1() throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
@@ -183,11 +181,6 @@ public class CreateDependentCategoryPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 	
-	
-	
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test
-	// Category1']")
 	private WebElement selectCategoryName;
 
 	/**
@@ -251,70 +244,14 @@ public class CreateDependentCategoryPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name='product.standardAvailability']")
-	private WebElement selectStandardAvailability;
-
-	/**
-	 * Method to Uncheck Standard Availability Checkbox.
-	 * 
-	 * @throws IOException
-	 */
-	public void selectStandardAvailability() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Uncheck Standard Availability Checkbox");
-		Assert.assertTrue(selectStandardAvailability.isDisplayed());
-		selectStandardAvailability.click();
-	}
-
-	
-
-	private WebElement selectCompanies;
-
-	/**
-	 * Method to select companies.
-	 * 
-	 * @throws IOException
-	 */
-	public void selectCompanies() throws IOException {
+	public void selectCompany() throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
 		Select se = new Select(Companieselement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 
 	}
-
-	@FindBy(how = How.XPATH, using = "//*[@name=\"mydate\"]")
-	private WebElement enterPriceDate;
-
-	/**
-	 * Method to Enter Price Date.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterPriceDate() throws IOException {
-		WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
-		Assert.assertTrue(enterPastPriceDate.isDisplayed());
-		enterPastPriceDate.clear();
-		enterPastPriceDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-		JavaScriptExec.sleep();
-
-	}
-
-	private WebElement selectPriceCompany;
-
-	/**
-	 * Method to select company in Prices.
-	 * 
-	 * @throws IOException
-	 */
-	public void selectPriceCompany() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
-		Select se = new Select(Companieselement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-
-	}
-
+	
 	private WebElement selectPriceCurrency;
 
 	/**

@@ -2,11 +2,10 @@ package productDependency;
 
 
 import baseClassPackage.BasePage;
+import categoryProducts.ProductCategoryPage;
 import productDependency.CreateCategoryPage;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -102,6 +101,7 @@ public class CreateCategoryPage extends BasePage   {
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
+	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.products']/a")
 	private WebElement clickProductsTab;
 
@@ -149,6 +149,21 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Enter Category Name");
 		Assert.assertTrue(enterCategoryName.isDisplayed());
 		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
+
+	}
+	
+	private WebElement selectCompanies;
+
+	/**
+	 * Method to select companies.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCompanies() throws IOException {
+		ProductCategoryPage sp = new ProductCategoryPage(driver);
+		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='entities']"));
+		Select se = new Select(Companieselement);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 
 	}
 	
@@ -217,7 +232,14 @@ public class CreateCategoryPage extends BasePage   {
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 
 	}
+	
+	public void selectCompany1() throws IOException {
+		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
+		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
+		Select se = new Select(Companieselement);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 
+	}
 	
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
 	private WebElement enterPriceRate;
@@ -303,23 +325,7 @@ public class CreateCategoryPage extends BasePage   {
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 1));
 
 	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.standardAvailability']")
-	private WebElement selectStandardAvailability;
-
-	/**
-	 * Method to Uncheck Standard Availability Checkbox.
-	 * 
-	 * @throws IOException
-	 */
-	public void selectStandardAvailability() throws IOException {
-		CreateCategoryPage sp = new CreateCategoryPage(driver);
-		log.info("Uncheck Standard Availability Checkbox");
-		Assert.assertTrue(selectStandardAvailability.isDisplayed());
-		selectStandardAvailability.click();
-	}
-
-
+	
 	private WebElement selectPriceCompany;
 
 	/**

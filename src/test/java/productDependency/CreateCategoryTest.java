@@ -37,6 +37,7 @@ public class CreateCategoryTest {
     	categoryPage.clickProductsTab();
     	categoryPage.clickAddCategoryButton();
     	categoryPage.enterCategoryName();
+    	categoryPage.selectCompanies();
     	categoryPage.clickSaveChangesButton();
     	categoryPage.verifyConfirmationMsg();
     	
@@ -45,8 +46,7 @@ public class CreateCategoryTest {
     	categoryPage.clickAddProductButton();
     	categoryPage.enterEnglishDescription();
     	categoryPage.enterProductCode();
-    	categoryPage.selectStandardAvailability();
-    	categoryPage.selectPriceCompany();
+    	categoryPage.selectCompany1();
     	categoryPage.selectPriceCurrency();
     	categoryPage.enterPriceRate();
     	categoryPage.clickAddPriceButton();
@@ -60,8 +60,7 @@ public class CreateCategoryTest {
     	categoryPage.clickAddProductButton();
     	categoryPage.enterEnglishDescription1();
     	categoryPage.enterProductCode1();
-    	categoryPage.selectStandardAvailability();
-    	categoryPage.selectPriceCompany();
+    	categoryPage.selectCompany1();
     	categoryPage.selectPriceCurrency();
     	categoryPage.enterPriceRate1();
     	categoryPage.clickAddPriceButton();
@@ -75,8 +74,7 @@ public class CreateCategoryTest {
     	categoryPage.clickAddProductButton();
     	categoryPage.enterEnglishDescription2();
     	categoryPage.enterProductCode2();
-    	categoryPage.selectStandardAvailability();
-    	categoryPage.selectPriceCompany();
+    	categoryPage.selectCompany1();
     	categoryPage.selectPriceCurrency();
     	categoryPage.enterPriceRate2();
     	categoryPage.clickAddPriceButton();
