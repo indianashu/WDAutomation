@@ -1,11 +1,11 @@
-package ProductDependency;
+package productDependency;
 
 import baseClassPackage.BasePage;
 import categoryProducts.AddProductPage;
 import categoryProducts.AddProductWithAssetPage;
 import companyHierarchy.ViewAssignedInfoPage;
+import productDependency.CreateCustomerPage;
 import productHistorical.AddCustomerPage;
-import ProductDependency.CreateCustomerPage;
 
 import java.io.File;
 import java.io.FileInputStream;

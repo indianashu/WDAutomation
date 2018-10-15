@@ -1,6 +1,6 @@
-package ProductDependency;
+package productDependency;
 import baseClassPackage.BaseClasses;
-import ProductDependency.CreateCustomerPage;
+import productDependency.CreateCustomerPage;
 import productHistorical.AddProduct1Page;
 
 import java.io.IOException;
@@ -27,13 +27,13 @@ public class CreateCustomerTest {
 
 	}
 
-	@Test(groups = { "Product Historical Feature" }, description = "Create Customer for the Child and Parent Company")
+	@Test(groups = { "Product Dependency Feature" }, description = "Create Customer for the Child and Parent Company")
 	public void userSignin() throws Exception {
 		
-		addCustomerPage.enterLoginID();
+		/*addCustomerPage.enterLoginID();
 		addCustomerPage.enterPassword();
 		addCustomerPage.selectCompany();
-		addCustomerPage.clickLoginButton();
+		addCustomerPage.clickLoginButton();*/
 		
 		addCustomerPage.clickCustomerTab();
 		addCustomerPage.createCustomerForParent();

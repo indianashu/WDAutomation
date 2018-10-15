@@ -1,4 +1,4 @@
-package ProductDependency;
+package productDependency;
 
 import baseClassPackage.BaseClasses;
 
@@ -17,9 +17,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
 import categoryProducts.ProductCategoryPage;
+import productDependency.CreateCategoryPage;
 
 
 
@@ -39,13 +41,13 @@ public class CreateCategoryTest {
 
     }
 
-    @Test(groups={"Sanity"},description="Add Edit Category")
+    @Test(groups={"Product Dependency Feature"},description="Add Edit Category")
     public void userSignin() throws IOException{
 
-    	categoryPage.enterLoginID();
+    	/*categoryPage.enterLoginID();
     	categoryPage.enterPassword();
     	categoryPage.selectCompany();
-    	categoryPage.clickLoginButton();
+    	categoryPage.clickLoginButton();*/
     	
     	categoryPage.clickProductsTab();
     	categoryPage.clickAddCategoryButton();

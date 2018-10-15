@@ -1,7 +1,7 @@
-package ProductDependency;
+package productDependency;
 
 import baseClassPackage.BasePage;
-import ProductDependency.CreateOrderPeriodPage;
+import productDependency.CreateOrderPeriodPage;
 
 import java.io.File;
 import java.io.FileInputStream;

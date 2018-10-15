@@ -1,8 +1,9 @@
-package ProductDependency;
+package productDependency;
 
 
 import baseClassPackage.BasePage;
-import ProductDependency.CreateCategoryPage;
+import productDependency.CreateCategoryPage;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
