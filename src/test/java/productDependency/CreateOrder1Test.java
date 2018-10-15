@@ -2,9 +2,6 @@ package productDependency;
 
 import baseClassPackage.BaseClasses;
 import productDependency.CreateOrderPage;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -31,10 +28,10 @@ public class CreateOrder1Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		createOrderPage.enterLoginID();
+		/*createOrderPage.enterLoginID();
 		createOrderPage.enterPassword();
 		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();
+		createOrderPage.clickLoginButton();*/
 
 		// Create order for customer Leo Holder
 		
@@ -54,6 +51,7 @@ public class CreateOrder1Test {
 		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
+		createOrderPage.clickGenerateInvoiceButton();
 	}
 }
 		

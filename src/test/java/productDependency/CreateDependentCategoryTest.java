@@ -1,26 +1,11 @@
 package productDependency;
 
 import baseClassPackage.BaseClasses;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import categoryProducts.AddProductPage;
 import productDependency.CreateDependentCategoryPage;
 
 
@@ -46,10 +31,10 @@ public class CreateDependentCategoryTest {
     @Test(groups={"Product Dependency Feature"},description="Add Edit Product")
     public void userSignin() throws IOException{
 
-    	dependentProductPage.enterLoginID();
+    	/*dependentProductPage.enterLoginID();
     	dependentProductPage.enterPassword();
     	dependentProductPage.selectCompany();
-    	dependentProductPage.clickLoginButton();
+    	dependentProductPage.clickLoginButton();*/
     	
     	dependentProductPage.clickProductsTab();
     	dependentProductPage.clickAddCategoryButton();

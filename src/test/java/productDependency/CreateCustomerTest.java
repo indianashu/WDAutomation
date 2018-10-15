@@ -1,10 +1,6 @@
 package productDependency;
 import baseClassPackage.BaseClasses;
 import productDependency.CreateCustomerPage;
-import productHistorical.AddProduct1Page;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
