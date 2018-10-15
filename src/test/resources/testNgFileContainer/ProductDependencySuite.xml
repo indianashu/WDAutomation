@@ -1,0 +1,36 @@
+<suite name="WebData-ProductDependency Feature" parallel="none">
+
+	<listeners>
+
+		<!-- <listener class-name="utilPackages.MyReporterListener"></listener> -->
+
+	</listeners>
+
+	<test name="WebData-ProductDependency">
+
+		<groups>
+
+			<define name="All">
+
+				<include name="Product Dependency Feature" />
+
+			</define>
+
+			<run>
+
+				<include name="All" />
+
+			</run>
+
+		</groups>
+
+		<classes>
+			<class name = "productDependency.CreateOrderPeriodTest"/>
+			<class name = "productDependency.CreateCategoryTest"/>
+			<class name = "productDependency.CreateDependentCategoryTest"/>
+			<class name = "productDependency.CreateCustomerTest"/>
+		</classes>
+
+	</test>
+
+</suite>
