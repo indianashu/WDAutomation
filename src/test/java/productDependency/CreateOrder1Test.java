@@ -8,10 +8,8 @@ import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
 public class CreateOrder1Test {
-	
 	CreateOrderPage createOrderPage;
 	WebDriver driver, driver2;
-
 	@BeforeClass(alwaysRun = true)
 	public void setup() {
 		driver = BaseClasses.setup("User1");
@@ -21,22 +19,20 @@ public class CreateOrder1Test {
 		driver.get(url);
 		// WaitClass.waitForUrl(driver, url, 10);
 		createOrderPage = CreateOrderPage.getPage(driver, CreateOrderPage.class);
-
 	}
 
-	
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*createOrderPage.enterLoginID();
-		createOrderPage.enterPassword();
-		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();*/
+		/*
+		 * createOrderPage.enterLoginID(); 
+		 * createOrderPage.enterPassword();
+		 * createOrderPage.selectCompany(); 
+		 * createOrderPage.clickLoginButton();
+		 */
 
 		// Create order for customer Leo Holder
-		
 		createOrderPage.clickCustomerTab();
-		createOrderPage.addCompanyFilter();
 		createOrderPage.selectCustomer();
 		createOrderPage.clickCreateOrder();
 		createOrderPage.selectPeriod();
@@ -51,32 +47,8 @@ public class CreateOrder1Test {
 		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
+		
+		
 		createOrderPage.clickGenerateInvoiceButton();
 	}
 }
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-

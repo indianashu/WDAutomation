@@ -1,21 +1,8 @@
 package productDependency;
 
 import baseClassPackage.BasePage;
-import categoryProducts.AddProductPage;
-import categoryProducts.AddProductWithAssetPage;
-import companyHierarchy.ViewAssignedInfoPage;
 import productDependency.CreateCustomerPage;
-import productHistorical.AddCustomerPage;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,12 +11,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
-
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import webDataPages.ImpersonatePage;
-import webDataPages.SignupChildCompanyInvoiceAsSellerPage;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateCustomerPage extends BasePage {
@@ -41,7 +24,6 @@ public class CreateCustomerPage extends BasePage {
 	Logger log = Logger.getLogger(CreateCustomerPage.class);
 
 	PropertyValExtractors p = new PropertyValExtractors();
-	Actions actions = new Actions(driver);
 	String sheetName = "AddCustomer";
 	String xlsxName = "/ProductDependency_TestData.xlsx";
 
@@ -73,7 +55,6 @@ public class CreateCustomerPage extends BasePage {
 		log.info("Verifying the First Name is available or not");
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(BasePage.getCellData(xlsxName, sheetName, 1, 0));
-
 	}
 
 	private WebElement selectCompany;
@@ -88,7 +69,6 @@ public class CreateCustomerPage extends BasePage {
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']")
@@ -121,7 +101,7 @@ public class CreateCustomerPage extends BasePage {
 }
 	public void createCustomer() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 7; i++) {
 			WebElement clickAddNewButton = driver
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));
 			JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);

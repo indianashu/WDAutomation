@@ -2,11 +2,9 @@ package productDependency;
 
 import baseClassPackage.BaseClasses;
 import productDependency.CreateOrderPeriodPage;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import utilPackages.PropertyValExtractors;
 
 public class CreateOrderPeriodTest {

@@ -1,10 +1,7 @@
 package productDependency;
 
-
 import baseClassPackage.BasePage;
-import categoryProducts.ProductCategoryPage;
 import productDependency.CreateCategoryPage;
-
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -18,13 +15,11 @@ import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
 import org.openqa.selenium.support.ui.Select;
 
+public class CreateCategoryPage extends BasePage {
 
-
-public class CreateCategoryPage extends BasePage   {
-	
 	/**
-	 * This constructor is used to initialize the webdriver in BasePage class, if
-	 * the user does not want to use page factory then this will take care of
+	 * This constructor is used to initialize the webdriver in BasePage class,
+	 * if the user does not want to use page factory then this will take care of
 	 * initialization of the driver
 	 *
 	 * @param webdriver
@@ -38,7 +33,7 @@ public class CreateCategoryPage extends BasePage   {
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName = "AddProductCategory1";
 	String xlsxName = "/ProductDependency_TestData.xlsx";
-	
+
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginID;
 
@@ -49,7 +44,6 @@ public class CreateCategoryPage extends BasePage   {
 	 */
 	public void enterLoginID() throws IOException {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
-
 		log.info("Verifying the Login ID is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
@@ -101,7 +95,7 @@ public class CreateCategoryPage extends BasePage   {
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.products']/a")
 	private WebElement clickProductsTab;
 
@@ -116,7 +110,6 @@ public class CreateCategoryPage extends BasePage   {
 		JavaScriptExec.sleep();
 		Assert.assertTrue(clickProductsTab.isDisplayed());
 		clickProductsTab.click();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Category']")
@@ -133,7 +126,6 @@ public class CreateCategoryPage extends BasePage   {
 		navigateBottom();
 		Assert.assertTrue(clickAddCategoryButton.isDisplayed());
 		clickAddCategoryButton.click();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='description']")
@@ -148,10 +140,9 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Category Name");
 		Assert.assertTrue(enterCategoryName.isDisplayed());
-		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
-
+		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3,0));
 	}
-	
+
 	private WebElement selectCompanies;
 
 	/**
@@ -160,14 +151,12 @@ public class CreateCategoryPage extends BasePage   {
 	 * @throws IOException
 	 */
 	public void selectCompanies() throws IOException {
-		ProductCategoryPage sp = new ProductCategoryPage(driver);
+		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='entities']"));
 		Select se = new Select(Companieselement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-
 	}
-	
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
 	private WebElement clickSaveChangesButton;
 
@@ -181,7 +170,6 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
@@ -199,7 +187,6 @@ public class CreateCategoryPage extends BasePage   {
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
-	
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 	private WebElement enterEnglishDescription;
@@ -214,7 +201,6 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
 		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
@@ -230,17 +216,15 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-
 	}
-	
+
 	public void selectCompany1() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
+		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
 		Select se = new Select(Companieselement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
 	private WebElement enterPriceRate;
 
@@ -253,31 +237,18 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		//enterPriceRate1.clear();
 		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
+	}
 
-}
-	
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test
-	// Category1']")
-	private WebElement selectCategoryName;
-
-	/**
-	 * Method to click on a category name.
-	 * 
-	 * @throws IOException
-	 */
 	public void selectCategoryName() throws IOException {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Click on a category name.");
-		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
+		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3,0);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 		JavaScriptExec.sleep();
 	}
-
+	
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Product']")
 	private WebElement clickAddProductButton;
 
@@ -291,7 +262,6 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Click on Add Product Button");
 		Assert.assertTrue(clickAddProductButton.isDisplayed());
 		clickAddProductButton.click();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
@@ -307,7 +277,6 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
 		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 1));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
@@ -323,9 +292,8 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 1));
-
 	}
-	
+
 	private WebElement selectPriceCompany;
 
 	/**
@@ -338,7 +306,6 @@ public class CreateCategoryPage extends BasePage   {
 		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
 		Select se = new Select(Companieselement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-
 	}
 
 	private WebElement selectPriceCurrency;
@@ -353,7 +320,6 @@ public class CreateCategoryPage extends BasePage   {
 		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 		Select se = new Select(Currencyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
@@ -368,12 +334,10 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		//enterPriceRate1.clear();
 		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 1));
+	}
 
-}
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
 	private WebElement clickAddPriceButton;
 
@@ -388,8 +352,8 @@ public class CreateCategoryPage extends BasePage   {
 		Assert.assertTrue(clickAddPriceButton.isDisplayed());
 		clickAddPriceButton.click();
 		navigateBottom();
-
 	}
+
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 	private WebElement enterEnglishDescription2;
 
@@ -403,7 +367,6 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
 		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 2));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
@@ -419,8 +382,8 @@ public class CreateCategoryPage extends BasePage   {
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 2));
-
 	}
+
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
 	private WebElement enterPriceRate2;
 
@@ -433,19 +396,13 @@ public class CreateCategoryPage extends BasePage   {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		//enterPriceRate1.clear();
 		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 2));
 	}
-	
-		public void navigateBottom() {
+
+	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();
 
-	
 	}
 }
-
-	
-	

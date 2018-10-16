@@ -26,20 +26,20 @@ public class CreateCategoryTest {
 
     }
 
-    @Test(groups={"Product Dependency Feature"},description="Add Edit Category")
+    @Test(groups={"Product Dependency Feature"},description="AddCategory")
     public void userSignin() throws IOException{
 
-    	/*categoryPage.enterLoginID();
+    	categoryPage.enterLoginID();
     	categoryPage.enterPassword();
     	categoryPage.selectCompany();
-    	categoryPage.clickLoginButton();*/
+    	categoryPage.clickLoginButton();
     	
-    	categoryPage.clickProductsTab();
+    	/*categoryPage.clickProductsTab();
     	categoryPage.clickAddCategoryButton();
     	categoryPage.enterCategoryName();
     	categoryPage.selectCompanies();
     	categoryPage.clickSaveChangesButton();
-    	categoryPage.verifyConfirmationMsg();
+    	categoryPage.verifyConfirmationMsg();*/
     	
     	categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
@@ -53,8 +53,6 @@ public class CreateCategoryTest {
     	categoryPage.clickSaveChangesButton();
         categoryPage.verifyConfirmationMsg();
         
-        
-        
         categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
     	categoryPage.clickAddProductButton();
@@ -67,8 +65,6 @@ public class CreateCategoryTest {
     	categoryPage.clickSaveChangesButton();
         categoryPage.verifyConfirmationMsg();
         
-        
-    	
         categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
     	categoryPage.clickAddProductButton();
@@ -80,8 +76,5 @@ public class CreateCategoryTest {
     	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
         categoryPage.verifyConfirmationMsg();
-    	
-    	
-    	 
     }
 }

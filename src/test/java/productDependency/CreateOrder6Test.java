@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
 public class CreateOrder6Test {
-	
+
 	CreateOrderPage createOrderPage;
 	WebDriver driver, driver2;
 
@@ -24,45 +24,42 @@ public class CreateOrder6Test {
 
 	}
 
-	
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*createOrderPage.enterLoginID();
-		createOrderPage.enterPassword();
-		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();*/
-		
-		//Create Order for Jacob
-		
-				createOrderPage.clickCustomerTab();
-				createOrderPage.addCompanyFilter();
-				createOrderPage.selectCustomer5();
-				createOrderPage.clickCreateOrder();
-				createOrderPage.selectPeriod5();
-				createOrderPage.selectOrderType5();
-				createOrderPage.clickProductsSubTab();
-				createOrderPage.selectCategory();
-				createOrderPage.selectProduct5();
-				createOrderPage.clickPlusdependency();
-				createOrderPage.clickDependentProduct9();
-				createOrderPage.clickNewSubOrderButton();
-				createOrderPage.enterQuantity9();
-				createOrderPage.clickUpdateButton13();
-				createOrderPage.clickDetailsTab();
-				createOrderPage.clickNew();
-				createOrderPage.clickParentOrder2();
-				createOrderPage.clickPlusdependency();
-				createOrderPage.clickDependentProduct10();
-				createOrderPage.clickNewSubOrderButton();
-				createOrderPage.clickUpdateButton10();
-				createOrderPage.enterQuantity10();
-				createOrderPage.clickUpdateButton15();
-				createOrderPage.clickSaveChangesButton();
-				//createOrderPage.clickOrderTab();
-				createOrderPage.clickParentCustomerName();
-				createOrderPage.clickGenerateInvoiceButton();
+		/*
+		 * createOrderPage.enterLoginID(); 
+		 * createOrderPage.enterPassword();
+		 * createOrderPage.selectCompany(); 
+		 * createOrderPage.clickLoginButton();
+		 */
+
+		// Create Order for Jacob
+		createOrderPage.clickCustomerTab();
+		createOrderPage.selectCustomer5();
+		createOrderPage.clickCreateOrder();
+		createOrderPage.selectPeriod5();
+		createOrderPage.selectOrderType5();
+		createOrderPage.clickProductsSubTab();
+		createOrderPage.selectCategory();
+		createOrderPage.selectProduct5();
+		createOrderPage.clickPlusdependency();
+		createOrderPage.clickDependentProduct9();
+		createOrderPage.clickNewSubOrderButton();
+		createOrderPage.enterQuantity9();
+		createOrderPage.clickUpdateButton13();
+		createOrderPage.clickDetailsTab();
+		createOrderPage.clickNew();
+		createOrderPage.clickParentOrder2();
+		createOrderPage.clickPlusdependency();
+		createOrderPage.clickDependentProduct10();
+		createOrderPage.clickNewSubOrderButton();
+		createOrderPage.clickUpdateButton10();
+		createOrderPage.enterQuantity10();
+		createOrderPage.clickUpdateButton15();
+		createOrderPage.clickSaveChangesButton();
+		// createOrderPage.clickOrderTab();
+		createOrderPage.clickParentCustomerName();
+		createOrderPage.clickGenerateInvoiceButton();
 	}
 }
-
-
