@@ -398,7 +398,7 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='change--3-update-form']/div[2]/a[3]/span")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Dependency']")
 	private WebElement clickPlusdependency;
 
 	/**
@@ -409,7 +409,7 @@ public class CreateOrderPage extends BasePage {
 	public void clickPlusdependency() throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("Click on plusDependency");
-		Assert.assertTrue(clickCustomerTab.isDisplayed());
+		Assert.assertTrue(clickPlusdependency.isDisplayed());
 		clickPlusdependency.click();
 		JavaScriptExec.sleep();
 	}
@@ -463,13 +463,6 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	private WebElement clickDependentProduct;
-
-	/**
-	 * Method to click on dependent product.
-	 * 
-	 * @throws IOException
-	 */
 	public void clickDependentProduct() throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("click on dependenct product.");
@@ -491,13 +484,6 @@ public class CreateOrderPage extends BasePage {
 		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	}
 
-	private WebElement clickDependentProduct3;
-
-	/**
-	 * Method to click on dependent product.
-	 * 
-	 * @throws IOException
-	 */
 	public void clickDependentProduct3() throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("click on dependenct product.");
@@ -505,13 +491,6 @@ public class CreateOrderPage extends BasePage {
 		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	}
 
-	private WebElement clickDependentProduct4;
-
-	/**
-	 * Method to click on dependent product.
-	 * 
-	 * @throws IOException
-	 */
 	public void clickDependentProduct4() throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("click on dependenct product.");
@@ -765,7 +744,7 @@ public class CreateOrderPage extends BasePage {
 		enterQuantity7.sendKeys("3");
 	}
 
-	@FindBy(how = How.XPATH, using = "//a//following::span[text()='Update'][2]")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Update']")
 	private WebElement clickUpdateButton;
 
 	/**
@@ -774,22 +753,6 @@ public class CreateOrderPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void clickUpdateButton() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton.isDisplayed());
-		clickUpdateButton.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//a//following::span[text()='Update'][2]")
-	private WebElement clickUpdateButton1;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton1() throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("click on Update button.");
 		Assert.assertTrue(clickUpdateButton.isDisplayed());
@@ -905,182 +868,6 @@ public class CreateOrderPage extends BasePage {
 		log.info("Click Details Tab");
 		Assert.assertTrue(clickNew.isDisplayed());
 		clickNew.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--11-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton2;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton2.isDisplayed());
-		clickUpdateButton2.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton3;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton3() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton3.isDisplayed());
-		clickUpdateButton3.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--9-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton4;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton4() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton4.isDisplayed());
-		clickUpdateButton4.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--12-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton5;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton5() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton5.isDisplayed());
-		clickUpdateButton5.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton6;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton6() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton1.isDisplayed());
-		clickUpdateButton1.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton7;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton7() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton1.isDisplayed());
-		clickUpdateButton1.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--5-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton8;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton8() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton8.isDisplayed());
-		clickUpdateButton8.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--5-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton12;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton12() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton12.isDisplayed());
-		clickUpdateButton12.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--9-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton10;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton10() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton10.isDisplayed());
-		clickUpdateButton10.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--9-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton15;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton15() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton15.isDisplayed());
-		clickUpdateButton15.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6-update-form']/div[2]/a[1]")
-	private WebElement clickUpdateButton13;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton13() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton13.isDisplayed());
-		clickUpdateButton13.click();
 		JavaScriptExec.sleep();
 	}
 

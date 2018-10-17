@@ -29,10 +29,10 @@ public class CreateDependentCategoryTest {
 	public void userSignin() throws IOException {
 
 		
-		  dependentProductPage.enterLoginID();
+		  /*dependentProductPage.enterLoginID();
 		  dependentProductPage.enterPassword();
 		  dependentProductPage.selectCompany1();
-		  dependentProductPage.clickLoginButton();
+		  dependentProductPage.clickLoginButton();*/
 		 
 
 		dependentProductPage.clickProductsTab();
