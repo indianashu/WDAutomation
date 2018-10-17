@@ -27,12 +27,12 @@ public class CreateOrder4Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*
-		 * createOrderPage.enterLoginID(); 
-		 * createOrderPage.enterPassword();
-		 * createOrderPage.selectCompany(); 
-		 * createOrderPage.clickLoginButton();
-		 */
+		
+		 /* createOrderPage.enterLoginID(); 
+		  createOrderPage.enterPassword();
+		  createOrderPage.selectCompany(); 
+		  createOrderPage.clickLoginButton();*/
+		 
 
 		// Create order for customer Isabella
 		createOrderPage.clickCustomerTab();
@@ -46,16 +46,16 @@ public class CreateOrder4Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct5();
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton3();
+		createOrderPage.clickUpdateButton();
 		createOrderPage.enterQuantity5();
-		createOrderPage.clickUpdateButton3();
+		createOrderPage.clickUpdateButton();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder1();
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct6();
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton4();
+		createOrderPage.clickUpdateButton();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder1();
@@ -63,7 +63,7 @@ public class CreateOrder4Test {
 		createOrderPage.clickDependentProduct7();
 		createOrderPage.clickNewSubOrderButton();
 		createOrderPage.enterQuantity6();
-		createOrderPage.clickUpdateButton5();
+		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 		createOrderPage.selectParentOrder();

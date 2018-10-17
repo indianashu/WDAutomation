@@ -744,7 +744,7 @@ public class CreateOrderPage extends BasePage {
 		enterQuantity7.sendKeys("3");
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Update']")
+	@FindBy(how = How.XPATH, using = "//a//following::span[text()='Update']")
 	private WebElement clickUpdateButton;
 
 	/**
@@ -823,6 +823,13 @@ public class CreateOrderPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
+	public String extractOrderId()
+	{
+		String msg=driver.findElement(By.xpath("//*[@id='messages']/div/p")).getText();
+		String orderid=msg.substring(18,msg.indexOf(" for customer ")).replace(",", "");
+		return orderid;
+	}
+	
 	@FindBy(how = How.XPATH, using = "//button[@id='newSubOrder']")
 	private WebElement clickNewSubOrderButton;
 
@@ -901,9 +908,38 @@ public class CreateOrderPage extends BasePage {
 		log.info("Click on Generate Invoice Button");
 		Assert.assertTrue(clickGenerateInvoiceButton.isDisplayed());
 		clickGenerateInvoiceButton.click();
-
 	}
-
+	
+	public String verifyOrderLines(){
+		navigateBottom();
+		String product1=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
+		log.info("Verify Order Lines");
+		Assert.assertEquals(product1,"Billing Category Product 1");
+		String product2=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]")).getText();
+		Assert.assertEquals(product2,"Billing Product 1");
+		return product1;
+	}
+	
+	public String extractInvoiceId() {
+		String message = driver.findElement(By.xpath("//*[@id='messages']/div/p")).getText();
+		String invoiceid = message.substring(31, message.indexOf(" for Order "));
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/invoice/list/" + invoiceid;
+		driver.get(url);
+		JavaScriptExec.sleep();
+		return invoiceid;
+	}
+	
+	public void verifyAmount(){
+		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[2]/div/table[2]/tbody/tr[7]/td[2]")).getText();
+		Assert.assertEquals(amount,"US$120.00");
+	}
+	
+	public void verifySubOrders(){
+		String subChilds=driver.findElement(By.xpath("//*[@id='18638']/span")).getText();
+		Assert.assertEquals("subChilds", 1);
+	}
+		
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();

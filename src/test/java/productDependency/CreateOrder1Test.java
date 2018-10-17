@@ -10,6 +10,7 @@ import utilPackages.PropertyValExtractors;
 public class CreateOrder1Test {
 	CreateOrderPage createOrderPage;
 	WebDriver driver, driver2;
+
 	@BeforeClass(alwaysRun = true)
 	public void setup() {
 		driver = BaseClasses.setup("User1");
@@ -24,12 +25,10 @@ public class CreateOrder1Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*
-		 * createOrderPage.enterLoginID(); 
-		 * createOrderPage.enterPassword();
-		 * createOrderPage.selectCompany(); 
-		 * createOrderPage.clickLoginButton();
-		 */
+		/*createOrderPage.enterLoginID();
+		createOrderPage.enterPassword();
+		createOrderPage.selectCompany();
+		createOrderPage.clickLoginButton();*/
 
 		// Create order for customer Leo Holder
 		createOrderPage.clickCustomerTab();
@@ -47,8 +46,18 @@ public class CreateOrder1Test {
 		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
-		
-		
+		String orderid = createOrderPage.extractOrderId();
+		System.out.println(orderid);
+
+		String product1 = createOrderPage.verifyOrderLines();
+		System.out.println(product1);
+
 		createOrderPage.clickGenerateInvoiceButton();
+		String invoiceid = createOrderPage.extractInvoiceId();
+		createOrderPage.verifyAmount();
+		System.out.println(invoiceid);
+
+		createOrderPage.verifyAmount();
+
 	}
 }
