@@ -28,10 +28,10 @@ public class CreateOrder4Test {
 	public void userSignin() throws Exception {
 
 		
-		 /* createOrderPage.enterLoginID(); 
+		  createOrderPage.enterLoginID(); 
 		  createOrderPage.enterPassword();
 		  createOrderPage.selectCompany(); 
-		  createOrderPage.clickLoginButton();*/
+		  createOrderPage.clickLoginButton();
 		 
 
 		// Create order for customer Isabella
@@ -66,9 +66,5 @@ public class CreateOrder4Test {
 		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
-		createOrderPage.selectParentOrder();
-		// createOrderPage.selectParentOrder();
-		createOrderPage.clickGenerateInvoiceButton();
-
 	}
 }

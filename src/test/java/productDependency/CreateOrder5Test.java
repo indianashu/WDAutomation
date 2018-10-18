@@ -52,13 +52,13 @@ public class CreateOrder5Test {
 		createOrderPage.clickSaveChangesButton();
 		// createOrderPage.clickOrderTab();
 		createOrderPage.clickCustomerName1();
-		createOrderPage.clickGenerateInvoiceButton();
+		//createOrderPage.clickGenerateInvoiceButton();
 		// createOrderPage.clickOrderTab();
 		createOrderPage.clickCustomerName1();
 		createOrderPage.clickEditthisorder();
 		createOrderPage.selectOrderType4();
 		createOrderPage.clickSaveChangesButton();
-		createOrderPage.clickGenerateInvoiceButton();
+		//createOrderPage.clickGenerateInvoiceButton();
 
 	}
 

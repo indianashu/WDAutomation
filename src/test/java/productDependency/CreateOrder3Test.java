@@ -28,10 +28,10 @@ public class CreateOrder3Test {
 	public void userSignin() throws Exception {
 
 		
-		  /*createOrderPage.enterLoginID(); 
+		  createOrderPage.enterLoginID(); 
 		  createOrderPage.enterPassword();
 		  createOrderPage.selectCompany(); 
-		  createOrderPage.clickLoginButton();*/
+		  createOrderPage.clickLoginButton();
 		 
 
 		// Create order for customer Olivia
@@ -60,9 +60,24 @@ public class CreateOrder3Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct4();
 		createOrderPage.clickCurrentOrderButton();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.enterQuantity11();
+		createOrderPage.clickUpdateButton1();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
-		createOrderPage.clickGenerateInvoiceButton();
+		
+
+		String orderid = createOrderPage.extractOrderId();
+		System.out.println(orderid);
+		
+		String orderlineid=createOrderPage.gotourlbar(orderid);
+		System.out.println(orderlineid);
+		
+		String product = createOrderPage.verifyOrderLine2();
+		System.out.println(product);
+		
+		String generateinvoice=createOrderPage.clickGenerateInvoiceButton(orderid);
+		String invoiceid = createOrderPage.extractInvoiceId();
+		createOrderPage.verifyAmount2();
+		
 	}
 }

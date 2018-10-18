@@ -60,6 +60,6 @@ public class CreateOrder6Test {
 		createOrderPage.clickSaveChangesButton();
 		// createOrderPage.clickOrderTab();
 		createOrderPage.clickParentCustomerName();
-		createOrderPage.clickGenerateInvoiceButton();
+		//createOrderPage.clickGenerateInvoiceButton();
 	}
 }
