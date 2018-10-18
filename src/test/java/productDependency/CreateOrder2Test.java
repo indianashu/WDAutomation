@@ -27,12 +27,12 @@ public class CreateOrder2Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		
-		  createOrderPage.enterLoginID(); 
-		  createOrderPage.enterPassword();
-		  createOrderPage.selectCompany(); 
-		  createOrderPage.clickLoginButton();
-		 
+		/*
+		 * createOrderPage.enterLoginID(); 
+		 * createOrderPage.enterPassword();
+		 * createOrderPage.selectCompany(); 
+		 * createOrderPage.clickLoginButton();
+		 */
 
 		// Create Order for William
 		createOrderPage.clickCustomerTab();
@@ -45,26 +45,25 @@ public class CreateOrder2Test {
 		createOrderPage.clickDependentProduct1();
 		createOrderPage.clickNewSubOrderButton();
 		createOrderPage.enterQuantity1();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.clickUpdateButton2();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
-		
+
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);
-		String suborderid = createOrderPage.verifySubOrders(orderid);
-		System.out.println(suborderid);
-		
-		String orderlineid=createOrderPage.gotourlbar(orderid);
+
+		createOrderPage.verifySubOrders1(orderid);
+
+		String orderlineid = createOrderPage.gotourlbar(orderid);
 		System.out.println(orderlineid);
-		
+
 		String product = createOrderPage.verifyOrderLines1();
 		System.out.println(product);
-		
+
 		createOrderPage.clickGenerateInvoiceButton(orderid);
 		String invoiceid = createOrderPage.extractInvoiceId();
 		createOrderPage.verifyAmount1();
 		System.out.println(invoiceid);
-		
-		
+
 	}
 }

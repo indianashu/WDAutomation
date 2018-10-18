@@ -259,7 +259,7 @@ public class CreateOrderPage extends BasePage {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
 		Select se = new Select(Periodelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 3, 0));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 	}
 
 	public void selectPeriod5() throws IOException {
@@ -763,7 +763,7 @@ public class CreateOrderPage extends BasePage {
 		enterQuantity11.sendKeys("2");
 	}
 
-	@FindBy(how = How.XPATH, using = "//a//following::span[text()='Update']")
+	@FindBy(how = How.XPATH, using = "//*[@id='change--5-update-form']/div[2]/a[1]/span")
 	private WebElement clickUpdateButton;
 
 	/**
@@ -792,6 +792,38 @@ public class CreateOrderPage extends BasePage {
 		log.info("click on Update button.");
 		Assert.assertTrue(clickUpdateButton1.isDisplayed());
 		clickUpdateButton1.click();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='change--6-update-form']/div[2]/a[1]/span")
+	private WebElement clickUpdateButton2;
+
+	/**
+	 * Method to click on Update button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickUpdateButton2() throws IOException {
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		log.info("click on Update button.");
+		Assert.assertTrue(clickUpdateButton2.isDisplayed());
+		clickUpdateButton2.click();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='change--9-update-form']/div[2]/a[1]/span")
+	private WebElement clickUpdateButton3;
+
+	/**
+	 * Method to click on Update button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickUpdateButton3() throws IOException {
+		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
+		log.info("click on Update button.");
+		Assert.assertTrue(clickUpdateButton3.isDisplayed());
+		clickUpdateButton3.click();
 		JavaScriptExec.sleep();
 	}
 
@@ -913,16 +945,6 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	public void selectParentOrder() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String OrderName = BasePage.getCellData(xlsxName, sheetName, 3, 3);
-		WebElement selectOrder = driver.findElement(By.xpath("//*[@id='18241']/span')'" + OrderName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectOrder).click().perform();
-		JavaScriptExec.sleep();
-	}
-
 	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[2]/div[7]/div[1]/a[1]")
 	private WebElement clickGenerateInvoiceButton1;
 
@@ -964,6 +986,22 @@ public class CreateOrderPage extends BasePage {
 		return product1;
 	}
 	
+	public String verifyOrderLine3(){
+		String product1=driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]")).getText();
+		log.info("Verify Order Line");
+		Assert.assertEquals(product1, "Billing Category Product 4");
+		return product1;
+	}
+	
+	public String verifyOrderLine4(){
+		String product1=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
+		log.info("Verify Order Line");
+		Assert.assertEquals(product1, "Billing Category Product 5");
+		String product2=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]")).getText();
+		Assert.assertEquals(product2, "Billing Product 1");
+		return product1;
+	}
+	
 	public String gotourlbar(String orderId){
 		p.getPropertyFile("test","configuration.properties");
 		String url = p.getVal("url2") + "/order/list/" + orderId;
@@ -996,6 +1034,21 @@ public class CreateOrderPage extends BasePage {
 		Assert.assertEquals(amount,"US$180.00");
 	}
 	
+	public void verifyAmount3(){
+		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[2]/div/table[2]/tbody/tr[7]/td[2]")).getText();
+		Assert.assertEquals(amount, "US$200.00");
+	}
+	
+	public void verifyAmount4(){
+		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[2]/div/table[2]/tbody/tr[7]/td[2]")).getText();
+		Assert.assertEquals(amount, "US$140.00" );
+	}
+	
+	public void verifyAmount5(){
+		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[4]/div/table/tbody/tr/td[4]")).getText();
+		Assert.assertEquals(amount, "US$10.00" );
+	}
+	
 	public String verifySubOrders(String orderId){
 		JavaScriptExec.sleep();
 		String orderXpath = "order-"+orderId;
@@ -1010,7 +1063,43 @@ public class CreateOrderPage extends BasePage {
 		String subOrderId = getSubOrder.substring(5);
 		return subOrderId;
 	}
-		
+	
+	public void verifySubOrders1(String orderid){
+		JavaScriptExec.sleep();
+		String orderXpath = "order-"+orderid;
+		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
+		Assert.assertEquals(verifysubChilds, "1");
+		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
+		JavaScriptExec.sleep();
+	}
+	
+	public void verifySubOrders2(String orderid){
+		JavaScriptExec.sleep();
+		String orderXpath = "order-"+orderid;
+		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
+		Assert.assertEquals(verifysubChilds, "2");
+		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
+		JavaScriptExec.sleep();
+	}
+	
+	public void verifySubOrders3(String orderid){
+		JavaScriptExec.sleep();
+		String orderXpath = "order-"+orderid;
+		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
+		Assert.assertEquals(verifysubChilds, "3");
+		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
+		JavaScriptExec.sleep();
+	}
+	
+	public void verifySubOrders4(String orderid){
+		JavaScriptExec.sleep();
+		String orderXpath = "order-"+orderid;
+		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
+		Assert.assertEquals(verifysubChilds, "2");
+		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
+		JavaScriptExec.sleep();
+	}
+	
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();

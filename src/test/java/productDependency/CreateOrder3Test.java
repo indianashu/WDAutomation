@@ -27,12 +27,12 @@ public class CreateOrder3Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		
-		  createOrderPage.enterLoginID(); 
-		  createOrderPage.enterPassword();
-		  createOrderPage.selectCompany(); 
-		  createOrderPage.clickLoginButton();
-		 
+		/*
+		 * createOrderPage.enterLoginID(); 
+		 * createOrderPage.enterPassword();
+		 * createOrderPage.selectCompany(); 
+		 * createOrderPage.clickLoginButton();
+		 */
 
 		// Create order for customer Olivia
 		createOrderPage.clickCustomerTab();
@@ -46,14 +46,14 @@ public class CreateOrder3Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct2();
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.clickUpdateButton2();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct3();
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.clickUpdateButton3();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder();
@@ -64,20 +64,21 @@ public class CreateOrder3Test {
 		createOrderPage.clickUpdateButton1();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
-		
 
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);
-		
-		String orderlineid=createOrderPage.gotourlbar(orderid);
+
+		createOrderPage.verifySubOrders2(orderid);
+
+		String orderlineid = createOrderPage.gotourlbar(orderid);
 		System.out.println(orderlineid);
-		
+
 		String product = createOrderPage.verifyOrderLine2();
 		System.out.println(product);
-		
-		String generateinvoice=createOrderPage.clickGenerateInvoiceButton(orderid);
+
+		String generateinvoice = createOrderPage.clickGenerateInvoiceButton(orderid);
 		String invoiceid = createOrderPage.extractInvoiceId();
 		createOrderPage.verifyAmount2();
-		
+
 	}
 }
