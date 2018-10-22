@@ -68,10 +68,9 @@ public class CreateOrder4Test {
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);
 
-		createOrderPage.verifySubOrders3(orderid);
+		createOrderPage.verifySubOrders(orderid);
 
-		String orderlineid = createOrderPage.gotourlbar(orderid);
-		System.out.println(orderlineid);
+		createOrderPage.showOrder(orderid);
 
 		String product = createOrderPage.verifyOrderLine3();
 		System.out.println(product);
@@ -79,6 +78,7 @@ public class CreateOrder4Test {
 		String generateinvoice = createOrderPage.clickGenerateInvoiceButton(orderid);
 		String invoiceid = createOrderPage.extractInvoiceId();
 
-		createOrderPage.verifyAmount3();
+		System.out.println(invoiceid);
+		createOrderPage.verifyAmountofInvoice(invoiceid);
 	}
 }

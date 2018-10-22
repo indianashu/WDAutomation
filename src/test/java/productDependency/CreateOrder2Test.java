@@ -27,14 +27,14 @@ public class CreateOrder2Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*
-		 * createOrderPage.enterLoginID(); 
-		 * createOrderPage.enterPassword();
-		 * createOrderPage.selectCompany(); 
-		 * createOrderPage.clickLoginButton();
-		 */
+		
+		 createOrderPage.enterLoginID(); 
+		 createOrderPage.enterPassword();
+		 createOrderPage.selectCompany(); 
+		 createOrderPage.clickLoginButton();
+		 
 
-		// Create Order for William
+		//Create Order for William
 		createOrderPage.clickCustomerTab();
 		createOrderPage.selectCustomer1();
 		createOrderPage.clickCreateOrder();
@@ -52,18 +52,16 @@ public class CreateOrder2Test {
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);
 
-		createOrderPage.verifySubOrders1(orderid);
-
-		String orderlineid = createOrderPage.gotourlbar(orderid);
-		System.out.println(orderlineid);
+		createOrderPage.verifySubOrders(orderid);
+		createOrderPage.showOrder(orderid);
 
 		String product = createOrderPage.verifyOrderLines1();
 		System.out.println(product);
 
 		createOrderPage.clickGenerateInvoiceButton(orderid);
 		String invoiceid = createOrderPage.extractInvoiceId();
-		createOrderPage.verifyAmount1();
 		System.out.println(invoiceid);
+		createOrderPage.verifyAmountofInvoice(invoiceid);
 
 	}
 }

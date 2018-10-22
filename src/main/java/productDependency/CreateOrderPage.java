@@ -745,7 +745,7 @@ public class CreateOrderPage extends BasePage {
 		enterQuantity7.clear();
 		enterQuantity7.sendKeys("3");
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='change--11.quantityAsDecimal']")
 	private WebElement enterQuantity11;
 
@@ -778,7 +778,7 @@ public class CreateOrderPage extends BasePage {
 		clickUpdateButton.click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='change--11-update-form']/div[2]/a[1]/span")
 	private WebElement clickUpdateButton1;
 
@@ -794,7 +794,7 @@ public class CreateOrderPage extends BasePage {
 		clickUpdateButton1.click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='change--6-update-form']/div[2]/a[1]/span")
 	private WebElement clickUpdateButton2;
 
@@ -810,7 +810,7 @@ public class CreateOrderPage extends BasePage {
 		clickUpdateButton2.click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='change--9-update-form']/div[2]/a[1]/span")
 	private WebElement clickUpdateButton3;
 
@@ -867,7 +867,7 @@ public class CreateOrderPage extends BasePage {
 	 * @throws IOException
 	 */
 	public String clickGenerateInvoiceButton(String orderid) throws IOException {
-		p.getPropertyFile("test","configuration.properties");
+		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url2") + "/order/generateInvoice/" + orderid;
 		driver.get(url);
 		JavaScriptExec.sleep();
@@ -890,13 +890,12 @@ public class CreateOrderPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	public String extractOrderId()
-	{
-		String msg=driver.findElement(By.xpath("//*[@id='messages']/div/p")).getText();
-		String orderid=msg.substring(18,msg.indexOf(" for customer ")).replace(",", "");
+	public String extractOrderId() {
+		String msg = driver.findElement(By.xpath("//*[@id='messages']/div/p")).getText();
+		String orderid = msg.substring(18, msg.indexOf(" for customer ")).replace(",", "");
 		return orderid;
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//button[@id='newSubOrder']")
 	private WebElement clickNewSubOrderButton;
 
@@ -959,57 +958,64 @@ public class CreateOrderPage extends BasePage {
 		Assert.assertTrue(clickGenerateInvoiceButton.isDisplayed());
 		clickGenerateInvoiceButton.click();
 	}
-	
-	public String verifyOrderLines(){
+
+	public String verifyOrderLines() {
 		navigateBottom();
-		String product1=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
+		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]"))
+				.getText();
 		log.info("Verify Order Lines");
-		Assert.assertEquals(product1,"Billing Category Product 1");
-		String product2=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]")).getText();
-		Assert.assertEquals(product2,"Billing Product 1");
+		Assert.assertEquals(product1, "Billing Category Product 1");
+		String product2 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]"))
+				.getText();
+		Assert.assertEquals(product2, "Billing Product 1");
 		return product1;
 	}
-	
-	public String verifyOrderLines1(){
-		String product=driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]")).getText();
+
+	public String verifyOrderLines1() {
+		String product = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
+				.getText();
 		log.info("Verify Order Lines");
 		Assert.assertEquals(product, "Billing Category Product 2");
 		return product;
 	}
-	
-	public String verifyOrderLine2(){
-		String product1=driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
+
+	public String verifyOrderLine2() {
+		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[1]/td[2]"))
+				.getText();
 		log.info("Verify Order Lines");
 		Assert.assertEquals(product1, "Billing Category Product 3");
-		String product2=driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[2]/td[2]")).getText();
+		String product2 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[2]/td[2]"))
+				.getText();
 		Assert.assertEquals(product2, "Billing Product 1");
 		return product1;
 	}
-	
-	public String verifyOrderLine3(){
-		String product1=driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]")).getText();
+
+	public String verifyOrderLine3() {
+		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
+				.getText();
 		log.info("Verify Order Line");
 		Assert.assertEquals(product1, "Billing Category Product 4");
 		return product1;
 	}
-	
-	public String verifyOrderLine4(){
-		String product1=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
+
+	public String verifyOrderLine4() {
+		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]"))
+				.getText();
 		log.info("Verify Order Line");
 		Assert.assertEquals(product1, "Billing Category Product 5");
-		String product2=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]")).getText();
+		String product2 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]"))
+				.getText();
 		Assert.assertEquals(product2, "Billing Product 1");
 		return product1;
 	}
-	
-	public String gotourlbar(String orderId){
-		p.getPropertyFile("test","configuration.properties");
+
+	public void showOrder(String orderId) {
+		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url2") + "/order/list/" + orderId;
 		driver.get(url);
 		JavaScriptExec.sleep();
-		return orderId;
 	}
-	
+
 	public String extractInvoiceId() {
 		String message = driver.findElement(By.xpath("//*[@id='messages']/div/p")).getText();
 		String invoiceid = message.substring(31, message.indexOf(" for Order "));
@@ -1019,87 +1025,64 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 		return invoiceid;
 	}
-	
-	public void verifyAmount(){
-		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[2]/div/table[2]/tbody/tr[7]/td[2]")).getText();
-		Assert.assertEquals(amount,"US$120.00");
+
+	public void verifyAmountofInvoice(String invoiceId) throws IOException {
+		String invoiceXpath = "invoice-" + invoiceId;
+		String amount = driver.findElement(By.xpath("//*[@id='invoices']//tr[@id='" + invoiceXpath + "']//td[6]"))
+				.getText();
+		System.out.println("Amount of Invoice  = " + amount);
+		String customer = driver.findElement(By.xpath("//*[@id=" + invoiceId + "]/strong/span")).getText();
+		System.out.println("Customer Name  for Invoice=" + customer);
+		if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 0))) {
+			Assert.assertEquals(amount, "US$120.00");
+		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 1))) {
+			Assert.assertEquals(amount, "US$20.00");
+		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 2))) {
+			Assert.assertEquals(amount, "US$180.00");
+		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 3))) {
+			Assert.assertEquals(amount, "US$200.00");
+		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 4))) {
+			Assert.assertEquals(amount, "US$140.00");
+		} else {
+			Assert.assertEquals(amount, "US$10.00");
+		}
 	}
-	public void verifyAmount1(){
-		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[4]/div/table/tbody/tr/td[4]")).getText();
-		Assert.assertEquals(amount,"US$20.00");
-	}
-	
-	public void verifyAmount2(){
-		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[2]/div/table[2]/tbody/tr[7]/td[2]")).getText();
-		Assert.assertEquals(amount,"US$180.00");
-	}
-	
-	public void verifyAmount3(){
-		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[2]/div/table[2]/tbody/tr[7]/td[2]")).getText();
-		Assert.assertEquals(amount, "US$200.00");
-	}
-	
-	public void verifyAmount4(){
-		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[2]/div/table[2]/tbody/tr[7]/td[2]")).getText();
-		Assert.assertEquals(amount, "US$140.00" );
-	}
-	
-	public void verifyAmount5(){
-		String amount=driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[4]/div/table/tbody/tr/td[4]")).getText();
-		Assert.assertEquals(amount, "US$10.00" );
-	}
-	
-	public String verifySubOrders(String orderId){
+
+	public String verifySubOrdersTest(String orderId) {
 		JavaScriptExec.sleep();
-		String orderXpath = "order-"+orderId;
-		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
-		
+		String orderXpath = "order-" + orderId;
+		String verifysubChilds = driver.findElement(By.xpath("//*[@id='" + orderXpath + "']/td[6]/a/span")).getText();
+
 		Assert.assertEquals(verifysubChilds, "1");
-		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
+		driver.findElement(By.xpath("//*[@id='" + orderXpath + "']/td[6]/a")).click();
 		JavaScriptExec.sleep();
-		
-		String subOrderXpath = "suborder_tr_"+orderId;
-		String getSubOrder = driver.findElement(By.xpath("//*[@id='"+subOrderXpath+"']/td[1]/a/em")).getText();
+
+		String subOrderXpath = "suborder_tr_" + orderId;
+		String getSubOrder = driver.findElement(By.xpath("//E2/preceding-sibling::*[1][@id=" + orderId + "]"))
+				.getText();
+
 		String subOrderId = getSubOrder.substring(5);
 		return subOrderId;
 	}
-	
-	public void verifySubOrders1(String orderid){
+
+	public void verifySubOrders(String orderid) throws IOException {
 		JavaScriptExec.sleep();
-		String orderXpath = "order-"+orderid;
-		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
-		Assert.assertEquals(verifysubChilds, "1");
-		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
-		JavaScriptExec.sleep();
-	}
-	
-	public void verifySubOrders2(String orderid){
-		JavaScriptExec.sleep();
-		String orderXpath = "order-"+orderid;
-		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
-		Assert.assertEquals(verifysubChilds, "2");
-		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
-		JavaScriptExec.sleep();
-	}
-	
-	public void verifySubOrders3(String orderid){
-		JavaScriptExec.sleep();
-		String orderXpath = "order-"+orderid;
-		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
-		Assert.assertEquals(verifysubChilds, "3");
-		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
+		String orderXpath = "order-" + orderid;
+		String verifysubChilds = driver.findElement(By.xpath("//*[@id='" + orderXpath + "']/td[6]/a/span")).getText();
+		String customer = driver.findElement(By.xpath("//*[@id=" + orderid + "]/strong/span")).getText();
+		System.out.println("Customer Name =" + customer);
+		if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 1))) {
+			Assert.assertEquals(verifysubChilds, "1");
+		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 2))
+				|| customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 5))) {
+			Assert.assertEquals(verifysubChilds, "2");
+		} else {
+			Assert.assertEquals(verifysubChilds, "3");
+		}
+		driver.findElement(By.xpath("//*[@id='" + orderXpath + "']/td[6]/a")).click();
 		JavaScriptExec.sleep();
 	}
-	
-	public void verifySubOrders4(String orderid){
-		JavaScriptExec.sleep();
-		String orderXpath = "order-"+orderid;
-		String verifysubChilds=driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a/span")).getText();
-		Assert.assertEquals(verifysubChilds, "2");
-		driver.findElement(By.xpath("//*[@id='"+orderXpath+"']/td[6]/a")).click();
-		JavaScriptExec.sleep();
-	}
-	
+
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();
