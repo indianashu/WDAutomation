@@ -1,9 +1,7 @@
 package productDependency;
 
-import baseClassPackage.BasePage;
-import orderHierarchies.OrderHierarchiesPage;
-
 import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +9,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import baseClassPackage.BasePage;
+import customer.DiscountPage;
+import orderHierarchies.OrderHierarchiesPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import org.openqa.selenium.support.ui.Select;
 
 public class CreateOrderPage extends BasePage {
 
@@ -101,28 +103,11 @@ public class CreateOrderPage extends BasePage {
 		clickCustomerTab.click();
 	}
 
-	public void clickCustomerName() throws IOException {
+	public void clickCustomerName(int columnNumber) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("Click on Customer Name.");
 		JavaScriptExec.sleep();
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 10);
-		driver.findElement(By.xpath("//*[text()='" + CustomerName + "']/following::a[1]")).click();
-	}
-
-	public void clickCustomerName1() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Click on Customer Name.");
-		JavaScriptExec.sleep();
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 4);
-		driver.findElement(By.xpath("//*[text()='" + CustomerName + "']/following::a[1]")).click();
-		navigateBottom();
-	}
-
-	public void clickParentCustomerName() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Click on Customer Name.");
-		JavaScriptExec.sleep();
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 5);
+		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, columnNumber);
 		driver.findElement(By.xpath("//*[text()='" + CustomerName + "']/following::a[1]")).click();
 	}
 
@@ -139,68 +124,6 @@ public class CreateOrderPage extends BasePage {
 		navigateBottom();
 		Assert.assertTrue(clickEditthisorder.isDisplayed());
 		clickEditthisorder.click();
-	}
-
-	public void selectCustomer() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
-		WebElement selectCustomer = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectCustomer).click().perform();
-	}
-
-	public void selectCustomer1() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 1);
-		WebElement selectCustomer = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectCustomer).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectCustomer2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 2);
-		WebElement selectCustomer = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectCustomer).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectCustomer3() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 3);
-		WebElement selectCustomer = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectCustomer).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectCustomer4() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 4);
-		WebElement selectCustomer = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectCustomer).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectCustomer5() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, 5);
-		WebElement selectCustomer = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectCustomer).click().perform();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
@@ -220,6 +143,7 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='period']")
 	private WebElement selectPeriod;
 
 	/**
@@ -227,89 +151,26 @@ public class CreateOrderPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void selectPeriod() throws IOException {
+	public void selectPeriod(int columnNumber) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Periodelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+		Assert.assertTrue(selectPeriod.isDisplayed());
+		Select se = new Select(selectPeriod);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, columnNumber));
 	}
 
-	private WebElement selectPeriod1;
+	@FindBy(how = How.XPATH, using = "//select[@name='billingTypeId']")
+	private WebElement selectOrderType;
 
 	/**
 	 * Method to select Period.
 	 * 
 	 * @throws IOException
 	 */
-	public void selectPeriod1() throws IOException {
+	public void selectOrderType(int columnNumber) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Periodelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 1));
-	}
-
-	public void selectPeriod2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Periodelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-	}
-
-	public void selectPeriod3() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Periodelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-	}
-
-	public void selectPeriod5() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Periodelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 2));
-	}
-
-	public void selectOrderType() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
-		Select se = new Select(OrderTypeelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-	}
-
-	public void selectOrderType1() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
-		Select se = new Select(OrderTypeelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-	}
-
-	public void selectOrderType2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
-		Select se = new Select(OrderTypeelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-	}
-
-	public void selectOrderType3() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
-		Select se = new Select(OrderTypeelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 1));
-	}
-
-	public void selectOrderType5() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
-		Select se = new Select(OrderTypeelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 1));
-	}
-
-	public void selectOrderType4() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
-		Select se = new Select(OrderTypeelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+		Assert.assertTrue(selectOrderType.isDisplayed());
+		Select se = new Select(selectOrderType);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, columnNumber));
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='ui-id-8']")
@@ -328,71 +189,24 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='typeId']")
+	private WebElement categoryElement;
+
+	/**
+	 * Method to Click Products tab.
+	 * 
+	 * @throws IOException
+	 */
 	public void selectCategory() {
-		WebElement categoryElement = driver.findElement(By.xpath("//select[@name='typeId']"));
-		Select se1 = new Select(categoryElement);
-		se1.selectByVisibleText("Dependent Category");
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		Select se = new Select(categoryElement);
+		se.selectByVisibleText("Dependent Category");
 	}
 
-	public void selectProduct() throws IOException {
+	public void selectProduct(int columnNumber) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		JavaScriptExec.sleep();
-		String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 0);
-		WebElement selectProduct = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectProduct).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectProduct1() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 1);
-		WebElement selectProduct = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectProduct).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectProduct2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 2);
-		WebElement selectProduct = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectProduct).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectProduct3() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 3);
-		WebElement selectProduct = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectProduct).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectProduct4() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 4);
-		WebElement selectProduct = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
-		navigateBottom();
-		actions.moveToElement(selectProduct).click().perform();
-		JavaScriptExec.sleep();
-	}
-
-	public void selectProduct5() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		JavaScriptExec.sleep();
-		String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, 5);
+		String ProductName = BasePage.getCellData(xlsxName, sheetName, 6, columnNumber);
 		WebElement selectProduct = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']"));
 		navigateBottom();
@@ -432,113 +246,10 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='edit_change_header_-3']/td[1]")
-	private WebElement clickParentOrder1;
-
-	/**
-	 * Method to click on Products tab after successful login.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickParentOrder1() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Click on ParentOrder");
-		Assert.assertTrue(clickParentOrder1.isDisplayed());
-		clickParentOrder1.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='edit_change_header_-3']/td[1]")
-	private WebElement clickParentOrder2;
-
-	/**
-	 * Method to click on Products tab after successful login.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickParentOrder2() throws IOException {
-
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Click on ParentOrder");
-		Assert.assertTrue(clickParentOrder2.isDisplayed());
-		clickParentOrder2.click();
-		JavaScriptExec.sleep();
-	}
-
-	public void clickDependentProduct() throws IOException {
+	public void clickDependentProduct(int i) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 0);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct1() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 2);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 2);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct3() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 1);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct4() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 0);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct5() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 0);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct6() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 1);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct7() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 2);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct8() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 0);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct9() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 1);
-		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
-	}
-
-	public void clickDependentProduct10() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on dependenct product.");
-		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, 2);
+		String DependentProduct = BasePage.getCellData(xlsxName, sheetName, 7, i);
 		driver.findElement(By.xpath("//a[not(@href)]/strong[text()='" + DependentProduct + "']")).click();
 	}
 
@@ -559,105 +270,37 @@ public class CreateOrderPage extends BasePage {
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='change--5.quantityAsDecimal']")
-	private WebElement enterQuantity;
+	private WebElement enterSubOrderQuantity;
 
 	/**
 	 * Method to Enter Price Rate.
 	 * 
 	 * @throws IOException
 	 */
-	public void enterQuantity() throws IOException {
+	public void enterSubOrderQuantity(String quantity) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("Enter Min value");
 		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity.isDisplayed());
-		enterQuantity.clear();
-		enterQuantity.sendKeys("2");
+		Assert.assertTrue(enterSubOrderQuantity.isDisplayed());
+		enterSubOrderQuantity.clear();
+		enterSubOrderQuantity.sendKeys(quantity);
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterQuantity1;
-
+	private WebElement enterParentOrderQuantity;
 	/**
 	 * Method to Enter Price Rate.
 	 * 
 	 * @throws IOException
 	 */
-	public void enterQuantity1() throws IOException {
+	public void enterParentOrderQuantity(String quantity) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("Enter Min value");
 		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity1.isDisplayed());
-		enterQuantity1.clear();
-		enterQuantity1.sendKeys("3");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterQuantity2;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity1.isDisplayed());
-		enterQuantity2.clear();
-		enterQuantity2.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 2));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterQuantity3;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity3() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity1.isDisplayed());
-		enterQuantity2.clear();
-		enterQuantity2.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 3));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterQuantity4;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity4() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity1.isDisplayed());
-		enterQuantity4.clear();
-		enterQuantity4.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 4));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterQuantity5;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity5() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity1.isDisplayed());
-		enterQuantity5.clear();
-		enterQuantity5.sendKeys("2");
+		Assert.assertTrue(enterParentOrderQuantity.isDisplayed());
+		enterParentOrderQuantity.clear();
+		enterParentOrderQuantity.sendKeys(quantity);
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='change--12.quantityAsDecimal']")
@@ -676,40 +319,6 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 		enterQuantity6.clear();
 		enterQuantity6.sendKeys("4");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterQuantity8;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity8() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity8.isDisplayed());
-		enterQuantity8.clear();
-		enterQuantity8.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 7));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterQuantity9;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity9() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity9.isDisplayed());
-		enterQuantity9.clear();
-		enterQuantity9.sendKeys("2");
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='change--9.quantityAsDecimal']")
@@ -746,7 +355,7 @@ public class CreateOrderPage extends BasePage {
 		enterQuantity7.sendKeys("3");
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='change--11.quantityAsDecimal']")
+	@FindBy(how = How.XPATH, using = "//input[@class='field quantity'][last()]]")
 	private WebElement enterQuantity11;
 
 	/**
@@ -763,7 +372,7 @@ public class CreateOrderPage extends BasePage {
 		enterQuantity11.sendKeys("2");
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='change--5-update-form']/div[2]/a[1]/span")
+	@FindBy(how = How.XPATH, using = "//a//following::span[text()='Update'][2]")
 	private WebElement clickUpdateButton;
 
 	/**
@@ -779,52 +388,21 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='change--11-update-form']/div[2]/a[1]/span")
-	private WebElement clickUpdateButton1;
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Update']")
+	private WebElement clickSubOrderUpdateButton;
 
 	/**
-	 * Method to click on Update button.
+	 * Method to click on update button.
 	 * 
 	 * @throws IOException
 	 */
-	public void clickUpdateButton1() throws IOException {
-		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton1.isDisplayed());
-		clickUpdateButton1.click();
+	public void clickSubOrderUpdateButton() throws IOException {
+		DiscountPage sp = new DiscountPage(driver);
+		log.info("click on update button.");
+		Assert.assertTrue(clickSubOrderUpdateButton.isDisplayed());
+		clickSubOrderUpdateButton.click();
 		JavaScriptExec.sleep();
-	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6-update-form']/div[2]/a[1]/span")
-	private WebElement clickUpdateButton2;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton2() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton2.isDisplayed());
-		clickUpdateButton2.click();
-		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--9-update-form']/div[2]/a[1]/span")
-	private WebElement clickUpdateButton3;
-
-	/**
-	 * Method to click on Update button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickUpdateButton3() throws IOException {
-		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
-		log.info("click on Update button.");
-		Assert.assertTrue(clickUpdateButton3.isDisplayed());
-		clickUpdateButton3.click();
-		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
@@ -866,12 +444,11 @@ public class CreateOrderPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public String clickGenerateInvoiceButton(String orderid) throws IOException {
+	public void clickGenerateInvoiceButton(String orderid) throws IOException {
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url2") + "/order/generateInvoice/" + orderid;
 		driver.get(url);
 		JavaScriptExec.sleep();
-		return orderid;
 	}
 
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
@@ -961,14 +538,16 @@ public class CreateOrderPage extends BasePage {
 
 	public String verifyOrderLines() {
 		navigateBottom();
-		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]"))
-				.getText();
+		// @Mayank do not use numbers in variable names
+		String orderLineItem1 = driver
+				.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
 		log.info("Verify Order Lines");
-		Assert.assertEquals(product1, "Billing Category Product 1");
-		String product2 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]"))
-				.getText();
-		Assert.assertEquals(product2, "Billing Product 1");
-		return product1;
+		Assert.assertEquals(orderLineItem1, "Billing Category Product 1");
+
+		String orderLineItem2 = driver
+				.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]")).getText();
+		Assert.assertEquals(orderLineItem2, "Billing Product 1");
+		return orderLineItem1;
 	}
 
 	public String verifyOrderLines1() {

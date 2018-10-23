@@ -25,40 +25,38 @@ public class CreateOrder1Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*createOrderPage.enterLoginID();
+		createOrderPage.enterLoginID();
 		createOrderPage.enterPassword();
 		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();*/
+		createOrderPage.clickLoginButton();
 
 		// Create order for customer Leo Holder
 		createOrderPage.clickCustomerTab();
-		createOrderPage.selectCustomer();
+		createOrderPage.clickCustomerName(0);
 		createOrderPage.clickCreateOrder();
-		createOrderPage.selectPeriod();
-		createOrderPage.selectOrderType();
+		createOrderPage.selectPeriod(0);
+		createOrderPage.selectOrderType(0);
 		createOrderPage.clickProductsSubTab();
 		createOrderPage.selectCategory();
-		createOrderPage.selectProduct();
+		createOrderPage.selectProduct(0);
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct();
+		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickCurrentOrderButton();
-		createOrderPage.enterQuantity();
+		createOrderPage.enterSubOrderQuantity("2");
 		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 
-		String orderid = createOrderPage.extractOrderId();
-		System.out.println(orderid);
+		String orderId = createOrderPage.extractOrderId();
+		System.out.println(orderId);
 
-		String product1 = createOrderPage.verifyOrderLines();
-		System.out.println(product1);
+		String productName = createOrderPage.verifyOrderLines();
+		System.out.println(productName);
 
-		createOrderPage.clickGenerateInvoiceButton(orderid);
-		String invoiceid = createOrderPage.extractInvoiceId();
-		createOrderPage.verifyAmount();
-		System.out.println(invoiceid);
-
-		createOrderPage.verifyAmount();
+		createOrderPage.clickGenerateInvoiceButton(orderId);
+		String invoiceId = createOrderPage.extractInvoiceId();
+		createOrderPage.verifyAmountofInvoice(invoiceId);
+		System.out.println(invoiceId);
 
 	}
 }

@@ -34,34 +34,33 @@ public class CreateOrder4Test {
 
 		// Create order for customer Isabella
 		createOrderPage.clickCustomerTab();
-		createOrderPage.selectCustomer3();
+		createOrderPage.clickCustomerName(3);
 		createOrderPage.clickCreateOrder();
-		createOrderPage.selectPeriod2();
-		createOrderPage.selectOrderType2();
+		createOrderPage.selectPeriod(0);
+		createOrderPage.selectOrderType(0);
 		createOrderPage.clickProductsSubTab();
 		createOrderPage.selectCategory();
-		createOrderPage.selectProduct3();
+		createOrderPage.selectProduct(3);
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct5();
+		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton();
-		createOrderPage.enterQuantity5();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.enterParentOrderQuantity("2");
+		createOrderPage.clickSubOrderUpdateButton();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
-		createOrderPage.clickParentOrder1();
+		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct6();
+		createOrderPage.clickDependentProduct(1);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.clickSubOrderUpdateButton();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
-		createOrderPage.clickParentOrder1();
+		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct7();
+		createOrderPage.clickDependentProduct(2);
 		createOrderPage.clickNewSubOrderButton();
 		createOrderPage.enterQuantity6();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.clickSubOrderUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 
@@ -75,7 +74,7 @@ public class CreateOrder4Test {
 		String product = createOrderPage.verifyOrderLine3();
 		System.out.println(product);
 
-		String generateinvoice = createOrderPage.clickGenerateInvoiceButton(orderid);
+		createOrderPage.clickGenerateInvoiceButton(orderid);
 		String invoiceid = createOrderPage.extractInvoiceId();
 
 		System.out.println(invoiceid);

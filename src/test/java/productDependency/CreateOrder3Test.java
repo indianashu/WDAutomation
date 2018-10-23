@@ -27,41 +27,41 @@ public class CreateOrder3Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*
-		 * createOrderPage.enterLoginID(); 
-		 * createOrderPage.enterPassword();
-		 * createOrderPage.selectCompany(); 
-		 * createOrderPage.clickLoginButton();
-		 */
+		
+		 createOrderPage.enterLoginID(); 
+		 createOrderPage.enterPassword();
+		 createOrderPage.selectCompany(); 
+		 createOrderPage.clickLoginButton();
+		 
 
 		// Create order for customer Olivia
 		createOrderPage.clickCustomerTab();
-		createOrderPage.selectCustomer2();
+		createOrderPage.clickCustomerName(2);
 		createOrderPage.clickCreateOrder();
-		createOrderPage.selectPeriod1();
-		createOrderPage.selectOrderType1();
+		createOrderPage.selectPeriod(1);
+		createOrderPage.selectOrderType(0);
 		createOrderPage.clickProductsSubTab();
 		createOrderPage.selectCategory();
-		createOrderPage.selectProduct2();
+		createOrderPage.selectProduct(2);
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct2();
+		createOrderPage.clickDependentProduct(2);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton2();
+		createOrderPage.clickSubOrderUpdateButton();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct3();
+		createOrderPage.clickDependentProduct(1);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton3();
+		createOrderPage.clickSubOrderUpdateButton();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct4();
+		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickCurrentOrderButton();
 		createOrderPage.enterQuantity11();
-		createOrderPage.clickUpdateButton1();
+		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 
@@ -75,7 +75,7 @@ public class CreateOrder3Test {
 		String product = createOrderPage.verifyOrderLine2();
 		System.out.println(product);
 
-		String generateinvoice = createOrderPage.clickGenerateInvoiceButton(orderid);
+		createOrderPage.clickGenerateInvoiceButton(orderid);
 		String invoiceid = createOrderPage.extractInvoiceId();
 		System.out.println(invoiceid);
 		createOrderPage.verifyAmountofInvoice(invoiceid);
