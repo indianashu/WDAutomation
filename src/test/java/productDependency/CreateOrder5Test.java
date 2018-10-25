@@ -45,8 +45,11 @@ public class CreateOrder5Test {
 		createOrderPage.clickDependentProduct(2);
 		createOrderPage.clickCurrentOrderButton();
 		createOrderPage.clickUpdateButton();
-		createOrderPage.enterQuantity7();
+		createOrderPage.verifyErrorMsg();
+		createOrderPage.enterOrderQuantity("3","5");
+		createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickUpdateButton();
+		createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickSaveChangesButton();
 
 		String orderid = createOrderPage.extractOrderId();
@@ -54,7 +57,7 @@ public class CreateOrder5Test {
 
 		createOrderPage.showOrder(orderid);
 
-		String product = createOrderPage.verifyOrderLine4();
+		String product = createOrderPage.verifyOrderLineSophia();
 		System.out.println(product);
 
 		createOrderPage.clickGenerateInvoiceButton(orderid);

@@ -269,107 +269,16 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='change--5.quantityAsDecimal']")
-	private WebElement enterSubOrderQuantity;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterSubOrderQuantity(String quantity) throws IOException {
+	public void enterOrderQuantity(String quantity, String xPathRow) throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		log.info("Enter Min value");
 		JavaScriptExec.sleep();
+		WebElement enterSubOrderQuantity = driver
+				.findElement(By.xpath("//*[@id='change--" + xPathRow + ".quantityAsDecimal']"));
 		Assert.assertTrue(enterSubOrderQuantity.isDisplayed());
 		enterSubOrderQuantity.clear();
 		enterSubOrderQuantity.sendKeys(quantity);
 		JavaScriptExec.sleep();
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--6.quantityAsDecimal']")
-	private WebElement enterParentOrderQuantity;
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterParentOrderQuantity(String quantity) throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Min value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterParentOrderQuantity.isDisplayed());
-		enterParentOrderQuantity.clear();
-		enterParentOrderQuantity.sendKeys(quantity);
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--12.quantityAsDecimal']")
-	private WebElement enterQuantity6;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity6() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity6.isDisplayed());
-		JavaScriptExec.sleep();
-		enterQuantity6.clear();
-		enterQuantity6.sendKeys("4");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--9.quantityAsDecimal']")
-	private WebElement enterQuantity10;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity10() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity10.isDisplayed());
-		enterQuantity10.clear();
-		enterQuantity10.sendKeys("4");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='change--5.quantityAsDecimal']")
-	private WebElement enterQuantity7;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity7() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity7.isDisplayed());
-		enterQuantity7.clear();
-		enterQuantity7.sendKeys("3");
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@class='field quantity'][last()]]")
-	private WebElement enterQuantity11;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterQuantity11() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Enter Quantity");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterQuantity11.isDisplayed());
-		enterQuantity11.clear();
-		enterQuantity11.sendKeys("2");
 	}
 
 	@FindBy(how = How.XPATH, using = "//a//following::span[text()='Update'][2]")
@@ -461,9 +370,25 @@ public class CreateOrderPage extends BasePage {
 	 */
 	public void verifyConfirmationMsg() throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
+		log.info("Verifying if Element is created Successfully or not");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
+	}
+
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box error']//*[text()='The order has an error in the hierarchy field: Mandatory dependency not satisfied']")
+	private WebElement verifyErrorMsg;
+
+	/**
+	 * Method to verify Account Type is created Successfully.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyErrorMsg() throws IOException {
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		log.info("Verifying dependency is satisfied or not");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(verifyErrorMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
@@ -521,24 +446,8 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[2]/div[7]/div[1]/a[1]")
-	private WebElement clickGenerateInvoiceButton1;
-
-	/**
-	 * Method to click on Generate Invoice Button.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickGenerateInvoiceButton1() throws IOException {
-		CreateOrderPage sp = new CreateOrderPage(driver);
-		log.info("Click on Generate Invoice Button");
-		Assert.assertTrue(clickGenerateInvoiceButton.isDisplayed());
-		clickGenerateInvoiceButton.click();
-	}
-
-	public String verifyOrderLines() {
+	public String verifyOrderLinesLeo() {
 		navigateBottom();
-		// @Mayank do not use numbers in variable names
 		String orderLineItem1 = driver
 				.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
 		log.info("Verify Order Lines");
@@ -550,7 +459,7 @@ public class CreateOrderPage extends BasePage {
 		return orderLineItem1;
 	}
 
-	public String verifyOrderLines1() {
+	public String verifyOrderLinesWilliam() {
 		String product = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
 				.getText();
 		log.info("Verify Order Lines");
@@ -558,7 +467,7 @@ public class CreateOrderPage extends BasePage {
 		return product;
 	}
 
-	public String verifyOrderLine2() {
+	public String verifyOrderLineOlivia() {
 		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[1]/td[2]"))
 				.getText();
 		log.info("Verify Order Lines");
@@ -569,7 +478,7 @@ public class CreateOrderPage extends BasePage {
 		return product1;
 	}
 
-	public String verifyOrderLine3() {
+	public String verifyOrderLineIsabella() {
 		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
 				.getText();
 		log.info("Verify Order Line");
@@ -577,7 +486,7 @@ public class CreateOrderPage extends BasePage {
 		return product1;
 	}
 
-	public String verifyOrderLine4() {
+	public String verifyOrderLineSophia() {
 		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]"))
 				.getText();
 		log.info("Verify Order Line");

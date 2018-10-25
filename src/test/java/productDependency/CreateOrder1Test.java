@@ -42,15 +42,16 @@ public class CreateOrder1Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickCurrentOrderButton();
-		createOrderPage.enterSubOrderQuantity("2");
+		createOrderPage.enterOrderQuantity("2","5");
 		createOrderPage.clickUpdateButton();
+		createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 
 		String orderId = createOrderPage.extractOrderId();
 		System.out.println(orderId);
 
-		String productName = createOrderPage.verifyOrderLines();
+		String productName = createOrderPage.verifyOrderLinesLeo();
 		System.out.println(productName);
 
 		createOrderPage.clickGenerateInvoiceButton(orderId);

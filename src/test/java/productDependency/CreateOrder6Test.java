@@ -44,17 +44,20 @@ public class CreateOrder6Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct(1);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.enterSubOrderQuantity("2");
+		createOrderPage.enterOrderQuantity("3","6");
 		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyErrorMsg();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct(2);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.enterQuantity10();
+		createOrderPage.enterOrderQuantity("4","9");
 		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickSaveChangesButton();
+		createOrderPage.verifyConfirmationMsg();
 
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);

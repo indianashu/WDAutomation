@@ -44,8 +44,9 @@ public class CreateOrder4Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.enterParentOrderQuantity("2");
+		createOrderPage.enterOrderQuantity("2","6");
 		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyErrorMsg();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder();
@@ -53,14 +54,16 @@ public class CreateOrder4Test {
 		createOrderPage.clickDependentProduct(1);
 		createOrderPage.clickNewSubOrderButton();
 		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyErrorMsg();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
 		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct(2);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.enterQuantity6();
+		createOrderPage.enterOrderQuantity("4","12");
 		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 
@@ -71,7 +74,7 @@ public class CreateOrder4Test {
 
 		createOrderPage.showOrder(orderid);
 
-		String product = createOrderPage.verifyOrderLine3();
+		String product = createOrderPage.verifyOrderLineIsabella();
 		System.out.println(product);
 
 		createOrderPage.clickGenerateInvoiceButton(orderid);
