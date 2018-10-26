@@ -364,7 +364,7 @@ public class CreateOrderPage extends BasePage {
 	private WebElement verifyConfirmationMsg;
 
 	/**
-	 * Method to verify Account Type is created Successfully.
+	 * Method to verify Order is created Successfully.
 	 * 
 	 * @throws IOException
 	 */
@@ -373,6 +373,22 @@ public class CreateOrderPage extends BasePage {
 		log.info("Verifying if Element is created Successfully or not");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
+	}
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Updated successfully.']")
+	private WebElement verifyUpdationMsg;
+
+	/**
+	 * Method to verify Order is updated Successfully.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyUpdationMsg() throws IOException {
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		log.info("Verifying if Element is created Successfully or not");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(verifyUpdationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 

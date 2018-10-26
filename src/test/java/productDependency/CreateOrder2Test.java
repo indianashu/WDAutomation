@@ -46,7 +46,7 @@ public class CreateOrder2Test {
 		createOrderPage.clickNewSubOrderButton();
 		createOrderPage.enterOrderQuantity("3","6");
 		createOrderPage.clickSubOrderUpdateButton();
-		createOrderPage.verifyConfirmationMsg();
+		createOrderPage.verifyUpdationMsg();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 

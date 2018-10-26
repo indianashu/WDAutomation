@@ -27,10 +27,10 @@ public class CreateOrder5Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		createOrderPage.enterLoginID();
+		/*createOrderPage.enterLoginID();
 		createOrderPage.enterPassword();
 		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();
+		createOrderPage.clickLoginButton();*/
 
 		// Create order for customer Sophia
 		createOrderPage.clickCustomerTab();
@@ -47,10 +47,10 @@ public class CreateOrder5Test {
 		createOrderPage.clickUpdateButton();
 		createOrderPage.verifyErrorMsg();
 		createOrderPage.enterOrderQuantity("3","5");
-		createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickUpdateButton();
-		createOrderPage.verifyConfirmationMsg();
+		createOrderPage.verifyUpdationMsg();
 		createOrderPage.clickSaveChangesButton();
+		createOrderPage.verifyConfirmationMsg();
 
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);

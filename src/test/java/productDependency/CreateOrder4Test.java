@@ -63,7 +63,7 @@ public class CreateOrder4Test {
 		createOrderPage.clickNewSubOrderButton();
 		createOrderPage.enterOrderQuantity("4","12");
 		createOrderPage.clickSubOrderUpdateButton();
-		createOrderPage.verifyConfirmationMsg();
+		createOrderPage.verifyUpdationMsg();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 
