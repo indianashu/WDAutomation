@@ -460,28 +460,79 @@ public class SpecificPricingPage extends BasePage {
 	}
 	
 	
-	public void verifyCustomerPricingData() throws IOException {
+	public void verifyPlanPricingData() throws IOException {
 		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[4]/em[2]/strong")).getText();
 		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 9, 0);
 		Assert.assertEquals(actualTotal, expectedTotal);
-		for() {
-			//@TODO verify quantity ,rate and amount, Expect values are coming from the UI and 
-			//actual values is taken from the sheet(Please add the respected values from the sheet)
-		String expectedQuantity = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[1]/td[5]/strong")).getText();
-		String actualQuantity = "";
-		Assert.assertEquals(actualQuantity, expectedQuantity);
+		System.out.println(actualTotal);
+		
+		String beforexpathforquantity="//*[@id='main']/div[5]/table/tbody/tr[";
+		String afterxpathforquantity="]/td[5]/strong";
+		
+		for(int i=1;i<6;i++) {
+			String actualxpath = beforexpathforquantity+i+afterxpathforquantity;
+			String expectedQuantity = driver.findElement(By.xpath("actualxpath")).getText();
+			String actualQuantity = "BasePage.getCellData(xlsxName, sheetName, 10, i)";
+			Assert.assertEquals(actualQuantity, expectedQuantity);
+			System.out.println(actualQuantity);
+		}
+		
+		String beforexpathforrate="//*[@id='main']/div[5]/table/tbody/tr[";
+		String afterxpathforrate="]/td[7]/strong";
+		
+		for(int j=1;j<6;j++){
+			String actualxpathforrate = beforexpathforrate+j+afterxpathforrate;
+			String expectedRate=driver.findElement(By.xpath("actualxpathforrate")).getText();
+			String actualRate=  "BasePage.getCellData(xlsxName, sheetName, 11, j)";
+			System.out.println(actualRate);
+		}
+		
+		String beforexpathforamount="//*[@id='main']/div[5]/table/tbody/tr[";
+		String afterxpathforamount="]/td[8]/strong";
+		
+		for(int k=1;k<6;k++){
+			String actualxpathforamount =beforexpathforamount+k+afterxpathforamount;
+			String expectedamount=driver.findElement(By.xpath("actualxpathforamount")).getText();
+			String actualamount= "BasePage.getCellData(xlsxName, sheetName, 12, k)";
+			System.out.println(actualamount);
 		}
 	}
 	
-	public void verifyPlanPricingData() throws IOException {
-		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[4]/em[2]/strong")).getText();
-		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 10, 0);
+	public void verifyCustomerPricingData() throws IOException {
+		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[16]/td[8]/strong")).getText();
+		String actualTotal   = BasePage.getCellData(xlsxName, sheetName, 13, 0);
 		Assert.assertEquals(actualTotal, expectedTotal);
-		for() {
-			//@TODO verify quantity ,rate and amount, Expect values are coming from the UI and 
-			//actual values is taken from the sheet(Please add the respected values from the sheet)
-		String expectedQuantity = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[1]/td[5]/strong")).getText();
-		String actualQuantity = "";
+		System.out.println(actualTotal);
+		
+		String beforexpathforquantity="//*[@id='main']/div[5]/table/tbody/tr[";
+		String afterxpathforquantity="]/td[5]/strong";
+		
+		for(int i=1;i<6;i++) {
+			String actualxpath = beforexpathforquantity+i+afterxpathforquantity;
+			String expectedQuantity = driver.findElement(By.xpath("actualxpath")).getText();
+			String actualQuantity = "BasePage.getCellData(xlsxName, sheetName, 14, i)";
+			Assert.assertEquals(actualQuantity, expectedQuantity);
+			System.out.println(actualQuantity);
+		}
+		
+		String beforexpathforrate="//*[@id='main']/div[5]/table/tbody/tr[";
+		String afterxpathforrate="]/td[7]/strong";
+		
+		for(int j=1;j<6;j++){
+			String actualxpathforrate = beforexpathforrate+j+afterxpathforrate;
+			String expectedRate=driver.findElement(By.xpath("actualxpathforrate")).getText();
+			String actualRate=  "BasePage.getCellData(xlsxName, sheetName, 15, j)";
+			System.out.println(actualRate);
+		}
+		
+		String beforexpathforamount="//*[@id='main']/div[5]/table/tbody/tr[";
+		String afterxpathforamount="]/td[8]/strong";
+		
+		for(int k=1;k<6;k++){
+			String actualxpathforamount =beforexpathforamount+k+afterxpathforamount;
+			String expectedamount=driver.findElement(By.xpath("actualxpathforamount")).getText();
+			String actualamount= "BasePage.getCellData(xlsxName, sheetName, 16, k)";
+			System.out.println(actualamount);
 		}
 	}
 	
