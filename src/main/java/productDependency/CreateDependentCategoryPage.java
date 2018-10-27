@@ -690,7 +690,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 2));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 1));
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
