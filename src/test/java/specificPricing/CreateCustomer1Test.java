@@ -9,7 +9,7 @@ import utilPackages.PropertyValExtractors;
 
 public class CreateCustomer1Test {
 	
-	CreateCustomerPage1 customerPage;
+	CreateCustomerPage customerPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -19,7 +19,7 @@ public class CreateCustomer1Test {
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url1");
 		driver.get(url);
-		customerPage = CreateCustomerPage1.getPage(driver, CreateCustomerPage1.class);
+		customerPage = CreateCustomerPage.getPage(driver, CreateCustomerPage.class);
 	}
 
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Customer")

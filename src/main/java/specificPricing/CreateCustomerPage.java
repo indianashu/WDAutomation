@@ -1,7 +1,7 @@
 package specificPricing;
 
 import baseClassPackage.BasePage;
-import specificPricing.CreateCustomerPage1;
+import specificPricing.CreateCustomerPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -14,13 +14,13 @@ import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateCustomerPage1 extends BasePage {
+public class CreateCustomerPage extends BasePage {
 	
-	public CreateCustomerPage1(WebDriver webdriver) {
+	public CreateCustomerPage(WebDriver webdriver) {
 		super(webdriver);
 	}
 
-	Logger log = Logger.getLogger(CreateCustomerPage1.class);
+	Logger log = Logger.getLogger(CreateCustomerPage.class);
 
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName = "AddCustomer";
@@ -35,7 +35,7 @@ public class CreateCustomerPage1 extends BasePage {
 	 * @throws Exception
 	 */
 	public void enterLoginID() throws Exception {
-		CreateCustomerPage1 sp = new CreateCustomerPage1(driver);
+		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		log.info("Verifying the Login ID is available or not");
 		Assert.assertTrue(enterLoginID.isDisplayed());
 		enterLoginID.sendKeys(BasePage.getCellData(xlsxName, sheetName, 0, 0));
@@ -50,7 +50,7 @@ public class CreateCustomerPage1 extends BasePage {
 	 * @throws Exception
 	 */
 	public void enterPassword() throws Exception {
-		CreateCustomerPage1 sp = new CreateCustomerPage1(driver);
+		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		log.info("Verifying the First Name is available or not");
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(BasePage.getCellData(xlsxName, sheetName, 1, 0));
@@ -64,7 +64,7 @@ public class CreateCustomerPage1 extends BasePage {
 	 * @throws IOException
 	 */
 	public void selectCompany() throws Exception {
-		CreateCustomerPage1 sp = new CreateCustomerPage1(driver);
+		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
@@ -77,7 +77,7 @@ public class CreateCustomerPage1 extends BasePage {
 	 * Method to Click on Save Changes Button
 	 */
 	public void clickLoginButton() {
-		CreateCustomerPage1 sp = new CreateCustomerPage1(driver);
+		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		log.info("Verifying the login button is available or not");
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
@@ -92,14 +92,14 @@ public class CreateCustomerPage1 extends BasePage {
 	 * @throws IOException
 	 */
 	public void clickCustomerTab() throws IOException {
-		CreateCustomerPage1 sp = new CreateCustomerPage1(driver);
+		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		log.info("Click on Products Tab after successful login");
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
 		JavaScriptExec.sleep();
 }
 	public void createCustomer() throws IOException {
-		CreateCustomerPage1 sp = new CreateCustomerPage1(driver);
+		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		for (int i = 0; i < 3; i++) {
 			WebElement clickAddNewButton = driver
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));

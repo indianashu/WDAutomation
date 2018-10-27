@@ -1,6 +1,5 @@
 package specificPricing;
 
-
 import baseClassPackage.BaseClasses;
 import productDependency.CreateOrderPage;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +7,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
-public class CreateTestScenario2Test {
-	
-	CreateTestScenario2Page createOrderPage;
+public class ProductPriceTest {
+
+	SpecificPricingPage createOrderPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -20,8 +19,9 @@ public class CreateTestScenario2Test {
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url1");
 		driver.get(url);
-		createOrderPage = CreateTestScenario2Page.getPage(driver, CreateTestScenario2Page.class);
+		createOrderPage = SpecificPricingPage.getPage(driver, SpecificPricingPage.class);
 	}
+
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Order")
 	public void userSignin() throws Exception {
 
@@ -29,7 +29,7 @@ public class CreateTestScenario2Test {
 		createOrderPage.enterPassword();
 		createOrderPage.selectCompany();
 		createOrderPage.clickLoginButton();*/
-		
+
 		createOrderPage.clickCustomerTab();
 		createOrderPage.selectCustomer();
 		createOrderPage.clickCreateOrder();
@@ -41,15 +41,6 @@ public class CreateTestScenario2Test {
 		createOrderPage.clickUpdateButton();
 		createOrderPage.clickSaveChangesButton();
 		
-		createOrderPage.clickMediationLink();
-		createOrderPage.clickMediation();
-		createOrderPage.uploadMediationCSVFile();
-		createOrderPage.clickTriggerConfigButton();
-		
-		createOrderPage.clickMediationsTab();
-		createOrderPage.verifyNumberOrders();
-    	createOrderPage.clickMediationName();
-    	createOrderPage.clickDoneBillableViewLink();
-    	createOrderPage.clickOrdersTab();
+		createOrderPage.verifyAmount();
 	}
 }
