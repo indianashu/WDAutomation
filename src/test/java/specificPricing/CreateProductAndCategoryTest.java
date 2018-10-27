@@ -6,12 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
-import specificPricing.CreateCategoryPage;
+import specificPricing.CreateProductAndCategoryPage;
 
 
-public class CreateCategory1Test {
+public class CreateProductAndCategoryTest {
 
-	CreateCategoryPage categoryPage;
+	CreateProductAndCategoryPage categoryPage;
     WebDriver driver,driver2;
 
     @BeforeClass(alwaysRun=true)
@@ -21,7 +21,7 @@ public class CreateCategory1Test {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        categoryPage=CreateCategoryPage.getPage(driver, CreateCategoryPage.class);
+        categoryPage=CreateProductAndCategoryPage.getPage(driver, CreateProductAndCategoryPage.class);
     }
         
         @Test(groups={"Specific Pricing Feature"},description="AddCategory")
@@ -34,19 +34,19 @@ public class CreateCategory1Test {
         	
         	categoryPage.clickProductsTab();
         	categoryPage.clickAddCategoryButton();
-        	categoryPage.enterCategoryName();
-        	categoryPage.selectCompanies();
+        	categoryPage.enterCategoryName(0);
+        	categoryPage.selectEntity();
         	categoryPage.clickSaveChangesButton();
         	categoryPage.verifyConfirmationMsg();
         	
         	categoryPage.clickProductsTab();
-        	categoryPage.selectCategoryName();
+        	categoryPage.selectCategoryName(0);
         	categoryPage.clickAddProductButton();
-        	categoryPage.enterEnglishDescription();
-        	categoryPage.enterProductCode();
-        	//categoryPage.selectCompany();
+        	categoryPage.enterEnglishDescription(0);
+        	categoryPage.enterProductCode(0);
+        	categoryPage.selectEntity();
         	categoryPage.selectPriceCurrency();
-        	categoryPage.enterPriceRate();
+        	categoryPage.enterPriceRate(0);
         	categoryPage.clickAddPriceButton();
         	categoryPage.clickSaveChangesButton();
             categoryPage.verifyConfirmationMsg();
@@ -54,19 +54,19 @@ public class CreateCategory1Test {
             categoryPage.clickProductsTab();
         	categoryPage.clickAddCategoryButton();
         	categoryPage.enterCategoryType();
-        	categoryPage.enterCategoryName1();
-        	categoryPage.selectCompanies();
+        	categoryPage.enterCategoryName(1);
+        	categoryPage.selectEntity();
         	categoryPage.clickSaveChangesButton();
         	categoryPage.verifyConfirmationMsg();
         	
         	categoryPage.clickProductsTab();
-        	categoryPage.selectCategoryName1();
+        	categoryPage.selectCategoryName(1);
         	categoryPage.clickAddProductButton();
-        	categoryPage.enterEnglishDescription1();
-        	categoryPage.enterProductCode1();
-        	//categoryPage.selectCompany();
+        	categoryPage.enterEnglishDescription(1);
+        	categoryPage.enterProductCode(1);
+        	categoryPage.selectEntity();
         	categoryPage.selectPriceCurrency();
-        	categoryPage.enterPriceRate1();
+        	categoryPage.enterPriceRate(1);
         	categoryPage.clickAddPriceButton();
         	categoryPage.enterPlanProduct();
         	categoryPage.enterPricing();

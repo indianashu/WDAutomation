@@ -32,14 +32,14 @@ public class CreateRateCardTest {
 		
 		ratecardPage.clickRateCards();
 		ratecardPage.clickAddNewButton();
-		ratecardPage.enterRateCardName();
-		ratecardPage.enterPrice();
+		ratecardPage.enterRateCardName(0);
+		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.clickAddNewButton();
-		ratecardPage.enterRateCardName1();
-		ratecardPage.enterPrice();
-		ratecardPage.uploadRatingCSVFile1();
+		ratecardPage.enterRateCardName(1);
+		ratecardPage.enterPriceColumn();
+		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
 		
 }

@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
-public class CreateCustomer1Test {
+public class CreateCustomerTest {
 	
 	CreateCustomerPage customerPage;
 	WebDriver driver, driver2;

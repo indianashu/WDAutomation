@@ -1,8 +1,8 @@
 package specificPricing;
 
 import baseClassPackage.BasePage;
-import specificPricing.CreateCategoryPage;
-import specificPricing.CreateCategoryPage;
+import specificPricing.CreateProductAndCategoryPage;
+import specificPricing.CreateProductAndCategoryPage;
 import productDependency.CreateOrderPeriodPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;
@@ -18,7 +18,7 @@ import utilPackages.WaitClass;
 import webDataPages.LoginPage;
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateCategoryPage extends BasePage {
+public class CreateProductAndCategoryPage extends BasePage {
 	
 	/**
 	 * This constructor is used to initialize the webdriver in BasePage class, if
@@ -27,7 +27,7 @@ public class CreateCategoryPage extends BasePage {
 	 *
 	 * @param webdriver
 	 */
-	public CreateCategoryPage(WebDriver webdriver) {
+	public CreateProductAndCategoryPage(WebDriver webdriver) {
 		super(webdriver);
 	}
 
@@ -105,7 +105,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void clickProductsTab() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on Products Tab after successful login");
 			JavaScriptExec.sleep();
 			Assert.assertTrue(clickProductsTab.isDisplayed());
@@ -121,7 +121,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void clickAddCategoryButton() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on Add Category Button");
 			//navigateBottom();
 			Assert.assertTrue(clickAddCategoryButton.isDisplayed());
@@ -136,26 +136,11 @@ public class CreateCategoryPage extends BasePage {
 		 * 
 		 * @throws IOException
 		 */
-		public void enterCategoryName() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+		public void enterCategoryName(int column) throws IOException {
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Category Name");
 			Assert.assertTrue(enterCategoryName.isDisplayed());
-			enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3,0));
-		}
-		
-		@FindBy(how = How.XPATH, using = "//input[@name='description']")
-		private WebElement enterCategoryName1;
-
-		/**
-		 * Method to Enter Category Name.
-		 * 
-		 * @throws IOException
-		 */
-		public void enterCategoryName1() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
-			log.info("Enter Category Name");
-			Assert.assertTrue(enterCategoryName1.isDisplayed());
-			enterCategoryName1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8,0));
+			enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3,column));
 		}
 		
 		@FindBy(how = How.XPATH, using = "//select[@name='orderLineTypeId']")
@@ -167,24 +152,23 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void enterCategoryType() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Category Name");
-			Select dropdown = new Select(driver.findElement(By.name("orderLineTypeId")));
 			Assert.assertTrue(enterCategoryType.isDisplayed());
 			enterCategoryType.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7,0));
 		}
-
-		private WebElement selectCompanies;
+		
+		@FindBy(how = How.XPATH, using = "//select[@name='entities']")
+		private WebElement selectEntity;
 
 		/**
 		 * Method to select companies.
 		 * 
 		 * @throws IOException
 		 */
-		public void selectCompanies() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
-			WebElement Companieselement = driver.findElement(By.xpath("//select[@name='entities']"));
-			Select se = new Select(Companieselement);
+		public void selectEntity() throws IOException {
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
+			Select se = new Select(selectCompany);
 			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 		}
 
@@ -197,7 +181,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void clickSaveChangesButton() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on Save Changes Button");
 			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 			clickSaveChangesButton.click();
@@ -212,25 +196,17 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void verifyConfirmationMsg() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Verifying if Product is created Successfully or not");
 			JavaScriptExec.sleep();
 			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 					"Assert Failed as its unable to search text in Logged in Page");
 		}
 		
-		public void selectCategoryName() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+		public void selectCategoryName(int column) throws IOException {
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on a category name.");
-			String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3,0);
-			driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
-			JavaScriptExec.sleep();
-		}
-		
-		public void selectCategoryName1() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
-			log.info("Click on a category name.");
-			String CategoryName = BasePage.getCellData(xlsxName, sheetName, 8,0);
+			String CategoryName = BasePage.getCellData(xlsxName, sheetName, 3,column);
 			driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 			JavaScriptExec.sleep();
 		}
@@ -244,7 +220,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void clickAddProductButton() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on Add Product Button");
 			Assert.assertTrue(clickAddProductButton.isDisplayed());
 			clickAddProductButton.click();
@@ -258,26 +234,11 @@ public class CreateCategoryPage extends BasePage {
 		 * 
 		 * @throws IOException
 		 */
-		public void enterEnglishDescription() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+		public void enterEnglishDescription(int column) throws IOException {
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter English Description");
 			Assert.assertTrue(enterEnglishDescription.isDisplayed());
-			enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-		}
-		
-		@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
-		private WebElement enterEnglishDescription1;
-
-		/**
-		 * Method to Enter English Description.
-		 * 
-		 * @throws IOException
-		 */
-		public void enterEnglishDescription1() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
-			log.info("Enter English Description");
-			Assert.assertTrue(enterEnglishDescription.isDisplayed());
-			enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 0));
+			enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, column));
 		}
 
 		@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
@@ -288,28 +249,13 @@ public class CreateCategoryPage extends BasePage {
 		 * 
 		 * @throws IOException
 		 */
-		public void enterProductCode() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+		public void enterProductCode(int column) throws IOException {
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Product Code");
 			Assert.assertTrue(enterProductCode.isDisplayed());
-			enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+			enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, column));
 		}
 		
-		@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
-		private WebElement enterProductCode1;
-
-		/**
-		 * Method to Enter Product Code.
-		 * 
-		 * @throws IOException
-		 */
-		public void enterProductCode1() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
-			log.info("Enter Product Code");
-			Assert.assertTrue(enterProductCode.isDisplayed());
-			enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 0));
-		}
-
 		private WebElement selectPriceCompany;
 
 		/**
@@ -318,7 +264,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void selectPriceCompany() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
 			Select se = new Select(Companieselement);
 			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
@@ -332,7 +278,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void selectPriceCurrency() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 			Select se = new Select(Currencyelement);
 			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
@@ -346,28 +292,12 @@ public class CreateCategoryPage extends BasePage {
 		 * 
 		 * @throws IOException
 		 */
-		public void enterPriceRate() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+		public void enterPriceRate(int column) throws IOException {
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Price Rate");
 			JavaScriptExec.sleep();
 			Assert.assertTrue(enterPriceRate.isDisplayed());
-			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
-		}
-		
-		@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
-		private WebElement enterPriceRate1;
-
-		/**
-		 * Method to Enter Price Rate.
-		 * 
-		 * @throws IOException
-		 */
-		public void enterPriceRate1() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
-			log.info("Enter Price Rate");
-			JavaScriptExec.sleep();
-			Assert.assertTrue(enterPriceRate1.isDisplayed());
-			enterPriceRate1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 0));
+			enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, column));
 		}
 
 		@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
@@ -379,7 +309,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void clickAddPriceButton() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on Add Price Button");
 			Assert.assertTrue(clickAddPriceButton.isDisplayed());
 			clickAddPriceButton.click();
@@ -395,7 +325,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void enterPlanProduct() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Plan Product");
 			JavaScriptExec.sleep();
 			Select dropdown1 = new Select(driver.findElement(By.name("product.confPricingProduct")));
@@ -412,7 +342,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void enterPricing() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Pricing");
 			JavaScriptExec.sleep();
 			Select dropdown2 = new Select(driver.findElement(By.name("product.confPricingList")));
@@ -429,7 +359,7 @@ public class CreateCategoryPage extends BasePage {
 		 * @throws IOException
 		 */
 		public void clickOnAddPrice() throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on Add Price Button");
 			Assert.assertTrue(clickOnAddPrice.isDisplayed());
 			clickOnAddPrice.click();

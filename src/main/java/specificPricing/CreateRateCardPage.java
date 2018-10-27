@@ -34,7 +34,7 @@ public class CreateRateCardPage extends BasePage {
 	Logger log = Logger.getLogger(CreateOrderPeriodPage.class);
 	CreateOrderPeriodPage configurationOrderPeriodsPage;
 	PropertyValExtractors p = new PropertyValExtractors();
-	String sheetName = "CreateRateCard";
+	String sheetName = "RateCard & Pricing";
 	String xlsxName = "/SpecificPricing_TestData.xlsx"; 
 		
 		@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
@@ -137,58 +137,51 @@ public class CreateRateCardPage extends BasePage {
 		 * 
 		 * @throws IOException
 		 */
-		public void enterRateCardName() throws IOException {
+		public void enterRateCardName(int column) throws IOException {
 			CreateRateCardPage sp = new CreateRateCardPage(driver);
 			log.info("Verifying the Description is available or not");
 			Assert.assertTrue(enterRateCardName.isDisplayed());
-			enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
+			enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, column));
+			
 		}
 		
-		@FindBy(how = How.XPATH, using = "//input[@name='name']")
-		private WebElement enterRateCardName1;
-
-		/**
-		 * Method to enter Description.
-		 * 
-		 * @throws IOException
-		 */
-		public void enterRateCardName1() throws IOException {
-			CreateRateCardPage sp = new CreateRateCardPage(driver);
-			log.info("Verifying the Description is available or not");
-			Assert.assertTrue(enterRateCardName1.isDisplayed());
-			enterRateCardName1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-		}
+		
 		
 		@FindBy(how = How.XPATH, using = "//input[@name='priceFieldName']")
-		private WebElement enterPrice;
+		private WebElement enterPriceColumn;
 
 		/**
 		 * Method to enter Description.
 		 * 
 		 * @throws IOException
 		 */
-		public void enterPrice() throws IOException {
+		public void enterPriceColumn() throws IOException {
 			CreateRateCardPage sp = new CreateRateCardPage(driver);
 			log.info("Verifying the Description is available or not");
-			Assert.assertTrue(enterPrice.isDisplayed());
-			enterPrice.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+			Assert.assertTrue(enterPriceColumn.isDisplayed());
+			enterPriceColumn.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 		}
+		@FindBy(how = How.XPATH, using = "//input[@name='rates']")
+		private WebElement uploadRatingCSVFile;
+
+		/**
+		 * Method to enter Description.
+		 * 
+		 * @throws IOException
+		 */
 		
-		public void uploadRatingCSVFile() throws IOException {
-			CreateRateCardPage sp = new CreateRateCardPage(driver);
-			log.info("upload Rating csv file");
-			WebElement FileUpload = driver.findElement(By.xpath("//input[@name='rates']"));
-			FileUpload.sendKeys("/home/mayank/test_rate_card.csv");
-			JavaScriptExec.sleep();
+	public void uploadRatingCSVFile() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		log.info("upload Rating csv file");
+		String fname = driver.findElement(By.xpath("//input[@class='field']")).getText();
+		if (fname == "Test RateCard") {
+			uploadRatingCSVFile.sendKeys(System.getProperty("user.dir") + "/test_rate_card.csv");
+		} else {
+			uploadRatingCSVFile.sendKeys(System.getProperty("user.dir") + "/plan_rate_card.csv");
 		}
+		JavaScriptExec.sleep();
+	}
 		
-		public void uploadRatingCSVFile1() throws IOException {
-			CreateRateCardPage sp = new CreateRateCardPage(driver);
-			log.info("upload Rating csv file");
-			WebElement FileUpload = driver.findElement(By.xpath("//input[@name='rates']"));
-			FileUpload.sendKeys("/home/mayank/plan_rate_card.csv");
-			JavaScriptExec.sleep();
-		}
 		
 		@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
 		private WebElement clickSaveChangesButton;

@@ -35,7 +35,7 @@ public class CreatePricingPage extends BasePage {
 	Logger log = Logger.getLogger(CreateOrderPeriodPage.class);
 	CreateOrderPeriodPage configurationOrderPeriodsPage;
 	PropertyValExtractors p = new PropertyValExtractors();
-	String sheetName = "CreatePricing";
+	String sheetName = "RateCard & Pricing";
 	String xlsxName = "/SpecificPricing_TestData.xlsx"; 
 	
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
@@ -128,6 +128,8 @@ public class CreatePricingPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 	
+	
+	
 	@FindBy(how = How.XPATH, using = "//input[@name='pricing.name']")
 	private WebElement enterPricingName;
 
@@ -136,26 +138,11 @@ public class CreatePricingPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterPricingName() throws IOException {
+	public void enterPricingName(int i) throws IOException {
 		CreatePricingPage sp = new CreatePricingPage(driver);
 		log.info("Verifying the Description is available or not");
 		Assert.assertTrue(enterPricingName.isDisplayed());
-		enterPricingName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
-	}
-	
-	@FindBy(how = How.XPATH, using = "//input[@name='pricing.name']")
-	private WebElement enterPricingName1;
-
-	/**
-	 * Method to enter Description.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterPricingName1() throws IOException {
-		CreatePricingPage sp = new CreatePricingPage(driver);
-		log.info("Verifying the Description is available or not");
-		Assert.assertTrue(enterPricingName1.isDisplayed());
-		enterPricingName1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 1));
+		enterPricingName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, i));
 	}
 	
 	@FindBy(how = How.XPATH, using = "//select[@id='pricingType']")
@@ -171,7 +158,7 @@ public class CreatePricingPage extends BasePage {
 		log.info("Verifying the Description is available or not");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPricingType.isDisplayed());
-		enterPricingType.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+		enterPricingType.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 	}
 	
 	@FindBy(how = How.XPATH, using = "//select[@name='pricing.attribute.1.value']")
@@ -182,30 +169,13 @@ public class CreatePricingPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterRateCard() throws IOException {
+	public void enterRateCard(int col) throws IOException {
 		CreatePricingPage sp = new CreatePricingPage(driver);
 		log.info("Verifying the Description is available or not");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterRateCard.isDisplayed());
 		enterRateCard.click();
-		enterRateCard.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-	}
-	
-	@FindBy(how = How.XPATH, using = "//select[@name='pricing.attribute.1.value']")
-	private WebElement enterRateCard1;
-
-	/**
-	 * Method to enter Description.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterRateCard1() throws IOException {
-		CreatePricingPage sp = new CreatePricingPage(driver);
-		log.info("Verifying the Description is available or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterRateCard1.isDisplayed());
-		enterRateCard1.click();
-		enterRateCard1.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 1));
+		enterRateCard.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, col));
 	}
 	
 	@FindBy(how = How.XPATH, using = "//select[@name='rateCardColumnName']")
@@ -221,7 +191,7 @@ public class CreatePricingPage extends BasePage {
 		log.info("Verifying the Description is available or not");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterrateCardColumn.isDisplayed());
-		enterrateCardColumn.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
+		enterrateCardColumn.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 	}
 	
 	@FindBy(how = How.XPATH, using = "//input[@name='pricingField']")
@@ -237,7 +207,7 @@ public class CreatePricingPage extends BasePage {
 		log.info("Verifying the Description is available or not");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterpricingFieldName.isDisplayed());
-		enterpricingFieldName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
+		enterpricingFieldName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
 	}
 	
 	@FindBy(how = How.XPATH, using = "//input[@name='mandatoryMatch']")

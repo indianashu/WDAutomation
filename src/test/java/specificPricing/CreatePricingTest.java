@@ -34,9 +34,9 @@ public class CreatePricingTest {
 		pricingPage.clickPricingTab();
 		pricingPage.clickAddNewButton();
 		
-		pricingPage.enterPricingName();
+		pricingPage.enterPricingName(0);
 		pricingPage.enterPricingType();
-		pricingPage.enterRateCard();
+		pricingPage.enterRateCard(0);
 		pricingPage.enterRateCardColumn();
 		pricingPage.enterPricingFieldName();
 		pricingPage.clickMadatoryMatch();
@@ -45,9 +45,9 @@ public class CreatePricingTest {
 		
 		pricingPage.clickPricingTab();
 		pricingPage.clickAddNewButton();
-		pricingPage.enterPricingName1();
+		pricingPage.enterPricingName(1);
 		pricingPage.enterPricingType();
-		pricingPage.enterRateCard1();
+		pricingPage.enterRateCard(1);
 		pricingPage.enterRateCardColumn();
 		pricingPage.enterPricingFieldName();
 		pricingPage.clickMadatoryMatch();
