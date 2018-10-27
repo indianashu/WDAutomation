@@ -44,7 +44,7 @@ public class CreateOrder6Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct(1);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.enterOrderQuantity("3","6");
+		createOrderPage.enterOrderQuantity("2","6");
 		createOrderPage.clickSubOrderUpdateButton();
 		createOrderPage.verifyErrorMsg();
 		createOrderPage.clickDetailsTab();
@@ -55,7 +55,8 @@ public class CreateOrder6Test {
 		createOrderPage.clickNewSubOrderButton();
 		createOrderPage.enterOrderQuantity("4","9");
 		createOrderPage.clickSubOrderUpdateButton();
-		createOrderPage.verifyConfirmationMsg();
+		createOrderPage.verifyUpdationMsg();
+		//createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
 

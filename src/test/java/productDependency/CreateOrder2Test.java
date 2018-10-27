@@ -27,17 +27,19 @@ public class CreateOrder2Test {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*
-		 * createOrderPage.enterLoginID(); createOrderPage.enterPassword();
-		 * createOrderPage.selectCompany(); createOrderPage.clickLoginButton();
-		 */
+		
+		  /*createOrderPage.enterLoginID(); 
+		  createOrderPage.enterPassword();
+		  createOrderPage.selectCompany(); 
+		  createOrderPage.clickLoginButton();*/
+		 
 
 		// Create Order for William
 		createOrderPage.clickCustomerTab();
 		createOrderPage.clickCustomerName(1);
+		createOrderPage.clickCreateOrder();
 		createOrderPage.selectPeriod(2);
 		createOrderPage.selectOrderType(1);
-		createOrderPage.clickCreateOrder();
 		createOrderPage.clickProductsSubTab();
 		createOrderPage.selectCategory();
 		createOrderPage.selectProduct(1);

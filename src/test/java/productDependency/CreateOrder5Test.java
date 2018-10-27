@@ -42,7 +42,7 @@ public class CreateOrder5Test {
 		createOrderPage.selectCategory();
 		createOrderPage.selectProduct(4);
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct(2);
+		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickCurrentOrderButton();
 		createOrderPage.clickUpdateButton();
 		createOrderPage.verifyErrorMsg();

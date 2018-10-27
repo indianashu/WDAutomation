@@ -28,7 +28,7 @@ public class CreateOrder3Test {
 	public void userSignin() throws Exception {
 
 		
-/*		createOrderPage.enterLoginID();
+		/*createOrderPage.enterLoginID();
 		createOrderPage.enterPassword();
 		createOrderPage.selectCompany();
 		createOrderPage.clickLoginButton();*/
@@ -62,7 +62,7 @@ public class CreateOrder3Test {
 		createOrderPage.clickPlusdependency();
 		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickCurrentOrderButton();
-		createOrderPage.enterOrderQuantity("3","11");
+		createOrderPage.enterOrderQuantity("2","11");
 		createOrderPage.clickUpdateButton();
 		createOrderPage.verifyUpdationMsg();
 		createOrderPage.clickSaveChangesButton();
