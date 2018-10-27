@@ -22,8 +22,8 @@ import org.openqa.selenium.support.ui.Select;
 public class MediationConfigurationPage extends BasePage {
 
 	/**
-	 * This constructor is used to initialize the webdriver in BasePage class,
-	 * if the user does not want to use page factory then this will take care of
+	 * This constructor is used to initialize the webdriver in BasePage class, if
+	 * the user does not want to use page factory then this will take care of
 	 * initialization of the driver
 	 *
 	 * @param webdriver
@@ -97,7 +97,7 @@ public class MediationConfigurationPage extends BasePage {
 		clickLoginButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@href='/jbilling/mediationConfig/list']")
+	@FindBy(how = How.XPATH, using = "//a[@href='/mediationConfig/list']")
 	private WebElement clickMediationLink;
 
 	/**
@@ -106,11 +106,10 @@ public class MediationConfigurationPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void clickMediationLink() throws IOException {
-		PluginConfigurationPage sp = new PluginConfigurationPage(driver);
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
 		log.info("Click on Mediation link");
-		p.getPropertyFile("test", "configuration.properties");
-		String url = p.getVal("url2") + "/mediationConfig/list";
-		driver.get(url);
+		Assert.assertTrue(clickMediationLink.isDisplayed());
+		clickMediationLink.click();
 		JavaScriptExec.sleep();
 	}
 
@@ -123,7 +122,7 @@ public class MediationConfigurationPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void clickAddNewButton() throws IOException {
-		PluginConfigurationPage sp = new PluginConfigurationPage(driver);
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
 		log.info("Click on Add New Button");
 		Assert.assertTrue(clickAddNewButton.isDisplayed());
 		clickAddNewButton.click();
@@ -157,7 +156,7 @@ public class MediationConfigurationPage extends BasePage {
 		MediationPage sp = new MediationPage(driver);
 		log.info("Enter Execution Order");
 		Assert.assertTrue(enterExecutionOrder.isDisplayed());
-		enterExecutionOrder.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+		enterExecutionOrder.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
@@ -174,6 +173,256 @@ public class MediationConfigurationPage extends BasePage {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
+	}
+
+	@FindBy(how = How.XPATH, using = "//a[.='Plug-ins']")
+	private WebElement clickPlugins;
+
+	/**
+	 * Method to click on plugins link.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickPluginsLink() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("click on Plugin Tabs");
+		Assert.assertTrue(clickPlugins.isDisplayed());
+		clickPlugins.click();
+	}
+
+	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.configuration']/div/div/ul/a[13]/li")
+	private WebElement clickfileFormatTab;
+
+	/**
+	 * Method to click on File Format Tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickfileFormatTab() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("click on File Format Tabs");
+		Assert.assertTrue(clickfileFormatTab.isDisplayed());
+		clickfileFormatTab.click();
+	}
+
+	@FindBy(how = How.XPATH, using = "//td[preceding-sibling::td[contains(.,'15')]]")
+	private WebElement clickMediationReader;
+
+	/**
+	 * Method to click on Mediation Reader link.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickMediationReader() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("click on Mediation Reader link.");
+		Assert.assertTrue(clickMediationReader.isDisplayed());
+		clickMediationReader.click();
+		JavaScriptExec.sleep();
+	}
+
+	@FindBy(how = How.XPATH, using = "//td[preceding-sibling::td[contains(.,'16')]]")
+	private WebElement clickMediationProcessor;
+
+	/**
+	 * Method to click on Mediation Processor link.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickMediationProcessor() throws IOException {
+		MediationPage sp = new MediationPage(driver);
+		log.info("click on Mediation Processor link.");
+		Assert.assertTrue(clickMediationProcessor.isDisplayed());
+		clickMediationProcessor.click();
+		JavaScriptExec.sleep();
+
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='typeId']")
+	private WebElement selectReaderType;
+
+	/**
+	 * Method to click on Mediation Processor link.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectReaderType(int column) throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		Select se = new Select(selectReaderType);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, column));
+		JavaScriptExec.sleep();
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='fileFormat.name']")
+	private WebElement enterName;
+
+	/**
+	 * Method to enter Password.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterName() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("Enter File Format Name");
+		Assert.assertTrue(enterName.isDisplayed());
+		enterName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+	}
+
+	public void uploadFile() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		log.info("upload Rating csv file");
+		WebElement FileUpload = driver.findElement(By.xpath("//input[@name='format_file']"));
+		FileUpload.sendKeys(System.getProperty("user.dir")+"/asterisk.xml");
+		JavaScriptExec.sleep();
+	}
+
+	@FindBy(how = How.XPATH, using = "//a[@class='submit cancel']//*[text()='Save As It is']")
+	private WebElement clickSaveAsItIs;
+
+	/**
+	 * Method to click on Save Changes Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickUpdateChangesButton() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		log.info("Click on Save As it is Button");
+		JavaScriptExec.scrolltoBottomofPage(driver);
+		Assert.assertTrue(clickSaveAsItIs.isDisplayed());
+		clickSaveAsItIs.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='plg-parm-format_file']/option")
+	private WebElement selectFileFormat;
+
+	/**
+	 * Method to enter value for Order.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectFileFormat() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("enter value for Order.");
+		Assert.assertTrue(selectFileFormat.isDisplayed());
+		String fileName = selectFileFormat.getText();
+		if (!fileName.contains("asterisk")) {
+			clickfileFormatTab();
+			clickAddNewButton();
+			enterName();
+			uploadFile();
+			clickSaveChangesButton();
+			clickUpdateChangesButton();
+
+		}
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='plg-parm-suffix']")
+	private WebElement enterSufix;
+
+	/**
+	 * Method to enter value for Sufix.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterSufix() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("enter value for Sufix.");
+		Assert.assertTrue(enterSufix.isDisplayed());
+		enterSufix.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='plg-parm-date_format']")
+	private WebElement enterDateFormat;
+
+	/**
+	 * Method to enter value for Date Format.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterDateFormat() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("enter value for Sufix.");
+		Assert.assertTrue(enterDateFormat.isDisplayed());
+		enterDateFormat.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='plg-parm-separator']")
+	private WebElement enterSeparator;
+
+	/**
+	 * Method to enter value for Separator.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterSeparator() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("enter value for Sufix.");
+		Assert.assertTrue(enterSeparator.isDisplayed());
+		enterSeparator.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 0));
+	}
+
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Plug-in']")
+	private WebElement clickSavePluginButton;
+
+	/**
+	 * Method to click on Save Plugin Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickSavePluginButton() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("Click on Save Plugin Button");
+		JavaScriptExec.scrolltoBottomofPage(driver);
+		Assert.assertTrue(clickSavePluginButton.isDisplayed());
+		clickSavePluginButton.click();
+	}
+
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	private WebElement verifyConfirmationMsg;
+
+	/**
+	 * Method to verify Account Type is created Successfully.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyConfirmationMsg() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		JavaScriptExec.sleep();
+		log.info("Verifying if Account Type is created Successfully or not");
+		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='plg-parm-Call Item ID']")
+	private WebElement enterDefaultItemId;
+
+	/**
+	 * Method to enter value for Default Item ID.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterDefaultItemIDMediationProcessor(String ItemId) throws IOException {
+		JavaScriptExec.sleep();
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		log.info("enter value for Default Item ID.");
+		Assert.assertTrue(enterDefaultItemId.isDisplayed());
+		enterDefaultItemId.sendKeys(ItemId);
+	}
+
+	public String fetchDefaultItemID() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		driver.findElement(By.xpath("//*[@id='menu.link.products']/a")).click();
+		driver.findElement(By.xpath("//a[@class='submit show']//*[text()='Show All']")).click();
+		JavaScriptExec.sleep();
+
+		String ItemName = (BasePage.getCellData(xlsxName, sheetName, 10, 0));
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ItemName + "']")).click();
+		JavaScriptExec.sleep();
+		String ItemId = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[1]/tbody/tr[1]/td[2]"))
+				.getText();
+		System.out.println(ItemId);
+		log.info("Item ID." + ItemId);
+		return ItemId;
 	}
 
 }

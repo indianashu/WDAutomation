@@ -27,12 +27,11 @@
 		<classes>
 			<class name="specificPricing.CreateRateCardTest" />
 			<class name="specificPricing.CreatePricingTest" />
-			<class name="specificPricing.CreateCategory1Test" />
-			<class name="specificPricing.CreateCustomer1Test" />
-			<class name="specificPricing.PluginConfigurationTest" />
+			<class name="specificPricing.CreateProductAndCategoryTest" />
+			<class name="specificPricing.CreateCustomerTest" />
 			<class name="specificPricing.MediationConfigurationTest" />
-			<class name="specificPricing.CreateTestScenario1Test" />
-			<class name="specificPricing.CreateTestScenario2Test" />
+			<class name="specificPricing.ProductPriceTest" />
+			<class name="specificPricing.PlanPricingTest" />
 			<class name="specificPricing.CreateTestScenario3Test" />
 		</classes>
 

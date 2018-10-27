@@ -1,7 +1,7 @@
 package specificPricing;
 
 import baseClassPackage.BaseClasses;
-import productDependency.CreateOrderPage;
+import specificPricing.SpecificPricingPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -9,7 +9,7 @@ import utilPackages.PropertyValExtractors;
 
 public class CustomerSpecificPricingTest {
 	
-	CreateTestScenario3Page createOrderPage;
+	SpecificPricingPage specificPricingPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -19,35 +19,35 @@ public class CustomerSpecificPricingTest {
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url1");
 		driver.get(url);
-		createOrderPage = CreateTestScenario3Page.getPage(driver, CreateTestScenario3Page.class);
+		specificPricingPage = SpecificPricingPage.getPage(driver, SpecificPricingPage.class);
 	}
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Order")
 	public void userSignin() throws Exception {
 
-		/*createOrderPage.enterLoginID();
-		createOrderPage.enterPassword();
-		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();*/
+		/*specificPricingPage.enterLoginID();
+		specificPricingPage.enterPassword();
+		specificPricingPage.selectCompany();
+		specificPricingPage.clickLoginButton();*/
 		
-		createOrderPage.clickCustomerTab();
-		createOrderPage.selectCustomer();
-		createOrderPage.clickCustomerInspectIcon();
+		specificPricingPage.clickCustomerTab();
+		specificPricingPage.selectCustomer(2);
+		specificPricingPage.clickCustomerInspectIcon();
 		
-		createOrderPage.enterPlanProduct();
-    	createOrderPage.enterPricing();
-    	createOrderPage.clickOnAddPrice();
-    	createOrderPage.clickSaveChangesButton();
-        createOrderPage.verifyConfirmationMsg();
+		specificPricingPage.enterPlanProduct();
+    	specificPricingPage.enterPricing();
+    	specificPricingPage.clickOnAddPrice();
+    	specificPricingPage.clickSaveChangesButton();
+        specificPricingPage.verifyConfirmationMsg();
         
-        createOrderPage.clickMediation();
-		createOrderPage.uploadMediationCSVFile();
-		createOrderPage.clickTriggerConfigButton();
+        specificPricingPage.clickMediation();
+		specificPricingPage.uploadMediationCSVFile();
+		specificPricingPage.clickTriggerConfigButton();
 		
-		createOrderPage.clickMediationsTab();
-		createOrderPage.verifyNumberOrders();
-    	createOrderPage.clickMediationName();
-    	createOrderPage.clickDoneBillableViewLink();
-    	createOrderPage.clickOrdersTab();
+		specificPricingPage.clickMediationsTab();
+		specificPricingPage.verifyNumberOrders();
+    	specificPricingPage.clickMediationName();
+    	specificPricingPage.clickDoneBillableViewLink();
+    	specificPricingPage.clickOrdersTab();
 	}
 
 }

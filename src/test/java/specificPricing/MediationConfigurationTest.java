@@ -26,10 +26,30 @@ public class MediationConfigurationTest {
         @Test(groups={"Specific Pricing Feature"},description="AddCategory")
         public void userSignin() throws IOException{
 
-        	mediationPage.enterLoginID();
+        	/*mediationPage.enterLoginID();
         	mediationPage.enterPassword();
         	mediationPage.selectCompany();
-        	mediationPage.clickLoginButton();
+        	mediationPage.clickLoginButton();*/
+        	
+        	mediationPage.clickPluginsLink();
+        	mediationPage.clickMediationReader();
+        	mediationPage.clickAddNewButton();
+        	mediationPage.selectReaderType(0);
+        	mediationPage.selectFileFormat();
+        	mediationPage.enterSufix();
+        	mediationPage.enterDateFormat();
+        	mediationPage.enterSeparator();
+        	mediationPage.clickSavePluginButton();
+        	mediationPage.verifyConfirmationMsg();
+        	
+        	String ItemId = mediationPage.fetchDefaultItemID();
+        	mediationPage.clickPluginsLink();
+        	mediationPage.clickMediationProcessor();
+        	mediationPage.clickAddNewButton();
+        	mediationPage.selectReaderType(1);
+        	mediationPage.enterDefaultItemIDMediationProcessor(ItemId);
+        	mediationPage.clickSavePluginButton();
+        	mediationPage.verifyConfirmationMsg();
         	
         	mediationPage.clickMediationLink();
         	mediationPage.clickAddNewButton();

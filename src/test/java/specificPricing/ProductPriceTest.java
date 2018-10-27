@@ -9,7 +9,7 @@ import utilPackages.PropertyValExtractors;
 
 public class ProductPriceTest {
 
-	SpecificPricingPage createOrderPage;
+	SpecificPricingPage specificPricingPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -19,28 +19,28 @@ public class ProductPriceTest {
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url1");
 		driver.get(url);
-		createOrderPage = SpecificPricingPage.getPage(driver, SpecificPricingPage.class);
+		specificPricingPage = SpecificPricingPage.getPage(driver, SpecificPricingPage.class);
 	}
 
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Order")
 	public void userSignin() throws Exception {
 
-		/*createOrderPage.enterLoginID();
-		createOrderPage.enterPassword();
-		createOrderPage.selectCompany();
-		createOrderPage.clickLoginButton();*/
+		/*specificPricingPage.enterLoginID();
+		specificPricingPage.enterPassword();
+		specificPricingPage.selectCompany();
+		specificPricingPage.clickLoginButton();*/
 
-		createOrderPage.clickCustomerTab();
-		createOrderPage.selectCustomer();
-		createOrderPage.clickCreateOrder();
-		createOrderPage.selectPeriod();
-		createOrderPage.selectOrderType();
+		specificPricingPage.clickCustomerTab();
+		specificPricingPage.selectCustomer(0);
+		specificPricingPage.clickCreateOrder();
+		specificPricingPage.selectPeriod();
+		specificPricingPage.selectOrderType();
 		
-		createOrderPage.clickProductsSubTab();
-		createOrderPage.selectProduct();
-		createOrderPage.clickUpdateButton();
-		createOrderPage.clickSaveChangesButton();
+		specificPricingPage.clickProductsSubTab();
+		specificPricingPage.selectProduct(0);
+		specificPricingPage.clickUpdateButton();
+		specificPricingPage.clickSaveChangesButton();
 		
-		createOrderPage.verifyAmount();
+		specificPricingPage.verifyAmount();
 	}
 }
