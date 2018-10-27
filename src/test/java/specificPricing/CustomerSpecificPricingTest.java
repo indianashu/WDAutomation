@@ -32,20 +32,21 @@ public class CustomerSpecificPricingTest {
 		specificPricingPage.clickCustomerTab();
 		specificPricingPage.selectCustomer(2);
 		specificPricingPage.clickCustomerInspectIcon();
-		
+		specificPricingPage.navigateBottom();
 		specificPricingPage.clickPlanComponentPricesSection();
 		
 		specificPricingPage.enterPlanProduct();
     	specificPricingPage.enterPricing();
-    	specificPricingPage.clickOnAddPrice();
+    	specificPricingPage.clickAddPrice();
     	specificPricingPage.clickSaveChangesButton();
         specificPricingPage.verifyConfirmationMsg();
         
         specificPricingPage.clickMediationLink();
 		specificPricingPage.selectMediation();
-		specificPricingPage.uploadMediationCSVFile();
+		String csvName = "MediationTestPricing.csv";
+		specificPricingPage.uploadMediationCSVFile(csvName);
 		specificPricingPage.clickTriggerConfigButton();
-		
+		specificPricingPage.verifyConfirmationMsg();
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
@@ -53,6 +54,7 @@ public class CustomerSpecificPricingTest {
     	specificPricingPage.clickOrder();
     	specificPricingPage.navigateBottom();
     	specificPricingPage.clickViewEvents();
+    	specificPricingPage.verifyCustomerPricingData();
 	}
 
 }

@@ -36,11 +36,16 @@ public class CreateRateCardTest {
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
+		//@TODO Verify confirmation Message that rateCard is created or not
+		//@TODO Verify RaTEcARD Name IS CORRECT or not
+		
 		ratecardPage.clickAddNewButton();
 		ratecardPage.enterRateCardName(1);
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
+		//@TODO Verify confirmation Message that rateCard is created or not
+		//@TODO Verify RaTEcARD Name IS CORRECT or not
 		
 }
 }

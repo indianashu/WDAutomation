@@ -42,7 +42,8 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
-		
+		//@TODO Verify confirmation Message that PRICING is created or not
+				//@TODO Verify PRICING Name IS CORRECT or not
 		pricingPage.clickPricingTab();
 		pricingPage.clickAddNewButton();
 		pricingPage.enterPricingName(1);
@@ -53,8 +54,7 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
-		
-		
-		
+		//@TODO Verify confirmation Message that PRICING is created or not
+		//@TODO Verify PRICING Name IS CORRECT or not	
 	}
 	}

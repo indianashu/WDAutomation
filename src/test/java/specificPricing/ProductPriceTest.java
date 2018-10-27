@@ -40,7 +40,8 @@ public class ProductPriceTest {
 		specificPricingPage.selectProduct(0);
 		specificPricingPage.clickUpdateButton();
 		specificPricingPage.clickSaveChangesButton();
-		
+		specificPricingPage.verifyConfirmationMsg();
+		//@TODO Verify Customer Name of the Order that order is created for the correct customer or not
 		specificPricingPage.verifyAmount();
 	}
 }

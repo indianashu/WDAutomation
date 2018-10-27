@@ -43,8 +43,10 @@ public class PlanPricingTest {
 		
 		specificPricingPage.clickMediationLink();
 		specificPricingPage.selectMediation();
-		specificPricingPage.uploadMediationCSVFile();
+		String csvName = "MediationPlanPricing.csv";
+		specificPricingPage.uploadMediationCSVFile(csvName);
 		specificPricingPage.clickTriggerConfigButton();
+		specificPricingPage.verifyConfirmationMsg();
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
@@ -52,7 +54,6 @@ public class PlanPricingTest {
     	specificPricingPage.clickOrder();
     	specificPricingPage.navigateBottom();
     	specificPricingPage.clickViewEvents();
-    	
-    	
+    	specificPricingPage.verifyPlanPricingData();
 	}
 }

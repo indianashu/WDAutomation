@@ -256,10 +256,10 @@ public class SpecificPricingPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void uploadMediationCSVFile() throws IOException {
+	public void uploadMediationCSVFile(String filename) throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("upload Mediation csv file");
-		uploadMediationCSVFile.sendKeys(System.getProperty("user.dir") + "/MediationPlanPricing.csv");
+		uploadMediationCSVFile.sendKeys(System.getProperty("user.dir") + "/filename");
 		JavaScriptExec.sleep();
 	}
 	
@@ -317,15 +317,6 @@ public class SpecificPricingPage extends BasePage {
 		}
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test
-	// Mediation 2.0']")
-	private WebElement clickMediationName;
-
-	/**
-	 * Method to click on Mediation Created.
-	 * 
-	 * @throws IOException
-	 */
 	public void clickMediationName() throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("click on Mediation name");
@@ -408,22 +399,91 @@ public class SpecificPricingPage extends BasePage {
 		clickPlanComponentPricesSection.click();
 	}
 	
-	@FindBy(how = How.XPATH, using = "//a[@class='btn-open']//*[text()='Plan Component Prices']")
-	private WebElement enterProduct;
+	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']")
+	private WebElement enterPricing;
 
 	/**
-	 * Method to click on Mediations Tab.
+	 * Method to select Pricing.
 	 * 
 	 * @throws IOException
 	 */
-	public void enterProduct() throws IOException {
-		SpecificPricingPage sp = new SpecificPricingPage(driver);
-		log.info("click on Mediations Tabs");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterProduct.isDisplayed());
-		enterProduct.click();
+	public void enterPricing() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		Select se = new Select(enterPricing);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 	}
 	
+	@FindBy(how = How.XPATH, using = "//*[@id='confPricingProduct']")
+	private WebElement enterPlanProduct;
+
+	/**
+	 * Method to select Plan Product.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterPlanProduct() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		Select se = new Select(enterPlanProduct);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 6, 0));
+	}
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	private WebElement verifyConfirmationMsg;
+
+	/**
+	 * Method to verify Account Type is created Successfully.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyConfirmationMsg() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		JavaScriptExec.sleep();
+		log.info("Verifying if Account Type is created Successfully or not");
+		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
+	}
+	
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
+	private WebElement clickAddPrice;
+
+	/**
+	 * Method to click on Add Price Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickAddPrice() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("Click on Save Changes Button");
+		Assert.assertTrue(clickAddPrice.isDisplayed());
+		JavaScriptExec.sleep();
+		clickAddPrice.click();
+	}
+	
+	
+	public void verifyCustomerPricingData() throws IOException {
+		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[4]/em[2]/strong")).getText();
+		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 9, 0);
+		Assert.assertEquals(actualTotal, expectedTotal);
+		for() {
+			//@TODO verify quantity ,rate and amount, Expect values are coming from the UI and 
+			//actual values is taken from the sheet(Please add the respected values from the sheet)
+		String expectedQuantity = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[1]/td[5]/strong")).getText();
+		String actualQuantity = "";
+		Assert.assertEquals(actualQuantity, expectedQuantity);
+		}
+	}
+	
+	public void verifyPlanPricingData() throws IOException {
+		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[4]/em[2]/strong")).getText();
+		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 10, 0);
+		Assert.assertEquals(actualTotal, expectedTotal);
+		for() {
+			//@TODO verify quantity ,rate and amount, Expect values are coming from the UI and 
+			//actual values is taken from the sheet(Please add the respected values from the sheet)
+		String expectedQuantity = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[1]/td[5]/strong")).getText();
+		String actualQuantity = "";
+		}
+	}
 	
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);

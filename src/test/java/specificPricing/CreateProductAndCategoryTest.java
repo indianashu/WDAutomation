@@ -38,6 +38,7 @@ public class CreateProductAndCategoryTest {
         	categoryPage.selectEntity();
         	categoryPage.clickSaveChangesButton();
         	categoryPage.verifyConfirmationMsg();
+			//@TODO Verify Category Name IS CORRECT or not
         	
         	categoryPage.clickProductsTab();
         	categoryPage.selectCategoryName(0);
@@ -50,7 +51,8 @@ public class CreateProductAndCategoryTest {
         	categoryPage.clickAddPriceButton();
         	categoryPage.clickSaveChangesButton();
             categoryPage.verifyConfirmationMsg();
-            
+			//@TODO Verify Product Name IS CORRECT or not
+
             categoryPage.clickProductsTab();
         	categoryPage.clickAddCategoryButton();
         	categoryPage.enterCategoryType();
@@ -58,6 +60,7 @@ public class CreateProductAndCategoryTest {
         	categoryPage.selectEntity();
         	categoryPage.clickSaveChangesButton();
         	categoryPage.verifyConfirmationMsg();
+        	//@TODO Verify Category Name IS CORRECT or not
         	
         	categoryPage.clickProductsTab();
         	categoryPage.selectCategoryName(1);
@@ -73,6 +76,8 @@ public class CreateProductAndCategoryTest {
         	categoryPage.clickOnAddPrice();
         	categoryPage.clickSaveChangesButton();
             categoryPage.verifyConfirmationMsg();
+          //@TODO Verify Product Name IS CORRECT or not
+            //@TOTO Verify COMPONENT PRICES Section values correct or not
 
     }
 }

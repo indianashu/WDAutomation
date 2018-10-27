@@ -142,6 +142,8 @@ public class CreateCustomerPage extends BasePage {
 			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 					"Assert Failed as its unable to search text in Logged in Page");
 			JavaScriptExec.sleep();
+			
+			//@TODO Verify Customer Name IS CORRECT or not, print on the console as well
 		}
 
 		}
