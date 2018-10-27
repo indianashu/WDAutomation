@@ -39,17 +39,20 @@ public class PlanPricingTest {
 		specificPricingPage.clickProductsSubTab();
 		specificPricingPage.selectProduct(1);
 		specificPricingPage.clickUpdateButton();
-		specificPricingPage.clickSaveChangesButton();
+		specificPricingPage.clickSaveChangesButton();                     
 		
 		specificPricingPage.clickMediationLink();
-		specificPricingPage.clickMediation();
+		specificPricingPage.selectMediation();
 		specificPricingPage.uploadMediationCSVFile();
 		specificPricingPage.clickTriggerConfigButton();
-		
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
-    	specificPricingPage.clickDoneBillableViewLink();
-    	specificPricingPage.clickOrdersTab();
+    	specificPricingPage.clickShowOrder();
+    	specificPricingPage.clickOrder();
+    	specificPricingPage.navigateBottom();
+    	specificPricingPage.clickViewEvents();
+    	
+    	
 	}
 }

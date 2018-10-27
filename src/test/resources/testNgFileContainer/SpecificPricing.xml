@@ -32,7 +32,7 @@
 			<class name="specificPricing.MediationConfigurationTest" />
 			<class name="specificPricing.ProductPriceTest" />
 			<class name="specificPricing.PlanPricingTest" />
-			<class name="specificPricing.CreateTestScenario3Test" />
+			<class name="specificPricing.CustomerSpecificPricingTest" />
 		</classes>
 
 	</test>

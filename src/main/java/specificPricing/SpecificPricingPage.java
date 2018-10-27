@@ -12,6 +12,7 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+
 import org.openqa.selenium.support.ui.Select;
 
 public class SpecificPricingPage extends BasePage {
@@ -163,8 +164,8 @@ public class SpecificPricingPage extends BasePage {
 	public void clickProductsSubTab() throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("Click Products Tab");
-		Assert.assertTrue(clickProductsSubTab.isDisplayed());
-		clickProductsSubTab.click();
+		Assert.assertTrue(clickMediationLink.isDisplayed());
+		clickMediationLink.click();
 		JavaScriptExec.sleep();
 	}
 	
@@ -221,6 +222,208 @@ public class SpecificPricingPage extends BasePage {
 		String amount= verifyAmount.getText();
 				Assert.assertEquals(amount,"US$10.00");
 	}
+	
+	@FindBy(how = How.XPATH, using = "//a[@href='/mediationConfig/list']")
+	private WebElement clickMediationLink;
+
+	/**
+	 * Method to Click Products tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickMediationLink() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("Click Products Tab");
+		Assert.assertTrue(clickMediationLink.isDisplayed());
+		clickMediationLink.click();
+		JavaScriptExec.sleep();
+	}
+	
+	public void selectMediation() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("Click on Mediation");
+		String Mediation = BasePage.getCellData(xlsxName, sheetName, 8, 0);
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + Mediation + "']")).click();
+		JavaScriptExec.sleep();
+
+	}
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='cdrs']")
+	private WebElement uploadMediationCSVFile;
+
+	/**
+	 * Method to click on trigger this config button.
+	 * 
+	 * @throws IOException
+	 */
+	public void uploadMediationCSVFile() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("upload Mediation csv file");
+		uploadMediationCSVFile.sendKeys(System.getProperty("user.dir") + "/MediationPlanPricing.csv");
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Trigger this Config']")
+	private WebElement clickTriggerConfigButton;
+
+	/**
+	 * Method to click on trigger this config button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickTriggerConfigButton() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on trigger this config button");
+		Assert.assertTrue(clickTriggerConfigButton.isDisplayed());
+		clickTriggerConfigButton.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.mediation']/a")
+	private WebElement clickMediationsTab;
+
+	/**
+	 * Method to click on Mediations Tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickMediationsTab() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediations Tabs");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
+		clickCustomerInspectIcon.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//table/tbody/tr[1]/td[6]")
+	
+	private WebElement verifyNumberOrders;
+
+	/**
+	 * Method to Verify Orders created are greater than Zero.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyNumberOrders() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("Verify Orders created are greater than Zero.");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(verifyNumberOrders.isDisplayed());
+		String OrderNumber = driver.findElement(By.xpath("//table/tbody/tr[1]/td[6]")).getText();
+		int OrderValue = Integer.parseInt(OrderNumber);
+		if (OrderValue > 0) {
+			Assert.assertTrue(true, "Number Orders created are greater than Zero.");
+		} else {
+			Assert.assertFalse(false, "Number Orders created are Zero.");
+		}
+	}
+
+	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test
+	// Mediation 2.0']")
+	private WebElement clickMediationName;
+
+	/**
+	 * Method to click on Mediation Created.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickMediationName() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediation name");
+		JavaScriptExec.sleep();
+		String MediationName = BasePage.getCellData(xlsxName, sheetName, 8, 0);
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + MediationName + "']")).click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//a[@class='submit apply']//*[text()='Show Orders']")
+	private WebElement clickShowOrder;
+
+	/**
+	 * Method to click on Mediations Tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickShowOrder() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediations Tabs");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
+		clickCustomerInspectIcon.click();
+	}
+	
+	public void clickOrder() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediations Tabs");
+		JavaScriptExec.sleep();
+		String ordername = BasePage.getCellData(xlsxName, sheetName,3,1 );
+		WebElement clickOrder= driver.findElement(By.xpath("//a[@class='double cell']//*[text()='" + ordername + "']"));
+		Assert.assertTrue(clickOrder.isDisplayed());
+		clickOrder.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//a[@class='submit show']//*[text()='View Events']")
+	private WebElement clickViewEvents;
+
+	/**
+	 * Method to click on Mediations Tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickViewEvents() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediations Tabs");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
+		clickCustomerInspectIcon.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//img[@alt='inspect customer']")
+	private WebElement clickCustomerInspectIcon;
+
+	/**
+	 * Method to click on Mediations Tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickCustomerInspectIcon() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediations Tabs");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
+		clickCustomerInspectIcon.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//a[@class='btn-open']//*[text()='Plan Component Prices']")
+	private WebElement clickPlanComponentPricesSection;
+
+	/**
+	 * Method to click on Mediations Tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickPlanComponentPricesSection() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediations Tabs");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickPlanComponentPricesSection.isDisplayed());
+		clickPlanComponentPricesSection.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//a[@class='btn-open']//*[text()='Plan Component Prices']")
+	private WebElement enterProduct;
+
+	/**
+	 * Method to click on Mediations Tab.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterProduct() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("click on Mediations Tabs");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(enterProduct.isDisplayed());
+		enterProduct.click();
+	}
+	
 	
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);

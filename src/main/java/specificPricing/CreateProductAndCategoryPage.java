@@ -168,7 +168,7 @@ public class CreateProductAndCategoryPage extends BasePage {
 		 */
 		public void selectEntity() throws IOException {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
-			Select se = new Select(selectCompany);
+			Select se = new Select(selectEntity);
 			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 		}
 

@@ -33,21 +33,26 @@ public class CustomerSpecificPricingTest {
 		specificPricingPage.selectCustomer(2);
 		specificPricingPage.clickCustomerInspectIcon();
 		
+		specificPricingPage.clickPlanComponentPricesSection();
+		
 		specificPricingPage.enterPlanProduct();
     	specificPricingPage.enterPricing();
     	specificPricingPage.clickOnAddPrice();
     	specificPricingPage.clickSaveChangesButton();
         specificPricingPage.verifyConfirmationMsg();
         
-        specificPricingPage.clickMediation();
+        specificPricingPage.clickMediationLink();
+		specificPricingPage.selectMediation();
 		specificPricingPage.uploadMediationCSVFile();
 		specificPricingPage.clickTriggerConfigButton();
 		
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
-    	specificPricingPage.clickDoneBillableViewLink();
-    	specificPricingPage.clickOrdersTab();
+    	specificPricingPage.clickShowOrder();
+    	specificPricingPage.clickOrder();
+    	specificPricingPage.navigateBottom();
+    	specificPricingPage.clickViewEvents();
 	}
 
 }
