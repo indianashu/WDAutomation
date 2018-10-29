@@ -51,8 +51,7 @@ public class PlanPricingTest {
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
     	specificPricingPage.clickShowOrder();
-    	specificPricingPage.clickOrder();
-    	specificPricingPage.navigateBottom();
+    	specificPricingPage.clickOrder(1);
     	specificPricingPage.clickViewEvents();
     	specificPricingPage.verifyPlanPricingData();
 	}

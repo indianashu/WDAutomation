@@ -16,7 +16,7 @@ import utilPackages.PropertyValExtractors;
 import org.openqa.selenium.support.ui.Select;
 
 public class SpecificPricingPage extends BasePage {
-	
+
 	public SpecificPricingPage(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -83,7 +83,7 @@ public class SpecificPricingPage extends BasePage {
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.customers']/a")
 	private WebElement clickCustomerTab;
 
@@ -107,7 +107,7 @@ public class SpecificPricingPage extends BasePage {
 		navigateBottom();
 		actions.moveToElement(selectCustomer).click().perform();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
 	private WebElement clickCreateOrder;
 
@@ -124,7 +124,7 @@ public class SpecificPricingPage extends BasePage {
 		clickCreateOrder.click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//select[@name='period']")
 	private WebElement selectPeriod;
 
@@ -138,7 +138,7 @@ public class SpecificPricingPage extends BasePage {
 		Select se = new Select(selectPeriod);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//select[@name='billingTypeId']")
 	private WebElement selectOrderType;
 
@@ -152,7 +152,7 @@ public class SpecificPricingPage extends BasePage {
 		Select se = new Select(selectOrderType);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='ui-id-8']")
 	private WebElement clickProductsSubTab;
 
@@ -168,7 +168,7 @@ public class SpecificPricingPage extends BasePage {
 		clickMediationLink.click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	public void selectProduct(int column) throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		JavaScriptExec.sleep();
@@ -178,6 +178,7 @@ public class SpecificPricingPage extends BasePage {
 		actions.moveToElement(selectProduct).click().perform();
 		JavaScriptExec.sleep();
 	}
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Update']")
 	private WebElement clickUpdateButton;
 
@@ -193,7 +194,7 @@ public class SpecificPricingPage extends BasePage {
 		clickUpdateButton.click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
 	private WebElement clickSaveChangesButton;
 
@@ -209,7 +210,7 @@ public class SpecificPricingPage extends BasePage {
 		JavaScriptExec.sleep();
 		clickSaveChangesButton.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr/td[5]")
 	private WebElement verifyAmount;
 
@@ -218,11 +219,11 @@ public class SpecificPricingPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void verifyAmount(){
-		String amount= verifyAmount.getText();
-				Assert.assertEquals(amount,"US$10.00");
+	public void verifyAmount() {
+		String amount = verifyAmount.getText();
+		Assert.assertEquals(amount, "US$10.00");
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@href='/mediationConfig/list']")
 	private WebElement clickMediationLink;
 
@@ -238,7 +239,7 @@ public class SpecificPricingPage extends BasePage {
 		clickMediationLink.click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	public void selectMediation() throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("Click on Mediation");
@@ -247,7 +248,7 @@ public class SpecificPricingPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//input[@name='cdrs']")
 	private WebElement uploadMediationCSVFile;
 
@@ -262,7 +263,7 @@ public class SpecificPricingPage extends BasePage {
 		uploadMediationCSVFile.sendKeys(System.getProperty("user.dir") + "/filename");
 		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Trigger this Config']")
 	private WebElement clickTriggerConfigButton;
 
@@ -277,7 +278,7 @@ public class SpecificPricingPage extends BasePage {
 		Assert.assertTrue(clickTriggerConfigButton.isDisplayed());
 		clickTriggerConfigButton.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.mediation']/a")
 	private WebElement clickMediationsTab;
 
@@ -290,12 +291,12 @@ public class SpecificPricingPage extends BasePage {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("click on Mediations Tabs");
 		JavaScriptExec.sleep();
-		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
-		clickCustomerInspectIcon.click();
+		Assert.assertTrue(clickMediationsTab.isDisplayed());
+		clickMediationsTab.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//table/tbody/tr[1]/td[6]")
-	
+
 	private WebElement verifyNumberOrders;
 
 	/**
@@ -324,7 +325,7 @@ public class SpecificPricingPage extends BasePage {
 		String MediationName = BasePage.getCellData(xlsxName, sheetName, 8, 0);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + MediationName + "']")).click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit apply']//*[text()='Show Orders']")
 	private WebElement clickShowOrder;
 
@@ -337,20 +338,22 @@ public class SpecificPricingPage extends BasePage {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("click on Mediations Tabs");
 		JavaScriptExec.sleep();
-		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
-		clickCustomerInspectIcon.click();
+		Assert.assertTrue(clickShowOrder.isDisplayed());
+		clickShowOrder.click();
 	}
-	
-	public void clickOrder() throws IOException {
+
+	public void clickOrder(int column) throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("click on Mediations Tabs");
 		JavaScriptExec.sleep();
-		String ordername = BasePage.getCellData(xlsxName, sheetName,3,1 );
-		WebElement clickOrder= driver.findElement(By.xpath("//a[@class='double cell']//*[text()='" + ordername + "']"));
+		String ordername = BasePage.getCellData(xlsxName, sheetName, 3, column);
+		WebElement clickOrder = driver
+				.findElement(By.xpath("//a[@class='double cell']//*[text()='" + ordername + "']"));
 		Assert.assertTrue(clickOrder.isDisplayed());
 		clickOrder.click();
+		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit show']//*[text()='View Events']")
 	private WebElement clickViewEvents;
 
@@ -359,14 +362,19 @@ public class SpecificPricingPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
+
 	public void clickViewEvents() throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("click on Mediations Tabs");
+		p.getPropertyFile("test", "configuration.properties");
+		String orderId = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[1]/strong/em")).getText();
+		System.out.println(orderId);
+		String url = p.getVal("url2") + "/mediation/order/" + orderId;
+		System.out.println(url);
+		driver.get(url);
 		JavaScriptExec.sleep();
-		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
-		clickCustomerInspectIcon.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//img[@alt='inspect customer']")
 	private WebElement clickCustomerInspectIcon;
 
@@ -382,7 +390,7 @@ public class SpecificPricingPage extends BasePage {
 		Assert.assertTrue(clickCustomerInspectIcon.isDisplayed());
 		clickCustomerInspectIcon.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='btn-open']//*[text()='Plan Component Prices']")
 	private WebElement clickPlanComponentPricesSection;
 
@@ -398,7 +406,7 @@ public class SpecificPricingPage extends BasePage {
 		Assert.assertTrue(clickPlanComponentPricesSection.isDisplayed());
 		clickPlanComponentPricesSection.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']")
 	private WebElement enterPricing;
 
@@ -412,7 +420,7 @@ public class SpecificPricingPage extends BasePage {
 		Select se = new Select(enterPricing);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='confPricingProduct']")
 	private WebElement enterPlanProduct;
 
@@ -426,7 +434,7 @@ public class SpecificPricingPage extends BasePage {
 		Select se = new Select(enterPlanProduct);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
@@ -442,7 +450,7 @@ public class SpecificPricingPage extends BasePage {
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
 	private WebElement clickAddPrice;
 
@@ -458,84 +466,63 @@ public class SpecificPricingPage extends BasePage {
 		JavaScriptExec.sleep();
 		clickAddPrice.click();
 	}
-	
-	
+
 	public void verifyPlanPricingData() throws IOException {
 		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[4]/em[2]/strong")).getText();
 		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 9, 0);
 		Assert.assertEquals(actualTotal, expectedTotal);
-		System.out.println(actualTotal);
-		
-		String beforexpathforquantity="//*[@id='main']/div[5]/table/tbody/tr[";
-		String afterxpathforquantity="]/td[5]/strong";
-		
-		for(int i=1;i<6;i++) {
-			String actualxpath = beforexpathforquantity+i+afterxpathforquantity;
-			String expectedQuantity = driver.findElement(By.xpath("actualxpath")).getText();
+		System.out.println("Expected Total Amount of the TestCustomer2="+expectedTotal);
+
+		for (int i = 1; i < 6; i++) {
+			String expectedQuantity = driver
+					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[5]/strong")).getText();
 			String actualQuantity = "BasePage.getCellData(xlsxName, sheetName, 10, i)";
 			Assert.assertEquals(actualQuantity, expectedQuantity);
-			System.out.println(actualQuantity);
+			System.out.println("Expected Quantity of the TestCustomer2="+expectedQuantity);
+
+			String expectedRate = driver
+					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[7]/strong")).getText();
+			String actualRate = "BasePage.getCellData(xlsxName, sheetName, 11, i)";
+			Assert.assertEquals(actualRate, expectedRate);
+			System.out.println("Expected Rate of the TestCustomer2="+expectedRate);
+
+			String expectedAmount = driver
+					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[8]/strong")).getText();
+			String actualAmount = "BasePage.getCellData(xlsxName, sheetName, 12, i)";
+			Assert.assertEquals(actualAmount, expectedAmount);
+			System.out.println("Expected Amount of the TestCustomer2="+expectedAmount);
 		}
-		
-		String beforexpathforrate="//*[@id='main']/div[5]/table/tbody/tr[";
-		String afterxpathforrate="]/td[7]/strong";
-		
-		for(int j=1;j<6;j++){
-			String actualxpathforrate = beforexpathforrate+j+afterxpathforrate;
-			String expectedRate=driver.findElement(By.xpath("actualxpathforrate")).getText();
-			String actualRate=  "BasePage.getCellData(xlsxName, sheetName, 11, j)";
-			System.out.println(actualRate);
-		}
-		
-		String beforexpathforamount="//*[@id='main']/div[5]/table/tbody/tr[";
-		String afterxpathforamount="]/td[8]/strong";
-		
-		for(int k=1;k<6;k++){
-			String actualxpathforamount =beforexpathforamount+k+afterxpathforamount;
-			String expectedamount=driver.findElement(By.xpath("actualxpathforamount")).getText();
-			String actualamount= "BasePage.getCellData(xlsxName, sheetName, 12, k)";
-			System.out.println(actualamount);
-		}
+
 	}
-	
+
 	public void verifyCustomerPricingData() throws IOException {
-		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[16]/td[8]/strong")).getText();
-		String actualTotal   = BasePage.getCellData(xlsxName, sheetName, 13, 0);
+		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[16]/td[8]/strong"))
+				.getText();
+		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 13, 0);
 		Assert.assertEquals(actualTotal, expectedTotal);
-		System.out.println(actualTotal);
-		
-		String beforexpathforquantity="//*[@id='main']/div[5]/table/tbody/tr[";
-		String afterxpathforquantity="]/td[5]/strong";
-		
-		for(int i=1;i<6;i++) {
-			String actualxpath = beforexpathforquantity+i+afterxpathforquantity;
-			String expectedQuantity = driver.findElement(By.xpath("actualxpath")).getText();
+		System.out.println("Expected Total Amount of the TestCustomer3="+expectedTotal);
+
+		for (int i = 1; i < 6; i++) {
+			String expectedQuantity = driver
+					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[5]/strong")).getText();
 			String actualQuantity = "BasePage.getCellData(xlsxName, sheetName, 14, i)";
 			Assert.assertEquals(actualQuantity, expectedQuantity);
-			System.out.println(actualQuantity);
-		}
-		
-		String beforexpathforrate="//*[@id='main']/div[5]/table/tbody/tr[";
-		String afterxpathforrate="]/td[7]/strong";
-		
-		for(int j=1;j<6;j++){
-			String actualxpathforrate = beforexpathforrate+j+afterxpathforrate;
-			String expectedRate=driver.findElement(By.xpath("actualxpathforrate")).getText();
-			String actualRate=  "BasePage.getCellData(xlsxName, sheetName, 15, j)";
-			System.out.println(actualRate);
-		}
-		
-		String beforexpathforamount="//*[@id='main']/div[5]/table/tbody/tr[";
-		String afterxpathforamount="]/td[8]/strong";
-		
-		for(int k=1;k<6;k++){
-			String actualxpathforamount =beforexpathforamount+k+afterxpathforamount;
-			String expectedamount=driver.findElement(By.xpath("actualxpathforamount")).getText();
-			String actualamount= "BasePage.getCellData(xlsxName, sheetName, 16, k)";
-			System.out.println(actualamount);
+			System.out.println("Expected Quantity of the TestCustomer3="+expectedQuantity);
+
+			String expectedRate = driver
+					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[7]/strong")).getText();
+			String actualRate = "BasePage.getCellData(xlsxName, sheetName, 15, i)";
+			Assert.assertEquals(actualRate, expectedRate);
+			System.out.println("Expected Rate of the TestCustomer3="+expectedRate);
+
+			String expectedAmount = driver
+					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[8]/strong")).getText();
+			String actualAmount = "BasePage.getCellData(xlsxName, sheetName, 16, i)";
+			Assert.assertEquals(actualAmount, expectedAmount);
+			System.out.println("Expected Amount of the TestCustomer3="+expectedAmount);
 		}
 	}
-	
+
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();

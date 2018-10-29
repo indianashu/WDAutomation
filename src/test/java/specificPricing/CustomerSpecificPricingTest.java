@@ -51,8 +51,7 @@ public class CustomerSpecificPricingTest {
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
     	specificPricingPage.clickShowOrder();
-    	specificPricingPage.clickOrder();
-    	specificPricingPage.navigateBottom();
+    	specificPricingPage.clickOrder(2);
     	specificPricingPage.clickViewEvents();
     	specificPricingPage.verifyCustomerPricingData();
 	}
