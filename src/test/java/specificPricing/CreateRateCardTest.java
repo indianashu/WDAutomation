@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
 public class CreateRateCardTest {
-	
+
 	CreateRateCardPage ratecardPage;
 	WebDriver driver, driver2;
 
@@ -29,7 +29,7 @@ public class CreateRateCardTest {
 		ratecardPage.enterPassword();
 		ratecardPage.selectCompany();
 		ratecardPage.clickLoginButton();
-		
+
 		ratecardPage.clickRateCards();
 		ratecardPage.clickAddNewButton();
 		ratecardPage.enterRateCardName(0);
@@ -37,17 +37,17 @@ public class CreateRateCardTest {
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
-		//@TODO Verify confirmation Message that rateCard is created or not
-		//@TODO Verify RaTEcARD Name IS CORRECT or not
+		ratecardPage.verifyRateCardName(0);
 		
+		//TODO verify the name of CSV
 		ratecardPage.clickAddNewButton();
 		ratecardPage.enterRateCardName(1);
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
-		//@TODO Verify confirmation Message that rateCard is created or not
-		//@TODO Verify RaTEcARD Name IS CORRECT or not
+		ratecardPage.verifyRateCardName(1);
 		
-}
+		//TODO verify the name of CSV
+	}
 }

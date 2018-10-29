@@ -257,5 +257,29 @@ public class CreatePricingPage extends BasePage {
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 	}
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	private WebElement verifyConfirmationMsg;
+
+	/**
+	 * Method to verify Pricing is created Successfully.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyConfirmationMsg() throws IOException {
+		CreatePricingPage sp = new CreatePricingPage(driver);
+		JavaScriptExec.sleep();
+		log.info("Verifying if Pricing is created Successfully or not");
+		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
+	}
+	
+	public void verifyPricingName(int column) throws IOException {
+		String actualPricingName = BasePage.getCellData(xlsxName, sheetName, 5, column);
+		String expectedPricingName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell']"))
+				.getText();
+		System.out.println(expectedPricingName);
+		Assert.assertEquals(actualPricingName, expectedPricingName);
+	}
 }
 

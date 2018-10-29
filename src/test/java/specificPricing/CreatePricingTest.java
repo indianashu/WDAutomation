@@ -26,10 +26,10 @@ public class CreatePricingTest {
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Pricing")
 	public void userSignin() throws Exception {
 		
-		/*pricingPage.enterLoginID();
+		pricingPage.enterLoginID();
 		pricingPage.enterPassword();
 		pricingPage.selectCompany();
-		pricingPage.clickLoginButton();*/
+		pricingPage.clickLoginButton();
 		
 		pricingPage.clickPricingTab();
 		pricingPage.clickAddNewButton();
@@ -42,8 +42,11 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
-		//@TODO Verify confirmation Message that PRICING is created or not
-				//@TODO Verify PRICING Name IS CORRECT or not
+		pricingPage.verifyConfirmationMsg();
+		pricingPage.verifyPricingName(0);
+		
+		
+				//@TODO Verify PRICING Name and Type IS CORRECT or not
 		pricingPage.clickPricingTab();
 		pricingPage.clickAddNewButton();
 		pricingPage.enterPricingName(1);
@@ -54,7 +57,11 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
+		pricingPage.verifyConfirmationMsg();
+		pricingPage.verifyPricingName(1);
+		
+		
 		//@TODO Verify confirmation Message that PRICING is created or not
-		//@TODO Verify PRICING Name IS CORRECT or not	
+		//@TODO Verify PRICING Name and Type IS CORRECT or not	
 	}
 	}

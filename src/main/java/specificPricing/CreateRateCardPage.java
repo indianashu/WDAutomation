@@ -199,23 +199,28 @@ public class CreateRateCardPage extends BasePage {
 			clickSaveChangesButton.click();
 		}
 		
-		@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-		private WebElement verifyConfirmationMsg;
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	private WebElement verifyConfirmationMsg;
 
-		/**
-		 * Method to verify Account Type is created Successfully.
-		 * 
-		 * @throws IOException
-		 */
-		public void verifyConfirmationMsg() throws IOException {
-			MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-			JavaScriptExec.sleep();
-			log.info("Verifying if Rate Card is created Successfully or not");
-			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-					"Assert Failed as its unable to search text in Logged in Page");
-		}
-		public void verifyForCorrectRateCardName() throws IOException {
-
-
+	/**
+	 * Method to verify Rate Card is created Successfully.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyConfirmationMsg() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		JavaScriptExec.sleep();
+		log.info("Verifying if Rate Card is created Successfully or not");
+		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
 	}
+
+	public void verifyRateCardName(int column) throws IOException {
+		String actualRateCardName = BasePage.getCellData(xlsxName, sheetName, 3, column);
+		String expectedRateCardName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong"))
+				.getText();
+		System.out.println(expectedRateCardName);
+		Assert.assertEquals(actualRateCardName, expectedRateCardName);
+	}
+}
 
