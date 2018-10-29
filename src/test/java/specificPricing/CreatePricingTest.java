@@ -7,9 +7,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
-
 public class CreatePricingTest {
-	
+
 	CreatePricingPage pricingPage;
 	WebDriver driver, driver2;
 
@@ -25,15 +24,15 @@ public class CreatePricingTest {
 
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Pricing")
 	public void userSignin() throws Exception {
-		
-		pricingPage.enterLoginID();
+
+		/*pricingPage.enterLoginID();
 		pricingPage.enterPassword();
 		pricingPage.selectCompany();
-		pricingPage.clickLoginButton();
-		
+		pricingPage.clickLoginButton();*/
+
 		pricingPage.clickPricingTab();
 		pricingPage.clickAddNewButton();
-		
+
 		pricingPage.enterPricingName(0);
 		pricingPage.enterPricingType();
 		pricingPage.enterRateCard(0);
@@ -43,10 +42,8 @@ public class CreatePricingTest {
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
 		pricingPage.verifyConfirmationMsg();
-		pricingPage.verifyPricingName(0);
-		
-		
-				//@TODO Verify PRICING Name and Type IS CORRECT or not
+		pricingPage.verifyPricingData(0);
+
 		pricingPage.clickPricingTab();
 		pricingPage.clickAddNewButton();
 		pricingPage.enterPricingName(1);
@@ -58,10 +55,7 @@ public class CreatePricingTest {
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
 		pricingPage.verifyConfirmationMsg();
-		pricingPage.verifyPricingName(1);
-		
-		
-		//@TODO Verify confirmation Message that PRICING is created or not
-		//@TODO Verify PRICING Name and Type IS CORRECT or not	
+		pricingPage.verifyPricingData(1);
+
 	}
-	}
+}

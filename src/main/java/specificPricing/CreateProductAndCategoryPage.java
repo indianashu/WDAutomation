@@ -155,7 +155,7 @@ public class CreateProductAndCategoryPage extends BasePage {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Category Name");
 			Assert.assertTrue(enterCategoryType.isDisplayed());
-			enterCategoryType.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7,0));
+			enterCategoryType.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7,1));
 		}
 		
 		@FindBy(how = How.XPATH, using = "//select[@name='entities']")
@@ -365,6 +365,28 @@ public class CreateProductAndCategoryPage extends BasePage {
 			clickOnAddPrice.click();
 			navigateBottom();
 		}
+		
+		public void verifyCategoryData(int column) throws IOException {
+			String actualCategoryName = BasePage.getCellData(xlsxName, sheetName, 3, column);
+			String expectedCategoryName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong")).getText();
+			System.out.println(expectedCategoryName);
+			Assert.assertEquals(actualCategoryName, expectedCategoryName);
+			
+			String actualCategoryType = BasePage.getCellData(xlsxName, sheetName, 7, column);
+			String expectedCategoryType = driver.findElement(By.xpath("//tbody//tr[1]//td[3]//a[@class='cell']/span"))
+					.getText();
+			System.out.println(expectedCategoryType);
+			Assert.assertEquals(actualCategoryType, expectedCategoryType);
+		}
+		
+		public void verifyProductData(int column) throws IOException {
+			String actualProductName = BasePage.getCellData(xlsxName, sheetName, 3, column);
+			String expectedProductName = driver.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
+			System.out.println(expectedProductName);
+			Assert.assertEquals(actualProductName, expectedProductName);
+			
+			
+		}		
 		public void navigateBottom() {
 			JavaScriptExec.scrolltoBottomofPage(driver);
 			JavaScriptExec.sleep();

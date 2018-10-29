@@ -215,12 +215,18 @@ public class CreateRateCardPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	public void verifyRateCardName(int column) throws IOException {
+	public void verifyRateCardData(int column) throws IOException {
 		String actualRateCardName = BasePage.getCellData(xlsxName, sheetName, 3, column);
 		String expectedRateCardName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong"))
 				.getText();
 		System.out.println(expectedRateCardName);
 		Assert.assertEquals(actualRateCardName, expectedRateCardName);
+		
+		String actualRateCardCSV = BasePage.getCellData(xlsxName, sheetName, 9, column);
+		String expectedRateCardCSV = driver.findElement(By.xpath("//tbody//tr[1]//td[2]//a[@class='cell']"))
+				.getText();
+		System.out.println(expectedRateCardCSV);
+		Assert.assertEquals(actualRateCardCSV, expectedRateCardCSV);
 	}
 }
 

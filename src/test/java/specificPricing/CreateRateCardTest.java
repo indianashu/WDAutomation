@@ -37,17 +37,14 @@ public class CreateRateCardTest {
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
-		ratecardPage.verifyRateCardName(0);
+		ratecardPage.verifyRateCardData(0);
 		
-		//TODO verify the name of CSV
 		ratecardPage.clickAddNewButton();
 		ratecardPage.enterRateCardName(1);
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
-		ratecardPage.verifyRateCardName(1);
-		
-		//TODO verify the name of CSV
+		ratecardPage.verifyRateCardData(1);
 	}
 }

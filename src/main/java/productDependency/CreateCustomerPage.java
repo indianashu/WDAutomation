@@ -143,7 +143,12 @@ public class CreateCustomerPage extends BasePage {
 					"Assert Failed as its unable to search text in Logged in Page");
 			JavaScriptExec.sleep();
 			
-			//@TODO Verify Customer Name IS CORRECT or not, print on the console as well
+			String actualCustomerName = BasePage.getCellData(xlsxName, sheetName, 3, i);
+			String expectedCustomerName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong/span"))
+					.getText();
+			System.out.println(expectedCustomerName);
+			Assert.assertEquals(actualCustomerName, expectedCustomerName);
+			
 		}
 
 		}

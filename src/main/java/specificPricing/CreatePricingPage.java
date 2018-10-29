@@ -274,12 +274,17 @@ public class CreatePricingPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 	
-	public void verifyPricingName(int column) throws IOException {
+	public void verifyPricingData(int column) throws IOException {
 		String actualPricingName = BasePage.getCellData(xlsxName, sheetName, 5, column);
-		String expectedPricingName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell']"))
+		String expectedPricingName = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/table/tbody/tr[2]/td[2]"))
 				.getText();
 		System.out.println(expectedPricingName);
 		Assert.assertEquals(actualPricingName, expectedPricingName);
+		
+		String actualPricingType = BasePage.getCellData(xlsxName, sheetName, 6, 0);
+		String expectedPricingType = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/table/tbody/tr[3]/td[2]")).getText();
+		System.out.println(expectedPricingType);
+		Assert.assertEquals(actualPricingType, expectedPricingType);
 	}
 }
 
