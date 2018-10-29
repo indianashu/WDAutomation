@@ -424,5 +424,24 @@ public class MediationConfigurationPage extends BasePage {
 		log.info("Item ID." + ItemId);
 		return ItemId;
 	}
+	
+	public void verifyPlugInData(int column) throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		String actualTypeId = BasePage.getCellData(xlsxName, sheetName, 5, column);
+		String expectedTypeId=driver.findElement(By.xpath("//em[@class='small']")).getText();
+		System.out.println(expectedTypeId);
+		Assert.assertEquals(actualTypeId, expectedTypeId);
+		
+		String expectedProductId=driver.findElement(By.xpath("//td[@class='innerContent'][2]")).getText();
+		String actualProductId=sp.fetchDefaultItemID();
+		System.out.println("Expected Product ID="+expectedProductId);
+		System.out.println("Actual Product ID="+actualProductId);
+		Assert.assertEquals(actualProductId,expectedProductId);
+	}
+	
+	
+		
+		
+	}
+	
 
-}

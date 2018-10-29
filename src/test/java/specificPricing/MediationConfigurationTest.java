@@ -41,6 +41,8 @@ public class MediationConfigurationTest {
         	mediationPage.enterSeparator();
         	mediationPage.clickSavePluginButton();
         	mediationPage.verifyConfirmationMsg();
+        	mediationPage.verifyPlugInData(0);
+        	
         	//@TODO Verify the typeID which is used in the plugin
         	
         	String ItemId = mediationPage.fetchDefaultItemID();
@@ -51,6 +53,9 @@ public class MediationConfigurationTest {
         	mediationPage.enterDefaultItemIDMediationProcessor(ItemId);
         	mediationPage.clickSavePluginButton();
         	mediationPage.verifyConfirmationMsg();
+        	mediationPage.verifyPlugInData(1);
+        	
+        	
         	//@TODO Verify the typeID and Item Id which is used in the plugin
         	
         	mediationPage.clickMediationLink();

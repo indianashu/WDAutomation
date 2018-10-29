@@ -26,10 +26,12 @@ public class CreateProductAndCategoryTest {
 	@Test(groups = { "Specific Pricing Feature" }, description = "AddCategory")
 	public void userSignin() throws IOException {
 
-		/*
-		 * categoryPage.enterLoginID(); categoryPage.enterPassword();
-		 * categoryPage.selectCompany(); categoryPage.clickLoginButton();
-		 */
+		
+		  categoryPage.enterLoginID(); 
+		  categoryPage.enterPassword();
+		  categoryPage.selectCompany(); 
+		  categoryPage.clickLoginButton();
+		 
 
 		categoryPage.clickProductsTab();
 		categoryPage.clickAddCategoryButton();
@@ -44,7 +46,6 @@ public class CreateProductAndCategoryTest {
 		categoryPage.clickAddProductButton();
 		categoryPage.enterEnglishDescription(0);
 		categoryPage.enterProductCode(0);
-		categoryPage.selectEntity();
 		categoryPage.selectPriceCurrency();
 		categoryPage.enterPriceRate(0);
 		categoryPage.clickAddPriceButton();
@@ -66,7 +67,6 @@ public class CreateProductAndCategoryTest {
 		categoryPage.clickAddProductButton();
 		categoryPage.enterEnglishDescription(1);
 		categoryPage.enterProductCode(1);
-		categoryPage.selectEntity();
 		categoryPage.selectPriceCurrency();
 		categoryPage.enterPriceRate(1);
 		categoryPage.clickAddPriceButton();
@@ -76,6 +76,7 @@ public class CreateProductAndCategoryTest {
 		categoryPage.clickSaveChangesButton();
 		categoryPage.verifyConfirmationMsg();
 		categoryPage.verifyProductData(1);
+		
 		// @TOTO Verify COMPONENT PRICES Section values correct or not
 
 	}
