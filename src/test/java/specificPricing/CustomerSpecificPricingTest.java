@@ -24,10 +24,10 @@ public class CustomerSpecificPricingTest {
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Order")
 	public void userSignin() throws Exception {
 
-		/*specificPricingPage.enterLoginID();
+		specificPricingPage.enterLoginID();
 		specificPricingPage.enterPassword();
 		specificPricingPage.selectCompany();
-		specificPricingPage.clickLoginButton();*/
+		specificPricingPage.clickLoginButton();
 		
 		specificPricingPage.clickCustomerTab();
 		specificPricingPage.selectCustomer(2);

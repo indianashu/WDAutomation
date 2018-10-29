@@ -197,8 +197,24 @@ public class CreateRateCardPage extends BasePage {
 			JavaScriptExec.scrolltoBottomofPage(driver);
 			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 			clickSaveChangesButton.click();
-
 		}
+		
+		@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+		private WebElement verifyConfirmationMsg;
+
+		/**
+		 * Method to verify Account Type is created Successfully.
+		 * 
+		 * @throws IOException
+		 */
+		public void verifyConfirmationMsg() throws IOException {
+			MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+			JavaScriptExec.sleep();
+			log.info("Verifying if Rate Card is created Successfully or not");
+			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+					"Assert Failed as its unable to search text in Logged in Page");
+		}
+		public void verifyForCorrectRateCardName() throws IOException {
 
 
 	}

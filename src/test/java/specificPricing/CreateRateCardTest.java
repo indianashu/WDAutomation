@@ -36,6 +36,7 @@ public class CreateRateCardTest {
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
+		ratecardPage.verifyConfirmationMsg();
 		//@TODO Verify confirmation Message that rateCard is created or not
 		//@TODO Verify RaTEcARD Name IS CORRECT or not
 		
@@ -44,6 +45,7 @@ public class CreateRateCardTest {
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile();
 		ratecardPage.clickSaveChangesButton();
+		ratecardPage.verifyConfirmationMsg();
 		//@TODO Verify confirmation Message that rateCard is created or not
 		//@TODO Verify RaTEcARD Name IS CORRECT or not
 		
