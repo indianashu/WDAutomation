@@ -43,8 +43,7 @@ public class PlanPricingTest {
 		
 		specificPricingPage.clickMediationLink();
 		specificPricingPage.selectMediation();
-		String csvName = "MediationPlanPricing.csv";
-		specificPricingPage.uploadMediationCSVFile(csvName);
+		specificPricingPage.uploadPlanCSVFile();
 		specificPricingPage.clickTriggerConfigButton();
 		specificPricingPage.verifyConfirmationMsg();
 		specificPricingPage.clickMediationsTab();

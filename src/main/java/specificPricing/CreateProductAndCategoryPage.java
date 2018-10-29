@@ -328,9 +328,8 @@ public class CreateProductAndCategoryPage extends BasePage {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Plan Product");
 			JavaScriptExec.sleep();
-			Select dropdown1 = new Select(driver.findElement(By.name("product.confPricingProduct")));
 			Assert.assertTrue(enterPlanProduct.isDisplayed());
-			enterPlanProduct.sendKeys(BasePage.getCellData(xlsxName, sheetName, 11, 0));
+			enterPlanProduct.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 		}
 		
 		@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingList']")
@@ -347,7 +346,7 @@ public class CreateProductAndCategoryPage extends BasePage {
 			JavaScriptExec.sleep();
 			Select dropdown2 = new Select(driver.findElement(By.name("product.confPricingList")));
 			Assert.assertTrue(enterPricing.isDisplayed());
-			enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 12, 0));
+			enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
 		}
 		
 		@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']/div[2]/a/span")

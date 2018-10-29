@@ -34,7 +34,7 @@ public class CreateRateCardTest {
 		ratecardPage.clickAddNewButton();
 		ratecardPage.enterRateCardName(0);
 		ratecardPage.enterPriceColumn();
-		ratecardPage.uploadRatingCSVFile();
+		ratecardPage.uploadRatingCSVFile(0);
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
 		ratecardPage.verifyRateCardData(0);
@@ -42,7 +42,7 @@ public class CreateRateCardTest {
 		ratecardPage.clickAddNewButton();
 		ratecardPage.enterRateCardName(1);
 		ratecardPage.enterPriceColumn();
-		ratecardPage.uploadRatingCSVFile();
+		ratecardPage.uploadRatingCSVFile(1);
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
 		ratecardPage.verifyRateCardData(1);

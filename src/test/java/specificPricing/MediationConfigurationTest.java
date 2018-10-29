@@ -57,6 +57,8 @@ public class MediationConfigurationTest {
         	mediationPage.clickAddNewButton();
         	mediationPage.enterConfigurationName();
         	mediationPage.enterExecutionOrder();
+        	mediationPage.selectPluginReader();
+        	mediationPage.selectPluginProcessor();
         	mediationPage.clickSaveChangesButton();
         	mediationPage.verifyConfirmationMsg();
         	mediationPage.verifyMediationName();

@@ -97,19 +97,11 @@ public class MediationConfigurationPage extends BasePage {
 		clickLoginButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@href='/mediationConfig/list']")
-	private WebElement clickMediationLink;
-
-	/**
-	 * Method to click on plugins link.
-	 * 
-	 * @throws IOException
-	 */
 	public void clickMediationLink() throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-		log.info("Click on Mediation link");
-		Assert.assertTrue(clickMediationLink.isDisplayed());
-		clickMediationLink.click();
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/mediationConfig/list";
+		driver.get(url);
 		JavaScriptExec.sleep();
 	}
 
@@ -156,7 +148,7 @@ public class MediationConfigurationPage extends BasePage {
 		MediationPage sp = new MediationPage(driver);
 		log.info("Enter Execution Order");
 		Assert.assertTrue(enterExecutionOrder.isDisplayed());
-		enterExecutionOrder.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+		enterExecutionOrder.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
@@ -185,24 +177,18 @@ public class MediationConfigurationPage extends BasePage {
 	 */
 	public void clickPluginsLink() throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-		log.info("click on Plugin Tabs");
-		Assert.assertTrue(clickPlugins.isDisplayed());
-		clickPlugins.click();
+		JavaScriptExec.sleep();
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/plugin/list";
+		driver.get(url);
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.configuration']/div/div/ul/a[13]/li")
-	private WebElement clickfileFormatTab;
-
-	/**
-	 * Method to click on File Format Tab.
-	 * 
-	 * @throws IOException
-	 */
 	public void clickfileFormatTab() throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-		log.info("click on File Format Tabs");
-		Assert.assertTrue(clickfileFormatTab.isDisplayed());
-		clickfileFormatTab.click();
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/fileFormats/index";
+		driver.get(url);
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//td[preceding-sibling::td[contains(.,'15')]]")
@@ -265,7 +251,7 @@ public class MediationConfigurationPage extends BasePage {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
 		log.info("Enter File Format Name");
 		Assert.assertTrue(enterName.isDisplayed());
-		enterName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+		enterName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 	}
 
 	public void uploadFile() throws IOException {
@@ -292,7 +278,7 @@ public class MediationConfigurationPage extends BasePage {
 		clickSaveAsItIs.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='plg-parm-format_file']/option")
+	@FindBy(how = How.XPATH, using = "//*[@id='plg-parm-format_file']")
 	private WebElement selectFileFormat;
 
 	/**
@@ -312,7 +298,10 @@ public class MediationConfigurationPage extends BasePage {
 			uploadFile();
 			clickSaveChangesButton();
 			clickUpdateChangesButton();
-
+			clickPluginsLink();
+			clickMediationReader();
+			clickAddNewButton();
+			selectPluginType(0);
 		}
 	}
 
@@ -415,10 +404,10 @@ public class MediationConfigurationPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='submit show']//*[text()='Show All']")).click();
 		JavaScriptExec.sleep();
 
-		String ItemName = (BasePage.getCellData(xlsxName, sheetName, 11, 0));
+		String ItemName = (BasePage.getCellData(xlsxName, sheetName, 10, 0));
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ItemName + "']")).click();
 		JavaScriptExec.sleep();
-		String ItemId = driver.findElement(By.xpath("//*[@id='rowNum2']/div/div[2]/div/table[1]/tbody/tr[1]/td[2]"))
+		String ItemId = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[1]/tbody/tr[1]/td[2]"))
 				.getText();
 		System.out.println(ItemId);
 		log.info("Item ID." + ItemId);
@@ -444,10 +433,40 @@ public class MediationConfigurationPage extends BasePage {
 	public void verifyMediationName() throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
 		String actualMediationName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
-		String expectedMediationName = driver.findElement(By.xpath("//a[@class='cell double']/strong"))
-				.getText();
+		String expectedMediationName = driver.findElement(By.xpath("//a[@class='cell double']/strong")).getText();
 		System.out.println(expectedMediationName);
 		Assert.assertEquals(actualMediationName, expectedMediationName);
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@id='readerPluginId']")
+	private WebElement selectPluginReader;
+
+	/**
+	 * Method to click on Mediation Processor link.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectPluginReader() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		selectPluginReader.click();
+		Select select = new Select(selectPluginReader);
+		int selectOptions = select.getOptions().size();
+		select.selectByIndex(selectOptions - 1);
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='mediationProcessorId']")
+	private WebElement selectPluginProcessor;
+
+	/**
+	 * Method to click on Mediation Processor link.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectPluginProcessor() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		selectPluginProcessor.click();
+		Select select = new Select(selectPluginProcessor);
+		int selectOptions = select.getOptions().size();
+		select.selectByIndex(selectOptions - 1);
+	}
 }

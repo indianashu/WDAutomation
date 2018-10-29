@@ -164,8 +164,8 @@ public class SpecificPricingPage extends BasePage {
 	public void clickProductsSubTab() throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("Click Products Tab");
-		Assert.assertTrue(clickMediationLink.isDisplayed());
-		clickMediationLink.click();
+		Assert.assertTrue(clickProductsSubTab.isDisplayed());
+		clickProductsSubTab.click();
 		JavaScriptExec.sleep();
 	}
 
@@ -222,19 +222,12 @@ public class SpecificPricingPage extends BasePage {
 		Assert.assertEquals("US$10.00", expectedAmount);
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@href='/mediationConfig/list']")
-	private WebElement clickMediationLink;
-
-	/**
-	 * Method to Click Products tab.
-	 * 
-	 * @throws IOException
-	 */
 	public void clickMediationLink() throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
-		log.info("Click Products Tab");
-		Assert.assertTrue(clickMediationLink.isDisplayed());
-		clickMediationLink.click();
+		log.info("Click Mediation Config Tab");
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/mediationConfig/list";
+		driver.get(url);
 		JavaScriptExec.sleep();
 	}
 
@@ -248,17 +241,32 @@ public class SpecificPricingPage extends BasePage {
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='cdrs']")
-	private WebElement uploadMediationCSVFile;
+	private WebElement uploadPlanCSVFile;
 
 	/**
 	 * Method to click on trigger this config button.
 	 * 
 	 * @throws IOException
 	 */
-	public void uploadMediationCSVFile(String filename) throws IOException {
+	public void uploadPlanCSVFile() throws IOException {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("upload Mediation csv file");
-		uploadMediationCSVFile.sendKeys(System.getProperty("user.dir") + "/filename");
+		uploadPlanCSVFile.sendKeys(System.getProperty("user.dir") + "/MediationPlanPricing.csv");
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='cdrs']")
+	private WebElement uploadTestCSVFile;
+
+	/**
+	 * Method to click on trigger this config button.
+	 * 
+	 * @throws IOException
+	 */
+	public void uploadTestCSVFile() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("upload Mediation csv file");
+		uploadTestCSVFile.sendKeys(System.getProperty("user.dir") + "/MediationTestPricing.csv");
 		JavaScriptExec.sleep();
 	}
 
@@ -407,7 +415,6 @@ public class SpecificPricingPage extends BasePage {
 
 	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']")
 	private WebElement enterPricing;
-
 	/**
 	 * Method to select Pricing.
 	 * 
@@ -415,6 +422,7 @@ public class SpecificPricingPage extends BasePage {
 	 */
 	public void enterPricing() throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		enterPricing.click();
 		Select se = new Select(enterPricing);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 	}
@@ -429,6 +437,7 @@ public class SpecificPricingPage extends BasePage {
 	 */
 	public void enterPlanProduct() throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		enterPlanProduct.click();
 		Select se = new Select(enterPlanProduct);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 	}
@@ -449,7 +458,7 @@ public class SpecificPricingPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
+	@FindBy(how = How.XPATH, using = "//*[@id='user-edit-form']/div[1]/div[2]/a")
 	private WebElement clickAddPrice;
 
 	/**
@@ -461,7 +470,6 @@ public class SpecificPricingPage extends BasePage {
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickAddPrice.isDisplayed());
-		JavaScriptExec.sleep();
 		clickAddPrice.click();
 	}
 

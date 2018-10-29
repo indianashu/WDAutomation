@@ -24,16 +24,15 @@ public class CustomerSpecificPricingTest {
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Order")
 	public void userSignin() throws Exception {
 
-		specificPricingPage.enterLoginID();
+		/*specificPricingPage.enterLoginID();
 		specificPricingPage.enterPassword();
 		specificPricingPage.selectCompany();
-		specificPricingPage.clickLoginButton();
+		specificPricingPage.clickLoginButton();*/
 		
 		specificPricingPage.clickCustomerTab();
 		specificPricingPage.selectCustomer(2);
 		specificPricingPage.clickCustomerInspectIcon();
 		specificPricingPage.navigateBottom();
-		specificPricingPage.clickPlanComponentPricesSection();
 		
 		specificPricingPage.enterPlanProduct();
     	specificPricingPage.enterPricing();
@@ -43,8 +42,7 @@ public class CustomerSpecificPricingTest {
         
         specificPricingPage.clickMediationLink();
 		specificPricingPage.selectMediation();
-		String csvName = "MediationTestPricing.csv";
-		specificPricingPage.uploadMediationCSVFile(csvName);
+		specificPricingPage.uploadTestCSVFile();
 		specificPricingPage.clickTriggerConfigButton();
 		specificPricingPage.verifyConfirmationMsg();
 		specificPricingPage.clickMediationsTab();

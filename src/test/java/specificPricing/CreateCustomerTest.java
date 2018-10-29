@@ -1,7 +1,7 @@
 package specificPricing;
 
 import baseClassPackage.BaseClasses;
-import productDependency.CreateCustomerPage;
+import specificPricing.CreateCustomerPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

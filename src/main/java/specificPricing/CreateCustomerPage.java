@@ -23,7 +23,7 @@ public class CreateCustomerPage extends BasePage {
 	Logger log = Logger.getLogger(CreateCustomerPage.class);
 
 	PropertyValExtractors p = new PropertyValExtractors();
-	String sheetName = "AddCustomer";
+	String sheetName = "Customer";
 	String xlsxName = "/SpecificPricing_TestData.xlsx";
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")

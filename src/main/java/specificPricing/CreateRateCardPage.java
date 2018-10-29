@@ -170,16 +170,11 @@ public class CreateRateCardPage extends BasePage {
 		 * @throws IOException
 		 */
 		
-	public void uploadRatingCSVFile() throws IOException {
+	public void uploadRatingCSVFile(int rowNum) throws IOException {
 		CreateRateCardPage sp = new CreateRateCardPage(driver);
 		log.info("upload Rating csv file");
-		String fname = driver.findElement(By.xpath("//input[@class='field']")).getText();
-		if (fname == "Test RateCard") {
-			uploadRatingCSVFile.sendKeys(System.getProperty("user.dir") + "/test_rate_card.csv");
-		} else {
-			uploadRatingCSVFile.sendKeys(System.getProperty("user.dir") + "/plan_rate_card.csv");
-		}
-		JavaScriptExec.sleep();
+		uploadRatingCSVFile.sendKeys(System.getProperty("user.dir") + BasePage.getCellData(xlsxName, sheetName, 10, rowNum));
+		
 	}
 		
 		
@@ -215,14 +210,14 @@ public class CreateRateCardPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	public void verifyRateCardData(int column) throws IOException {
-		String actualRateCardName = BasePage.getCellData(xlsxName, sheetName, 3, column);
+	public void verifyRateCardData(int rowNum) throws IOException {
+		String actualRateCardName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
 		String expectedRateCardName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong"))
 				.getText();
 		System.out.println(expectedRateCardName);
 		Assert.assertEquals(actualRateCardName, expectedRateCardName);
 		
-		String actualRateCardCSV = BasePage.getCellData(xlsxName, sheetName, 9, column);
+		String actualRateCardCSV = BasePage.getCellData(xlsxName, sheetName, 9, rowNum);
 		String expectedRateCardCSV = driver.findElement(By.xpath("//tbody//tr[1]//td[2]//a[@class='cell']"))
 				.getText();
 		System.out.println(expectedRateCardCSV);
