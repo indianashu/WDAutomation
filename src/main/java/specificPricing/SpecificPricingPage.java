@@ -211,17 +211,15 @@ public class SpecificPricingPage extends BasePage {
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr/td[5]")
-	private WebElement verifyAmount;
-
-	/**
-	 * Method to click on Save Changes Button.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyAmount() {
-		String amount = verifyAmount.getText();
-		Assert.assertEquals(amount, "US$10.00");
+	public void verifyProductPriceData() throws IOException {
+		String expectedName = driver.findElement(By.xpath("//tr[1]//td[2]//a[@class='double cell']/strong/span")).getText();
+		String actualName =BasePage.getCellData(xlsxName, sheetName, 3, 0);
+		System.out.println(expectedName);
+		Assert.assertEquals(actualName, expectedName);
+		
+		String expectedAmount = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr/td[5]")).getText();
+		System.out.println(expectedAmount);
+		Assert.assertEquals("US$10.00", expectedAmount);
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@href='/mediationConfig/list']")

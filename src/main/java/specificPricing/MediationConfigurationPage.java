@@ -237,19 +237,19 @@ public class MediationConfigurationPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//select[@name='typeId']")
-	private WebElement selectReaderType;
+	private WebElement selectPluginType;
 
 	/**
 	 * Method to click on Mediation Processor link.
 	 * 
 	 * @throws IOException
 	 */
-	public void selectReaderType(int column) throws IOException {
+	public void selectPluginType(int rowNum) throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-		Select se = new Select(selectReaderType);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, column));
+		Select se = new Select(selectPluginType);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, rowNum));
 		JavaScriptExec.sleep();
 	}
 
@@ -272,7 +272,7 @@ public class MediationConfigurationPage extends BasePage {
 		CreateRateCardPage sp = new CreateRateCardPage(driver);
 		log.info("upload Rating csv file");
 		WebElement FileUpload = driver.findElement(By.xpath("//input[@name='format_file']"));
-		FileUpload.sendKeys(System.getProperty("user.dir")+"/asterisk.xml");
+		FileUpload.sendKeys(System.getProperty("user.dir") + "/asterisk.xml");
 		JavaScriptExec.sleep();
 	}
 
@@ -291,7 +291,7 @@ public class MediationConfigurationPage extends BasePage {
 		Assert.assertTrue(clickSaveAsItIs.isDisplayed());
 		clickSaveAsItIs.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='plg-parm-format_file']/option")
 	private WebElement selectFileFormat;
 
@@ -415,33 +415,39 @@ public class MediationConfigurationPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='submit show']//*[text()='Show All']")).click();
 		JavaScriptExec.sleep();
 
-		String ItemName = (BasePage.getCellData(xlsxName, sheetName, 10, 0));
+		String ItemName = (BasePage.getCellData(xlsxName, sheetName, 11, 0));
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ItemName + "']")).click();
 		JavaScriptExec.sleep();
-		String ItemId = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[1]/tbody/tr[1]/td[2]"))
+		String ItemId = driver.findElement(By.xpath("//*[@id='rowNum2']/div/div[2]/div/table[1]/tbody/tr[1]/td[2]"))
 				.getText();
 		System.out.println(ItemId);
 		log.info("Item ID." + ItemId);
 		return ItemId;
 	}
-	
-	public void verifyPlugInData(int column) throws IOException {
+
+	public void verifyPlugInData(int rowNum) throws IOException {
 		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-		String actualTypeId = BasePage.getCellData(xlsxName, sheetName, 5, column);
-		String expectedTypeId=driver.findElement(By.xpath("//em[@class='small']")).getText();
+		String actualTypeId = BasePage.getCellData(xlsxName, sheetName, 5, rowNum);
+		String expectedTypeId = driver.findElement(By.xpath("//em[@class='small']")).getText();
 		System.out.println(expectedTypeId);
 		Assert.assertEquals(actualTypeId, expectedTypeId);
-		
-		String expectedProductId=driver.findElement(By.xpath("//td[@class='innerContent'][2]")).getText();
-		String actualProductId=sp.fetchDefaultItemID();
-		System.out.println("Expected Product ID="+expectedProductId);
-		System.out.println("Actual Product ID="+actualProductId);
-		Assert.assertEquals(actualProductId,expectedProductId);
-	}
-	
-	
-		
-		
-	}
-	
 
+		if (rowNum == 2) {
+			String expectedProductId = driver.findElement(By.xpath("//td[@class='innerContent'][2]")).getText();
+			String actualProductId = sp.fetchDefaultItemID();
+			System.out.println("Expected Product ID=" + expectedProductId);
+			System.out.println("Actual Product ID=" + actualProductId);
+			Assert.assertEquals(actualProductId, expectedProductId);
+		}
+	}
+
+	public void verifyMediationName() throws IOException {
+		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
+		String actualMediationName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
+		String expectedMediationName = driver.findElement(By.xpath("//a[@class='cell double']/strong"))
+				.getText();
+		System.out.println(expectedMediationName);
+		Assert.assertEquals(actualMediationName, expectedMediationName);
+	}
+
+}

@@ -41,7 +41,6 @@ public class ProductPriceTest {
 		specificPricingPage.clickUpdateButton();
 		specificPricingPage.clickSaveChangesButton();
 		specificPricingPage.verifyConfirmationMsg();
-		//@TODO Verify Customer Name of the Order that order is created for the correct customer or not
-		specificPricingPage.verifyAmount();
+		specificPricingPage.verifyProductPriceData();
 	}
 }

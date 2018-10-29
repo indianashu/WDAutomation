@@ -34,7 +34,7 @@ public class MediationConfigurationTest {
         	mediationPage.clickPluginsLink();
         	mediationPage.clickMediationReader();
         	mediationPage.clickAddNewButton();
-        	mediationPage.selectReaderType(0);
+        	mediationPage.selectPluginType(0);
         	mediationPage.selectFileFormat();
         	mediationPage.enterSufix();
         	mediationPage.enterDateFormat();
@@ -43,20 +43,15 @@ public class MediationConfigurationTest {
         	mediationPage.verifyConfirmationMsg();
         	mediationPage.verifyPlugInData(0);
         	
-        	//@TODO Verify the typeID which is used in the plugin
-        	
         	String ItemId = mediationPage.fetchDefaultItemID();
         	mediationPage.clickPluginsLink();
         	mediationPage.clickMediationProcessor();
         	mediationPage.clickAddNewButton();
-        	mediationPage.selectReaderType(1);
+        	mediationPage.selectPluginType(1);
         	mediationPage.enterDefaultItemIDMediationProcessor(ItemId);
         	mediationPage.clickSavePluginButton();
         	mediationPage.verifyConfirmationMsg();
         	mediationPage.verifyPlugInData(1);
-        	
-        	
-        	//@TODO Verify the typeID and Item Id which is used in the plugin
         	
         	mediationPage.clickMediationLink();
         	mediationPage.clickAddNewButton();
@@ -64,7 +59,6 @@ public class MediationConfigurationTest {
         	mediationPage.enterExecutionOrder();
         	mediationPage.clickSaveChangesButton();
         	mediationPage.verifyConfirmationMsg();
-        	//@TODO Verify the name of mediation
-        	
+        	mediationPage.verifyMediationName();
         }
 }

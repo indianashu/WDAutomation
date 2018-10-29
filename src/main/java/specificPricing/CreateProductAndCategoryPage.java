@@ -379,25 +379,35 @@ public class CreateProductAndCategoryPage extends BasePage {
 			Assert.assertEquals(actualCategoryType, expectedCategoryType);
 		}
 		
-		public void verifyProductData(int column) throws IOException {
-			String actualProductName = BasePage.getCellData(xlsxName, sheetName, 4, column);
-			String expectedProductName = driver.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
-			System.out.println(expectedProductName);
-			Assert.assertEquals(actualProductName, expectedProductName);
-			
-			
-			
-			String actualComponentPricesProduct= driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
-			String expectedComponentPricesProduct=BasePage.getCellData(xlsxName, sheetName, 4, 0);
+	public void verifyProductData(int column) throws IOException {
+		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 4, column);
+
+		String expectedProductName = driver
+				.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
+		System.out.println(expectedProductName);
+		Assert.assertEquals(actualProductName, expectedProductName);
+
+		if (actualProductName == "Plan Pricing Product") {
+			driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + actualProductName + "']")).click();
+			JavaScriptExec.sleep();
+
+			String expectedComponentPricesProduct = driver
+					.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]"))
+					.getText();
+			String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 4, 0);
 			System.out.println(expectedComponentPricesProduct);
 			Assert.assertEquals(actualComponentPricesProduct, expectedComponentPricesProduct);
-			
-			String actualComponentPricesPricing= driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
-			String expectedComponentPricePricing=BasePage.getCellData(xlsxName, sheetName, 8, 0);
+
+			String expectedComponentPricePricing = driver
+					.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]"))
+					.getText();
+			String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 8, 0);
 			System.out.println(expectedComponentPricePricing);
 			Assert.assertEquals(actualComponentPricesPricing, expectedComponentPricePricing);
-					
-		}		
+		}
+
+	}
+	
 		public void navigateBottom() {
 			JavaScriptExec.scrolltoBottomofPage(driver);
 			JavaScriptExec.sleep();
