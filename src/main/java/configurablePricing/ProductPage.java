@@ -26,7 +26,7 @@ public class ProductPage extends BasePage {
 	ProductPage configurationOrderPeriodsPage;
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName = "Product";
-	String xlsxName = "/ConfigurableProduct_TestData.xlsx";
+	String xlsxName = "/ConfigurablePricing_TestData.xlsx";
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginID;
@@ -82,7 +82,7 @@ public class ProductPage extends BasePage {
 		clickLoginButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.pricing']/a")
+	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.products']/a")
 	private WebElement clickProductTab;
 
 	/**
@@ -98,7 +98,7 @@ public class ProductPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Category']")
 	private WebElement clickAddNewButton;
 
 	/**
@@ -260,12 +260,12 @@ public class ProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterPlanProduct() throws IOException {
+	public void enterPlanProduct(int rowNum) throws IOException {
 		ProductPage sp = new ProductPage(driver);
 		log.info("Enter Plan Product");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPlanProduct.isDisplayed());
-		enterPlanProduct.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+		enterPlanProduct.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, rowNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingList']")
@@ -276,12 +276,12 @@ public class ProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterPricing() throws IOException {
+	public void enterPricing(int rowNum) throws IOException {
 		ProductPage sp = new ProductPage(driver);
 		log.info("Enter Pricing");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPricing.isDisplayed());
-		enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
+		enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, rowNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']/div[2]/a/span")
@@ -355,6 +355,11 @@ public class ProductPage extends BasePage {
 
 	public void verifyProductData(int rowNum) throws IOException {
 		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 10, rowNum);
+		String expectedProductName = driver
+				.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
+		System.out.println(expectedProductName);
+		Assert.assertEquals(actualProductName, expectedProductName);
+		
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + actualProductName + "']")).click();
 		JavaScriptExec.sleep();
 		String expectedComponentPricesProduct = driver
@@ -371,7 +376,7 @@ public class ProductPage extends BasePage {
 	}
 
 	public void verifyProductName(int rowNum) throws IOException {
-		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 4, rowNum);
+		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 9, rowNum);
 		String expectedProductName = driver
 				.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
 		System.out.println(expectedProductName);

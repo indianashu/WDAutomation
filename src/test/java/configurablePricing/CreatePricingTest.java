@@ -25,12 +25,13 @@ public class CreatePricingTest {
 	@Test(groups = { "Configurable Pricing Feature" }, description = "Create Pricing")
 	public void userSignin() throws Exception {
 
-		createPricingPage.enterLoginID();
+		/*createPricingPage.enterLoginID();
 		createPricingPage.enterPassword();
 		createPricingPage.selectCompany();
-		createPricingPage.clickLoginButton();
+		createPricingPage.clickLoginButton();*/
 
 		// Tiered Pricing
+		createPricingPage.clickPricingTab();
 		createPricingPage.clickAddNewButton();
 		createPricingPage.enterPricingName(1);
 		createPricingPage.selectTierRadioButton();
@@ -42,7 +43,7 @@ public class CreatePricingTest {
 		// Volume Pricing
 		createPricingPage.clickAddNewButton();
 		createPricingPage.enterPricingName(2);
-		createPricingPage.selectTierRadioButton();
+		createPricingPage.selectVolumeRadioButton();
 		createPricingPage.fillTierData();
 		createPricingPage.clickSaveChangesButton();
 		createPricingPage.verifyConfirmationMsg();

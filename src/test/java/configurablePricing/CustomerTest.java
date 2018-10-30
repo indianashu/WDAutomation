@@ -23,10 +23,11 @@ public class CustomerTest {
 	@Test(groups = { "Configurable Pricing Feature" }, description = "Create Customers")
 	public void userSignin() throws Exception {
 
-		customerPage.enterLoginID();
+		/*customerPage.enterLoginID();
 		customerPage.enterPassword();
 		customerPage.selectCompany();
-		customerPage.clickLoginButton();
+		customerPage.clickLoginButton();*/
+		
 		customerPage.clickCustomerTab();
 		customerPage.createCustomer();
 	}

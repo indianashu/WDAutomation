@@ -25,10 +25,10 @@ public class ProductTest {
 	@Test(groups = { "Configurable Pricing Feature" }, description = "Create Product")
 	public void userSignin() throws Exception {
 
-		createProductPage.enterLoginID();
+		/*createProductPage.enterLoginID();
 		createProductPage.enterPassword();
 		createProductPage.selectCompany();
-		createProductPage.clickLoginButton();
+		createProductPage.clickLoginButton();*/
 
 		// Item Category and Product
 		createProductPage.clickProductTab();
@@ -65,12 +65,11 @@ public class ProductTest {
 		createProductPage.selectPriceCurrency();
 		createProductPage.enterPriceRate(1);
 		createProductPage.clickAddPriceButton();
-		createProductPage.enterPlanProduct();
-		createProductPage.enterPricing();
+		createProductPage.enterPlanProduct(0);
+		createProductPage.enterPricing(0);
 		createProductPage.clickOnAddPrice();
 		createProductPage.clickSaveChangesButton();
 		createProductPage.verifyConfirmationMsg();
-		createProductPage.verifyProductName(0);
 		createProductPage.verifyProductData(0);
 		
 		// Item  Product
@@ -81,7 +80,7 @@ public class ProductTest {
 		createProductPage.enterProductCode(2);
 		createProductPage.navigateBottom();
 		createProductPage.selectPriceCurrency();
-		createProductPage.enterPriceRate(2);
+		createProductPage.enterPriceRate(1);
 		createProductPage.clickAddPriceButton();
 		createProductPage.clickSaveChangesButton();
 		createProductPage.verifyConfirmationMsg();
@@ -97,12 +96,11 @@ public class ProductTest {
 		createProductPage.selectPriceCurrency();
 		createProductPage.enterPriceRate(1);
 		createProductPage.clickAddPriceButton();
-		createProductPage.enterPlanProduct();
-		createProductPage.enterPricing();
+		createProductPage.enterPlanProduct(1);
+		createProductPage.enterPricing(1);
 		createProductPage.clickOnAddPrice();
 		createProductPage.clickSaveChangesButton();
 		createProductPage.verifyConfirmationMsg();
-		createProductPage.verifyProductName(1);
 		createProductPage.verifyProductData(1);
 	}
 }

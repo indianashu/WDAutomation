@@ -39,12 +39,12 @@ public class CRUDPricingTest {
 		createPricingPage.clickSaveChangesButton();
 		createPricingPage.verifyConfirmationMsg();
 		createPricingPage.verifyPricingName(0);
-		createPricingPage.selectPricing();
 		createPricingPage.clickEditButton();
 		createPricingPage.editPricingName();
 		createPricingPage.clickSaveChangesButton();
 		createPricingPage.verifyConfirmationMsg();
 		createPricingPage.clickDeleteButton();
+		createPricingPage.clickYesPopup();
 		
 	}
 }

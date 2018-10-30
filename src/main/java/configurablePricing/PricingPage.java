@@ -13,6 +13,7 @@ import org.testng.Assert;
 import baseClassPackage.BasePage;
 import configurablePricing.PricingPage;
 import productDependency.CreateOrderPage;
+import tearDown.TearDownProcessPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
@@ -155,13 +156,29 @@ public class PricingPage extends BasePage {
 	public void selectTierRadioButton() throws IOException {
 		PricingPage sp = new PricingPage(driver);
 		log.info("Click on Tier Radio Button");
-		Assert.assertTrue(selectTierRadioButton.isDisplayed());
-		selectTierRadioButton.click();
+		Assert.assertTrue(selectVolumeRadioButton.isDisplayed());
+		selectVolumeRadioButton.click();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//input[@id='pricing.attribute.2.value' and contains(@value, 'VOLUME')]")
+	private WebElement selectVolumeRadioButton;
+
+	/**
+	 * Method to click on Add New Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectVolumeRadioButton() throws IOException {
+		PricingPage sp = new PricingPage(driver);
+		log.info("Click on Volume Radio Button");
+		Assert.assertTrue(selectVolumeRadioButton.isDisplayed());
+		selectVolumeRadioButton.click();
 		JavaScriptExec.sleep();
 	}
 
 	public void fillTierData() throws IOException {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 5; i++) {
 
 			PricingPage sp = new PricingPage(driver);
 			WebElement endTier = driver.findElement(By.xpath("//*[@id='discount_usage." + i + ".usageEnd']"));
@@ -207,20 +224,11 @@ public class PricingPage extends BasePage {
 	}
 
 	public void verifyPricingName(int rowNum) throws IOException {
-		String actualPricingName = BasePage.getCellData(xlsxName, sheetName, 5, rowNum);
+		String actualPricingName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
 		String expectedPricingName = driver
 				.findElement(By.xpath("//*[@id='column2']/div/div[2]/table/tbody/tr[2]/td[2]")).getText();
 		System.out.println(expectedPricingName);
 		Assert.assertEquals(actualPricingName, expectedPricingName);
-	}
-
-	public void selectPricing() throws IOException {
-		PricingPage sp = new PricingPage(driver);
-		String pricingName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
-		WebElement selectPricing = driver
-				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + pricingName + "']"));
-		navigateBottom();
-		selectPricing.click();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit edit']//*[text()='Edit']")
@@ -234,8 +242,8 @@ public class PricingPage extends BasePage {
 	public void clickEditButton() throws IOException {
 		PricingPage sp = new PricingPage(driver);
 		log.info("Click on Edit Button");
-		Assert.assertTrue(clickDeleteButton.isDisplayed());
-		clickDeleteButton.click();
+		Assert.assertTrue(clickEditButton.isDisplayed());
+		clickEditButton.click();
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='pricing.name']")
@@ -250,6 +258,7 @@ public class PricingPage extends BasePage {
 		PricingPage sp = new PricingPage(driver);
 		log.info("Verifying the Pricing Name is available or not");
 		Assert.assertTrue(editPricingName.isDisplayed());
+		editPricingName.clear();
 		editPricingName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 	}
 
@@ -266,6 +275,23 @@ public class PricingPage extends BasePage {
 		log.info("Click on Delete Button");
 		Assert.assertTrue(clickDeleteButton.isDisplayed());
 		clickDeleteButton.click();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='myModal']/div/div/div/div[3]/button[1]")
+	private WebElement clickYesPopup;
+
+	/**
+	 * Method to click on yes popup.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickYesPopup() throws IOException {
+		PricingPage sp = new PricingPage(driver);
+		log.info("click on yes button");
+		Assert.assertTrue(clickYesPopup.isDisplayed());
+		clickYesPopup.click();
+
 	}
 
 	public void navigateBottom() {

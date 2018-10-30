@@ -1,6 +1,7 @@
 package configurablePricing;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -25,10 +26,12 @@ public class VolumePricingTest {
 	@Test(groups = { "Configurable Pricing Feature" }, description = "Volume Pricing Order")
 	public void userSignin() throws Exception {
 
-		configurablePricingPage.enterLoginID();
-		configurablePricingPage.enterPassword();
-		configurablePricingPage.selectCompany();
-		configurablePricingPage.clickLoginButton();
+		/*
+		 * configurablePricingPage.enterLoginID();
+		 * configurablePricingPage.enterPassword();
+		 * configurablePricingPage.selectCompany();
+		 * configurablePricingPage.clickLoginButton();
+		 */
 
 		// Subscribe the Plan Product
 		configurablePricingPage.clickCustomerTab();
@@ -41,7 +44,7 @@ public class VolumePricingTest {
 		configurablePricingPage.verifyConfirmationMsg();
 
 		// Usage of the Tiered Pricing
-		for (int rowNum = 0; rowNum < 6; rowNum++) {
+		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			configurablePricingPage.clickCustomerTab();
 			configurablePricingPage.selectCustomer(1);
 			configurablePricingPage.clickCreateOrder();
@@ -49,9 +52,15 @@ public class VolumePricingTest {
 			configurablePricingPage.selectProduct(2);
 			configurablePricingPage.enterQuantity(rowNum);
 			configurablePricingPage.clickUpdateButton();
+			configurablePricingPage.verifyTotalVolumeAmount(rowNum);
 			configurablePricingPage.clickSaveChangesButton();
 			configurablePricingPage.verifyConfirmationMsg();
-			configurablePricingPage.verifyTotalVolumeAmount(rowNum);
 		}
 	}
+
+	@AfterClass(alwaysRun = false)
+	public void tearDown() {
+		BaseClasses.closeDriver("User1");
+	}
+
 }

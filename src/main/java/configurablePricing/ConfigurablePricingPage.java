@@ -138,6 +138,7 @@ public class ConfigurablePricingPage extends BasePage {
 		ConfigurablePricingPage sp = new ConfigurablePricingPage(driver);
 		log.info("Click Products Tab");
 		Assert.assertTrue(enterQuantity.isDisplayed());
+		enterQuantity.clear();
 		enterQuantity.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, rowNum));
 	}
 
@@ -230,7 +231,7 @@ public class ConfigurablePricingPage extends BasePage {
 		Assert.assertTrue(verifyTotalTieredAmount.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 		String amount = verifyTotalTieredAmount.getText();
-		String expectedAmount = amount.substring(7);
+		String expectedAmount = amount.substring(8);
 		String actualAmount = BasePage.getCellData(xlsxName, sheetName, 6, RowNum);
 		System.out.println("Print the Amount of tiered Order" + expectedAmount);
 		Assert.assertEquals(actualAmount, expectedAmount);
@@ -251,7 +252,7 @@ public class ConfigurablePricingPage extends BasePage {
 		Assert.assertTrue(verifyTotalVolumeAmount.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 		String amount = verifyTotalVolumeAmount.getText();
-		String expectedAmount = amount.substring(7);
+		String expectedAmount = amount.substring(8);
 		String actualAmount = BasePage.getCellData(xlsxName, sheetName, 7, RowNum);
 		System.out.println("Print the Amount of Volume Order" + expectedAmount);
 		Assert.assertEquals(actualAmount, expectedAmount);

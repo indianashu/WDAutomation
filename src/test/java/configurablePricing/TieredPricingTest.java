@@ -25,10 +25,10 @@ public class TieredPricingTest {
 	@Test(groups = { "Configurable Pricing Feature" }, description = "Tiered Pricing Order")
 	public void userSignin() throws Exception {
 
-		configurablePricingPage.enterLoginID();
+		/*configurablePricingPage.enterLoginID();
 		configurablePricingPage.enterPassword();
 		configurablePricingPage.selectCompany();
-		configurablePricingPage.clickLoginButton();
+		configurablePricingPage.clickLoginButton();*/
 
 		// Subscribe the Plan Product
 		configurablePricingPage.clickCustomerTab();
@@ -41,7 +41,7 @@ public class TieredPricingTest {
 		configurablePricingPage.verifyConfirmationMsg();
 
 		// Usage of the Tiered Pricing
-		for (int rowNum = 0; rowNum < 6; rowNum++) {
+		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			configurablePricingPage.clickCustomerTab();
 			configurablePricingPage.selectCustomer(0);
 			configurablePricingPage.clickCreateOrder();
@@ -49,9 +49,10 @@ public class TieredPricingTest {
 			configurablePricingPage.selectProduct(0);
 			configurablePricingPage.enterQuantity(rowNum);
 			configurablePricingPage.clickUpdateButton();
+			configurablePricingPage.verifyTotalTieredAmount(rowNum);
 			configurablePricingPage.clickSaveChangesButton();
 			configurablePricingPage.verifyConfirmationMsg();
-			configurablePricingPage.verifyTotalTieredAmount(rowNum);
+			
 		}
 	}
 }
