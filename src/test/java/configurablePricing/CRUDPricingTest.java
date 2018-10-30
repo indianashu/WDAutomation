@@ -3,11 +3,12 @@ package configurablePricing;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import baseClassPackage.BaseClasses;
+import configurablePricing.PricingPage;
 import utilPackages.PropertyValExtractors;
 
-public class CreatePricingTest {
+public class CRUDPricingTest {
+
 	PricingPage createPricingPage;
 	WebDriver driver, driver2;
 
@@ -29,24 +30,21 @@ public class CreatePricingTest {
 		createPricingPage.enterPassword();
 		createPricingPage.selectCompany();
 		createPricingPage.clickLoginButton();
-
-		// Tiered Pricing
+		
+		createPricingPage.clickPricingTab();
 		createPricingPage.clickAddNewButton();
-		createPricingPage.enterPricingName(1);
+		createPricingPage.enterPricingName(0);
 		createPricingPage.selectTierRadioButton();
 		createPricingPage.fillTierData();
 		createPricingPage.clickSaveChangesButton();
 		createPricingPage.verifyConfirmationMsg();
-		createPricingPage.verifyPricingName(1);
-
-		// Volume Pricing
-		createPricingPage.clickAddNewButton();
-		createPricingPage.enterPricingName(2);
-		createPricingPage.selectTierRadioButton();
-		createPricingPage.fillTierData();
+		createPricingPage.verifyPricingName(0);
+		createPricingPage.selectPricing();
+		createPricingPage.clickEditButton();
+		createPricingPage.editPricingName();
 		createPricingPage.clickSaveChangesButton();
 		createPricingPage.verifyConfirmationMsg();
-		createPricingPage.verifyPricingName(2);
-
+		createPricingPage.clickDeleteButton();
+		
 	}
 }
