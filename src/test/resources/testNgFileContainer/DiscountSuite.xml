@@ -1,0 +1,40 @@
+<suite name="WebData-Discount Feature" parallel="none">
+
+	<listeners>
+
+		<!-- <listener class-name="utilPackages.MyReporterListener"></listener> -->
+
+	</listeners>
+
+	<test name="WebData-Discount Feature">
+
+		<groups>
+
+			<define name="All">
+
+				<include name="Discount" />
+
+			</define>
+
+			<run>
+
+				<include name="All" />
+
+			</run>
+
+		</groups>
+
+		<classes>
+			<class name = "discount.CRUDDiscountTest"/>
+			<class name = "discount.CreateDiscountTest"/>
+			<class name = "discount.ProductTest"/>
+			<class name = "discount.CustomerTest"/>
+			<class name = "discount.TieredDiscountTest"/>
+			<class name = "discount.TieredDiscountPercentageTest"/>
+			<class name = "discount.VolumeDiscountTest"/>
+			<class name = "discount.VolumeDiscountPercentageTest"/>
+		</classes>
+
+	</test>
+
+</suite>

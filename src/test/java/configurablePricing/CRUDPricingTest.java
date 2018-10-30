@@ -45,6 +45,6 @@ public class CRUDPricingTest {
 		createPricingPage.verifyConfirmationMsg();
 		createPricingPage.clickDeleteButton();
 		createPricingPage.clickYesPopup();
-		
+		createPricingPage.verifyConfirmationMsg();
 	}
 }

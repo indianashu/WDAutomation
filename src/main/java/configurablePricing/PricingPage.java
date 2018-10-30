@@ -19,13 +19,7 @@ import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
 
 public class PricingPage extends BasePage {
-	/**
-	 * This constructor is used to initialize the webdriver in BasePage class, if
-	 * the user does not want to use page factory then this will take care of
-	 * initialization of the driver
-	 *
-	 * @param webdriver
-	 */
+	
 	public PricingPage(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -156,8 +150,8 @@ public class PricingPage extends BasePage {
 	public void selectTierRadioButton() throws IOException {
 		PricingPage sp = new PricingPage(driver);
 		log.info("Click on Tier Radio Button");
-		Assert.assertTrue(selectVolumeRadioButton.isDisplayed());
-		selectVolumeRadioButton.click();
+		Assert.assertTrue(selectTierRadioButton.isDisplayed());
+		selectTierRadioButton.click();
 		JavaScriptExec.sleep();
 	}
 	
@@ -278,7 +272,7 @@ public class PricingPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='myModal']/div/div/div/div[3]/button[1]")
+	@FindBy(how = How.XPATH, using = "//button[text()='Yes']")
 	private WebElement clickYesPopup;
 
 	/**
@@ -289,9 +283,11 @@ public class PricingPage extends BasePage {
 	public void clickYesPopup() throws IOException {
 		PricingPage sp = new PricingPage(driver);
 		log.info("click on yes button");
+		log.info("click on delete customer popup");
+		JavaScriptExec.sleep();
 		Assert.assertTrue(clickYesPopup.isDisplayed());
 		clickYesPopup.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	public void navigateBottom() {
