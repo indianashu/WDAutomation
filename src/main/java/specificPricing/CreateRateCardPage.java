@@ -96,21 +96,13 @@ public class CreateRateCardPage extends BasePage {
 	        clickLoginButton.click();
 	    }
 		
-		@FindBy(how = How.XPATH, using = "//a[.='Rate Cards']")
-		private WebElement clickRateCards;
-
-		/**
-		 * Method to click on Rate Cards.
-		 * 
-		 * @throws IOException
-		 */
 		public void clickRateCards() throws IOException {
 			CreateRateCardPage sp = new CreateRateCardPage(driver);
 			log.info("Click on Rate Cards");
-			JavaScriptExec.sleep();
 			p.getPropertyFile("test", "configuration.properties");
 			String url = p.getVal("url2") + "/rateCard/list";
 			driver.get(url);
+			JavaScriptExec.sleep();
 		}
 		
 		@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")
@@ -212,13 +204,13 @@ public class CreateRateCardPage extends BasePage {
 
 	public void verifyRateCardData(int rowNum) throws IOException {
 		String actualRateCardName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
-		String expectedRateCardName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong"))
+		String expectedRateCardName = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/fieldset/div/div[1]/span"))
 				.getText();
 		System.out.println(expectedRateCardName);
 		Assert.assertEquals(actualRateCardName, expectedRateCardName);
 		
 		String actualRateCardCSV = BasePage.getCellData(xlsxName, sheetName, 9, rowNum);
-		String expectedRateCardCSV = driver.findElement(By.xpath("//tbody//tr[1]//td[2]//a[@class='cell']"))
+		String expectedRateCardCSV = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/fieldset/div/div[2]/span"))
 				.getText();
 		System.out.println(expectedRateCardCSV);
 		Assert.assertEquals(actualRateCardCSV, expectedRateCardCSV);

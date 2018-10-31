@@ -107,9 +107,9 @@ public class CreateProductAndCategoryPage extends BasePage {
 		public void clickProductsTab() throws IOException {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Click on Products Tab after successful login");
-			JavaScriptExec.sleep();
 			Assert.assertTrue(clickProductsTab.isDisplayed());
 			clickProductsTab.click();
+			JavaScriptExec.sleep();
 		}
 
 		@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Category']")
@@ -327,9 +327,10 @@ public class CreateProductAndCategoryPage extends BasePage {
 		public void enterPlanProduct() throws IOException {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Plan Product");
-			JavaScriptExec.sleep();
-			Assert.assertTrue(enterPlanProduct.isDisplayed());
-			enterPlanProduct.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+			enterPlanProduct.click();
+			Select select = new Select(enterPlanProduct);
+			int selectOptions = select.getOptions().size();
+			select.selectByIndex(selectOptions - 2);
 		}
 		
 		@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingList']")

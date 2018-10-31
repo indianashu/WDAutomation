@@ -3,6 +3,7 @@ package specificPricing;
 import baseClassPackage.BaseClasses;
 import specificPricing.SpecificPricingPage;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
@@ -53,5 +54,10 @@ public class CustomerSpecificPricingTest {
     	specificPricingPage.clickViewEvents();
     	specificPricingPage.verifyCustomerPricingData();
 	}
+	
+	@AfterClass(alwaysRun=false)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
+    }
 
 }
