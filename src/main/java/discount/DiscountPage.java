@@ -261,13 +261,22 @@ public class DiscountPage extends BasePage {
 					"Assert Failed as its unable to search text in Logged in Page");
 		}
 
-		public void verifyDiscountName(int rowNum) throws IOException {
-			String actualDiscountName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
-			String expectedDiscountName = driver
-					.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table/tbody/tr[2]/td[2]")).getText();
-			System.out.println(expectedDiscountName);
-			Assert.assertEquals(actualDiscountName, expectedDiscountName);
+	public void verifyDiscountName(int rowNum) throws IOException {
+		String actualDiscountName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
+		String expectedDiscountName = driver
+				.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table/tbody/tr[2]/td[2]")).getText();
+		System.out.println("Discount Name = "+expectedDiscountName);
+		Assert.assertEquals(actualDiscountName, expectedDiscountName);
+
+		WebElement element = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table/tbody/tr[14]/td[3]"));
+		Assert.assertTrue(element.isDisplayed());
+		
+		String isPercentage = element.getText();
+		System.out.println("For Discount" + expectedDiscountName + " the Percentage Rate =" + isPercentage);
+		if (isPercentage == "Yes") {
+			Assert.assertEquals("Yes", isPercentage);
 		}
+	}
 
 		@FindBy(how = How.XPATH, using = "//a[@class='submit edit']//*[text()='Edit']")
 		private WebElement clickEditButton;

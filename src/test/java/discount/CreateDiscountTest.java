@@ -26,10 +26,10 @@ public class CreateDiscountTest {
 	@Test(groups = { "Discount Feature" }, description = "Create Discount")
 	public void userSignin() throws Exception {
 
-		discountPage.enterLoginID();
+		/*discountPage.enterLoginID();
 		discountPage.enterPassword();
 		discountPage.selectCompany();
-		discountPage.clickLoginButton();
+		discountPage.clickLoginButton();*/
 
 		// Tiered Discount
 		discountPage.clickDiscountTab();
@@ -55,29 +55,29 @@ public class CreateDiscountTest {
 		discountPage.clickSaveChangesButton();
 		discountPage.verifyConfirmationMsg();
 		discountPage.verifyDiscountName(2);
-
+		
 		// Volume Discount
 		discountPage.clickAddNewButton();
-		discountPage.enterDiscountDescription(2);
-		discountPage.enterDiscountCode(2);
+		discountPage.enterDiscountDescription(3);
+		discountPage.enterDiscountCode(3);
 		discountPage.selectDiscountType();
 		discountPage.selectVolumeRadioButton();
 		discountPage.fillTierData();
 		discountPage.clickSaveChangesButton();
 		discountPage.verifyConfirmationMsg();
-		discountPage.verifyDiscountName(2);
+		discountPage.verifyDiscountName(3);
 
 		// Volume Percentage Discount
 		discountPage.clickAddNewButton();
-		discountPage.enterDiscountDescription(2);
-		discountPage.enterDiscountCode(2);
+		discountPage.enterDiscountDescription(4);
+		discountPage.enterDiscountCode(4);
 		discountPage.selectDiscountType();
 		discountPage.checkPercentage();
 		discountPage.selectVolumeRadioButton();
 		discountPage.fillTierData();
 		discountPage.clickSaveChangesButton();
 		discountPage.verifyConfirmationMsg();
-		discountPage.verifyDiscountName(2);
+		discountPage.verifyDiscountName(4);
 
 	}
 }
