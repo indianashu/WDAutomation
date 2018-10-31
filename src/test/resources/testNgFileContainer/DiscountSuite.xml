@@ -12,7 +12,7 @@
 
 			<define name="All">
 
-				<include name="Discount" />
+				<include name="Discount Feature" />
 
 			</define>
 
@@ -29,8 +29,8 @@
 			<class name = "discount.CreateDiscountTest"/>
 			<class name = "discount.ProductTest"/>
 			<class name = "discount.CustomerTest"/>
-			<class name = "discount.TieredDiscountTest"/>
-			<class name = "discount.TieredDiscountPercentageTest"/>
+			<class name = "discount.TieredDiscountTest"/> 
+			<!-- <class name = "discount.TieredDiscountPercentageTest"/> -->
 			<class name = "discount.VolumeDiscountTest"/>
 			<class name = "discount.VolumeDiscountPercentageTest"/>
 		</classes>

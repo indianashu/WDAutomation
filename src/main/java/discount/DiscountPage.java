@@ -24,7 +24,6 @@ public class DiscountPage extends BasePage {
 		}
 
 		Logger log = Logger.getLogger(DiscountPage.class);
-		DiscountPage configurationOrderPeriodsPage;
 		PropertyValExtractors p = new PropertyValExtractors();
 		String sheetName = "Discount";
 		String xlsxName = "/Discount_TestData.xlsx";
