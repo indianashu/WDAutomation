@@ -572,6 +572,73 @@ public class CategoryProductPage extends BasePage {
 		enterEndTime.sendKeys("18:00");
 		JavaScriptExec.sleep();
 	}
+
+
+		
+	public void verifyActiveSpecialDaysData() throws IOException{
+		for(int rowNum=0 ;rowNum<=1;rowNum++){
+			
+		String actualAvailabilityStartDate= BasePage.getCellData(xlsxName, sheetName, 14, rowNum);
+		String expectedAvailabilityStartDate = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/div[3]/div[2]/table/tbody/tr[" + (rowNum+1)+ "]/td[1]")).getText();
+		System.out.println(actualAvailabilityStartDate);					
+		Assert.assertEquals(actualAvailabilityStartDate, expectedAvailabilityStartDate);
+		
+		String actualAvailabilityEndDate= BasePage.getCellData(xlsxName, sheetName, 15, rowNum);
+		String expectedAvailabilityEndDate = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/div[3]/div[2]/table/tbody/tr[" + (rowNum+1)+ "]/td[2]")).getText();
+		System.out.println(actualAvailabilityEndDate);					
+		Assert.assertEquals(actualAvailabilityEndDate, expectedAvailabilityEndDate);
+		
+		String expectedisRecurring = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/div[3]/div[2]/table/tbody/tr[1]/td[3]")).getText();
+		System.out.println(expectedisRecurring);
+		Assert.assertEquals("true", expectedisRecurring);
+		
+		String expectedisPeak= driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/div[3]/div[2]/table/tbody/tr[" + (rowNum+1)+ "]/td[4]")).getText();
+		String isPeak=BasePage.getCellData(xlsxName, sheetName, 17, rowNum);
+		System.out.println(expectedisPeak);
+		Assert.assertEquals(isPeak, expectedisPeak);
+		
+		String actualStartTime= BasePage.getCellData(xlsxName, sheetName, 18, rowNum);
+		String expectedStartTime = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/div[3]/div[2]/table/tbody/tr[" + (rowNum+1)+ "]/td[5]")).getText();
+		System.out.println(actualStartTime);
+		Assert.assertEquals(actualStartTime, expectedStartTime);
+		
+		String actualEndTime= BasePage.getCellData(xlsxName, sheetName, 19, rowNum);
+		String expectedEndTime = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/div[3]/div[2]/table/tbody/tr[" + (rowNum+1)+ "]/td[6]")).getText();
+		System.out.println(actualEndTime);
+		Assert.assertEquals(actualEndTime, expectedEndTime);
+	}
+	}
+	
+	public void verifyActiveSpecialDaysDataForProduct(int rowNum) throws IOException{
+		
+		String actualAvailabilityStartDate= BasePage.getCellData(xlsxName, sheetName, 14, rowNum);
+		String expectedAvailabilityStartDate = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr/td[1]")).getText();
+		System.out.println(actualAvailabilityStartDate);
+		Assert.assertEquals(actualAvailabilityStartDate, expectedAvailabilityStartDate);
+		
+		String actualAvailabilityEndDate= BasePage.getCellData(xlsxName, sheetName, 15, rowNum);
+		String expectedAvailabilityEndDate = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr/td[2]")).getText();
+		System.out.println(actualAvailabilityEndDate);
+		Assert.assertEquals(actualAvailabilityEndDate, expectedAvailabilityEndDate);
+		
+		String expectedisRecurring = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr/td[3]")).getText();
+		Assert.assertEquals("true", expectedisRecurring);
+		
+		String expectedisPeak= driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr/td[4]")).getText();
+		String isPeak=BasePage.getCellData(xlsxName, sheetName, 17, rowNum);
+		Assert.assertEquals(isPeak, expectedisPeak);
+		
+		String actualStartTime= BasePage.getCellData(xlsxName, sheetName, 18, rowNum);
+		String expectedStartTime = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr/td[5]")).getText();
+		System.out.println(actualStartTime);
+		Assert.assertEquals(actualStartTime, expectedStartTime);
+		
+		String actualEndTime= BasePage.getCellData(xlsxName, sheetName, 19, rowNum);
+		String expectedEndTime = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr/td[6]")).getText();
+		System.out.println(actualEndTime);
+		Assert.assertEquals(actualEndTime, expectedEndTime);
+	
+	}
 	
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);

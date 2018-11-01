@@ -83,6 +83,7 @@ public class CategoryProductTest {
 		productPage.clickSavePeakButton();
 		productPage.verifyConfirmationMsg();
 		
+		
 		productPage.navigateBottom();
 		productPage.clickAddSpecialButton();
 		productPage.selectPeakInterval(1);
@@ -95,6 +96,7 @@ public class CategoryProductTest {
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
 		productPage.verifyConfirmationMsg();
+		productPage.verifyActiveSpecialDaysData();
 		
 		productPage.selectProductName(3);
 		productPage.clickAddSpecialButton();
@@ -107,6 +109,7 @@ public class CategoryProductTest {
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
 		productPage.verifyConfirmationMsg();
+		productPage.verifyActiveSpecialDaysDataForProduct(2);
 		
 		productPage.selectProductName(5);
 		productPage.clickAddSpecialButton();
@@ -118,5 +121,6 @@ public class CategoryProductTest {
 		productPage.enterEndDate(0);
 		productPage.selectDayofWeek(1);
 		productPage.clickSavePeakButton();
+		productPage.verifyActiveSpecialDaysDataForProduct(3);
 	}
 }
