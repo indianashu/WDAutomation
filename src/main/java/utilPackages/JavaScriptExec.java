@@ -56,7 +56,7 @@ public class JavaScriptExec {
 		try {
 			Actions actions = new Actions(driver);
 			Robot robot = new Robot();
-			robot.mouseMove(50, 50);
+			robot.mouseMove(150, 150);
 			actions.click().build().perform();
 		} catch (AWTException e) {
 			e.printStackTrace();
