@@ -46,10 +46,11 @@ public class CategoryProductTest {
 		productPage.verifyCategoryData(1);
 
 		for (int rowNum = 0; rowNum < 6; rowNum++) {
+			productPage.clickProductsTab();
 			productPage.selectCategoryName(0);
 			productPage.clickAddProductButton();
-			productPage.enterEnglishDescription(rowNum);
-			productPage.enterProductCode(rowNum);
+			productPage.enterEnglishDescription(6, rowNum);
+			productPage.enterProductCode(6, rowNum);
 			productPage.selectCurrency();
 			productPage.enterPriceRate(0);
 			productPage.clickAddPriceButton();
@@ -57,16 +58,16 @@ public class CategoryProductTest {
 			productPage.verifyConfirmationMsg();
 			productPage.verifyProductName(rowNum);
 
-			productPage.selectCategoryName(0);
+			productPage.selectCategoryName(1);
 			productPage.clickAddProductButton();
-			productPage.enterEnglishDescription(rowNum);
-			productPage.enterProductCode(rowNum);
+			productPage.enterEnglishDescription(7, rowNum);
+			productPage.enterProductCode(7, rowNum);
 			productPage.selectCurrency();
 			productPage.enterPriceRate(1);
 			productPage.clickAddPriceButton();
 			productPage.enterPlanProduct();
 			productPage.enterPricing();
-			productPage.clickAddPriceButton();
+			productPage.clickOnAddPrice();
 			productPage.clickSaveChangesButton();
 			productPage.verifyConfirmationMsg();
 			productPage.verifyProductData(rowNum);

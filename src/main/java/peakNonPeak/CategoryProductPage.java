@@ -204,11 +204,11 @@ public class CategoryProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterEnglishDescription(int rowNum) throws IOException {
+	public void enterEnglishDescription(int colNum, int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, rowNum));
+		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, colNum, rowNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
@@ -219,11 +219,11 @@ public class CategoryProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterProductCode(int rowNum) throws IOException {
+	public void enterProductCode(int colNum, int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, rowNum));
+		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, colNum, rowNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//select[@name='product.currencies']")
@@ -261,7 +261,7 @@ public class CategoryProductPage extends BasePage {
 	public void selectCategoryName(int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Click on a category name.");
-		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 4, rowNum);
+		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 5, rowNum);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 		JavaScriptExec.sleep();
 	}
@@ -326,9 +326,8 @@ public class CategoryProductPage extends BasePage {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Enter Pricing");
 		JavaScriptExec.sleep();
-		Select dropdown2 = new Select(driver.findElement(By.name("product.confPricingList")));
 		Assert.assertTrue(enterPricing.isDisplayed());
-		enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
+		enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']/div[2]/a/span")
@@ -369,31 +368,27 @@ public class CategoryProductPage extends BasePage {
 		Assert.assertEquals(actualProductName, expectedProductName);
 	}
 
-	public void verifyProductData(int column) throws IOException {
-		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 7, column);
+	public void verifyProductData(int rowNum) throws IOException {
+		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 7, rowNum);
 		String expectedProductName = driver
 				.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
 		System.out.println("Plan Product Name = " + expectedProductName);
 		Assert.assertEquals(actualProductName, expectedProductName);
 
-		if (actualProductName.contains("Plan")) {
-			driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + actualProductName + "']")).click();
-			JavaScriptExec.sleep();
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + actualProductName + "']")).click();
+		JavaScriptExec.sleep();
 
-			String expectedComponentPricesProduct = driver
-					.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]"))
-					.getText();
-			String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 6, 0);
-			System.out.println(expectedComponentPricesProduct);
-			Assert.assertEquals(actualComponentPricesProduct, expectedComponentPricesProduct);
+		String expectedComponentPricesProduct = driver
+				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
+		String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 6, rowNum);
+		System.out.println(expectedComponentPricesProduct);
+		Assert.assertTrue(expectedComponentPricesProduct.contains(actualComponentPricesProduct));
 
-			String expectedComponentPricePricing = driver
-					.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]"))
-					.getText();
-			String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 3, 0);
-			System.out.println(expectedComponentPricePricing);
-			Assert.assertEquals(actualComponentPricesPricing, expectedComponentPricePricing);
-		}
+		String expectedComponentPricePricing = driver
+				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[2]")).getText();
+		String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 3, 0);
+		System.out.println(expectedComponentPricePricing);
+		Assert.assertTrue(expectedComponentPricePricing.contains(actualComponentPricesPricing));
 	}
 
 	public void selectProductName(int rowNum) throws IOException {
@@ -401,7 +396,7 @@ public class CategoryProductPage extends BasePage {
 		log.info("Click on a category name.");
 		driver.findElement(By.xpath("//a[@class='submit show']//*[text()='Show All']")).click();
 		JavaScriptExec.sleep();
-		String productName = BasePage.getCellData(xlsxName, sheetName, 5, rowNum);
+		String productName = BasePage.getCellData(xlsxName, sheetName, 6, rowNum);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + productName + "']")).click();
 		navigateBottom();
 	}
