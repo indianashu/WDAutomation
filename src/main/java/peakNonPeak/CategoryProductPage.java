@@ -18,14 +18,7 @@ import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
 
 public class CategoryProductPage extends BasePage {
-	
-	/**
-	 * This constructor is used to initialize the webdriver in BasePage class,
-	 * if the user does not want to use page factory then this will take care of
-	 * initialization of the driver
-	 *
-	 * @param webdriver
-	 */
+
 	public CategoryProductPage(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -67,6 +60,7 @@ public class CategoryProductPage extends BasePage {
 		enterPassword.sendKeys(BasePage.getCellData(xlsxName, sheetName, 1, 0));
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
 	private WebElement selectCompany;
 
 	/**
@@ -76,8 +70,7 @@ public class CategoryProductPage extends BasePage {
 	 */
 	public void selectCompany() throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
-		Select se = new Select(Companyelement);
+		Select se = new Select(selectCompany);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 
 	}
@@ -140,11 +133,12 @@ public class CategoryProductPage extends BasePage {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Enter Category Name");
 		Assert.assertTrue(enterCategoryName.isDisplayed());
-		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5,rowNum));
+		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, rowNum));
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//select[@name='entities']")
 	private WebElement selectCompanies;
+
 	/**
 	 * Method to Enter Category Name.
 	 * 
@@ -154,6 +148,21 @@ public class CategoryProductPage extends BasePage {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		Select se = new Select(selectCompanies);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='orderLineTypeId']")
+	private WebElement enterCategoryType;
+
+	/**
+	 * Method to Enter Category Name.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCategoryType() throws IOException {
+		CreateCategoryPage sp = new CreateCategoryPage(driver);
+		log.info("Enter Category Name");
+		Assert.assertTrue(enterCategoryType.isDisplayed());
+		enterCategoryType.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 1));
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
@@ -217,6 +226,22 @@ public class CategoryProductPage extends BasePage {
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, rowNum));
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='product.currencies']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Enter Price Rate.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		log.info("Enter Price Rate");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 10, 0));
+		JavaScriptExec.sleep();
+	}
+
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
 	private WebElement enterPriceRate;
 
@@ -225,22 +250,22 @@ public class CategoryProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterPriceRate() throws IOException {
+	public void enterPriceRate(int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, 0));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, rowNum));
 	}
 
-	public void selectCategoryName() throws IOException {
+	public void selectCategoryName(int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Click on a category name.");
-		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 4,0);
+		String CategoryName = BasePage.getCellData(xlsxName, sheetName, 4, rowNum);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 		JavaScriptExec.sleep();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Product']")
 	private WebElement clickAddProductButton;
 
@@ -255,7 +280,7 @@ public class CategoryProductPage extends BasePage {
 		Assert.assertTrue(clickAddProductButton.isDisplayed());
 		clickAddProductButton.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
 	private WebElement clickAddPriceButton;
 
@@ -271,12 +296,286 @@ public class CategoryProductPage extends BasePage {
 		clickAddPriceButton.click();
 		navigateBottom();
 	}
-	
-	public void verifyCategoryData(int rowNum) throws IOException{
-		String expectedCategoryName=driver.findElement(By.xpath("//tbody//tr[@class='active']//a[@class='cell double']/strong")).getText();
-		String actualCategoryName=BasePage.getCellData(xlsxName, sheetName, 5,rowNum);
-		System.out.println(expectedCategoryName);
+
+	@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingProduct']")
+	private WebElement enterPlanProduct;
+
+	/**
+	 * Method to Enter .
+	 * 
+	 * @throws IOException
+	 */
+	public void enterPlanProduct() throws IOException {
+		CreateCategoryPage sp = new CreateCategoryPage(driver);
+		log.info("Enter Plan Product");
+		enterPlanProduct.click();
+		Select select = new Select(enterPlanProduct);
+		int selectOptions = select.getOptions().size();
+		select.selectByIndex(selectOptions - 2);
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingList']")
+	private WebElement enterPricing;
+
+	/**
+	 * Method to Enter .
+	 * 
+	 * @throws IOException
+	 */
+	public void enterPricing() throws IOException {
+		CreateCategoryPage sp = new CreateCategoryPage(driver);
+		log.info("Enter Pricing");
+		JavaScriptExec.sleep();
+		Select dropdown2 = new Select(driver.findElement(By.name("product.confPricingList")));
+		Assert.assertTrue(enterPricing.isDisplayed());
+		enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
+	}
+
+	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']/div[2]/a/span")
+	private WebElement clickOnAddPrice;
+
+	/**
+	 * Method to click on Add Price Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickOnAddPrice() throws IOException {
+		CreateCategoryPage sp = new CreateCategoryPage(driver);
+		log.info("Click on Add Price Button");
+		Assert.assertTrue(clickOnAddPrice.isDisplayed());
+		clickOnAddPrice.click();
+		navigateBottom();
+	}
+
+	public void verifyCategoryData(int column) throws IOException {
+		String actualCategoryName = BasePage.getCellData(xlsxName, sheetName, 5, column);
+		String expectedCategoryName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong"))
+				.getText();
+		System.out.println("Category Name = " + expectedCategoryName);
 		Assert.assertEquals(actualCategoryName, expectedCategoryName);
+
+		String actualCategoryType = BasePage.getCellData(xlsxName, sheetName, 8, column);
+		String expectedCategoryType = driver.findElement(By.xpath("//tbody//tr[1]//td[3]//a[@class='cell']/span"))
+				.getText();
+		System.out.println(expectedCategoryName + "Type is = " + expectedCategoryType);
+		Assert.assertEquals(actualCategoryType, expectedCategoryType);
+	}
+
+	public void verifyProductName(int column) throws IOException {
+		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 6, column);
+		String expectedProductName = driver
+				.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
+		System.out.println("Item Product Name = " + expectedProductName);
+		Assert.assertEquals(actualProductName, expectedProductName);
+	}
+
+	public void verifyProductData(int column) throws IOException {
+		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 7, column);
+		String expectedProductName = driver
+				.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
+		System.out.println("Plan Product Name = " + expectedProductName);
+		Assert.assertEquals(actualProductName, expectedProductName);
+
+		if (actualProductName.contains("Plan")) {
+			driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + actualProductName + "']")).click();
+			JavaScriptExec.sleep();
+
+			String expectedComponentPricesProduct = driver
+					.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]"))
+					.getText();
+			String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 6, 0);
+			System.out.println(expectedComponentPricesProduct);
+			Assert.assertEquals(actualComponentPricesProduct, expectedComponentPricesProduct);
+
+			String expectedComponentPricePricing = driver
+					.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]"))
+					.getText();
+			String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 3, 0);
+			System.out.println(expectedComponentPricePricing);
+			Assert.assertEquals(actualComponentPricesPricing, expectedComponentPricePricing);
+		}
+	}
+
+	public void selectProductName(int rowNum) throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		log.info("Click on a category name.");
+		driver.findElement(By.xpath("//a[@class='submit show']//*[text()='Show All']")).click();
+		JavaScriptExec.sleep();
+		String productName = BasePage.getCellData(xlsxName, sheetName, 5, rowNum);
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + productName + "']")).click();
+		navigateBottom();
+	}
+
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add a Special Day']")
+	private WebElement clickAddSpecialButton;
+
+	/**
+	 * Method to click on Add a Special Day Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickAddSpecialButton() throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		log.info("Click on Add a Special Day Button");
+		Assert.assertTrue(clickAddSpecialButton.isDisplayed());
+		clickAddSpecialButton.click();
+	}
+
+	@FindBy(how = How.XPATH, using = "//*[@id='peakDayTimeType']")
+	private WebElement selectPeakInterval;
+
+	/**
+	 * Method to select PeakInterval.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectPeakInterval(int rowNum) throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		selectPeakInterval.click();
+		Select se = new Select(selectPeakInterval);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, rowNum));
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add addButton']//*[text()='Add']")
+	private WebElement clickAddButton;
+
+	/**
+	 * Method to click on Add Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickAddButton() throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		log.info("Click on Add  Button");
+		Assert.assertTrue(clickAddButton.isDisplayed());
+		clickAddButton.click();
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='peakDayTime[0].recurring']")
+	private WebElement selectisRecurring;
+
+	/**
+	 * Method to select PeakInterval.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectisRecurring() throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		selectisRecurring.click();
+		Select se = new Select(selectisRecurring);
+		se.selectByVisibleText("TRUE");
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//*[@id='isPeak']")
+	private WebElement checkIsPeak;
+
+	/**
+	 * Method to Check United States Dollar Currency CheckBox.
+	 * 
+	 * @throws IOException
+	 */
+	public void checkIsPeak() throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		log.info("Check Is Peak Checkbox.");
+		Assert.assertTrue(checkIsPeak.isDisplayed());
+		if (!checkIsPeak.isSelected()) {
+			checkIsPeak.click();
+		}
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='peakDayTime[0].startDate']")
+	private WebElement enterStartDate;
+
+	/**
+	 * Method to enter start date.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterStartDate(int rowNum) throws IOException {
+		Assert.assertTrue(enterStartDate.isDisplayed());
+		enterStartDate.clear();
+		enterStartDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 11, rowNum));
+		JavaScriptExec.mouseclick(driver);
+		JavaScriptExec.sleep();
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='peakDayTime[0].endDate']")
+	private WebElement enterEndDate;
+
+	/**
+	 * Method to End Date.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterEndDate(int rowNum) throws IOException {
+		Assert.assertTrue(enterEndDate.isDisplayed());
+		enterEndDate.clear();
+		enterEndDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 12, rowNum));
+		JavaScriptExec.mouseclick(driver);
+		JavaScriptExec.sleep();
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='peakDayTime[0].dayOfWeek']")
+	private WebElement selectDayofWeek;
+
+	/**
+	 * Method to select PeakInterval.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectDayofWeek(int rowNum) throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		selectDayofWeek.click();
+		Select se = new Select(selectDayofWeek);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 13, rowNum));
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//button[@id='savePeak']")
+	private WebElement clickSavePeakButton;
+
+	/**
+	 * Method to click on Add Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickSavePeakButton() throws IOException {
+		CategoryProductPage sp = new CategoryProductPage(driver);
+		log.info("Click on Add  Button");
+		Assert.assertTrue(clickSavePeakButton.isDisplayed());
+		clickSavePeakButton.click();
+	}
+	@FindBy(how = How.XPATH, using = "//input[@name='peakDayTime[0].startTime']")
+	private WebElement enterStartTime;
+
+	/**
+	 * Method to enter start date.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterStartTime() throws IOException {
+		Assert.assertTrue(enterStartDate.isDisplayed());
+		enterStartTime.clear();
+		enterStartTime.sendKeys("09:00");
+		JavaScriptExec.sleep();
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='peakDayTime[0].endTime']")
+	private WebElement enterEndTime;
+
+	/**
+	 * Method to End Date.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterEndTime() throws IOException {
+		Assert.assertTrue(enterEndDate.isDisplayed());
+		enterEndTime.clear();
+		enterEndTime.sendKeys("18:00");
+		JavaScriptExec.sleep();
 	}
 	
 	public void navigateBottom() {
