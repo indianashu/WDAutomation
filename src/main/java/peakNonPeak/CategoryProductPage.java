@@ -136,11 +136,11 @@ public class CategoryProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterCategoryName() throws IOException {
+	public void enterCategoryName(int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Enter Category Name");
 		Assert.assertTrue(enterCategoryName.isDisplayed());
-		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4,0));
+		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5,rowNum));
 	}
 	
 	@FindBy(how = How.XPATH, using = "//select[@name='entities']")
@@ -195,11 +195,11 @@ public class CategoryProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterEnglishDescription() throws IOException {
+	public void enterEnglishDescription(int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
+		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, rowNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
@@ -210,11 +210,11 @@ public class CategoryProductPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterProductCode() throws IOException {
+	public void enterProductCode(int rowNum) throws IOException {
 		CategoryProductPage sp = new CategoryProductPage(driver);
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
+		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, rowNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
@@ -270,6 +270,13 @@ public class CategoryProductPage extends BasePage {
 		Assert.assertTrue(clickAddPriceButton.isDisplayed());
 		clickAddPriceButton.click();
 		navigateBottom();
+	}
+	
+	public void verifyCategoryData(int rowNum) throws IOException{
+		String expectedCategoryName=driver.findElement(By.xpath("//tbody//tr[@class='active']//a[@class='cell double']/strong")).getText();
+		String actualCategoryName=BasePage.getCellData(xlsxName, sheetName, 5,rowNum);
+		System.out.println(expectedCategoryName);
+		Assert.assertEquals(actualCategoryName, expectedCategoryName);
 	}
 	
 	public void navigateBottom() {

@@ -29,18 +29,28 @@ public class CategoryProductTest {
 		productPage.selectCompany();
 		productPage.clickLoginButton();
 		
+		
 		productPage.clickProductsTab();
 		productPage.clickAddCategoryButton();
-		productPage.enterCategoryName();
+		productPage.enterCategoryName(0);
 		productPage.selectCompanies();
 		productPage.clickSaveChangesButton();
 		productPage.verifyConfirmationMsg();
+		productPage.verifyCategoryData(0);
 		productPage.clickAddProductButton();
-		productPage.enterEnglishDescription();
-		productPage.enterProductCode();
+		productPage.enterEnglishDescription(0);
+		productPage.enterProductCode(0);
 		productPage.enterPriceRate();
 		productPage.clickAddPriceButton();
 		productPage.clickSaveChangesButton();
 		productPage.verifyConfirmationMsg();
+		
+		productPage.clickAddCategoryButton();
+		productPage.enterCategoryName(1);
+		
+		productPage.selectCompanies();
+		productPage.clickSaveChangesButton();
+		productPage.verifyConfirmationMsg();
+		productPage.verifyCategoryData(1);
 	}
 }
