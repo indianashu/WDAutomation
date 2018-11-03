@@ -251,12 +251,12 @@ public class PeakNonPeakScenarioPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void verifyTotalAmount(int RowNum) throws IOException {
+	public void verifyTotalAmount(int colNum, int RowNum) throws IOException {
 		PeakNonPeakScenarioPage sp = new PeakNonPeakScenarioPage(driver);
 		log.info("Verifying the orderAmount is correct or not");
 		String amount = verifyTotalAmount.getText();
 		String expectedAmount = amount.substring(8);
-		String actualAmount = BasePage.getCellData(xlsxName, sheetName, 8, RowNum);
+		String actualAmount = BasePage.getCellData(xlsxName, sheetName, colNum, RowNum);
 		System.out.println("Print the Amount of Order" + expectedAmount);
 		softAssert.assertEquals(actualAmount, expectedAmount);
 		softAssert.assertAll();

@@ -24,10 +24,10 @@ public class CategoryProductTest {
 	@Test(groups = { "Peak Non-Peak Feature" }, description = "Create Products")
 	public void userSignin() throws Exception {
 
-		productPage.enterLoginID();
+		/*productPage.enterLoginID();
 		productPage.enterPassword();
 		productPage.selectCompany();
-		productPage.clickLoginButton();
+		productPage.clickLoginButton();*/
 
 		productPage.clickProductsTab();
 		productPage.clickAddCategoryButton();
@@ -82,7 +82,8 @@ public class CategoryProductTest {
 		productPage.selectDayofWeek(0);
 		productPage.clickSavePeakButton();
 		productPage.verifyConfirmationMsg();
-		
+		productPage.verifyActiveSpecialDaysData(0);
+		productPage.verifyDayofWeek(0);
 		
 		productPage.navigateBottom();
 		productPage.clickAddSpecialButton();
@@ -96,20 +97,21 @@ public class CategoryProductTest {
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
 		productPage.verifyConfirmationMsg();
-		productPage.verifyActiveSpecialDaysData();
+		productPage.verifyActiveSpecialDaysData(1);
 		
 		productPage.selectProductName(3);
 		productPage.clickAddSpecialButton();
 		productPage.selectPeakInterval(1);
 		productPage.clickAddButton();
 		productPage.selectisRecurring();
+		productPage.checkIsPeak();
 		productPage.enterStartDate(1);
 		productPage.enterEndDate(1);
 		productPage.enterStartTime();
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
 		productPage.verifyConfirmationMsg();
-		productPage.verifyActiveSpecialDaysDataForProduct(2);
+		productPage.verifyActiveSpecialDaysData(1);
 		
 		productPage.selectProductName(5);
 		productPage.clickAddSpecialButton();
@@ -121,6 +123,7 @@ public class CategoryProductTest {
 		productPage.enterEndDate(0);
 		productPage.selectDayofWeek(1);
 		productPage.clickSavePeakButton();
-		productPage.verifyActiveSpecialDaysDataForProduct(3);
+		productPage.verifyActiveSpecialDaysData(2);
+		productPage.verifyDayofWeek(1);
 	}
 }

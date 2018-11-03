@@ -23,10 +23,10 @@ public class PeakIntervalTest {
 	@Test(groups = { "Peak Non-Peak Feature" }, description = "Create Peak NoN Peak Intervals at Company Level")
 	public void userSignin() throws Exception {
 
-		peakIntervalPage.enterLoginID();
+		/*peakIntervalPage.enterLoginID();
 		peakIntervalPage.enterPassword();
 		peakIntervalPage.selectCompany();
-		peakIntervalPage.clickLoginButton();
+		peakIntervalPage.clickLoginButton();*/
 		
 		peakIntervalPage.getPeakIntervalPage();
 		//WEEKLY BASED

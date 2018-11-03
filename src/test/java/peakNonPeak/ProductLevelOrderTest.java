@@ -3,11 +3,11 @@ package peakNonPeak;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import peakNonPeak.PeakNonPeakScenarioPage;
+
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
 
-public class CustomerLevelOrderTest {
+public class ProductLevelOrderTest {
 	PeakNonPeakScenarioPage peakScenarioPage;
     WebDriver driver,driver2;
 
@@ -22,38 +22,50 @@ public class CustomerLevelOrderTest {
 
     }
 
-    @Test(groups={"Peak Non-Peak Feature"},description="Customer Level Peak Non Peak Interval Scenario")
+    @Test(groups={"Peak Non-Peak Feature"},description="Product Level Peak Non Peak Interval Scenario")
     public void userSignin() throws Exception{
 
-    	peakScenarioPage.enterLoginID();
+    	/*peakScenarioPage.enterLoginID();
     	peakScenarioPage.enterPassword();
     	peakScenarioPage.selectCompany();
-    	peakScenarioPage.clickLoginButton();
+    	peakScenarioPage.clickLoginButton();*/
     	
     	peakScenarioPage.clickCustomerTab();
-    	peakScenarioPage.selectCustomer(0);
+    	peakScenarioPage.selectCustomer(1);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
     	peakScenarioPage.selectCategory(0);
-    	peakScenarioPage.selectProduct(5,0);
+    	peakScenarioPage.selectProduct(5,1);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
     	peakScenarioPage.verifyConfirmationMsg();
     	
-    	for (int rowNum= 0; rowNum<4; rowNum++) {
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.selectCustomer(0);
     	peakScenarioPage.clickCreateOrder();
-    	peakScenarioPage.enterActiveSince(rowNum);
+    	peakScenarioPage.enterActiveSince(0);
+    	peakScenarioPage.clickProductsSubTab();
+    	peakScenarioPage.selectCategory(1);
+    	peakScenarioPage.selectProduct(4,1);
+    	peakScenarioPage.enterQuantity(0);
+    	peakScenarioPage.clickUpdateButton();
+    	peakScenarioPage.verifyTotalAmount(10,0);
+    	peakScenarioPage.clickSaveChangesButton();
+    	peakScenarioPage.verifyConfirmationMsg();
+    	
+    	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.selectCustomer(0);
+    	peakScenarioPage.clickCreateOrder();
+    	peakScenarioPage.enterActiveSince(1);
     	peakScenarioPage.clickProductsSubTab();
     	peakScenarioPage.selectCategory(1);
     	peakScenarioPage.selectProduct(4,0);
-    	peakScenarioPage.enterQuantity(rowNum);
+    	peakScenarioPage.enterQuantity(3);
     	peakScenarioPage.clickUpdateButton();
-    	peakScenarioPage.verifyTotalAmount(8,rowNum);
+    	peakScenarioPage.verifyTotalAmount(10,1);
     	peakScenarioPage.clickSaveChangesButton();
     	peakScenarioPage.verifyConfirmationMsg();
-    	}
+    	
     	
     }
 }

@@ -23,13 +23,13 @@ public class CustomerTest {
 
 	}
 
-	@Test(groups = { "Product Historical Feature" }, description = "Create Currency for the Child and Parent Company")
+	@Test(groups = { "Peak Non-Peak Feature" }, description = "Create Customers and set their Peek")
 	public void userSignin() throws Exception {
 
-		customerPage.enterLoginID();
+		/*customerPage.enterLoginID();
 		customerPage.enterPassword();
 		customerPage.selectCompany();
-		customerPage.clickLoginButton();
+		customerPage.clickLoginButton();*/
 		
 		customerPage.clickCustomerTab();
 		
@@ -44,6 +44,8 @@ public class CustomerTest {
 		}
 		
 		// WEEKLY BASED FOR TOMMY ALLEN
+		
+		//@TODO Add Filter to select the customer
 		customerPage.selectCustomer(0);
 		customerPage.clickCustomerInspectIcon();
 		customerPage.clickActiveSpecialPlusButton();
