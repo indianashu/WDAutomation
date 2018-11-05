@@ -29,8 +29,12 @@
 			<class name = "peakNonPeak.CategoryProductTest"/>
 			<class name = "peakNonPeak.CustomerTest"/>
 			<class name = "peakNonPeak.PeakIntervalTest"/>
-			<class name = "peakNonPeak.CustomerLevelOrderTest"/>
-			<class name = "peakNonPeak.ProductLevelOrderTest"/>
+			<class name = "peakNonPeak.CustomerLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.ProductLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.CompanyLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.PriorityCustomerLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.PriorityProductLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.PriorityCompanyLevelPeakNonPeakTest"/>
 		</classes>
 
 	</test>

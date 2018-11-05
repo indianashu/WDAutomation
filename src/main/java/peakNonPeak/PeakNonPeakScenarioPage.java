@@ -18,6 +18,7 @@ import baseClassPackage.BasePage;
 import productHistorical.CreateEUROParentOrderPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.Verify;
 
 public class PeakNonPeakScenarioPage extends BasePage {
 	
@@ -30,8 +31,6 @@ public class PeakNonPeakScenarioPage extends BasePage {
 	Actions actions = new Actions(driver);
 	String sheetName = "Order";
 	String xlsxName = "/Peak_Non_Peak_Test_Data.xlsx";
-	Assertion hardAssert = new Assertion();
-	SoftAssert softAssert = new SoftAssert();
 	
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginID;
@@ -220,12 +219,12 @@ public class PeakNonPeakScenarioPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterQuantity(int rowNum) throws IOException {
+	public void enterQuantity(int colnum, int rowNum) throws IOException {
 		PeakNonPeakScenarioPage sp = new PeakNonPeakScenarioPage(driver);
 		log.info("Click Products Tab");
 		Assert.assertTrue(enterQuantity.isDisplayed());
 		enterQuantity.clear();
-		enterQuantity.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, rowNum));
+		enterQuantity.sendKeys(BasePage.getCellData(xlsxName, sheetName, colnum, rowNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Update']")
@@ -258,8 +257,7 @@ public class PeakNonPeakScenarioPage extends BasePage {
 		String expectedAmount = amount.substring(8);
 		String actualAmount = BasePage.getCellData(xlsxName, sheetName, colNum, RowNum);
 		System.out.println("Print the Amount of Order" + expectedAmount);
-		softAssert.assertEquals(actualAmount, expectedAmount);
-		softAssert.assertAll();
+		Verify.verifyEquals(actualAmount, expectedAmount, "Expected Amount is not correct");
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")

@@ -2,12 +2,15 @@ package peakNonPeak;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
+import utilPackages.TestMethodListener;
 
-public class ProductLevelOrderTest {
+@Listeners(TestMethodListener.class) 
+public class ProductLevelPeakNonPeakTest {
 	PeakNonPeakScenarioPage peakScenarioPage;
     WebDriver driver,driver2;
 
@@ -41,26 +44,26 @@ public class ProductLevelOrderTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	
     	peakScenarioPage.clickCustomerTab();
-    	peakScenarioPage.selectCustomer(0);
+    	peakScenarioPage.selectCustomer(1);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(0);
     	peakScenarioPage.clickProductsSubTab();
     	peakScenarioPage.selectCategory(1);
     	peakScenarioPage.selectProduct(4,1);
-    	peakScenarioPage.enterQuantity(0);
+    	peakScenarioPage.enterQuantity(7,0);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(10,0);
     	peakScenarioPage.clickSaveChangesButton();
     	peakScenarioPage.verifyConfirmationMsg();
     	
     	peakScenarioPage.clickCustomerTab();
-    	peakScenarioPage.selectCustomer(0);
+    	peakScenarioPage.selectCustomer(1);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(1);
     	peakScenarioPage.clickProductsSubTab();
     	peakScenarioPage.selectCategory(1);
-    	peakScenarioPage.selectProduct(4,0);
-    	peakScenarioPage.enterQuantity(3);
+    	peakScenarioPage.selectProduct(4,1);
+    	peakScenarioPage.enterQuantity(7,3);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(10,1);
     	peakScenarioPage.clickSaveChangesButton();

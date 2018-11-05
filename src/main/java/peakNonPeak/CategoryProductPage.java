@@ -596,19 +596,22 @@ public class CategoryProductPage extends BasePage {
 		System.out.println(expectedisRecurring);
 		Assert.assertEquals("true", expectedisRecurring);
 		
+		
 		String expectedisPeak = "";
 		String isPeak = BasePage.getCellData(xlsxName, sheetName, 16, rowNum);
-		if(driver.findElement(By.xpath("//*[@class='dataTable']//*[text()='Peak Product2']")).isDisplayed()) {
+		try {
+		WebElement productName = driver.findElement(By.xpath("//*[@class='dataTable']//*[text()='Peak Product2']"));
+		if(productName.isDisplayed()) {
 			expectedisPeak = driver.findElement(By.xpath(
 					"//*[@class='dataTable']//*[text()='"+isPeak+"'][" + tableRowNo + "]"))
 					.getText();
-		}else {
+		}}catch(Exception e) {
 		expectedisPeak = driver.findElement(By.xpath("//*[@class='dataTable']//*[text()='" + isPeak + "'][2]"))
 					.getText();
 		}
 		System.out.println(expectedisPeak);
 		Assert.assertEquals(isPeak, expectedisPeak);
-
+		
 		String actualStartTime = BasePage.getCellData(xlsxName, sheetName, 17, rowNum);
 		String expectedStartTime = driver
 				.findElement(By.xpath("//*[@class='dataTable']//*[text()='" + actualStartTime + "']")).getText();

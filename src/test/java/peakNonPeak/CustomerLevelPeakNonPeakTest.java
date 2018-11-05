@@ -2,12 +2,15 @@ package peakNonPeak;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import peakNonPeak.PeakNonPeakScenarioPage;
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
+import utilPackages.TestMethodListener;
 
-public class CustomerLevelOrderTest {
+@Listeners(TestMethodListener.class) 
+public class CustomerLevelPeakNonPeakTest {
 	PeakNonPeakScenarioPage peakScenarioPage;
     WebDriver driver,driver2;
 
@@ -25,10 +28,10 @@ public class CustomerLevelOrderTest {
     @Test(groups={"Peak Non-Peak Feature"},description="Customer Level Peak Non Peak Interval Scenario")
     public void userSignin() throws Exception{
 
-    	peakScenarioPage.enterLoginID();
+    	/*peakScenarioPage.enterLoginID();
     	peakScenarioPage.enterPassword();
     	peakScenarioPage.selectCompany();
-    	peakScenarioPage.clickLoginButton();
+    	peakScenarioPage.clickLoginButton();*/
     	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.selectCustomer(0);
@@ -48,7 +51,7 @@ public class CustomerLevelOrderTest {
     	peakScenarioPage.clickProductsSubTab();
     	peakScenarioPage.selectCategory(1);
     	peakScenarioPage.selectProduct(4,0);
-    	peakScenarioPage.enterQuantity(rowNum);
+    	peakScenarioPage.enterQuantity(7,rowNum);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(8,rowNum);
     	peakScenarioPage.clickSaveChangesButton();

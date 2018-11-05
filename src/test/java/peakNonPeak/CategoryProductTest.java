@@ -72,6 +72,7 @@ public class CategoryProductTest {
 			productPage.verifyConfirmationMsg();
 			productPage.verifyProductData(rowNum);
 		}
+		//Weekly Based for  Peak Product2
 		productPage.selectProductName(1);
 		productPage.clickAddSpecialButton();
 		productPage.selectPeakInterval(0);
@@ -85,6 +86,7 @@ public class CategoryProductTest {
 		productPage.verifyActiveSpecialDaysData(0);
 		productPage.verifyDayofWeek(0);
 		
+		//Time Based for  Peak Product2
 		productPage.navigateBottom();
 		productPage.clickAddSpecialButton();
 		productPage.selectPeakInterval(1);
@@ -99,6 +101,7 @@ public class CategoryProductTest {
 		productPage.verifyConfirmationMsg();
 		productPage.verifyActiveSpecialDaysData(1);
 		
+		//Time Based for  Peak Product4
 		productPage.selectProductName(3);
 		productPage.clickAddSpecialButton();
 		productPage.selectPeakInterval(1);
@@ -113,6 +116,7 @@ public class CategoryProductTest {
 		productPage.verifyConfirmationMsg();
 		productPage.verifyActiveSpecialDaysData(1);
 		
+		//Weekly Based for  Peak Product6
 		productPage.selectProductName(5);
 		productPage.clickAddSpecialButton();
 		productPage.selectPeakInterval(0);
