@@ -37,6 +37,11 @@ public class CreateRateCardTest {
 		ratecardPage.uploadRatingCSVFile(0);
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
+		ratecardPage.selectRateCard(0);
+		ratecardPage.clickEdit();
+		ratecardPage.rateCardRateConsumptionUnit();
+		ratecardPage.mediatedQuantityConsumptionUnit();
+		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyRateCardData(0);
 		
 		ratecardPage.clickAddNewButton();
@@ -45,6 +50,11 @@ public class CreateRateCardTest {
 		ratecardPage.uploadRatingCSVFile(1);
 		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyConfirmationMsg();
+		ratecardPage.selectRateCard(1);
+		ratecardPage.clickEdit();
+		ratecardPage.rateCardRateConsumptionUnit();
+		ratecardPage.mediatedQuantityConsumptionUnit();
+		ratecardPage.clickSaveChangesButton();
 		ratecardPage.verifyRateCardData(1);
 	}
 }

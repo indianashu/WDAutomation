@@ -3,12 +3,14 @@ package specificPricing;
 import baseClassPackage.BasePage;
 import specificPricing.CreateRateCardPage;
 import specificPricing.CreateRateCardPage;
+import productDependency.CreateOrderPage;
 import productDependency.CreateOrderPeriodPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -34,6 +36,7 @@ public class CreateRateCardPage extends BasePage {
 	Logger log = Logger.getLogger(CreateOrderPeriodPage.class);
 	CreateOrderPeriodPage configurationOrderPeriodsPage;
 	PropertyValExtractors p = new PropertyValExtractors();
+	Actions actions = new Actions(driver);
 	String sheetName = "RateCard & Pricing";
 	String xlsxName = "/SpecificPricing_TestData.xlsx"; 
 		
@@ -169,7 +172,6 @@ public class CreateRateCardPage extends BasePage {
 		
 	}
 		
-		
 		@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
 		private WebElement clickSaveChangesButton;
 
@@ -201,6 +203,60 @@ public class CreateRateCardPage extends BasePage {
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
+	
+	public void selectRateCard(int rowNum) throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		String RateCardName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
+		WebElement selectRateCard = driver
+				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + RateCardName + "']"));
+		navigateBottom();
+		actions.moveToElement(selectRateCard).click().perform();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[text()='Edit']")
+	private WebElement clickEdit;
+
+	/**
+	 * Method to click on Edit Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickEdit() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		log.info("Click on Edit Button");
+		Assert.assertTrue(clickEdit.isDisplayed());
+		clickEdit.click();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='chargeProductConsumptionTypeId']")
+	private WebElement rateCardRateConsumptionUnit;
+
+	/**
+	 * Method to select Rate Consumption Unit
+	 * 
+	 * @throws IOException
+	 */
+	public void rateCardRateConsumptionUnit() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		Select se = new Select(rateCardRateConsumptionUnit);
+		se.selectByVisibleText("Units");
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='mediatedUnitConsumptionTypeId']")
+	private WebElement mediatedQuantityConsumptionUnit;
+
+	/**
+	 * Method to select Quantity Consumption Unit
+	 * 
+	 * @throws IOException
+	 */
+	public void mediatedQuantityConsumptionUnit() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		Select se = new Select(mediatedQuantityConsumptionUnit);
+		se.selectByVisibleText("Units");
+	}
 
 	public void verifyRateCardData(int rowNum) throws IOException {
 		String actualRateCardName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
@@ -214,6 +270,12 @@ public class CreateRateCardPage extends BasePage {
 				.getText();
 		System.out.println(expectedRateCardCSV);
 		Assert.assertEquals(actualRateCardCSV, expectedRateCardCSV);
+	}
+	
+	public void navigateBottom() {
+		JavaScriptExec.scrolltoBottomofPage(driver);
+		JavaScriptExec.sleep();
+
 	}
 }
 
