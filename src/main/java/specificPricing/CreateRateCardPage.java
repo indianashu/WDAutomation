@@ -270,10 +270,5 @@ public class CreateRateCardPage extends BasePage {
 		Assert.assertEquals(actualRateCardCSV, expectedRateCardCSV);
 	}
 	
-	public void navigateBottom() {
-		JavaScriptExec.scrolltoBottomofPage(driver);
-		JavaScriptExec.sleep();
-
-	}
 }
 
