@@ -3,7 +3,6 @@ package specificPricing;
 import baseClassPackage.BasePage;
 import specificPricing.CreateRateCardPage;
 import specificPricing.CreateRateCardPage;
-import productDependency.CreateOrderPage;
 import productDependency.CreateOrderPeriodPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;
@@ -209,7 +208,6 @@ public class CreateRateCardPage extends BasePage {
 		String RateCardName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
 		WebElement selectRateCard = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + RateCardName + "']"));
-		navigateBottom();
 		actions.moveToElement(selectRateCard).click().perform();
 		JavaScriptExec.sleep();
 	}
