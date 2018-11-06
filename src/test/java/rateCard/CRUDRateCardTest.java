@@ -34,6 +34,7 @@ public class CRUDRateCardTest {
     }
     @Test(groups={"RateCard"},description="CRUD operation of the Rate Card")
     public void userSignin() throws Exception{
+    	
     	createRateCardPage.enterLoginName();
     	createRateCardPage.enterPassword();
     	createRateCardPage.selectCompany();
@@ -51,6 +52,8 @@ public class CRUDRateCardTest {
     	createRateCardPage.navigateBottom();
     	createRateCardPage.clickEditButton();
     	createRateCardPage.enterRateCardName();
+    	createRateCardPage.rateCardRateConsumptionUnit();
+    	createRateCardPage.mediatedQuantityConsumptionUnit();
     	createRateCardPage.clickLoginButton();
     	createRateCardPage.verifyConfirmationMsg();
     	

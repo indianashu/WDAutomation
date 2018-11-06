@@ -140,6 +140,32 @@ public class CRUDRateCardPage extends BasePage {
 		clickEditButton.click();
 		JavaScriptExec.sleep();
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='chargeProductConsumptionTypeId']")
+	private WebElement rateCardRateConsumptionUnit;
+ 	/**
+	 * Method to select Rate Consumption Unit
+	 * 
+	 * @throws IOException
+	 */
+	public void rateCardRateConsumptionUnit() throws IOException {
+		CRUDRateCardPage sp = new CRUDRateCardPage(driver);
+		Select se = new Select(rateCardRateConsumptionUnit);
+		se.selectByVisibleText("Units");
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='mediatedUnitConsumptionTypeId']")
+	private WebElement mediatedQuantityConsumptionUnit;
+ 	/**
+	 * Method to select Quantity Consumption Unit
+	 * 
+	 * @throws IOException
+	 */
+	public void mediatedQuantityConsumptionUnit() throws IOException {
+		CRUDRateCardPage sp = new CRUDRateCardPage(driver);
+		Select se = new Select(mediatedQuantityConsumptionUnit);
+		se.selectByVisibleText("Units");
+	}
 
 	public void selectRateCardForDelete() throws IOException {
 		log.info("");
