@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="WebData-RateCard" parallel="none">
+	<listeners>
+
+	</listeners>
+	
+	<test name="WebData-Sanity">
+		
+		<groups>
+			<define name="All">
+
+				<include name="RateCard" />
+
+			</define>
+
+			<run>
+
+				<include name="All" />
+
+			</run>
+
+		</groups>
+		<classes>
+			<class name = "rateCard.CRUDRateCardTest"/>
+			<class name = "rateCard.RateCardTest"/>
+		</classes>
+	</test>
+</suite>
