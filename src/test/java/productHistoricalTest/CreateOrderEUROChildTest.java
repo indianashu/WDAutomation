@@ -1,4 +1,5 @@
 package productHistoricalTest;
+
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateEUROChildOrderPage;
 import java.io.IOException;
@@ -8,8 +9,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
-
-
 
 public class CreateOrderEUROChildTest {
 	CreateEUROChildOrderPage createEUROChildOrderPage;
@@ -30,14 +29,18 @@ public class CreateOrderEUROChildTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*createEUROChildOrderPage.enterLoginID();
-		createEUROChildOrderPage.enterPassword();
-		createEUROChildOrderPage.selectCompany();
-		createEUROChildOrderPage.clickLoginButton();*/
-		
-		/*createEUROChildOrderPage.clickImpersonate();
-		createEUROChildOrderPage.selectChildCompany();
-		createEUROChildOrderPage.clickOKButton();*/
+		/*
+		 * createEUROChildOrderPage.enterLoginID();
+		 * createEUROChildOrderPage.enterPassword();
+		 * createEUROChildOrderPage.selectCompany();
+		 * createEUROChildOrderPage.clickLoginButton();
+		 */
+
+		/*
+		 * createEUROChildOrderPage.clickImpersonate();
+		 * createEUROChildOrderPage.selectChildCompany();
+		 * createEUROChildOrderPage.clickOKButton();
+		 */
 
 		// ActiveSince=Past date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -91,27 +94,23 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.selectProduct1();
 		createEUROChildOrderPage.checkApplyNow();
 		createEUROChildOrderPage.clickUpdateButton1();
-		
+
 		createEUROChildOrderPage.selectProduct2();
 		createEUROChildOrderPage.checkApplyNow2();
 		createEUROChildOrderPage.clickUpdateButton2();
-		
+
 		createEUROChildOrderPage.selectProduct3();
 		createEUROChildOrderPage.checkApplyNow3();
 		createEUROChildOrderPage.clickUpdateButton();
-		
-		
+
 		createEUROChildOrderPage.expectedAmount4();
 		createEUROChildOrderPage.clickSave();
 
 	}
-	@AfterClass(alwaysRun=true)
-    public void tearDown(){
-     BaseClasses.closeDriver("User1");
+
+	@AfterClass(alwaysRun = true)
+	public void tearDown() {
+		BaseClasses.closeDriver("User1");
 	}
 
 }
-
-
-	
-	
