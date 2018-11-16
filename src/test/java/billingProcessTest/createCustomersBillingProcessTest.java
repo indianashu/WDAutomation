@@ -52,6 +52,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.selectAccountType();
     	createCustomerPage.clickSelectButton();
     	createCustomerPage.enterLoginName();
+    	createCustomerPage.selectCurrency();
 		createCustomerPage.navigateBottom();
     	createCustomerPage.enterProcessingOrder();
 		createCustomerPage.selectPaymentMethodType();
@@ -74,6 +75,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.selectAccountType();
     	createCustomerPage.clickSelectButton();
     	createCustomerPage.enterLoginName1();
+    	createCustomerPage.selectCurrency();
     	createCustomerPage.enterProcessingOrder();
 		createCustomerPage.selectPaymentMethodType();
     	createCustomerPage.enterCardHolderName1();

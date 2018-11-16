@@ -4,6 +4,7 @@ import baseClassPackage.BasePage;
 import categoryProducts.AddProductPage;
 import customer.CustomerPage;
 import customer.MakePaymentPage;
+import reports.ReportsPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -295,6 +296,13 @@ public class AgentPage extends BasePage {
         
     }
     
+    public void selectCurrency() throws IOException {
+    	AgentPage sp=new AgentPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='user.currencyId']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(21));
+	}
+    
     @FindBy(how=How.XPATH, using="//input[@name='user.partnerId']")
     private WebElement enterAgentID;
     /**
@@ -555,6 +563,13 @@ public class AgentPage extends BasePage {
         enterMasterCommission.sendKeys(sp.ExcelRead(sheetName).get(15));
         
     }
+    
+    public void selectPriceCurrency() throws IOException {
+		AddProductPage sp = new AddProductPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(21));
+	}
     
     @FindBy(how=How.XPATH, using="//input[@name='product.rate']")
     private WebElement enterPriceRate;

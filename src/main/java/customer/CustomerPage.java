@@ -1,6 +1,7 @@
 package customer;
 
 import baseClassPackage.BasePage;
+import categoryProducts.AddProductPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -206,6 +207,13 @@ public class CustomerPage extends BasePage {
 		Assert.assertTrue(enterLoginName.isDisplayed());
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
 
+	}
+	
+	public void selectCurrency() throws IOException {
+		CustomerPage sp = new CustomerPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='user.currencyId']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(14));
 	}
 	
 	@FindBy(how = How.XPATH, using = "//input[@class='field text']")

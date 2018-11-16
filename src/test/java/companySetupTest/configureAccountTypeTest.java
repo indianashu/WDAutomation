@@ -48,6 +48,8 @@ public class configureAccountTypeTest {
     	configurationAccountTypePage.clickLoginButton();*/
 
     	//configurationAccountTypePage.clickConfigurationTab();
+    	configurationAccountTypePage.clickCurrencies();
+    	configurationAccountTypePage.isCurrencySelected();
     	configurationAccountTypePage.clickAccountType();
     	configurationAccountTypePage.clickAddNewButton();
     	configurationAccountTypePage.enterAccountName();

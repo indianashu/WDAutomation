@@ -1,6 +1,7 @@
 package orderHierarchies;
 
 import baseClassPackage.BasePage;
+import categoryProducts.AddProductPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -224,6 +225,13 @@ public class OrderHierarchiesPage extends BasePage {
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(sp.ExcelRead(sheetName).get(5));
 
+	}
+	
+	public void selectPriceCurrency() throws IOException {
+		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(19));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")

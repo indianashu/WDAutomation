@@ -111,6 +111,30 @@ public class ConfigurationAccountTypePage extends BasePage {
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Currencies']")
+	private WebElement clickCurrencies;
+
+	/**
+	 * Method to click on Currencies.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickCurrencies() throws IOException {
+		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
+		log.info("Click on Currencies");
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/config/currency";
+		driver.get(url);
+	}
+	
+	public void isCurrencySelected() throws IOException {
+		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
+		if ( !driver.findElement(By.id("currencies.1.inUse")).isSelected() )
+		{
+		     driver.findElement(By.id("currencies.1.inUse")).click();
+		}
+	}
 
 	@FindBy(how = How.XPATH, using = "//a[.='Account Type']")
 	private WebElement clickAccountType;

@@ -1,6 +1,7 @@
 package billingProcess;
 
 import baseClassPackage.BasePage;
+import categoryProducts.AddProductPage;
 import customer.MakePaymentPage;
 
 import java.io.File;
@@ -260,6 +261,13 @@ public class CreatingOrdersPage extends BasePage {
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(sp.ExcelRead(sheetName).get(5));
 
+	}
+	
+	public void selectPriceCurrency() throws IOException {
+		AddProductPage sp = new AddProductPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(30));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='mydate']")

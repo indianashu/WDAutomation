@@ -1,6 +1,7 @@
 package billingProcess;
 
 import baseClassPackage.BasePage;
+import customer.AddingAssetPage;
 import customer.MakePaymentPage;
 
 import java.io.File;
@@ -207,6 +208,13 @@ public class CreateCustomerPage extends BasePage {
 		Assert.assertTrue(enterLoginName.isDisplayed());
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
 
+	}
+	
+	public void selectCurrency() throws IOException {
+    	AddingAssetPage sp=new AddingAssetPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='user.currencyId']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(18));
 	}
 
 	private WebElement selectBillingCycleUnit;

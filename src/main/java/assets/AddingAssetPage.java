@@ -2,7 +2,7 @@ package assets;
 
 import baseClassPackage.BasePage;
 import customer.CustomerPage;
-import customer.OrderPage;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -182,7 +182,13 @@ public class AddingAssetPage extends BasePage{
 		log.info("Enter Login Name");
 		Assert.assertTrue(enterCustomerLoginName.isDisplayed());
 		enterCustomerLoginName.sendKeys(AddingAssetPage.ExcelRead(sheetName).get(5));
-
+	}
+	
+	public void selectCurrency() throws IOException {
+    	AddingAssetPage sp=new AddingAssetPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='user.currencyId']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(13));
 	}
 
 	@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")

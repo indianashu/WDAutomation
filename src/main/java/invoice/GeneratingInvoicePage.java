@@ -1,6 +1,7 @@
 package invoice;
 
 import baseClassPackage.BasePage;
+import categoryProducts.AddProductPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -520,6 +521,14 @@ public class GeneratingInvoicePage extends BasePage {
 		enterProductCode.sendKeys(sp.ExcelRead(sheetName).get(12));
 
 	}
+	
+	public void selectPriceCurrency() throws IOException {
+		GeneratingInvoicePage sp = new GeneratingInvoicePage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(15));
+	}
+
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
 	private WebElement enterProductRate;

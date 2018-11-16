@@ -30,19 +30,19 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class OrderPage extends BasePage{
+public class AddingAssetPage extends BasePage{
     /**
      * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
      * then this will take care of initialization of the driver
      *
      * @param webdriver
      */
-    public OrderPage(WebDriver webdriver) {
+    public AddingAssetPage(WebDriver webdriver) {
         super(webdriver);
     }
 
-    Logger log=Logger.getLogger(OrderPage.class);
-    OrderPage orderPage;
+    Logger log=Logger.getLogger(AddingAssetPage.class);
+    AddingAssetPage addingAssetPage;
     PropertyValExtractors p = new PropertyValExtractors();
     String sheetName = "CustOrder";
    
@@ -53,7 +53,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginID() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
     	
         log.info("Verifying the Login ID is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
@@ -68,7 +68,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterPassword() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Verifying the First Name is available or not");
         WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
         Assert.assertTrue(enterPassword.isDisplayed());
@@ -82,7 +82,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectCompany() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
         Select se = new Select(Companyelement);
         se.selectByVisibleText(sp.ExcelRead(sheetName).get(2));
@@ -95,7 +95,7 @@ public class OrderPage extends BasePage{
      * Method to Click on  Save Changes Button
      */
     public void clickLoginButton(){
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Verifying the login button is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
         Assert.assertTrue(clickLoginButton.isDisplayed());
@@ -109,7 +109,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickCustomerTab() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Customer Tab after successful login");
         JavaScriptExec.sleep();
         Assert.assertTrue(clickCustomerTab.isDisplayed());
@@ -124,7 +124,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickAddNewButton() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Add New Button");
         JavaScriptExec.sleep();
         Assert.assertTrue(clickAddNewButton.isDisplayed());
@@ -139,7 +139,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectUserCompany() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
         Select se = new Select(Usercompanyelement);
         se.selectByVisibleText(sp.ExcelRead(sheetName).get(3));
@@ -152,7 +152,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectAccountType() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
         Select se = new Select(AccountTypeelement);
         se.selectByVisibleText(sp.ExcelRead(sheetName).get(4));
@@ -167,7 +167,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickSelectButton() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on select Button");
         Assert.assertTrue(clickSelectButton.isDisplayed());
         clickSelectButton.click();
@@ -182,12 +182,19 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterLoginName() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter Login Name");
         Assert.assertTrue(enterLoginName.isDisplayed());
         enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
-        
     }
+    
+    public void selectCurrency() throws IOException {
+    	AddingAssetPage sp=new AddingAssetPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='user.currencyId']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(17));
+	}
+    
     
 //    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Use Company Billing Cycle']")
 //    private WebElement clickUseCompanyBillingCycleButton;
@@ -196,7 +203,7 @@ public class OrderPage extends BasePage{
 //     * @throws IOException 
 //     */
 //    public void clickUseCompanyBillingCycleButton() throws IOException{
-//    	OrderPage sp=new OrderPage(driver);
+//    	AddingAssetPage sp=new AddingAssetPage(driver);
 //        log.info("Click Use Company Billing Cycle Button");
 //        JavaScriptExec.sleep();
 //        WaitClass.WaitForElementisDisplay(driver, 10, clickUseCompanyBillingCycleButton);
@@ -211,7 +218,7 @@ public class OrderPage extends BasePage{
 //     * @throws IOException 
 //     */
 //    public void selectBillingCycleUnit() throws IOException{
-//    	OrderPage sp=new OrderPage(driver);
+//    	AddingAssetPage sp=new AddingAssetPage(driver);
 //        WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
 //        Select se = new Select(BCUelement);
 //        se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
@@ -224,7 +231,7 @@ public class OrderPage extends BasePage{
 //     * @throws IOException 
 //     */
 //    public void selectBillingCycleDay() throws IOException{
-//    	OrderPage sp=new OrderPage(driver);
+//    	AddingAssetPage sp=new AddingAssetPage(driver);
 //        WebElement BCDelement = driver.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
 //        Select se = new Select(BCDelement);
 //        se.selectByVisibleText(sp.ExcelRead(sheetName).get(7));
@@ -238,7 +245,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickSaveChangesButton() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click on Save Changes Button");
         Assert.assertTrue(clickSaveChangesButton.isDisplayed());
         clickSaveChangesButton.click();
@@ -252,7 +259,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void verifyConfirmationMsg() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Verifying if Account Type is created Successfully or not");
         JavaScriptExec.sleep();
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
@@ -265,7 +272,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectCustomer() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Select Customer");
         JavaScriptExec.sleep();
         String CustomerName = sp.ExcelRead(sheetName).get(5);
@@ -280,7 +287,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void expandPaymentMethod() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Expand Payment Method in add customer page");
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, expandPaymentMethod);
@@ -295,7 +302,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectPaymentMethodType() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
         Select se = new Select(PMTelement);
         se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
@@ -310,7 +317,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterCCCardholderName() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter CC Cardholder name");
         Assert.assertTrue(enterCCCardholderName.isDisplayed());
         enterCCCardholderName.sendKeys(sp.ExcelRead(sheetName).get(7));
@@ -324,7 +331,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterCCNumber() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter CC Number");
         Assert.assertTrue(enterCCNumber.isDisplayed());
         enterCCNumber.sendKeys(sp.ExcelRead(sheetName).get(8));
@@ -338,7 +345,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterCCExpiryDate() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter CC Number");
         Assert.assertTrue(enterCCExpiryDate.isDisplayed());
         enterCCExpiryDate.sendKeys(sp.ExcelRead(sheetName).get(9));
@@ -369,7 +376,7 @@ public class OrderPage extends BasePage{
      */
     public void clickCreateOrderButton() throws IOException{
         JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Add Sub Account Button");
         Assert.assertTrue(clickCreateOrderButton.isDisplayed());
         clickCreateOrderButton.click();
@@ -383,7 +390,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectPeriod() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
         Select se = new Select(Periodelement);
         se.selectByVisibleText(sp.ExcelRead(sheetName).get(10));
@@ -396,7 +403,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectOrderType() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
         Select se = new Select(OrderTypeelement);
         se.selectByVisibleText(sp.ExcelRead(sheetName).get(11));
@@ -409,7 +416,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectActiveSince() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         WebElement ASelement = driver.findElement(By.xpath("//input[@name='activeSince']"));
         ASelement.clear();
         ASelement.sendKeys(sp.ExcelRead(sheetName).get(12));
@@ -422,7 +429,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickProductsSubTab() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Products Tab");
         Assert.assertTrue(clickProductsSubTab.isDisplayed());
         clickProductsSubTab.click();
@@ -437,7 +444,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void selectProduct() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Product from list");
         String ProductName = sp.ExcelRead(sheetName).get(13);
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
@@ -450,7 +457,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterEffectiveDate() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter Effective Date");
         JavaScriptExec.sleep();
         WaitClass.WaitForElementisDisplay(driver, 10, enterEffectiveDate);
@@ -466,7 +473,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterQuantity() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter Quantity");
         JavaScriptExec.sleep();
         Assert.assertTrue(enterQuantity.isDisplayed());
@@ -482,7 +489,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickUpdateButton() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Update Button");
         Assert.assertTrue(clickUpdateButton.isDisplayed());
         clickUpdateButton.click();
@@ -496,7 +503,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void verifyNewOrder() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Verifying if NEW is shown or not");
         JavaScriptExec.sleep();
         Assert.assertTrue(verifyNewOrder.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
@@ -511,7 +518,7 @@ public class OrderPage extends BasePage{
      */
     public void clickEditOrderButton() throws IOException{
         JavaScriptExec.scrollToElementOnPage(driver,clickEditOrderButton);
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Edit This Order Button");
         JavaScriptExec.sleep();
         Assert.assertTrue(clickEditOrderButton.isDisplayed());
@@ -526,7 +533,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickChangeLog() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Change Log");
         Assert.assertTrue(clickChangeLog.isDisplayed());
         clickChangeLog.click();
@@ -541,7 +548,7 @@ public class OrderPage extends BasePage{
 //     * @throws IOException 
 //     */
 //    public void clickGenerateInvoiceButton() throws IOException{
-//    	OrderPage sp=new OrderPage(driver);
+//    	AddingAssetPage sp=new AddingAssetPage(driver);
 //        log.info("Click on Generate Invoice Button");
 //        JavaScriptExec.sleep();
 //        WaitClass.WaitForElementisDisplay(driver, 10, clickGenerateInvoiceButton);
@@ -557,7 +564,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickSelectedProduct() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Selected Product");
         Assert.assertTrue(clickSelectedProduct.isDisplayed());
         clickSelectedProduct.click();
@@ -572,7 +579,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void clickChangeButton() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Click Change Button");
         Assert.assertTrue(clickChangeButton.isDisplayed());
         clickChangeButton.click();
@@ -587,7 +594,7 @@ public class OrderPage extends BasePage{
      * @throws IOException 
      */
     public void enterChangeQty() throws IOException{
-    	OrderPage sp=new OrderPage(driver);
+    	AddingAssetPage sp=new AddingAssetPage(driver);
         log.info("Enter New Quantity");
         Assert.assertTrue(enterChangeQty.isDisplayed());
         enterChangeQty.clear();

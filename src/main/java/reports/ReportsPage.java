@@ -1,6 +1,7 @@
 package reports;
 
 import baseClassPackage.BasePage;
+import customer.CustomerPage;
 import invoice.GeneratingPayingInvoicePage;
 
 import java.io.File;
@@ -193,6 +194,13 @@ public class ReportsPage extends BasePage{
         enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
         
     }
+    
+    public void selectCurrency() throws IOException {
+    	ReportsPage sp=new ReportsPage(driver);
+		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='user.currencyId']"));
+		Select se = new Select(Currencyelement);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(18));
+	}
     
 //    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Use Company Billing Cycle']")
 //    private WebElement clickUseCompanyBillingCycleButton;

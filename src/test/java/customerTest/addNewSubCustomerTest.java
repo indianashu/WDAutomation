@@ -52,6 +52,7 @@ public class addNewSubCustomerTest {
 		customerParentChildPage.selectAccountType();
 		customerParentChildPage.clickSelectButton();
 		customerParentChildPage.enterLoginName();
+		customerParentChildPage.selectCurrency();
 		customerParentChildPage.clickAllowSubAccountCheckbox();
 		customerParentChildPage.navigateBottom();
 		customerParentChildPage.enterEmail();

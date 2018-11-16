@@ -274,20 +274,12 @@ public class AddProductPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(9));
 
 	}
-
-	private WebElement selectPriceCurrency;
-
-	/**
-	 * Method to select price currency.
-	 * 
-	 * @throws IOException
-	 */
+	
 	public void selectPriceCurrency() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
 		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 		Select se = new Select(Currencyelement);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(10));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")

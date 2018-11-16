@@ -19,11 +19,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
-import customer.OrderPage;
+import customer.AddingAssetPage;
 
 
 public class basicOrderCreationTest {
-	OrderPage orderPage;
+	AddingAssetPage addingAssetPage;
     WebDriver driver,driver2;
 
     @BeforeClass(alwaysRun=true)
@@ -34,49 +34,50 @@ public class basicOrderCreationTest {
         String url=p.getVal("url1");
         driver.get(url);
         //WaitClass.waitForUrl(driver, url, 10);
-        orderPage=OrderPage.getPage(driver, OrderPage.class);
+        addingAssetPage=AddingAssetPage.getPage(driver, AddingAssetPage.class);
 
     }
 
     @Test(groups={"Sanity"},description="Basic Order Creation")
     public void userSignin() throws IOException{
 
-    	/*orderPage.enterLoginID();
-    	orderPage.enterPassword();
-    	orderPage.selectCompany();
-    	orderPage.clickLoginButton();*/
+    	/*addingAssetPage.enterLoginID();
+    	addingAssetPage.enterPassword();
+    	addingAssetPage.selectCompany();
+    	addingAssetPage.clickLoginButton();*/
 
-    	orderPage.clickCustomerTab();
-    	orderPage.clickAddNewButton();
-    	//orderPage.selectUserCompany();
-    	orderPage.selectAccountType();
-    	orderPage.clickSelectButton();
-    	orderPage.enterLoginName();
-		orderPage.navigateBottom();
-    	orderPage.selectPaymentMethodType();
-    	orderPage.enterCCCardholderName();
-    	orderPage.enterCCNumber();
-    	orderPage.enterCCExpiryDate();
-    	orderPage.clickSaveChangesButton();
-    	orderPage.verifyConfirmationMsg();
-    	orderPage.clickCreateOrderButton();
-		orderPage.selectPeriod();
-		orderPage.selectOrderType();
-    	orderPage.selectActiveSince();
-    	orderPage.clickProductsSubTab();
-    	orderPage.selectProduct();
-    	orderPage.enterQuantity();
-    	orderPage.clickUpdateButton();
-    	orderPage.verifyNewOrder();
-    	orderPage.clickSaveChangesButton();
-    	orderPage.verifyConfirmationMsg();
-    	orderPage.clickEditOrderButton();
-    	orderPage.clickChangeLog();
-    	orderPage.clickSelectedProduct();
-    	orderPage.clickChangeButton();
-    	orderPage.enterChangeQty();
-    	orderPage.clickSaveChangesButton();
-    	orderPage.verifyConfirmationMsg();
+    	addingAssetPage.clickCustomerTab();
+    	addingAssetPage.clickAddNewButton();
+    	//addingAssetPage.selectUserCompany();
+    	addingAssetPage.selectAccountType();
+    	addingAssetPage.clickSelectButton();
+    	addingAssetPage.enterLoginName();
+    	addingAssetPage.selectCurrency();
+		addingAssetPage.navigateBottom();
+    	addingAssetPage.selectPaymentMethodType();
+    	addingAssetPage.enterCCCardholderName();
+    	addingAssetPage.enterCCNumber();
+    	addingAssetPage.enterCCExpiryDate();
+    	addingAssetPage.clickSaveChangesButton();
+    	addingAssetPage.verifyConfirmationMsg();
+    	addingAssetPage.clickCreateOrderButton();
+		addingAssetPage.selectPeriod();
+		addingAssetPage.selectOrderType();
+    	addingAssetPage.selectActiveSince();
+    	addingAssetPage.clickProductsSubTab();
+    	addingAssetPage.selectProduct();
+    	addingAssetPage.enterQuantity();
+    	addingAssetPage.clickUpdateButton();
+    	addingAssetPage.verifyNewOrder();
+    	addingAssetPage.clickSaveChangesButton();
+    	addingAssetPage.verifyConfirmationMsg();
+    	addingAssetPage.clickEditOrderButton();
+    	addingAssetPage.clickChangeLog();
+    	addingAssetPage.clickSelectedProduct();
+    	addingAssetPage.clickChangeButton();
+    	addingAssetPage.enterChangeQty();
+    	addingAssetPage.clickSaveChangesButton();
+    	addingAssetPage.verifyConfirmationMsg();
     	
     }
     
