@@ -28,59 +28,61 @@ public class CreateOrder4Test {
 	public void userSignin() throws Exception {
 
 		
-		  createOrderPage.enterLoginID(); 
+		 /* createOrderPage.enterLoginID(); 
 		  createOrderPage.enterPassword();
 		  createOrderPage.selectCompany(); 
-		  createOrderPage.clickLoginButton();
+		  createOrderPage.clickLoginButton();*/
 		 
 
 		// Create order for customer Isabella
 		createOrderPage.clickCustomerTab();
-		createOrderPage.selectCustomer3();
+		createOrderPage.clickCustomerName(3);
 		createOrderPage.clickCreateOrder();
-		createOrderPage.selectPeriod2();
-		createOrderPage.selectOrderType2();
+		createOrderPage.selectPeriod(0);
+		createOrderPage.selectOrderType(0);
 		createOrderPage.clickProductsSubTab();
 		createOrderPage.selectCategory();
-		createOrderPage.selectProduct3();
+		createOrderPage.selectProduct(3);
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct5();
+		createOrderPage.clickDependentProduct(0);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton();
-		createOrderPage.enterQuantity5();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.enterOrderQuantity("2","6");
+		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyErrorMsg();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
-		createOrderPage.clickParentOrder1();
+		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct6();
+		createOrderPage.clickDependentProduct(1);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyErrorMsg();
 		createOrderPage.clickDetailsTab();
 		createOrderPage.clickNew();
-		createOrderPage.clickParentOrder1();
+		createOrderPage.clickParentOrder();
 		createOrderPage.clickPlusdependency();
-		createOrderPage.clickDependentProduct7();
+		createOrderPage.clickDependentProduct(2);
 		createOrderPage.clickNewSubOrderButton();
-		createOrderPage.enterQuantity6();
-		createOrderPage.clickUpdateButton();
+		createOrderPage.enterOrderQuantity("4","12");
+		createOrderPage.clickSubOrderUpdateButton();
+		createOrderPage.verifyUpdationMsg();
 		createOrderPage.clickSaveChangesButton();
 		createOrderPage.verifyConfirmationMsg();
-		
+
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);
-		
-		createOrderPage.verifySubOrders3(orderid);
-		
-		String orderlineid=createOrderPage.gotourlbar(orderid);
-		System.out.println(orderlineid);
-		
-		String product = createOrderPage.verifyOrderLine3();
+
+		createOrderPage.verifySubOrders(orderid);
+
+		createOrderPage.showOrder(orderid);
+
+		String product = createOrderPage.verifyOrderLineIsabella();
 		System.out.println(product);
-		
-		String generateinvoice=createOrderPage.clickGenerateInvoiceButton(orderid);
+
+		createOrderPage.clickGenerateInvoiceButton(orderid);
 		String invoiceid = createOrderPage.extractInvoiceId();
-		
-		createOrderPage.verifyAmount3();
+
+		System.out.println(invoiceid);
+		createOrderPage.verifyAmountofInvoice(invoiceid);
 	}
 }

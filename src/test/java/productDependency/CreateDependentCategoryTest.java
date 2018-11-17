@@ -28,12 +28,10 @@ public class CreateDependentCategoryTest {
 	@Test(groups = { "Product Dependency Feature" }, description = "Add Edit Product")
 	public void userSignin() throws IOException {
 
-		
-		  /*dependentProductPage.enterLoginID();
-		  dependentProductPage.enterPassword();
-		  dependentProductPage.selectCompany1();
-		  dependentProductPage.clickLoginButton();*/
-		 
+		/*dependentProductPage.enterLoginID();
+		dependentProductPage.enterPassword();
+		dependentProductPage.selectCompany1();
+		dependentProductPage.clickLoginButton();*/
 
 		dependentProductPage.clickProductsTab();
 		dependentProductPage.clickAddCategoryButton();

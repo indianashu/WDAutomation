@@ -322,9 +322,10 @@ public class CreateDependentCategoryPage extends BasePage {
 	 */
 	public void addDependencyLine() throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("click on dependency plus icon to add the product.");
-		Assert.assertTrue(addDependencyLine.isDisplayed());
 		JavaScriptExec.scrollToElementOnPage(driver, addDependencyLine);
+		log.info("click on dependency plus icon to add the product.");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(addDependencyLine.isDisplayed());
 		addDependencyLine.click();
 	}
 
@@ -689,7 +690,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
 		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 2));
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 1));
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
