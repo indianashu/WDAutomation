@@ -1,13 +1,12 @@
-package productDependency;
+package specificPricing;
 
 import baseClassPackage.BasePage;
-import productDependency.CreateCustomerPage;
+import specificPricing.CreateCustomerPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -25,7 +24,7 @@ public class CreateCustomerPage extends BasePage {
 
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName = "Customer";
-	String xlsxName = "/ProductDependency_TestData.xlsx";
+	String xlsxName = "/SpecificPricing_TestData.xlsx";
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginID;
@@ -142,18 +141,10 @@ public class CreateCustomerPage extends BasePage {
 			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 					"Assert Failed as its unable to search text in Logged in Page");
 			JavaScriptExec.sleep();
-			
-			String actualCustomerName = BasePage.getCellData(xlsxName, sheetName, 3, i);
-			String expectedCustomerName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong/span"))
-					.getText();
-			System.out.println(expectedCustomerName);
-			Assert.assertEquals(actualCustomerName, expectedCustomerName);
-			
 		}
-
 		}
 		public void navigateBottom() {
 			JavaScriptExec.scrolltoBottomofPage(driver);
 			JavaScriptExec.sleep();
-}
+		}
 }

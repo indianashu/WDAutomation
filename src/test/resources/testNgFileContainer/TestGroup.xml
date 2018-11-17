@@ -5,5 +5,7 @@
     <suite-file path="SanitySuite.xml"></suite-file>
     <suite-file path="ProductHistoricalSuite.xml"></suite-file>
     <suite-file path="AddOnSuite.xml"></suite-file>
+    <suite-file path="ProductDependencySuite.xml"></suite-file>
+    <suite-file path="SpecificPricing.xml"></suite-file>
 </suite-files>
 </suite>
