@@ -1,9 +1,13 @@
 package utilPackages;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * @author Ashutosh
@@ -16,7 +20,7 @@ public class JavaScriptExec {
 	
 	public WebDriver driver;
 	static Logger log=Logger.getLogger(JavaScriptExec.class);
-
+	
 	public JavaScriptExec(WebDriver driver){
 		this.driver=driver;
 	}
@@ -48,4 +52,14 @@ public class JavaScriptExec {
 		WaitClass.sleep(Integer.parseInt(p.getVal("sleepTime")));
 	}
 
+	public static void mouseclick(WebDriver driver) {
+		try {
+			Actions actions = new Actions(driver);
+			Robot robot = new Robot();
+			robot.mouseMove(150, 150);
+			actions.click().build().perform();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -1,0 +1,42 @@
+<suite name="WebData-Peak Non-Peak Feature" parallel="none">
+
+	<listeners>
+
+		<!-- <listener class-name="utilPackages.MyReporterListener"></listener> -->
+
+	</listeners>
+
+	<test name="WebData-Peak Non-Peak Feature">
+
+		<groups>
+
+			<define name="All">
+
+				<include name="Peak Non-Peak Feature" />
+
+			</define>
+
+			<run>
+
+				<include name="All" />
+
+			</run>
+
+		</groups>
+
+		<classes>
+			<class name = "peakNonPeak.PricingTest"/>
+			<class name = "peakNonPeak.CategoryProductTest"/>
+			<class name = "peakNonPeak.CustomerTest"/>
+			<class name = "peakNonPeak.PeakIntervalTest"/>
+			<class name = "peakNonPeak.CustomerLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.ProductLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.CompanyLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.PriorityCustomerLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.PriorityProductLevelPeakNonPeakTest"/>
+			<class name = "peakNonPeak.PriorityCompanyLevelPeakNonPeakTest"/>
+		</classes>
+
+	</test>
+
+</suite>
