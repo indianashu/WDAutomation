@@ -272,8 +272,6 @@ public class DiscountPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer
-	// A']")
 	private WebElement clickCustomerA;
 
 	/**
