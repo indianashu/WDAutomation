@@ -54,6 +54,7 @@ public class verifyInvoiceDateDueDateTest {
     	generatingInvoicePage.clickAddProductButton();
     	generatingInvoicePage.enterProductDescription();
     	generatingInvoicePage.enterProductCode();
+    	generatingInvoicePage.selectPriceCurrency();
     	generatingInvoicePage.enterProductRate();
     	generatingInvoicePage.clickSaveChangesButton();
     	generatingInvoicePage.verifyConfirmationMsg();

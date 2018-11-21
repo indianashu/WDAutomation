@@ -61,6 +61,7 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.selectAllowAssetManagement();
 		addProductWithAssetPage.navigateBottom();
     	addProductWithAssetPage.enterPriceRate();
+    	addProductWithAssetPage.selectPriceCurrency();
     	addProductWithAssetPage.clickAddPriceButton();
     	addProductWithAssetPage.clickSaveChangesButton();
     	addProductWithAssetPage.verifyConfirmationMsg();

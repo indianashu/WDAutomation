@@ -55,6 +55,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.clickAddProductButton();
     	creatingOrdersPage.enterProductDescription();
     	creatingOrdersPage.enterProductCode();
+    	creatingOrdersPage.selectPriceCurrency();
 		creatingOrdersPage.navigateBottom();
     	creatingOrdersPage.enterPriceDate();
     	creatingOrdersPage.enterPriceRate();
@@ -68,6 +69,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterProductCode1();
 		creatingOrdersPage.navigateBottom();
     	creatingOrdersPage.enterPriceDate1();
+    	creatingOrdersPage.selectPriceCurrency();
     	creatingOrdersPage.enterPriceRate1();
 		creatingOrdersPage.clickAddPriceButton();
     	creatingOrdersPage.clickSaveChangesButton();

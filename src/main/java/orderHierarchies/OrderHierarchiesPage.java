@@ -1,19 +1,11 @@
 package orderHierarchies;
 
 import baseClassPackage.BasePage;
+import invoice.GeneratingInvoicePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +15,6 @@ import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
-import webDataPages.LoginPage;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -224,6 +215,21 @@ public class OrderHierarchiesPage extends BasePage {
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(sp.ExcelRead(sheetName).get(5));
 
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='product.currencies']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Select Currency United State Dollar.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectPriceCurrency() throws IOException {
+		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
+		log.info("Select Currency United State Dollar");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(19));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")

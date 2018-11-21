@@ -2,20 +2,11 @@ package categoryProducts;
 
 import baseClassPackage.BasePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,8 +15,6 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import webDataPages.LoginPage;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -62,7 +51,6 @@ public class AddProductPage extends BasePage {
 		AddProductPage sp = new AddProductPage(driver);
 
 		log.info("Verifying the Login ID is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
 		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
 	}
@@ -78,7 +66,6 @@ public class AddProductPage extends BasePage {
 	public void enterPassword() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
 		log.info("Verifying the First Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
@@ -130,10 +117,6 @@ public class AddProductPage extends BasePage {
 		clickProductsTab.click();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test
-	// Category1']")
-	private WebElement selectCategoryName;
 
 	/**
 	 * Method to click on a category name.
@@ -210,7 +193,8 @@ public class AddProductPage extends BasePage {
 		Assert.assertTrue(selectStandardAvailability.isDisplayed());
 		selectStandardAvailability.click();
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='product.accountTypes']")
 	private WebElement selectAvailableAccountTypes;
 
 	/**
@@ -220,12 +204,12 @@ public class AddProductPage extends BasePage {
 	 */
 	public void selectAvailableAccountTypes() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
-		WebElement Accountelement = driver.findElement(By.xpath("//select[@name='product.accountTypes']"));
-		Select se = new Select(Accountelement);
+		Select se = new Select(selectAvailableAccountTypes);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='product.entities']")
 	private WebElement selectCompanies;
 
 	/**
@@ -235,13 +219,12 @@ public class AddProductPage extends BasePage {
 	 */
 	public void selectCompanies() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
-		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
-		Select se = new Select(Companieselement);
+		Select se = new Select(selectCompanies);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(7));
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@name=\"mydate\"]")
+	@FindBy(how = How.XPATH, using = "//*[@name='mydate']")
 	private WebElement enterPriceDate;
 
 	/**
@@ -259,7 +242,8 @@ public class AddProductPage extends BasePage {
         enterPriceDate.sendKeys(DtFormat.format(date).toString());
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='product.entity']")
 	private WebElement selectPriceCompany;
 
 	/**
@@ -269,25 +253,23 @@ public class AddProductPage extends BasePage {
 	 */
 	public void selectPriceCompany() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
-		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
-		Select se = new Select(Companieselement);
+		Select se = new Select(selectPriceCompany);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(9));
 
 	}
-
-	private WebElement selectPriceCurrency;
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='product.currencies']")
+	private WebElement selectCurrency;
 
 	/**
-	 * Method to select price currency.
+	 * Method to Enter New Quantity.
 	 * 
 	 * @throws IOException
 	 */
 	public void selectPriceCurrency() throws IOException {
 		AddProductPage sp = new AddProductPage(driver);
-		WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-		Select se = new Select(Currencyelement);
+		Select se = new Select(selectCurrency);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(10));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
@@ -302,7 +284,6 @@ public class AddProductPage extends BasePage {
 		AddProductPage sp = new AddProductPage(driver);
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, enterPriceRate);
 		Assert.assertTrue(enterPriceRate.isDisplayed());
 		enterPriceRate1.clear();
 		enterPriceRate.sendKeys(sp.ExcelRead(sheetName).get(11));
@@ -323,7 +304,6 @@ public class AddProductPage extends BasePage {
 		Assert.assertTrue(enterPriceDate1.isDisplayed());
 		enterPriceDate1.clear();
 		enterPriceDate1.sendKeys(sp.ExcelRead(sheetName).get(12));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
@@ -390,8 +370,6 @@ public class AddProductPage extends BasePage {
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
-
-	//////////////////////////////////////////////////////////////////////
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 	private WebElement enterEnglishDescription3;

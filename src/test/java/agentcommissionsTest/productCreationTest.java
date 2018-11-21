@@ -58,6 +58,7 @@ public class productCreationTest {
     	agentPage.enterProductCode();
     	agentPage.enterStdCommission();
     	agentPage.enterMasterCommission();
+    	agentPage.selectPriceCurrency();
     	agentPage.enterPriceRate();
     	agentPage.clickAddPriceButton();
     	agentPage.clickSaveChangesButton();

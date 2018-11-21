@@ -4,6 +4,8 @@ import baseClassPackage.BasePage;
 import categoryProducts.AddProductPage;
 import customer.CustomerPage;
 import customer.MakePaymentPage;
+import customer.OrderPage;
+import reports.ReportsPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -295,6 +297,23 @@ public class AgentPage extends BasePage {
         
     }
     
+    @FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Enter New Quantity.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		AgentPage sp=new AgentPage(driver);
+		log.info("Select Currency United State");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(21));
+		JavaScriptExec.sleep();
+		
+	}
+    
     @FindBy(how=How.XPATH, using="//input[@name='user.partnerId']")
     private WebElement enterAgentID;
     /**
@@ -554,6 +573,21 @@ public class AgentPage extends BasePage {
         Assert.assertTrue(enterMasterCommission.isDisplayed());
         enterMasterCommission.sendKeys(sp.ExcelRead(sheetName).get(15));
         
+    }
+    
+    @FindBy(how = How.XPATH, using = "//select[@name='product.currencies']")
+	private WebElement selectPriceCurrency;
+
+	/**
+	 * Method to Select Currency United State Dollar.
+	 * 
+	 * @throws IOException
+	 */
+    public void selectPriceCurrency() throws IOException {
+		AddProductPage sp = new AddProductPage(driver);
+		log.info("Select Currency United State Dollar");
+		Select sel = new Select(selectPriceCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(21));
     }
     
     @FindBy(how=How.XPATH, using="//input[@name='product.rate']")

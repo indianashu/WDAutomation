@@ -54,6 +54,7 @@ public class orderHierarchiesDependentProductCreationTest {
     	orderHierarchiesPage.clickAddProductButton();
     	orderHierarchiesPage.enterEnglishDescription();
     	orderHierarchiesPage.enterProductCode();
+    	orderHierarchiesPage.selectPriceCurrency();
     	orderHierarchiesPage.enterProductRate();
 		orderHierarchiesPage.clickAddPriceButton();
     	orderHierarchiesPage.clickSaveChangesButton();
@@ -62,6 +63,7 @@ public class orderHierarchiesDependentProductCreationTest {
     	orderHierarchiesPage.clickAddProductButton();
     	orderHierarchiesPage.enterEnglishDescription1();
     	orderHierarchiesPage.enterProductCode1();
+    	orderHierarchiesPage.selectPriceCurrency();
 		orderHierarchiesPage.navigateBottom();
     	orderHierarchiesPage.enterProducteRate1();
 		orderHierarchiesPage.clickAddPriceButton();

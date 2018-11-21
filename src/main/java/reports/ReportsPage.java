@@ -1,20 +1,10 @@
 package reports;
 
 import baseClassPackage.BasePage;
-import invoice.GeneratingPayingInvoicePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -194,47 +184,20 @@ public class ReportsPage extends BasePage{
         
     }
     
-//    @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Use Company Billing Cycle']")
-//    private WebElement clickUseCompanyBillingCycleButton;
-//    /**
-//     * Method to Click Use Company Billing Cycle Button.
-//     * @throws IOException 
-//     */
-//    public void clickUseCompanyBillingCycleButton() throws IOException{
-//    	ReportsPage sp=new ReportsPage(driver);
-//        log.info("Click Use Company Billing Cycle Button");
-//        JavaScriptExec.sleep();
-//        WaitClass.WaitForElementisDisplay(driver, 10, clickUseCompanyBillingCycleButton);
-//        Assert.assertTrue(clickUseCompanyBillingCycleButton.isDisplayed());
-//        clickUseCompanyBillingCycleButton.click();
-//        
-//    }
-//    
-//    private WebElement selectBillingCycleUnit;
-//    /**
-//     * Method to select billing cycle unit.
-//     * @throws IOException 
-//     */
-//    public void selectBillingCycleUnit() throws IOException{
-//    	ReportsPage sp=new ReportsPage(driver);
-//        WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
-//        Select se = new Select(BCUelement);
-//        se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
-//
-//    }
-//
-//    private WebElement selectBillingCycleDay;
-//    /**
-//     * Method to select billing cycle day.
-//     * @throws IOException 
-//     */
-//    public void selectBillingCycleDay() throws IOException{
-//    	ReportsPage sp=new ReportsPage(driver);
-//        WebElement BCDelement = driver.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
-//        Select se = new Select(BCDelement);
-//        se.selectByVisibleText(sp.ExcelRead(sheetName).get(7));
-//
-//    }
+    @FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Select Currency United State Dollar.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		ReportsPage sp=new ReportsPage(driver);
+		log.info("Select Currency United State Dollar");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(18));		
+	}
     
     @FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
     private WebElement clickSaveChangesButton;

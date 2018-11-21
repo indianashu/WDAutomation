@@ -33,7 +33,6 @@ public class basicOrderCreationTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        //WaitClass.waitForUrl(driver, url, 10);
         orderPage=OrderPage.getPage(driver, OrderPage.class);
 
     }
@@ -52,6 +51,7 @@ public class basicOrderCreationTest {
     	orderPage.selectAccountType();
     	orderPage.clickSelectButton();
     	orderPage.enterLoginName();
+    	orderPage.selectCurrency();
 		orderPage.navigateBottom();
     	orderPage.selectPaymentMethodType();
     	orderPage.enterCCCardholderName();

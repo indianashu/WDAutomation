@@ -51,6 +51,7 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.selectAccountType();
     	reportsPage.clickSelectButton();
     	reportsPage.enterLoginName();
+    	reportsPage.selectCurrency();
     	reportsPage.enterProcessingOrder();
 		reportsPage.selectPaymentMethodType();
     	reportsPage.enterCardHolderName();

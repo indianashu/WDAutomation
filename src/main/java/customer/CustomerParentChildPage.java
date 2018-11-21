@@ -2,18 +2,9 @@ package customer;
 
 import baseClassPackage.BasePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -206,6 +197,21 @@ public class CustomerParentChildPage extends BasePage {
 		Assert.assertTrue(enterLoginName.isDisplayed());
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
 
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Select Currency United State Dollar.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		CustomerParentChildPage sp = new CustomerParentChildPage(driver);
+		log.info("Select Currency United State Dollar");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(18));		
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@class='field text']")
