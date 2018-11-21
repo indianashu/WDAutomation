@@ -207,7 +207,8 @@ public class CustomerPage extends BasePage {
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//input[@class='field text']")
 	private WebElement enterEmail;
 
 	/**
@@ -218,7 +219,6 @@ public class CustomerPage extends BasePage {
 	public void enterEmail() throws IOException {
 		CustomerPage sp = new CustomerPage(driver);
 		log.info("Enter Email");
-		enterEmail = driver.findElement(By.cssSelector("input[id^='metaField_']"));
 		Assert.assertTrue(enterEmail.isDisplayed());
 		enterEmail.sendKeys(sp.ExcelRead(sheetName).get(6));
 

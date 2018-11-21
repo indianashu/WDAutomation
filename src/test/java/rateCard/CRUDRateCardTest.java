@@ -28,7 +28,6 @@ public class CRUDRateCardTest {
         p.getPropertyFile("test", "configuration.properties");
         String url=p.getVal("url1");
         driver.get(url);
-        WaitClass.waitForUrl(driver, url, 10);
         createRateCardPage=CRUDRateCardPage.getPage(driver, CRUDRateCardPage.class);
 
     }

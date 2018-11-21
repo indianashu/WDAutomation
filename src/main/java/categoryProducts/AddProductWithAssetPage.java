@@ -488,10 +488,9 @@ public class AddProductWithAssetPage extends BasePage {
 		log.info("Check Is Global Checkbox.");
 		Assert.assertTrue(checkIsGlobal.isDisplayed());
 		checkIsGlobal.click();
-
+		JavaScriptExec.sleep();
 	}
-
-	// @FindBy(how=How.XPATH, using="//input[@name='metaField_180.value']")
+	@FindBy(how=How.XPATH, using="//input[@class='field text']")
 	private WebElement enterTaxID;
 
 	/**
@@ -502,7 +501,6 @@ public class AddProductWithAssetPage extends BasePage {
 	public void enterTaxID() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Enter value for TaxID.");
-		enterTaxID = driver.findElement(By.cssSelector("input[id^='metaField_']"));
 		Assert.assertTrue(enterTaxID.isDisplayed());
 		enterTaxID.sendKeys(sp.ExcelRead(sheetName).get(12));
 	}
@@ -523,7 +521,7 @@ public class AddProductWithAssetPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//input[@name='metaField_180.value']")
+	@FindBy(how=How.XPATH, using="//input[@class='field text']")
 	private WebElement enterTaxID1;
 
 	/**
@@ -534,7 +532,6 @@ public class AddProductWithAssetPage extends BasePage {
 	public void enterTaxID1() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Enter value for TaxID.");
-		enterTaxID1 = driver.findElement(By.cssSelector("input[id^='metaField_']"));
 		Assert.assertTrue(enterTaxID1.isDisplayed());
 		enterTaxID1.sendKeys(sp.ExcelRead(sheetName).get(14));
 

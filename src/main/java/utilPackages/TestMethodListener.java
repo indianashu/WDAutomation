@@ -10,7 +10,6 @@ import org.testng.internal.Utils;
 
 public class TestMethodListener implements IInvokedMethodListener {
 
-	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
 
 		if (method.isTestMethod()) {
@@ -24,7 +23,6 @@ public class TestMethodListener implements IInvokedMethodListener {
 
 	}
 
-	@Override
 	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
 
 		if (method.isTestMethod()) {
