@@ -41,7 +41,7 @@ public class CRUDRateCardTest {
     	
     	createRateCardPage.selectRateCardConfig();
     	createRateCardPage.clickAddNewButton();
-    	createRateCardPage.enterRateCardName();
+    	createRateCardPage.enterRateCardName(3);
     	createRateCardPage.enterRateCardPrice();
     	createRateCardPage.uploadRatingCSVFile();
     	createRateCardPage.clickLoginButton();
@@ -50,9 +50,10 @@ public class CRUDRateCardTest {
     	createRateCardPage.selectRateCard();
     	createRateCardPage.navigateBottom();
     	createRateCardPage.clickEditButton();
-    	createRateCardPage.enterRateCardName();
+    	createRateCardPage.enterRateCardName(3);
     	createRateCardPage.rateCardRateConsumptionUnit();
     	createRateCardPage.mediatedQuantityConsumptionUnit();
+    	createRateCardPage.consumptionUnit();
     	createRateCardPage.clickLoginButton();
     	createRateCardPage.verifyConfirmationMsg();
     	

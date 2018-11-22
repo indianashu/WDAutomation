@@ -38,6 +38,7 @@ public class CreateRateCardTest {
 		ratecardPage.verifyConfirmationMsg();
 		ratecardPage.selectRateCard(0);
 		ratecardPage.clickEdit();
+		ratecardPage.consumptionUnit();
 		ratecardPage.rateCardRateConsumptionUnit();
 		ratecardPage.mediatedQuantityConsumptionUnit();
 		ratecardPage.clickSaveChangesButton();
@@ -51,6 +52,7 @@ public class CreateRateCardTest {
 		ratecardPage.verifyConfirmationMsg();
 		ratecardPage.selectRateCard(1);
 		ratecardPage.clickEdit();
+		ratecardPage.consumptionUnit();
 		ratecardPage.rateCardRateConsumptionUnit();
 		ratecardPage.mediatedQuantityConsumptionUnit();
 		ratecardPage.clickSaveChangesButton();

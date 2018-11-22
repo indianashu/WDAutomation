@@ -4,6 +4,7 @@ import baseClassPackage.BasePage;
 import specificPricing.CreateRateCardPage;
 import specificPricing.CreateRateCardPage;
 import productDependency.CreateOrderPeriodPage;
+
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -226,6 +227,19 @@ public class CreateRateCardPage extends BasePage {
 		Assert.assertTrue(clickEdit.isDisplayed());
 		clickEdit.click();
 		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='consumptionUnitId']")
+	private WebElement consumptionUnit;
+ 	/**
+	 * Method to select Rate Consumption Unit
+	 * 
+	 * @throws IOException
+	 */
+	public void consumptionUnit() throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		Select se = new Select(consumptionUnit);
+		se.selectByVisibleText("Units");
 	}
 	
 	@FindBy(how = How.XPATH, using = "//select[@name='chargeProductConsumptionTypeId']")

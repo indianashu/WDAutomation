@@ -225,10 +225,9 @@ public class AddProductWithAssetPage extends BasePage {
 	public void clickProductsTab() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Click on Products Tab after successful login");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickProductsTab.isDisplayed());
 		clickProductsTab.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	/**

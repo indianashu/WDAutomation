@@ -139,7 +139,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the IDStep is available or not");
 		Assert.assertTrue(enterIDSteps.isDisplayed());
 		enterIDSteps.sendKeys(sp.ExcelRead(sheetName).get(3));
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[0].days']")
@@ -188,7 +188,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the Description is available or not");
 		Assert.assertTrue(enterIDSteps1.isDisplayed());
 		enterIDSteps1.sendKeys(sp.ExcelRead(sheetName).get(5));
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[1].days']")
@@ -254,7 +254,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		Assert.assertTrue(enterForDays2.isDisplayed());
 		enterForDays2.click();
 		enterForDays2.sendKeys(sp.ExcelRead(sheetName).get(8));
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[2].paymentRetry']")
@@ -286,7 +286,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the ID Step3 is available or not");
 		Assert.assertTrue(enterIDSteps3.isDisplayed());
 		enterIDSteps3.sendKeys(sp.ExcelRead(sheetName).get(9));
-
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[3].days']")

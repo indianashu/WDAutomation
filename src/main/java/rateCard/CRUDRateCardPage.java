@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import baseClassPackage.BasePage;
+import specificPricing.CreateRateCardPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 
@@ -86,15 +87,17 @@ public class CRUDRateCardPage extends BasePage {
 	@FindBy(how = How.XPATH, using = "//input[@id='name']")
 	private WebElement enterRateCardName;
 
-	public void enterRateCardName() throws IOException {
-		log.info("");
-		WebElement element = driver.findElement(By.xpath("//*[@class='heading']"));
-		System.out.println(element.getText());
-		if (element.getText() == "EDIT RATE CARD") {
-			enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-		} else {
-			enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
-		}
+	/**
+	 * Method to enter Description.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterRateCardName(int row) throws IOException {
+		CreateRateCardPage sp = new CreateRateCardPage(driver);
+		log.info("Verifying the Description is available or not");
+		Assert.assertTrue(enterRateCardName.isDisplayed());
+		enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, row, 0));
+		
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='priceFieldName']")
@@ -125,7 +128,7 @@ public class CRUDRateCardPage extends BasePage {
 
 	public void selectRateCard() throws IOException {
 		log.info("");
-		String RateCard = BasePage.getCellData(xlsxName, sheetName, 3, 0);
+		String RateCard = BasePage.getCellData(xlsxName, sheetName, 4, 0);
 		WebElement selectRateCard = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + RateCard + "']"));
 		selectRateCard.click();
@@ -151,6 +154,19 @@ public class CRUDRateCardPage extends BasePage {
 	public void rateCardRateConsumptionUnit() throws IOException {
 		CRUDRateCardPage sp = new CRUDRateCardPage(driver);
 		Select se = new Select(rateCardRateConsumptionUnit);
+		se.selectByVisibleText("Units");
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='consumptionUnitId']")
+	private WebElement consumptionUnit;
+ 	/**
+	 * Method to select Rate Consumption Unit
+	 * 
+	 * @throws IOException
+	 */
+	public void consumptionUnit() throws IOException {
+		CRUDRateCardPage sp = new CRUDRateCardPage(driver);
+		Select se = new Select(consumptionUnit);
 		se.selectByVisibleText("Units");
 	}
 	
