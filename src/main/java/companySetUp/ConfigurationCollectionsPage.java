@@ -15,6 +15,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,7 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.StaleException;
 import utilPackages.WaitClass;
 import org.openqa.selenium.support.ui.Select;
 
@@ -60,7 +62,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the Login ID is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
-		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
+		enterLoginID.sendKeys(BasePage.ExcelRead(sheetName).get(0));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_password']")
@@ -76,10 +78,11 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the First Name is available or not");
 		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
-		enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
+		enterPassword.sendKeys(BasePage.ExcelRead(sheetName).get(1));
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
 	private WebElement selectCompany;
 
 	/**
@@ -89,9 +92,8 @@ public class ConfigurationCollectionsPage extends BasePage {
 	 */
 	public void selectCompany() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
-		Select se = new Select(Companyelement);
-		se.selectByVisibleText(sp.ExcelRead(sheetName).get(2));
+		Select se = new Select(selectCompany);
+		se.selectByVisibleText(BasePage.ExcelRead(sheetName).get(2));
 
 	}
 
@@ -137,9 +139,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void enterIDSteps() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the IDStep is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps.isDisplayed());
-		enterIDSteps.sendKeys(sp.ExcelRead(sheetName).get(3));
-		JavaScriptExec.sleep();
+		enterIDSteps.sendKeys(BasePage.ExcelRead(sheetName).get(3));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[0].days']")
@@ -151,12 +153,16 @@ public class ConfigurationCollectionsPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void enterForDays() throws IOException {
-		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
-		log.info("Verifying the For Days is available or not");
-		Assert.assertTrue(enterForDays.isDisplayed());
-		enterForDays.click();
-		enterForDays.sendKeys(sp.ExcelRead(sheetName).get(4));
+		try {
+			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
+			log.info("Verifying the For Days is available or not");
 
+			StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].days']"), driver);
+			Assert.assertTrue(enterForDays.isDisplayed());
+			enterForDays.sendKeys(BasePage.ExcelRead(sheetName).get(4));
+		} catch (StaleElementReferenceException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[0].paymentRetry']")
@@ -170,9 +176,8 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void selectPaymentCheckbox() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the Payment Checkbox is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].paymentRetry']"), driver);
 		Assert.assertTrue(selectPaymentCheckbox.isDisplayed());
-		selectPaymentCheckbox.click();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[1].statusStr']")
@@ -186,9 +191,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void enterIDSteps1() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the Description is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps1.isDisplayed());
-		enterIDSteps1.sendKeys(sp.ExcelRead(sheetName).get(5));
-		JavaScriptExec.sleep();
+		enterIDSteps1.sendKeys(BasePage.ExcelRead(sheetName).get(5));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[1].days']")
@@ -200,12 +205,15 @@ public class ConfigurationCollectionsPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void enterForDays1() throws IOException {
-		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
-		log.info("Verifying the For Days is available or not");
-		Assert.assertTrue(enterForDays1.isDisplayed());
-		enterForDays1.click();
-		enterForDays1.sendKeys(sp.ExcelRead(sheetName).get(6));
-
+		try {
+			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
+			log.info("Verifying the For Days is available or not");
+			StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].days']"), driver);
+			Assert.assertTrue(enterForDays1.isDisplayed());
+			enterForDays1.sendKeys(BasePage.ExcelRead(sheetName).get(6));
+		} catch (StaleElementReferenceException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[1].sendNotification']")
@@ -219,8 +227,8 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void selectNotificationCheckbox() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the Notification Checkbox is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].sendNotification']"), driver);
 		Assert.assertTrue(selectNotificationCheckbox.isDisplayed());
-		selectNotificationCheckbox.click();
 
 	}
 
@@ -235,8 +243,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void enterIDSteps2() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the ID Step2 is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps2.isDisplayed());
-		enterIDSteps2.sendKeys(sp.ExcelRead(sheetName).get(7));
+		enterIDSteps2.sendKeys(BasePage.ExcelRead(sheetName).get(7));
 
 	}
 
@@ -251,10 +260,14 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void enterForDays2() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the For Days is available or not");
+		try {
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].days']"), driver);
 		Assert.assertTrue(enterForDays2.isDisplayed());
-		enterForDays2.click();
-		enterForDays2.sendKeys(sp.ExcelRead(sheetName).get(8));
-		JavaScriptExec.sleep();
+		enterForDays2.sendKeys(BasePage.ExcelRead(sheetName).get(8));
+		}
+		catch(StaleElementReferenceException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[2].paymentRetry']")
@@ -268,9 +281,8 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void selectPaymentCheckbox1() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the Payment Checkbox is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].paymentRetry']"), driver);
 		Assert.assertTrue(selectPaymentCheckbox1.isDisplayed());
-		selectPaymentCheckbox1.click();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[3].statusStr']")
@@ -284,8 +296,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void enterIDSteps3() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the ID Step3 is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps3.isDisplayed());
-		enterIDSteps3.sendKeys(sp.ExcelRead(sheetName).get(9));
+		enterIDSteps3.sendKeys(BasePage.ExcelRead(sheetName).get(9));
 		JavaScriptExec.sleep();
 	}
 
@@ -298,12 +311,15 @@ public class ConfigurationCollectionsPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void enterForDays3() throws IOException {
-		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
-		log.info("Verifying the For Days is available or not");
-		Assert.assertTrue(enterForDays3.isDisplayed());
-		enterForDays3.click();
-		enterForDays3.sendKeys(sp.ExcelRead(sheetName).get(10));
-
+		try {
+			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
+			log.info("Verifying the For Days is available or not");
+			StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].days']"), driver);
+			Assert.assertTrue(enterForDays3.isDisplayed());
+			enterForDays3.sendKeys(BasePage.ExcelRead(sheetName).get(10));
+		} catch (StaleElementReferenceException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='obj[3].suspended']")
@@ -317,9 +333,8 @@ public class ConfigurationCollectionsPage extends BasePage {
 	public void selectSuspendCheckbox1() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the Suspend Checkbox is available or not");
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].suspended']"), driver);
 		Assert.assertTrue(selectSuspendCheckbox1.isDisplayed());
-		selectSuspendCheckbox1.click();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
@@ -411,7 +426,8 @@ public class ConfigurationCollectionsPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='typeId']")
 	private WebElement selectTypeID;
 
 	/**
@@ -421,11 +437,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 	 */
 	public void selectTypeID() throws IOException {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
-		WebElement TypeIDelement = driver.findElement(By.xpath("//select[@name='typeId']"));
-		Select se = new Select(TypeIDelement);
-		se.selectByVisibleText(sp.ExcelRead(sheetName).get(11));
+		Select se = new Select(selectTypeID);
+		se.selectByVisibleText(BasePage.ExcelRead(sheetName).get(11));
 		JavaScriptExec.sleep();
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='processingOrder']")
@@ -440,9 +454,8 @@ public class ConfigurationCollectionsPage extends BasePage {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Enter Processing Order.");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, enterProcessingOrder);
 		Assert.assertTrue(enterProcessingOrder.isDisplayed());
-		enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(12));
+		enterProcessingOrder.sendKeys(BasePage.ExcelRead(sheetName).get(12));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='plgDynamic.1.name']")
@@ -457,7 +470,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Enter Left Attribute.");
 		Assert.assertTrue(enterLeftAttribute.isDisplayed());
-		enterLeftAttribute.sendKeys(sp.ExcelRead(sheetName).get(13));
+		enterLeftAttribute.sendKeys(BasePage.ExcelRead(sheetName).get(13));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='plgDynamic.1.value']")

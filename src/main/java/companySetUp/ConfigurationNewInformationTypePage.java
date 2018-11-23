@@ -22,6 +22,7 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.StaleException;
 import utilPackages.WaitClass;
 import org.openqa.selenium.support.ui.Select;
 
@@ -234,9 +235,8 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 	public void clickDecription() throws IOException {
 		ConfigurationNewInformationTypePage sp = new ConfigurationNewInformationTypePage(driver);
 		log.info("Description - is available or not");
-		JavaScriptExec.sleep();
+		StaleException.retryingFindClick(By.xpath("//span[@class='description']"), driver);
 		Assert.assertTrue(clickDecription.isDisplayed());
-		clickDecription.click();
 
 	}
 
