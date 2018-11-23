@@ -24,6 +24,7 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.StaleException;
 import utilPackages.WaitClass;
 import webDataPages.LoginPage;
 import org.openqa.selenium.support.ui.Select;
@@ -256,6 +257,7 @@ public class AddProductWithAssetPage extends BasePage {
 		JavaScriptExec.scrollToElementOnPage(driver, clickAddProductButton);
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Click on Add Product Button");
+		StaleException.retryingFindClick(By.xpath("//a[@class='submit add']//*[text()='Add Product']"), driver);
 		actions.moveToElement(clickAddProductButton).click().perform();
 
 	}

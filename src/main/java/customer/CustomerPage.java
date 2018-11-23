@@ -113,10 +113,14 @@ public class CustomerPage extends BasePage {
 	public void clickCustomerTab() throws IOException {
 		CustomerPage sp = new CustomerPage(driver);
 		log.info("Click on Customer Tab after successful login");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
+		WebElement company = driver.findElement(By.xpath("//span[@class='right-text']//a"));
+		if (company.isDisplayed()) {
+			company.click();
+		}
 
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")

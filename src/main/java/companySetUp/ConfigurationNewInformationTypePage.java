@@ -251,6 +251,9 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 	public void enterMetafieldName() throws IOException {
 		ConfigurationNewInformationTypePage sp = new ConfigurationNewInformationTypePage(driver);
 		log.info("Name is available or not");
+		if(!enterMetafieldName.isDisplayed()) {
+			sp.clickDecription();
+		}
 		Assert.assertTrue(enterMetafieldName.isDisplayed());
 		enterMetafieldName.sendKeys(sp.ExcelRead(sheetName).get(4));
 
