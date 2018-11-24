@@ -47,12 +47,13 @@ public class configureAccountTypeTest {
     	configurationAccountTypePage.selectCompany();
     	configurationAccountTypePage.clickLoginButton();*/
 
-    	//configurationAccountTypePage.clickConfigurationTab();
+    	configurationAccountTypePage.clickCurrencies();
+    	configurationAccountTypePage.checkCurrencyUSD();
     	configurationAccountTypePage.clickAccountType();
     	configurationAccountTypePage.clickAddNewButton();
     	configurationAccountTypePage.enterAccountName();
     	configurationAccountTypePage.enterBillingCycle();
-    	configurationAccountTypePage.selectInvoiceDesing();
+    	configurationAccountTypePage.selectInvoiceDesign();
     	configurationAccountTypePage.clickSaveChangesButton();
     	configurationAccountTypePage.verifyConfirmationMsg();
 

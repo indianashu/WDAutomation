@@ -24,6 +24,7 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.StaleException;
 import utilPackages.WaitClass;
 import webDataPages.LoginPage;
 import org.openqa.selenium.support.ui.Select;
@@ -225,10 +226,9 @@ public class AddProductWithAssetPage extends BasePage {
 	public void clickProductsTab() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Click on Products Tab after successful login");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickProductsTab.isDisplayed());
 		clickProductsTab.click();
-
+		JavaScriptExec.sleep();
 	}
 
 	/**
@@ -257,6 +257,7 @@ public class AddProductWithAssetPage extends BasePage {
 		JavaScriptExec.scrollToElementOnPage(driver, clickAddProductButton);
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Click on Add Product Button");
+		StaleException.retryingFindClick(By.xpath("//a[@class='submit add']//*[text()='Add Product']"), driver);
 		actions.moveToElement(clickAddProductButton).click().perform();
 
 	}
@@ -488,10 +489,9 @@ public class AddProductWithAssetPage extends BasePage {
 		log.info("Check Is Global Checkbox.");
 		Assert.assertTrue(checkIsGlobal.isDisplayed());
 		checkIsGlobal.click();
-
+		JavaScriptExec.sleep();
 	}
-
-	// @FindBy(how=How.XPATH, using="//input[@name='metaField_180.value']")
+	@FindBy(how=How.XPATH, using="//input[@class='field text']")
 	private WebElement enterTaxID;
 
 	/**
@@ -502,7 +502,6 @@ public class AddProductWithAssetPage extends BasePage {
 	public void enterTaxID() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Enter value for TaxID.");
-		enterTaxID = driver.findElement(By.cssSelector("input[id^='metaField_']"));
 		Assert.assertTrue(enterTaxID.isDisplayed());
 		enterTaxID.sendKeys(sp.ExcelRead(sheetName).get(12));
 	}
@@ -523,7 +522,7 @@ public class AddProductWithAssetPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//input[@name='metaField_180.value']")
+	@FindBy(how=How.XPATH, using="//input[@class='field text']")
 	private WebElement enterTaxID1;
 
 	/**
@@ -534,7 +533,6 @@ public class AddProductWithAssetPage extends BasePage {
 	public void enterTaxID1() throws IOException {
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Enter value for TaxID.");
-		enterTaxID1 = driver.findElement(By.cssSelector("input[id^='metaField_']"));
 		Assert.assertTrue(enterTaxID1.isDisplayed());
 		enterTaxID1.sendKeys(sp.ExcelRead(sheetName).get(14));
 

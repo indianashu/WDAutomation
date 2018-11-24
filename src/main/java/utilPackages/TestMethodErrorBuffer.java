@@ -3,7 +3,7 @@ package utilPackages;
 import java.util.List;
 
 public class TestMethodErrorBuffer {
-	private static ThreadLocal<List<Throwable>> testErrorBuffer = new ThreadLocal<>();
+	private static ThreadLocal<List<Throwable>> testErrorBuffer = new ThreadLocal<List<Throwable>>();
 
 	static List<Throwable> get() {
 		return testErrorBuffer.get();

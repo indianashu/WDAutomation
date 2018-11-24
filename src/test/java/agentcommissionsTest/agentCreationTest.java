@@ -60,6 +60,7 @@ public class agentCreationTest {
     	agentPage.selectAccountType();
     	agentPage.clickSelectButton();
     	agentPage.enterLoginName1();
+    	agentPage.selectCurrency();
     	agentPage.enterAgentID(AgentId);
     	agentPage.enterProcessingOrder();
 		agentPage.selectPaymentMethodType();

@@ -74,7 +74,6 @@ public class addEditProductTest {
         addProductPage.enterProductCode3();
         addProductPage.selectCompanies();
         addProductPage.navigateBottom();
-        addProductPage.enterPriceDate();
         addProductPage.selectPriceCompany();
         addProductPage.selectPriceCurrency();
         addProductPage.enterPriceRate3();

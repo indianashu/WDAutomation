@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import baseClassPackage.BasePage;
-import customer.OrderPage;
 import utilPackages.JavaScriptExec;
 
 public class AddOnTestCase3Page extends BasePage {

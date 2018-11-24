@@ -50,6 +50,7 @@ public class addNewCustomerTest {
     	customerPage.selectAccountType();
     	customerPage.clickSelectButton();
     	customerPage.enterLoginName();
+    	customerPage.selectCurrency();
 		customerPage.clickUseCompanyBillingCycleButton();
 		customerPage.selectBillingCycleUnit();
 		customerPage.selectBillingCycleDay();

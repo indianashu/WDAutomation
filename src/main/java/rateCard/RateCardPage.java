@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
@@ -17,7 +16,7 @@ import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 
 public class RateCardPage extends BasePage {
-	
+
 	public RateCardPage(WebDriver driver) {
 		super(driver);
 	}
@@ -26,7 +25,7 @@ public class RateCardPage extends BasePage {
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName = "RateCard";
 	String xlsxName = "/RateCard_TestData.xlsx";
-	
+
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginName;
 
@@ -72,7 +71,6 @@ public class RateCardPage extends BasePage {
 		driver.get(url);
 	}
 
-	
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")
 	private WebElement clickAddNewButton;
 
@@ -88,7 +86,7 @@ public class RateCardPage extends BasePage {
 
 	public void enterRateCardName(int i) throws IOException {
 		log.info("");
-			enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, i));
+		enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, i));
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='priceFieldName']")
@@ -107,13 +105,12 @@ public class RateCardPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='messages']/div")
 	private WebElement verifyConfirmationMsg;
 
 	public void verifyConfirmationMsg(int i) throws IOException {
 		log.info("Verifying if Rate Card is created Successfully or not");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				BasePage.getCellData(xlsxName, sheetName, 4, i));
+		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), BasePage.getCellData(xlsxName, sheetName, 4, i));
 	}
 }

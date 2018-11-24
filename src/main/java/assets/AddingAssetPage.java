@@ -1,30 +1,18 @@
 package assets;
 
 import baseClassPackage.BasePage;
-import customer.CustomerPage;
-import customer.OrderPage;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
+
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -32,10 +20,11 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 
-public class AddingAssetPage extends BasePage{
+public class AddingAssetPage extends BasePage {
 	/**
-	 * This constructor is used to initialize the webdriver in BasePage class, if the user does not want to use page factory
-	 * then this will take care of initialization of the driver
+	 * This constructor is used to initialize the webdriver in BasePage class, if
+	 * the user does not want to use page factory then this will take care of
+	 * initialization of the driver
 	 *
 	 * @param webdriver
 	 */
@@ -43,88 +32,96 @@ public class AddingAssetPage extends BasePage{
 		super(webdriver);
 	}
 
-	Logger log=Logger.getLogger(AddingAssetPage.class);
+	Logger log = Logger.getLogger(AddingAssetPage.class);
 	AddingAssetPage discountPage;
 	PropertyValExtractors p = new PropertyValExtractors();
-	String sheetName="AddingAsset";
+	String sheetName = "AddingAsset";
 	String xlsxName = "/Webdata_TestData.xlsx";
 
-	@FindBy(how=How.XPATH,using="//input[@name='j_username']")
+	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
 	private WebElement enterLoginID;
+
 	/**
 	 * Method to enter login ID.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void enterLoginID() throws IOException{
-		//AddingAssetPage sp=new AddingAssetPage(driver);
-
+	public void enterLoginID() throws IOException {
+		AddingAssetPage sp=new AddingAssetPage(driver);
 		log.info("Verifying the Login ID is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
-		enterLoginID.sendKeys(AddingAssetPage.ExcelRead(sheetName).get(0));
+		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
 	}
 
-	@FindBy(how=How.XPATH,using="//input[@name='j_password']")
+	@FindBy(how = How.XPATH, using = "//input[@name='j_password']")
 	private WebElement enterPassword;
+
 	/**
 	 * Method to enter Password.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void enterPassword() throws IOException{
-		AddingAssetPage sp=new AddingAssetPage(driver);
+	public void enterPassword() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		log.info("Verifying the First Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
-		enterPassword.sendKeys(AddingAssetPage.ExcelRead(sheetName).get(1));
+		enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
 	}
 
 	private WebElement selectCompany;
+
 	/**
 	 * Method to select Company.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void selectCompany() throws IOException{
+	public void selectCompany() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
-		se.selectByVisibleText(AddingAssetPage.ExcelRead(sheetName).get(2));
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(2));
 
 	}
 
-	@FindBy(how=How.XPATH,using="//a[@class='submit save']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']")
 	private WebElement clickLoginButton;
+
 	/**
-	 * Method to Click on  Save Changes Button
+	 * Method to Click on Save Changes Button
 	 */
-	public void clickLoginButton(){
+	public void clickLoginButton() {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		log.info("Verifying the login button is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
 
-	@FindBy(how=How.XPATH, using="//*[@id='menu.link.customers']/a")
+	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.customers']/a")
 	private WebElement clickCustomersTab;
+
 	/**
 	 * Method to click on Customer tab after successful login.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickCustomersTab() throws IOException{
+	public void clickCustomersTab() throws IOException {
 		log.info("Click on Customer Tab after successful login");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickCustomersTab);
 		Assert.assertTrue(clickCustomersTab.isDisplayed());
 		clickCustomersTab.click();
 
 	}
 
-	@FindBy(how=How.XPATH, using="//a[@class='submit add']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']")
 	private WebElement clickAddNewButton;
+
 	/**
 	 * Method to click on Add New Button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickAddNewButton() throws IOException{
+	public void clickAddNewButton() throws IOException {
 		log.info("Click on Add New Button");
 		Assert.assertTrue(clickAddNewButton.isDisplayed());
 		JavaScriptExec.sleep();
@@ -132,39 +129,45 @@ public class AddingAssetPage extends BasePage{
 
 	}
 
-
+	@FindBy(how = How.XPATH, using = "//select[@name='user.entityId']")
 	private WebElement selectUserCompany;
+
 	/**
 	 * Method to select user company.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void selectUserCompany() throws IOException{
-		WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
-		Select se = new Select(Usercompanyelement);
-		se.selectByVisibleText(AddingAssetPage.ExcelRead(sheetName).get(3));
+	public void selectUserCompany() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
+		Select se = new Select(selectUserCompany);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(3));
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='accountTypeId']")
 	private WebElement selectAccountType;
+
 	/**
 	 * Method to select account type.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void selectAccountType() throws IOException{
-		WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
-		Select se = new Select(AccountTypeelement);
-		se.selectByVisibleText(AddingAssetPage.ExcelRead(sheetName).get(4));
+	public void selectAccountType() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
+		Select se = new Select(selectAccountType);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(4));
 
-	}    
+	}
 
-
-	@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Select']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Select']")
 	private WebElement clickSelectButton;
+
 	/**
 	 * Method to click on select Button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickSelectButton() throws IOException{
+	public void clickSelectButton() throws IOException {
 		log.info("Click on select Button");
 		Assert.assertTrue(clickSelectButton.isDisplayed());
 		clickSelectButton.click();
@@ -172,67 +175,89 @@ public class AddingAssetPage extends BasePage{
 
 	}
 
-	@FindBy(how=How.XPATH, using="//input[@name='user.userName']")
+	@FindBy(how = How.XPATH, using = "//input[@name='user.userName']")
 	private WebElement enterCustomerLoginName;
+
 	/**
 	 * Method to Enter Login Name.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void enterCustomerLoginName() throws IOException{
+	public void enterCustomerLoginName() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		log.info("Enter Login Name");
 		Assert.assertTrue(enterCustomerLoginName.isDisplayed());
-		enterCustomerLoginName.sendKeys(AddingAssetPage.ExcelRead(sheetName).get(5));
+		enterCustomerLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Enter New Quantity.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
+		log.info("Select Currency United State");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(13));
+		JavaScriptExec.sleep();
 
 	}
 
-	@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Save Changes']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
 	private WebElement clickSaveChangesButton;
+
 	/**
 	 * Method to click on Save Changes Button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickSaveChangesButton() throws IOException{
+	public void clickSaveChangesButton() throws IOException {
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
-
 	}
 
-	@FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
 	private WebElement verifyConfirmationMsg;
+
 	/**
 	 * Method to verify Account Type is created Successfully.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void verifyConfirmationMsg() throws IOException{
+	public void verifyConfirmationMsg() throws IOException {
 		log.info("Verifying if Account Type is created Successfully or not");
 		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
+		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-
-	//@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
-	private WebElement clickAssetCustomer;
 	/**
 	 * Method to Click on Customer from the customer list.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickCustomerA() throws IOException{
+	public void clickCustomerA() throws IOException {
 		log.info("Click on customer from the customer list.");
 		JavaScriptExec.sleep();
 		String CustomerName = AddingAssetPage.ExcelRead(sheetName).get(5);
-		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']")).click();
 	}
 
-
-	@FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Create Order']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
 	private WebElement clickCreateOrderButton;
+
 	/**
 	 * Method to Click on Create Order Button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickCreateOrderButton() throws IOException{
-		JavaScriptExec.scrollToElementOnPage(driver,clickCreateOrderButton);
+	public void clickCreateOrderButton() throws IOException {
+		JavaScriptExec.scrollToElementOnPage(driver, clickCreateOrderButton);
 		log.info("Click on Create Order Button.");
 		Assert.assertTrue(clickCreateOrderButton.isDisplayed());
 		clickCreateOrderButton.click();
@@ -240,51 +265,64 @@ public class AddingAssetPage extends BasePage{
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='period']")
 	private WebElement selectPeriod;
+
 	/**
 	 * Method to select Period.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void selectPeriod() throws IOException{
+	public void selectPeriod() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		JavaScriptExec.sleep();
-		WebElement Periodelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Periodelement);
-		se.selectByVisibleText(AddingAssetPage.ExcelRead(sheetName).get(6));
+		Select se = new Select(selectPeriod);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='billingTypeId']")
 	private WebElement selectOrderType;
+
 	/**
 	 * Method to select Order Type.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void selectOrderType() throws IOException{
-		WebElement OrderTypeelement = driver.findElement(By.xpath("//select[@name='billingTypeId']"));
-		Select se = new Select(OrderTypeelement);
+	public void selectOrderType() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
+		log.info("Select Order type.");
+		Select se = new Select(selectOrderType);
 		se.selectByVisibleText(AddingAssetPage.ExcelRead(sheetName).get(7));
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//input[@name='activeSince']")
 	private WebElement selectActiveSince;
+
 	/**
 	 * Method to select Active since.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void selectActiveSince() throws IOException{
+	public void selectActiveSince() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
+		log.info("Select Active Since date of the order.");
 		JavaScriptExec.sleep();
-		WebElement ASelement = driver.findElement(By.xpath("//input[@name='activeSince']"));
-		ASelement.clear();
-		ASelement.sendKeys(AddingAssetPage.ExcelRead(sheetName).get(8));
+		selectActiveSince.clear();
+		selectActiveSince.sendKeys(AddingAssetPage.ExcelRead(sheetName).get(8));
 		JavaScriptExec.sleep();
-	}  
+	}
 
-	@FindBy(how=How.XPATH, using="//*[@id='ui-id-8']")
+	@FindBy(how = How.XPATH, using = "//*[@id='ui-id-8']")
 	private WebElement clickProductSubTab;
+
 	/**
 	 * Method to click on Product sub tab.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickProductSubTab() throws IOException{
+	public void clickProductSubTab() throws IOException {
 		log.info("Click on Product Sub Tab.");
 		Assert.assertTrue(clickProductSubTab.isDisplayed());
 		clickProductSubTab.click();
@@ -292,42 +330,44 @@ public class AddingAssetPage extends BasePage{
 
 	}
 
-	//@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='BillingFl']")
-	private WebElement selectProduct;
 	/**
 	 * Method to Select a Product.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void selectProduct() throws IOException{
+	public void selectProduct() throws IOException {
 		log.info("Select a product.");
 		String ProductName = AddingAssetPage.ExcelRead(sheetName).get(9);
-		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+ProductName+"']")).click();
+		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']")).click();
 		JavaScriptExec.sleep();
 
 	}
 
-	@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Update']")
 	private WebElement clickUpdateButton;
+
 	/**
 	 * Method to click on update button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickUpdateButton() throws IOException{
+	public void clickUpdateButton() throws IOException {
 		log.info("click on update button.");
 		Assert.assertTrue(clickUpdateButton.isDisplayed());
 		clickUpdateButton.click();
-        JavaScriptExec.sleep();
+		JavaScriptExec.sleep();
 
 	}
 
-
-	@FindBy(how=How.XPATH, using="//input[@name='asset.select.1']")
+	@FindBy(how = How.XPATH, using = "//input[@name='asset.select.1']")
 	private WebElement clickAssetCheckbox;
+
 	/**
 	 * Method to click on selected asset checkbox.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickAssetCheckbox() throws IOException{
+	public void clickAssetCheckbox() throws IOException {
 		log.info("click on update button.");
 		Assert.assertTrue(clickAssetCheckbox.isDisplayed());
 		clickAssetCheckbox.click();
@@ -335,75 +375,80 @@ public class AddingAssetPage extends BasePage{
 
 	}
 
-
-	@FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add Selected']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Selected']")
 	private WebElement clickAddSelectedButton;
+
 	/**
 	 * Method to click on add selected button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickAddSelectedButton() throws IOException{
+	public void clickAddSelectedButton() throws IOException {
 		log.info("click on add selected button.");
 		Assert.assertTrue(clickAddSelectedButton.isDisplayed());
 		clickAddSelectedButton.click();
 		JavaScriptExec.sleep();
 	}
 
-
-	@FindBy(how=How.XPATH, using="//a[@class='submit add']//*[text()='Add to Order']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add to Order']")
 	private WebElement clickAddToOrderButton;
+
 	/**
 	 * Method to click on add to order button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickAddToOrderButton() throws IOException{
+	public void clickAddToOrderButton() throws IOException {
 		log.info("click on add to order button.");
 		Assert.assertTrue(clickAddToOrderButton.isDisplayed());
 		clickAddToOrderButton.click();
 		JavaScriptExec.sleep();
 	}
 
-	private WebElement verifyAddedAsset;
 	/**
 	 * Method to verify added asset.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void verifyAddedAsset() throws IOException{
+	public void verifyAddedAsset() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		log.info("verify added asset.");
-		String ExpectedAsset = AddingAssetPage.ExcelRead(sheetName).get(10);
-		String ActualAsset = driver.findElement(By.xpath("//*[@id='change--3-update-form']/div[1]/div/div[10]/div/label[2]")).getText();
+		String ExpectedAsset = sp.ExcelRead(sheetName).get(10);
+		String ActualAsset = driver
+				.findElement(By.xpath("//*[@id='change--3-update-form']/div[1]/div/div[10]/div/label[2]")).getText();
 		Assert.assertEquals(ActualAsset, ExpectedAsset);
 		JavaScriptExec.sleep();
 	}
 
-	private WebElement verifyAssetOrderPreview;
 	/**
 	 * Method to verify asset is shown in order preview pane.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void verifyAssetOrderPreview() throws IOException{
+	public void verifyAssetOrderPreview() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		log.info("Verify asset is shown in order preview pane.");
-		String ExpectedAsset = AddingAssetPage.ExcelRead(sheetName).get(10);
-		String ActualAsset = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[7]/div[2]/table/tbody/tr/td[2]")).getText();
+		String ExpectedAsset = sp.ExcelRead(sheetName).get(10);
+		String ActualAsset = driver
+				.findElement(By.xpath("//*[@id='column2']/div[1]/div[7]/div[2]/table/tbody/tr/td[2]")).getText();
 		Assert.assertEquals(ActualAsset, ExpectedAsset);
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
+	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.products']/a")
 	private WebElement clickProductsTab;
+
 	/**
 	 * Method to click on Products Tab.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickProductsTab() throws IOException{
+	public void clickProductsTab() throws IOException {
 		log.info("click on Products Tab.");
 		Assert.assertTrue(clickProductsTab.isDisplayed());
 		clickProductsTab.click();
 		JavaScriptExec.sleep();
-	} 
-
-
-	private WebElement clickProductCategory;
+	}
 
 	/**
 	 * Method to click on Products Category.
@@ -411,35 +456,38 @@ public class AddingAssetPage extends BasePage{
 	 * @throws IOException
 	 */
 	public void clickProductCategory() throws IOException {
+		AddingAssetPage sp = new AddingAssetPage(driver);
 		log.info("click on Product category.");
-		String ProductCategory = AddingAssetPage.ExcelRead(sheetName).get(11);
+		String ProductCategory = sp.ExcelRead(sheetName).get(11);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductCategory + "']")).click();
 		JavaScriptExec.sleep();
 	}
 
-
-	@FindBy(how=How.XPATH, using="//a[@class='submit show']//*[text()='Show Assets']")
+	@FindBy(how = How.XPATH, using = "//a[@class='submit show']//*[text()='Show Assets']")
 	private WebElement clickShowAssetsButton;
+
 	/**
 	 * Method to click on show assets button.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void clickShowAssetsButton() throws IOException{
-		JavaScriptExec.scrollToElementOnPage(driver,clickShowAssetsButton);
+	public void clickShowAssetsButton() throws IOException {
+		JavaScriptExec.scrollToElementOnPage(driver, clickShowAssetsButton);
 		log.info("click on show assets button.");
 		Assert.assertTrue(clickShowAssetsButton.isDisplayed());
 		clickShowAssetsButton.click();
 		JavaScriptExec.sleep();
 
-	} 
-
+	}
 
 	private WebElement verifyAssetStatus;
+
 	/**
 	 * Method to verify asset status.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void verifyAssetStatus() throws IOException{
+	public void verifyAssetStatus() throws IOException {
 		log.info("Verify asset is shown in order preview pane.");
 		String ExpectedStatus = AddingAssetPage.ExcelRead(sheetName).get(12);
 		String ActualStatus = driver.findElement(By.xpath("//a[@class='cell']//*[text()='In Use']")).getText();
@@ -447,7 +495,7 @@ public class AddingAssetPage extends BasePage{
 		JavaScriptExec.sleep();
 	}
 
-	public void navigateBottom(){
+	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();
 	}

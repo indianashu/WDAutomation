@@ -2,18 +2,9 @@ package customer;
 
 import baseClassPackage.BasePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -122,10 +113,14 @@ public class CustomerPage extends BasePage {
 	public void clickCustomerTab() throws IOException {
 		CustomerPage sp = new CustomerPage(driver);
 		log.info("Click on Customer Tab after successful login");
-		JavaScriptExec.sleep();
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
+		WebElement company = driver.findElement(By.xpath("//span[@class='right-text']//a"));
+		if (company.isDisplayed()) {
+			company.click();
+		}
 
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")
@@ -207,7 +202,24 @@ public class CustomerPage extends BasePage {
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
 
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
 
+	/**
+	 * Method to Enter New Quantity.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		CustomerPage sp = new CustomerPage(driver);
+		log.info("Select Currency United State");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(14));
+		
+	}
+	
+	@FindBy(how = How.XPATH, using = "//input[@class='field text']")
 	private WebElement enterEmail;
 
 	/**
@@ -218,7 +230,6 @@ public class CustomerPage extends BasePage {
 	public void enterEmail() throws IOException {
 		CustomerPage sp = new CustomerPage(driver);
 		log.info("Enter Email");
-		enterEmail = driver.findElement(By.cssSelector("input[id^='metaField_']"));
 		Assert.assertTrue(enterEmail.isDisplayed());
 		enterEmail.sendKeys(sp.ExcelRead(sheetName).get(6));
 

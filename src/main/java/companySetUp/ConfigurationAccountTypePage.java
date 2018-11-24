@@ -2,18 +2,9 @@ package companySetUp;
 
 import baseClassPackage.BasePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,8 +13,6 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import webDataPages.LoginPage;
 
 import org.openqa.selenium.support.ui.Select;
 
@@ -61,7 +50,6 @@ public class ConfigurationAccountTypePage extends BasePage {
 		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
 
 		log.info("Verifying the Login ID is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
 		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
 	}
@@ -77,12 +65,12 @@ public class ConfigurationAccountTypePage extends BasePage {
 	public void enterPassword() throws IOException {
 		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
 		log.info("Verifying the First Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
 	private WebElement selectCompany;
 
 	/**
@@ -92,10 +80,8 @@ public class ConfigurationAccountTypePage extends BasePage {
 	 */
 	public void selectCompany() throws IOException {
 		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
-		Select se = new Select(Companyelement);
+		Select se = new Select(selectCompany);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(2));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']")
@@ -107,9 +93,32 @@ public class ConfigurationAccountTypePage extends BasePage {
 	public void clickLoginButton() {
 		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
 		log.info("Verifying the login button is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Currencies']")
+	private WebElement clickCurrencies;
+
+	/**
+	 * Method to click on Currencies.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickCurrencies() throws IOException {
+		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
+		log.info("Click on Currencies");
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/config/currency";
+		driver.get(url);
+	}
+	
+	public void checkCurrencyUSD() throws IOException {
+		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
+		if ( !driver.findElement(By.id("currencies.1.inUse")).isSelected() )
+		{
+		     driver.findElement(By.id("currencies.1.inUse")).click();
+		}
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[.='Account Type']")
@@ -176,18 +185,18 @@ public class ConfigurationAccountTypePage extends BasePage {
 		enterBillingCycle.sendKeys(sp.ExcelRead(sheetName).get(4));
 
 	}
-
-	private WebElement selectInvoiceDesing;
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='invoiceDesign']")
+	private WebElement selectInvoiceDesign;
 
 	/**
 	 * Method to select Invoice Design.
 	 * 
 	 * @throws IOException
 	 */
-	public void selectInvoiceDesing() throws IOException {
+	public void selectInvoiceDesign() throws IOException {
 		ConfigurationAccountTypePage sp = new ConfigurationAccountTypePage(driver);
-		WebElement InvoiceDesignelement = driver.findElement(By.xpath("//select[@name='invoiceDesign']"));
-		Select se = new Select(InvoiceDesignelement);
+		Select se = new Select(selectInvoiceDesign);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(5));
 
 	}

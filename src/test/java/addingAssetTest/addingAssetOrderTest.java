@@ -52,6 +52,7 @@ public class addingAssetOrderTest {
     	addingAssetPage.selectAccountType();
     	addingAssetPage.clickSelectButton();
     	addingAssetPage.enterCustomerLoginName();
+    	addingAssetPage.selectCurrency();
 		addingAssetPage.navigateBottom();
     	addingAssetPage.clickSaveChangesButton();
     	addingAssetPage.verifyConfirmationMsg();

@@ -3,6 +3,7 @@ package productDependency;
 import baseClassPackage.BaseClasses;
 import productDependency.CreateOrderPage;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
@@ -73,4 +74,9 @@ public class CreateOrder6Test {
 		System.out.println(invoiceid);
 		createOrderPage.verifyAmountofInvoice(invoiceid);
 	}
+	
+	@AfterClass(alwaysRun=false)
+    public void tearDown(){
+     BaseClasses.closeDriver("User1");
+    }
 }

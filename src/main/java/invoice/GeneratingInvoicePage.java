@@ -2,18 +2,9 @@ package invoice;
 
 import baseClassPackage.BasePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -521,6 +512,21 @@ public class GeneratingInvoicePage extends BasePage {
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='product.currencies']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Select Currency United State Dollar.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectPriceCurrency() throws IOException {
+		GeneratingInvoicePage sp = new GeneratingInvoicePage(driver);
+		log.info("Select Currency United State Dollar");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(15));
+	}
+
 	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
 	private WebElement enterProductRate;
 
@@ -544,9 +550,6 @@ public class GeneratingInvoicePage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer
-	// A']")
-	private WebElement clickCustomerName;
 
 	/**
 	 * Method to click on customer name.

@@ -1,20 +1,9 @@
 package billingProcess;
 
 import baseClassPackage.BasePage;
-import customer.MakePaymentPage;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +12,6 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -60,7 +48,6 @@ public class CreateCustomerPage extends BasePage {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
 
 		log.info("Verifying the Login ID is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginID);
 		Assert.assertTrue(enterLoginID.isDisplayed());
 		enterLoginID.sendKeys(sp.ExcelRead(sheetName).get(0));
 	}
@@ -76,7 +63,6 @@ public class CreateCustomerPage extends BasePage {
 	public void enterPassword() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		log.info("Verifying the First Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterPassword);
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(sp.ExcelRead(sheetName).get(1));
 
@@ -106,7 +92,6 @@ public class CreateCustomerPage extends BasePage {
 	public void clickLoginButton() {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		log.info("Verifying the login button is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, clickLoginButton);
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
@@ -145,7 +130,8 @@ public class CreateCustomerPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='user.entityId']")
 	private WebElement selectUserCompany;
 
 	/**
@@ -155,8 +141,7 @@ public class CreateCustomerPage extends BasePage {
 	 */
 	public void selectUserCompany() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		WebElement Usercompanyelement = driver.findElement(By.xpath("//select[@name='user.entityId']"));
-		Select se = new Select(Usercompanyelement);
+		Select se = new Select(selectUserCompany);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(3));
 
 	}
@@ -208,7 +193,23 @@ public class CreateCustomerPage extends BasePage {
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
 
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
 
+	/**
+	 * Method to select billing cycle unit.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		CreateCustomerPage sp = new CreateCustomerPage(driver);
+		log.info("Enter Login Name");
+		Select se = new Select(selectCurrency);
+		se.selectByVisibleText(sp.ExcelRead(sheetName).get(18));
+	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='mainSubscription.periodId']")
 	private WebElement selectBillingCycleUnit;
 
 	/**
@@ -218,12 +219,12 @@ public class CreateCustomerPage extends BasePage {
 	 */
 	public void selectBillingCycleUnit() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		WebElement BCUelement = driver.findElement(By.xpath("//select[@name='mainSubscription.periodId']"));
-		Select se = new Select(BCUelement);
+		Select se = new Select(selectBillingCycleUnit);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='mainSubscription.nextInvoiceDayOfPeriod']")
 	private WebElement selectBillingCycleDay;
 
 	/**
@@ -233,9 +234,7 @@ public class CreateCustomerPage extends BasePage {
 	 */
 	public void selectBillingCycleDay() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		WebElement BCDelement = driver
-				.findElement(By.xpath("//select[@name='mainSubscription.nextInvoiceDayOfPeriod']"));
-		Select se = new Select(BCDelement);
+		Select se = new Select(selectBillingCycleDay);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(7));
 
 	}
@@ -256,7 +255,9 @@ public class CreateCustomerPage extends BasePage {
 		enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(8));
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='paymentMethod_0.paymentMethodTypeId']")
+	private WebElement selectPaymentMethodType;
 	/**
 	 * Method to select payment method type.
 	 * 
@@ -264,8 +265,7 @@ public class CreateCustomerPage extends BasePage {
 	 */
 	public void selectPaymentMethodType() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		WebElement PMTelement = driver.findElement(By.xpath("//select[@name='paymentMethod_0.paymentMethodTypeId']"));
-		Select se = new Select(PMTelement);
+		Select se = new Select(selectPaymentMethodType);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(17));
 		JavaScriptExec.sleep();
 

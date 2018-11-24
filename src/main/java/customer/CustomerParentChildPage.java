@@ -2,18 +2,9 @@ package customer;
 
 import baseClassPackage.BasePage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -207,7 +198,23 @@ public class CustomerParentChildPage extends BasePage {
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(5));
 
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
 
+	/**
+	 * Method to Select Currency United State Dollar.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		CustomerParentChildPage sp = new CustomerParentChildPage(driver);
+		log.info("Select Currency United State Dollar");
+		Select sel = new Select(selectCurrency);
+		sel.selectByVisibleText(sp.ExcelRead(sheetName).get(18));		
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@class='field text']")
 	private WebElement enterEmail;
 
 	/**
@@ -218,11 +225,11 @@ public class CustomerParentChildPage extends BasePage {
 	public void enterEmail() throws IOException {
 		CustomerPage sp = new CustomerPage(driver);
 		log.info("Enter Email");
-		enterEmail = driver.findElement(By.cssSelector("input[id^='metaField_']"));
 		Assert.assertTrue(enterEmail.isDisplayed());
 		enterEmail.sendKeys(sp.ExcelRead(sheetName).get(6));
 
 	}
+
 
 	@FindBy(how = How.XPATH, using = "//input[@name='user.isParent']")
 	private WebElement clickAllowSubAccountCheckbox;
@@ -470,21 +477,22 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//input[@class='field text']")
 	private WebElement enterEmailID1;
 
 	/**
-	 * Method to Enter Email ID.
+	 * Method to Enter Email.
 	 * 
 	 * @throws IOException
 	 */
 	public void enterEmailID1() throws IOException {
-		CustomerParentChildPage sp = new CustomerParentChildPage(driver);
-		log.info("Enter EmailID");
-		enterEmailID1 = driver.findElement(By.cssSelector("input[id^='metaField_']"));
+		CustomerPage sp = new CustomerPage(driver);
+		log.info("Enter Email");
 		Assert.assertTrue(enterEmailID1.isDisplayed());
 		enterEmailID1.sendKeys(sp.ExcelRead(sheetName).get(12));
 
 	}
+
 
 	// @FindBy(how=How.XPATH, using="//div[@class='row']//*[text()='22 Brian
 	// Smith']")
