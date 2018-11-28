@@ -4,7 +4,7 @@
 
 	</listeners>
 	
-	<test name="WebData-Sanity">
+	<test name="WebData-RateCard">
 		
 		<groups>
 			<define name="All">

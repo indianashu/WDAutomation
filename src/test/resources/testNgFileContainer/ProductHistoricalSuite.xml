@@ -26,7 +26,7 @@
 
 		<classes>
 			<class name = "productHistoricalTest.LoginSignupCompanyTest"/>
-			 <class name = "productHistoricalTest.CurrencyTest"/>
+			<class name = "productHistoricalTest.CurrencyTest"/>
 			<class name = "productHistoricalTest.AddProduct1Test"/>
 			<class name = "productHistoricalTest.AddProduct2Test"/>
 			<class name = "productHistoricalTest.AddProduct3Test"/>
