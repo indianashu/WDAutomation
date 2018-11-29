@@ -269,7 +269,7 @@ public class CreateProductAndCategoryPage extends BasePage {
 			Select se = new Select(Companieselement);
 			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 		}
-
+		@FindBy(how = How.XPATH, using = "//select[@name='product.currencies']")
 		private WebElement selectPriceCurrency;
 
 		/**
@@ -279,8 +279,7 @@ public class CreateProductAndCategoryPage extends BasePage {
 		 */
 		public void selectPriceCurrency() throws IOException {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
-			WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
-			Select se = new Select(Currencyelement);
+			Select se = new Select(selectPriceCurrency);
 			se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 		}
 
@@ -316,7 +315,7 @@ public class CreateProductAndCategoryPage extends BasePage {
 			navigateBottom();
 		}
 		
-		@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingProduct']")
+		@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingProduct']//option[contains(text(),'Test Product')]")
 		private WebElement enterPlanProduct;
 
 		/**
@@ -328,9 +327,6 @@ public class CreateProductAndCategoryPage extends BasePage {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Plan Product");
 			enterPlanProduct.click();
-			Select select = new Select(enterPlanProduct);
-			int selectOptions = select.getOptions().size();
-			select.selectByIndex(selectOptions - 2);
 		}
 		
 		@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingList']")
@@ -345,8 +341,9 @@ public class CreateProductAndCategoryPage extends BasePage {
 			CreateProductAndCategoryPage sp = new CreateProductAndCategoryPage(driver);
 			log.info("Enter Pricing");
 			JavaScriptExec.sleep();
-			Select dropdown2 = new Select(driver.findElement(By.name("product.confPricingList")));
 			Assert.assertTrue(enterPricing.isDisplayed());
+			enterPricing.click();
+			Select select = new Select(enterPricing);
 			enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
 		}
 		

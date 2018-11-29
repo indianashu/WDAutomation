@@ -224,11 +224,17 @@ public class CreateRateCardPage extends BasePage {
 	public void clickEdit() throws IOException {
 		CreateRateCardPage sp = new CreateRateCardPage(driver);
 		log.info("Click on Edit Button");
+		navigateBottom();
 		Assert.assertTrue(clickEdit.isDisplayed());
 		clickEdit.click();
 		JavaScriptExec.sleep();
 	}
 	
+	public void navigateBottom() {
+		JavaScriptExec.scrolltoBottomofPage(driver);
+		JavaScriptExec.sleep();
+	}
+
 	@FindBy(how = How.XPATH, using = "//select[@name='consumptionUnitId']")
 	private WebElement consumptionUnit;
  	/**

@@ -12,6 +12,7 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.Verify;
 
 import org.openqa.selenium.support.ui.Select;
 
@@ -104,8 +105,8 @@ public class SpecificPricingPage extends BasePage {
 		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, column);
 		WebElement selectCustomer = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		navigateBottom();
 		actions.moveToElement(selectCustomer).click().perform();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
@@ -117,6 +118,7 @@ public class SpecificPricingPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void clickCreateOrder() throws IOException {
+		navigateBottom();
 		JavaScriptExec.scrollToElementOnPage(driver, clickCreateOrder);
 		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("click on create order button.");
@@ -476,55 +478,55 @@ public class SpecificPricingPage extends BasePage {
 	public void verifyPlanPricingData() throws IOException {
 		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[4]/em[2]/strong")).getText();
 		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 9, 0);
-		Assert.assertEquals(actualTotal, expectedTotal);
+		Verify.verifyEquals(expectedTotal, actualTotal,"Expected Total is not correct for Test Customer2");
 		System.out.println("Expected Total Amount of the TestCustomer2="+expectedTotal);
 
 		for (int i = 1; i < 6; i++) {
 			String expectedQuantity = driver
 					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[5]/strong")).getText();
-			String actualQuantity = "BasePage.getCellData(xlsxName, sheetName, 10, i)";
-			Assert.assertEquals(actualQuantity, expectedQuantity);
+			String actualQuantity = BasePage.getCellData(xlsxName, sheetName, 10, i);
+			Verify.verifyEquals(expectedQuantity, actualQuantity,"Expected Quantity is not correct for Test Customer2");
 			System.out.println("Expected Quantity of the TestCustomer2="+expectedQuantity);
 
 			String expectedRate = driver
 					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[7]/strong")).getText();
-			String actualRate = "BasePage.getCellData(xlsxName, sheetName, 11, i)";
-			Assert.assertEquals(actualRate, expectedRate);
+			String actualRate = BasePage.getCellData(xlsxName, sheetName, 11, i);
+			Verify.verifyEquals(expectedRate, actualRate,"Expected Rate is not correct for Test Customer2");
 			System.out.println("Expected Rate of the TestCustomer2="+expectedRate);
 
 			String expectedAmount = driver
 					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[8]/strong")).getText();
-			String actualAmount = "BasePage.getCellData(xlsxName, sheetName, 12, i)";
-			Assert.assertEquals(actualAmount, expectedAmount);
+			String actualAmount = BasePage.getCellData(xlsxName, sheetName, 12, i);
+			Verify.verifyEquals(expectedAmount, actualAmount,"Expected Amount is not correct for Test Customer2");
 			System.out.println("Expected Amount of the TestCustomer2="+expectedAmount);
 		}
 
 	}
 
 	public void verifyCustomerPricingData() throws IOException {
-		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[16]/td[8]/strong"))
-				.getText();
+		String expectedTotal = driver.findElement(By.xpath("//*[@id='main']/div[4]/em[2]/strong")).getText();
 		String actualTotal = BasePage.getCellData(xlsxName, sheetName, 13, 0);
-		Assert.assertEquals(actualTotal, expectedTotal);
+		Verify.verifyEquals(expectedTotal, actualTotal,"Expected Total is not correct for Test Customer3");
 		System.out.println("Expected Total Amount of the TestCustomer3="+expectedTotal);
 
 		for (int i = 1; i < 6; i++) {
 			String expectedQuantity = driver
 					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[5]/strong")).getText();
-			String actualQuantity = "BasePage.getCellData(xlsxName, sheetName, 14, i)";
-			Assert.assertEquals(actualQuantity, expectedQuantity);
+			String actualQuantity = BasePage.getCellData(xlsxName, sheetName, 14, i);
+			System.out.println("tual Rate of the TestCustomer3="+actualQuantity);
+			Assert.assertEquals(expectedQuantity, actualQuantity, "Expected Quantity is not correct for Test Customer3");
 			System.out.println("Expected Quantity of the TestCustomer3="+expectedQuantity);
 
 			String expectedRate = driver
 					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[7]/strong")).getText();
-			String actualRate = "BasePage.getCellData(xlsxName, sheetName, 15, i)";
-			Assert.assertEquals(actualRate, expectedRate);
+			String actualRate = BasePage.getCellData(xlsxName, sheetName, 15, i);
+			Assert.assertEquals(expectedRate, actualRate,"Expected Rate is not correct for Test Customer3");
 			System.out.println("Expected Rate of the TestCustomer3="+expectedRate);
 
 			String expectedAmount = driver
 					.findElement(By.xpath("//*[@id='main']/div[5]/table/tbody/tr[" + i + "]/td[8]/strong")).getText();
-			String actualAmount = "BasePage.getCellData(xlsxName, sheetName, 16, i)";
-			Assert.assertEquals(actualAmount, expectedAmount);
+			String actualAmount = BasePage.getCellData(xlsxName, sheetName, 16, i);
+			Assert.assertEquals(expectedAmount, actualAmount,"Expected Amount is not correct for Test Customer3");
 			System.out.println("Expected Amount of the TestCustomer3="+expectedAmount);
 		}
 	}

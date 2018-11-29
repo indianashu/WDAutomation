@@ -103,7 +103,6 @@ public class CreateCustomerPage extends BasePage {
 		for (int i = 0; i < 3; i++) {
 			WebElement clickAddNewButton = driver
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));
-			JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);
 			Assert.assertTrue(clickAddNewButton.isDisplayed());
 			clickAddNewButton.click();
 			JavaScriptExec.sleep();
