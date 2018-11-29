@@ -210,7 +210,7 @@ public class CreateEUROParentOrderPage extends BasePage {
 
 	}
 	
-	@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton1;
 	/**
 	 * Method to click on update button.
@@ -250,7 +250,7 @@ public class CreateEUROParentOrderPage extends BasePage {
 
 	}
 	
-	@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton2;
 	/**
 	 * Method to click on update button.
@@ -290,7 +290,7 @@ public class CreateEUROParentOrderPage extends BasePage {
 
 	}
 
-	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton;
 	/**
 	 * Method to click on update button.
@@ -306,22 +306,22 @@ public class CreateEUROParentOrderPage extends BasePage {
 
 	public void expectedAmount1() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 0);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount2() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 1);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount3() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 2);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount4() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 3);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 

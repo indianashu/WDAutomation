@@ -189,7 +189,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 
 	public void selectProduct1() throws IOException {
 		String ProductName1 = BasePage.getCellData(xlsxName, sheetName, 5, 0);
-		JavaScriptExec.sleep();
+		//JavaScriptExec.sleep();
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName1 + "']")).click();
 		//Assert.assertTrue(selectProduct1.isDisplayed());
 		//actions.moveToElement(selectProduct1).click().perform();
@@ -212,7 +212,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 		}
 	}
 		
-		@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']/div[2]/a[1]")
+		@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']//*[text()='Update']")
 		private WebElement clickUpdateButton1;
 		/**
 		 * Method to click on update button.
@@ -250,7 +250,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 			checkApplyNow2.click();
 		}
 	}
-		@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']/div[2]/a[1]")
+		@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']//*[text()='Update']")
 		private WebElement clickUpdateButton2;
 		/**
 		 * Method to click on update button.
@@ -290,7 +290,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 	}
 
 	//@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
-	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton;
 	/**
 	 * Method to click on update button.

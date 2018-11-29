@@ -138,7 +138,7 @@ public class LoginSignupCompanyPage extends BasePage {
 		log.info("Verifying if Label is available or not");
 		String RootCompanyName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
 		String ActualRootCompany = driver
-				.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
+				.findElement(By.xpath("//span/h")).getText();
 		System.out.println("Company Name:********" + ActualRootCompany + "*********");
 		log.info("Click on customer name");
 		JavaScriptExec.sleep();

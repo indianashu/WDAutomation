@@ -216,7 +216,7 @@ public class CreateCADParentOrderPage extends BasePage {
 
 	}
 	
-	@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton1;
 	/**
 	 * Method to click on update button.
@@ -256,7 +256,7 @@ public class CreateCADParentOrderPage extends BasePage {
 
 	}
 	
-	@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton2;
 	/**
 	 * Method to click on update button.
@@ -296,7 +296,7 @@ public class CreateCADParentOrderPage extends BasePage {
 
 	}
 
-	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton;
 	/**
 	 * Method to click on update button.
