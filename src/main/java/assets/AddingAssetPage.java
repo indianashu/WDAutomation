@@ -221,7 +221,7 @@ public class AddingAssetPage extends BasePage {
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//*[@id='messages']//*[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -415,7 +415,7 @@ public class AddingAssetPage extends BasePage {
 		log.info("verify added asset.");
 		String ExpectedAsset = sp.ExcelRead(sheetName).get(10);
 		String ActualAsset = driver
-				.findElement(By.xpath("//*[@id='change--3-update-form']/div[1]/div/div[10]/div/label[2]")).getText();
+				.findElement(By.xpath("//label[@for='change--3.asset.0']")).getText();
 		Assert.assertEquals(ActualAsset, ExpectedAsset);
 		JavaScriptExec.sleep();
 	}
@@ -430,7 +430,7 @@ public class AddingAssetPage extends BasePage {
 		log.info("Verify asset is shown in order preview pane.");
 		String ExpectedAsset = sp.ExcelRead(sheetName).get(10);
 		String ActualAsset = driver
-				.findElement(By.xpath("//*[@id='column2']/div[1]/div[7]/div[2]/table/tbody/tr/td[2]")).getText();
+				.findElement(By.xpath("//*[@class='box-card-hold']//*[@class='innerContent'][2]")).getText();
 		Assert.assertEquals(ActualAsset, ExpectedAsset);
 		JavaScriptExec.sleep();
 	}
