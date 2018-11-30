@@ -218,7 +218,7 @@ public class TestCase1Page extends BasePage {
 			JavaScriptExec.sleep();
 
 			String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 10, i);
-			String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
+			String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']//*[@class='total']")).getText();
 			Assert.assertEquals(actualAmount, expectedAmount);
 
 			WebElement clickSaveButton = driver
