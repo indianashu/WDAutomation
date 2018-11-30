@@ -49,6 +49,9 @@ public class PlanPricingTest {
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
+    	specificPricingPage.clickDoneBillableViewLink();
+    	specificPricingPage.verifyCSVData(10);
+    	specificPricingPage.clickMediationName();
     	specificPricingPage.clickShowOrder();
     	specificPricingPage.clickOrder(1);
     	specificPricingPage.clickViewEvents();
