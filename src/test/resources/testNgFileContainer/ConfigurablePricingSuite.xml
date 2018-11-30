@@ -12,7 +12,7 @@
 
 			<define name="All">
 
-				<include name="Configurable Pricing Feature" />
+				<include name="Configurable Pricing" />
 
 			</define>
 
