@@ -226,7 +226,7 @@ public class AddOnProductCategoryPage extends BasePage {
 				sel1.selectByVisibleText("Units");
 
 				WebElement clickAddOnPlusIcon = driver
-						.findElement(By.xpath("//*[@id='addon']/div[2]/div/div[2]/table/tbody/tr/td[7]/div/div/a/img"));
+						.findElement(By.xpath("//a[@onclick='addItemBundle()']"));
 				log.info("click on Add On plus icon to add the product.");
 				JavaScriptExec.sleep();
 				Assert.assertTrue(clickAddOnPlusIcon.isDisplayed());
