@@ -189,7 +189,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 
 	public void selectProduct1() throws IOException {
 		String ProductName1 = BasePage.getCellData(xlsxName, sheetName, 5, 0);
-		JavaScriptExec.sleep();
+		//JavaScriptExec.sleep();
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName1 + "']")).click();
 		//Assert.assertTrue(selectProduct1.isDisplayed());
 		//actions.moveToElement(selectProduct1).click().perform();
@@ -212,7 +212,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 		}
 	}
 		
-		@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']/div[2]/a[1]")
+		@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']//*[text()='Update']")
 		private WebElement clickUpdateButton1;
 		/**
 		 * Method to click on update button.
@@ -250,7 +250,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 			checkApplyNow2.click();
 		}
 	}
-		@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']/div[2]/a[1]")
+		@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']//*[text()='Update']")
 		private WebElement clickUpdateButton2;
 		/**
 		 * Method to click on update button.
@@ -290,7 +290,7 @@ public class CreateUSDParentOrderPage extends BasePage {
 	}
 
 	//@FindBy(how=How.XPATH, using="//a[@class='submit save']//*[text()='Update']")
-	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']//*[text()='Update']")
 	private WebElement clickUpdateButton;
 	/**
 	 * Method to click on update button.
@@ -306,22 +306,22 @@ public class CreateUSDParentOrderPage extends BasePage {
 
 	public void expectedAmount1() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 7, 0);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount2() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 7, 1);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount3() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 7, 2);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount4() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 7, 3);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 
