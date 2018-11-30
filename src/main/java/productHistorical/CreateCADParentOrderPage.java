@@ -312,22 +312,22 @@ public class CreateCADParentOrderPage extends BasePage {
 
 	public void expectedAmount1() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 9, 0);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount2() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 9, 1);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount3() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 9, 2);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount4() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 9, 3);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 
@@ -343,7 +343,7 @@ public class CreateCADParentOrderPage extends BasePage {
 		addFilter.click();
 		navigateBottom();
 		String CompanyName = BasePage.getCellData(xlsxName, sheetName, 2, 0);
-		WebElement selectCompany = driver.findElement(By.xpath("//*[@id=\"filters\"]/div[2]/div[1]/div/ul/li[3]/a"));
+		WebElement selectCompany = driver.findElement(By.xpath("//*[@class='drop']/ul/li[3]/a"));
 		selectCompany.click();
 		JavaScriptExec.sleep();
 		WebElement company = driver

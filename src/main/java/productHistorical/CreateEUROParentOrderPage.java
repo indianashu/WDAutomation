@@ -306,22 +306,22 @@ public class CreateEUROParentOrderPage extends BasePage {
 
 	public void expectedAmount1() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 0);
-		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount2() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 1);
-		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount3() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 2);
-		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount4() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 11, 3);
-		String actualAmount = driver.findElement(By.xpath("//td[@class='value']/parent::tr//td[text()='Total:']")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 
@@ -337,7 +337,7 @@ public class CreateEUROParentOrderPage extends BasePage {
 		addFilter.click();
 		navigateBottom();
 		String CompanyName = BasePage.getCellData(xlsxName, sheetName, 2, 0);
-		WebElement selectCompany = driver.findElement(By.xpath("//*[@id=\"filters\"]/div[2]/div[1]/div/ul/li[3]/a"));
+		WebElement selectCompany = driver.findElement(By.xpath("//*[@class='drop']/ul/li[3]/a"));
 		selectCompany.click();
 		JavaScriptExec.sleep();
 		WebElement company = driver

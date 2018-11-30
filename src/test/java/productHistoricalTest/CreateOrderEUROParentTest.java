@@ -30,13 +30,13 @@ public class CreateOrderEUROParentTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		createEUROParentOrderPage.enterLoginID();
+		/*createEUROParentOrderPage.enterLoginID();
 		createEUROParentOrderPage.enterPassword();
 		createEUROParentOrderPage.selectCompany();
-		createEUROParentOrderPage.clickLoginButton();
+		createEUROParentOrderPage.clickLoginButton();*/
 
 		// ActiveSince=Past date
-		/*createEUROParentOrderPage.clickCustomerTab();
+		createEUROParentOrderPage.clickCustomerTab();
 		createEUROParentOrderPage.addCompanyFilter();
 		createEUROParentOrderPage.selectCustomer();
 		createEUROParentOrderPage.clickCreateOrder();
@@ -78,7 +78,7 @@ public class CreateOrderEUROParentTest {
 		createEUROParentOrderPage.selectProduct3();
 		createEUROParentOrderPage.clickUpdateButton();
 		createEUROParentOrderPage.expectedAmount3();
-		createEUROParentOrderPage.clickSave();*/
+		createEUROParentOrderPage.clickSave();
 
 		// ActiveSince=Future Date
 		createEUROParentOrderPage.clickCustomerTab();

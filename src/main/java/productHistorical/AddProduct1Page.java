@@ -322,6 +322,7 @@ public class AddProduct1Page extends BasePage  {
 
 				WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 				Select sel = new Select(Currencyelement);
+				JavaScriptExec.sleep();
 				sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, i));
 				JavaScriptExec.sleep();
 

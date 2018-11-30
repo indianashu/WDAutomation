@@ -372,22 +372,22 @@ public class CreateUSDChildOrderPage extends BasePage {
 
 	public void expectedAmount1() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 0);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount2() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 1);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount3() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 2);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount4() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 3);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 
