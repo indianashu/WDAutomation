@@ -141,7 +141,7 @@ public class AgentCommissionProcessPage extends BasePage {
     }
     
     
-    @FindBy(how=How.XPATH, using="//*[@id='column2']/div/div[7]/div/a[5]/span")
+    @FindBy(how=How.XPATH, using="//*[@id='column2']//*[text()='Show Commissions']")
     private WebElement clickShowCommissionButton;
     /**
      * Method to Click on Show Commission Button.
@@ -157,7 +157,7 @@ public class AgentCommissionProcessPage extends BasePage {
         
     }
     
-    @FindBy(how=How.XPATH, using="//*[@id='column1']/div[2]")
+    @FindBy(how=How.XPATH, using="//*[@id='column1']//*[@class='pager-box']")
     private WebElement verifyCommissionDisplay;
     /**
      * Method to Verify No Commission is Display.

@@ -415,7 +415,7 @@ public class AgentPage extends BasePage {
         
     }
 
-    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
+    @FindBy(how=How.XPATH, using="//*[@id='messages']//*[text()='Done']")
     private WebElement verifyAgentAndFetchAgentId;
     /**
      * Method to verify Agent is created Successfully.
@@ -430,7 +430,7 @@ public class AgentPage extends BasePage {
         return AgentId;
     }
 
-    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
+    @FindBy(how=How.XPATH, using="//*[@id='messages']//*[text()='Done']")
     private WebElement verifyConfirmationMsg;
     /**
      * Method to verify Account Type is created Successfully.
