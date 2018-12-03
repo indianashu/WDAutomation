@@ -49,6 +49,9 @@ public class CustomerSpecificPricingTest {
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
+    	specificPricingPage.clickDoneBillableViewLink();
+    	specificPricingPage.verifyCSVData(14);
+    	specificPricingPage.clickMediationName();
     	specificPricingPage.clickShowOrder();
     	specificPricingPage.clickOrder(2);
     	specificPricingPage.clickViewEvents();
