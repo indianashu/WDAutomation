@@ -148,7 +148,7 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterAccountName() throws IOException {
+	public void clickAddInformationTypeButton() throws IOException {
 		ConfigurationNewInformationTypePage sp = new ConfigurationNewInformationTypePage(driver);
 		log.info("Add Information Type Button is available or not");
 		Assert.assertTrue(clickAddInformationTypeButton.isDisplayed());
