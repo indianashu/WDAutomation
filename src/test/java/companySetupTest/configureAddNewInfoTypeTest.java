@@ -48,7 +48,7 @@ public class configureAddNewInfoTypeTest {
     	
         configurationNewInformationTypePage.clickAccountType();
     	configurationNewInformationTypePage.clickAccountTypeCreated();
-    	configurationNewInformationTypePage.enterAccountName();
+    	configurationNewInformationTypePage.clickAddInformationTypeButton();
     	configurationNewInformationTypePage.enterName();
         configurationNewInformationTypePage.enterdisplayOrder();
         configurationNewInformationTypePage.checkuseForNotifications();
