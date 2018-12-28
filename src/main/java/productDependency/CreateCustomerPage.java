@@ -24,7 +24,7 @@ public class CreateCustomerPage extends BasePage {
 	Logger log = Logger.getLogger(CreateCustomerPage.class);
 
 	PropertyValExtractors p = new PropertyValExtractors();
-	String sheetName = "Customer";
+	String sheetName = "AddCustomer";
 	String xlsxName = "/ProductDependency_TestData.xlsx";
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")
@@ -101,18 +101,14 @@ public class CreateCustomerPage extends BasePage {
 }
 	public void createCustomer() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 7; i++) {
 			WebElement clickAddNewButton = driver
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));
 			JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);
 			Assert.assertTrue(clickAddNewButton.isDisplayed());
 			clickAddNewButton.click();
 			JavaScriptExec.sleep();
-
-			WebElement AccountTypeelement = driver.findElement(By.xpath("//select[@name='accountTypeId']"));
-			Select sel = new Select(AccountTypeelement);
-			sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 3, 0));
-
+			
 			WebElement clickSelectButton = driver
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Select']"));
 			Assert.assertTrue(clickSelectButton.isDisplayed());
@@ -144,7 +140,7 @@ public class CreateCustomerPage extends BasePage {
 			JavaScriptExec.sleep();
 			
 			String actualCustomerName = BasePage.getCellData(xlsxName, sheetName, 3, i);
-			String expectedCustomerName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong/span"))
+			String expectedCustomerName = driver.findElement(By.xpath("//*[@id='column2']/div[1]"))
 					.getText();
 			System.out.println(expectedCustomerName);
 			Assert.assertEquals(actualCustomerName, expectedCustomerName);

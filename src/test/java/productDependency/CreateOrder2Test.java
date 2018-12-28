@@ -36,6 +36,8 @@ public class CreateOrder2Test {
 
 		// Create Order for William
 		createOrderPage.clickCustomerTab();
+		createOrderPage.enterCustomerNameFilter(1);
+		createOrderPage.applyFilter();
 		createOrderPage.clickCustomerName(1);
 		createOrderPage.clickCreateOrder();
 		createOrderPage.selectPeriod(2);

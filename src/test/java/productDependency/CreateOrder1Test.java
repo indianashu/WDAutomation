@@ -32,6 +32,8 @@ public class CreateOrder1Test {
 
 		// Create order for customer Leo Holder
 		createOrderPage.clickCustomerTab();
+		createOrderPage.enterCustomerNameFilter(0);
+		createOrderPage.applyFilter();
 		createOrderPage.clickCustomerName(0);
 		createOrderPage.clickCreateOrder();
 		createOrderPage.selectPeriod(0);

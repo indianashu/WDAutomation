@@ -120,7 +120,7 @@ public class SpecificPricingPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void enterCustomerNameFilter(int column) throws IOException {
-		AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("Enter the name of the Customer in the Filte Login name");
 		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
 		enterCustomerNameFilter.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, column));
@@ -136,7 +136,7 @@ public class SpecificPricingPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void applyFilter() throws IOException {
-		AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
 		log.info("Click on Apply Filter");
 		Assert.assertTrue(applyFilter.isDisplayed());
 		applyFilter.click();
