@@ -272,8 +272,6 @@ public class DiscountPage extends BasePage {
 
 	}
 
-	private WebElement clickCustomerA;
-
 	/**
 	 * Method to Click on Customer A.
 	 * 
@@ -284,6 +282,38 @@ public class DiscountPage extends BasePage {
 		log.info("Click on customer A");
 		String CustomerName = sp.ExcelRead(sheetName).get(7);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']")).click();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter() throws IOException {
+		DiscountPage sp = new DiscountPage(driver);
+		log.info("Click on customer A");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(7));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		DiscountPage sp = new DiscountPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
 		JavaScriptExec.sleep();
 	}
 

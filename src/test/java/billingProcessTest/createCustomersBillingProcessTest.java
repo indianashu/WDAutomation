@@ -61,7 +61,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.enterCardExpiry();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
-    	createCustomerPage.clickCustomer1();
+    	createCustomerPage.navigateBottom();
     	createCustomerPage.clickEditButton();
     	createCustomerPage.enterNextInvoiceDate();
     	createCustomerPage.selectBillingCycleUnit();
@@ -83,7 +83,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.enterCardExpiry();
     	createCustomerPage.clickSaveChangesButton();
     	createCustomerPage.verifyConfirmationMsg();
-    	createCustomerPage.clickCustomer2();
+    	createCustomerPage.navigateBottom();
     	createCustomerPage.clickEditButton();
     	createCustomerPage.selectBillingCycleUnit();
     	createCustomerPage.selectBillingCycleDay();

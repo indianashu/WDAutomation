@@ -185,9 +185,7 @@ public class AgentCommissionProcessPage extends BasePage {
         clickCustomerTab.click();
         
     }
-    
-    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer A']")
-    private WebElement clickCustomerB;
+   
     /**
      * Method to click on Customer - CustomerB.
      * @throws IOException 
@@ -199,6 +197,38 @@ public class AgentCommissionProcessPage extends BasePage {
         driver.findElement(By.xpath("//a[@class='cell double']//*[text()='"+CustomerName+"']")).click();
         
     }
+    
+    @FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter() throws IOException {
+		AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(4));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		AgentCommissionProcessPage sp=new AgentCommissionProcessPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
+	}
     
     @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Create Order']")
     private WebElement clickCreateOrderButton;

@@ -47,6 +47,8 @@ public class generatingPayingInvoiceTest {
     	generatingPayingInvoicePage.clickLoginButton();*/
 
     	generatingPayingInvoicePage.clickCustomerTab();
+    	generatingPayingInvoicePage.enterCustomerNameFilter();
+    	generatingPayingInvoicePage.applyFilter();
     	generatingPayingInvoicePage.clickCustomerName();
     	generatingPayingInvoicePage.clickCreateOrderButton();
     	generatingPayingInvoicePage.selectPeriod();

@@ -59,6 +59,8 @@ public class verifyInvoiceDateDueDateTest {
     	generatingInvoicePage.clickSaveChangesButton();
     	generatingInvoicePage.verifyConfirmationMsg();
     	generatingInvoicePage.clickCustomerTab();
+    	generatingInvoicePage.enterCustomerNameFilter();
+    	generatingInvoicePage.applyFilter();
     	generatingInvoicePage.clickCustomerName();
     	generatingInvoicePage.clickCreateOrderButton();
     	generatingInvoicePage.selectPeriod();

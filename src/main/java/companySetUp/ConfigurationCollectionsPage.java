@@ -132,6 +132,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the IDStep is available or not");
 		StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps.isDisplayed());
+		enterIDSteps.clear();
 		enterIDSteps.sendKeys(BasePage.ExcelRead(sheetName).get(3));
 	}
 
@@ -150,6 +151,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 
 			StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].days']"), driver);
 			Assert.assertTrue(enterForDays.isDisplayed());
+			enterForDays.clear();
 			enterForDays.sendKeys(BasePage.ExcelRead(sheetName).get(4));
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();
@@ -184,6 +186,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the Description is available or not");
 		StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps1.isDisplayed());
+		enterIDSteps1.clear();
 		enterIDSteps1.sendKeys(BasePage.ExcelRead(sheetName).get(5));
 	}
 
@@ -201,6 +204,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 			log.info("Verifying the For Days is available or not");
 			StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].days']"), driver);
 			Assert.assertTrue(enterForDays1.isDisplayed());
+			enterForDays1.clear();
 			enterForDays1.sendKeys(BasePage.ExcelRead(sheetName).get(6));
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();
@@ -236,6 +240,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the ID Step2 is available or not");
 		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps2.isDisplayed());
+		enterIDSteps2.clear();
 		enterIDSteps2.sendKeys(BasePage.ExcelRead(sheetName).get(7));
 
 	}
@@ -254,6 +259,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		try {
 		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].days']"), driver);
 		Assert.assertTrue(enterForDays2.isDisplayed());
+		enterForDays2.clear();
 		enterForDays2.sendKeys(BasePage.ExcelRead(sheetName).get(8));
 		}
 		catch(StaleElementReferenceException e) {
@@ -289,6 +295,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		log.info("Verifying the ID Step3 is available or not");
 		StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].statusStr']"), driver);
 		Assert.assertTrue(enterIDSteps3.isDisplayed());
+		enterIDSteps3.clear();
 		enterIDSteps3.sendKeys(BasePage.ExcelRead(sheetName).get(9));
 		JavaScriptExec.sleep();
 	}
@@ -307,6 +314,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 			log.info("Verifying the For Days is available or not");
 			StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].days']"), driver);
 			Assert.assertTrue(enterForDays3.isDisplayed());
+			enterForDays3.clear();
 			enterForDays3.sendKeys(BasePage.ExcelRead(sheetName).get(10));
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();

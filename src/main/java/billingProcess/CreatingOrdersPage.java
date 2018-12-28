@@ -395,8 +395,6 @@ public class CreatingOrdersPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Bill
-	// Cust1']")
 	private WebElement clickCustomer1;
 
 	/**
@@ -404,15 +402,47 @@ public class CreatingOrdersPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void clickCustomer1() throws IOException {
+	public void clickCustomer1(int rowNum) throws IOException {
 		CreatingOrdersPage sp = new CreatingOrdersPage(driver);
 		log.info("Click on Customer 1");
-		String CustomerName = sp.ExcelRead(sheetName).get(12);
+		String CustomerName = sp.ExcelRead(sheetName).get(rowNum);
 		clickCustomer1 = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 		JavaScriptExec.sleep();
 		Assert.assertTrue(clickCustomer1.isDisplayed());
 		clickCustomer1.click();
 
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter(int rowNum) throws IOException {
+		CreatingOrdersPage sp = new CreatingOrdersPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(rowNum));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		CreatingOrdersPage sp = new CreatingOrdersPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
@@ -675,24 +705,6 @@ public class CreatingOrdersPage extends BasePage {
 		Assert.assertTrue(enterQuantity1.isDisplayed());
 		enterQuantity1.clear();
 		enterQuantity1.sendKeys(sp.ExcelRead(sheetName).get(22));
-
-	}
-	
-	private WebElement clickCustomer2;
-
-	/**
-	 * Method to Click on Customer 2.
-	 * 
-	 * @throws IOException
-	 */
-	public void clickCustomer2() throws IOException {
-		CreatingOrdersPage sp = new CreatingOrdersPage(driver);
-		log.info("Click on Customer 1");
-		String CustomerName = sp.ExcelRead(sheetName).get(23);
-		clickCustomer2 = driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
-		JavaScriptExec.sleep();
-		Assert.assertTrue(clickCustomer2.isDisplayed());
-		clickCustomer2.click();
 
 	}
 

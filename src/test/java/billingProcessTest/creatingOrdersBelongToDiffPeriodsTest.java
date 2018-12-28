@@ -75,7 +75,9 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.clickSaveChangesButton();
     	creatingOrdersPage.verifyConfirmationMsg();
     	creatingOrdersPage.clickCustomerTab();
-    	creatingOrdersPage.clickCustomer1();
+    	creatingOrdersPage.enterCustomerNameFilter(12);
+    	creatingOrdersPage.applyFilter();
+    	creatingOrdersPage.clickCustomer1(12);
     	creatingOrdersPage.clickCreateOrderButton();
     	creatingOrdersPage.selectActiveSince();
     	creatingOrdersPage.clickProductSubTab();
@@ -85,7 +87,9 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.clickSaveChangesButton();
     	creatingOrdersPage.verifyConfirmationMsg();
     	creatingOrdersPage.clickCustomerTab();
-    	creatingOrdersPage.clickCustomer1();
+    	creatingOrdersPage.enterCustomerNameFilter(12);
+    	creatingOrdersPage.applyFilter();
+    	creatingOrdersPage.clickCustomer1(12);
     	creatingOrdersPage.clickCreateOrderButton();
     	creatingOrdersPage.selectPeriod1();
     	creatingOrdersPage.selectOrderType1();
@@ -97,7 +101,9 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.clickSaveChangesButton();
     	creatingOrdersPage.verifyConfirmationMsg();
     	creatingOrdersPage.clickCustomerTab();
-    	creatingOrdersPage.clickCustomer2();
+    	creatingOrdersPage.enterCustomerNameFilter(23);
+    	creatingOrdersPage.applyFilter();
+    	creatingOrdersPage.clickCustomer1(23);
     	creatingOrdersPage.clickCreateOrderButton();
     	creatingOrdersPage.selectPeriod2();
     	creatingOrdersPage.selectOrderType2();

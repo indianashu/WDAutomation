@@ -225,10 +225,7 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.sleep();
         Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
     }
-    
-    
-    //@FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='TestCustomer3']")
-    private WebElement selectCustomer;
+   
     /**
      * Method to select a customer - TestCustomer3.
      * @throws IOException 
@@ -242,6 +239,38 @@ public class ReportsPage extends BasePage{
         JavaScriptExec.sleep();
     }    
 
+    @FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter() throws IOException {
+		ReportsPage sp=new ReportsPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(5));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		ReportsPage sp=new ReportsPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
+	}
+	
     @FindBy(how=How.XPATH, using="//a[@class='submit order']//*[text()='Create Order']")
     private WebElement clickCreateOrderButton;
     /**

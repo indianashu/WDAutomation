@@ -51,6 +51,8 @@ public class agentCommissionBalanceProcessTest {
     	agentCommissionProcessPage.clickShowCommissionButton();
     	agentCommissionProcessPage.verifyCommissionDisplay();
     	agentCommissionProcessPage.clickCustomerTab();
+    	agentCommissionProcessPage.enterCustomerNameFilter();
+    	agentCommissionProcessPage.applyFilter();
     	agentCommissionProcessPage.clickCustomerB();
     	agentCommissionProcessPage.clickCreateOrderButton();
     	agentCommissionProcessPage.selectOrderPeriod();

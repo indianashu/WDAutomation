@@ -59,6 +59,8 @@ public class verifyDiscountOrderTest {
 		discountPage.createPlanCategory();
         discountPage.createPlanTypeProduct();
     	discountPage.clickCustomersTab();
+    	discountPage.enterCustomerNameFilter();
+    	discountPage.applyFilter();
     	discountPage.clickCustomerA();
     	discountPage.clickCreateOrderButton();
     	discountPage.clickProductSubTab();

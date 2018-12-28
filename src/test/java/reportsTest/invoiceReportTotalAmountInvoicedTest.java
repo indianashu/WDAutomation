@@ -47,6 +47,7 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.clickLoginButton();*/
 
     	reportsPage.clickCustomerTab();
+    	reportsPage.navigateBottom();
     	reportsPage.clickAddNewButton();
     	reportsPage.selectAccountType();
     	reportsPage.clickSelectButton();
@@ -59,8 +60,7 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.enterCardExpiry();
     	reportsPage.clickSaveChangesButton();
     	reportsPage.verifyConfirmationMsg();
-    	reportsPage.clickCustomerTab();
-    	reportsPage.selectCustomer();
+    	reportsPage.navigateBottom();
     	reportsPage.clickCreateOrderButton();
     	reportsPage.clickProductsSubTab();
     	reportsPage.selectCategory();
@@ -70,6 +70,8 @@ public class invoiceReportTotalAmountInvoicedTest {
 		reportsPage.navigateBottom();
     	reportsPage.clickGenerateReportButton();
     	reportsPage.clickCustomerTab();
+    	reportsPage.enterCustomerNameFilter();
+    	reportsPage.applyFilter();
     	reportsPage.selectCustomer();
     	reportsPage.clickMakePaymentButton();
     	reportsPage.clickInvoice();

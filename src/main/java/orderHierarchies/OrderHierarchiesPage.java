@@ -1,6 +1,7 @@
 package orderHierarchies;
 
 import baseClassPackage.BasePage;
+import customer.ImpersonateCustomerPage;
 import invoice.GeneratingInvoicePage;
 
 import java.io.IOException;
@@ -438,10 +439,6 @@ public class OrderHierarchiesPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer
-	// A']")
-	private WebElement clickCustomerA;
-
 	/**
 	 * Method to click on a customer.
 	 * 
@@ -454,6 +451,39 @@ public class OrderHierarchiesPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']")).click();
 		JavaScriptExec.sleep();
 	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter() throws IOException {
+		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(13));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		OrderHierarchiesPage sp = new OrderHierarchiesPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
+	}
+
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
 	private WebElement clickCreateOrderButton;

@@ -15,14 +15,14 @@
 
 		<classes>
 			<class name = "loginWebData.WebDataLoginTest"/>
- 			<class name = "SignupTest.ChildCompanySignupTest"/>
+ 			<!-- <class name = "SignupTest.ChildCompanySignupTest"/>
 			<class name = "SignupTest.ChildCompanySignupResellerTest"/>
 		 	<class name = "companySetupTest.configureAccountTypeTest"/>
 			<class name = "companySetupTest.editConfigureAccountTypeTest" />
 			<class name = "companySetupTest.configurePaymentMethodTest" />
 			<class name = "companySetupTest.configureAddNewInfoTypeTest" /> 
 			<class name = "companySetupTest.configurePaymentMethCreditCardTest" /> 
-			<class name = "companySetupTest.configureAddOrderPeriodTest" />
+			<class name = "companySetupTest.configureAddOrderPeriodTest" /> -->
 			<class name = "companySetupTest.configureAddCollectionTest" />
 			<class name = "companySetupTest.configureAddBillingPeriodTest" />		
 		 	<class name = "companySetupTest.ConfigureInvoicePluginTest"/>
