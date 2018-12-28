@@ -31,6 +31,8 @@ public class PlanPricingTest {
 		specificPricingPage.clickLoginButton();*/
 		
 		specificPricingPage.clickCustomerTab();
+		specificPricingPage.enterCustomerNameFilter(1);
+		specificPricingPage.applyFilter();
 		specificPricingPage.selectCustomer(1);
 		specificPricingPage.clickCreateOrder();
 		specificPricingPage.selectPeriod();

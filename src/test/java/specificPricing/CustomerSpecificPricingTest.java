@@ -31,6 +31,8 @@ public class CustomerSpecificPricingTest {
 		specificPricingPage.clickLoginButton();*/
 		
 		specificPricingPage.clickCustomerTab();
+		specificPricingPage.enterCustomerNameFilter(2);
+		specificPricingPage.applyFilter();
 		specificPricingPage.selectCustomer(2);
 		specificPricingPage.clickCustomerInspectIcon();
 		specificPricingPage.navigateBottom();

@@ -15,7 +15,7 @@ import utilPackages.PropertyValExtractors;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateCustomerPage extends BasePage {
-	
+
 	public CreateCustomerPage(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -82,7 +82,7 @@ public class CreateCustomerPage extends BasePage {
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.customers']/a")
 	private WebElement clickCustomerTab;
 
@@ -97,7 +97,8 @@ public class CreateCustomerPage extends BasePage {
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
 		JavaScriptExec.sleep();
-}
+	}
+
 	public void createCustomer() throws IOException {
 		CreateCustomerPage sp = new CreateCustomerPage(driver);
 		for (int i = 0; i < 3; i++) {
@@ -141,9 +142,10 @@ public class CreateCustomerPage extends BasePage {
 					"Assert Failed as its unable to search text in Logged in Page");
 			JavaScriptExec.sleep();
 		}
-		}
-		public void navigateBottom() {
-			JavaScriptExec.scrolltoBottomofPage(driver);
-			JavaScriptExec.sleep();
-		}
+	}
+
+	public void navigateBottom() {
+		JavaScriptExec.scrolltoBottomofPage(driver);
+		JavaScriptExec.sleep();
+	}
 }
