@@ -179,10 +179,17 @@ public class AddOnProductCategoryPage extends BasePage {
 			enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, column+2, i));
 
 			log.info("Enter Price Date");
-			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
+			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name='mydate']"));
 			Assert.assertTrue(enterPastPriceDate.isDisplayed());
 			enterPastPriceDate.clear();
 			enterPastPriceDate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
+			JavaScriptExec.sleep();
+			
+			log.info("Enter Price Currency");
+			WebElement enterPriceCurrency = driver.findElement(By.xpath("//*[@name='product.currencies']"));
+			Assert.assertTrue(enterPriceCurrency.isDisplayed());
+			Select select = new Select(enterPriceCurrency);
+			select.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 0));
 			JavaScriptExec.sleep();
 
 			log.info("Enter Price Rate");
@@ -199,13 +206,7 @@ public class AddOnProductCategoryPage extends BasePage {
 				enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, column+3, 1));
 
 				clickAddPriceButton();
-
-				/*
-				 * WebElement clickAddOnPlus =
-				 * driver.findElement(By.xpath("//*[@id='addon']/div[1]/a/span"));
-				 * JavaScriptExec.sleep(); Assert.assertTrue(clickAddOnPlus.isDisplayed());
-				 * clickAddOnPlus.click();
-				 */
+				
 				navigateBottom();
 				WebElement selectCategory = driver.findElement(By.xpath("//select[@id='itemBundleItemType']"));
 				selectCategory.click();
@@ -233,7 +234,6 @@ public class AddOnProductCategoryPage extends BasePage {
 				clickAddOnPlusIcon.click();
 
 			}
-
 			saveChanges();
 		}
 	}
