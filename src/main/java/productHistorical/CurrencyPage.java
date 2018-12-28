@@ -14,6 +14,8 @@ import org.testng.Assert;
 
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.Verify;
+
 import org.openqa.selenium.support.ui.Select;
 
 
@@ -248,7 +250,7 @@ import org.openqa.selenium.support.ui.Select;
 			log.info("Verify Child Company Name is shown.");
 			String ExpectedName = BasePage.getCellData(xlsxName, sheetName, 5, 0);
 			String ActualName = driver.findElement(By.xpath("//*[@id='header']//span[@class='right-text']")).getText();
-			Assert.assertEquals(ActualName, ExpectedName);
+			Verify.verifyEquals(ActualName, ExpectedName, "Child Company Name is not matched");
 		}
 		@FindBy(how = How.XPATH, using = "//span[@class='right-text']//a")
 		private WebElement clickRedCross;

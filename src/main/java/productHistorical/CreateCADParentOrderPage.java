@@ -114,8 +114,7 @@ public class CreateCADParentOrderPage extends BasePage {
 		clickCustomerTab.click();
 	}
 	
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']")
-    private WebElement selectCustomer;
+	
     /**
      * Method to select customer.
      * @throws IOException 

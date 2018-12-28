@@ -37,11 +37,30 @@ public class AddCustomerTest {
 		addCustomerPage.clickLoginButton();*/
 		
 		addCustomerPage.clickCustomerTab();
-		addCustomerPage.createCustomerForParent();
+		for (int rowNum = 0; rowNum <= 2; rowNum++) {
+			addCustomerPage.navigateBottom();
+			addCustomerPage.clickAddNewButton();
+			addCustomerPage.clickSelectButton();
+			addCustomerPage.enterLoginName(rowNum);
+			addCustomerPage.selectCurrency(rowNum);
+			addCustomerPage.navigateBottom();
+			addCustomerPage.clickSaveChangesButton();
+			addCustomerPage.verifyConfirmationMsg();
+		}
 		addCustomerPage.clickImpersonate();
 		addCustomerPage.selectChildCompany();
 		addCustomerPage.clickOKButton();
-		addCustomerPage.createCustomerForChild();
+		for (int rowNum = 0; rowNum <= 2; rowNum++) {
+			addCustomerPage.clickCustomerTab();
+			addCustomerPage.navigateBottom();
+			addCustomerPage.clickAddNewButton();
+			addCustomerPage.clickSelectButton();
+			addCustomerPage.enterLoginName(rowNum);
+			addCustomerPage.selectCurrency(rowNum);
+			addCustomerPage.navigateBottom();
+			addCustomerPage.clickSaveChangesButton();
+			addCustomerPage.verifyConfirmationMsg();
+		}
 		addCustomerPage.clickRedCross();
 		
 		
