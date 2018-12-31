@@ -5,6 +5,7 @@ import productDependency.CreateOrderPeriodPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -114,6 +115,20 @@ public class CreateOrderPeriodPage extends BasePage {
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url2") + "/orderPeriod/list";
 		driver.get(url);
+	}
+	
+	public boolean checkSemiMonthlyisPresent() throws IOException {
+		log.info("Check Semi Monthly Order Periods is present or not");
+		JavaScriptExec.sleep();
+		 try {
+		WebElement checkSemiMonthlyisPresent = driver.findElement(By.xpath("//table[@id='periods']//*[contains(text(),'Semi-monthly')]"));
+			if (!checkSemiMonthlyisPresent.isDisplayed()) {
+				return false;
+			}
+		} catch (NoSuchElementException e) {
+			return true;
+		}
+		 return false;
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")

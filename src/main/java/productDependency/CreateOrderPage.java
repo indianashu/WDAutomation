@@ -145,7 +145,7 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[1]/div[7]/div[1]/a[3]/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='column2']//*[text()= 'Edit this Order']")
 	private WebElement clickEditthisorder;
 
 	/**
@@ -158,6 +158,7 @@ public class CreateOrderPage extends BasePage {
 		navigateBottom();
 		Assert.assertTrue(clickEditthisorder.isDisplayed());
 		clickEditthisorder.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
@@ -576,11 +577,11 @@ public class CreateOrderPage extends BasePage {
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 1))) {
 			Assert.assertEquals(amount, "US$20.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 2))) {
-			Assert.assertEquals(amount, "US$180.00");
+			Assert.assertEquals(amount, "US$60.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 3))) {
-			Assert.assertEquals(amount, "US$200.00");
+			Assert.assertEquals(amount, "US$100.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 4))) {
-			Assert.assertEquals(amount, "US$140.00");
+			Assert.assertEquals(amount, "US$70.00");
 		} else {
 			Assert.assertEquals(amount, "US$10.00");
 		}
