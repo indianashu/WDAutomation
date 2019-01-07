@@ -368,12 +368,12 @@ public class ProductPage extends BasePage {
 		WebElement selectDescription = driver.findElement(By.xpath("//*[@id='filters']/div[2]/div[1]/div/ul/li[3]/a"));
 		selectDescription.click();
 		JavaScriptExec.sleep();
-		System.out.println("1");
+		
 		WebElement category = driver
 				.findElement(By.xpath("//input[@name='filters.CATEGORY-LIKE_Description.stringValue']"));
 		category.sendKeys(actualCategoryName);
 		JavaScriptExec.sleep();
-		System.out.println("2");
+		
 		WebElement applyFilter = driver.findElement(By.xpath("//*[@class='submit apply']//*[text()='Apply Filters']"));
 		applyFilter.click();
 		JavaScriptExec.sleep();

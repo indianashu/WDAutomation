@@ -108,6 +108,7 @@ public class ConfigurablePricingPage extends BasePage {
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 		navigateBottom();
 		actions.moveToElement(selectCustomer).click().perform();
+		JavaScriptExec.sleep();
 	}
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
@@ -122,6 +123,7 @@ public class ConfigurablePricingPage extends BasePage {
 		ConfigurablePricingPage sp = new ConfigurablePricingPage(driver);
 		log.info("Enter the name of the Customer in the Filte Login name");
 		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.clear();
 		enterCustomerNameFilter.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, column));
 		JavaScriptExec.sleep();
 	}

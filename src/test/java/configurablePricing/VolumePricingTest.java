@@ -48,6 +48,8 @@ public class VolumePricingTest {
 		// Usage of the Tiered Pricing
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			configurablePricingPage.clickCustomerTab();
+			configurablePricingPage.enterCustomerNameFilter(1);
+			configurablePricingPage.applyFilter();	
 			configurablePricingPage.selectCustomer(1);
 			configurablePricingPage.clickCreateOrder();
 			configurablePricingPage.clickProductsSubTab();

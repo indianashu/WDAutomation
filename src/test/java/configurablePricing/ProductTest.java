@@ -37,7 +37,7 @@ public class ProductTest {
 		createProductPage.clickSaveChangesButton();
 		
 		createProductPage.verifyConfirmationMsg();
-		//@TODO:- Please Uncomment when the bug is fixed 
+		//@TODO:- Please Uncomment when the bug-1874 is fixed 
 		//createProductPage.verifyCategoryData(0);
 		
 		createProductPage.clickAddProductButton();
@@ -58,7 +58,7 @@ public class ProductTest {
 		createProductPage.selectOrderLineTypeId();
 		createProductPage.clickSaveChangesButton();
 		createProductPage.verifyConfirmationMsg();
-		//@TODO:- Please Uncomment when the bug is fixed 
+		//@TODO:- Please Uncomment when the bug-1874 is fixed 
 		//createProductPage.verifyCategoryData(1);
 		
 		createProductPage.clickAddProductButton();

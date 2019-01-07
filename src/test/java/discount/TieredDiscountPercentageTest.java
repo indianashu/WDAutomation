@@ -25,12 +25,14 @@ public class TieredDiscountPercentageTest {
 	@Test(groups = { "Discount Feature" }, description = "Create Tiered Discount Percentage Orders")
 	public void userSignin() throws Exception {
 
-		discountPage.enterLoginID();
+		/*discountPage.enterLoginID();
 		discountPage.enterPassword();
 		discountPage.selectCompany();
-		discountPage.clickLoginButton();
+		discountPage.clickLoginButton();*/
 		
 		discountPage.clickCustomerTab();
+		discountPage.enterCustomerNameFilter(1);
+		discountPage.applyFilter();
 		discountPage.selectCustomer(1);
 		discountPage.clickCreateOrderButton();
 		discountPage.clickProductSubTab();
@@ -45,6 +47,8 @@ public class TieredDiscountPercentageTest {
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
+			discountPage.enterCustomerNameFilter(1);
+			discountPage.applyFilter();
 			discountPage.selectCustomer(1);
 			discountPage.clickCreateOrderButton();
 			discountPage.clickProductSubTab();

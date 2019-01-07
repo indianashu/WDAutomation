@@ -45,6 +45,8 @@ public class TieredPricingTest {
 		// Usage of the Tiered Pricing
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			configurablePricingPage.clickCustomerTab();
+			configurablePricingPage.enterCustomerNameFilter(0);
+			configurablePricingPage.applyFilter();
 			configurablePricingPage.selectCustomer(0);
 			configurablePricingPage.clickCreateOrder();
 			configurablePricingPage.clickProductsSubTab();
