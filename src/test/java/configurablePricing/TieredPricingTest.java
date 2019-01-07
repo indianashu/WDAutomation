@@ -32,6 +32,8 @@ public class TieredPricingTest {
 
 		// Subscribe the Plan Product
 		configurablePricingPage.clickCustomerTab();
+		configurablePricingPage.enterCustomerNameFilter(0);
+		configurablePricingPage.applyFilter();
 		configurablePricingPage.selectCustomer(0);
 		configurablePricingPage.clickCreateOrder();
 		configurablePricingPage.clickProductsSubTab();

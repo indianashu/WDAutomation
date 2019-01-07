@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import baseClassPackage.BasePage;
+import specificPricing.SpecificPricingPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 
@@ -107,6 +108,38 @@ public class ConfigurablePricingPage extends BasePage {
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 		navigateBottom();
 		actions.moveToElement(selectCustomer).click().perform();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter(int column) throws IOException {
+		ConfigurablePricingPage sp = new ConfigurablePricingPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, column));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		ConfigurablePricingPage sp = new ConfigurablePricingPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")

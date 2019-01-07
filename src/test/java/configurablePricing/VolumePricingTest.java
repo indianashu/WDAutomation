@@ -35,6 +35,8 @@ public class VolumePricingTest {
 
 		// Subscribe the Plan Product
 		configurablePricingPage.clickCustomerTab();
+		configurablePricingPage.enterCustomerNameFilter(1);
+		configurablePricingPage.applyFilter();		
 		configurablePricingPage.selectCustomer(1);
 		configurablePricingPage.clickCreateOrder();
 		configurablePricingPage.clickProductsSubTab();

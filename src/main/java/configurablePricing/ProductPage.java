@@ -338,20 +338,54 @@ public class ProductPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-
+	public void addCompanyFilter() throws IOException {
+		WebElement addFilter = driver.findElement(By.xpath("//a[@class='submit add open']"));
+		addFilter.click();
+		navigateBottom();
+		String CompanyName = BasePage.getCellData(xlsxName, sheetName, 2, 0);
+		WebElement selectCompany = driver.findElement(By.xpath("//*[@id=\"filters\"]/div[2]/div[1]/div/ul/li[3]/a"));
+		selectCompany.click();
+		JavaScriptExec.sleep();
+		WebElement company = driver
+				.findElement(By.xpath("//select[@name='filters.CUSTOMER-EQ_U_company_id.integerValue']"));
+		Select se = new Select(company);
+		se.selectByVisibleText(CompanyName);
+		JavaScriptExec.sleep();
+		WebElement applyFilter = driver.findElement(By.xpath("//*[@class='submit apply']//*[text()='Apply Filters']"));
+		applyFilter.click();
+		JavaScriptExec.sleep();
+	}
 	public void verifyCategoryData(int rowNum) throws IOException {
 		String actualCategoryName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
-		String expectedCategoryName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong"))
-				.getText();
+		WebElement expectedCategoryName = driver.findElement(By.xpath("//table[@id='categories']//strong[contains(text(),'"+actualCategoryName+"')]"));
 		System.out.println(expectedCategoryName);
-		Assert.assertEquals(actualCategoryName, expectedCategoryName);
+		Assert.assertEquals(expectedCategoryName.isDisplayed(), true);
+		
+		WebElement addCategoryFilter = driver.findElement(By.xpath("//*[@id='filters']//a[@class='submit add open']"));
+		addCategoryFilter.click();
+		JavaScriptExec.sleep();
+		
+		WebElement selectDescription = driver.findElement(By.xpath("//*[@id='filters']/div[2]/div[1]/div/ul/li[3]/a"));
+		selectDescription.click();
+		JavaScriptExec.sleep();
+		System.out.println("1");
+		WebElement category = driver
+				.findElement(By.xpath("//input[@name='filters.CATEGORY-LIKE_Description.stringValue']"));
+		category.sendKeys(actualCategoryName);
+		JavaScriptExec.sleep();
+		System.out.println("2");
+		WebElement applyFilter = driver.findElement(By.xpath("//*[@class='submit apply']//*[text()='Apply Filters']"));
+		applyFilter.click();
+		JavaScriptExec.sleep();
 
 		String actualCategoryType = BasePage.getCellData(xlsxName, sheetName, 7, rowNum);
-		String expectedCategoryType = driver.findElement(By.xpath("//tbody//tr[1]//td[3]//a[@class='cell']/span"))
+		String expectedCategoryType = driver.findElement(By.xpath("//tr[1]//td[3]//a[@class='cell']/span"))
 				.getText();
 		System.out.println(expectedCategoryType);
 		Assert.assertEquals(actualCategoryType, expectedCategoryType);
 	}
+	
+	
 
 	public void verifyProductData(int rowNum) throws IOException {
 		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 10, rowNum);
@@ -362,16 +396,18 @@ public class ProductPage extends BasePage {
 		
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + actualProductName + "']")).click();
 		JavaScriptExec.sleep();
+		
 		String expectedComponentPricesProduct = driver
 				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
 		String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 9, rowNum);
 		System.out.println(expectedComponentPricesProduct);
-		Assert.assertEquals(actualComponentPricesProduct, expectedComponentPricesProduct);
+		Assert.assertTrue(expectedComponentPricesProduct.contains(actualComponentPricesProduct));
+		
 		String expectedComponentPricePricing = driver
-				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
+				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[2]")).getText();
 		String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 8, rowNum);
 		System.out.println(expectedComponentPricePricing);
-		Assert.assertEquals(actualComponentPricesPricing, expectedComponentPricePricing);
+		Assert.assertTrue(expectedComponentPricePricing.contains(actualComponentPricesPricing));
 
 	}
 
