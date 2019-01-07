@@ -46,6 +46,8 @@ public class CustomerTest {
 		// WEEKLY BASED FOR TOMMY ALLEN
 		
 		//@TODO Add Filter to select the customer
+		customerPage.enterCustomerNameFilter(0);
+    	customerPage.applyFilter();
 		customerPage.selectCustomer(0);
 		customerPage.clickCustomerInspectIcon();
 		customerPage.clickActiveSpecialPlusButton();
@@ -97,6 +99,8 @@ public class CustomerTest {
 		
 		// SPECIAL DAY FOR TYLER KIM
 		customerPage.clickCustomerTab();
+		customerPage.enterCustomerNameFilter(3);
+    	customerPage.applyFilter();
 		customerPage.selectCustomer(3);
 		customerPage.clickCustomerInspectIcon();
 		customerPage.clickActiveSpecialPlusButton();

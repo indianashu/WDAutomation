@@ -15,6 +15,7 @@ import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
 
 import baseClassPackage.BasePage;
+import configurablePricing.ConfigurablePricingPage;
 import productHistorical.CreateEUROParentOrderPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
@@ -102,7 +103,40 @@ public class PeakNonPeakScenarioPage extends BasePage {
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
 	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
 
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter(int column) throws IOException {
+		PeakNonPeakScenarioPage sp = new PeakNonPeakScenarioPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.clear();
+		enterCustomerNameFilter.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, column));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		PeakNonPeakScenarioPage sp = new PeakNonPeakScenarioPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
+	}
+	
 	public void selectCustomer(int rowNum) throws IOException {
 		PeakNonPeakScenarioPage sp = new PeakNonPeakScenarioPage(driver);
 		String CustomerName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);

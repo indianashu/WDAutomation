@@ -35,6 +35,8 @@ public class CompanyLevelPeakNonPeakTest {
     	
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(2);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(2);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -46,6 +48,8 @@ public class CompanyLevelPeakNonPeakTest {
     	
     	//WEEKLY BASED
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(2);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(2);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(0);
@@ -60,6 +64,8 @@ public class CompanyLevelPeakNonPeakTest {
     	
     	//SPECIAL DAY
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(2);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(2);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(4);
@@ -74,6 +80,8 @@ public class CompanyLevelPeakNonPeakTest {
     	
     	//HOLIDAY
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(2);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(2);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(2);
@@ -88,6 +96,8 @@ public class CompanyLevelPeakNonPeakTest {
     	
     	//TIME BASED
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(2);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(2);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(1);

@@ -36,6 +36,8 @@ public class PriorityCustomerLevelPeakNonPeakTest {
     	//Tyler Kim Customer Level
     	for (int rowNum=3; rowNum < 5; rowNum++) {
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(3);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(3);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -47,6 +49,8 @@ public class PriorityCustomerLevelPeakNonPeakTest {
     	}
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(3);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(3);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(0);
@@ -60,6 +64,8 @@ public class PriorityCustomerLevelPeakNonPeakTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(3);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(3);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(0);

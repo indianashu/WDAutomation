@@ -34,6 +34,8 @@ public class CustomerLevelPeakNonPeakTest {
     	peakScenarioPage.clickLoginButton();*/
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(0);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(0);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -45,6 +47,8 @@ public class CustomerLevelPeakNonPeakTest {
     	
     	for (int rowNum= 0; rowNum<4; rowNum++) {
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(0);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(0);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(rowNum);

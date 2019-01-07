@@ -3,9 +3,21 @@
 <suite name="MultipleSuite">
 <suite-files>
     <suite-file path="SanitySuite.xml"></suite-file>
+    
     <suite-file path="ProductHistoricalSuite.xml"></suite-file>
+    
     <suite-file path="AddOnSuite.xml"></suite-file>
+    
     <suite-file path="ProductDependencySuite.xml"></suite-file>
+    
     <suite-file path="SpecificPricing.xml"></suite-file>
+    
+    <suite-file path="RateCardSuite.xml"></suite-file>
+    
+    <suite-file path="ConfigurablePricingSuite.xml"></suite-file>
+    
+    <suite-file path="DiscountSuite.xml"></suite-file>
+    
+    <suite-file path="PeakNonPeakSuite.xml"></suite-file>
 </suite-files>
 </suite>

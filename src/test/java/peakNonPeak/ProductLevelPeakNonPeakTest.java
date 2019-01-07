@@ -34,6 +34,8 @@ public class ProductLevelPeakNonPeakTest {
     	peakScenarioPage.clickLoginButton();*/
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(1);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(1);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -44,6 +46,8 @@ public class ProductLevelPeakNonPeakTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(1);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(1);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(0);
@@ -57,6 +61,8 @@ public class ProductLevelPeakNonPeakTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(1);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(1);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(1);
