@@ -5,6 +5,7 @@ import productDependency.CreateCategoryPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.How;
 import org.testng.Assert;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
+import utilPackages.Verify;
 import utilPackages.WaitClass;
 import org.openqa.selenium.support.ui.Select;
 
@@ -174,7 +176,10 @@ public class CreateCategoryPage extends BasePage {
 
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
 	private WebElement verifyConfirmationMsg;
-
+	//*[@id="messages"]/div/ul/li
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box error']")
+	private WebElement verifyErrorMsg;
+	
 	/**
 	 * Method to verify Product is created Successfully.
 	 * 
@@ -184,8 +189,15 @@ public class CreateCategoryPage extends BasePage {
 		CreateCategoryPage sp = new CreateCategoryPage(driver);
 		log.info("Verifying if Product is created Successfully or not");
 		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
+		try {
+			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+					"Assert Failed as its unable to search text in Logged in Page");
+		} catch (NoSuchElementException e) {
+			if(verifyErrorMsg.isDisplayed()) {
+				String failureMsg = verifyErrorMsg.getText();
+				throw new RuntimeException(failureMsg);
+			}
+		}
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
@@ -397,7 +409,7 @@ public class CreateCategoryPage extends BasePage {
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 2));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 0, 0));
 	}
 
 	public void navigateBottom() {
