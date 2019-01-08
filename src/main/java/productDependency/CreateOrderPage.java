@@ -12,6 +12,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import agentcommissions.AgentCommissionProcessPage;
 import baseClassPackage.BasePage;
 import customer.DiscountPage;
 import orderHierarchies.OrderHierarchiesPage;
@@ -111,7 +112,40 @@ public class CreateOrderPage extends BasePage {
 		driver.findElement(By.xpath("//*[text()='" + CustomerName + "']/following::a[1]")).click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[1]/div[7]/div[1]/a[3]/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter(int column) throws IOException {
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.clear();
+		enterCustomerNameFilter.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, column));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='column2']//*[text()= 'Edit this Order']")
 	private WebElement clickEditthisorder;
 
 	/**
@@ -124,6 +158,7 @@ public class CreateOrderPage extends BasePage {
 		navigateBottom();
 		Assert.assertTrue(clickEditthisorder.isDisplayed());
 		clickEditthisorder.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit order']//*[text()='Create Order']")
@@ -538,15 +573,15 @@ public class CreateOrderPage extends BasePage {
 		String customer = driver.findElement(By.xpath("//*[@id=" + invoiceId + "]/strong/span")).getText();
 		System.out.println("Customer Name  for Invoice=" + customer);
 		if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 0))) {
-			Assert.assertEquals(amount, "US$120.00");
+			Assert.assertEquals(amount, "US$60.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 1))) {
 			Assert.assertEquals(amount, "US$20.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 2))) {
-			Assert.assertEquals(amount, "US$180.00");
+			Assert.assertEquals(amount, "US$60.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 3))) {
-			Assert.assertEquals(amount, "US$200.00");
+			Assert.assertEquals(amount, "US$100.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 4))) {
-			Assert.assertEquals(amount, "US$140.00");
+			Assert.assertEquals(amount, "US$70.00");
 		} else {
 			Assert.assertEquals(amount, "US$10.00");
 		}

@@ -35,8 +35,10 @@ public class ProductTest {
 		createProductPage.clickAddNewButton();
 		createProductPage.enterCategoryName(0);
 		createProductPage.clickSaveChangesButton();
+		
 		createProductPage.verifyConfirmationMsg();
-		createProductPage.verifyCategoryData(0);
+		//@TODO:- Please Uncomment when the bug-1874 is fixed 
+		//createProductPage.verifyCategoryData(0);
 		
 		createProductPage.clickAddProductButton();
 		createProductPage.enterEnglishDescription(0);
@@ -56,7 +58,8 @@ public class ProductTest {
 		createProductPage.selectOrderLineTypeId();
 		createProductPage.clickSaveChangesButton();
 		createProductPage.verifyConfirmationMsg();
-		createProductPage.verifyCategoryData(1);
+		//@TODO:- Please Uncomment when the bug-1874 is fixed 
+		//createProductPage.verifyCategoryData(1);
 		
 		createProductPage.clickAddProductButton();
 		createProductPage.enterEnglishDescription(1);

@@ -10,6 +10,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
+
+import agentcommissions.AgentCommissionProcessPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import utilPackages.Verify;
@@ -106,6 +108,38 @@ public class SpecificPricingPage extends BasePage {
 		WebElement selectCustomer = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']"));
 		actions.moveToElement(selectCustomer).click().perform();
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter(int column) throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, column));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		SpecificPricingPage sp = new SpecificPricingPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
 		JavaScriptExec.sleep();
 	}
 
@@ -214,8 +248,9 @@ public class SpecificPricingPage extends BasePage {
 	}
 
 	public void verifyProductPriceData() throws IOException {
-		String expectedName = driver.findElement(By.xpath("//tr[1]//td[2]//a[@class='double cell']/strong/span")).getText();
+
 		String actualName =BasePage.getCellData(xlsxName, sheetName, 3, 0);
+		String expectedName = driver.findElement(By.xpath("//*[@id='column2']//*[text()='"+actualName+"']")).getText();
 		System.out.println(expectedName);
 		Assert.assertEquals(actualName, expectedName);
 		

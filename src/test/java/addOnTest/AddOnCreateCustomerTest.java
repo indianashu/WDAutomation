@@ -36,8 +36,16 @@ public class AddOnCreateCustomerTest {
     	addOnCreateCustomerPage.clickLoginButton();*/
     	
     	addOnCreateCustomerPage.clickCustomerTab();
-    	addOnCreateCustomerPage.createCustomer();
-    	
+		for (int rowNum = 0; rowNum <= 2; rowNum++) {
+			addOnCreateCustomerPage.navigateBottom();
+			addOnCreateCustomerPage.clickAddNewButton();
+			addOnCreateCustomerPage.clickSelectButton();
+			addOnCreateCustomerPage.enterLoginName(rowNum);
+			addOnCreateCustomerPage.selectCurrency();
+			addOnCreateCustomerPage.navigateBottom();
+			addOnCreateCustomerPage.clickSaveChangesButton();
+			addOnCreateCustomerPage.verifyConfirmationMsg();
+		}
     }
     
     

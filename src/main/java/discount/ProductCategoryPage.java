@@ -286,11 +286,27 @@ public class ProductCategoryPage extends BasePage {
 	
 	public void verifyCategoryData(int rowNum) throws IOException {
 		String actualCategoryName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
-		String expectedCategoryName = driver.findElement(By.xpath("//tbody//tr[1]//a[@class='cell double']/strong"))
-				.getText();
+		WebElement expectedCategoryName = driver.findElement(By.xpath("//table[@id='categories']//strong[contains(text(),'"+actualCategoryName+"')]"));
 		System.out.println(expectedCategoryName);
-		Assert.assertEquals(actualCategoryName, expectedCategoryName);
-
+		Assert.assertEquals(expectedCategoryName.isDisplayed(), true);
+		
+		WebElement addCategoryFilter = driver.findElement(By.xpath("//*[@id='filters']//a[@class='submit add open']"));
+		addCategoryFilter.click();
+		JavaScriptExec.sleep();
+		
+		WebElement selectDescription = driver.findElement(By.xpath("//*[@id='filters']/div[2]/div[1]/div/ul/li[3]/a"));
+		selectDescription.click();
+		JavaScriptExec.sleep();
+		
+		WebElement category = driver
+				.findElement(By.xpath("//input[@name='filters.CATEGORY-LIKE_Description.stringValue']"));
+		category.sendKeys(actualCategoryName);
+		JavaScriptExec.sleep();
+		
+		WebElement applyFilter = driver.findElement(By.xpath("//*[@class='submit apply']//*[text()='Apply Filters']"));
+		applyFilter.click();
+		JavaScriptExec.sleep();
+		
 		String actualCategoryType = BasePage.getCellData(xlsxName, sheetName, 7, rowNum);
 		String expectedCategoryType = driver.findElement(By.xpath("//tbody//tr[1]//td[3]//a[@class='cell']/span"))
 				.getText();

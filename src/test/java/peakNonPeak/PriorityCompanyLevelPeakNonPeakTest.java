@@ -35,6 +35,8 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	 
     	//Betsy Klompus Company Level
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(5);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(5);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -45,6 +47,8 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	   	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(5);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(5);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(0);
@@ -59,6 +63,8 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	
     	//Warren Drummond Company Level
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(7);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(7);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -69,6 +75,8 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	   	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(7);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(7);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(4);

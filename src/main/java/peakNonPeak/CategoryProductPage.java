@@ -312,7 +312,7 @@ public class CategoryProductPage extends BasePage {
 		enterPlanProduct.click();
 		Select select = new Select(enterPlanProduct);
 		int selectOptions = select.getOptions().size();
-		select.selectByIndex(selectOptions - 2);
+		select.selectByIndex(selectOptions - 1);
 	}
 
 	@FindBy(how = How.XPATH, using = "//select[@name='product.confPricingList']")
@@ -373,7 +373,8 @@ public class CategoryProductPage extends BasePage {
 		String actualProductName = BasePage.getCellData(xlsxName, sheetName, 7, rowNum);
 		String expectedProductName = driver
 				.findElement(By.xpath("//table[@id='products']//tr[1]//a[@class='cell double']/strong")).getText();
-		System.out.println("Plan Product Name = " + expectedProductName);
+		System.out.println("Plan Product Name Expected = " + expectedProductName);
+		System.out.println("Plan Product Name Actual= " + actualProductName);
 		Assert.assertEquals(actualProductName, expectedProductName);
 
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + actualProductName + "']")).click();
@@ -382,13 +383,18 @@ public class CategoryProductPage extends BasePage {
 		String expectedComponentPricesProduct = driver
 				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
 		String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 6, rowNum);
-		System.out.println(expectedComponentPricesProduct);
+
+		System.out.println("Component Price Name Expected= " +expectedComponentPricesProduct);
+		System.out.println("Component Price Name Actual= " +actualComponentPricesProduct);
 		Assert.assertTrue(expectedComponentPricesProduct.contains(actualComponentPricesProduct));
 
 		String expectedComponentPricePricing = driver
 				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[2]")).getText();
 		String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 3, 0);
-		System.out.println(expectedComponentPricePricing);
+
+		System.out.println("Component Pricing Name Expected= " +expectedComponentPricePricing);
+		System.out.println("Component Pricing Name Actual= " +actualComponentPricesPricing);
+		System.out.println("Plan Product Name Actual= " +expectedComponentPricePricing);
 		Assert.assertTrue(expectedComponentPricePricing.contains(actualComponentPricesPricing));
 	}
 
@@ -605,7 +611,8 @@ public class CategoryProductPage extends BasePage {
 			expectedisPeak = driver.findElement(By.xpath(
 					"//*[@class='dataTable']//*[text()='"+isPeak+"'][" + tableRowNo + "]"))
 					.getText();
-		}}catch(Exception e) {
+		}
+		}catch(Exception e) {
 		expectedisPeak = driver.findElement(By.xpath("//*[@class='dataTable']//*[text()='" + isPeak + "'][2]"))
 					.getText();
 		}

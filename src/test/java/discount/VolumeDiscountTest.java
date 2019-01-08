@@ -31,6 +31,8 @@ public class VolumeDiscountTest {
 		discountPage.clickLoginButton();*/
 		
 		discountPage.clickCustomerTab();
+		discountPage.enterCustomerNameFilter(2);
+		discountPage.applyFilter();
 		discountPage.selectCustomer(2);
 		discountPage.clickCreateOrderButton();
 		discountPage.clickProductSubTab();
@@ -45,6 +47,8 @@ public class VolumeDiscountTest {
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
+			discountPage.enterCustomerNameFilter(2);
+			discountPage.applyFilter();
 			discountPage.selectCustomer(2);
 			discountPage.clickCreateOrderButton();
 			discountPage.clickProductSubTab();

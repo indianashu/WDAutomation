@@ -47,7 +47,9 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.clickLoginButton();*/
 
     	collectionConfigurationPage.clickCustomerTab();
-    	collectionConfigurationPage.clickBillingCustomer2();
+    	collectionConfigurationPage.enterCustomerNameFilter(3);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(3);
     	collectionConfigurationPage.clickEditButton();
     	collectionConfigurationPage.navigateBottom();
     	collectionConfigurationPage.enterCardNumber();
@@ -59,9 +61,13 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.clickRunCollectionsButton();
     	collectionConfigurationPage.clickRunCollectionsPopup();
     	collectionConfigurationPage.clickCustomerTab();
-    	collectionConfigurationPage.clickBillingCustomer1();
+    	collectionConfigurationPage.enterCustomerNameFilter(19);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(19);
     	collectionConfigurationPage.verifyBillingCustomer1Status();
-    	collectionConfigurationPage.clickBillingCustomer2();
+    	collectionConfigurationPage.enterCustomerNameFilter(3);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(3);
     	collectionConfigurationPage.verifyBillingCustomer2Status();
     	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
@@ -69,9 +75,13 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.clickRunCollectionsButton();
     	collectionConfigurationPage.clickRunCollectionsPopup();
     	collectionConfigurationPage.clickCustomerTab();
-    	collectionConfigurationPage.clickBillingCustomer1();
+    	collectionConfigurationPage.enterCustomerNameFilter(19);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(19);
     	collectionConfigurationPage.verifyBillingCustomer1Status();
-    	collectionConfigurationPage.clickBillingCustomer2();
+    	collectionConfigurationPage.enterCustomerNameFilter(3);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(3);
     	collectionConfigurationPage.verifyBillingCustomer2Status1();
     	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
@@ -79,9 +89,13 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.clickRunCollectionsButton();
     	collectionConfigurationPage.clickRunCollectionsPopup();
     	collectionConfigurationPage.clickCustomerTab();
-    	collectionConfigurationPage.clickBillingCustomer1();
+    	collectionConfigurationPage.enterCustomerNameFilter(19);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(19);
     	collectionConfigurationPage.verifyBillingCustomer1Status();
-    	collectionConfigurationPage.clickBillingCustomer2();
+    	collectionConfigurationPage.enterCustomerNameFilter(3);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(3);
     	collectionConfigurationPage.verifyBillingCustomer2Status2();
     	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
@@ -89,9 +103,13 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.clickRunCollectionsButton();
     	collectionConfigurationPage.clickRunCollectionsPopup();
     	collectionConfigurationPage.clickCustomerTab();
-    	collectionConfigurationPage.clickBillingCustomer1();
+    	collectionConfigurationPage.enterCustomerNameFilter(19);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(19);
     	collectionConfigurationPage.verifyBillingCustomer1Status();
-    	collectionConfigurationPage.clickBillingCustomer2();
+    	collectionConfigurationPage.enterCustomerNameFilter(3);
+    	collectionConfigurationPage.applyFilter();
+    	collectionConfigurationPage.clickBillingCustomer(3);
     	collectionConfigurationPage.verifyBillingCustomer2Status3();
     	
     }

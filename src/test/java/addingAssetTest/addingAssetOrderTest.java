@@ -56,7 +56,7 @@ public class addingAssetOrderTest {
 		addingAssetPage.navigateBottom();
     	addingAssetPage.clickSaveChangesButton();
     	addingAssetPage.verifyConfirmationMsg();
-    	addingAssetPage.clickCustomerA();
+    	//addingAssetPage.clickCustomerA();
     	addingAssetPage.clickCreateOrderButton();
     	addingAssetPage.selectPeriod();
     	addingAssetPage.selectOrderType();

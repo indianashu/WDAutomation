@@ -72,6 +72,8 @@ public class tearDownProcessTest {
     	tearDownProcessPage.clickDeleteCategoryButton();
     	tearDownProcessPage.clickDeleteYesCategoryPopup();
     	tearDownProcessPage.clickCustomersTab();
+    	tearDownProcessPage.enterCustomerNameFilter();
+    	tearDownProcessPage.applyFilter();
     	tearDownProcessPage.clickPaymentCustomer();
     	tearDownProcessPage.clickDeleteButton();
     	tearDownProcessPage.clickDeleteYesCustomerPopup();

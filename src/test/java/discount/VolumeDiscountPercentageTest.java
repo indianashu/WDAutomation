@@ -31,6 +31,8 @@ public class VolumeDiscountPercentageTest {
 		discountPage.clickLoginButton();*/
 		
 		discountPage.clickCustomerTab();
+		discountPage.enterCustomerNameFilter(3);
+		discountPage.applyFilter();
 		discountPage.selectCustomer(3);
 		discountPage.clickCreateOrderButton();
 		discountPage.clickProductSubTab();
@@ -45,6 +47,8 @@ public class VolumeDiscountPercentageTest {
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
+			discountPage.enterCustomerNameFilter(3);
+			discountPage.applyFilter();
 			discountPage.selectCustomer(3);
 			discountPage.clickCreateOrderButton();
 			discountPage.clickProductSubTab();

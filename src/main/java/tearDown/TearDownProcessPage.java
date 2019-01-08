@@ -128,11 +128,7 @@ public class TearDownProcessPage extends BasePage {
 		clickPaymentsTab.click();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Customer
-	// A']")
-	private WebElement clickPaymentCustomer;
-
+	
 	/**
 	 * Method to Click on Customer A.
 	 * 
@@ -146,6 +142,38 @@ public class TearDownProcessPage extends BasePage {
 		actions.moveToElement(webElement).click(webElement).perform();
 		JavaScriptExec.sleep();
 
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter() throws IOException {
+		TearDownProcessPage sp = new TearDownProcessPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(3));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		TearDownProcessPage sp = new TearDownProcessPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[1]/div[2]/div/table[4]/tbody/tr/td[4]/a/span")

@@ -47,6 +47,8 @@ public class generatingInvoiceManuallyTest {
     	generatingInvoicePage.clickLoginButton();*/
 
     	generatingInvoicePage.clickCustomerTab();
+    	generatingInvoicePage.enterCustomerNameFilter();
+    	generatingInvoicePage.applyFilter();
     	generatingInvoicePage.clickCustomerName();
     	generatingInvoicePage.clickCreateOrderButton();
     	generatingInvoicePage.selectPeriod();

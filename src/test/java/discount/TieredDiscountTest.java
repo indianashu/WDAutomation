@@ -29,7 +29,10 @@ public class TieredDiscountTest {
 		discountPage.enterPassword();
 		discountPage.selectCompany();
 		discountPage.clickLoginButton();*/
-
+		
+		discountPage.clickCustomerTab();
+		discountPage.enterCustomerNameFilter(0);
+		discountPage.applyFilter();
 		discountPage.selectCustomer(0);
 		discountPage.clickCreateOrderButton();
 		discountPage.clickProductSubTab();
@@ -44,6 +47,8 @@ public class TieredDiscountTest {
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
+			discountPage.enterCustomerNameFilter(0);
+			discountPage.applyFilter();
 			discountPage.selectCustomer(0);
 			discountPage.clickCreateOrderButton();
 			discountPage.clickProductSubTab();

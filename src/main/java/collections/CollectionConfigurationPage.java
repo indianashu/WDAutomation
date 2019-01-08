@@ -127,39 +127,50 @@ public class CollectionConfigurationPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing
-	// Customer2']")
-	private WebElement clickBillingCustomer2;
 
 	/**
 	 * Method to Click on Billing Customer2.
 	 * 
 	 * @throws IOException
 	 */
-	public void clickBillingCustomer2() throws IOException {
+	public void clickBillingCustomer(int rownum) throws IOException {
 		CollectionConfigurationPage sp = new CollectionConfigurationPage(driver);
 		log.info("Click on Billing Customer2");
-		String BillingCustomer = sp.ExcelRead(sheetName).get(3);
+		String BillingCustomer = sp.ExcelRead(sheetName).get(rownum);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + BillingCustomer + "']")).click();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Billing
-	// Customer2']")
-	private WebElement clickBillingCustomer1;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
 
 	/**
-	 * Method to Click on Billing Customer1.
+	 * Method to enter the customer name in the Login name Filter.
 	 * 
 	 * @throws IOException
 	 */
-	public void clickBillingCustomer1() throws IOException {
+	public void enterCustomerNameFilter(int rownum) throws IOException {
 		CollectionConfigurationPage sp = new CollectionConfigurationPage(driver);
-		log.info("Click on Billing Customer1");
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(rownum));
 		JavaScriptExec.sleep();
-		String BillingCustomer = sp.ExcelRead(sheetName).get(19);
-		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + BillingCustomer + "']")).click();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
 
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		CollectionConfigurationPage sp = new CollectionConfigurationPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit edit']//*[text()='Edit']")

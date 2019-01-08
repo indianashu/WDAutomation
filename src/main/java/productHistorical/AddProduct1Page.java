@@ -319,7 +319,8 @@ public class AddProduct1Page extends BasePage  {
 				WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entity']"));
 				Select se = new Select(Companieselement);
 				se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
-
+				JavaScriptExec.sleep();
+				
 				WebElement Currencyelement = driver.findElement(By.xpath("//select[@name='product.currencies']"));
 				Select sel = new Select(Currencyelement);
 				sel.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, i));

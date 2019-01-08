@@ -35,6 +35,8 @@ public class PriorityProductLevelPeakNonPeakTest {
     	
     	//Leo Holder Product Level
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(4);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(4);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -45,6 +47,8 @@ public class PriorityProductLevelPeakNonPeakTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	   	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(4);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(4);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(0);
@@ -59,6 +63,8 @@ public class PriorityProductLevelPeakNonPeakTest {
     	
     	//Martin Bernstein Product Level
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(6);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(6);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
@@ -69,6 +75,8 @@ public class PriorityProductLevelPeakNonPeakTest {
     	peakScenarioPage.verifyConfirmationMsg();
     	
     	peakScenarioPage.clickCustomerTab();
+    	peakScenarioPage.enterCustomerNameFilter(6);
+    	peakScenarioPage.applyFilter();
     	peakScenarioPage.selectCustomer(6);
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.enterActiveSince(4);

@@ -31,6 +31,8 @@ public class ProductPriceTest {
 		specificPricingPage.clickLoginButton();*/
 
 		specificPricingPage.clickCustomerTab();
+		specificPricingPage.enterCustomerNameFilter(0);
+		specificPricingPage.applyFilter();
 		specificPricingPage.selectCustomer(0);
 		specificPricingPage.clickCreateOrder();
 		specificPricingPage.selectPeriod();

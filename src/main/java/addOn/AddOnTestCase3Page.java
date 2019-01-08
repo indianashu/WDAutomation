@@ -215,7 +215,7 @@ public class AddOnTestCase3Page extends BasePage {
 				log.info("Enter New Quantity");
 				Assert.assertTrue(enterChangeQty.isDisplayed());
 				enterChangeQty.clear();
-				actions.sendKeys(BasePage.getCellData(xlsxName, sheetName, 16, i));
+				enterChangeQty.sendKeys(BasePage.getCellData(xlsxName, sheetName, 16, i));
 
 				WebElement clickUpdateButton = driver
 						.findElement(By.xpath("//a[@class='submit save']//*[text()='Update']"));

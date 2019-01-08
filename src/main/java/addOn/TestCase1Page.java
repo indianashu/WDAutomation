@@ -209,7 +209,7 @@ public class TestCase1Page extends BasePage {
 			log.info("Enter New Quantity");
 			Assert.assertTrue(enterChangeQty.isDisplayed());
 			enterChangeQty.clear();
-			actions.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, i));
+			enterChangeQty.sendKeys(BasePage.getCellData(xlsxName, sheetName, 9, i));
 
 			WebElement clickUpdateButton = driver
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Update']"));

@@ -31,13 +31,17 @@ public class CreateOrderPeriodTest {
 		orderperiodPage.enterPassword();
 		orderperiodPage.selectCompany();
 		orderperiodPage.clickLoginButton();
-		
 		orderperiodPage.clickOrderPeriods();
-		orderperiodPage.clickAddNewButton();
-		orderperiodPage.enterDescription();
-		orderperiodPage.selectUnit();
-		orderperiodPage.enterValue();
-		orderperiodPage.clickSaveChangesButton();
-		orderperiodPage.verifyConfirmationMsg();
-}
+
+		boolean isPresent = orderperiodPage.checkSemiMonthlyisPresent();
+		System.out.println(isPresent);
+		if (isPresent == true) {
+			orderperiodPage.clickAddNewButton();
+			orderperiodPage.enterDescription();
+			orderperiodPage.selectUnit();
+			orderperiodPage.enterValue();
+			orderperiodPage.clickSaveChangesButton();
+			orderperiodPage.verifyConfirmationMsg();
+		}
+	}
 }

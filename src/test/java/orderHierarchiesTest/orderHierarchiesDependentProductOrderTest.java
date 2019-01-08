@@ -47,6 +47,8 @@ public class orderHierarchiesDependentProductOrderTest {
     	orderHierarchiesPage.clickLoginButton();*/
 
     	orderHierarchiesPage.clickCustomersTab();
+    	orderHierarchiesPage.enterCustomerNameFilter();
+    	orderHierarchiesPage.applyFilter();
     	orderHierarchiesPage.clickCustomerA();
     	orderHierarchiesPage.clickCreateOrderButton();
     	orderHierarchiesPage.selectOrderPeriod();

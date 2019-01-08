@@ -25,10 +25,10 @@ public class CRUDDiscountTest {
 	@Test(groups = { "Discount Feature" }, description = "Create Discount")
 	public void userSignin() throws Exception {
 
-		/*discountPage.enterLoginID();
+		discountPage.enterLoginID();
 		discountPage.enterPassword();
 		discountPage.selectCompany();
-		discountPage.clickLoginButton();*/
+		discountPage.clickLoginButton();
 		
 		discountPage.clickDiscountTab();
 		discountPage.clickAddNewButton();
@@ -39,7 +39,6 @@ public class CRUDDiscountTest {
 		discountPage.selectTierRadioButton();
 		discountPage.clickSaveChangesButton();
 		discountPage.verifyConfirmationMsg();
-		discountPage.verifyDiscountName(0);
 		discountPage.clickEditButton();
 		discountPage.editDiscountName();
 		discountPage.clickSaveChangesButton();

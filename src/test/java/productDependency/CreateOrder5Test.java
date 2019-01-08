@@ -34,6 +34,8 @@ public class CreateOrder5Test {
 
 		// Create order for customer Sophia
 		createOrderPage.clickCustomerTab();
+		createOrderPage.enterCustomerNameFilter(4);
+		createOrderPage.applyFilter();
 		createOrderPage.clickCustomerName(4);
 		createOrderPage.clickCreateOrder();
 		createOrderPage.selectPeriod(0);
