@@ -33,10 +33,10 @@ public class CreateCategoryTest {
     	
     	
 
-    	categoryPage.enterLoginID();
+    	/*categoryPage.enterLoginID();
     	categoryPage.enterPassword();
     	categoryPage.selectCompany();
-    	categoryPage.clickLoginButton();
+    	categoryPage.clickLoginButton();*/
     	
     	categoryPage.clickProductsTab();
     	categoryPage.clickAddCategoryButton();
