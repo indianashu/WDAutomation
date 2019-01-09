@@ -61,7 +61,7 @@ public class CreateOrder6Test {
 		createOrderPage.verifyUpdationMsg();
 		//createOrderPage.verifyConfirmationMsg();
 		createOrderPage.clickSaveChangesButton();
-		createOrderPage.verifyConfirmationMsg();
+		createOrderPage.verifyConfirmationMsg("Saved Order Successfully For Jacob");
 
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);
