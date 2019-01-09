@@ -25,7 +25,6 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import productDependency.CreateCategoryPage;
 import utilPackages.JavaScriptExec;
 
 public class BasePage {
@@ -122,7 +121,7 @@ public class BasePage {
 	}
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
 	private WebElement verifyConfirmationMsg;
-	//*[@id="messages"]/div/ul/li
+	
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box error']")
 	private WebElement verifyErrorMsg;
 	
@@ -131,14 +130,13 @@ public class BasePage {
 	 * 
 	 * @throws IOException
 	 */
-		public void verifyConfirmationMsg(String str) throws IOException {
-			CreateCategoryPage sp = new CreateCategoryPage(driver);
+		public void verifyConfirmationMsg(String message) throws IOException {
 			log.info("Verifying if Product is created Successfully or not");
 			JavaScriptExec.sleep();
 			try {
 				Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-						"str");
-				System.out.println(str);
+						message);
+				System.out.println(message);
 			} catch (NoSuchElementException e) {
 				if(verifyErrorMsg.isDisplayed()) {
 					String failureMsg = verifyErrorMsg.getText();

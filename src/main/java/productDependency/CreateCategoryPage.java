@@ -383,7 +383,7 @@ public class CreateCategoryPage extends BasePage {
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 0, 0));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6,2));
 	}
 
 	public void navigateBottom() {
