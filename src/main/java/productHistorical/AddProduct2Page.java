@@ -249,23 +249,6 @@ public class AddProduct2Page extends BasePage  {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Product2 is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		AddProduct2Page sp = new AddProduct2Page(driver);
-		log.info("Verifying if Product2 is created Successfully or not");
-		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();

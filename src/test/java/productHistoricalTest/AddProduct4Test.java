@@ -49,7 +49,7 @@ public class AddProduct4Test {
 		addProductCategoryPage.selectHistoricalPrices1();
 		
 		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg();
+		addProductCategoryPage.verifyConfirmationMsg("Saved Product 4 Successfully");
 
 	}
 }

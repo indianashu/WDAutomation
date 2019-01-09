@@ -48,7 +48,7 @@ public class AddProduct3Test {
 		addProductCategoryPage.selectHistoricalPrices();
 		
 		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg();
+		addProductCategoryPage.verifyConfirmationMsg("Saved Product 3 Successfully");
 
 	}
 

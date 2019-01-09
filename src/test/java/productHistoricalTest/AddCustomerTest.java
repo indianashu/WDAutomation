@@ -45,7 +45,7 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			addCustomerPage.verifyConfirmationMsg();
+			addCustomerPage.verifyConfirmationMsg("Saved Customer Successfully For Parent Company");
 		}
 		addCustomerPage.clickImpersonate();
 		addCustomerPage.selectChildCompany();
@@ -59,7 +59,7 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			addCustomerPage.verifyConfirmationMsg();
+			addCustomerPage.verifyConfirmationMsg("Saved Customer Successfully For Child Company");
 		}
 		addCustomerPage.clickRedCross();
 		

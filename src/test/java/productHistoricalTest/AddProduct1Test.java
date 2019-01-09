@@ -41,7 +41,7 @@ public class AddProduct1Test {
 		addProductCategoryPage.enterCategoryName();
 		addProductCategoryPage.clickGlobalCheckbox();
 		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg();
+		addProductCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
 		
 		addProductCategoryPage.clickAddProductButton();
 		addProductCategoryPage.enterEnglishDescription();
@@ -53,7 +53,7 @@ public class AddProduct1Test {
 		
 		
 		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg();
+		addProductCategoryPage.verifyConfirmationMsg("Saved Product 1 Successfully");
 
 }
 }

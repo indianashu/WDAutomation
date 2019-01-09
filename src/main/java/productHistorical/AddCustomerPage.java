@@ -185,22 +185,6 @@ public class AddCustomerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to Verify Confirmation Message after customer creation.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		log.info("Verify Confirmation Message");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-		JavaScriptExec.sleep();
-
-	}
-
 	@FindBy(how = How.XPATH, using = "//*[@class='fa fa-plus-square']")
 	private WebElement clickImpersonate;
 
