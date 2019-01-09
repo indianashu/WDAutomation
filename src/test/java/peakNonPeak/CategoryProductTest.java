@@ -34,7 +34,7 @@ public class CategoryProductTest {
 		productPage.enterCategoryName(0);
 		productPage.selectCompanies();
 		productPage.clickSaveChangesButton();
-		productPage.verifyConfirmationMsg();
+		productPage.verifyConfirmationMsg("Peak category Saved Successfully");
 		productPage.verifyCategoryData(0);
 
 		productPage.clickAddCategoryButton();
@@ -42,7 +42,7 @@ public class CategoryProductTest {
 		productPage.enterCategoryType();
 		productPage.selectCompanies();
 		productPage.clickSaveChangesButton();
-		productPage.verifyConfirmationMsg();
+		productPage.verifyConfirmationMsg("Plan Peak category Saved Successfully");
 		productPage.verifyCategoryData(1);
 
 		for (int rowNum = 0; rowNum < 6; rowNum++) {
@@ -55,7 +55,7 @@ public class CategoryProductTest {
 			productPage.enterPriceRate(0);
 			productPage.clickAddPriceButton();
 			productPage.clickSaveChangesButton();
-			productPage.verifyConfirmationMsg();
+			productPage.verifyConfirmationMsg("Peak Product Saved Successfully");
 			productPage.verifyProductName(rowNum);
 
 			productPage.selectCategoryName(1);
@@ -69,7 +69,7 @@ public class CategoryProductTest {
 			productPage.enterPricing();
 			productPage.clickOnAddPrice();
 			productPage.clickSaveChangesButton();
-			productPage.verifyConfirmationMsg();
+			productPage.verifyConfirmationMsg("Plan Peak Product Saved Successfully");
 			productPage.verifyProductData(rowNum);
 		}
 		//Weekly Based for  Peak Product2
@@ -82,7 +82,7 @@ public class CategoryProductTest {
 		productPage.enterEndDate(0);
 		productPage.selectDayofWeek(0);
 		productPage.clickSavePeakButton();
-		productPage.verifyConfirmationMsg();
+		productPage.verifyConfirmationMsg("Weekly Based Peak Saved Successfully");
 		productPage.verifyActiveSpecialDaysData(0);
 		productPage.verifyDayofWeek(0);
 		
@@ -98,7 +98,7 @@ public class CategoryProductTest {
 		productPage.enterStartTime();
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
-		productPage.verifyConfirmationMsg();
+		productPage.verifyConfirmationMsg("Time Based Peak Saved Successfully For Product2");
 		productPage.verifyActiveSpecialDaysData(1);
 		
 		//Time Based for  Peak Product4
@@ -113,7 +113,7 @@ public class CategoryProductTest {
 		productPage.enterStartTime();
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
-		productPage.verifyConfirmationMsg();
+		productPage.verifyConfirmationMsg("Time Based Peak Saved Successfully For Product4");
 		productPage.verifyActiveSpecialDaysData(1);
 		
 		//Weekly Based for  Peak Product6

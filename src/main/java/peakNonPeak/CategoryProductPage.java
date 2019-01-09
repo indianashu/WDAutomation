@@ -180,22 +180,6 @@ public class CategoryProductPage extends BasePage {
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Product is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		CategoryProductPage sp = new CategoryProductPage(driver);
-		log.info("Verifying if Product is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 	private WebElement enterEnglishDescription;
 

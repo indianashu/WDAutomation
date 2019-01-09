@@ -44,7 +44,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,1);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Order Saved Successfully");
     	
     	//WEEKLY BASED
     	peakScenarioPage.clickCustomerTab();
@@ -60,7 +60,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,0);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Weekly Based Order Saved Successfully");
     	
     	//SPECIAL DAY
     	peakScenarioPage.clickCustomerTab();
@@ -76,7 +76,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,1);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Special Day Based Order Saved Successfully");
     	
     	//HOLIDAY
     	peakScenarioPage.clickCustomerTab();
@@ -92,7 +92,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,2);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Holiday Based Order Saved Successfully");
     	
     	//TIME BASED
     	peakScenarioPage.clickCustomerTab();
@@ -108,7 +108,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,3);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Time Based Order Saved Successfully");
     	
     	
     }

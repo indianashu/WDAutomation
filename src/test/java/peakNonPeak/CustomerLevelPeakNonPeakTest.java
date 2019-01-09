@@ -43,7 +43,7 @@ public class CustomerLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,0);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Customer Level Peak Non Peak Order Saved Successfully");
     	
     	for (int rowNum= 0; rowNum<4; rowNum++) {
     	peakScenarioPage.clickCustomerTab();
@@ -59,7 +59,7 @@ public class CustomerLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(8,rowNum);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Customer Level Peak Non Peak Order Saved Successfully");
     	}
     	
     }
