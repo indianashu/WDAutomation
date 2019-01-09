@@ -174,32 +174,6 @@ public class CreateCategoryPage extends BasePage {
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-	//*[@id="messages"]/div/ul/li
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box error']")
-	private WebElement verifyErrorMsg;
-	
-	/**
-	 * Method to verify Product is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		CreateCategoryPage sp = new CreateCategoryPage(driver);
-		log.info("Verifying if Product is created Successfully or not");
-		JavaScriptExec.sleep();
-		try {
-			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-					"Assert Failed as its unable to search text in Logged in Page");
-		} catch (NoSuchElementException e) {
-			if(verifyErrorMsg.isDisplayed()) {
-				String failureMsg = verifyErrorMsg.getText();
-				throw new RuntimeException(failureMsg);
-			}
-		}
-	}
-
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 	private WebElement enterEnglishDescription;
 

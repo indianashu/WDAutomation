@@ -2,7 +2,12 @@ package productDependency;
 
 import baseClassPackage.BaseClasses;
 import java.io.IOException;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
@@ -13,6 +18,7 @@ import productDependency.CreateCategoryPage;
 public class CreateCategoryTest {
 	CreateCategoryPage categoryPage;
     WebDriver driver,driver2;
+    
 
     @BeforeClass(alwaysRun=true)
     public void setup(){
@@ -28,18 +34,21 @@ public class CreateCategoryTest {
 
     @Test(groups={"Product Dependency Feature"},description="AddCategory")
     public void userSignin() throws IOException{
+    	
+    	
+    	
 
-    	/*categoryPage.enterLoginID();
+    	categoryPage.enterLoginID();
     	categoryPage.enterPassword();
     	categoryPage.selectCompany();
-    	categoryPage.clickLoginButton();*/
+    	categoryPage.clickLoginButton();
     	
     	categoryPage.clickProductsTab();
     	categoryPage.clickAddCategoryButton();
     	categoryPage.enterCategoryName();
     	categoryPage.selectCompanies();
     	categoryPage.clickSaveChangesButton();
-    	categoryPage.verifyConfirmationMsg();
+    	categoryPage.verifyConfirmationMsg("saved category successfully");
     	
     	categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
@@ -51,7 +60,7 @@ public class CreateCategoryTest {
     	categoryPage.enterPriceRate();
     	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
-        categoryPage.verifyConfirmationMsg();
+        categoryPage.verifyConfirmationMsg("saved product successfully");
         
         categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
@@ -63,7 +72,7 @@ public class CreateCategoryTest {
     	categoryPage.enterPriceRate1();
     	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
-        categoryPage.verifyConfirmationMsg();
+        categoryPage.verifyConfirmationMsg("saved product successfully");
         
         categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
@@ -75,6 +84,6 @@ public class CreateCategoryTest {
     	categoryPage.enterPriceRate2();
     	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
-        categoryPage.verifyConfirmationMsg();
+        categoryPage.verifyConfirmationMsg("saved product successfully");
     }
 }

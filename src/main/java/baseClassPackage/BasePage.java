@@ -17,8 +17,16 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import productDependency.CreateCategoryPage;
+import utilPackages.JavaScriptExec;
 
 public class BasePage {
 	static Logger log = Logger.getLogger(BasePage.class);
@@ -111,6 +119,32 @@ public class BasePage {
 			e.printStackTrace();
 			return "row " + rowNum + " or column " + colNum + " does not exist  in Excel";
 		}
+	}
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	private WebElement verifyConfirmationMsg;
+	//*[@id="messages"]/div/ul/li
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box error']")
+	private WebElement verifyErrorMsg;
+	
+	/**
+	 * Method to verify Product is created Successfully.
+	 * 
+	 * @throws IOException
+	 */
+		public void verifyConfirmationMsg(String str) throws IOException {
+			CreateCategoryPage sp = new CreateCategoryPage(driver);
+			log.info("Verifying if Product is created Successfully or not");
+			JavaScriptExec.sleep();
+			try {
+				Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+						"str");
+				System.out.println(str);
+			} catch (NoSuchElementException e) {
+				if(verifyErrorMsg.isDisplayed()) {
+					String failureMsg = verifyErrorMsg.getText();
+					throw new RuntimeException(failureMsg);
+				}
+			}
 	}
 
 }
