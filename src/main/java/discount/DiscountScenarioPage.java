@@ -302,22 +302,6 @@ public class DiscountScenarioPage extends BasePage{
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Discount is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		DiscountScenarioPage sp = new DiscountScenarioPage(driver);
-		log.info("Verifying if Discount is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
 	
 	@FindBy(how = How.XPATH, using = "//div[@class='total']")
 	private WebElement verifyTotalAmount;

@@ -244,22 +244,7 @@ public class DiscountPage extends BasePage {
 			clickSaveChangesButton.click();
 		}
 
-		@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-		private WebElement verifyConfirmationMsg;
-
-		/**
-		 * Method to verify Discount is created Successfully.
-		 * 
-		 * @throws IOException
-		 */
-		public void verifyConfirmationMsg() throws IOException {
-			DiscountPage sp = new DiscountPage(driver);
-			log.info("Verifying if Discount is created Successfully or not");
-			JavaScriptExec.sleep();
-			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-					"Assert Failed as its unable to search text in Logged in Page");
-		}
-
+		
 	public void verifyDiscountName(int rowNum) throws IOException {
 		String actualDiscountName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
 		String expectedDiscountName = driver

@@ -36,7 +36,7 @@ public class ProductTest {
 		productCategoryPage.clickAddNewButton();
 		productCategoryPage.enterCategoryName(0);
 		productCategoryPage.clickSaveChangesButton();
-		productCategoryPage.verifyConfirmationMsg();
+		productCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
 		//@TODO:- Please Uncomment when the bug-1874 is fixed 
 		//productCategoryPage.verifyCategoryData(0);
 
@@ -48,7 +48,7 @@ public class ProductTest {
 		productCategoryPage.enterPriceRate(0);
 		productCategoryPage.clickAddPriceButton();
 		productCategoryPage.clickSaveChangesButton();
-		productCategoryPage.verifyConfirmationMsg();
+		productCategoryPage.verifyConfirmationMsg("Saved Product Successfully");
 		productCategoryPage.verifyProductName(0);
 
 		// Plan Category and Product
@@ -57,7 +57,7 @@ public class ProductTest {
 		productCategoryPage.enterCategoryName(1);
 		productCategoryPage.selectOrderLineTypeId();
 		productCategoryPage.clickSaveChangesButton();
-		productCategoryPage.verifyConfirmationMsg();
+		productCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
 		//@TODO:- Please Uncomment when the bug-1874 is fixed 
 		//productCategoryPage.verifyCategoryData(1);
 
@@ -69,7 +69,7 @@ public class ProductTest {
 		productCategoryPage.enterPriceRate(1);
 		productCategoryPage.clickAddPriceButton();
 		productCategoryPage.clickSaveChangesButton();
-		productCategoryPage.verifyConfirmationMsg();
+		productCategoryPage.verifyConfirmationMsg("Saved Product Successfully");
 		productCategoryPage.verifyProductName(2);
 
 		// Item Product
@@ -83,7 +83,7 @@ public class ProductTest {
 		productCategoryPage.enterPriceRate(0);
 		productCategoryPage.clickAddPriceButton();
 		productCategoryPage.clickSaveChangesButton();
-		productCategoryPage.verifyConfirmationMsg();
+		productCategoryPage.verifyConfirmationMsg("Saved Item Product Successfully");
 		productCategoryPage.verifyProductName(1);
 
 		// Plan Product
@@ -97,7 +97,7 @@ public class ProductTest {
 		productCategoryPage.enterPriceRate(1);
 		productCategoryPage.clickAddPriceButton();
 		productCategoryPage.clickSaveChangesButton();
-		productCategoryPage.verifyConfirmationMsg();
+		productCategoryPage.verifyConfirmationMsg("Saved Plan Product Successfully");
 		productCategoryPage.verifyProductName(3);
 	}
 }

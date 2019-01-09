@@ -43,7 +43,7 @@ public class VolumeDiscountPercentageTest {
 		discountPage.selectDiscountableItem(1);
 		discountPage.clickUpdateButton();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Saved Order Successfully");
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
@@ -57,7 +57,7 @@ public class VolumeDiscountPercentageTest {
 			discountPage.clickUpdateButton();
 			discountPage.verifyTotalAmount(11,rowNum);
 			discountPage.clickSaveChangesButton();
-			discountPage.verifyConfirmationMsg();
+			discountPage.verifyConfirmationMsg("Saved Order Successfully");
 		}
 	}
 }

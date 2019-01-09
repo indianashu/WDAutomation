@@ -40,7 +40,7 @@ public class CreateDiscountTest {
 		discountPage.selectTierRadioButton();
 		discountPage.fillTierData();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Saved Tiered Discount Successfully");
 		discountPage.verifyDiscountName(1);
 
 		// Tiered Percentage Discount
@@ -53,7 +53,7 @@ public class CreateDiscountTest {
 		discountPage.selectTierRadioButton();
 		discountPage.fillTierData();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Saved Tiered Percentage Discount Successfully");
 		discountPage.verifyDiscountName(2);
 		
 		// Volume Discount
@@ -64,7 +64,7 @@ public class CreateDiscountTest {
 		discountPage.selectVolumeRadioButton();
 		discountPage.fillTierData();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Saved Volume Discount Successfully");
 		discountPage.verifyDiscountName(3);
 
 		// Volume Percentage Discount
@@ -76,7 +76,7 @@ public class CreateDiscountTest {
 		discountPage.selectVolumeRadioButton();
 		discountPage.fillTierData();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Saved Volume Percentage Discount Successfully");
 		discountPage.verifyDiscountName(4);
 
 	}
