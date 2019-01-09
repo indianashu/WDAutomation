@@ -117,15 +117,6 @@ public class CRUDRateCardPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	public void verifyConfirmationMsg() throws IOException {
-		log.info("Verifying if Rate Card is created Successfully or not");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	public void selectRateCard() throws IOException {
 		log.info("");
 		String RateCard = BasePage.getCellData(xlsxName, sheetName, 4, 0);
