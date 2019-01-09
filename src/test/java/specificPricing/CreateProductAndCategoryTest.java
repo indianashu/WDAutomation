@@ -36,7 +36,7 @@ public class CreateProductAndCategoryTest {
 		categoryPage.enterCategoryName(0);
 		categoryPage.selectEntity();
 		categoryPage.clickSaveChangesButton();
-		categoryPage.verifyConfirmationMsg();
+		categoryPage.verifyConfirmationMsg("Saved Item Category Successfully");
 		categoryPage.verifyCategoryData(0);
 
 		categoryPage.clickProductsTab();
@@ -48,7 +48,7 @@ public class CreateProductAndCategoryTest {
 		categoryPage.enterPriceRate(0);
 		categoryPage.clickAddPriceButton();
 		categoryPage.clickSaveChangesButton();
-		categoryPage.verifyConfirmationMsg();
+		categoryPage.verifyConfirmationMsg("Saved Item Product Successfully");
 		categoryPage.verifyProductData(0);
 
 		categoryPage.clickProductsTab();
@@ -57,7 +57,7 @@ public class CreateProductAndCategoryTest {
 		categoryPage.enterCategoryName(1);
 		categoryPage.selectEntity();
 		categoryPage.clickSaveChangesButton();
-		categoryPage.verifyConfirmationMsg();
+		categoryPage.verifyConfirmationMsg("Saved Plan Category Successfully");
 		categoryPage.verifyCategoryData(1);
 
 		categoryPage.clickProductsTab();
@@ -72,7 +72,7 @@ public class CreateProductAndCategoryTest {
 		categoryPage.enterPricing();
 		categoryPage.clickOnAddPrice();
 		categoryPage.clickSaveChangesButton();
-		categoryPage.verifyConfirmationMsg();
+		categoryPage.verifyConfirmationMsg("Saved Plan Product Successfully");
 		categoryPage.verifyProductData(1);
 
 

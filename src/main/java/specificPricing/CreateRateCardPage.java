@@ -187,22 +187,6 @@ public class CreateRateCardPage extends BasePage {
 			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 			clickSaveChangesButton.click();
 		}
-		
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Rate Card is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		CreateRateCardPage sp = new CreateRateCardPage(driver);
-		JavaScriptExec.sleep();
-		log.info("Verifying if Rate Card is created Successfully or not");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
 	
 	public void selectRateCard(int rowNum) throws IOException {
 		CreateRateCardPage sp = new CreateRateCardPage(driver);

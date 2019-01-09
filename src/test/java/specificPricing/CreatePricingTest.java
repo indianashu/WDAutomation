@@ -41,7 +41,7 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
-		pricingPage.verifyConfirmationMsg();
+		pricingPage.verifyConfirmationMsg("Test Pricing Saved Successfully");
 		pricingPage.verifyPricingData(0);
 
 		pricingPage.clickPricingTab();
@@ -54,7 +54,7 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
-		pricingPage.verifyConfirmationMsg();
+		pricingPage.verifyConfirmationMsg("Plan Pricing Saved Successfully");
 		pricingPage.verifyPricingData(1);
 
 	}

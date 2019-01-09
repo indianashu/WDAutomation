@@ -42,7 +42,7 @@ public class ProductPriceTest {
 		specificPricingPage.selectProduct(0);
 		specificPricingPage.clickUpdateButton();
 		specificPricingPage.clickSaveChangesButton();
-		specificPricingPage.verifyConfirmationMsg();
+		specificPricingPage.verifyConfirmationMsg("Order Saved Successfully");
 		specificPricingPage.verifyProductPriceData();
 	}
 }

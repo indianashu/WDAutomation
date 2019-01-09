@@ -41,13 +41,13 @@ public class CustomerSpecificPricingTest {
     	specificPricingPage.enterPricing();
     	specificPricingPage.clickAddPrice();
     	specificPricingPage.clickSaveChangesButton();
-        specificPricingPage.verifyConfirmationMsg();
+        specificPricingPage.verifyConfirmationMsg("Customer Saved Successfully");
         
         specificPricingPage.clickMediationLink();
 		specificPricingPage.selectMediation();
 		specificPricingPage.uploadTestCSVFile();
 		specificPricingPage.clickTriggerConfigButton();
-		specificPricingPage.verifyConfirmationMsg();
+		specificPricingPage.verifyConfirmationMsg("Mediation Triggered Successfully");
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();

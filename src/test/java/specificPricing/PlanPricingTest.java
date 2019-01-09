@@ -47,7 +47,7 @@ public class PlanPricingTest {
 		specificPricingPage.selectMediation();
 		specificPricingPage.uploadPlanCSVFile();
 		specificPricingPage.clickTriggerConfigButton();
-		specificPricingPage.verifyConfirmationMsg();
+		specificPricingPage.verifyConfirmationMsg("Orders Saved Successfully");
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
