@@ -38,6 +38,7 @@ public class AddOnTestCase2 {
 
 		testCase2Page.subscriptionOfPlan();
 		testCase2Page.consumptionOfPlan();
+		testCase2Page.verifyConfirmationMsg("Saved Order Successfully");
 
 	}
 	
