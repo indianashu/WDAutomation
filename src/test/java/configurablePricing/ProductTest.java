@@ -36,7 +36,7 @@ public class ProductTest {
 		createProductPage.enterCategoryName(0);
 		createProductPage.clickSaveChangesButton();
 		
-		createProductPage.verifyConfirmationMsg();
+		createProductPage.verifyConfirmationMsg("Saved Item Category Successfully");
 		//@TODO:- Please Uncomment when the bug-1874 is fixed 
 		//createProductPage.verifyCategoryData(0);
 		
@@ -48,7 +48,7 @@ public class ProductTest {
 		createProductPage.enterPriceRate(0);
 		createProductPage.clickAddPriceButton();
 		createProductPage.clickSaveChangesButton();
-		createProductPage.verifyConfirmationMsg();
+		createProductPage.verifyConfirmationMsg("Saved Product Successfully");
 		createProductPage.verifyProductName(0);
 		
 		// Plan Category and Product
@@ -57,7 +57,7 @@ public class ProductTest {
 		createProductPage.enterCategoryName(1);
 		createProductPage.selectOrderLineTypeId();
 		createProductPage.clickSaveChangesButton();
-		createProductPage.verifyConfirmationMsg();
+		createProductPage.verifyConfirmationMsg("Saved Plan Category Successfully");
 		//@TODO:- Please Uncomment when the bug-1874 is fixed 
 		//createProductPage.verifyCategoryData(1);
 		
@@ -72,7 +72,7 @@ public class ProductTest {
 		createProductPage.enterPricing(0);
 		createProductPage.clickOnAddPrice();
 		createProductPage.clickSaveChangesButton();
-		createProductPage.verifyConfirmationMsg();
+		createProductPage.verifyConfirmationMsg("Saved Product Successfully");
 		createProductPage.verifyProductData(0);
 		
 		// Item  Product
@@ -86,7 +86,7 @@ public class ProductTest {
 		createProductPage.enterPriceRate(1);
 		createProductPage.clickAddPriceButton();
 		createProductPage.clickSaveChangesButton();
-		createProductPage.verifyConfirmationMsg();
+		createProductPage.verifyConfirmationMsg("Saved Item Product Successfully");
 		createProductPage.verifyProductName(1);
 		
 		// Plan  Product
@@ -103,7 +103,7 @@ public class ProductTest {
 		createProductPage.enterPricing(1);
 		createProductPage.clickOnAddPrice();
 		createProductPage.clickSaveChangesButton();
-		createProductPage.verifyConfirmationMsg();
+		createProductPage.verifyConfirmationMsg("Saved Plan Product Successfully");
 		createProductPage.verifyProductData(1);
 	}
 }

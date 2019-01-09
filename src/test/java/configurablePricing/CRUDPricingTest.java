@@ -37,14 +37,14 @@ public class CRUDPricingTest {
 		createPricingPage.selectTierRadioButton();
 		createPricingPage.fillTierData();
 		createPricingPage.clickSaveChangesButton();
-		createPricingPage.verifyConfirmationMsg();
+		createPricingPage.verifyConfirmationMsg("Pricing Saved Successfully");
 		createPricingPage.verifyPricingName(0);
 		createPricingPage.clickEditButton();
 		createPricingPage.editPricingName();
 		createPricingPage.clickSaveChangesButton();
-		createPricingPage.verifyConfirmationMsg();
+		createPricingPage.verifyConfirmationMsg("Pricing Edited Successfully");
 		createPricingPage.clickDeleteButton();
 		createPricingPage.clickYesPopup();
-		createPricingPage.verifyConfirmationMsg();
+		createPricingPage.verifyConfirmationMsg("Pricing Deleted Successfully");
 	}
 }

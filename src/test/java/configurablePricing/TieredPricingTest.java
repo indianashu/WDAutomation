@@ -40,7 +40,7 @@ public class TieredPricingTest {
 		configurablePricingPage.selectProduct(1);
 		configurablePricingPage.clickUpdateButton();
 		configurablePricingPage.clickSaveChangesButton();
-		configurablePricingPage.verifyConfirmationMsg();
+		configurablePricingPage.verifyConfirmationMsg("Saved Order Successfully");
 
 		// Usage of the Tiered Pricing
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
@@ -55,7 +55,7 @@ public class TieredPricingTest {
 			configurablePricingPage.clickUpdateButton();
 			configurablePricingPage.verifyTotalTieredAmount(rowNum);
 			configurablePricingPage.clickSaveChangesButton();
-			configurablePricingPage.verifyConfirmationMsg();
+			configurablePricingPage.verifyConfirmationMsg("Saved Order Successfully");
 			
 		}
 	}

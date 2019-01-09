@@ -43,7 +43,7 @@ public class VolumePricingTest {
 		configurablePricingPage.selectProduct(3);
 		configurablePricingPage.clickUpdateButton();
 		configurablePricingPage.clickSaveChangesButton();
-		configurablePricingPage.verifyConfirmationMsg();
+		configurablePricingPage.verifyConfirmationMsg("Saved Order Successfully");
 
 		// Usage of the Tiered Pricing
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
@@ -58,7 +58,7 @@ public class VolumePricingTest {
 			configurablePricingPage.clickUpdateButton();
 			configurablePricingPage.verifyTotalVolumeAmount(rowNum);
 			configurablePricingPage.clickSaveChangesButton();
-			configurablePricingPage.verifyConfirmationMsg();
+			configurablePricingPage.verifyConfirmationMsg("Saved Order Successfully");
 		}
 	}
 

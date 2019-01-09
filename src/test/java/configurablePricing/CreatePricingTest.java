@@ -37,7 +37,7 @@ public class CreatePricingTest {
 		createPricingPage.selectTierRadioButton();
 		createPricingPage.fillTierData();
 		createPricingPage.clickSaveChangesButton();
-		createPricingPage.verifyConfirmationMsg();
+		createPricingPage.verifyConfirmationMsg("Saved Tiered Pricing Successfully");
 		createPricingPage.verifyPricingName(1);
 
 		// Volume Pricing
@@ -46,7 +46,7 @@ public class CreatePricingTest {
 		createPricingPage.selectVolumeRadioButton();
 		createPricingPage.fillTierData();
 		createPricingPage.clickSaveChangesButton();
-		createPricingPage.verifyConfirmationMsg();
+		createPricingPage.verifyConfirmationMsg("Saved Volume Pricing Successfully");
 		createPricingPage.verifyPricingName(2);
 
 	}
