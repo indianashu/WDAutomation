@@ -39,7 +39,7 @@ public class PricingTest {
 		pricingPage.enterPeakPrice();
 		pricingPage.enterNonPeakPrice();
 		pricingPage.clickSaveChangesButton();
-		pricingPage.verifyConfirmationMsg();
+		pricingPage.verifyConfirmationMsg("Peak Non Peak Pricing Saved Successfully");
 		
 	}
 }

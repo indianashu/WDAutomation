@@ -38,7 +38,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterEndDate(0);
 		peakIntervalPage.selectDayofWeek();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Weekly Based Peak Saved Successfully At Company Level");
 		
 		//SPECIAL DAY
 		peakIntervalPage.selectPeakInterval(1);
@@ -47,7 +47,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterStartDate(1);
 		peakIntervalPage.enterDescription();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Special Day Peak Saved Successfully At Company Level");
 		
 		//HOLIDAY
 		peakIntervalPage.selectPeakInterval(2);
@@ -55,7 +55,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.selectisRecurring();
 		peakIntervalPage.enterStartDate(2);
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Holiday Based Peak Saved Successfully At Company Level");
 		
 		//TIME BASED
 		peakIntervalPage.selectPeakInterval(3);
@@ -67,7 +67,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterStartTime();
 		peakIntervalPage.enterEndTime();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Time Based Peak Saved Successfully At Company Level");
 	}
 
 }

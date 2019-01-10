@@ -366,22 +366,6 @@ public class MediationConfigurationPage extends BasePage {
 		clickSavePluginButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-		JavaScriptExec.sleep();
-		log.info("Verifying if Account Type is created Successfully or not");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	@FindBy(how = How.XPATH, using = "//input[@name='plg-parm-Call Item ID']")
 	private WebElement enterDefaultItemId;
 

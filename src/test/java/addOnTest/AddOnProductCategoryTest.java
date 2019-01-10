@@ -40,14 +40,14 @@ public class AddOnProductCategoryTest {
     	addOnProductCategoryPage.clickAddCategoryButton();
     	addOnProductCategoryPage.enterCategoryName();
     	addOnProductCategoryPage.saveChanges();
-    	addOnProductCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
+    	addOnProductCategoryPage.verifyConfirmationMsg("Item Type Category Saved Successfully");
     	
     	addOnProductCategoryPage.clickProductsTab();
     	addOnProductCategoryPage.clickAddCategoryButton();
     	addOnProductCategoryPage.enterTypeId();
     	addOnProductCategoryPage.enterCategoryName();
     	addOnProductCategoryPage.saveChanges();
-    	addOnProductCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
+    	addOnProductCategoryPage.verifyConfirmationMsg("Add On Type Category Saved Successfully");
     	
     	addOnProductCategoryPage.addProducts();
     	

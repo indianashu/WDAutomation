@@ -153,6 +153,8 @@ public class TestCase1Page extends BasePage {
 				.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 		Assert.assertTrue(clickSaveButton.isDisplayed());
 		actions.moveToElement(clickSaveButton).click().perform();
+		
+		verifyConfirmationMsg("Saved Subscription Order Successfully");
 	}
 
 	public void consumptionOfPlan() throws IOException {
@@ -225,6 +227,8 @@ public class TestCase1Page extends BasePage {
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 			Assert.assertTrue(clickSaveButton.isDisplayed());
 			actions.moveToElement(clickSaveButton).click().perform();
+			
+			verifyConfirmationMsg("Saved consumption Order "  +  (i+1)  + " Successfully ");
 
 			i++;
 		}

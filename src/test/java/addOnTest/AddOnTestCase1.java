@@ -29,16 +29,16 @@ public class AddOnTestCase1 {
 
 	@Test(groups = { "Add ON" }, description = "Add ON Order creation")
 	public void userSignin() throws Exception {
-		/*testCase1Page.enterLoginID();
+		testCase1Page.enterLoginID();
 		testCase1Page.enterPassword();
 		testCase1Page.selectCompany();
-		testCase1Page.clickLoginButton();*/
+		testCase1Page.clickLoginButton();
 
 		testCase1Page.clickCustomerTab();
 
 		testCase1Page.subscriptionOfPlan();
 		testCase1Page.consumptionOfPlan();
-		testCase1Page.verifyConfirmationMsg("Saved Order Successfully");
+		
 
 	}
 

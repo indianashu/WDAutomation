@@ -52,7 +52,7 @@ public class CreateOrder2Test {
 		createOrderPage.clickSubOrderUpdateButton();
 		createOrderPage.verifyUpdationMsg();
 		createOrderPage.clickSaveChangesButton();
-		createOrderPage.verifyConfirmationMsg("Saved Order Successfully For William");
+		createOrderPage.verifyConfirmationMsg("Saved Order Successfully For Customer William");
 
 		String orderid = createOrderPage.extractOrderId();
 		System.out.println(orderid);
