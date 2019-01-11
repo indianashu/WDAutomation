@@ -116,6 +116,8 @@ public class CustomerPage extends BasePage {
 		clickCustomerTab.click();
 		WebElement company = driver.findElement(By.xpath("//span[@class='right-text']//a"));
 		if (company.isDisplayed()) {
+
+			JavaScriptExec.sleep();
 			company.click();
 		}
 
