@@ -313,7 +313,7 @@ public class OrderHierarchiesPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='dependency']/div[1]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='dependency']")
 	private WebElement clickDependenciesPlus;
 
 	/**
@@ -329,8 +329,6 @@ public class OrderHierarchiesPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	private WebElement selectProductCategoryDependency;
-
 	/**
 	 * Method to select product category in dependencies section.
 	 * 
@@ -343,8 +341,6 @@ public class OrderHierarchiesPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(10));
 
 	}
-
-	private WebElement selectProductDependency;
 
 	/**
 	 * Method to select product in dependencies section.
@@ -373,7 +369,7 @@ public class OrderHierarchiesPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='dependency']/div[2]/div/table/tbody/tr/td[6]/a/img")
+	@FindBy(how = How.XPATH, using = "//img[@name='add']")
 	private WebElement clickDependencyPlusIcon;
 
 	/**
@@ -502,8 +498,6 @@ public class OrderHierarchiesPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	private WebElement selectOrderPeriod;
-
 	/**
 	 * Method to select order period.
 	 * 
@@ -516,8 +510,6 @@ public class OrderHierarchiesPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(14));
 
 	}
-
-	private WebElement selectOrderType;
 
 	/**
 	 * Method to select order type.
@@ -549,8 +541,6 @@ public class OrderHierarchiesPage extends BasePage {
 
 	}
 
-	private WebElement selectProductsSubTab;
-
 	/**
 	 * Method to select a products sub tab.
 	 * 
@@ -563,8 +553,6 @@ public class OrderHierarchiesPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ProductName + "']")).click();
 		JavaScriptExec.sleep();
 	}
-
-	private WebElement verifyWarningMsg;
 
 	/**
 	 * Method to verify warning message.
@@ -597,10 +585,6 @@ public class OrderHierarchiesPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Local
-	// Minutes']")
-	private WebElement clickDependentProduct;
 
 	/**
 	 * Method to click on dependent product.
