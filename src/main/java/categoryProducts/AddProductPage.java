@@ -290,7 +290,7 @@ public class AddProductPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@name=\"mydate\"]")
+	@FindBy(how = How.XPATH, using = "//*[@name='mydate']")
 	private WebElement enterPriceDate1;
 
 	/**
@@ -419,10 +419,6 @@ public class AddProductPage extends BasePage {
 		enterPriceRate3.sendKeys(sp.ExcelRead(sheetName).get(19));
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test
-	// Abc']")
-	private WebElement clickProductName;
 
 	/**
 	 * Method to click on Product name Test Code.

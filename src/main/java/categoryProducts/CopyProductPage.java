@@ -161,10 +161,6 @@ public class CopyProductPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='New Test
-	// Category1']")
-	private WebElement selectCategoryName;
-
 	/**
 	 * Method to click on a category name.
 	 * 
@@ -227,8 +223,6 @@ public class CopyProductPage extends BasePage {
 
 	}
 
-	private WebElement selectCompanies;
-
 	/**
 	 * Method to select companies.
 	 * 
@@ -259,8 +253,6 @@ public class CopyProductPage extends BasePage {
 
 	}
 
-	private WebElement selectPriceCompany;
-
 	/**
 	 * Method to select company in Prices.
 	 * 
@@ -273,8 +265,6 @@ public class CopyProductPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(8));
 
 	}
-
-	private WebElement selectPriceCurrency;
 
 	/**
 	 * Method to select price currency.
@@ -354,12 +344,6 @@ public class CopyProductPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	//////////////////////////////////////////////////////////////////////
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Copy
-	// Product Desc']")
-	private WebElement selectCopyCategory;
-
 	/**
 	 * Method to select copy category.
 	 * 
@@ -373,10 +357,6 @@ public class CopyProductPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test Copy
-	// Product Desc']")
-	private WebElement selectProduct;
 
 	/**
 	 * Method to select product.

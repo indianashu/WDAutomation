@@ -329,8 +329,6 @@ public class AddProductWithAssetPage extends BasePage {
 		clickGlobalCheckbox.click();
 	}
 
-	private WebElement selectPriceCompany;
-
 	/**
 	 * Method to select company in Prices.
 	 * 
@@ -343,8 +341,6 @@ public class AddProductWithAssetPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(8));
 
 	}
-
-	private WebElement selectPriceCurrency;
 
 	/**
 	 * Method to select price currency.
@@ -422,11 +418,7 @@ public class AddProductWithAssetPage extends BasePage {
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='SIM
-	// Cards']")
-	private WebElement clickProductName;
-
+	
 	/**
 	 * Method to click on Product Name.
 	 * 

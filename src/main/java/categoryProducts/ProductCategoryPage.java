@@ -208,10 +208,6 @@ public class ProductCategoryPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test
-	// Category1']")
-	private WebElement clickCategoryName;
-
 	/**
 	 * Method to click on Category Name.
 	 * 
