@@ -154,9 +154,6 @@ public class ViewAssignedInfoPage extends BasePage {
 		clickSelectButton.click();
 	}
 
-	// @FindBy(how=How.XPATH,using="//*[@id='header']/ul/a")
-	private WebElement verifyChildCompanyName;
-
 	/**
 	 * Method to Verify Child Company Name is shown
 	 * 
@@ -188,10 +185,6 @@ public class ViewAssignedInfoPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Asset
-	// Category1']")
-	private WebElement clickCategoryName;
-
 	/**
 	 * Method to click on CategoryName
 	 * 
@@ -208,11 +201,7 @@ public class ViewAssignedInfoPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CategoryName + "']")).click();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='SIM
-	// Cards']")
-	private WebElement clickProductName;
-
+	
 	/**
 	 * Method to click on Product Name
 	 * 
@@ -321,10 +310,6 @@ public class ViewAssignedInfoPage extends BasePage {
 		clickCustomersTab.click();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='ashutosh
-	// sandhal']")
-	private WebElement verifyChildCustomer;
 
 	/**
 	 * Method to Verify Child Customer is created or not.
