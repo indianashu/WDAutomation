@@ -148,7 +148,7 @@ public class LoginPage extends BasePage {
     	LoginPage sp=new LoginPage(driver);
         log.info("Verifying if Label is available or not");
         String RootCompanyName = sp.ExcelRead(sheetName).get(3); 
-        String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
+        String ActualRootCompany = driver.findElement(By.xpath("//*[@id='company-edit-form']//h")).getText();
         System.out.println("Company Name:********" +ActualRootCompany+ "*********");
         log.info("Click on customer name");
         JavaScriptExec.sleep();
