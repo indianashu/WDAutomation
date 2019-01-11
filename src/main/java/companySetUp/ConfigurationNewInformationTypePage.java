@@ -79,8 +79,6 @@ public class ConfigurationNewInformationTypePage extends BasePage {
 
 	}
 
-	private WebElement selectCompany;
-
 	/**
 	 * Method to select Company.
 	 * 

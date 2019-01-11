@@ -109,7 +109,7 @@ public class ConfigurationBillingProcessPage extends BasePage {
 		clickLoginButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.configuration']/div/div/ul/a[5]/li/span")
+	@FindBy(how = How.XPATH, using = "//a[.='Billing Process']")
 	private WebElement clickBillingProcess;
 
 	/**
@@ -177,8 +177,6 @@ public class ConfigurationBillingProcessPage extends BasePage {
 		selectGenerateReport.click();
 
 	}
-
-	private WebElement selectBillingPeriod;
 
 	/**
 	 * Method to select Billing Period.

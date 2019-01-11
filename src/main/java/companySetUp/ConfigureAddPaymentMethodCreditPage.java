@@ -228,8 +228,6 @@ public class ConfigureAddPaymentMethodCreditPage extends BasePage {
 
 	}
 
-	private WebElement selectAccountType;
-
 	/**
 	 * Method to select Account Type.
 	 * 

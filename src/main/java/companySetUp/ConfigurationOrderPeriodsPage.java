@@ -177,8 +177,6 @@ public class ConfigurationOrderPeriodsPage extends BasePage {
 
 	}
 
-	private WebElement selectUnit;
-
 	/**
 	 * Method to select Unit.
 	 * 

@@ -488,7 +488,7 @@ public class ConfigurationCollectionsPage extends BasePage {
 		enterRightAttribute.sendKeys(gracePeriodId);
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='plugin-parameters']/div/div/div[2]/table/tbody/tr/td[3]/a/img")
+	@FindBy(how = How.XPATH, using = "//*[@id='plugin-parameters']//img[@alt='add']")
 	private WebElement clickPlusIcon;
 
 	/**
