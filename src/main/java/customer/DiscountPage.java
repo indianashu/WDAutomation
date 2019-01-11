@@ -350,10 +350,6 @@ public class DiscountPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell
-	// double']//*[text()='BillingFl']")
-	private WebElement selectProduct;
-
 	/**
 	 * Method to Select a Product.
 	 * 
@@ -399,9 +395,6 @@ public class DiscountPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//*[@id='discount-messages']/ul/li")
-	private WebElement verifyErrorMessage;
-
 	/**
 	 * Method to Verify Error Message shown on selecting Discount.
 	 * 
@@ -416,8 +409,6 @@ public class DiscountPage extends BasePage {
 		Assert.assertEquals(ActualErrorMsg, ExpectedErrorMsg);
 
 	}
-
-	private WebElement selectDiscountableItem;
 
 	/**
 	 * Method to select Discountable Item.
@@ -450,10 +441,6 @@ public class DiscountPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell
-	// double']//*[text()='BillingFl']")
-	private WebElement selectProduct1;
-
 	/**
 	 * Method to Select a Product.
 	 * 
@@ -467,9 +454,6 @@ public class DiscountPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//*[@id='review-box']/div[3]")
-	private WebElement verifyAmount;
 
 	/**
 	 * Method to Verify Amount is shown with discount.
@@ -504,9 +488,6 @@ public class DiscountPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell']//*[text()='604']")
-	private WebElement clickOrder;
-
 	/**
 	 * Method to click on Order..
 	 * 
@@ -520,8 +501,6 @@ public class DiscountPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='cell']//*[text()='" + OrderNumber + "']")).click();
 
 	}
-
-	private WebElement verifyAmountDifference;
 
 	/**
 	 * Method to Verify Amount is shown with discount.

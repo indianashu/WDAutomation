@@ -101,7 +101,6 @@ public class CustomerPage extends BasePage {
 		clickLoginButton.click();
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[.='Customers']")
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.customers']/a")
 	private WebElement clickCustomerTab;
 
@@ -140,8 +139,6 @@ public class CustomerPage extends BasePage {
 
 	}
 
-	private WebElement selectUserCompany;
-
 	/**
 	 * Method to select user company.
 	 * 
@@ -154,8 +151,6 @@ public class CustomerPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(3));
 
 	}
-
-	private WebElement selectAccountType;
 
 	/**
 	 * Method to select account type.
@@ -251,8 +246,6 @@ public class CustomerPage extends BasePage {
 
 	}
 
-	private WebElement selectBillingCycleUnit;
-
 	/**
 	 * Method to select billing cycle unit.
 	 * 
@@ -265,8 +258,6 @@ public class CustomerPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(7));
 
 	}
-
-	private WebElement selectBillingCycleDay;
 
 	/**
 	 * Method to select billing cycle day.
@@ -314,9 +305,6 @@ public class CustomerPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']")
-	private WebElement selectCustomer;
-
 	/**
 	 * Method to select customer.
 	 * 
@@ -330,8 +318,6 @@ public class CustomerPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + CustomerName + "']")).click();
 
 	}
-
-	private WebElement getCustomerID;
 
 	/**
 	 * Method to Get customer ID.
@@ -434,8 +420,6 @@ public class CustomerPage extends BasePage {
 		expandPaymentMethod.click();
 
 	}
-
-	private WebElement selectPaymentMethodType;
 
 	/**
 	 * Method to select payment method type.

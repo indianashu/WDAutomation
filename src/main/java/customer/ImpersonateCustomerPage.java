@@ -174,7 +174,7 @@ public class ImpersonateCustomerPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div[4]/div/table/tbody/tr[2]/td[2]/a/img")
+	@FindBy(how = How.XPATH, using = "//img[@src='/static/images/user_go.png']")
 	private WebElement clickImpersonateUserImage;
 
 	/**

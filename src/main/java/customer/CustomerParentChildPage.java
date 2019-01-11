@@ -136,8 +136,6 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-	private WebElement selectUserCompany;
-
 	/**
 	 * Method to select user company.
 	 * 
@@ -264,8 +262,6 @@ public class CustomerParentChildPage extends BasePage {
 		expandPaymentMethod.click();
 
 	}
-
-	private WebElement selectPaymentMethodType;
 
 	/**
 	 * Method to select payment method type.
@@ -443,9 +439,6 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']")
-	private WebElement selectChildCustomer;
-
 	/**
 	 * Method to select child customer.
 	 * 
@@ -493,11 +486,6 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-
-	// @FindBy(how=How.XPATH, using="//div[@class='row']//*[text()='22 Brian
-	// Smith']")
-	private WebElement verifyParentID;
-
 	/**
 	 * Method to Verify Parent ID.
 	 * 
@@ -514,9 +502,6 @@ public class CustomerParentChildPage extends BasePage {
 		Assert.assertEquals(ActualParentID, ParentID + " " + Parent);
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//*[@id='22']/img")
-	private WebElement verifyParentChildImage;
 
 	/**
 	 * Method to verify parent child image is present or not.
@@ -542,8 +527,6 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-	private WebElement verifyChildImage;
-
 	/**
 	 * Method to verify child image is present or not.
 	 * 
@@ -567,8 +550,6 @@ public class CustomerParentChildPage extends BasePage {
 		}
 
 	}
-
-	private WebElement verifyParentCustomer;
 
 	/**
 	 * Method to verify Parent customer.
@@ -604,8 +585,6 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-	private WebElement verifyChildCustomer;
-
 	/**
 	 * Method to verify Child customer.
 	 * 
@@ -621,8 +600,6 @@ public class CustomerParentChildPage extends BasePage {
 		Assert.assertEquals(ActualChildName, ChildName);
 
 	}
-
-	private WebElement verifySubAccount;
 
 	/**
 	 * Method to verify Sub Account.
