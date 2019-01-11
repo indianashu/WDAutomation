@@ -143,10 +143,6 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	// @FindBy(how=How.XPATH,
-	// using="//*[@id="company-edit-form"]/fieldset/div[1]/div[2]/div[1]/span/h")
-	private WebElement labelRootCompany;
-
 	/**
 	 * Method to verify Label root company is present after successful login.
 	 * 
@@ -157,7 +153,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 		log.info("Verifying if Label is available or not");
 		String RootCompanyName = sp.ExcelRead(sheetName).get(3);
 		String ActualRootCompany = driver
-				.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
+				.findElement(By.xpath("//*[@id='company-edit-form']//h")).getText();
 		System.out.println("Company Name:********" + ActualRootCompany + "*********");
 		log.info("Click on customer name");
 		JavaScriptExec.sleep();
@@ -167,7 +163,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 		Assert.assertEquals(ActualRootCompany, RootCompanyName);
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"user.userName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='user.userName']")
 	private WebElement enterLoginName;
 
 	/**
@@ -184,7 +180,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 		enterLoginName.sendKeys(sp.ExcelRead(sheetName).get(4));
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.firstName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.firstName']")
 	private WebElement enterFirstName;
 
 	/**
@@ -201,7 +197,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.lastName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.lastName']")
 	private WebElement enterLastName;
 
 	/**
@@ -218,7 +214,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.phoneCountryCode1\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.phoneCountryCode1']")
 	private WebElement enterPhoneCountryCode;
 
 	/**
@@ -235,7 +231,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.phoneAreaCode\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.phoneAreaCode']")
 	private WebElement enterPhoneAreaCode;
 
 	/**
@@ -252,7 +248,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.phoneNumber\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.phoneNumber']")
 	private WebElement enterPhoneNumber;
 
 	/**
@@ -269,7 +265,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.email\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.email']")
 	private WebElement enterEmail;
 
 	/**
@@ -286,8 +282,6 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	private WebElement selectLanguage;
-
 	/**
 	 * Method to select Language.
 	 * 
@@ -301,7 +295,6 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	private WebElement selectCurrency;
 
 	/**
 	 * Method to select Currency.
@@ -316,7 +309,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.organizationName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.organizationName']")
 	private WebElement enterOrgName;
 
 	/**
@@ -350,7 +343,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.address1\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.address1']")
 	private WebElement enterAddress;
 
 	/**
@@ -368,7 +361,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.address2\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.address2']")
 	private WebElement enterAddress2;
 
 	/**
@@ -385,7 +378,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.city\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.city']")
 	private WebElement enterCity;
 
 	/**
@@ -402,7 +395,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.stateProvince\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.stateProvince']")
 	private WebElement enterStateProvince;
 
 	/**
@@ -419,8 +412,6 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	private WebElement selectCounty;
-
 	/**
 	 * Method to select Country.
 	 * 
@@ -434,7 +425,7 @@ public class SignupChildCompanyInvoiceAsSellerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.postalCode\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.postalCode']")
 	private WebElement enterZipCode;
 
 	/**

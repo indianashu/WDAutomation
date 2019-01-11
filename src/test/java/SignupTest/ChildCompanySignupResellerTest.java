@@ -54,7 +54,6 @@ public class ChildCompanySignupResellerTest {
     	signupChildCompanyInvoiceAsSellerPage.enterLastName();
     	signupChildCompanyInvoiceAsSellerPage.enterPhoneCountryCode();
     	signupChildCompanyInvoiceAsSellerPage.enterPhoneAreaCode();
-    	signupChildCompanyInvoiceAsSellerPage.enterPhoneAreaCode();
     	signupChildCompanyInvoiceAsSellerPage.enterPhoneNumber();
     	signupChildCompanyInvoiceAsSellerPage.enterEmail();
     	signupChildCompanyInvoiceAsSellerPage.selectLanguage();

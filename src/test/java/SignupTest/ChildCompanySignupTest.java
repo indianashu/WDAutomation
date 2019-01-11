@@ -54,7 +54,6 @@ public class ChildCompanySignupTest {
     	signupChildCompanyPage.enterLastName();
     	signupChildCompanyPage.enterPhoneCountryCode();
     	signupChildCompanyPage.enterPhoneAreaCode();
-    	signupChildCompanyPage.enterPhoneAreaCode();
     	signupChildCompanyPage.enterPhoneNumber();
     	signupChildCompanyPage.enterEmail();
     	signupChildCompanyPage.selectLanguage();
