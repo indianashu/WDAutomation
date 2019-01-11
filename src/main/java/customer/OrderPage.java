@@ -133,8 +133,6 @@ public class OrderPage extends BasePage {
 
 	}
 
-	private WebElement selectUserCompany;
-
 	/**
 	 * Method to select user company.
 	 * 
@@ -146,8 +144,6 @@ public class OrderPage extends BasePage {
 		Select se = new Select(Usercompanyelement);
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(3));
 	}
-
-	private WebElement selectAccountType;
 
 	/**
 	 * Method to select account type.
@@ -212,8 +208,6 @@ public class OrderPage extends BasePage {
 
 	}
 
-	private WebElement selectBillingCycleUnit;
-
 	/**
 	 * Method to select billing cycle unit.
 	 * 
@@ -226,8 +220,6 @@ public class OrderPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(6));
 
 	}
-
-	private WebElement selectBillingCycleDay;
 
 	/**
 	 * Method to select billing cycle day.
@@ -274,9 +266,6 @@ public class OrderPage extends BasePage {
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']")
-	private WebElement selectCustomer;
 
 	/**
 	 * Method to select customer.
@@ -409,8 +398,6 @@ public class OrderPage extends BasePage {
 
 	}
 
-	private WebElement selectPeriod;
-
 	/**
 	 * Method to select Period.
 	 * 
@@ -423,9 +410,7 @@ public class OrderPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(10));
 
 	}
-
-	private WebElement selectOrderType;
-
+	
 	/**
 	 * Method to select Order Type.
 	 * 
@@ -438,8 +423,6 @@ public class OrderPage extends BasePage {
 		se.selectByVisibleText(sp.ExcelRead(sheetName).get(11));
 
 	}
-
-	private WebElement selectActiveSince;
 
 	/**
 	 * Method to select Active since.
@@ -469,9 +452,6 @@ public class OrderPage extends BasePage {
 		JavaScriptExec.sleep();
 
 	}
-
-	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='abc']")
-	private WebElement selectProduct;
 
 	/**
 	 * Method to Select Product from list.
