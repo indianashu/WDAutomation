@@ -31,10 +31,10 @@ public class AddOnProductCategoryTest {
     @Test(groups={"Add ON"},description="Add ON Product and Category creation")
     public void userSignin() throws Exception{
 
-    	addOnProductCategoryPage.enterLoginID();
+    	/*addOnProductCategoryPage.enterLoginID();
     	addOnProductCategoryPage.enterPassword();
     	addOnProductCategoryPage.selectCompany();
-    	addOnProductCategoryPage.clickLoginButton();
+    	addOnProductCategoryPage.clickLoginButton();*/
 
     	addOnProductCategoryPage.clickProductsTab();
     	addOnProductCategoryPage.clickAddCategoryButton();
@@ -50,6 +50,7 @@ public class AddOnProductCategoryTest {
     	addOnProductCategoryPage.verifyConfirmationMsg("Add On Type Category Saved Successfully");
     	
     	addOnProductCategoryPage.addProducts();
+    	
     	
     }
     

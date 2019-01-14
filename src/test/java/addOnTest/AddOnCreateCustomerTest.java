@@ -44,7 +44,7 @@ public class AddOnCreateCustomerTest {
 			addOnCreateCustomerPage.selectCurrency();
 			addOnCreateCustomerPage.navigateBottom();
 			addOnCreateCustomerPage.clickSaveChangesButton();
-			addOnCreateCustomerPage.verifyConfirmationMsg("New Customer Saved Successfully");
+			addOnCreateCustomerPage.verifyConfirmationMsg("Add On Customer "  + (rowNum+1) +  " Saved Successfully");
 		}
     }
     
