@@ -140,6 +140,8 @@ public class CustomerPage extends BasePage {
 					.findElement(By.xpath("//*[@id='column2']/div[4]/div/table/tbody/tr[2]/td[2]/a")).getText();
 			System.out.println("Customer Name=" + expectedName);
 			Assert.assertEquals(actualName, expectedName);
+			
+			verifyConfirmationMsg("Customer " + (rowNum+1) + " Saved Successfully");
 		}
 	}
 

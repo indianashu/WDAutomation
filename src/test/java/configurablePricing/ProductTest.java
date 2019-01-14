@@ -48,7 +48,7 @@ public class ProductTest {
 		createProductPage.enterPriceRate(0);
 		createProductPage.clickAddPriceButton();
 		createProductPage.clickSaveChangesButton();
-		createProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		createProductPage.verifyConfirmationMsg("Saved Item Type Product Successfully");
 		createProductPage.verifyProductName(0);
 		
 		// Plan Category and Product
@@ -72,7 +72,7 @@ public class ProductTest {
 		createProductPage.enterPricing(0);
 		createProductPage.clickOnAddPrice();
 		createProductPage.clickSaveChangesButton();
-		createProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		createProductPage.verifyConfirmationMsg("Saved Plan Type Product Successfully");
 		createProductPage.verifyProductData(0);
 		
 		// Item  Product
