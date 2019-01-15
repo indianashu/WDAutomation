@@ -2,9 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateUSDParentOrderPage;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
