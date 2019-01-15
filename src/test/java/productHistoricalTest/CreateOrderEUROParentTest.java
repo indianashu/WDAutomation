@@ -49,6 +49,7 @@ public class CreateOrderEUROParentTest {
 		createEUROParentOrderPage.clickUpdateButton();
 		createEUROParentOrderPage.expectedAmount1();
 		createEUROParentOrderPage.clickSave();
+		createEUROParentOrderPage.verifyConfirmationMsg("Past Date Order Saved Successfully For EURO Parent Customer");
 
 		// ActiveSince=Between Past and Present date
 		createEUROParentOrderPage.clickCustomerTab();
@@ -64,6 +65,7 @@ public class CreateOrderEUROParentTest {
 		createEUROParentOrderPage.clickUpdateButton();
 		createEUROParentOrderPage.expectedAmount2();
 		createEUROParentOrderPage.clickSave();
+		createEUROParentOrderPage.verifyConfirmationMsg("Between Past and Present Date Order Saved Successfully For EURO Parent Customer");
 
 		// ActiveSince=Between Present and Future Date
 		createEUROParentOrderPage.clickCustomerTab();
@@ -79,6 +81,7 @@ public class CreateOrderEUROParentTest {
 		createEUROParentOrderPage.clickUpdateButton();
 		createEUROParentOrderPage.expectedAmount3();
 		createEUROParentOrderPage.clickSave();
+		createEUROParentOrderPage.verifyConfirmationMsg("Between Present and Future Date Order Saved Successfully For EURO Parent Customer");
 
 		// ActiveSince=Future Date
 		createEUROParentOrderPage.clickCustomerTab();
@@ -103,6 +106,7 @@ public class CreateOrderEUROParentTest {
 		
 		createEUROParentOrderPage.expectedAmount4();
 		createEUROParentOrderPage.clickSave();
+		createEUROParentOrderPage.verifyConfirmationMsg("Future Date Order Saved Successfully For EURO Parent Customer");
 
 	}
 

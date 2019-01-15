@@ -49,6 +49,7 @@ public class CreateOrderCADParentTest {
 		createCADParentOrderPage.clickUpdateButton();
 		createCADParentOrderPage.expectedAmount1();
 		createCADParentOrderPage.clickSave();
+		createCADParentOrderPage.verifyConfirmationMsg("Past Date Order Saved Successfully For CAD Parent Customer");
 
 		// ActiveSince=Between Past and Present date
 		createCADParentOrderPage.clickCustomerTab();
@@ -64,6 +65,7 @@ public class CreateOrderCADParentTest {
 		createCADParentOrderPage.clickUpdateButton();
 		createCADParentOrderPage.expectedAmount2();
 		createCADParentOrderPage.clickSave();
+		createCADParentOrderPage.verifyConfirmationMsg("Between Past and Present Date Order Saved Successfully For CAD Parent Customer");
 
 		// ActiveSince=Between Present and Future Date
 		createCADParentOrderPage.clickCustomerTab();
@@ -79,6 +81,7 @@ public class CreateOrderCADParentTest {
 		createCADParentOrderPage.clickUpdateButton();
 		createCADParentOrderPage.expectedAmount3();
 		createCADParentOrderPage.clickSave();
+		createCADParentOrderPage.verifyConfirmationMsg("Between Present and Future Date Order Saved Successfully For CAD Parent Customer");
 
 		// ActiveSince=Future Date
 		createCADParentOrderPage.clickCustomerTab();
@@ -103,6 +106,7 @@ public class CreateOrderCADParentTest {
 		
 		createCADParentOrderPage.expectedAmount4();
 		createCADParentOrderPage.clickSave();
+		createCADParentOrderPage.verifyConfirmationMsg("Future Date Order Saved Successfully For CAD Parent Customer");
 
 	}
 
