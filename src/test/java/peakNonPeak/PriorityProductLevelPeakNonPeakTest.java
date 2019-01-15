@@ -44,7 +44,7 @@ public class PriorityProductLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,3);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Wise Product Peak Non Peak Order Saved Successfully For Leo Holder");
+    	peakScenarioPage.verifyConfirmationMsg("Product Level Peak Non Peak Subsciption Order Saved Successfully For Leo Holder");
     	   	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(4);
@@ -59,7 +59,7 @@ public class PriorityProductLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,4);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Wise Product Peak Non Peak Order Saved Successfully For Leo Holder");
+    	peakScenarioPage.verifyConfirmationMsg("Product Level Peak Non Peak Order Saved Successfully For Leo Holder ");
     	
     	//Martin Bernstein Product Level
     	peakScenarioPage.clickCustomerTab();
@@ -72,7 +72,7 @@ public class PriorityProductLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,5);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Wise Product Peak Non Peak Order Saved Successfully For Martin Bernstein");
+    	peakScenarioPage.verifyConfirmationMsg("Product Level Peak Non Peak Subsciption Order Saved Successfully For Martin Bernstein");
     	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(6);
@@ -87,6 +87,6 @@ public class PriorityProductLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,3);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Wise Product Peak Non Peak Order Saved Successfully For Martin Bernstein");
+    	peakScenarioPage.verifyConfirmationMsg("Product Level Peak Non Peak Order Saved Successfully For Martin Bernstein");
     }
 }

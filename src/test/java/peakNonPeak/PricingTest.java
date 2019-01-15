@@ -1,5 +1,6 @@
 package peakNonPeak;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -39,7 +40,8 @@ public class PricingTest {
 		pricingPage.enterPeakPrice();
 		pricingPage.enterNonPeakPrice();
 		pricingPage.clickSaveChangesButton();
-		pricingPage.verifyConfirmationMsg("Peak Non Peak Pricing Saved Successfully");
+		String name=driver.findElement(By.xpath("//tr[@class='active']//a")).getText();
+		pricingPage.verifyConfirmationMsg("Pricing " + name + "Saved Successfully");
 		
 	}
 }

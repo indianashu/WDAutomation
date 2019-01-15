@@ -45,7 +45,7 @@ public class PriorityCustomerLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,rowNum);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Customer Level Peak Non Peak Order Saved Successfully For Tyler Kim ");
+    	peakScenarioPage.verifyConfirmationMsg("Priority Customer Level Peak Non Peak Subscription Order Saved Successfully For Tyler Kim ");
     	}
     	
     	peakScenarioPage.clickCustomerTab();

@@ -1,5 +1,6 @@
 package peakNonPeak;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -34,7 +35,8 @@ public class CategoryProductTest {
 		productPage.enterCategoryName(0);
 		productPage.selectCompanies();
 		productPage.clickSaveChangesButton();
-		productPage.verifyConfirmationMsg("Peak category Saved Successfully");
+		String name1=driver.findElement(By.xpath("//tr[@class='active']//strong")).getText();
+		productPage.verifyConfirmationMsg(name1 + " Saved Successfully");
 		productPage.verifyCategoryData(0);
 
 		productPage.clickAddCategoryButton();
@@ -42,7 +44,8 @@ public class CategoryProductTest {
 		productPage.enterCategoryType();
 		productPage.selectCompanies();
 		productPage.clickSaveChangesButton();
-		productPage.verifyConfirmationMsg("Plan Peak category Saved Successfully");
+		String name2=driver.findElement(By.xpath("//tr[@class='active']//strong")).getText();
+		productPage.verifyConfirmationMsg(name2 + " Saved Successfully");
 		productPage.verifyCategoryData(1);
 
 		for (int rowNum = 0; rowNum < 6; rowNum++) {
@@ -55,7 +58,8 @@ public class CategoryProductTest {
 			productPage.enterPriceRate(0);
 			productPage.clickAddPriceButton();
 			productPage.clickSaveChangesButton();
-			productPage.verifyConfirmationMsg("Peak Product Saved Successfully");
+			String name3=driver.findElement(By.xpath("//table[@id='products']//strong")).getText();
+			productPage.verifyConfirmationMsg(name3 + " Saved Successfully");
 			productPage.verifyProductName(rowNum);
 
 			productPage.selectCategoryName(1);
@@ -69,7 +73,8 @@ public class CategoryProductTest {
 			productPage.enterPricing();
 			productPage.clickOnAddPrice();
 			productPage.clickSaveChangesButton();
-			productPage.verifyConfirmationMsg("Plan Peak Product Saved Successfully");
+			String name4=driver.findElement(By.xpath("//table[@id='products']//strong")).getText();
+			productPage.verifyConfirmationMsg(name4 + " Saved Successfully");
 			productPage.verifyProductData(rowNum);
 		}
 		//Weekly Based for  Peak Product2
@@ -82,7 +87,7 @@ public class CategoryProductTest {
 		productPage.enterEndDate(0);
 		productPage.selectDayofWeek(0);
 		productPage.clickSavePeakButton();
-		productPage.verifyConfirmationMsg("Weekly Based Peak Saved Successfully");
+		productPage.verifyConfirmationMsg("Weekly Based Peak Saved Successfully For Product 2");
 		productPage.verifyActiveSpecialDaysData(0);
 		productPage.verifyDayofWeek(0);
 		
@@ -98,7 +103,7 @@ public class CategoryProductTest {
 		productPage.enterStartTime();
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
-		productPage.verifyConfirmationMsg("Time Based Peak Saved Successfully For Product2");
+		productPage.verifyConfirmationMsg("Time Based Peak Saved Successfully For Product 2");
 		productPage.verifyActiveSpecialDaysData(1);
 		
 		//Time Based for  Peak Product4
@@ -113,7 +118,7 @@ public class CategoryProductTest {
 		productPage.enterStartTime();
 		productPage.enterEndTime();
 		productPage.clickSavePeakButton();
-		productPage.verifyConfirmationMsg("Time Based Peak Saved Successfully For Product4");
+		productPage.verifyConfirmationMsg("Time Based Peak Saved Successfully For Product 4");
 		productPage.verifyActiveSpecialDaysData(1);
 		
 		//Weekly Based for  Peak Product6
@@ -127,6 +132,7 @@ public class CategoryProductTest {
 		productPage.enterEndDate(0);
 		productPage.selectDayofWeek(1);
 		productPage.clickSavePeakButton();
+		productPage.verifyConfirmationMsg("WeekDay Based Peak Saved Successfully For Product 6");
 		productPage.verifyActiveSpecialDaysData(2);
 		productPage.verifyDayofWeek(1);
 	}

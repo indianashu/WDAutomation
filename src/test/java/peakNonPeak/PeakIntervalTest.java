@@ -1,5 +1,6 @@
 package peakNonPeak;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -38,7 +39,8 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterEndDate(0);
 		peakIntervalPage.selectDayofWeek();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg("Weekly Based Peak Saved Successfully At Company Level");
+		String name1 = driver.findElement(By.xpath("//*[@class='heading']//*[text()='WEEKDAY_BASED']")).getText();
+		peakIntervalPage.verifyConfirmationMsg(name1 + "Peak Saved Successfully");
 		
 		//SPECIAL DAY
 		peakIntervalPage.selectPeakInterval(1);
@@ -47,7 +49,8 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterStartDate(1);
 		peakIntervalPage.enterDescription();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg("Special Day Peak Saved Successfully At Company Level");
+		String name2 = driver.findElement(By.xpath("//*[@class='heading']//*[text()='SPECIAL_DAY']")).getText();
+		peakIntervalPage.verifyConfirmationMsg(name2 + "Peak Saved Successfully");
 		
 		//HOLIDAY
 		peakIntervalPage.selectPeakInterval(2);
@@ -55,7 +58,8 @@ public class PeakIntervalTest {
 		peakIntervalPage.selectisRecurring();
 		peakIntervalPage.enterStartDate(2);
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg("Holiday Based Peak Saved Successfully At Company Level");
+		String name3 = driver.findElement(By.xpath("//*[@class='heading']//*[text()='HOLIDAY']")).getText();
+		peakIntervalPage.verifyConfirmationMsg(name3 + "Peak Saved Successfully");
 		
 		//TIME BASED
 		peakIntervalPage.selectPeakInterval(3);
@@ -67,7 +71,8 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterStartTime();
 		peakIntervalPage.enterEndTime();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg("Time Based Peak Saved Successfully At Company Level");
+		String name4 = driver.findElement(By.xpath("//*[@class='heading']//*[text()='TIME_BASED']")).getText();
+		peakIntervalPage.verifyConfirmationMsg(name4 + "Peak Saved Successfully");
 	}
 
 }

@@ -44,7 +44,7 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,4);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak Order Saved Successfully For Betsy Klompus");
+    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak  Subscription Order Saved Successfully For Betsy Klompus");
     	   	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(5);
@@ -72,7 +72,7 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,5);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak Order Saved Successfully For Warren Drummond");
+    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak Subscription Order Saved Successfully For Warren Drummond");
     	   	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(7);

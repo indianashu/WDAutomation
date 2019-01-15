@@ -1,5 +1,6 @@
 package peakNonPeak;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -40,7 +41,8 @@ public class CustomerTest {
 			customerPage.enterCustomerName(rowNum);
 			customerPage.selectCurrency();
 			customerPage.clickSaveChangesButton();
-			customerPage.verifyConfirmationMsg("New Customer Saved Successfully");
+			String name=driver.findElement(By.xpath("//tr[@class='active']//strong//span")).getText();
+			customerPage.verifyConfirmationMsg("Customer " + name + "Saved Successfully");
 		}
 		
 		// WEEKLY BASED FOR TOMMY ALLEN
@@ -60,7 +62,7 @@ public class CustomerTest {
 		customerPage.enterEndDate(0);
 		customerPage.selectDayofWeek();
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg("Successfully saved Weekly Based Peak For Customer Tommy Allen");
+		customerPage.verifyConfirmationMsg("Successfully saved WeekDay Based Peak For Customer Tommy Allen");
 
 		// SPECIAL DAY FOR TOMMY ALLEN
 		customerPage.clickActiveSpecialPlusButton();
@@ -111,6 +113,6 @@ public class CustomerTest {
 		customerPage.enterStartDate(1);
 		customerPage.enterDescription("Birthday");
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Customer Tommy Allen");
+		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Customer Tyler Kim");
 	}
 }
