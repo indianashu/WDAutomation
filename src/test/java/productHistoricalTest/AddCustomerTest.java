@@ -2,6 +2,8 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.AddCustomerPage;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,7 +43,8 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			addCustomerPage.verifyConfirmationMsg("Saved Customer " + (rowNum+1)  + "Successfully For Parent Company");
+			String name= driver.findElement(By.xpath("//tr[@class='active']//strong//span")).getText();
+			addCustomerPage.verifyConfirmationMsg("Saved " + name + " Successfully For Parent Company");
 		}
 		addCustomerPage.clickImpersonate();
 		addCustomerPage.selectChildCompany();
@@ -55,7 +58,8 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			addCustomerPage.verifyConfirmationMsg("Saved Customer " + (rowNum+1)  +  "Successfully For Child Company");
+			String name= driver.findElement(By.xpath("//tr[@class='active']//strong//span")).getText();
+			addCustomerPage.verifyConfirmationMsg("Saved " + name +  " Successfully For Child Company");
 		}
 		addCustomerPage.clickRedCross();
 		

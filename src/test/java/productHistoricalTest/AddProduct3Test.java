@@ -2,6 +2,8 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.AddProduct3Page;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -43,8 +45,8 @@ public class AddProduct3Test {
 		addProductCategoryPage.selectHistoricalPrices();
 		
 		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg("Saved Product 3 Successfully");
-
+		String name2=driver.findElement(By.xpath("//table[@id='products']//strong")).getText();
+		addProductCategoryPage.verifyConfirmationMsg("Saved " + name2 + "Successfully");
 	}
 
 }
