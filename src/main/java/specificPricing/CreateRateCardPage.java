@@ -4,7 +4,6 @@ import baseClassPackage.BasePage;
 import specificPricing.CreateRateCardPage;
 import specificPricing.CreateRateCardPage;
 import productDependency.CreateOrderPeriodPage;
-
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;

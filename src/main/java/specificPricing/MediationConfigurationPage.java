@@ -2,8 +2,6 @@ package specificPricing;
 
 import baseClassPackage.BasePage;
 import mediation.MediationPage;
-import specificPricing.CreateProductAndCategoryPage;
-import specificPricing.CreateProductAndCategoryPage;
 import productDependency.CreateOrderPeriodPage;
 import java.io.IOException;
 import org.apache.log4j.Logger;

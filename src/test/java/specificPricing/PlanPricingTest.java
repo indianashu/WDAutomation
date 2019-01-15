@@ -25,10 +25,10 @@ public class PlanPricingTest {
 	@Test(groups = { "Specific Pricing Feature" }, description = "Create Order")
 	public void userSignin() throws Exception {
 
-		/*specificPricingPage.enterLoginID();
+		specificPricingPage.enterLoginID();
 		specificPricingPage.enterPassword();
 		specificPricingPage.selectCompany();
-		specificPricingPage.clickLoginButton();*/
+		specificPricingPage.clickLoginButton();
 		
 		specificPricingPage.clickCustomerTab();
 		specificPricingPage.enterCustomerNameFilter(1);
@@ -47,7 +47,7 @@ public class PlanPricingTest {
 		specificPricingPage.selectMediation();
 		specificPricingPage.uploadPlanCSVFile();
 		specificPricingPage.clickTriggerConfigButton();
-		specificPricingPage.verifyConfirmationMsg("Orders Saved Successfully");
+		specificPricingPage.verifyConfirmationMsg("Orders Saved Successfully For Plan Pricing");
 		specificPricingPage.clickMediationsTab();
 		specificPricingPage.verifyNumberOrders();
     	specificPricingPage.clickMediationName();
