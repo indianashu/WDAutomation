@@ -54,7 +54,7 @@ public class CreateDependentCategoryTest {
 		dependentProductPage.enterMin();
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
-		dependentProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		dependentProductPage.verifyConfirmationMsg("Saved Product 1 Successfully");
 
 		// Billing Category Product 2
 		dependentProductPage.clickProductsTab();
@@ -73,7 +73,7 @@ public class CreateDependentCategoryTest {
 		dependentProductPage.enterMax1();
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
-		dependentProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		dependentProductPage.verifyConfirmationMsg("Saved Product 2 Successfully");
 
 		// Billing Category Product 3
 		dependentProductPage.clickProductsTab();
@@ -92,7 +92,7 @@ public class CreateDependentCategoryTest {
 		dependentProductPage.enterMax2();
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
-		dependentProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		dependentProductPage.verifyConfirmationMsg("Saved Product 3 Successfully");
 
 		// Billing Category Product 4
 		dependentProductPage.clickProductsTab();
@@ -123,7 +123,7 @@ public class CreateDependentCategoryTest {
 		dependentProductPage.enterMax4();
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
-		dependentProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		dependentProductPage.verifyConfirmationMsg("Saved Product 4 Successfully");
 
 		// Billing Category Product 5
 		dependentProductPage.clickProductsTab();
@@ -142,7 +142,7 @@ public class CreateDependentCategoryTest {
 		dependentProductPage.enterMin3();
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
-		dependentProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		dependentProductPage.verifyConfirmationMsg("Saved Product 5 Successfully");
 
 		// Billing Category Product 6
 		dependentProductPage.clickProductsTab();
@@ -168,7 +168,7 @@ public class CreateDependentCategoryTest {
 		dependentProductPage.enterMax5();
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
-		dependentProductPage.verifyConfirmationMsg("Saved Product Successfully");
+		dependentProductPage.verifyConfirmationMsg("Saved Product 6 Successfully");
 
 	}
 }
