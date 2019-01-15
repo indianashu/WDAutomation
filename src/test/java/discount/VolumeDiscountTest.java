@@ -43,7 +43,7 @@ public class VolumeDiscountTest {
 		discountPage.selectDiscountableItem(1);
 		discountPage.clickUpdateButton();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg("Saved Order Successfully");
+		discountPage.verifyConfirmationMsg("Saved Subscription Order Successfully For Volume Discount");
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
