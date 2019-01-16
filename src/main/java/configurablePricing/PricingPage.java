@@ -1,7 +1,6 @@
 package configurablePricing;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import baseClassPackage.BasePage;
 import configurablePricing.PricingPage;
-import productDependency.CreateOrderPage;
-import tearDown.TearDownProcessPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
