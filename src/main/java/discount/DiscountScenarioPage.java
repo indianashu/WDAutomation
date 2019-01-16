@@ -1,7 +1,6 @@
 package discount;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import baseClassPackage.BasePage;
-import configurablePricing.ConfigurablePricingPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
