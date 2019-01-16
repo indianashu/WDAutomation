@@ -29,19 +29,15 @@ public class CreateOrderEUROChildTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*
-		 * createEUROChildOrderPage.enterLoginID();
-		 * createEUROChildOrderPage.enterPassword();
-		 * createEUROChildOrderPage.selectCompany();
-		 * createEUROChildOrderPage.clickLoginButton();
-		 */
+		/*createEUROChildOrderPage.enterLoginID();
+		createEUROChildOrderPage.enterPassword();
+		createEUROChildOrderPage.selectCompany();
+		createEUROChildOrderPage.clickLoginButton();*/
 
-		/*
-		 * createEUROChildOrderPage.clickImpersonate();
-		 * createEUROChildOrderPage.selectChildCompany();
-		 * createEUROChildOrderPage.clickOKButton();
-		 */
-
+		createEUROChildOrderPage.clickImpersonate();
+		createEUROChildOrderPage.selectChildCompany();
+		createEUROChildOrderPage.clickOKButton();
+		 
 		// ActiveSince=Past date
 		createEUROChildOrderPage.clickCustomerTab();
 		createEUROChildOrderPage.selectCustomer();
