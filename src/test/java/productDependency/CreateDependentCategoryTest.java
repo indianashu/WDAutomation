@@ -30,142 +30,143 @@ public class CreateDependentCategoryTest {
 
 		/*dependentProductPage.enterLoginID();
 		dependentProductPage.enterPassword();
-		dependentProductPage.selectCompany1();
+		dependentProductPage.selectItemCompany();
 		dependentProductPage.clickLoginButton();*/
 
 		dependentProductPage.clickProductsTab();
 		dependentProductPage.clickAddCategoryButton();
 		dependentProductPage.enterCategoryName();
+		dependentProductPage.selectCompanies();
 		dependentProductPage.clickSaveChangesButton();
 		dependentProductPage.verifyConfirmationMsg();
 
-		// Billing Category Product 1
+		// Dependent Category Product 1
 		dependentProductPage.selectCategoryName();
 		dependentProductPage.clickAddProductButton();
-		dependentProductPage.enterEnglishDescription();
-		dependentProductPage.enterProductCode();
-		dependentProductPage.selectCompany();
+		dependentProductPage.enterEnglishDescription(3);
+		dependentProductPage.enterProductCode(3);
+		dependentProductPage.selectItemCompany();
 		dependentProductPage.selectPriceCurrency();
-		dependentProductPage.enterPriceRate();
+		dependentProductPage.enterPriceRate(3);
 		dependentProductPage.clickAddPriceButton();
 		dependentProductPage.clickDependenciesPlus();
 		dependentProductPage.selectProductCategoryDependency();
-		dependentProductPage.selectProductPeriod();
-		dependentProductPage.enterMin();
+		dependentProductPage.selectProductPeriod(0);
+		dependentProductPage.enterMin("1");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
 		dependentProductPage.verifyConfirmationMsg();
 
-		// Billing Category Product 2
+		// Dependent Category Product 2
 		dependentProductPage.clickProductsTab();
 		dependentProductPage.selectCategoryName();
 		dependentProductPage.clickAddProductButton();
-		dependentProductPage.enterEnglishDescription1();
-		dependentProductPage.enterProductCode1();
-		dependentProductPage.selectCompany();
+		dependentProductPage.enterEnglishDescription(4);
+		dependentProductPage.enterProductCode(4);
+		dependentProductPage.selectItemCompany();
 		dependentProductPage.selectPriceCurrency();
-		dependentProductPage.enterPriceRate1();
+		dependentProductPage.enterPriceRate(4);
 		dependentProductPage.clickAddPriceButton();
 		dependentProductPage.clickDependenciesPlus();
 		dependentProductPage.selectProductCategoryDependency();
-		dependentProductPage.selectProductPeriod1();
-		dependentProductPage.enterMin1();
-		dependentProductPage.enterMax1();
+		dependentProductPage.selectProductPeriod(1);
+		dependentProductPage.enterMin("1");
+		dependentProductPage.enterMax("5");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
 		dependentProductPage.verifyConfirmationMsg();
 
-		// Billing Category Product 3
+		// Dependent Category Product 3
 		dependentProductPage.clickProductsTab();
 		dependentProductPage.selectCategoryName();
 		dependentProductPage.clickAddProductButton();
-		dependentProductPage.enterEnglishDescription2();
-		dependentProductPage.enterProductCode2();
-		dependentProductPage.selectCompany();
+		dependentProductPage.enterEnglishDescription(5);
+		dependentProductPage.enterProductCode(5);
+		dependentProductPage.selectItemCompany();
 		dependentProductPage.selectPriceCurrency();
-		dependentProductPage.enterPriceRate2();
+		dependentProductPage.enterPriceRate(5);
 		dependentProductPage.clickAddPriceButton();
 		dependentProductPage.clickDependenciesPlus();
 		dependentProductPage.selectProductCategoryDependency();
-		dependentProductPage.selectProductPeriod2();
-		dependentProductPage.enterMin2();
-		dependentProductPage.enterMax2();
+		dependentProductPage.selectProductPeriod(2);
+		dependentProductPage.enterMin("3");
+		dependentProductPage.enterMax("5");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
 		dependentProductPage.verifyConfirmationMsg();
 
-		// Billing Category Product 4
+		// Dependent Category Product 4
 		dependentProductPage.clickProductsTab();
 		dependentProductPage.selectCategoryName();
 		dependentProductPage.clickAddProductButton();
-		dependentProductPage.enterEnglishDescription3();
-		dependentProductPage.enterProductCode3();
-		dependentProductPage.selectCompany();
+		dependentProductPage.enterEnglishDescription(6);
+		dependentProductPage.enterProductCode(6);
+		dependentProductPage.selectItemCompany();
 		dependentProductPage.selectPriceCurrency();
-		dependentProductPage.enterPriceRate3();
+		dependentProductPage.enterPriceRate(6);
 		dependentProductPage.clickAddPriceButton();
 		dependentProductPage.clickDependenciesPlus();
 		dependentProductPage.selectProductCategoryDependency();
 		dependentProductPage.selectProductDependency1();
-		dependentProductPage.selectProductPeriod3();
-		dependentProductPage.enterMin3();
+		dependentProductPage.selectProductPeriod(0);
+		dependentProductPage.enterMin("2");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.selectProductCategoryDependency();
 		dependentProductPage.selectProductDependency2();
-		dependentProductPage.selectProductPeriod4();
-		dependentProductPage.entermin6();
-		dependentProductPage.enterMax3();
+		dependentProductPage.selectProductPeriod(1);
+		dependentProductPage.enterMin("0");
+		dependentProductPage.enterMax("3");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.selectProductCategoryDependency();
 		dependentProductPage.selectProductDependency3();
-		dependentProductPage.selectProductPeriod5();
-		dependentProductPage.enterMin4();
-		dependentProductPage.enterMax4();
+		dependentProductPage.selectProductPeriod(1);
+		dependentProductPage.enterMin("1");
+		dependentProductPage.enterMax("5");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
 		dependentProductPage.verifyConfirmationMsg();
 
-		// Billing Category Product 5
+		// Dependent Category Product 5
 		dependentProductPage.clickProductsTab();
 		dependentProductPage.selectCategoryName();
 		dependentProductPage.clickAddProductButton();
-		dependentProductPage.enterEnglishDescription4();
-		dependentProductPage.enterProductCode4();
-		dependentProductPage.selectCompany();
+		dependentProductPage.enterEnglishDescription(7);
+		dependentProductPage.enterProductCode(7);
+		dependentProductPage.selectItemCompany();
 		dependentProductPage.selectPriceCurrency();
-		dependentProductPage.enterPriceRate4();
+		dependentProductPage.enterPriceRate(7);
 		dependentProductPage.clickAddPriceButton();
 		dependentProductPage.clickDependenciesPlus();
 		dependentProductPage.selectProductCategoryDependency();
 		dependentProductPage.selectProductDependency1();
-		dependentProductPage.selectProductPeriod3();
-		dependentProductPage.enterMin3();
+		dependentProductPage.selectProductPeriod(0);
+		dependentProductPage.enterMin("2");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
 		dependentProductPage.verifyConfirmationMsg();
 
-		// Billing Category Product 6
+		// Dependent Category Product 6
 		dependentProductPage.clickProductsTab();
 		dependentProductPage.selectCategoryName();
 		dependentProductPage.clickAddProductButton();
-		dependentProductPage.enterEnglishDescription5();
-		dependentProductPage.enterProductCode5();
-		dependentProductPage.selectCompany();
+		dependentProductPage.enterEnglishDescription(8);
+		dependentProductPage.enterProductCode(8);
+		dependentProductPage.selectItemCompany();
 		dependentProductPage.selectPriceCurrency();
-		dependentProductPage.enterPriceRate5();
+		dependentProductPage.enterPriceRate(8);
 		dependentProductPage.clickAddPriceButton();
 		dependentProductPage.clickDependenciesPlus();
 		dependentProductPage.selectProductCategoryDependency();
 		dependentProductPage.selectProductDependency2();
-		dependentProductPage.selectProductPeriod4();
-		dependentProductPage.entermin6();
-		dependentProductPage.enterMax6();
+		dependentProductPage.selectProductPeriod(1);
+		dependentProductPage.enterMin("0");
+		dependentProductPage.enterMax("2");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.selectProductCategoryDependency();
 		dependentProductPage.selectProductDependency3();
-		dependentProductPage.selectProductPeriod5();
-		dependentProductPage.enterMin5();
-		dependentProductPage.enterMax5();
+		dependentProductPage.selectProductPeriod(1);
+		dependentProductPage.enterMin("3");
+		dependentProductPage.enterMax("5");
 		dependentProductPage.addDependencyLine();
 		dependentProductPage.clickSaveChangesButton();
 		dependentProductPage.verifyConfirmationMsg();

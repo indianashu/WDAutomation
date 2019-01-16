@@ -573,15 +573,15 @@ public class CreateOrderPage extends BasePage {
 		String customer = driver.findElement(By.xpath("//*[@id=" + invoiceId + "]/strong/span")).getText();
 		System.out.println("Customer Name  for Invoice=" + customer);
 		if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 0))) {
-			Assert.assertEquals(amount, "US$60.00");
+			Assert.assertEquals(amount, "US$120.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 1))) {
 			Assert.assertEquals(amount, "US$20.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 2))) {
-			Assert.assertEquals(amount, "US$60.00");
+			Assert.assertEquals(amount, "US$240.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 3))) {
-			Assert.assertEquals(amount, "US$100.00");
+			Assert.assertEquals(amount, "US$200.00");
 		} else if (customer.contains(BasePage.getCellData(xlsxName, sheetName, 3, 4))) {
-			Assert.assertEquals(amount, "US$70.00");
+			Assert.assertEquals(amount, "US$140.00");
 		} else {
 			Assert.assertEquals(amount, "US$10.00");
 		}
