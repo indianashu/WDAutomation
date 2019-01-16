@@ -1,12 +1,8 @@
 package addOnTest;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import addOn.AddOnCreateCustomerPage;
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
@@ -44,7 +40,7 @@ public class AddOnCreateCustomerTest {
 			addOnCreateCustomerPage.selectCurrency();
 			addOnCreateCustomerPage.navigateBottom();
 			addOnCreateCustomerPage.clickSaveChangesButton();
-			addOnCreateCustomerPage.verifyConfirmationMsg("Add On Customer "  + (rowNum+1) +  " Saved Successfully");
+			addOnCreateCustomerPage.verifyConfirmationMsg("Customer Saved Successfully");
 		}
     }
     

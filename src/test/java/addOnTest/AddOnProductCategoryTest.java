@@ -1,12 +1,8 @@
 package addOnTest;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import addOn.AddOnProductCategoryPage;
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
@@ -31,10 +27,10 @@ public class AddOnProductCategoryTest {
     @Test(groups={"Add ON"},description="Add ON Product and Category creation")
     public void userSignin() throws Exception{
 
-    	/*addOnProductCategoryPage.enterLoginID();
+    	addOnProductCategoryPage.enterLoginID();
     	addOnProductCategoryPage.enterPassword();
     	addOnProductCategoryPage.selectCompany();
-    	addOnProductCategoryPage.clickLoginButton();*/
+    	addOnProductCategoryPage.clickLoginButton();
 
     	addOnProductCategoryPage.clickProductsTab();
     	addOnProductCategoryPage.clickAddCategoryButton();

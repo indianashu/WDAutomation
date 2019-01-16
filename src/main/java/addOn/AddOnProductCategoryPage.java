@@ -198,9 +198,7 @@ public class AddOnProductCategoryPage extends BasePage {
 				Assert.assertTrue(enterPriceRate.isDisplayed());
 				enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, column+3, 0));
 				clickAddPriceButton();
-				saveChanges();
-				verifyConfirmationMsg("Item Type Product Saved Successfully");
-			} else {
+			}else {
 
 				WebElement enterPriceRate = driver.findElement(By.xpath("//input[@name='product.rate']"));
 				Assert.assertTrue(enterPriceRate.isDisplayed());
@@ -235,10 +233,8 @@ public class AddOnProductCategoryPage extends BasePage {
 				Assert.assertTrue(clickAddOnPlusIcon.isDisplayed());
 				clickAddOnPlusIcon.click();
 				
-				saveChanges();
-				verifyConfirmationMsg("Add On Type Product Saved Successfully");
-
 			}
+				saveChanges();
 			
 		}
 			
@@ -260,6 +256,8 @@ public class AddOnProductCategoryPage extends BasePage {
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
+		
+		verifyConfirmationMsg("Product Saved Successfully");
 
 	}
 		
