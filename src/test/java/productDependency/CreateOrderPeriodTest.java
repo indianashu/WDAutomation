@@ -31,6 +31,12 @@ public class CreateOrderPeriodTest {
 		orderperiodPage.enterPassword();
 		orderperiodPage.selectCompany();
 		orderperiodPage.clickLoginButton();
+		
+		orderperiodPage.clickCurrencies();
+		orderperiodPage.checkUSDcurrency();
+		orderperiodPage.clickSaveChangesButton();
+		orderperiodPage.verifyConfirmationMsg();
+		
 		orderperiodPage.clickOrderPeriods();
 
 		boolean isPresent = orderperiodPage.checkSemiMonthlyisPresent();

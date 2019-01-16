@@ -2,6 +2,8 @@ package productDependency;
 
 import baseClassPackage.BasePage;
 import productDependency.CreateOrderPeriodPage;
+import productHistorical.CurrencyPage;
+
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -226,7 +228,41 @@ public class CreateOrderPeriodPage extends BasePage {
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
+	
+	@FindBy(how = How.XPATH, using = "//a[.='Currencies']")
+	private WebElement clickCurrencies;
 
+	/**
+	 * Method to click on Currencies.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickCurrencies() throws IOException {
+		log.info("Click on Currencies");
+		JavaScriptExec.sleep();
+		p.getPropertyFile("test", "configuration.properties");
+		String url = p.getVal("url2") + "/config/currency";
+		driver.get(url);
+	}
+	
+	@FindBy(how = How.XPATH, using = "//input[@name='currencies.1.inUse']")
+	private WebElement checkUSDcurrency;
+
+	/**
+	 * Method to Check United States Dollar Currency CheckBox.
+	 * 
+	 * @throws IOException
+	 */
+	public void checkUSDcurrency() throws IOException {
+		log.info("Check United States Dollar Currency Checkbox.");
+		Assert.assertTrue(checkUSDcurrency.isDisplayed());
+		if ( !checkUSDcurrency.isSelected() )
+		{
+			checkUSDcurrency.click();
+		}
+
+	}
+	
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();

@@ -28,7 +28,6 @@ public class CreateDependentCategoryPage extends BasePage {
 	}
 
 	Logger log = Logger.getLogger(CreateDependentCategoryPage.class);
-	CreateDependentCategoryPage dependentCategoryPage;
 	PropertyValExtractors p = new PropertyValExtractors();
 	String sheetName = "AddProductCategory1";
 	String xlsxName = "/ProductDependency_TestData.xlsx";
@@ -62,8 +61,16 @@ public class CreateDependentCategoryPage extends BasePage {
 		Assert.assertTrue(enterPassword.isDisplayed());
 		enterPassword.sendKeys(BasePage.getCellData(xlsxName, sheetName, 1, 0));
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
+	private WebElement selectCompany;
 
-	public void selectCompany1() throws IOException {
+	/**
+	 * Method to enter Password.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCompany() throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
 		Select se = new Select(Companyelement);
@@ -129,6 +136,20 @@ public class CreateDependentCategoryPage extends BasePage {
 		Assert.assertTrue(enterCategoryName.isDisplayed());
 		enterCategoryName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 3));
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='entities']")
+	private WebElement selectCompanies;
+
+	/**
+	 * Method to select companies.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCompanies() throws IOException {
+		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
+		Select se = new Select(selectCompanies);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
+	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
 	private WebElement clickSaveChangesButton;
@@ -192,11 +213,11 @@ public class CreateDependentCategoryPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterEnglishDescription() throws IOException {
+	public void enterEnglishDescription(int colNum) throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		log.info("Enter English Description");
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 3));
+		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, colNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
@@ -207,17 +228,24 @@ public class CreateDependentCategoryPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterProductCode() throws IOException {
+	public void enterProductCode(int colNum) throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		log.info("Enter Product Code");
 		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 3));
+		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, colNum));
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='product.entities']")
+	private WebElement selectItemCompany;
 
-	public void selectCompany() throws IOException {
+	/**
+	 * Method to Enter Product Code.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectItemCompany() throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Companieselement = driver.findElement(By.xpath("//select[@name='product.entities']"));
-		Select se = new Select(Companieselement);
+		Select se = new Select(selectItemCompany);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 	}
 	
@@ -236,12 +264,12 @@ public class CreateDependentCategoryPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterPriceRate() throws IOException {
+	public void enterPriceRate(int colNum) throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 3));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, colNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add Price']")
@@ -259,7 +287,7 @@ public class CreateDependentCategoryPage extends BasePage {
 		clickAddPriceButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='dependency']/div[1]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='dependency']")
 	private WebElement clickDependenciesPlus;
 
 	/**
@@ -275,11 +303,18 @@ public class CreateDependentCategoryPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='product.dependencyItemTypes']")
+	private WebElement selectProductCategoryDependency;
+
+	/**
+	 * Method to click on Dependencies plus icon.
+	 * 
+	 * @throws IOException
+	 */
 	public void selectProductCategoryDependency() throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement productCategory = driver.findElement(By.xpath("//select[@name='product.dependencyItemTypes']"));
-		Select se = new Select(productCategory);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 3, 0));
+		Select select = new Select(selectProductCategoryDependency);
+		select.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 3, 0));
 	}
 
 	public void selectProductDependency1() throws IOException {
@@ -287,12 +322,19 @@ public class CreateDependentCategoryPage extends BasePage {
 		JavaScriptExec.sleep();
 		driver.findElement(By.xpath("//*[@id='product.dependencyItems']/option[4]")).click();
 	}
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='period']")
+	private WebElement selectProductPeriod;
 
-	public void selectProductPeriod() throws IOException {
+	/**
+	 * Method to click on Dependencies plus icon.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectProductPeriod(int colNum) throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
+		Select select = new Select(selectProductPeriod);
+		select.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, colNum));
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@id='product.dependencyMin']")
@@ -303,16 +345,16 @@ public class CreateDependentCategoryPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void enterMin() throws IOException {
+	public void enterMin(String value) throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		log.info("Enter Min value");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterMin.isDisplayed());
 		enterMin.clear();
-		enterMin.sendKeys("1");
+		enterMin.sendKeys(value);
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='dependency']/div[2]/div/table/tbody/tr/td[6]/a/img")
+	@FindBy(how = How.XPATH, using = "//img[@name='add']")
 	private WebElement addDependencyLine;
 
 	/**
@@ -329,281 +371,21 @@ public class CreateDependentCategoryPage extends BasePage {
 		addDependencyLine.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
-	private WebElement enterEnglishDescription1;
-
-	/**
-	 * Method to Enter English Description.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterEnglishDescription1() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter English Description");
-		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 4));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
-	private WebElement enterProductCode1;
-
-	/**
-	 * Method to Enter Product Code.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterProductCode1() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Product Code");
-		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 4));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
-	private WebElement enterPriceRate1;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterPriceRate1() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Price Rate");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 4));
-	}
-	
-	public void selectProductPeriod1() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 1));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
-	private WebElement enterMin1;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMin1() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Min value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMin1.clear();
-		enterMin.sendKeys("1");
-	}
-
 	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
-	private WebElement enterMax1;
+	private WebElement enterMax;
 
 	/**
 	 * Method to Enter Price Rate.
 	 * 
 	 * @throws IOException
 	 */
-	public void enterMax1() throws IOException {
+	public void enterMax(String value) throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		log.info("Enter Max value");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMax1.clear();
-		enterMax1.sendKeys("5");
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
-	private WebElement enterEnglishDescription2;
-
-	/**
-	 * Method to Enter English Description.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterEnglishDescription2() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter English Description");
-		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 5));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
-	private WebElement enterProductCode2;
-
-	/**
-	 * Method to Enter Product Code.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterProductCode2() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Product Code");
-		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 5));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
-	private WebElement enterPriceRate2;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterPriceRate2() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Price Rate");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 5));
-	}
-
-	private WebElement selectProductPeriod2;
-
-	/**
-	 * Method to select product period in dependencies section.
-	 * 
-	 * @throws IOException
-	 */
-	public void selectProductPeriod2() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 2));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
-	private WebElement enterMin2;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMin2() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Min value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMin.clear();
-		enterMin.sendKeys("3");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
-	private WebElement enterMax2;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMax2() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Max value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMax2.clear();
-		enterMax2.sendKeys("5");
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
-	private WebElement enterEnglishDescription3;
-
-	/**
-	 * Method to Enter English Description.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterEnglishDescription3() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter English Description");
-		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 6));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
-	private WebElement enterProductCode3;
-
-	/**
-	 * Method to Enter Product Code.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterProductCode3() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Product Code");
-		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 6));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
-	private WebElement enterPriceRate3;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterPriceRate3() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Price Rate");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 6));
-	}
-
-	private WebElement selectProductPeriod3;
-
-	/**
-	 * Method to select product period in dependencies section.
-	 * 
-	 * @throws IOException
-	 */
-	public void selectProductPeriod3() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 0));
-	}
-	
-	public void selectProductPeriod4() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 1));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
-	private WebElement enterMin3;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMin3() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Min value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMin3.clear();
-		enterMin3.sendKeys("2");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
-	private WebElement entermin6;
-
-	public void entermin6() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Min value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		entermin6.clear();
-		entermin6.sendKeys("0");
+		enterMax.clear();
+		enterMax.sendKeys(value);
 	}
 	
 	public void selectProductDependency2() throws IOException {
@@ -612,213 +394,12 @@ public class CreateDependentCategoryPage extends BasePage {
 		driver.findElement(By.xpath("//*[@id='product.dependencyItems']/option[3]")).click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
-	private WebElement enterMax3;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMax3() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Max value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMax3.clear();
-		enterMax3.sendKeys("3");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
-	private WebElement enterMax4;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMax4() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Max value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMax4.clear();
-		enterMax4.sendKeys("5");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
-	private WebElement enterMax6;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMax6() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Max value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMax6.clear();
-		enterMax6.sendKeys("2");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMax']")
-	private WebElement enterMax5;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMax5() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Max value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMax5.clear();
-		enterMax5.sendKeys("5");
-	}
-
 	public void selectProductDependency3() throws IOException {
 		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
 		JavaScriptExec.sleep();
 		driver.findElement(By.xpath("//*[@id='product.dependencyItems']/option[2]")).click();
 	}
 	
-	public void selectProductPeriod5() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		WebElement Productelement = driver.findElement(By.xpath("//select[@name='period']"));
-		Select se = new Select(Productelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 7, 1));
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
-	private WebElement enterMin4;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMin4() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Min value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMin4.clear();
-		enterMin4.sendKeys("1");
-	}
-
-	@FindBy(how = How.XPATH, using = "//*[@id='product.dependencyMin']")
-	private WebElement enterMin5;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterMin5() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Min value");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterMin5.clear();
-		enterMin5.sendKeys("3");
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
-	private WebElement enterEnglishDescription4;
-
-	/**
-	 * Method to Enter English Description.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterEnglishDescription4() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter English Description");
-		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 9));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
-	private WebElement enterProductCode4;
-
-	/**
-	 * Method to Enter Product Code.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterProductCode4() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Product Code");
-		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 9));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
-	private WebElement enterPriceRate4;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterPriceRate4() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Price Rate");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 9));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
-	private WebElement enterEnglishDescription5;
-
-	/**
-	 * Method to Enter English Description.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterEnglishDescription5() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter English Description");
-		Assert.assertTrue(enterEnglishDescription.isDisplayed());
-		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 10));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.number']")
-	private WebElement enterProductCode5;
-
-	/**
-	 * Method to Enter Product Code.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterProductCode5() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Product Code");
-		Assert.assertTrue(enterProductCode.isDisplayed());
-		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 10));
-	}
-
-	@FindBy(how = How.XPATH, using = "//input[@name='product.rate']")
-	private WebElement enterPriceRate5;
-
-	/**
-	 * Method to Enter Price Rate.
-	 * 
-	 * @throws IOException
-	 */
-	public void enterPriceRate5() throws IOException {
-		CreateDependentCategoryPage sp = new CreateDependentCategoryPage(driver);
-		log.info("Enter Price Rate");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 10));
-	}
-
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();
