@@ -45,7 +45,7 @@ public class PriorityCustomerLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,rowNum);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Customer Level Peak Non Peak Subscription Order Saved Successfully For Tyler Kim ");
+    	peakScenarioPage.verifyConfirmationMsg("Subscription Order Saved Successfully For Tyler Kim At Priority Customer Level");
     	}
     	
     	peakScenarioPage.clickCustomerTab();
@@ -61,7 +61,7 @@ public class PriorityCustomerLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(8,0);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Customer Level Peak Non Peak Order Saved Successfully For Tyler Kim ");
+    	peakScenarioPage.verifyConfirmationMsg("Order Saved Successfully For Tyler Kim At Priority Customer Level");
     	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(3);
@@ -76,7 +76,7 @@ public class PriorityCustomerLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(8,2);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Priority Customer Level Peak Non Peak Order Saved Successfully For Tyler Kim ");
+    	peakScenarioPage.verifyConfirmationMsg("Order Saved Successfully For Tyler Kim At Priority Customer Level");
     }
    
 }

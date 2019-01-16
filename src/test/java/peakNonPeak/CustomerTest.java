@@ -41,8 +41,7 @@ public class CustomerTest {
 			customerPage.enterCustomerName(rowNum);
 			customerPage.selectCurrency();
 			customerPage.clickSaveChangesButton();
-			String name=driver.findElement(By.xpath("//tr[@class='active']//strong//span")).getText();
-			customerPage.verifyConfirmationMsg("Customer " + name + "Saved Successfully");
+			customerPage.verifyConfirmationMsg("Customer Saved Successfully");
 		}
 		
 		// WEEKLY BASED FOR TOMMY ALLEN
@@ -62,7 +61,7 @@ public class CustomerTest {
 		customerPage.enterEndDate(0);
 		customerPage.selectDayofWeek();
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg("Successfully saved WeekDay Based Peak For Customer Tommy Allen");
+		customerPage.verifyConfirmationMsg("Successfully saved WeekDay Based Peak For Tommy Allen.");
 
 		// SPECIAL DAY FOR TOMMY ALLEN
 		customerPage.clickActiveSpecialPlusButton();
@@ -73,7 +72,7 @@ public class CustomerTest {
 		customerPage.enterStartDate(1);
 		customerPage.enterDescription("Work Anniversary");
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Customer Tommy Allen");
+		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Tommy Allen.");
 
 		// HOLIDAY FOR TOMMY ALLEN
 		customerPage.clickActiveSpecialPlusButton();
@@ -83,7 +82,7 @@ public class CustomerTest {
 		customerPage.selectisRecurring();
 		customerPage.enterStartDate(2);
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg("Successfully saved Holiday Peak For Customer Tommy Allen");
+		customerPage.verifyConfirmationMsg("Successfully saved Holiday Peak For Tommy Allen.");
 
 		// TIME BASED FOR TOMMY ALLEN
 		customerPage.clickActiveSpecialPlusButton();
@@ -97,7 +96,7 @@ public class CustomerTest {
 		customerPage.enterStartTime();
 		customerPage.enterEndTime();
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg("Successfully saved Time Based Peak For Customer Tommy Allen");
+		customerPage.verifyConfirmationMsg("Successfully saved Time Based Peak For Tommy Allen.");
 		
 		// SPECIAL DAY FOR TYLER KIM
 		customerPage.clickCustomerTab();
@@ -113,6 +112,6 @@ public class CustomerTest {
 		customerPage.enterStartDate(1);
 		customerPage.enterDescription("Birthday");
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Customer Tyler Kim");
+		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Tyler Kim.");
 	}
 }

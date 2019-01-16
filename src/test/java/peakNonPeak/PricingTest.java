@@ -40,8 +40,9 @@ public class PricingTest {
 		pricingPage.enterPeakPrice();
 		pricingPage.enterNonPeakPrice();
 		pricingPage.clickSaveChangesButton();
-		String name=driver.findElement(By.xpath("//tr[@class='active']//a")).getText();
-		pricingPage.verifyConfirmationMsg("Pricing " + name + "Saved Successfully");
+		pricingPage.verifyConfirmationMsg("Peak Non Peak pricing Saved Successfully");
+		
+		
 		
 	}
 }

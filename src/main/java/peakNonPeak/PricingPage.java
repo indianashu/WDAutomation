@@ -196,6 +196,9 @@ public class PricingPage extends BasePage {
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
+		
+		
+		
 
 	}
 	

@@ -43,7 +43,7 @@ public class ProductLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,1);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Product Level Peak Non Peak Order Saved Successfully");
+    	peakScenarioPage.verifyConfirmationMsg("Peak Non Peak Subscription Order Saved Successfully At Product Level ");
     	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(1);
@@ -58,7 +58,7 @@ public class ProductLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(10,0);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Product Level Peak Non Peak Order Saved Successfully");
+    	peakScenarioPage.verifyConfirmationMsg("Order Saved Successfully For WeekDay_Based Peak At Product Level");
     	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(1);
@@ -73,7 +73,7 @@ public class ProductLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(10,1);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Product Level Peak Non Peak Order Saved Successfully");
+    	peakScenarioPage.verifyConfirmationMsg("Order Saved Successfully For Time_Based Peak At Product Level");
     	
     	
     }

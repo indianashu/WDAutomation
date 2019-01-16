@@ -44,7 +44,7 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,4);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak  Subscription Order Saved Successfully For Betsy Klompus");
+    	peakScenarioPage.verifyConfirmationMsg("Subscription Order Saved Successfully For Betsy Klompus At Priority Company Level");
     	   	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(5);
@@ -59,7 +59,7 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,5);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak Order Saved Successfully For Betsy Klompus ");
+    	peakScenarioPage.verifyConfirmationMsg("Order Saved Successfully For Betsy Klompus At Priority Company Level");
     	
     	//Warren Drummond Company Level
     	peakScenarioPage.clickCustomerTab();
@@ -72,7 +72,7 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.selectProduct(5,5);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak Subscription Order Saved Successfully For Warren Drummond");
+    	peakScenarioPage.verifyConfirmationMsg("Subscription Order Saved Successfully For Warren Drummond At Priority Company Level");
     	   	
     	peakScenarioPage.clickCustomerTab();
     	peakScenarioPage.enterCustomerNameFilter(7);
@@ -87,6 +87,6 @@ public class PriorityCompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,6);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg("Company Level Peak Non Peak Order Saved Successfully For Warren Drummond");
+    	peakScenarioPage.verifyConfirmationMsg("Order Saved Successfully For Warren Drummond At Priority Company Level");
     }
 }
