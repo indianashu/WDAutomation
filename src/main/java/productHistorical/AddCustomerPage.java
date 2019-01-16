@@ -1,18 +1,8 @@
 package productHistorical;
 
 import baseClassPackage.BasePage;
-import categoryProducts.AddProductPage;
-import categoryProducts.AddProductWithAssetPage;
-import companyHierarchy.ViewAssignedInfoPage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -25,9 +15,6 @@ import org.testng.Assert;
 
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import webDataPages.ImpersonatePage;
-import webDataPages.SignupChildCompanyInvoiceAsSellerPage;
 
 import org.openqa.selenium.support.ui.Select;
 
@@ -76,6 +63,7 @@ public class AddCustomerPage extends BasePage {
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
 	private WebElement selectCompany;
 
 	/**
@@ -85,9 +73,8 @@ public class AddCustomerPage extends BasePage {
 	 */
 	public void selectCompany() throws Exception {
 		AddCustomerPage sp = new AddCustomerPage(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
-		Select se = new Select(Companyelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
+		Select select = new Select(selectCompany);
+		select.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 
 	}
 
@@ -108,7 +95,7 @@ public class AddCustomerPage extends BasePage {
 	private WebElement clickCustomerTab;
 
 	/**
-	 * Method to click on Products tab after successful login.
+	 * Method to click on Customer tab after successful login.
 	 * 
 	 * @throws IOException
 	 */

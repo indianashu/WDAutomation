@@ -1,18 +1,8 @@
 package productHistorical;
 
 import baseClassPackage.BasePage;
-import categoryProducts.AddProductPage;
-import categoryProducts.AddProductWithAssetPage;
-import companyHierarchy.ViewAssignedInfoPage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -25,9 +15,6 @@ import org.testng.Assert;
 
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import webDataPages.ImpersonatePage;
-import webDataPages.SignupChildCompanyInvoiceAsSellerPage;
 
 import org.openqa.selenium.support.ui.Select;
 
@@ -37,7 +24,6 @@ public class AddProduct2Page extends BasePage  {
 	}
 
 	Logger log = Logger.getLogger(AddProduct2Page.class);
-	AddProduct2Page AddProductCategoryPage;
 	PropertyValExtractors p = new PropertyValExtractors();
 	Actions actions = new Actions(driver);
 	String sheetName = "AddProductCategory1";
@@ -75,6 +61,7 @@ public class AddProduct2Page extends BasePage  {
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
 	private WebElement selectCompany;
 
 	/**
@@ -84,10 +71,8 @@ public class AddProduct2Page extends BasePage  {
 	 */
 	public void selectCompany() throws Exception {
 		AddProduct2Page sp = new AddProduct2Page(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
-		Select se = new Select(Companyelement);
+		Select se = new Select(selectCompany);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']")
@@ -162,7 +147,6 @@ public class AddProduct2Page extends BasePage  {
 		AddProduct2Page sp = new AddProduct2Page(driver);
 		log.info("Enter English Description");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 5, enterEnglishDescription);
 		Assert.assertTrue(enterEnglishDescription.isDisplayed());
 		enterEnglishDescription.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 1));
 
@@ -180,25 +164,23 @@ public class AddProduct2Page extends BasePage  {
 		AddProduct2Page sp = new AddProduct2Page(driver);
 		log.info("Enter Product Code");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 5, enterProductCode);
 		Assert.assertTrue(enterProductCode.isDisplayed());
 		enterProductCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 1));
 
 	}
 
-	private WebElement selectProductCompany1;
+	@FindBy(how = How.XPATH, using = "//select[@name='product.entities']")
+	private WebElement selectRootCompany;
 
 	/**
 	 * Method to select companies.
 	 * 
 	 * @throws IOException
 	 */
-	public void selectProductCompany1() throws IOException {
+	public void selectRootCompany() throws IOException {
 		AddProduct2Page sp = new AddProduct2Page(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
-		Select se = new Select(Companyelement);
+		Select se = new Select(selectRootCompany);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
-		navigateBottom();
 
 	}
 
@@ -226,9 +208,7 @@ public class AddProduct2Page extends BasePage  {
 					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
 			Assert.assertTrue(clickAddPriceButton.isDisplayed());
 			clickAddPriceButton.click();
-
 		}
-
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
@@ -243,7 +223,6 @@ public class AddProduct2Page extends BasePage  {
 		AddProduct2Page sp = new AddProduct2Page(driver);
 		log.info("Click on Save Changes Button");
 		navigateBottom();
-		WaitClass.WaitForElementisDisplay(driver, 10, clickSaveChangesButton);
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 
@@ -261,7 +240,6 @@ public class AddProduct2Page extends BasePage  {
 		AddProduct2Page sp = new AddProduct2Page(driver);
 		log.info("Verifying if Product2 is created Successfully or not");
 		JavaScriptExec.sleep();
-		WaitClass.WaitForElementisDisplay(driver, 10, verifyConfirmationMsg);
 		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}

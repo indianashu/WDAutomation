@@ -1,7 +1,7 @@
 package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
-import productHistorical.CreateCADChildOrderPage;
+import productHistorical.HistoricalScenarioPage;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
 
 public class CreateOrderCADChildTest {
-	
-	CreateCADChildOrderPage createCADChildOrderPage;
+
+	HistoricalScenarioPage historicalScenarioPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -22,94 +22,97 @@ public class CreateOrderCADChildTest {
 		String url = p.getVal("url1");
 		driver.get(url);
 		// WaitClass.waitForUrl(driver, url, 10);
-		createCADChildOrderPage = CreateCADChildOrderPage.getPage(driver, CreateCADChildOrderPage.class);
+		historicalScenarioPage = HistoricalScenarioPage.getPage(driver, HistoricalScenarioPage.class);
 
 	}
 
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*createCADChildOrderPage.enterLoginID();
-		createCADChildOrderPage.enterPassword();
-		createCADChildOrderPage.selectCompany();
-		createCADChildOrderPage.clickLoginButton();*/
-		
-		createCADChildOrderPage.clickImpersonate();
-		createCADChildOrderPage.selectChildCompany();
-		createCADChildOrderPage.clickOKButton();
+		/*
+		 * historicalScenarioPage.enterLoginID();
+		 * historicalScenarioPage.enterPassword();
+		 * historicalScenarioPage.selectCompany();
+		 * historicalScenarioPage.clickLoginButton();
+		 */
+
+		historicalScenarioPage.clickImpersonate();
+		historicalScenarioPage.selectChildCompany();
+		historicalScenarioPage.clickOKButton();
 
 		// ActiveSince=Past date
-		createCADChildOrderPage.clickCustomerTab();
-		createCADChildOrderPage.selectCustomer();
-		createCADChildOrderPage.clickCreateOrder();
-		createCADChildOrderPage.selectActiveSincePast();
-		createCADChildOrderPage.clickProductSubTab();
-		createCADChildOrderPage.selectCategory();
-		createCADChildOrderPage.selectProduct1();
-		createCADChildOrderPage.selectProduct2();
-		createCADChildOrderPage.selectProduct3();
-		createCADChildOrderPage.clickUpdateButton();
-		createCADChildOrderPage.expectedAmount1();
-		createCADChildOrderPage.clickSave();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.enterCustomerNameFilter(1);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(1);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(0);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.selectProduct(2);
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.clickUpdateButton();
+		historicalScenarioPage.expectedAmount(10, 0);
+		historicalScenarioPage.clickSaveChanges();
 
 		// ActiveSince=Between Past and Present date
-		createCADChildOrderPage.clickCustomerTab();
-		createCADChildOrderPage.selectCustomer();
-		createCADChildOrderPage.clickCreateOrder();
-		createCADChildOrderPage.selectActiveSinceBetweenPastPresent();
-		createCADChildOrderPage.clickProductSubTab();
-		createCADChildOrderPage.selectCategory();
-		createCADChildOrderPage.selectProduct1();
-		createCADChildOrderPage.selectProduct2();
-		createCADChildOrderPage.selectProduct3();
-		createCADChildOrderPage.clickUpdateButton();
-		createCADChildOrderPage.expectedAmount2();
-		createCADChildOrderPage.clickSave();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.enterCustomerNameFilter(1);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(1);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(1);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.selectProduct(2);
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.clickUpdateButton();
+		historicalScenarioPage.expectedAmount(10, 1);
+		historicalScenarioPage.clickSaveChanges();
 
 		// ActiveSince=Between Present and Future Date
-		createCADChildOrderPage.clickCustomerTab();
-		createCADChildOrderPage.selectCustomer();
-		createCADChildOrderPage.clickCreateOrder();
-		createCADChildOrderPage.selectActiveSinceBetweenPresentFuture();
-		createCADChildOrderPage.clickProductSubTab();
-		createCADChildOrderPage.selectCategory();
-		createCADChildOrderPage.selectProduct1();
-		createCADChildOrderPage.selectProduct2();
-		createCADChildOrderPage.selectProduct3();
-		createCADChildOrderPage.clickUpdateButton();
-		createCADChildOrderPage.expectedAmount3();
-		createCADChildOrderPage.clickSave();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.enterCustomerNameFilter(1);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(1);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(2);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.selectProduct(2);
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.clickUpdateButton();
+		historicalScenarioPage.expectedAmount(10, 2);
+		historicalScenarioPage.clickSaveChanges();
 
 		// ActiveSince=Future Date
-		createCADChildOrderPage.clickCustomerTab();
-		createCADChildOrderPage.selectCustomer();
-		createCADChildOrderPage.clickCreateOrder();
-		createCADChildOrderPage.selectActiveSinceFuture();
-		createCADChildOrderPage.clickProductSubTab();
-		createCADChildOrderPage.selectCategory();
-		createCADChildOrderPage.selectProduct1();
-		createCADChildOrderPage.checkApplyNow();
-		createCADChildOrderPage.clickUpdateButton1();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.enterCustomerNameFilter(1);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(1);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(3);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.checkApplyNow();
+		historicalScenarioPage.clickUpdateButton1();
 		
-		createCADChildOrderPage.selectProduct2();
-		createCADChildOrderPage.checkApplyNow2();
-		createCADChildOrderPage.clickUpdateButton2();
+		historicalScenarioPage.selectProduct(2);
+		historicalScenarioPage.checkApplyNow2();
+		historicalScenarioPage.clickUpdateButton2();
 		
-		createCADChildOrderPage.selectProduct3();
-		createCADChildOrderPage.checkApplyNow3();
-		createCADChildOrderPage.clickUpdateButton();
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.checkApplyNow3();
+		historicalScenarioPage.clickUpdateButton();
 		
 		
-		createCADChildOrderPage.expectedAmount4();
-		createCADChildOrderPage.clickSave();
-
+		historicalScenarioPage.expectedAmount(10, 3);
+		historicalScenarioPage.clickSaveChanges();
+		
+		historicalScenarioPage.clickRedCross();
 	}
-
-
-
-		
-		
-	}
-
-
-
+}

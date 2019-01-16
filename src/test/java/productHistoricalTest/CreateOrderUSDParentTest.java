@@ -1,9 +1,7 @@
 package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
-import productHistorical.CreateUSDParentOrderPage;
-
-import java.io.IOException;
+import productHistorical.HistoricalScenarioPage;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
@@ -12,7 +10,7 @@ import utilPackages.PropertyValExtractors;
 
 public class CreateOrderUSDParentTest {
 
-	CreateUSDParentOrderPage CreateUSDParentOrderPage;
+	HistoricalScenarioPage historicalScenarioPage;
 	WebDriver driver, driver2;
 
 	@BeforeClass(alwaysRun = true)
@@ -23,86 +21,94 @@ public class CreateOrderUSDParentTest {
 		String url = p.getVal("url1");
 		driver.get(url);
 		// WaitClass.waitForUrl(driver, url, 10);
-		CreateUSDParentOrderPage = CreateUSDParentOrderPage.getPage(driver, CreateUSDParentOrderPage.class);
+		historicalScenarioPage = HistoricalScenarioPage.getPage(driver, HistoricalScenarioPage.class);
 
 	}
 
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Parent Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*CreateUSDParentOrderPage.enterLoginID();
-		CreateUSDParentOrderPage.enterPassword();
-		CreateUSDParentOrderPage.selectCompany();
-		CreateUSDParentOrderPage.clickLoginButton();*/
+		/*historicalScenarioPage.enterLoginID();
+		historicalScenarioPage.enterPassword();
+		historicalScenarioPage.selectCompany();
+		historicalScenarioPage.clickLoginButton();*/
 
 		// ActiveSince=Past date
-		CreateUSDParentOrderPage.clickCustomerTab();
-		CreateUSDParentOrderPage.addCompanyFilter();
-		CreateUSDParentOrderPage.selectCustomer();
-		CreateUSDParentOrderPage.clickCreateOrder();
-		CreateUSDParentOrderPage.selectActiveSincePast();
-		CreateUSDParentOrderPage.clickProductSubTab();
-		CreateUSDParentOrderPage.selectCategory();
-		CreateUSDParentOrderPage.selectProduct1();
-		CreateUSDParentOrderPage.selectProduct2();
-		CreateUSDParentOrderPage.selectProduct3();
-		CreateUSDParentOrderPage.clickUpdateButton();
-		CreateUSDParentOrderPage.expectedAmount1();
-		CreateUSDParentOrderPage.clickSave();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.addCompanyFilter();
+		historicalScenarioPage.enterCustomerNameFilter(0);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(0);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(0);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.selectProduct(1);
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.clickUpdateButton();
+		historicalScenarioPage.expectedAmount(7, 0);
+		historicalScenarioPage.clickSaveChanges();
 
 		// ActiveSince=Between Past and Present date
-		CreateUSDParentOrderPage.clickCustomerTab();
-		CreateUSDParentOrderPage.addCompanyFilter();
-		CreateUSDParentOrderPage.selectCustomer();
-		CreateUSDParentOrderPage.clickCreateOrder();
-		CreateUSDParentOrderPage.selectActiveSinceBetweenPastPresent();
-		CreateUSDParentOrderPage.clickProductSubTab();
-		CreateUSDParentOrderPage.selectCategory();
-		CreateUSDParentOrderPage.selectProduct1();
-		CreateUSDParentOrderPage.selectProduct2();
-		CreateUSDParentOrderPage.selectProduct3();
-		CreateUSDParentOrderPage.clickUpdateButton();
-		CreateUSDParentOrderPage.expectedAmount2();
-		CreateUSDParentOrderPage.clickSave();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.addCompanyFilter();
+		historicalScenarioPage.enterCustomerNameFilter(0);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(0);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(1);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.selectProduct(1);
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.clickUpdateButton();
+		historicalScenarioPage.expectedAmount(7, 1);
+		historicalScenarioPage.clickSaveChanges();
 
 		// ActiveSince=Between Present and Future Date
-		CreateUSDParentOrderPage.clickCustomerTab();
-		CreateUSDParentOrderPage.addCompanyFilter();
-		CreateUSDParentOrderPage.selectCustomer();
-		CreateUSDParentOrderPage.clickCreateOrder();
-		CreateUSDParentOrderPage.selectActiveSinceBetweenPresentFuture();
-		CreateUSDParentOrderPage.clickProductSubTab();
-		CreateUSDParentOrderPage.selectCategory();
-		CreateUSDParentOrderPage.selectProduct1();
-		CreateUSDParentOrderPage.selectProduct2();
-		CreateUSDParentOrderPage.selectProduct3();
-		CreateUSDParentOrderPage.clickUpdateButton();
-		CreateUSDParentOrderPage.expectedAmount3();
-		CreateUSDParentOrderPage.clickSave();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.addCompanyFilter();
+		historicalScenarioPage.enterCustomerNameFilter(0);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(0);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(2);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.selectProduct(1);
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.clickUpdateButton();
+		historicalScenarioPage.expectedAmount(7, 2);
+		historicalScenarioPage.clickSaveChanges();
 
 		// ActiveSince=Future Date
-		CreateUSDParentOrderPage.clickCustomerTab();
-		CreateUSDParentOrderPage.addCompanyFilter();
-		CreateUSDParentOrderPage.selectCustomer();
-		CreateUSDParentOrderPage.clickCreateOrder();
-		CreateUSDParentOrderPage.selectActiveSinceFuture();
-		CreateUSDParentOrderPage.clickProductSubTab();
-		CreateUSDParentOrderPage.selectCategory();
+		historicalScenarioPage.clickCustomerTab();
+		historicalScenarioPage.addCompanyFilter();
+		historicalScenarioPage.enterCustomerNameFilter(0);
+		historicalScenarioPage.applyFilter();
+		historicalScenarioPage.selectCustomer(0);
+		historicalScenarioPage.clickCreateOrder();
+		historicalScenarioPage.activeSince(3);
+		historicalScenarioPage.clickProductSubTab();
+		historicalScenarioPage.selectCategory();
 		
-		CreateUSDParentOrderPage.selectProduct1();
-		CreateUSDParentOrderPage.checkApplyNow();
-		CreateUSDParentOrderPage.clickUpdateButton1();
+		historicalScenarioPage.selectProduct(0);
+		historicalScenarioPage.checkApplyNow();
+		historicalScenarioPage.clickUpdateButton1();
 		
-		CreateUSDParentOrderPage.selectProduct2();
-		CreateUSDParentOrderPage.checkApplyNow2();
-		CreateUSDParentOrderPage.clickUpdateButton2();
+		historicalScenarioPage.selectProduct(1);
+		historicalScenarioPage.checkApplyNow2();
+		historicalScenarioPage.clickUpdateButton2();
 		
-		CreateUSDParentOrderPage.selectProduct3();
-		CreateUSDParentOrderPage.checkApplyNow3();
-		CreateUSDParentOrderPage.clickUpdateButton();
+		historicalScenarioPage.selectProduct(3);
+		historicalScenarioPage.checkApplyNow3();
+		historicalScenarioPage.clickUpdateButton();
 		
-		CreateUSDParentOrderPage.expectedAmount4();
-		CreateUSDParentOrderPage.clickSave();
+		historicalScenarioPage.expectedAmount(7, 3);
+		historicalScenarioPage.clickSaveChanges();
 
 	}
 

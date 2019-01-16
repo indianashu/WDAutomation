@@ -34,9 +34,9 @@ public class CurrencyTest {
 		currencyPage.clickLoginButton();*/
 		
 		currencyPage.clickCurrencies();
-		currencyPage.checkUSDcurrency();
 		currencyPage.checkCADcurrency();
 		currencyPage.checkEUROcurrency();
+		currencyPage.checkUSDcurrency();
 		currencyPage.clickSaveChangesButton();
 		currencyPage.verifyLabelConfirmationMessage();
 		
@@ -45,9 +45,9 @@ public class CurrencyTest {
 		currencyPage.clickOKButton();
 		currencyPage.verifyChildCompanyName();
 		currencyPage.clickCurrencies();
-		currencyPage.checkUSDcurrency();
 		currencyPage.checkCADcurrency();
 		currencyPage.checkEUROcurrency();
+		currencyPage.checkUSDcurrency();
 		currencyPage.clickSaveChangesButton();
 		currencyPage.verifyLabelConfirmationMessage();
 		currencyPage.clickRedCross();

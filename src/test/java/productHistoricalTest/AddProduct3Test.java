@@ -1,11 +1,7 @@
 package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
-import productHistorical.AddProduct1Page;
-import productHistorical.AddProduct2Page;
 import productHistorical.AddProduct3Page;
-
-import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
@@ -43,7 +39,7 @@ public class AddProduct3Test {
 		addProductCategoryPage.enterEnglishDescription();
 		addProductCategoryPage.enterProductCode();
 		addProductCategoryPage.deselectProductCompany1();
-		addProductCategoryPage.selectProductCompany2();
+		addProductCategoryPage.selectChildCompany();
 		
 		addProductCategoryPage.selectHistoricalPrices();
 		

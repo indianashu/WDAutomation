@@ -1,18 +1,8 @@
 package productHistorical;
 
 import baseClassPackage.BasePage;
-import categoryProducts.AddProductPage;
-import categoryProducts.AddProductWithAssetPage;
-import companyHierarchy.ViewAssignedInfoPage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -25,9 +15,6 @@ import org.testng.Assert;
 
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
-import webDataPages.ImpersonatePage;
-import webDataPages.SignupChildCompanyInvoiceAsSellerPage;
 
 import org.openqa.selenium.support.ui.Select;
 
@@ -38,7 +25,6 @@ public class AddProduct4Page extends BasePage {
 	}
 
 	Logger log = Logger.getLogger(AddProduct4Page.class);
-	AddProduct4Page AddProductCategoryPage;
 	PropertyValExtractors p = new PropertyValExtractors();
 	Actions actions = new Actions(driver);
 	String sheetName = "AddProductCategory1";
@@ -74,6 +60,7 @@ public class AddProduct4Page extends BasePage {
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
 	private WebElement selectCompany;
 
 	/**
@@ -82,11 +69,9 @@ public class AddProduct4Page extends BasePage {
 	 * @throws IOException
 	 */
 	public void selectCompany() throws Exception {
-		AddProduct4Page sp = new AddProduct4Page(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
-		Select se = new Select(Companyelement);
-		se.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,2,0));
-
+		AddProduct3Page sp = new AddProduct3Page(driver);
+		Select se = new Select(selectCompany);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit save']")
@@ -200,37 +185,39 @@ public class AddProduct4Page extends BasePage {
         
     }
     
-    private WebElement selectProductCompany1;
-    /**
-     * Method to select companies.
-     * @throws IOException 
-     */
-    public void selectProductCompany1() throws IOException{
-    	AddProduct4Page sp=new AddProduct4Page(driver);
-        WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
-        Select se = new Select(Companyelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,2,0));
+    @FindBy(how = How.XPATH, using = "//select[@name='product.entities']")
+	private WebElement selectRootCompany;
 
-    }
-    
-    private WebElement selectProductCompany2;
-    /**
-     * Method to select companies.
-     * @throws IOException 
-     */
-    public void selectProductCompany2() throws IOException{
-    	AddProduct4Page sp=new AddProduct4Page(driver);
-        WebElement Companyelement = driver.findElement(By.xpath("//select[@name='product.entities']"));
-        Select se = new Select(Companyelement);
-        se.selectByVisibleText(BasePage.getCellData(xlsxName,sheetName,4,0));
-        navigateBottom();
+	/**
+	 * Method to select companies.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectRootCompany() throws IOException {
+		AddProduct3Page sp = new AddProduct3Page(driver);
+		Select se = new Select(selectRootCompany);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 
-    }
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='product.entities']")
+	private WebElement selectChildCompany;
+
+	/**
+	 * Method to select companies.
+	 * 
+	 * @throws IOException
+	 */
+	public void selectChildCompany() throws IOException {
+		AddProduct4Page sp = new AddProduct4Page(driver);
+		Select se = new Select(selectChildCompany);
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 4, 0));
+	}
     
-    public void selectHistoricalPrices() throws IOException{
+    public void selectHistoricalPricesRoot() throws IOException{
     	AddProduct4Page sp=new AddProduct4Page(driver);
     	for (int i= 0; i <= 8; i++ ) {
-    			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
+    			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name='mydate']"));
     			Assert.assertTrue(enterPastPriceDate.isDisplayed());
     	        enterPastPriceDate.clear();
     	        enterPastPriceDate.sendKeys(BasePage.getCellData(xlsxName,sheetName,6,i));
@@ -249,13 +236,11 @@ public class AddProduct4Page extends BasePage {
     	        
     	        WebElement clickAddPriceButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
     	        Assert.assertTrue(clickAddPriceButton.isDisplayed());
-    	        clickAddPriceButton.click();
-    	            
-    	}
-    	
+    	        clickAddPriceButton.click();	            
+    	}    	
     }
     
-    public void selectHistoricalPrices1() throws IOException{
+    public void selectHistoricalPricesChild() throws IOException{
     	AddProduct4Page sp=new AddProduct4Page(driver);
     	for (int i= 0; i <= 8; i++ ) {
     			WebElement enterPastPriceDate = driver.findElement(By.xpath("//*[@name=\"mydate\"]"));
@@ -282,10 +267,8 @@ public class AddProduct4Page extends BasePage {
     	        
     	        WebElement clickAddPriceButton = driver.findElement(By.xpath("//a[@class='submit add']//*[text()='Add Price']"));
     	        Assert.assertTrue(clickAddPriceButton.isDisplayed());
-    	        clickAddPriceButton.click();
-    	            
-    	}
-    	
+    	        clickAddPriceButton.click();    	            
+    	}   	
     }
    
     

@@ -2,9 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.AddProduct1Page;
-import productHistorical.AddProduct1Page;
-
-import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
@@ -50,7 +47,6 @@ public class AddProduct1Test {
 		
 		addProductCategoryPage.selectHistoricalPriceForParent();
 		addProductCategoryPage.selectHistoricalPricesForChild();
-		
 		
 		addProductCategoryPage.clickSaveChangesButton();
 		addProductCategoryPage.verifyConfirmationMsg();

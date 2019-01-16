@@ -65,6 +65,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='j_client_id']")
 	private WebElement selectCompany;
 
 	/**
@@ -74,8 +75,7 @@ public class LoginSignupCompanyPage extends BasePage {
 	 */
 	public void selectCompany() throws Exception {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
-		WebElement Companyelement = driver.findElement(By.xpath("//select[@name='j_client_id']"));
-		Select se = new Select(Companyelement);
+		Select se = new Select(selectCompany);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 2, 0));
 
 	}
@@ -104,12 +104,9 @@ public class LoginSignupCompanyPage extends BasePage {
 	public void verifyLabelSuccessfulLogin() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
 		log.info("Verifying if Label is available or not");
-		//JavaScriptExec.sleep();
 		Assert.assertTrue(verifyLabelSuccessfulLogin.getText().contains(BasePage.getCellData(xlsxName, sheetName, 3, 0)),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
-
-	private WebElement enterURL;
 
 	/**
 	 * Method to enter signup url to create child company.
@@ -119,13 +116,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	public void enterURL() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
 		log.info("enter signup url to create child company");
-		// driver.get("http://www.simplebilling.co.in:8080/signup");
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url");
 		driver.get(url);
 	}
 	
-	//@FindBy(how=How.XPATH, using="//*[@id="company-edit-form"]/fieldset/div[1]/div[2]/div[1]/span/h")
+	@FindBy(how=How.XPATH, using="//*[@id='company-edit-form']//h")
 	private WebElement labelRootCompany;
 
 	/**
@@ -137,15 +133,14 @@ public class LoginSignupCompanyPage extends BasePage {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
 		log.info("Verifying if Label is available or not");
 		String RootCompanyName = BasePage.getCellData(xlsxName, sheetName, 3, 0);
-		String ActualRootCompany = driver
-				.findElement(By.xpath("//*[@id='company-edit-form']/fieldset/div[1]/div[2]/div[1]/span/h")).getText();
+		String ActualRootCompany = labelRootCompany.getText();
 		System.out.println("Company Name:********" + ActualRootCompany + "*********");
 		log.info("Click on customer name");
 		JavaScriptExec.sleep();
 		Assert.assertEquals(ActualRootCompany, RootCompanyName);
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"user.userName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='user.userName']")
 	private WebElement enterLoginName;
 
 	/**
@@ -155,14 +150,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	 */
 	public void enterLoginName() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
-
 		log.info("Verifying the Login Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterLoginName);
 		Assert.assertTrue(enterLoginName.isDisplayed());
 		enterLoginName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, 0));
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.firstName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.firstName']")
 	private WebElement enterFirstName;
 
 	/**
@@ -173,13 +166,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	public void enterFirstName() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
 		log.info("Verifying the First Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterFirstName);
 		Assert.assertTrue(enterFirstName.isDisplayed());
 		enterFirstName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 5, 0));
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.lastName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.lastName']")
 	private WebElement enterLastName;
 
 	/**
@@ -190,13 +182,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	public void enterLastName() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
 		log.info("Verifying the Last Name is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterLastName);
 		Assert.assertTrue(enterLastName.isDisplayed());
 		enterLastName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 0));
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.phoneCountryCode1\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.phoneCountryCode1']")
 	private WebElement enterPhoneCountryCode;
 
 	/**
@@ -207,13 +198,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	public void enterPhoneCountryCode() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
 		log.info("Verifying the Phone Country Code is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterPhoneCountryCode);
 		Assert.assertTrue(enterPhoneCountryCode.isDisplayed());
 		enterPhoneCountryCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 7, 0));
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.phoneAreaCode\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.phoneAreaCode']")
 	private WebElement enterPhoneAreaCode;
 
 	/**
@@ -224,13 +214,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	public void enterPhoneAreaCode() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
 		log.info("Verifying the Phone Area Code is available or not");
-		WaitClass.WaitForElementisDisplay(driver, 5, enterPhoneAreaCode);
 		Assert.assertTrue(enterPhoneAreaCode.isDisplayed());
 		enterPhoneAreaCode.sendKeys(BasePage.getCellData(xlsxName, sheetName, 8, 0));
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.phoneNumber\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.phoneNumber']")
 	private WebElement enterPhoneNumber;
 
 	/**
@@ -246,7 +235,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.email\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.email']")
 	private WebElement enterEmail;
 
 	/**
@@ -261,7 +250,8 @@ public class LoginSignupCompanyPage extends BasePage {
 		enterEmail.sendKeys(BasePage.getCellData(xlsxName, sheetName, 10, 0));
 
 	}
-
+	
+	@FindBy(how = How.XPATH, using = "//select[@name='languageId']")
 	private WebElement selectLanguage;
 
 	/**
@@ -271,12 +261,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	 */
 	public void selectLanguage() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
-		WebElement languageelement = driver.findElement(By.xpath("//select[@name='languageId']"));
-		Select se = new Select(languageelement);
+		Select se = new Select(selectLanguage);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 11, 0));
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='currencyId']")
 	private WebElement selectCurrency;
 
 	/**
@@ -292,7 +282,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.organizationName\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.organizationName']")
 	private WebElement enterOrgName;
 
 	/**
@@ -308,7 +298,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.address1\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.address1']")
 	private WebElement enterAddress;
 
 	/**
@@ -325,7 +315,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.address2\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.address2']")
 	private WebElement enterAddress2;
 
 	/**
@@ -341,7 +331,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.city\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.city']")
 	private WebElement enterCity;
 
 	/**
@@ -357,7 +347,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.stateProvince\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.stateProvince']")
 	private WebElement enterStateProvince;
 
 	/**
@@ -373,6 +363,7 @@ public class LoginSignupCompanyPage extends BasePage {
 
 	}
 
+	@FindBy(how = How.XPATH, using = "//select[@name='contact.countryCode']")
 	private WebElement selectCounty;
 
 	/**
@@ -382,13 +373,12 @@ public class LoginSignupCompanyPage extends BasePage {
 	 */
 	public void selectCountry() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
-		WebElement countryelement = driver.findElement(By.xpath("//select[@name='contact.countryCode']"));
-		Select se = new Select(countryelement);
+		Select se = new Select(selectCounty);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 18, 0));
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//input[@name=\"contact.postalCode\"]")
+	@FindBy(how = How.XPATH, using = "//input[@name='contact.postalCode']")
 	private WebElement enterZipCode;
 
 	/**
