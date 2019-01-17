@@ -34,9 +34,9 @@ public class CreateOrderCADChildTest {
 		createCADChildOrderPage.selectCompany();
 		createCADChildOrderPage.clickLoginButton();*/
 		
-		/*createCADChildOrderPage.clickImpersonate();
+		createCADChildOrderPage.clickImpersonate();
 		createCADChildOrderPage.selectChildCompany();
-		createCADChildOrderPage.clickOKButton();*/
+		createCADChildOrderPage.clickOKButton();
 
 		// ActiveSince=Past date
 		createCADChildOrderPage.clickCustomerTab();
@@ -102,6 +102,8 @@ public class CreateOrderCADChildTest {
 		
 		createCADChildOrderPage.expectedAmount4();
 		createCADChildOrderPage.clickSave();
+		
+		createCADChildOrderPage.clickRedCross();
 
 	}
 

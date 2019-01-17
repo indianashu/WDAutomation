@@ -396,6 +396,22 @@ public class CreateCADChildOrderPage extends BasePage
 		actions.moveToElement(clickSaveButton).click().perform();
 	}
 
+	@FindBy(how = How.XPATH, using = "//span[@class='right-text']//a")
+	private WebElement clickRedCross;
+
+	/**
+	 * Method to click on Red Cross
+	 * 
+	 * @throws IOException
+	 */
+	public void clickRedCross() throws IOException {
+		log.info("Click on Red Cross");
+		JavaScriptExec.sleep();
+		Assert.assertTrue(clickRedCross.isDisplayed());
+		clickRedCross.click();
+
+	}
+	
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();

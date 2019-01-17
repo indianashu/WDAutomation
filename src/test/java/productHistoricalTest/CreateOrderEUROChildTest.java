@@ -36,11 +36,11 @@ public class CreateOrderEUROChildTest {
 		 * createEUROChildOrderPage.clickLoginButton();
 		 */
 
-		/*
-		 * createEUROChildOrderPage.clickImpersonate();
-		 * createEUROChildOrderPage.selectChildCompany();
-		 * createEUROChildOrderPage.clickOKButton();
-		 */
+		
+		 createEUROChildOrderPage.clickImpersonate();
+		 createEUROChildOrderPage.selectChildCompany();
+		 createEUROChildOrderPage.clickOKButton();
+		 
 
 		// ActiveSince=Past date
 		createEUROChildOrderPage.clickCustomerTab();
