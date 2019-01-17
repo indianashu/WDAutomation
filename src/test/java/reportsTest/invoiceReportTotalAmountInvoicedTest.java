@@ -59,7 +59,7 @@ public class invoiceReportTotalAmountInvoicedTest {
     	reportsPage.enterCardNumber();
     	reportsPage.enterCardExpiry();
     	reportsPage.clickSaveChangesButton();
-    	reportsPage.verifyConfirmationMsg();
+    	reportsPage.verifyConfirmationMsg("Saved Customer Successfully");
     	reportsPage.navigateBottom();
     	reportsPage.clickCreateOrderButton();
     	reportsPage.clickProductsSubTab();

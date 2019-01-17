@@ -136,7 +136,7 @@ public class CreateCustomerPage extends BasePage {
 			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 			clickSaveChangesButton.click();
 			
-			verifyConfirmationMsg("Customer " + (i+1)+ "Saved Successfully");
+			verifyConfirmationMsg("Customer Saved Successfully");
 			
 		}
 	}

@@ -54,7 +54,7 @@ public class configurePaymentMethCreditCardTest {
     	configureAddPaymentMethodCreditPage.selectIsRecurring();
     	configureAddPaymentMethodCreditPage.selectAccountType();
     	configureAddPaymentMethodCreditPage.clickSaveChangesButton();
-    	configureAddPaymentMethodCreditPage.verifyConfirmationMsg();
+    	configureAddPaymentMethodCreditPage.verifyConfirmationMsg("Credit Card Payment Method Configured Successfully");
 
     }
     

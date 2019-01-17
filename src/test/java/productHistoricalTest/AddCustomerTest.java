@@ -43,8 +43,8 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			String name= driver.findElement(By.xpath("//tr[@class='active']//strong//span")).getText();
-			addCustomerPage.verifyConfirmationMsg("Saved " + name + " Successfully For Parent Company");
+			addCustomerPage.verifyConfirmationMsg("Saved Customer Successfully For Parent Company");
+			
 		}
 		addCustomerPage.clickImpersonate();
 		addCustomerPage.selectChildCompany();
@@ -58,8 +58,7 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			String name= driver.findElement(By.xpath("//tr[@class='active']//strong//span")).getText();
-			addCustomerPage.verifyConfirmationMsg("Saved " + name +  " Successfully For Child Company");
+			addCustomerPage.verifyConfirmationMsg("Saved Customer Successfully For Child Company");
 		}
 		addCustomerPage.clickRedCross();
 		

@@ -43,7 +43,7 @@ public class TieredDiscountPercentageTest {
 		discountPage.selectDiscountableItem(0);
 		discountPage.clickUpdateButton();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg("Saved Order Successfully");
+		discountPage.verifyConfirmationMsg("Saved Subscription Order Successfully For Tiered Discount Percentage");
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
@@ -57,7 +57,7 @@ public class TieredDiscountPercentageTest {
 			discountPage.clickUpdateButton();
 			discountPage.verifyTotalAmount(9,rowNum);
 			discountPage.clickSaveChangesButton();
-			discountPage.verifyConfirmationMsg("Saved Order Successfully");
+			discountPage.verifyConfirmationMsg("Saved Order Successfully For Tiered Discount Percentage");
 		}
 	}
 }

@@ -55,7 +55,7 @@ public class addingAssetOrderTest {
     	addingAssetPage.selectCurrency();
 		addingAssetPage.navigateBottom();
     	addingAssetPage.clickSaveChangesButton();
-    	addingAssetPage.verifyConfirmationMsg();
+    	addingAssetPage.verifyConfirmationMsg("Customer Saved Successfully");
     	//addingAssetPage.clickCustomerA();
     	addingAssetPage.clickCreateOrderButton();
     	addingAssetPage.selectPeriod();

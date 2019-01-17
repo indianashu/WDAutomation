@@ -138,7 +138,7 @@ public class CreateCustomerPage extends BasePage {
 			System.out.println(expectedCustomerName);
 			Assert.assertEquals(actualCustomerName, expectedCustomerName);
 			
-			verifyConfirmationMsg("Saved Customer" + (i+1) + "Successfully");
+			verifyConfirmationMsg("Saved Customer Successfully");
 			
 		}
 

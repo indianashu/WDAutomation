@@ -53,7 +53,7 @@ public class mediationRunTest {
     	mediationPage.enterLoginName();
 		mediationPage.navigateBottom();
     	mediationPage.clickSaveChangesButton();
-    	mediationPage.verifyConfirmationMsg();
+    	mediationPage.verifyConfirmationMsg("Saved Customer Successfully");
     	//mediationPage.clickConfigurationsTab();
     	mediationPage.clickMediationsLink();
     	mediationPage.clickAddNewButton();

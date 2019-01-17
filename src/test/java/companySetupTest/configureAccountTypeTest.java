@@ -55,7 +55,7 @@ public class configureAccountTypeTest {
     	configurationAccountTypePage.enterBillingCycle();
     	configurationAccountTypePage.selectInvoiceDesign();
     	configurationAccountTypePage.clickSaveChangesButton();
-    	configurationAccountTypePage.verifyConfirmationMsg();
+    	configurationAccountTypePage.verifyConfirmationMsg("Account Type Created Successfully");
 
 
     }

@@ -55,7 +55,7 @@ public class verifyDiscountOrderTest {
     	discountPage.selectDiscountType();
     	discountPage.enterDiscountRate();
     	discountPage.clickSaveChangesButton();
-    	discountPage.verifyConfirmationMsg();
+    	discountPage.verifyConfirmationMsg("Saved Discount Successfully");
 		discountPage.createPlanCategory();
         discountPage.createPlanTypeProduct();
     	discountPage.clickCustomersTab();
@@ -71,7 +71,7 @@ public class verifyDiscountOrderTest {
     	discountPage.selectDiscountableItem();
     	discountPage.clickUpdateButton();
     	discountPage.clickSaveChangesButton();
-    	discountPage.verifyConfirmationMsg();
+    	discountPage.verifyConfirmationMsg("Order Saved Successfully");
     	discountPage.clickCustomersTab();
     	discountPage.clickCustomerA();
     	discountPage.clickCreateOrderButton();

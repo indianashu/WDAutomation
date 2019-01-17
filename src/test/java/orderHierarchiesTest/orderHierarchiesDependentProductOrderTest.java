@@ -61,7 +61,7 @@ public class orderHierarchiesDependentProductOrderTest {
     	orderHierarchiesPage.clickCurrentOrderButton();
     	orderHierarchiesPage.clickUpdateButton();
     	orderHierarchiesPage.clickSaveChangesButton();
-    	orderHierarchiesPage.verifyConfirmationMsg();
+    	orderHierarchiesPage.verifyConfirmationMsg("Dependent Product Order Saved Successfully");
     	
     }
     

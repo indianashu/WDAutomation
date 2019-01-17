@@ -66,7 +66,7 @@ public class addEditProductTest {
         addProductPage.enterPriceRate1();
         addProductPage.clickAddPriceButton();
         addProductPage.clickSaveChangesButton();
-        addProductPage.verifyConfirmationMsg();
+        addProductPage.verifyConfirmationMsg("Saved Product Successfully");
         addProductPage.clickProductsTab();
         addProductPage.selectCategoryName();
         addProductPage.clickAddProductButton();
@@ -79,7 +79,7 @@ public class addEditProductTest {
         addProductPage.enterPriceRate3();
         addProductPage.clickAddPriceButton();
         addProductPage.clickSaveChangesButton();
-        addProductPage.verifyConfirmationMsg();
+        addProductPage.verifyConfirmationMsg("Saved Product Successfully");
         addProductPage.selectCategoryName();
         addProductPage.clickProductName();
         addProductPage.navigateBottom();

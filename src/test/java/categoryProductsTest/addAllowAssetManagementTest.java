@@ -62,7 +62,7 @@ public class addAllowAssetManagementTest {
     	productCategoryPage.enterMetafieldName();
 		productCategoryPage.navigateBottom();
     	productCategoryPage.clickSaveChangesButton();
-    	productCategoryPage.verifyConfirmationMsg();
+    	productCategoryPage.verifyConfirmationMsg("Saved Asset Category Successfully");
     	
     }
     @AfterClass(alwaysRun=false)

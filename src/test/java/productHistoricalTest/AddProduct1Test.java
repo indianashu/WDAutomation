@@ -39,8 +39,8 @@ public class AddProduct1Test {
 		addProductCategoryPage.enterCategoryName();
 		addProductCategoryPage.clickGlobalCheckbox();
 		addProductCategoryPage.clickSaveChangesButton();
-		String name1=driver.findElement(By.xpath("//tr[@class='active']//strong")).getText();
-		addProductCategoryPage.verifyConfirmationMsg("Saved " + name1 + "Successfully");
+		addProductCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
+		
 		
 		addProductCategoryPage.clickAddProductButton();
 		addProductCategoryPage.enterEnglishDescription();
@@ -52,8 +52,8 @@ public class AddProduct1Test {
 		
 		
 		addProductCategoryPage.clickSaveChangesButton();
-		String name2=driver.findElement(By.xpath("//table[@id='products']//strong")).getText();
-		addProductCategoryPage.verifyConfirmationMsg("Saved " + name2 + "Successfully");
+		addProductCategoryPage.verifyConfirmationMsg("Product Saved Successfully");
+		
 
 }
 }

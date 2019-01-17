@@ -45,8 +45,7 @@ public class AddProduct3Test {
 		addProductCategoryPage.selectHistoricalPrices();
 		
 		addProductCategoryPage.clickSaveChangesButton();
-		String name2=driver.findElement(By.xpath("//table[@id='products']//strong")).getText();
-		addProductCategoryPage.verifyConfirmationMsg("Saved " + name2 + "Successfully");
+		addProductCategoryPage.verifyConfirmationMsg("Saved Product Successfully");
 	}
 
 }

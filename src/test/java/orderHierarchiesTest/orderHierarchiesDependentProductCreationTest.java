@@ -58,7 +58,7 @@ public class orderHierarchiesDependentProductCreationTest {
     	orderHierarchiesPage.enterProductRate();
 		orderHierarchiesPage.clickAddPriceButton();
     	orderHierarchiesPage.clickSaveChangesButton();
-    	orderHierarchiesPage.verifyConfirmationMsg();
+    	orderHierarchiesPage.verifyConfirmationMsg("Saved Dependent Product Successfully");
     	orderHierarchiesPage.clickProductCategory();
     	orderHierarchiesPage.clickAddProductButton();
     	orderHierarchiesPage.enterEnglishDescription1();
@@ -73,7 +73,7 @@ public class orderHierarchiesDependentProductCreationTest {
     	orderHierarchiesPage.selectProductPeriod();
     	orderHierarchiesPage.clickDependencyPlusIcon();
     	orderHierarchiesPage.clickSaveChangesButton();
-    	orderHierarchiesPage.verifyConfirmationMsg();
+    	orderHierarchiesPage.verifyConfirmationMsg("Saved Product Successfully");
     	
     }
     
