@@ -255,6 +255,7 @@ public class CreateOrderPeriodPage extends BasePage {
 	 */
 	public void checkUSDcurrency() throws IOException {
 		log.info("Check United States Dollar Currency Checkbox.");
+		navigateBottom();
 		Assert.assertTrue(checkUSDcurrency.isDisplayed());
 		if ( !checkUSDcurrency.isSelected() )
 		{

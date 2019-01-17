@@ -31,7 +31,7 @@ public class CreateCategoryPage extends BasePage {
 	Logger log = Logger.getLogger(CreateCategoryPage.class);
 	CreateCategoryPage productCategoryPage;
 	PropertyValExtractors p = new PropertyValExtractors();
-	String sheetName = "AddProductCategory1";
+	String sheetName = "AddProductCategory";
 	String xlsxName = "/ProductDependency_TestData.xlsx";
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")

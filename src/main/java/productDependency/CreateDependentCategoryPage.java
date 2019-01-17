@@ -29,7 +29,7 @@ public class CreateDependentCategoryPage extends BasePage {
 
 	Logger log = Logger.getLogger(CreateDependentCategoryPage.class);
 	PropertyValExtractors p = new PropertyValExtractors();
-	String sheetName = "AddProductCategory1";
+	String sheetName = "AddProductCategory";
 	String xlsxName = "/ProductDependency_TestData.xlsx";
 
 	@FindBy(how = How.XPATH, using = "//input[@name='j_username']")

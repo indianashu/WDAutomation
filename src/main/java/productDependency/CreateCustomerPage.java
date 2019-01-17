@@ -1,13 +1,12 @@
 package productDependency;
 
 import baseClassPackage.BasePage;
-import productDependency.CreateCustomerPage;
+
 import java.io.IOException;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -16,7 +15,7 @@ import utilPackages.PropertyValExtractors;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateCustomerPage extends BasePage {
-	
+
 	public CreateCustomerPage(WebDriver webdriver) {
 		super(webdriver);
 	}
@@ -83,7 +82,7 @@ public class CreateCustomerPage extends BasePage {
 		Assert.assertTrue(clickLoginButton.isDisplayed());
 		clickLoginButton.click();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.customers']/a")
 	private WebElement clickCustomerTab;
 
@@ -98,58 +97,107 @@ public class CreateCustomerPage extends BasePage {
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
 		JavaScriptExec.sleep();
-}
-	public void createCustomer() throws IOException {
-		CreateCustomerPage sp = new CreateCustomerPage(driver);
-		for (int i = 0; i < 7; i++) {
-			WebElement clickAddNewButton = driver
-					.findElement(By.xpath("//a[@class='submit add']//*[text()='Add New']"));
-			JavaScriptExec.scrollToElementOnPage(driver, clickAddNewButton);
-			Assert.assertTrue(clickAddNewButton.isDisplayed());
-			clickAddNewButton.click();
-			JavaScriptExec.sleep();
-			
-			WebElement clickSelectButton = driver
-					.findElement(By.xpath("//a[@class='submit save']//*[text()='Select']"));
-			Assert.assertTrue(clickSelectButton.isDisplayed());
-			clickSelectButton.click();
-			JavaScriptExec.sleep();
+	}
 
-			WebElement enterLoginName = driver.findElement(By.xpath("//input[@name='user.userName']"));
-			Assert.assertTrue(enterLoginName.isDisplayed());
-			enterLoginName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, i));
-			JavaScriptExec.sleep();
+	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")
+	private WebElement clickAddNewButton;
 
-			WebElement selectCurrency = driver.findElement(By.xpath("//select[@name='user.currencyId']"));
-			selectCurrency.click();
-			Select select = new Select(selectCurrency);
-			select.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
-			JavaScriptExec.sleep();
+	/**
+	 * Method to click on Add New Button to create a new Customer.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickAddNewButton() throws IOException {
+		log.info("Click on Add New Button to add a customer");
+		Assert.assertTrue(clickAddNewButton.isDisplayed());
+		clickAddNewButton.click();
+		JavaScriptExec.sleep();
 
-			navigateBottom();
+	}
 
-			WebElement clickSaveChangesButton = driver
-					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
-			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
-			clickSaveChangesButton.click();
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Select']")
+	private WebElement clickSelectButton;
 
-			WebElement verifyConfirmationMsg = driver
-					.findElement(By.xpath("//div[@class='msg-box successfully']//*[text()='Done']"));
-			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-					"Assert Failed as its unable to search text in Logged in Page");
-			JavaScriptExec.sleep();
-			
-			String actualCustomerName = BasePage.getCellData(xlsxName, sheetName, 3, i);
-			String expectedCustomerName = driver.findElement(By.xpath("//*[@id='column2']/div[1]"))
-					.getText();
-			System.out.println(expectedCustomerName);
-			Assert.assertEquals(actualCustomerName, expectedCustomerName);
-			
-		}
+	/**
+	 * Method to click on Select Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickSelectButton() throws IOException {
+		log.info("Click on Select Button to create a New Customer");
+		Assert.assertTrue(clickSelectButton.isDisplayed());
+		clickSelectButton.click();
+		JavaScriptExec.sleep();
 
-		}
-		public void navigateBottom() {
-			JavaScriptExec.scrolltoBottomofPage(driver);
-			JavaScriptExec.sleep();
-}
+	}
+
+	@FindBy(how = How.XPATH, using = "//input[@name='user.userName']")
+	private WebElement enterLoginName;
+
+	/**
+	 * Method to Enter the Login Name of the Customer.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterLoginName(int rowNum) throws IOException {
+		log.info("Enater the Login Name of the Customer");
+		Assert.assertTrue(enterLoginName.isDisplayed());
+		enterLoginName.sendKeys(BasePage.getCellData(xlsxName, sheetName, 4, rowNum));
+		JavaScriptExec.sleep();
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//select[@name='user.currencyId']")
+	private WebElement selectCurrency;
+
+	/**
+	 * Method to Click on Select Button
+	 * 
+	 * @throws IOException
+	 */
+	public void selectCurrency() throws IOException {
+		log.info("Click on Select Button");
+		Assert.assertTrue(selectCurrency.isDisplayed());
+		Select select = new Select(selectCurrency);
+		select.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 5, 0));
+		JavaScriptExec.sleep();
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//a[@class='submit save']//*[text()='Save Changes']")
+	private WebElement clickSaveChangesButton;
+
+	/**
+	 * Method to click on Save Changes Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void clickSaveChangesButton() throws IOException {
+		log.info("Click on Select Button to create a New Customer");
+		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
+		clickSaveChangesButton.click();
+		JavaScriptExec.sleep();
+
+	}
+
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	private WebElement verifyConfirmationMsg;
+
+	/**
+	 * Method to Verify Confirmation Message after customer creation.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyConfirmationMsg() throws IOException {
+		log.info("Verify Confirmation Message");
+		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
+				"Assert Failed as its unable to search text in Logged in Page");
+		JavaScriptExec.sleep();
+
+	}
+
+	public void navigateBottom() {
+		JavaScriptExec.scrolltoBottomofPage(driver);
+		JavaScriptExec.sleep();
+	}
 }

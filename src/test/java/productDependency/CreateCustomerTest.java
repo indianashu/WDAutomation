@@ -26,13 +26,22 @@ public class CreateCustomerTest {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Customer for the Child and Parent Company")
 	public void userSignin() throws Exception {
 		
-		/*addCustomerPage.enterLoginID();
+		addCustomerPage.enterLoginID();
 		addCustomerPage.enterPassword();
 		addCustomerPage.selectCompany();
-		addCustomerPage.clickLoginButton();*/
+		addCustomerPage.clickLoginButton();
 		
-		addCustomerPage.clickCustomerTab();
-		addCustomerPage.createCustomer();
+		for (int rowNum = 0; rowNum <= 5; rowNum++) {
+			addCustomerPage.clickCustomerTab();
+			addCustomerPage.navigateBottom();
+			addCustomerPage.clickAddNewButton();
+			addCustomerPage.clickSelectButton();
+			addCustomerPage.enterLoginName(rowNum);
+			addCustomerPage.selectCurrency();
+			addCustomerPage.navigateBottom();
+			addCustomerPage.clickSaveChangesButton();
+			addCustomerPage.verifyConfirmationMsg();
+		}
 
 }
 }
