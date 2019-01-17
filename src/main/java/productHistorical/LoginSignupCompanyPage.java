@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -409,6 +410,9 @@ public class LoginSignupCompanyPage extends BasePage {
 	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']")
 	private WebElement labelConfirmationMessage;
 
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box error']")
+	private WebElement verifyErrorMsg;
+
 	/**
 	 * Method to verify Label is present after successful login.
 	 * 
@@ -416,10 +420,16 @@ public class LoginSignupCompanyPage extends BasePage {
 	 */
 	public void verifyLabelConfirmationMessage() throws IOException {
 		LoginSignupCompanyPage sp = new LoginSignupCompanyPage(driver);
-		log.info("Verifying if Label is available or not");
 		JavaScriptExec.sleep();
-		Assert.assertTrue(labelConfirmationMessage.getText().contains(BasePage.getCellData(xlsxName, sheetName, 20, 0)),
-				"Assert Failed as its unable to search text in Logged in Page");
+		try {
+			Assert.assertTrue(labelConfirmationMessage.isDisplayed(),
+					"Assert Failed if the Child Company Signup is Failed");
+		} catch (NoSuchElementException e) {
+			if (verifyErrorMsg.isDisplayed()) {
+				String failureMsg = verifyErrorMsg.getText();
+				throw new RuntimeException(failureMsg);
+			}
+		}
 	}
 
 	public void navigateBottom() {

@@ -333,7 +333,7 @@ public class HistoricalScenarioPage extends BasePage {
 	 * @throws IOException
 	 */
 	public void expectedAmount(int rowNum, int colNum) throws IOException {
-		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 7, 0);
+		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, rowNum, colNum);
 		String actualAmount = amount.getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}

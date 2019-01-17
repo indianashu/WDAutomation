@@ -29,7 +29,7 @@ public class LoginSignupCompanyTest {
 
 	}
 
-	@Test(groups = { "Product Historical Feature" }, description = "Create Product4 for the Child and Parent Company")
+	@Test(groups = { "Product Historical Feature" }, description = "Login into the Child Company and Signup a Child Company")
 	public void userSignin() throws Exception {
 
 		loginSignupCompanyPage.enterLoginID();
@@ -58,8 +58,6 @@ public class LoginSignupCompanyTest {
     	loginSignupCompanyPage.selectCountry();
     	loginSignupCompanyPage.enterZipCode();
     	loginSignupCompanyPage.clickSaveChangesButton();
-		
-		
-
+    	loginSignupCompanyPage.verifyLabelConfirmationMessage();
 	}
 }

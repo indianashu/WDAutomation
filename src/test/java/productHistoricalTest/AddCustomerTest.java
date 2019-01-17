@@ -36,8 +36,8 @@ public class AddCustomerTest {
 		addCustomerPage.selectCompany();
 		addCustomerPage.clickLoginButton();*/
 		
-		addCustomerPage.clickCustomerTab();
 		for (int rowNum = 0; rowNum <= 2; rowNum++) {
+			addCustomerPage.clickCustomerTab();
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickAddNewButton();
 			addCustomerPage.clickSelectButton();
