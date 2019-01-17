@@ -429,19 +429,6 @@ public class AgentPage extends BasePage {
         String AgentId = driver.findElement(By.xpath("//td[text()='Agent ID']/following::td[1]")).getText();
         return AgentId;
     }
-
-    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
-    private WebElement verifyConfirmationMsg;
-    /**
-     * Method to verify Account Type is created Successfully.
-     * @throws IOException 
-     */
-    public void verifyConfirmationMsg() throws IOException{
-    	AgentPage sp=new AgentPage(driver);
-        log.info("Verifying if Account Type is created Successfully or not");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
-    }
     
     @FindBy(how=How.XPATH, using="//*[@id='menu.link.products']/a")
     private WebElement clickProductTab;

@@ -51,7 +51,7 @@ public class agentConfigurationPluginTest {
     	agentConfigurationPluginPage.clickAddNewButton();
     	agentConfigurationPluginPage.selectType();
     	agentConfigurationPluginPage.clickSavePluginButton();
-    	agentConfigurationPluginPage.verifyConfirmationMsg();
+    	agentConfigurationPluginPage.verifyConfirmationMsg("Agents and Commissions - The Commissions plug-in saved successfully.");
     	//agentConfigurationPluginPage.clickConfigurationTab();
     	agentConfigurationPluginPage.clickAllLink();
     	agentConfigurationPluginPage.clickAgentCommissionType();

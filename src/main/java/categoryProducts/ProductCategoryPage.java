@@ -192,22 +192,6 @@ public class ProductCategoryPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		ProductCategoryPage sp = new ProductCategoryPage(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='Test
 	// Category1']")
 	private WebElement clickCategoryName;

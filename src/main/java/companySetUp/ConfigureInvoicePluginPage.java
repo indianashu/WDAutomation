@@ -222,20 +222,4 @@ public class ConfigureInvoicePluginPage extends BasePage{
 		clickSavePluginButton.click();
 
 	}
-	
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		ConfigureInvoicePluginPage sp = new ConfigureInvoicePluginPage(driver);
-		JavaScriptExec.sleep();
-		log.info("Verifying if Account Type is created Successfully or not");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
 }

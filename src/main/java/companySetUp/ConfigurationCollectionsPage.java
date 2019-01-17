@@ -357,22 +357,6 @@ public class ConfigurationCollectionsPage extends BasePage {
 		return gracePeriodId;
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Collections are created/updated Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
-		log.info("Verifying if Collections are created/updated Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	// Configure Collections Plugins - userAgeingNotificationTask
 
 	@FindBy(how = How.XPATH, using = "//a[.='Plug-ins']")
