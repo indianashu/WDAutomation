@@ -18,7 +18,6 @@ public class CreateOrder1Test {
 		p.getPropertyFile("test", "configuration.properties");
 		String url = p.getVal("url1");
 		driver.get(url);
-		// WaitClass.waitForUrl(driver, url, 10);
 		createOrderPage = CreateOrderPage.getPage(driver, CreateOrderPage.class);
 	}
 

@@ -26,10 +26,10 @@ public class CreateCustomerTest {
 	@Test(groups = { "Product Dependency Feature" }, description = "Create Customer for the Child and Parent Company")
 	public void userSignin() throws Exception {
 		
-		addCustomerPage.enterLoginID();
+		/*addCustomerPage.enterLoginID();
 		addCustomerPage.enterPassword();
 		addCustomerPage.selectCompany();
-		addCustomerPage.clickLoginButton();
+		addCustomerPage.clickLoginButton();*/
 		
 		for (int rowNum = 0; rowNum <= 5; rowNum++) {
 			addCustomerPage.clickCustomerTab();

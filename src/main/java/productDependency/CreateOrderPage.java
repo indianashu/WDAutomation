@@ -232,10 +232,10 @@ public class CreateOrderPage extends BasePage {
 	 * 
 	 * @throws IOException
 	 */
-	public void selectCategory() {
+	public void selectCategory() throws IOException {
 		CreateOrderPage sp = new CreateOrderPage(driver);
 		Select se = new Select(categoryElement);
-		se.selectByVisibleText("Dependent Category");
+		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 8, 0));
 	}
 
 	public void selectProduct(int columnNumber) throws IOException {
@@ -431,7 +431,7 @@ public class CreateOrderPage extends BasePage {
 	private WebElement verifyErrorMsg;
 
 	/**
-	 * Method to verify Account Type is created Successfully.
+	 * Method to verify Error Message During Order Creation.
 	 * 
 	 * @throws IOException
 	 */
@@ -442,11 +442,19 @@ public class CreateOrderPage extends BasePage {
 		Assert.assertTrue(verifyErrorMsg.isDisplayed(),
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
+	
+	@FindBy(how = How.XPATH, using = "//div[@class='heading']//em")
+	private WebElement extractOrderId;
 
+	/**
+	 * Method to Extract Order Id  Successfully.
+	 * 
+	 * @throws IOException
+	 */
 	public String extractOrderId() {
-		String msg = driver.findElement(By.xpath("//*[@id='messages']/div/p")).getText();
-		String orderid = msg.substring(18, msg.indexOf(" for customer ")).replace(",", "");
-		return orderid;
+		JavaScriptExec.sleep();
+		String orderId = extractOrderId.getText();
+		return orderId;
 	}
 
 	@FindBy(how = How.XPATH, using = "//button[@id='newSubOrder']")
@@ -497,55 +505,67 @@ public class CreateOrderPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 
-	public String verifyOrderLinesLeo() {
+	public String verifyOrderLinesLeo() throws IOException {
 		navigateBottom();
-		String orderLineItem1 = driver
+		String expectedOrderLineItem1 = driver
 				.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]")).getText();
-		log.info("Verify Order Lines");
-		Assert.assertEquals(orderLineItem1, "Billing Category Product 1");
-
-		String orderLineItem2 = driver
+		log.info("Verify Order Lines");		
+		String actualOrderLineItem1 = BasePage.getCellData(xlsxName, sheetName, 6, 0);
+		Assert.assertEquals(actualOrderLineItem1, expectedOrderLineItem1);
+		
+		String expectedOrderLineItem2 = driver
 				.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]")).getText();
-		Assert.assertEquals(orderLineItem2, "Billing Product 1");
-		return orderLineItem1;
+		String actualOrderLineItem2 = BasePage.getCellData(xlsxName, sheetName, 7, 0);
+		Assert.assertEquals(actualOrderLineItem2, expectedOrderLineItem2);
+		return actualOrderLineItem2;
 	}
 
-	public String verifyOrderLinesWilliam() {
-		String product = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
-				.getText();
+	public String verifyOrderLinesWilliam() throws IOException {
 		log.info("Verify Order Lines");
-		Assert.assertEquals(product, "Billing Category Product 2");
-		return product;
+		String expectedOrderLineItem = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
+				.getText();
+		String actualOrderLineItem = BasePage.getCellData(xlsxName, sheetName, 6, 1);
+		Assert.assertEquals(actualOrderLineItem, expectedOrderLineItem);
+		return actualOrderLineItem;
 	}
 
-	public String verifyOrderLineOlivia() {
-		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[1]/td[2]"))
-				.getText();
-		log.info("Verify Order Lines");
-		Assert.assertEquals(product1, "Billing Category Product 3");
-		String product2 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[2]/td[2]"))
-				.getText();
-		Assert.assertEquals(product2, "Billing Product 1");
-		return product1;
-	}
-
-	public String verifyOrderLineIsabella() {
-		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
-				.getText();
+	public String verifyOrderLineOlivia() throws IOException {
 		log.info("Verify Order Line");
-		Assert.assertEquals(product1, "Billing Category Product 4");
-		return product1;
+		String expectedOrderLineItem1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[1]/td[2]"))
+				.getText();
+		String actualOrderLineItem1 = BasePage.getCellData(xlsxName, sheetName, 6, 2);
+		Assert.assertEquals(actualOrderLineItem1, expectedOrderLineItem1);
+		
+		String expectedOrderLineItem2 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr[2]/td[2]"))
+				.getText();
+		String actualOrderLineItem2 = BasePage.getCellData(xlsxName, sheetName, 7, 0);
+		Assert.assertEquals(actualOrderLineItem2, expectedOrderLineItem2);
+		
+		return actualOrderLineItem2;
 	}
 
-	public String verifyOrderLineSophia() {
-		String product1 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]"))
-				.getText();
+	public String verifyOrderLineIsabella() throws IOException {
 		log.info("Verify Order Line");
-		Assert.assertEquals(product1, "Billing Category Product 5");
-		String product2 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]"))
+		String expectedOrderLineItem1 = driver.findElement(By.xpath("//*[@id='column2']/div[2]/div[6]/div/table/tbody/tr/td[2]"))
 				.getText();
-		Assert.assertEquals(product2, "Billing Product 1");
-		return product1;
+		String actualOrderLineItem1 = BasePage.getCellData(xlsxName, sheetName, 6, 3);
+		Assert.assertEquals(actualOrderLineItem1, expectedOrderLineItem1);
+		return actualOrderLineItem1;
+	}
+
+	public String verifyOrderLineSophia() throws IOException {
+		log.info("Verify Order Line");
+		String expectedOrderLineItem1 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[1]/td[2]"))
+				.getText();
+		String actualOrderLineItem1 = BasePage.getCellData(xlsxName, sheetName, 6, 4);
+		Assert.assertEquals(actualOrderLineItem1, expectedOrderLineItem1);
+		
+		String expectedOrderLineItem2 = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[6]/div/table/tbody/tr[2]/td[2]"))
+				.getText();
+		String actualOrderLineItem2 = BasePage.getCellData(xlsxName, sheetName, 7, 0);
+		Assert.assertEquals(actualOrderLineItem2, expectedOrderLineItem2);
+		
+		return actualOrderLineItem2;
 	}
 
 	public void showOrder(String orderId) {
