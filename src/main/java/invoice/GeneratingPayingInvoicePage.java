@@ -147,21 +147,14 @@ public class GeneratingPayingInvoicePage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
 	/**
 	 * Method to verify Account Type is created Successfully.
 	 * 
 	 * @throws IOException
 	 */
 	public String verifyConfirmationMsg() throws IOException {
-		GeneratingPayingInvoicePage sp = new GeneratingPayingInvoicePage(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-		String OrderId = driver.findElement(By.xpath("//*[@id='column2']/div[1]/div[1]/strong/em")).getText();
+		super.verifyConfirmationMsg("Saved order successfully for manual invoice.");
+		String OrderId = driver.findElement(By.xpath("//div[@class='heading']//em")).getText();
 		return OrderId;
 	}
 

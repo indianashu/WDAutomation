@@ -41,7 +41,7 @@ public class ConfigureInvoicePluginTest {
     	configureInvoicePluginPage.enterTrue();
     	//configureInvoicePluginPage.clickPlusButton();
     	configureInvoicePluginPage.clickSavePluginButton();
-    	configureInvoicePluginPage.verifyConfirmationMsg();
+    	configureInvoicePluginPage.verifyConfirmationMsg("Plug-In Updated Successfully");
     	
     }
     

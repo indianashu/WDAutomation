@@ -58,11 +58,11 @@ public class generatingInvoiceManuallyTest {
     	generatingInvoicePage.selectProduct();
     	generatingInvoicePage.clickUpdateButton();
     	generatingInvoicePage.clickSaveChangesButton();
-    	generatingInvoicePage.verifyConfirmationMsg();
+    	generatingInvoicePage.verifyConfirmationMsg("Saved Order Successfully");
     	generatingInvoicePage.clickOrdersTab();
     	generatingInvoicePage.clickCustomerName();
     	generatingInvoicePage.clickGenerateInvoiceButton();
-    	generatingInvoicePage.verifyConfirmationMsg();
+    	generatingInvoicePage.verifyConfirmationMsg("Invoice Generated Successfully");
     }
     
     @AfterClass(alwaysRun=false)

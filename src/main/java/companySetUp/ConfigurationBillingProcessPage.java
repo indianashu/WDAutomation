@@ -224,20 +224,6 @@ public class ConfigurationBillingProcessPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Billing configuration saved successfully']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Billing Period is saved Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		ConfigurationBillingProcessPage sp = new ConfigurationBillingProcessPage(driver);
-		log.info("Verifying if Billing Period is saved Successfully or not");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
 
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);

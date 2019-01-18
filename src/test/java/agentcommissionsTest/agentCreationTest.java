@@ -68,7 +68,7 @@ public class agentCreationTest {
     	agentPage.enterCardNumber();
     	agentPage.enterCardExpiry();
     	agentPage.clickSaveChangesButton();
-    	agentPage.verifyConfirmationMsg();
+    	agentPage.verifyConfirmationMsg("Agent & Customer Saved Successfully");
     }
 
     @AfterClass(alwaysRun=false)

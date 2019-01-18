@@ -10,8 +10,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
-
-import agentcommissions.AgentCommissionProcessPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import utilPackages.Verify;
@@ -516,22 +514,6 @@ public class SpecificPricingPage extends BasePage {
 		enterPlanProduct.click();
 		Select se = new Select(enterPlanProduct);
 		se.selectByVisibleText(BasePage.getCellData(xlsxName, sheetName, 6, 0));
-	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		MediationConfigurationPage sp = new MediationConfigurationPage(driver);
-		JavaScriptExec.sleep();
-		log.info("Verifying if Account Type is created Successfully or not");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='user-edit-form']/div[1]/div[2]/a")

@@ -50,7 +50,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.clickAddCategoryButton();
     	creatingOrdersPage.enterProductCategoryName();
     	creatingOrdersPage.clickSaveChangesButton();
-    	creatingOrdersPage.verifyConfirmationMsg();
+    	creatingOrdersPage.verifyConfirmationMsg("Saved Category Successfully");
     	creatingOrdersPage.clickProductCategoryName();
     	creatingOrdersPage.clickAddProductButton();
     	creatingOrdersPage.enterProductDescription();
@@ -61,7 +61,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterPriceRate();
 		creatingOrdersPage.clickAddPriceButton();
     	creatingOrdersPage.clickSaveChangesButton();
-    	creatingOrdersPage.verifyConfirmationMsg();
+    	creatingOrdersPage.verifyConfirmationMsg("Saved Product Successfully");
     	//creatingOrdersPage.clickProductsTab();
     	creatingOrdersPage.clickProductCategoryName();
     	creatingOrdersPage.clickAddProductButton();
@@ -73,7 +73,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterPriceRate1();
 		creatingOrdersPage.clickAddPriceButton();
     	creatingOrdersPage.clickSaveChangesButton();
-    	creatingOrdersPage.verifyConfirmationMsg();
+    	creatingOrdersPage.verifyConfirmationMsg("Saved Product Successfully");
     	creatingOrdersPage.clickCustomerTab();
     	creatingOrdersPage.enterCustomerNameFilter(12);
     	creatingOrdersPage.applyFilter();
@@ -85,7 +85,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterQuantity();
     	creatingOrdersPage.clickUpdateButton();
     	creatingOrdersPage.clickSaveChangesButton();
-    	creatingOrdersPage.verifyConfirmationMsg();
+    	creatingOrdersPage.verifyConfirmationMsg("Saved Order Successfully");
     	creatingOrdersPage.clickCustomerTab();
     	creatingOrdersPage.enterCustomerNameFilter(12);
     	creatingOrdersPage.applyFilter();
@@ -99,7 +99,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterQuantity1();
     	creatingOrdersPage.clickUpdateButton();
     	creatingOrdersPage.clickSaveChangesButton();
-    	creatingOrdersPage.verifyConfirmationMsg();
+    	creatingOrdersPage.verifyConfirmationMsg("Saved Order Successfully");
     	creatingOrdersPage.clickCustomerTab();
     	creatingOrdersPage.enterCustomerNameFilter(23);
     	creatingOrdersPage.applyFilter();
@@ -117,7 +117,7 @@ public class creatingOrdersBelongToDiffPeriodsTest {
     	creatingOrdersPage.enterQuantity3();
     	creatingOrdersPage.clickUpdateButton2();
     	creatingOrdersPage.clickSaveChangesButton();
-    	creatingOrdersPage.verifyConfirmationMsg();
+    	creatingOrdersPage.verifyConfirmationMsg("Saved Order Successfully");
 
     }
 

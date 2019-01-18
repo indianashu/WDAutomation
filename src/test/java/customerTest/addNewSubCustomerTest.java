@@ -61,7 +61,7 @@ public class addNewSubCustomerTest {
 		customerParentChildPage.enterCCNumber();
 		customerParentChildPage.enterCCExpiryDate();
 		customerParentChildPage.clickSaveChangesButton();
-		customerParentChildPage.verifyConfirmationMsg();
+		customerParentChildPage.verifyConfirmationMsg("Saved Customer Successfully");
 		//customerParentChildPage.clickCustomerTab();
 		customerParentChildPage.selectCustomer();
 		customerParentChildPage.clickAddSubAccountButton();
@@ -77,7 +77,7 @@ public class addNewSubCustomerTest {
 		customerParentChildPage.enterCCNumber();
 		customerParentChildPage.enterCCExpiryDate();
 		customerParentChildPage.clickSaveChangesButton();
-		customerParentChildPage.verifyConfirmationMsg();
+		customerParentChildPage.verifyConfirmationMsg("Saved Child Customer Successfully");
 /*		customerParentChildPage.selectChildCustomer();
 		customerParentChildPage.verifyParentCustomer();
 		customerParentChildPage.verifyChildInvoicingText();

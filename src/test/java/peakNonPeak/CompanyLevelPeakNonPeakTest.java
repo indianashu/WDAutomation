@@ -41,10 +41,10 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickCreateOrder();
     	peakScenarioPage.clickProductsSubTab();
     	peakScenarioPage.selectCategory(0);
-    	peakScenarioPage.selectProduct(5,1);
+    	peakScenarioPage.selectProduct(5,2);
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Subscription Order Saved Successfully At Company Level");
     	
     	//WEEKLY BASED
     	peakScenarioPage.clickCustomerTab();
@@ -60,7 +60,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,0);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("WeekDay Based Order Saved Successfully At Company Level");
     	
     	//SPECIAL DAY
     	peakScenarioPage.clickCustomerTab();
@@ -76,7 +76,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,1);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Special Day Based Order Saved Successfully At Company Level");
     	
     	//HOLIDAY
     	peakScenarioPage.clickCustomerTab();
@@ -92,7 +92,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,2);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Holiday Based Order Saved Successfully At Company Level");
     	
     	//TIME BASED
     	peakScenarioPage.clickCustomerTab();
@@ -108,7 +108,7 @@ public class CompanyLevelPeakNonPeakTest {
     	peakScenarioPage.clickUpdateButton();
     	peakScenarioPage.verifyTotalAmount(12,3);
     	peakScenarioPage.clickSaveChangesButton();
-    	peakScenarioPage.verifyConfirmationMsg();
+    	peakScenarioPage.verifyConfirmationMsg("Time Based Order Saved Successfully At Company Level");
     	
     	
     }

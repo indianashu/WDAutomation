@@ -239,22 +239,6 @@ public class ConfigurationAddPaymentMethodPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		ConfigurationAddPaymentMethodPage sp = new ConfigurationAddPaymentMethodPage(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);
 		JavaScriptExec.sleep();

@@ -1,5 +1,6 @@
 package peakNonPeak;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -40,7 +41,7 @@ public class CustomerTest {
 			customerPage.enterCustomerName(rowNum);
 			customerPage.selectCurrency();
 			customerPage.clickSaveChangesButton();
-			customerPage.verifyConfirmationMsg();
+			customerPage.verifyConfirmationMsg("Customer Saved Successfully");
 		}
 		
 		// WEEKLY BASED FOR TOMMY ALLEN
@@ -60,7 +61,7 @@ public class CustomerTest {
 		customerPage.enterEndDate(0);
 		customerPage.selectDayofWeek();
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg();
+		customerPage.verifyConfirmationMsg("Successfully saved WeekDay Based Peak For Tommy Allen.");
 
 		// SPECIAL DAY FOR TOMMY ALLEN
 		customerPage.clickActiveSpecialPlusButton();
@@ -71,7 +72,7 @@ public class CustomerTest {
 		customerPage.enterStartDate(1);
 		customerPage.enterDescription("Work Anniversary");
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg();
+		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Tommy Allen.");
 
 		// HOLIDAY FOR TOMMY ALLEN
 		customerPage.clickActiveSpecialPlusButton();
@@ -81,7 +82,7 @@ public class CustomerTest {
 		customerPage.selectisRecurring();
 		customerPage.enterStartDate(2);
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg();
+		customerPage.verifyConfirmationMsg("Successfully saved Holiday Peak For Tommy Allen.");
 
 		// TIME BASED FOR TOMMY ALLEN
 		customerPage.clickActiveSpecialPlusButton();
@@ -95,7 +96,7 @@ public class CustomerTest {
 		customerPage.enterStartTime();
 		customerPage.enterEndTime();
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg();
+		customerPage.verifyConfirmationMsg("Successfully saved Time Based Peak For Tommy Allen.");
 		
 		// SPECIAL DAY FOR TYLER KIM
 		customerPage.clickCustomerTab();
@@ -111,6 +112,6 @@ public class CustomerTest {
 		customerPage.enterStartDate(1);
 		customerPage.enterDescription("Birthday");
 		customerPage.clickSavePeakButton();
-		customerPage.verifyConfirmationMsg();
+		customerPage.verifyConfirmationMsg("Successfully saved Special Day Peak For Tyler Kim.");
 	}
 }

@@ -60,7 +60,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.enterCardNumber();
     	createCustomerPage.enterCardExpiry();
     	createCustomerPage.clickSaveChangesButton();
-    	createCustomerPage.verifyConfirmationMsg();
+    	createCustomerPage.verifyConfirmationMsg("Saved Customer Successfully");
     	createCustomerPage.navigateBottom();
     	createCustomerPage.clickEditButton();
     	createCustomerPage.enterNextInvoiceDate();
@@ -68,7 +68,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.selectBillingCycleDay();
 		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
-    	createCustomerPage.verifyConfirmationMsg();
+    	createCustomerPage.verifyConfirmationMsg("Customer Updated Successfully");
     	createCustomerPage.clickCustomerTab();
     	createCustomerPage.clickAddNewButton();
     	//createCustomerPage.selectUserCompany();
@@ -82,7 +82,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.enterCardNumber();
     	createCustomerPage.enterCardExpiry();
     	createCustomerPage.clickSaveChangesButton();
-    	createCustomerPage.verifyConfirmationMsg();
+    	createCustomerPage.verifyConfirmationMsg("Saved Customer Successfully");
     	createCustomerPage.navigateBottom();
     	createCustomerPage.clickEditButton();
     	createCustomerPage.selectBillingCycleUnit();
@@ -91,7 +91,7 @@ public class createCustomersBillingProcessTest {
     	createCustomerPage.enterDueDateDays();
 		createCustomerPage.navigateBottom();
     	createCustomerPage.clickSaveChangesButton();
-    	createCustomerPage.verifyConfirmationMsg();
+    	createCustomerPage.verifyConfirmationMsg("Customer Updated Successfully");
     	
     }
 

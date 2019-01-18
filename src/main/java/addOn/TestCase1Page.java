@@ -1,7 +1,6 @@
 package addOn;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import baseClassPackage.BasePage;
 import utilPackages.JavaScriptExec;
 
@@ -153,6 +151,8 @@ public class TestCase1Page extends BasePage {
 				.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 		Assert.assertTrue(clickSaveButton.isDisplayed());
 		actions.moveToElement(clickSaveButton).click().perform();
+		
+		verifyConfirmationMsg("Saved Subscription Order Successfully For AddOnCustomer1");
 	}
 
 	public void consumptionOfPlan() throws IOException {
@@ -225,6 +225,8 @@ public class TestCase1Page extends BasePage {
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 			Assert.assertTrue(clickSaveButton.isDisplayed());
 			actions.moveToElement(clickSaveButton).click().perform();
+			
+			verifyConfirmationMsg("Saved consumption Order Successfully For AddOnCustomer1");
 
 			i++;
 		}

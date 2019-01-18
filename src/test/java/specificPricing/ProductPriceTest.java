@@ -1,7 +1,6 @@
 package specificPricing;
 
 import baseClassPackage.BaseClasses;
-import productDependency.CreateOrderPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -42,7 +41,7 @@ public class ProductPriceTest {
 		specificPricingPage.selectProduct(0);
 		specificPricingPage.clickUpdateButton();
 		specificPricingPage.clickSaveChangesButton();
-		specificPricingPage.verifyConfirmationMsg();
+		specificPricingPage.verifyConfirmationMsg("Order Saved Successfully");
 		specificPricingPage.verifyProductPriceData();
 	}
 }

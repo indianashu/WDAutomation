@@ -58,7 +58,7 @@ public class basicOrderCreationTest {
     	orderPage.enterCCNumber();
     	orderPage.enterCCExpiryDate();
     	orderPage.clickSaveChangesButton();
-    	orderPage.verifyConfirmationMsg();
+    	orderPage.verifyConfirmationMsg("Saved Customer Successfully");
     	orderPage.clickCreateOrderButton();
 		orderPage.selectPeriod();
 		orderPage.selectOrderType();
@@ -69,14 +69,14 @@ public class basicOrderCreationTest {
     	orderPage.clickUpdateButton();
     	orderPage.verifyNewOrder();
     	orderPage.clickSaveChangesButton();
-    	orderPage.verifyConfirmationMsg();
+    	orderPage.verifyConfirmationMsg("Saved Order Successfully");
     	orderPage.clickEditOrderButton();
     	orderPage.clickChangeLog();
     	orderPage.clickSelectedProduct();
     	orderPage.clickChangeButton();
     	orderPage.enterChangeQty();
     	orderPage.clickSaveChangesButton();
-    	orderPage.verifyConfirmationMsg();
+    	orderPage.verifyConfirmationMsg("Order Updated Successfully");
     	
     }
     

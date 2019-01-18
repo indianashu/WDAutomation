@@ -50,7 +50,7 @@ public class configureAddCollectionTest {
     	
     	String gracePeriodId = configurationCollectionsPage.clickSaveChangesButton();
     	
-    	configurationCollectionsPage.verifyConfirmationMsg();
+    	configurationCollectionsPage.verifyConfirmationMsg("Collections Configured Successfully");
 		configurationCollectionsPage.clickPluginsLink();
 		configurationCollectionsPage.clickCategory17();
 		configurationCollectionsPage.clickAddNewButton();

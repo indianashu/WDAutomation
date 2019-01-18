@@ -13,6 +13,7 @@ import productDependency.CreateCategoryPage;
 public class CreateCategoryTest {
 	CreateCategoryPage categoryPage;
     WebDriver driver,driver2;
+    
 
     @BeforeClass(alwaysRun=true)
     public void setup(){
@@ -28,6 +29,9 @@ public class CreateCategoryTest {
 
     @Test(groups={"Product Dependency Feature"},description="AddCategory")
     public void userSignin() throws IOException{
+    	
+    	
+    	
 
     	/*categoryPage.enterLoginID();
     	categoryPage.enterPassword();
@@ -39,7 +43,7 @@ public class CreateCategoryTest {
     	categoryPage.enterCategoryName();
     	categoryPage.selectCompanies();
     	categoryPage.clickSaveChangesButton();
-    	categoryPage.verifyConfirmationMsg();
+    	categoryPage.verifyConfirmationMsg("Saved Category Successfully");
     	
     	categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
@@ -51,7 +55,7 @@ public class CreateCategoryTest {
     	categoryPage.enterPriceRate();
     	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
-        categoryPage.verifyConfirmationMsg();
+        categoryPage.verifyConfirmationMsg("Saved Product Successfully");
         
         categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
@@ -63,7 +67,7 @@ public class CreateCategoryTest {
     	categoryPage.enterPriceRate1();
     	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
-        categoryPage.verifyConfirmationMsg();
+        categoryPage.verifyConfirmationMsg("Saved Product Successfully");
         
         categoryPage.clickProductsTab();
     	categoryPage.selectCategoryName();
@@ -75,6 +79,6 @@ public class CreateCategoryTest {
     	categoryPage.enterPriceRate2();
     	categoryPage.clickAddPriceButton();
     	categoryPage.clickSaveChangesButton();
-        categoryPage.verifyConfirmationMsg();
+        categoryPage.verifyConfirmationMsg("Saved Product Successfully");
     }
 }

@@ -1,7 +1,6 @@
 package configurablePricing;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import baseClassPackage.BasePage;
 import configurablePricing.PricingPage;
-import productDependency.CreateOrderPage;
-import tearDown.TearDownProcessPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 import utilPackages.WaitClass;
@@ -199,22 +196,6 @@ public class PricingPage extends BasePage {
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
-	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Pricing is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		PricingPage sp = new PricingPage(driver);
-		log.info("Verifying if Pricing is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
 	public void verifyPricingName(int rowNum) throws IOException {

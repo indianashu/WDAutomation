@@ -198,7 +198,7 @@ public class AddOnProductCategoryPage extends BasePage {
 				Assert.assertTrue(enterPriceRate.isDisplayed());
 				enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, column+3, 0));
 				clickAddPriceButton();
-			} else {
+			}else {
 
 				WebElement enterPriceRate = driver.findElement(By.xpath("//input[@name='product.rate']"));
 				Assert.assertTrue(enterPriceRate.isDisplayed());
@@ -232,10 +232,13 @@ public class AddOnProductCategoryPage extends BasePage {
 				JavaScriptExec.sleep();
 				Assert.assertTrue(clickAddOnPlusIcon.isDisplayed());
 				clickAddOnPlusIcon.click();
-
+				
 			}
-			saveChanges();
+				saveChanges();
+			
 		}
+			
+			
 	}
 
 	public void clickAddPriceButton() throws IOException {
@@ -245,7 +248,7 @@ public class AddOnProductCategoryPage extends BasePage {
 		actions.moveToElement(clickAddPriceButton).click().perform();
 	}
 
-	public void saveChanges() {
+	public void saveChanges() throws IOException {
 		navigateBottom();
 
 		WebElement clickSaveChangesButton = driver
@@ -253,15 +256,11 @@ public class AddOnProductCategoryPage extends BasePage {
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
-
-		WebElement verifyConfirmationMsg = driver
-				.findElement(By.xpath("//div[@class='msg-box successfully']//*[text()='Done']"));
-		log.info("Verifying if Account Type is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
+		
+		verifyConfirmationMsg("Product Saved Successfully");
 
 	}
+		
 
 	public void navigateBottom() {
 		JavaScriptExec.scrolltoBottomofPage(driver);

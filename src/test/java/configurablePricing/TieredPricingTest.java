@@ -3,7 +3,6 @@ package configurablePricing;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
 
@@ -40,7 +39,7 @@ public class TieredPricingTest {
 		configurablePricingPage.selectProduct(1);
 		configurablePricingPage.clickUpdateButton();
 		configurablePricingPage.clickSaveChangesButton();
-		configurablePricingPage.verifyConfirmationMsg();
+		configurablePricingPage.verifyConfirmationMsg("Subscription Order Saved Successfully For Tiered Pricing");
 
 		// Usage of the Tiered Pricing
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
@@ -55,7 +54,7 @@ public class TieredPricingTest {
 			configurablePricingPage.clickUpdateButton();
 			configurablePricingPage.verifyTotalTieredAmount(rowNum);
 			configurablePricingPage.clickSaveChangesButton();
-			configurablePricingPage.verifyConfirmationMsg();
+			configurablePricingPage.verifyConfirmationMsg("Order Saved  Successfully For Tiered Pricing");
 			
 		}
 	}

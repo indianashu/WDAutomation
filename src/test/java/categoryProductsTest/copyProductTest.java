@@ -50,7 +50,7 @@ public class copyProductTest {
     	copyProductPage.clickAddCategoryButton();
     	copyProductPage.enterCategoryName();
     	copyProductPage.clickSaveChangesButton();
-    	copyProductPage.verifyConfirmationMsg();
+    	copyProductPage.verifyConfirmationMsg("Saved Category Successfully");
     	//copyProductPage.selectCategoryName();
     	copyProductPage.clickAddProductButton();
     	copyProductPage.enterEnglishDescription();
@@ -63,7 +63,7 @@ public class copyProductTest {
     	copyProductPage.enterPriceRate();
     	copyProductPage.clickAddPriceButton();
     	copyProductPage.clickSaveChangesButton();
-    	copyProductPage.verifyConfirmationMsg();
+    	copyProductPage.verifyConfirmationMsg("Saved Product Successfully");
     	//copyProductPage.clickProductsTab();
     	//copyProductPage.selectCopyCategory();
     	copyProductPage.selectProduct();
@@ -72,7 +72,7 @@ public class copyProductTest {
     	copyProductPage.enterPriceRate1();
     	copyProductPage.clickAddPriceButton();
     	copyProductPage.clickSaveChangesButton();
-    	copyProductPage.verifyConfirmationMsg();
+    	copyProductPage.verifyConfirmationMsg("Product Copied Successfully");
     	
     	
     	

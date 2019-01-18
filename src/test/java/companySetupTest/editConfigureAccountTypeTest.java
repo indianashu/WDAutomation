@@ -52,12 +52,12 @@ public class editConfigureAccountTypeTest {
     	editconfigurationAccountTypePage.enterBillingCycle();
     	editconfigurationAccountTypePage.selectInvoiceDesign();
     	editconfigurationAccountTypePage.clickSaveChangesButton();
-    	editconfigurationAccountTypePage.verifyConfirmationMsg();
+    	editconfigurationAccountTypePage.verifyConfirmationMsg("Account Type Created Successfully");
     	editconfigurationAccountTypePage.clickAccountTypeCreated();
     	editconfigurationAccountTypePage.clickEditAccountTypeCreated();
     	editconfigurationAccountTypePage.enterEditAccountName();
     	editconfigurationAccountTypePage.clickSaveChangesButton();
-    	editconfigurationAccountTypePage.verifyConfirmationMsg();
+    	editconfigurationAccountTypePage.verifyConfirmationMsg("Account Type Updated Successfully");
 
     }
     

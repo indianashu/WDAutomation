@@ -2,8 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateEUROChildOrderPage;
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -29,18 +27,18 @@ public class CreateOrderEUROChildTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*
-		 * createEUROChildOrderPage.enterLoginID();
-		 * createEUROChildOrderPage.enterPassword();
-		 * createEUROChildOrderPage.selectCompany();
-		 * createEUROChildOrderPage.clickLoginButton();
-		 */
+		
+		  /*createEUROChildOrderPage.enterLoginID();
+		  createEUROChildOrderPage.enterPassword();
+		  createEUROChildOrderPage.selectCompany();
+		  createEUROChildOrderPage.clickLoginButton();*/
+		 
 
-		/*
-		 * createEUROChildOrderPage.clickImpersonate();
-		 * createEUROChildOrderPage.selectChildCompany();
-		 * createEUROChildOrderPage.clickOKButton();
-		 */
+		
+		  /*createEUROChildOrderPage.clickImpersonate();
+		  createEUROChildOrderPage.selectChildCompany();
+		  createEUROChildOrderPage.clickOKButton();*/
+		 
 
 		// ActiveSince=Past date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -55,6 +53,7 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.clickUpdateButton();
 		createEUROChildOrderPage.expectedAmount1();
 		createEUROChildOrderPage.clickSave();
+		createEUROChildOrderPage.verifyConfirmationMsg("Past Date Order Saved Successfully For EURO Child Customer");
 
 		// ActiveSince=Between Past and Present date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -69,6 +68,7 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.clickUpdateButton();
 		createEUROChildOrderPage.expectedAmount2();
 		createEUROChildOrderPage.clickSave();
+		createEUROChildOrderPage.verifyConfirmationMsg("Between Past and Present Date Order Saved Successfully For EURO Child Customer");
 
 		// ActiveSince=Between Present and Future Date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -83,6 +83,7 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.clickUpdateButton();
 		createEUROChildOrderPage.expectedAmount3();
 		createEUROChildOrderPage.clickSave();
+		createEUROChildOrderPage.verifyConfirmationMsg("Between Present and Future Date Order Saved Successfully For EURO Child Customer");
 
 		// ActiveSince=Future Date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -105,6 +106,7 @@ public class CreateOrderEUROChildTest {
 
 		createEUROChildOrderPage.expectedAmount4();
 		createEUROChildOrderPage.clickSave();
+		createEUROChildOrderPage.verifyConfirmationMsg("Future Date Order Saved Successfully For EURO Child Customer");
 
 	}
 

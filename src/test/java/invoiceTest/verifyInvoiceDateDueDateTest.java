@@ -57,7 +57,7 @@ public class verifyInvoiceDateDueDateTest {
     	generatingInvoicePage.selectPriceCurrency();
     	generatingInvoicePage.enterProductRate();
     	generatingInvoicePage.clickSaveChangesButton();
-    	generatingInvoicePage.verifyConfirmationMsg();
+    	generatingInvoicePage.verifyConfirmationMsg("Saved Product Successfully");
     	generatingInvoicePage.clickCustomerTab();
     	generatingInvoicePage.enterCustomerNameFilter();
     	generatingInvoicePage.applyFilter();
@@ -72,7 +72,7 @@ public class verifyInvoiceDateDueDateTest {
     	generatingInvoicePage.selectProduct1();
     	generatingInvoicePage.clickUpdateButton();
     	generatingInvoicePage.clickSaveChangesButton();
-    	generatingInvoicePage.verifyConfirmationMsg();
+    	generatingInvoicePage.verifyConfirmationMsg("Saved Order Successfully");
     	generatingInvoicePage.clickGenerateInvoiceButton();
     }
     

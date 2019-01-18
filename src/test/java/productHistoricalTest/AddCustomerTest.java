@@ -2,10 +2,8 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.AddCustomerPage;
-import productHistorical.AddProduct1Page;
 
-import java.io.IOException;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -45,7 +43,8 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			addCustomerPage.verifyConfirmationMsg();
+			addCustomerPage.verifyConfirmationMsg("Saved Customer Successfully For Parent Company");
+			
 		}
 		addCustomerPage.clickImpersonate();
 		addCustomerPage.selectChildCompany();
@@ -59,7 +58,7 @@ public class AddCustomerTest {
 			addCustomerPage.selectCurrency(rowNum);
 			addCustomerPage.navigateBottom();
 			addCustomerPage.clickSaveChangesButton();
-			addCustomerPage.verifyConfirmationMsg();
+			addCustomerPage.verifyConfirmationMsg("Saved Customer Successfully For Child Company");
 		}
 		addCustomerPage.clickRedCross();
 		

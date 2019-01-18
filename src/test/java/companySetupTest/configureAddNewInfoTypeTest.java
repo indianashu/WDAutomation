@@ -58,7 +58,7 @@ public class configureAddNewInfoTypeTest {
     	configurationNewInformationTypePage.selectMetafieldType();
     	configurationNewInformationTypePage.clickUpdateButton();
     	configurationNewInformationTypePage.clickSaveChangesButton();
-    	configurationNewInformationTypePage.verifyConfirmationMsg();
+    	configurationNewInformationTypePage.verifyConfirmationMsg("Saved Meta-Field Successfully");
 
 
     }
