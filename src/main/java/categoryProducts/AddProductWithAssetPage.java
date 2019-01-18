@@ -257,7 +257,7 @@ public class AddProductWithAssetPage extends BasePage {
 		JavaScriptExec.scrollToElementOnPage(driver, clickAddProductButton);
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Click on Add Product Button");
-		StaleException.retryingFindClick(By.xpath("//a[@class='submit add']//*[text()='Add Product']"), driver);
+		//StaleException.retryingFindClick(By.xpath("//a[@class='submit add']//*[text()='Add Product']"), driver);
 		actions.moveToElement(clickAddProductButton).click().perform();
 
 	}
