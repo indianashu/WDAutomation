@@ -604,7 +604,12 @@ public class GeneratingPayingInvoicePage extends BasePage {
 		GeneratingPayingInvoicePage sp = new GeneratingPayingInvoicePage(driver);
 		log.info("Click on Process Payment in Real-Time checkbox");
 		Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
-		actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
+		JavaScriptExec.sleep();
+		if ( !driver.findElement(By.id("processNow")).isSelected() )
+		{
+		     driver.findElement(By.id("processNow")).click();
+		}
+		//actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
 
 	}
 

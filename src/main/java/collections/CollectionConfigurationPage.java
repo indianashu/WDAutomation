@@ -153,6 +153,7 @@ public class CollectionConfigurationPage extends BasePage {
 		CollectionConfigurationPage sp = new CollectionConfigurationPage(driver);
 		log.info("Enter the name of the Customer in the Filte Login name");
 		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.clear();
 		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(rownum));
 		JavaScriptExec.sleep();
 	}

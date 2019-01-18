@@ -151,7 +151,6 @@ public class ConfigurationCollectionsPage extends BasePage {
 		try {
 			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 			log.info("Verifying the For Days is available or not");
-			//StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].days']"), driver);
 			Assert.assertTrue(enterForDays.isDisplayed());
 			enterForDays.clear();
 			StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].days']"), driver);
@@ -208,7 +207,6 @@ public class ConfigurationCollectionsPage extends BasePage {
 		try {
 			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 			log.info("Verifying the For Days is available or not");
-			//StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].days']"), driver);
 			Assert.assertTrue(enterForDays1.isDisplayed());
 			enterForDays1.clear();
 			StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].days']"), driver);
@@ -265,7 +263,6 @@ public class ConfigurationCollectionsPage extends BasePage {
 		try {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the For Days is available or not");
-		//StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].days']"), driver);
 		Assert.assertTrue(enterForDays2.isDisplayed());
 		enterForDays2.clear();
 		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].days']"), driver);
@@ -324,7 +321,6 @@ public class ConfigurationCollectionsPage extends BasePage {
 		try {
 			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 			log.info("Verifying the For Days is available or not");
-			//StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].days']"), driver);
 			Assert.assertTrue(enterForDays3.isDisplayed());
 			enterForDays3.clear();
 			StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].days']"), driver);

@@ -402,7 +402,11 @@ public class ReportsPage extends BasePage{
         log.info("Click on Process Payment in Real-Time checkbox");
         Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
         Actions actions = new Actions(driver);
-        actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
+        if ( !driver.findElement(By.id("processNow")).isSelected() )
+		{
+		     driver.findElement(By.id("processNow")).click();
+		}
+        //actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
 
     }
     
@@ -417,7 +421,12 @@ public class ReportsPage extends BasePage{
         log.info("Enter Processing Order");
         JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
-        enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(6));
+        if ( !driver.findElement(By.name("paymentMethod_0.processingOrder")).isSelected() )
+		{
+		     driver.findElement(By.name("paymentMethod_0.processingOrder")).sendKeys(sp.ExcelRead(sheetName).get(6));
+		}
+        
+        //enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(6));
         
     }
 
