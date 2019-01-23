@@ -213,7 +213,11 @@ public class MakePaymentPage extends BasePage {
 		log.info("Check Payment Process Real-Time");
 		Assert.assertTrue(checkPaymentProcessRealTime.isDisplayed());
 		Actions actions = new Actions(driver);
-		actions.moveToElement(checkPaymentProcessRealTime).click().perform();
+		if ( !driver.findElement(By.id("processNow")).isSelected() )
+		{
+		     driver.findElement(By.id("processNow")).click();
+		}
+		//actions.moveToElement(checkPaymentProcessRealTime).click().perform();
 
 	}
 
@@ -229,7 +233,11 @@ public class MakePaymentPage extends BasePage {
 		MakePaymentPage sp = new MakePaymentPage(driver);
 		log.info("Click on Save Changes Button");
 		Assert.assertTrue(enterProcessingOrder.isDisplayed());
-		enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(4));
+		if ( !driver.findElement(By.name("paymentMethod_0.processingOrder")).isSelected() )
+		{
+		     driver.findElement(By.name("paymentMethod_0.processingOrder")).sendKeys(sp.ExcelRead(sheetName).get(4));
+		}
+		//enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(4));
 
 	}
 
