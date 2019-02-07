@@ -51,12 +51,12 @@ public class addEditCategoryTest {
     	productCategoryPage.enterCategoryName();
     	productCategoryPage.selectCompanies();
     	productCategoryPage.clickSaveChangesButton();
-    	productCategoryPage.verifyConfirmationMsg();
+    	productCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
     	productCategoryPage.clickCategoryName();
     	productCategoryPage.clickEditButton();
     	productCategoryPage.enterNewCategoryName();
     	productCategoryPage.clickSaveChangesButton();
-    	productCategoryPage.verifyConfirmationMsg();
+    	productCategoryPage.verifyConfirmationMsg("Category Updated Successfully");
 
     }
     

@@ -51,7 +51,7 @@ public class mediation21MediationErrorHandlerTest {
     	mediationPage.clickAddNewButton();
     	mediationPage.selectTypeIdMediationErrorHandler();
     	mediationPage.clickSavePluginButton();
-    	mediationPage.verifyConfirmationMsg();
+    	mediationPage.verifyConfirmationMsg("Mediation Error Handler Plug-In Saved Successfully");
     	
     }
     

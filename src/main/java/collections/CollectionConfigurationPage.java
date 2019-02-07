@@ -153,6 +153,7 @@ public class CollectionConfigurationPage extends BasePage {
 		CollectionConfigurationPage sp = new CollectionConfigurationPage(driver);
 		log.info("Enter the name of the Customer in the Filte Login name");
 		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.clear();
 		enterCustomerNameFilter.sendKeys(sp.ExcelRead(sheetName).get(rownum));
 		JavaScriptExec.sleep();
 	}
@@ -274,23 +275,7 @@ public class CollectionConfigurationPage extends BasePage {
 		clickSaveChangesButton.click();
 
 	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		CollectionConfigurationPage sp = new CollectionConfigurationPage(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
+	
 	@FindBy(how = How.XPATH, using = "//a[.='Configuration']")
 	private WebElement clickConfigurationTab;
 

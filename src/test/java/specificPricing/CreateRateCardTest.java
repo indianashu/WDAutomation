@@ -35,7 +35,7 @@ public class CreateRateCardTest {
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile(0);
 		ratecardPage.clickSaveChangesButton();
-		ratecardPage.verifyConfirmationMsg();
+		ratecardPage.verifyConfirmationMsg("Test Rate Card Saved Successfully");
 		ratecardPage.selectRateCard(0);
 		ratecardPage.clickEdit();
 		ratecardPage.consumptionUnit();
@@ -49,7 +49,7 @@ public class CreateRateCardTest {
 		ratecardPage.enterPriceColumn();
 		ratecardPage.uploadRatingCSVFile(1);
 		ratecardPage.clickSaveChangesButton();
-		ratecardPage.verifyConfirmationMsg();
+		ratecardPage.verifyConfirmationMsg("Plan Rate Card Saved Successfully");
 		ratecardPage.selectRateCard(1);
 		ratecardPage.clickEdit();
 		ratecardPage.consumptionUnit();

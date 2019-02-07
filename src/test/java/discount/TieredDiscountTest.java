@@ -3,7 +3,6 @@ package discount;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
 
@@ -43,7 +42,7 @@ public class TieredDiscountTest {
 		discountPage.selectDiscountableItem(0);
 		discountPage.clickUpdateButton();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Saved Subscription Order Successfully For Tiered Discount");
 
 		for (int rowNum = 0; rowNum < 5; rowNum++) {
 			discountPage.clickCustomerTab();
@@ -57,7 +56,7 @@ public class TieredDiscountTest {
 			discountPage.clickUpdateButton();
 			discountPage.verifyTotalAmount(8,rowNum);
 			discountPage.clickSaveChangesButton();
-			discountPage.verifyConfirmationMsg();
+			discountPage.verifyConfirmationMsg("Saved Order Successfully For Tiered Discount");
 		}
 	}
 }

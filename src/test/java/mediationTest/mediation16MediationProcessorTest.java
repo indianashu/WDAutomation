@@ -54,7 +54,7 @@ public class mediation16MediationProcessorTest {
     	mediationPage.selectTypeIdMediationProcessor();
     	mediationPage.enterDefaultItemIDMediationProcessor(ItemId);
     	mediationPage.clickSavePluginButton();
-    	mediationPage.verifyConfirmationMsg();
+    	mediationPage.verifyConfirmationMsg("Mediation Processor Plug-In Saved Successfully");
     	
     }
     

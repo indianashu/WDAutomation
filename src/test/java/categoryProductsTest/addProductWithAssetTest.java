@@ -64,7 +64,7 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.selectPriceCurrency();
     	addProductWithAssetPage.clickAddPriceButton();
     	addProductWithAssetPage.clickSaveChangesButton();
-    	addProductWithAssetPage.verifyConfirmationMsg();
+    	addProductWithAssetPage.verifyConfirmationMsg("Saved Product Successfully");
     	addProductWithAssetPage.clickProductName();
 		addProductWithAssetPage.navigateBottom();
     	addProductWithAssetPage.clickAddAssetButton();
@@ -72,13 +72,13 @@ public class addProductWithAssetTest {
     	addProductWithAssetPage.checkIsGlobal();
     	addProductWithAssetPage.enterTaxID();
     	addProductWithAssetPage.clickSaveChangesButton();
-    	addProductWithAssetPage.verifyConfirmationMsg();
+    	addProductWithAssetPage.verifyConfirmationMsg("Saved Asset Successfully");
     	addProductWithAssetPage.clickAddNewButton();
     	addProductWithAssetPage.enterIdentifier2();
     	addProductWithAssetPage.checkIsGlobal();
     	addProductWithAssetPage.enterTaxID1();
     	addProductWithAssetPage.clickSaveChangesButton();
-    	addProductWithAssetPage.verifyConfirmationMsg();
+    	addProductWithAssetPage.verifyConfirmationMsg("Saved Asset Successfully");
     }
 
     @AfterClass(alwaysRun=false)

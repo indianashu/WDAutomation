@@ -135,12 +135,9 @@ public class CreateCustomerPage extends BasePage {
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 			clickSaveChangesButton.click();
-
-			WebElement verifyConfirmationMsg = driver
-					.findElement(By.xpath("//div[@class='msg-box successfully']//*[text()='Done']"));
-			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-					"Assert Failed as its unable to search text in Logged in Page");
-			JavaScriptExec.sleep();
+			
+			verifyConfirmationMsg("Customer Saved Successfully");
+			
 		}
 	}
 

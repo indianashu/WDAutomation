@@ -3,6 +3,8 @@ package companySetupTest;
 import baseClassPackage.BaseClasses;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -44,13 +46,13 @@ public class configureAddCollectionTest {
     	configurationCollectionsPage.enterIDSteps2();
     	configurationCollectionsPage.enterForDays2();
     	configurationCollectionsPage.selectPaymentCheckbox1();
-        configurationCollectionsPage.enterIDSteps3();
+    	configurationCollectionsPage.enterIDSteps3();
     	configurationCollectionsPage.enterForDays3();
     	configurationCollectionsPage.selectSuspendCheckbox1();
     	
     	String gracePeriodId = configurationCollectionsPage.clickSaveChangesButton();
     	
-    	configurationCollectionsPage.verifyConfirmationMsg();
+    	configurationCollectionsPage.verifyConfirmationMsg("Collections Configured Successfully");
 		configurationCollectionsPage.clickPluginsLink();
 		configurationCollectionsPage.clickCategory17();
 		configurationCollectionsPage.clickAddNewButton();

@@ -40,7 +40,7 @@ public class MediationConfigurationTest {
         	mediationPage.enterDateFormat();
         	mediationPage.enterSeparator();
         	mediationPage.clickSavePluginButton();
-        	mediationPage.verifyConfirmationMsg();
+        	mediationPage.verifyConfirmationMsg("Mediation Reader Plug-In Saved Successfully");
         	mediationPage.verifyPlugInData(0);
         	
         	String ItemId = mediationPage.fetchDefaultItemID();
@@ -50,7 +50,7 @@ public class MediationConfigurationTest {
         	mediationPage.selectPluginType(1);
         	mediationPage.enterDefaultItemIDMediationProcessor(ItemId);
         	mediationPage.clickSavePluginButton();
-        	mediationPage.verifyConfirmationMsg();
+        	mediationPage.verifyConfirmationMsg("Mediation Processor Plug-In Saved Successfully");
         	mediationPage.verifyPlugInData(1);
         	
         	mediationPage.clickMediationLink();
@@ -60,7 +60,7 @@ public class MediationConfigurationTest {
         	mediationPage.selectPluginReader();
         	mediationPage.selectPluginProcessor();
         	mediationPage.clickSaveChangesButton();
-        	mediationPage.verifyConfirmationMsg();
+        	mediationPage.verifyConfirmationMsg("Mediation Configuration Saved Successfully");
         	mediationPage.verifyMediationName();
         }
 }

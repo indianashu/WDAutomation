@@ -257,7 +257,7 @@ public class AddProductWithAssetPage extends BasePage {
 		JavaScriptExec.scrollToElementOnPage(driver, clickAddProductButton);
 		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
 		log.info("Click on Add Product Button");
-		StaleException.retryingFindClick(By.xpath("//a[@class='submit add']//*[text()='Add Product']"), driver);
+		//StaleException.retryingFindClick(By.xpath("//a[@class='submit add']//*[text()='Add Product']"), driver);
 		actions.moveToElement(clickAddProductButton).click().perform();
 
 	}
@@ -405,22 +405,6 @@ public class AddProductWithAssetPage extends BasePage {
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 
-	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		AddProductWithAssetPage sp = new AddProductWithAssetPage(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
 	// @FindBy(how=How.XPATH, using="//a[@class='cell double']//*[text()='SIM

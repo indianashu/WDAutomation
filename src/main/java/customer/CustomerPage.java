@@ -115,12 +115,13 @@ public class CustomerPage extends BasePage {
 		log.info("Click on Customer Tab after successful login");
 		Assert.assertTrue(clickCustomerTab.isDisplayed());
 		clickCustomerTab.click();
-		WebElement company = driver.findElement(By.xpath("//span[@class='right-text']//a"));
+		JavaScriptExec.sleep();
+		/*WebElement company = driver.findElement(By.xpath("//span[@class='right-text']//a"));
 		if (company.isDisplayed()) {
 			company.click();
 		}
 
-		JavaScriptExec.sleep();
+		JavaScriptExec.sleep();*/
 	}
 
 	@FindBy(how = How.XPATH, using = "//a[@class='submit add']//*[text()='Add New']")
@@ -296,22 +297,6 @@ public class CustomerPage extends BasePage {
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
 
-	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Account Type is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		CustomerPage sp = new CustomerPage(driver);
-		log.info("Verifying if Account Type is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
 	// @FindBy(how=How.XPATH, using="//a[@class='cell double']")

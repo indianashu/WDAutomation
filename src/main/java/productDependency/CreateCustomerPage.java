@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
@@ -132,18 +131,14 @@ public class CreateCustomerPage extends BasePage {
 					.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 			Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 			clickSaveChangesButton.click();
-
-			WebElement verifyConfirmationMsg = driver
-					.findElement(By.xpath("//div[@class='msg-box successfully']//*[text()='Done']"));
-			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-					"Assert Failed as its unable to search text in Logged in Page");
-			JavaScriptExec.sleep();
 			
 			String actualCustomerName = BasePage.getCellData(xlsxName, sheetName, 3, i);
 			String expectedCustomerName = driver.findElement(By.xpath("//*[@id='column2']/div[1]"))
 					.getText();
 			System.out.println(expectedCustomerName);
 			Assert.assertEquals(actualCustomerName, expectedCustomerName);
+			
+			verifyConfirmationMsg("Saved Customer Successfully");
 			
 		}
 

@@ -17,8 +17,15 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import utilPackages.JavaScriptExec;
 
 public class BasePage {
 	static Logger log = Logger.getLogger(BasePage.class);
@@ -29,11 +36,11 @@ public class BasePage {
 	}
 
 	/**
-	 * Used for Page factory and the page initialization will be called from Test
-	 * classes. They will pass the driver and from this class the driver will be
-	 * passed to the Page classes, if page factory is not used for a method then
-	 * driver will be initialized in this class constructor and it will be passed to
-	 * the page classes
+	 * Used for Page factory and the page initialization will be called from
+	 * Test classes. They will pass the driver and from this class the driver
+	 * will be passed to the Page classes, if page factory is not used for a
+	 * method then driver will be initialized in this class constructor and it
+	 * will be passed to the page classes
 	 * 
 	 * @param driver
 	 * @param Page
@@ -80,36 +87,60 @@ public class BasePage {
 			File file = new File(System.getProperty("user.dir") + xlFilePath);
 			FileInputStream fs = new FileInputStream(file);
 			XSSFWorkbook wb = new XSSFWorkbook(fs);
-			
+
 			XSSFSheet sheet = wb.getSheet(sheetName);
-			
+
 			XSSFRow row = sheet.getRow(rowNum);
 			XSSFCell cell = row.getCell(colNum);
-			
+
 			if (cell.getCellType() == Cell.CELL_TYPE_STRING)
 				return cell.getStringCellValue();
-			
+
 			else if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC || cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
 				String cellValue = String.valueOf(cell.getNumericCellValue());
-				
+
 				if (HSSFDateUtil.isCellDateFormatted(cell)) {
 					DateFormat df = new SimpleDateFormat("dd/MM/yy");
 					Date date = cell.getDateCellValue();
 					cellValue = df.format(date);
 				}
-				
+
 				return cellValue;
-				
+
 			} else if (cell.getCellType() == Cell.CELL_TYPE_BLANK)
-				
+
 				return "";
-			
+
 			else
 				return String.valueOf(cell.getBooleanCellValue());
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			return "row " + rowNum + " or column " + colNum + " does not exist  in Excel";
+		}
+	}
+
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	private WebElement verifyConfirmationMsg;
+
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box error']")
+	private WebElement verifyErrorMsg;
+
+	/**
+	 * Method to verify Product is created Successfully.
+	 * 
+	 * @throws IOException
+	 */
+	public void verifyConfirmationMsg(String message) throws IOException {
+		log.info("Verifying if Product is created Successfully or not");
+		JavaScriptExec.sleep();
+		try {
+			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), message);
+		} catch (NoSuchElementException e) {
+			if (verifyErrorMsg.isDisplayed()) {
+				String failureMsg = verifyErrorMsg.getText();
+				throw new RuntimeException(failureMsg);
+			}
 		}
 	}
 

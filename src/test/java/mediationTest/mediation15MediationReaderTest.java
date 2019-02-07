@@ -61,7 +61,7 @@ public class mediation15MediationReaderTest {
     	mediationPage.enterDateFormat();
     	mediationPage.enterSeparator();
     	mediationPage.clickSavePluginButton();
-    	mediationPage.verifyConfirmationMsg();
+    	mediationPage.verifyConfirmationMsg("Mediation Reader Plug-In Saved Successfully");
     	
     }
     

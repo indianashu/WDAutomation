@@ -3,7 +3,6 @@ package discount;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
 
@@ -38,14 +37,14 @@ public class CRUDDiscountTest {
 		discountPage.checkPercentage();
 		discountPage.selectTierRadioButton();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Discount Saved Successfully");
 		discountPage.clickEditButton();
 		discountPage.editDiscountName();
 		discountPage.clickSaveChangesButton();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Discount Edited Successfully");
 		discountPage.clickDeleteButton();
 		discountPage.clickDeleteYesDiscountPopup();
-		discountPage.verifyConfirmationMsg();
+		discountPage.verifyConfirmationMsg("Discount Deleted Successfully");
 		
 	}
 }

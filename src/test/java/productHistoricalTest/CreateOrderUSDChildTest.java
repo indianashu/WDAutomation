@@ -2,8 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateUSDChildOrderPage;
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -51,6 +49,7 @@ public class CreateOrderUSDChildTest {
 		createUSDChildOrderPage.clickUpdateButton();
 		createUSDChildOrderPage.expectedAmount1();
 		createUSDChildOrderPage.clickSave();
+		createUSDChildOrderPage.verifyConfirmationMsg("Past Date Order Saved Successfully For USD Child Customer");
 
 		// ActiveSince=Between Past and Present date
 		createUSDChildOrderPage.clickCustomerTab();
@@ -65,6 +64,7 @@ public class CreateOrderUSDChildTest {
 		createUSDChildOrderPage.clickUpdateButton();
 		createUSDChildOrderPage.expectedAmount2();
 		createUSDChildOrderPage.clickSave();
+		createUSDChildOrderPage.verifyConfirmationMsg("Between Past and Present Date Order Saved Successfully For USD Child Customer");
 
 		// ActiveSince=Between Present and Future Date
 		createUSDChildOrderPage.clickCustomerTab();
@@ -79,6 +79,7 @@ public class CreateOrderUSDChildTest {
 		createUSDChildOrderPage.clickUpdateButton();
 		createUSDChildOrderPage.expectedAmount3();
 		createUSDChildOrderPage.clickSave();
+		createUSDChildOrderPage.verifyConfirmationMsg("Between Present and Future Date Order Saved Successfully For USD Child Customer");
 
 		// ActiveSince=Future Date
 		createUSDChildOrderPage.clickCustomerTab();
@@ -102,6 +103,7 @@ public class CreateOrderUSDChildTest {
 		
 		createUSDChildOrderPage.expectedAmount4();
 		createUSDChildOrderPage.clickSave();
+		createUSDChildOrderPage.verifyConfirmationMsg("Future Date Order Saved Successfully For USD Child Customer");
 
 	}
 

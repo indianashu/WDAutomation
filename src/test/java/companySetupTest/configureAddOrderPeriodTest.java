@@ -52,7 +52,7 @@ public class configureAddOrderPeriodTest {
     	configurationOrderPeriodsPage.selectUnit();
     	configurationOrderPeriodsPage.enterValue();
     	configurationOrderPeriodsPage.clickSaveChangesButton();
-    	configurationOrderPeriodsPage.verifyConfirmationMsg();
+    	configurationOrderPeriodsPage.verifyConfirmationMsg("Saved Order Period Successfully");
 
     }
     

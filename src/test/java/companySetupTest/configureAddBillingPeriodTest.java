@@ -52,7 +52,7 @@ public class configureAddBillingPeriodTest {
         configurationBillingProcessPage.enterMaxPeriodInvoice();
         configurationBillingProcessPage.selectNeverProrate();
         configurationBillingProcessPage.clickSaveChangesButton();
-    	configurationBillingProcessPage.verifyConfirmationMsg();
+    	configurationBillingProcessPage.verifyConfirmationMsg("Billing Process Configured Successfully");
 
 
     }

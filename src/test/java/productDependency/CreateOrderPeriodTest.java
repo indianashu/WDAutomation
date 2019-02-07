@@ -41,7 +41,7 @@ public class CreateOrderPeriodTest {
 			orderperiodPage.selectUnit();
 			orderperiodPage.enterValue();
 			orderperiodPage.clickSaveChangesButton();
-			orderperiodPage.verifyConfirmationMsg();
+			orderperiodPage.verifyConfirmationMsg("Order Period Saved Successfully");
 		}
 	}
 }

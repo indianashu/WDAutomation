@@ -11,9 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import baseClassPackage.BasePage;
-import specificPricing.SpecificPricingPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 
@@ -233,22 +231,6 @@ public class ConfigurablePricingPage extends BasePage {
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		JavaScriptExec.sleep();
 		clickSaveChangesButton.click();
-	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Pricing is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		ConfigurablePricingPage sp = new ConfigurablePricingPage(driver);
-		log.info("Verifying if Pricing is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
 	@FindBy(how = How.XPATH, using = "//div[@class='total']")

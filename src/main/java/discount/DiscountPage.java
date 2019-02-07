@@ -1,7 +1,6 @@
 package discount;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import baseClassPackage.BasePage;
 import discount.DiscountPage;
-import tearDown.TearDownProcessPage;
 import utilPackages.JavaScriptExec;
 import utilPackages.PropertyValExtractors;
 
@@ -244,22 +241,7 @@ public class DiscountPage extends BasePage {
 			clickSaveChangesButton.click();
 		}
 
-		@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-		private WebElement verifyConfirmationMsg;
-
-		/**
-		 * Method to verify Discount is created Successfully.
-		 * 
-		 * @throws IOException
-		 */
-		public void verifyConfirmationMsg() throws IOException {
-			DiscountPage sp = new DiscountPage(driver);
-			log.info("Verifying if Discount is created Successfully or not");
-			JavaScriptExec.sleep();
-			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-					"Assert Failed as its unable to search text in Logged in Page");
-		}
-
+		
 	public void verifyDiscountName(int rowNum) throws IOException {
 		String actualDiscountName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
 		String expectedDiscountName = driver

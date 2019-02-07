@@ -1,7 +1,6 @@
 package addOn;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import baseClassPackage.BasePage;
-import productHistorical.AddCustomerPage;
 import utilPackages.JavaScriptExec;
 
 public class AddOnCreateCustomerPage extends BasePage {
@@ -151,22 +148,6 @@ public class AddOnCreateCustomerPage extends BasePage {
 		log.info("Click on Select Button to create a New Customer");
 		Assert.assertTrue(clickSaveChangesButton.isDisplayed());
 		clickSaveChangesButton.click();
-		JavaScriptExec.sleep();
-
-	}
-
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to Verify Confirmation Message after customer creation.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		log.info("Verify Confirmation Message");
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
 		JavaScriptExec.sleep();
 
 	}

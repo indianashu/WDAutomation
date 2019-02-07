@@ -212,19 +212,6 @@ public class ReportsPage extends BasePage{
         clickSaveChangesButton.click();
         
     }
-    
-    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
-    private WebElement verifyConfirmationMsg;
-    /**
-     * Method to verify Account Type is created Successfully.
-     * @throws IOException 
-     */
-    public void verifyConfirmationMsg() throws IOException{
-    	ReportsPage sp=new ReportsPage(driver);
-        log.info("Verifying if Account Type is created Successfully or not");
-        JavaScriptExec.sleep();
-        Assert.assertTrue(verifyConfirmationMsg.isDisplayed(), "Assert Failed as its unable to search text in Logged in Page");
-    }
    
     /**
      * Method to select a customer - TestCustomer3.
@@ -402,7 +389,11 @@ public class ReportsPage extends BasePage{
         log.info("Click on Process Payment in Real-Time checkbox");
         Assert.assertTrue(clickProcessRealTimeCheckbox.isDisplayed());
         Actions actions = new Actions(driver);
-        actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
+        if ( !driver.findElement(By.id("processNow")).isSelected() )
+		{
+		     driver.findElement(By.id("processNow")).click();
+		}
+        //actions.moveToElement(clickProcessRealTimeCheckbox).click().perform();
 
     }
     
@@ -417,7 +408,12 @@ public class ReportsPage extends BasePage{
         log.info("Enter Processing Order");
         JavaScriptExec.scrolltoBottomofPage(driver);
         Assert.assertTrue(enterProcessingOrder.isDisplayed());
-        enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(6));
+        if ( !driver.findElement(By.name("paymentMethod_0.processingOrder")).isSelected() )
+		{
+		     driver.findElement(By.name("paymentMethod_0.processingOrder")).sendKeys(sp.ExcelRead(sheetName).get(6));
+		}
+        
+        //enterProcessingOrder.sendKeys(sp.ExcelRead(sheetName).get(6));
         
     }
 

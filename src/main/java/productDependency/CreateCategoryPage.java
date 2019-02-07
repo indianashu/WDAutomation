@@ -172,22 +172,6 @@ public class CreateCategoryPage extends BasePage {
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
-	private WebElement verifyConfirmationMsg;
-
-	/**
-	 * Method to verify Product is created Successfully.
-	 * 
-	 * @throws IOException
-	 */
-	public void verifyConfirmationMsg() throws IOException {
-		CreateCategoryPage sp = new CreateCategoryPage(driver);
-		log.info("Verifying if Product is created Successfully or not");
-		JavaScriptExec.sleep();
-		Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
-				"Assert Failed as its unable to search text in Logged in Page");
-	}
-
 	@FindBy(how = How.XPATH, using = "//input[@name='product.descriptions[0].content']")
 	private WebElement enterEnglishDescription;
 
@@ -397,7 +381,7 @@ public class CreateCategoryPage extends BasePage {
 		log.info("Enter Price Rate");
 		JavaScriptExec.sleep();
 		Assert.assertTrue(enterPriceRate.isDisplayed());
-		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6, 2));
+		enterPriceRate.sendKeys(BasePage.getCellData(xlsxName, sheetName, 6,2));
 	}
 
 	public void navigateBottom() {

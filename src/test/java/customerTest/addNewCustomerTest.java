@@ -61,7 +61,7 @@ public class addNewCustomerTest {
     	customerPage.enterCCNumber();
     	customerPage.enterCCExpiryDate();
     	customerPage.clickSaveChangesButton();
-    	customerPage.verifyConfirmationMsg();
+    	customerPage.verifyConfirmationMsg("Saved Customer Successfully");
 
     }
     

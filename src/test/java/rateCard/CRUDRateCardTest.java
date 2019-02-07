@@ -45,7 +45,7 @@ public class CRUDRateCardTest {
     	createRateCardPage.enterRateCardPrice();
     	createRateCardPage.uploadRatingCSVFile();
     	createRateCardPage.clickLoginButton();
-    	createRateCardPage.verifyConfirmationMsg();
+    	createRateCardPage.verifyConfirmationMsg("Rate Card Created Successfully");
     	
     	createRateCardPage.selectRateCard();
     	createRateCardPage.navigateBottom();
@@ -55,12 +55,12 @@ public class CRUDRateCardTest {
     	createRateCardPage.mediatedQuantityConsumptionUnit();
     	createRateCardPage.consumptionUnit();
     	createRateCardPage.clickLoginButton();
-    	createRateCardPage.verifyConfirmationMsg();
+    	createRateCardPage.verifyConfirmationMsg("Rate Card Updated Successfully");
     	
     	createRateCardPage.selectRateCard();
     	createRateCardPage.navigateBottom();
     	createRateCardPage.clickDeleteButton();
     	createRateCardPage.clickYesDeleteInvoicePopup();
-    	createRateCardPage.verifyConfirmationMsg();
+    	createRateCardPage.verifyConfirmationMsg("Rate Card Deleted Successfully");
     }
 }

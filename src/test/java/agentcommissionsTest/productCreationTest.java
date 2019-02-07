@@ -50,7 +50,7 @@ public class productCreationTest {
     	agentPage.clickAddCategoryButton();
     	agentPage.enterCategoryName();
     	agentPage.clickSaveChangesButton();
-    	agentPage.verifyConfirmationMsg();
+    	agentPage.verifyConfirmationMsg("Saved Category Successfully ");
     	//agentPage.clickProductTab();
     	agentPage.clickProductCategoryName();
     	agentPage.clickAddProductButton();
@@ -62,7 +62,7 @@ public class productCreationTest {
     	agentPage.enterPriceRate();
     	agentPage.clickAddPriceButton();
     	agentPage.clickSaveChangesButton();
-    	agentPage.verifyConfirmationMsg();
+    	agentPage.verifyConfirmationMsg("Saved Product Successfully");
     	
     }
     

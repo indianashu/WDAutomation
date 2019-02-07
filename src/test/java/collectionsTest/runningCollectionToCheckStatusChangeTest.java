@@ -54,7 +54,7 @@ public class runningCollectionToCheckStatusChangeTest {
     	collectionConfigurationPage.navigateBottom();
     	collectionConfigurationPage.enterCardNumber();
     	collectionConfigurationPage.clickSaveChangesButton();
-    	collectionConfigurationPage.verifyConfirmationMsg();
+    	collectionConfigurationPage.verifyConfirmationMsg("Customer Updated Successfully");
     	//collectionConfigurationPage.clickConfigurationTab();
     	collectionConfigurationPage.clickCollectionsLink();
     	collectionConfigurationPage.enterRunCollectionDate();

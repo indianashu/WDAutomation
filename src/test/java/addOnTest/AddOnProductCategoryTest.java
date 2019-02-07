@@ -1,12 +1,8 @@
 package addOnTest;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import addOn.AddOnProductCategoryPage;
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
@@ -40,14 +36,17 @@ public class AddOnProductCategoryTest {
     	addOnProductCategoryPage.clickAddCategoryButton();
     	addOnProductCategoryPage.enterCategoryName();
     	addOnProductCategoryPage.saveChanges();
+    	addOnProductCategoryPage.verifyConfirmationMsg("Item Type Category Saved Successfully");
     	
     	addOnProductCategoryPage.clickProductsTab();
     	addOnProductCategoryPage.clickAddCategoryButton();
     	addOnProductCategoryPage.enterTypeId();
     	addOnProductCategoryPage.enterCategoryName();
     	addOnProductCategoryPage.saveChanges();
+    	addOnProductCategoryPage.verifyConfirmationMsg("Add On Type Category Saved Successfully");
     	
     	addOnProductCategoryPage.addProducts();
+    	
     	
     }
     

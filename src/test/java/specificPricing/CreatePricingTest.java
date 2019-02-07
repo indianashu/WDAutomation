@@ -1,7 +1,6 @@
 package specificPricing;
 
 import baseClassPackage.BaseClasses;
-import productDependency.CreateOrderPeriodPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,7 +40,7 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
-		pricingPage.verifyConfirmationMsg();
+		pricingPage.verifyConfirmationMsg("Test Pricing Saved Successfully");
 		pricingPage.verifyPricingData(0);
 
 		pricingPage.clickPricingTab();
@@ -54,7 +53,7 @@ public class CreatePricingTest {
 		pricingPage.clickMadatoryMatch();
 		pricingPage.clickPlusIcon();
 		pricingPage.clickSaveChangesButton();
-		pricingPage.verifyConfirmationMsg();
+		pricingPage.verifyConfirmationMsg("Plan Pricing Saved Successfully");
 		pricingPage.verifyPricingData(1);
 
 	}

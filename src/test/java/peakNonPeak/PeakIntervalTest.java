@@ -1,5 +1,6 @@
 package peakNonPeak;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -38,7 +39,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterEndDate(0);
 		peakIntervalPage.selectDayofWeek();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Week Day Based Peak Saved Successfully");
 		
 		//SPECIAL DAY
 		peakIntervalPage.selectPeakInterval(1);
@@ -47,7 +48,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterStartDate(1);
 		peakIntervalPage.enterDescription();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Special Day Peak Saved Successfully");
 		
 		//HOLIDAY
 		peakIntervalPage.selectPeakInterval(2);
@@ -55,7 +56,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.selectisRecurring();
 		peakIntervalPage.enterStartDate(2);
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Holiday Based Peak Saved Successfully");
 		
 		//TIME BASED
 		peakIntervalPage.selectPeakInterval(3);
@@ -67,7 +68,7 @@ public class PeakIntervalTest {
 		peakIntervalPage.enterStartTime();
 		peakIntervalPage.enterEndTime();
 		peakIntervalPage.clickSaveChangesButton();
-		peakIntervalPage.verifyConfirmationMsg();
+		peakIntervalPage.verifyConfirmationMsg("Time Based Peak Saved Successfully");
 	}
 
 }

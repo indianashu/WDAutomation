@@ -54,7 +54,7 @@ public class configurePaymentMethodTest {
     	configurationAddPaymentMethodPage.selectIsRecurring();
     	configurationAddPaymentMethodPage.selectAccountType();
     	configurationAddPaymentMethodPage.clickSaveChangesButton();
-    	configurationAddPaymentMethodPage.verifyConfirmationMsg();
+    	configurationAddPaymentMethodPage.verifyConfirmationMsg("Payment Method Saved Successfully");
 
 
     }

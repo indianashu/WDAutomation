@@ -2,10 +2,8 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.AddProduct1Page;
-import productHistorical.AddProduct1Page;
 
-import java.io.IOException;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,7 +39,8 @@ public class AddProduct1Test {
 		addProductCategoryPage.enterCategoryName();
 		addProductCategoryPage.clickGlobalCheckbox();
 		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg();
+		addProductCategoryPage.verifyConfirmationMsg("Saved Category Successfully");
+		
 		
 		addProductCategoryPage.clickAddProductButton();
 		addProductCategoryPage.enterEnglishDescription();
@@ -53,7 +52,8 @@ public class AddProduct1Test {
 		
 		
 		addProductCategoryPage.clickSaveChangesButton();
-		addProductCategoryPage.verifyConfirmationMsg();
+		addProductCategoryPage.verifyConfirmationMsg("Product Saved Successfully");
+		
 
 }
 }

@@ -1,12 +1,8 @@
 package addOnTest;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import addOn.TestCase1Page;
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
@@ -38,6 +34,7 @@ public class AddOnTestCase1 {
 
 		testCase1Page.subscriptionOfPlan();
 		testCase1Page.consumptionOfPlan();
+		
 
 	}
 
