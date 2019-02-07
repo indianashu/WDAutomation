@@ -136,14 +136,14 @@ public class CustomerPage extends BasePage {
 			clickSaveChangesButton.click();
 
 			WebElement verifyConfirmationMsg = driver
-					.findElement(By.xpath("//div[@class='msg-box successfully']//*[text()='Done']"));
+					.findElement(By.xpath("//*[@id='messages']"));
 			Assert.assertTrue(verifyConfirmationMsg.isDisplayed(),
 					"Assert Failed as its unable to search text in Logged in Page");
 			JavaScriptExec.sleep();
 
 			String actualName = BasePage.getCellData(xlsxName, sheetName, 4, rowNum);
 			String expectedName = driver
-					.findElement(By.xpath("//*[@id='column2']/div[4]/div/table/tbody/tr[2]/td[2]/a")).getText();
+					.findElement(By.xpath("//*[@id='switch-user-form']//following-sibling::a")).getText();
 			System.out.println("Customer Name=" + expectedName);
 			Assert.assertEquals(actualName, expectedName);
 		}

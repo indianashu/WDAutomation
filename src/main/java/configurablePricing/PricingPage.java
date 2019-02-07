@@ -220,7 +220,7 @@ public class PricingPage extends BasePage {
 	public void verifyPricingName(int rowNum) throws IOException {
 		String actualPricingName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
 		String expectedPricingName = driver
-				.findElement(By.xpath("//*[@id='column2']/div/div[2]/table/tbody/tr[2]/td[2]")).getText();
+				.findElement(By.xpath("//*[@id='column2']//*[text()='Name']//following-sibling::td")).getText();
 		System.out.println(expectedPricingName);
 		Assert.assertEquals(actualPricingName, expectedPricingName);
 	}

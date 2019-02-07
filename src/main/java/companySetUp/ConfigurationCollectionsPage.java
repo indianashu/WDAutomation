@@ -149,9 +149,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 			log.info("Verifying the For Days is available or not");
 
-			StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].days']"), driver);
 			Assert.assertTrue(enterForDays.isDisplayed());
 			enterForDays.clear();
+			StaleException.retryingFindClick(By.xpath("//input[@name='obj[0].days']"), driver);
 			enterForDays.sendKeys(BasePage.ExcelRead(sheetName).get(4));
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();
@@ -202,9 +202,10 @@ public class ConfigurationCollectionsPage extends BasePage {
 		try {
 			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 			log.info("Verifying the For Days is available or not");
-			StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].days']"), driver);
 			Assert.assertTrue(enterForDays1.isDisplayed());
+
 			enterForDays1.clear();
+			StaleException.retryingFindClick(By.xpath("//input[@name='obj[1].days']"), driver);
 			enterForDays1.sendKeys(BasePage.ExcelRead(sheetName).get(6));
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();
@@ -257,9 +258,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 		ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 		log.info("Verifying the For Days is available or not");
 		try {
-		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].days']"), driver);
 		Assert.assertTrue(enterForDays2.isDisplayed());
 		enterForDays2.clear();
+		StaleException.retryingFindClick(By.xpath("//input[@name='obj[2].days']"), driver);
 		enterForDays2.sendKeys(BasePage.ExcelRead(sheetName).get(8));
 		}
 		catch(StaleElementReferenceException e) {
@@ -312,9 +313,9 @@ public class ConfigurationCollectionsPage extends BasePage {
 		try {
 			ConfigurationCollectionsPage sp = new ConfigurationCollectionsPage(driver);
 			log.info("Verifying the For Days is available or not");
-			StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].days']"), driver);
 			Assert.assertTrue(enterForDays3.isDisplayed());
 			enterForDays3.clear();
+			StaleException.retryingFindClick(By.xpath("//input[@name='obj[3].days']"), driver);
 			enterForDays3.sendKeys(BasePage.ExcelRead(sheetName).get(10));
 		} catch (StaleElementReferenceException e) {
 			e.printStackTrace();

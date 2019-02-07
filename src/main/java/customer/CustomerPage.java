@@ -1,9 +1,7 @@
 package customer;
 
 import baseClassPackage.BasePage;
-
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -120,7 +118,6 @@ public class CustomerPage extends BasePage {
 			JavaScriptExec.sleep();
 			company.click();
 		}
-
 		JavaScriptExec.sleep();
 	}
 
@@ -291,7 +288,7 @@ public class CustomerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//*[@id='messages']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -369,7 +366,7 @@ public class CustomerPage extends BasePage {
 	// }
 	//
 
-	@FindBy(how = How.XPATH, using = "//*[@id='ait-20']/div[1]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='ait-20']//a/span")
 	private WebElement expandContactInfo;
 
 	/**
@@ -405,7 +402,7 @@ public class CustomerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='payment-methods']/div[1]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='payment-methods']//a[@class='btn-open']/span")
 	private WebElement expandPaymentMethod;
 
 	/**

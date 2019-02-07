@@ -398,13 +398,14 @@ public class ProductPage extends BasePage {
 		JavaScriptExec.sleep();
 		
 		String expectedComponentPricesProduct = driver
-				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
+				.findElement(By.xpath("//*[@id='column2']//td[1]//a")).getText().substring(0,17);
 		String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 9, rowNum);
 		System.out.println(expectedComponentPricesProduct);
 		Assert.assertTrue(expectedComponentPricesProduct.contains(actualComponentPricesProduct));
 		
 		String expectedComponentPricePricing = driver
-				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[2]")).getText();
+				.findElement(By.xpath("//*[@id='column2']//td[2]//a")).getText().substring(0,14);
+
 		String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 8, rowNum);
 		System.out.println(expectedComponentPricePricing);
 		Assert.assertTrue(expectedComponentPricePricing.contains(actualComponentPricesPricing));

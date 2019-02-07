@@ -245,7 +245,7 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='payment-methods']/div[1]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='payment-methods']//a[@class='btn-open']/span")
 	private WebElement expandPaymentMethod;
 
 	/**
@@ -374,7 +374,7 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//*[@id='messages']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -452,7 +452,7 @@ public class CustomerParentChildPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='ait-20']/div[1]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='ait-20']//a/span")
 	private WebElement expandContactInfo;
 
 	/**
