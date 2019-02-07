@@ -27,14 +27,16 @@ public class CreateOrderCADChildTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		/*createCADChildOrderPage.enterLoginID();
-		createCADChildOrderPage.enterPassword();
-		createCADChildOrderPage.selectCompany();
-		createCADChildOrderPage.clickLoginButton();*/
-		
-		/*createCADChildOrderPage.clickImpersonate();
+		/*
+		 * createCADChildOrderPage.enterLoginID();
+		 * createCADChildOrderPage.enterPassword();
+		 * createCADChildOrderPage.selectCompany();
+		 * createCADChildOrderPage.clickLoginButton();
+		 */
+
+		createCADChildOrderPage.clickImpersonate();
 		createCADChildOrderPage.selectChildCompany();
-		createCADChildOrderPage.clickOKButton();*/
+		createCADChildOrderPage.clickOKButton();
 
 		// ActiveSince=Past date
 		createCADChildOrderPage.clickCustomerTab();
@@ -64,7 +66,8 @@ public class CreateOrderCADChildTest {
 		createCADChildOrderPage.clickUpdateButton();
 		createCADChildOrderPage.expectedAmount2();
 		createCADChildOrderPage.clickSave();
-		createCADChildOrderPage.verifyConfirmationMsg("Between Past and Present Date Order Saved Successfully For CAD Child Customer");
+		createCADChildOrderPage
+				.verifyConfirmationMsg("Between Past and Present Date Order Saved Successfully For CAD Child Customer");
 
 		// ActiveSince=Between Present and Future Date
 		createCADChildOrderPage.clickCustomerTab();
@@ -79,7 +82,8 @@ public class CreateOrderCADChildTest {
 		createCADChildOrderPage.clickUpdateButton();
 		createCADChildOrderPage.expectedAmount3();
 		createCADChildOrderPage.clickSave();
-		createCADChildOrderPage.verifyConfirmationMsg("Between Present and Future Date Order Saved Successfully For CAD Child Customer");
+		createCADChildOrderPage.verifyConfirmationMsg(
+				"Between Present and Future Date Order Saved Successfully For CAD Child Customer");
 
 		// ActiveSince=Future Date
 		createCADChildOrderPage.clickCustomerTab();
@@ -91,26 +95,24 @@ public class CreateOrderCADChildTest {
 		createCADChildOrderPage.selectProduct1();
 		createCADChildOrderPage.checkApplyNow();
 		createCADChildOrderPage.clickUpdateButton1();
-		
+
 		createCADChildOrderPage.selectProduct2();
 		createCADChildOrderPage.checkApplyNow2();
 		createCADChildOrderPage.clickUpdateButton2();
-		
+
 		createCADChildOrderPage.selectProduct3();
 		createCADChildOrderPage.checkApplyNow3();
 		createCADChildOrderPage.clickUpdateButton();
-		
+
 		createCADChildOrderPage.expectedAmount4();
 		createCADChildOrderPage.clickSave();
 		createCADChildOrderPage.verifyConfirmationMsg("Future Date Order Saved Successfully For CAD Child Customer");
 
+		createCADChildOrderPage.clickRedCross();
+
 	}
 
-
-
-		
-		
-	}
+}
 
 
 

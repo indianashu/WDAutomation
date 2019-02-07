@@ -27,18 +27,16 @@ public class CreateOrderEUROChildTest {
 	@Test(groups = { "Product Historical Feature" }, description = "Create Order for the Child Company & USD Customer")
 	public void userSignin() throws Exception {
 
-		
-		  /*createEUROChildOrderPage.enterLoginID();
-		  createEUROChildOrderPage.enterPassword();
-		  createEUROChildOrderPage.selectCompany();
-		  createEUROChildOrderPage.clickLoginButton();*/
-		 
+		/*
+		 * createEUROChildOrderPage.enterLoginID();
+		 * createEUROChildOrderPage.enterPassword();
+		 * createEUROChildOrderPage.selectCompany();
+		 * createEUROChildOrderPage.clickLoginButton();
+		 */
 
-		
-		  /*createEUROChildOrderPage.clickImpersonate();
-		  createEUROChildOrderPage.selectChildCompany();
-		  createEUROChildOrderPage.clickOKButton();*/
-		 
+		createEUROChildOrderPage.clickImpersonate();
+		createEUROChildOrderPage.selectChildCompany();
+		createEUROChildOrderPage.clickOKButton();
 
 		// ActiveSince=Past date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -68,7 +66,8 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.clickUpdateButton();
 		createEUROChildOrderPage.expectedAmount2();
 		createEUROChildOrderPage.clickSave();
-		createEUROChildOrderPage.verifyConfirmationMsg("Between Past and Present Date Order Saved Successfully For EURO Child Customer");
+		createEUROChildOrderPage.verifyConfirmationMsg(
+				"Between Past and Present Date Order Saved Successfully For EURO Child Customer");
 
 		// ActiveSince=Between Present and Future Date
 		createEUROChildOrderPage.clickCustomerTab();
@@ -83,7 +82,8 @@ public class CreateOrderEUROChildTest {
 		createEUROChildOrderPage.clickUpdateButton();
 		createEUROChildOrderPage.expectedAmount3();
 		createEUROChildOrderPage.clickSave();
-		createEUROChildOrderPage.verifyConfirmationMsg("Between Present and Future Date Order Saved Successfully For EURO Child Customer");
+		createEUROChildOrderPage.verifyConfirmationMsg(
+				"Between Present and Future Date Order Saved Successfully For EURO Child Customer");
 
 		// ActiveSince=Future Date
 		createEUROChildOrderPage.clickCustomerTab();
