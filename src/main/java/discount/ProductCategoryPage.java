@@ -268,7 +268,7 @@ public class ProductCategoryPage extends BasePage {
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -294,7 +294,7 @@ public class ProductCategoryPage extends BasePage {
 		addCategoryFilter.click();
 		JavaScriptExec.sleep();
 		
-		WebElement selectDescription = driver.findElement(By.xpath("//*[@id='filters']/div[2]/div[1]/div/ul/li[3]/a"));
+		WebElement selectDescription = driver.findElement(By.xpath("//*[@id='filters']//ul/li[3]/a"));
 		selectDescription.click();
 		JavaScriptExec.sleep();
 		

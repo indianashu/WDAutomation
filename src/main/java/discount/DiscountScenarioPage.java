@@ -303,7 +303,7 @@ public class DiscountScenarioPage extends BasePage{
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -319,7 +319,7 @@ public class DiscountScenarioPage extends BasePage{
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 	
-	@FindBy(how = How.XPATH, using = "//div[@class='total']")
+	@FindBy(how = How.XPATH, using = "//*[@class='total']")
 	private WebElement verifyTotalAmount;
 
 	/**

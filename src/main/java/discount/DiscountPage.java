@@ -244,7 +244,7 @@ public class DiscountPage extends BasePage {
 			clickSaveChangesButton.click();
 		}
 
-		@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+		@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
 		private WebElement verifyConfirmationMsg;
 
 		/**
@@ -263,11 +263,11 @@ public class DiscountPage extends BasePage {
 	public void verifyDiscountName(int rowNum) throws IOException {
 		String actualDiscountName = BasePage.getCellData(xlsxName, sheetName, 3, rowNum);
 		String expectedDiscountName = driver
-				.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table/tbody/tr[2]/td[2]")).getText();
+				.findElement(By.xpath("//*[@id='column2']//table/tbody/tr[2]/td[2]")).getText();
 		System.out.println("Discount Name = "+expectedDiscountName);
 		Assert.assertEquals(actualDiscountName, expectedDiscountName);
 
-		WebElement element = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table/tbody/tr[14]/td[3]"));
+		WebElement element = driver.findElement(By.xpath("//*[@id='column2']//table/tbody/tr[14]/td[3]"));
 		Assert.assertTrue(element.isDisplayed());
 		
 		String isPercentage = element.getText();
