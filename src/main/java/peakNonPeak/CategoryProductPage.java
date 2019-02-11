@@ -180,7 +180,7 @@ public class CategoryProductPage extends BasePage {
 		clickSaveChangesButton.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -331,7 +331,7 @@ public class CategoryProductPage extends BasePage {
 		enterPricing.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']/div[2]/a/span")
+	@FindBy(how = How.XPATH, using = "//*[@id='confPricingList']//a/span")
 	private WebElement clickOnAddPrice;
 
 	/**
@@ -381,7 +381,7 @@ public class CategoryProductPage extends BasePage {
 		JavaScriptExec.sleep();
 
 		String expectedComponentPricesProduct = driver
-				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[1]")).getText();
+				.findElement(By.xpath("//*[@id='column2']//td[1]//a")).getText().substring(0,14);
 		String actualComponentPricesProduct = BasePage.getCellData(xlsxName, sheetName, 6, rowNum);
 
 		System.out.println("Component Price Name Expected= " +expectedComponentPricesProduct);
@@ -389,7 +389,7 @@ public class CategoryProductPage extends BasePage {
 		Assert.assertTrue(expectedComponentPricesProduct.contains(actualComponentPricesProduct));
 
 		String expectedComponentPricePricing = driver
-				.findElement(By.xpath("//*[@id='column2']/div[2]/div/div[3]/div[2]/table/tbody/tr[2]/td[2]")).getText();
+				.findElement(By.xpath("//*[@id='column2']//td[2]//a")).getText().substring(0,19);
 		String actualComponentPricesPricing = BasePage.getCellData(xlsxName, sheetName, 3, 0);
 
 		System.out.println("Component Pricing Name Expected= " +expectedComponentPricePricing);

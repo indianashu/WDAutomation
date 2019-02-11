@@ -277,7 +277,7 @@ public class PeakNonPeakScenarioPage extends BasePage {
 		JavaScriptExec.sleep();
 	}
 	
-	@FindBy(how = How.XPATH, using = "//div[@class='total']")
+	@FindBy(how = How.XPATH, using = "//*[@class='total']")
 	private WebElement verifyTotalAmount;
  	/**
 	 * Method to Verifying the orderAmount is correct or not.
@@ -309,7 +309,7 @@ public class PeakNonPeakScenarioPage extends BasePage {
 		JavaScriptExec.sleep();
 		clickSaveChangesButton.click();
 	}
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	/**

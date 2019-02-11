@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import baseClassPackage.BaseClasses;
 import utilPackages.PropertyValExtractors;
 import utilPackages.TestMethodListener;
