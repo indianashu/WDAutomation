@@ -1,11 +1,7 @@
 package orderHierarchies;
 
 import baseClassPackage.BasePage;
-import customer.ImpersonateCustomerPage;
-import invoice.GeneratingInvoicePage;
-
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -402,7 +398,7 @@ public class OrderHierarchiesPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -564,7 +560,7 @@ public class OrderHierarchiesPage extends BasePage {
 		log.info("verify warning message.");
 		JavaScriptExec.sleep();
 		String ExpectedMsg = sp.ExcelRead(sheetName).get(17);
-		String ActualMsg = driver.findElement(By.xpath("//*[@id='messages']/div/ul/li")).getText();
+		String ActualMsg = driver.findElement(By.xpath("//*[@id='messages']//ul//li")).getText();
 		Assert.assertEquals(ActualMsg, ExpectedMsg);
 
 	}
@@ -615,7 +611,7 @@ public class OrderHierarchiesPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//a//following::span[text()='Update'][2]")
+	@FindBy(how = How.XPATH, using = "(//span[text()='Update'])[2]")
 	private WebElement clickUpdateButton;
 
 	/**
