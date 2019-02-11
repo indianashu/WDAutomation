@@ -297,7 +297,7 @@ public class MediationPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	/**
@@ -390,7 +390,7 @@ public class MediationPage extends BasePage {
 		String ItemName = sp.ExcelRead(sheetName).get(19);
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + ItemName + "']")).click();
 		JavaScriptExec.sleep();
-		String ItemId = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[1]/tbody/tr[1]/td[2]"))
+		String ItemId = driver.findElement(By.xpath("//*[@id='column2']//*[text()='Product Id']//following-sibling::td"))
 				.getText();
 		System.out.println(ItemId);
 		log.info("Item ID." + ItemId);
@@ -681,7 +681,7 @@ public class MediationPage extends BasePage {
 		driver.findElement(By.xpath("//a[@class='cell double']//*[text()='" + MediationName + "']")).click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[3]/td[2]")
+	@FindBy(how = How.XPATH, using = "//*[@id='column2']//*[text()='Done And Billable']//following-sibling::td")
 	private WebElement verifyDoneBillableValue;
 
 	/**
@@ -695,7 +695,7 @@ public class MediationPage extends BasePage {
 		JavaScriptExec.sleep();
 		WaitClass.WaitForElementisDisplay(driver, 10, verifyDoneBillableValue);
 		Assert.assertTrue(verifyDoneBillableValue.isDisplayed());
-		String Number = driver.findElement(By.xpath("//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[3]/td[2]"))
+		String Number = driver.findElement(By.xpath("//*[@id='column2']//*[text()='Done And Billable']//following-sibling::td"))
 				.getText();
 		int Value = Integer.parseInt(Number);
 		if (Value > 0) {
@@ -705,7 +705,7 @@ public class MediationPage extends BasePage {
 		}
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='column2']/div/div[2]/div/table[2]/tbody/tr[3]/td[3]/a")
+	@FindBy(how = How.XPATH, using = "//*[@id='column2']//*[text()='Done And Billable']//following-sibling::td[2]")
 	private WebElement clickDoneBillableViewLink;
 
 	/**
@@ -737,7 +737,7 @@ public class MediationPage extends BasePage {
 		clickOrdersTab.click();
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.configuration']/div/div/ul/a[13]/li")
+	@FindBy(how = How.XPATH, using = "//*[@id='menu.link.configuration']//ul/a[13]/li")
 	private WebElement clickfileFormatTab;
 
 	/**
