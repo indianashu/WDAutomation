@@ -1,7 +1,6 @@
 package rateCard;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import baseClassPackage.BasePage;
 import specificPricing.CreateRateCardPage;
 import utilPackages.JavaScriptExec;
@@ -96,6 +94,7 @@ public class CRUDRateCardPage extends BasePage {
 		CreateRateCardPage sp = new CreateRateCardPage(driver);
 		log.info("Verifying the Description is available or not");
 		Assert.assertTrue(enterRateCardName.isDisplayed());
+		enterRateCardName.clear();
 		enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, row, 0));
 		
 	}
@@ -126,9 +125,9 @@ public class CRUDRateCardPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	public void selectRateCard() throws IOException {
+	public void selectRateCard(int row) throws IOException {
 		log.info("");
-		String RateCard = BasePage.getCellData(xlsxName, sheetName, 4, 0);
+		String RateCard = BasePage.getCellData(xlsxName, sheetName, row, 0);
 		WebElement selectRateCard = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + RateCard + "']"));
 		selectRateCard.click();

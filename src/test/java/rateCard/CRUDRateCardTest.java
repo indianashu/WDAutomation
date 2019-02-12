@@ -1,20 +1,10 @@
 package rateCard;
 
 import baseClassPackage.BaseClasses;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utilPackages.PropertyValExtractors;
-import utilPackages.WaitClass;
 import rateCard.CRUDRateCardPage;
 
 public class CRUDRateCardTest {
@@ -47,17 +37,17 @@ public class CRUDRateCardTest {
     	createRateCardPage.clickLoginButton();
     	createRateCardPage.verifyConfirmationMsg();
     	
-    	createRateCardPage.selectRateCard();
+    	createRateCardPage.selectRateCard(3);
     	createRateCardPage.navigateBottom();
     	createRateCardPage.clickEditButton();
-    	createRateCardPage.enterRateCardName(3);
+    	createRateCardPage.enterRateCardName(4);
     	createRateCardPage.rateCardRateConsumptionUnit();
     	createRateCardPage.mediatedQuantityConsumptionUnit();
     	createRateCardPage.consumptionUnit();
     	createRateCardPage.clickLoginButton();
     	createRateCardPage.verifyConfirmationMsg();
     	
-    	createRateCardPage.selectRateCard();
+    	createRateCardPage.selectRateCard(4);
     	createRateCardPage.navigateBottom();
     	createRateCardPage.clickDeleteButton();
     	createRateCardPage.clickYesDeleteInvoicePopup();
