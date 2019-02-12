@@ -47,17 +47,17 @@ public class CRUDRateCardTest {
     	createRateCardPage.clickLoginButton();
     	createRateCardPage.verifyConfirmationMsg();
     	
-    	createRateCardPage.selectRateCard(3);
+    	createRateCardPage.selectRateCard();
     	createRateCardPage.navigateBottom();
     	createRateCardPage.clickEditButton();
-    	createRateCardPage.enterRateCardName(4);
+    	createRateCardPage.enterRateCardName(3);
     	createRateCardPage.rateCardRateConsumptionUnit();
     	createRateCardPage.mediatedQuantityConsumptionUnit();
     	createRateCardPage.consumptionUnit();
     	createRateCardPage.clickLoginButton();
     	createRateCardPage.verifyConfirmationMsg();
     	
-    	createRateCardPage.selectRateCard(4);
+    	createRateCardPage.selectRateCard();
     	createRateCardPage.navigateBottom();
     	createRateCardPage.clickDeleteButton();
     	createRateCardPage.clickYesDeleteInvoicePopup();

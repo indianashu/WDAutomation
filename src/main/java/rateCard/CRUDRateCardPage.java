@@ -96,8 +96,8 @@ public class CRUDRateCardPage extends BasePage {
 		CreateRateCardPage sp = new CreateRateCardPage(driver);
 		log.info("Verifying the Description is available or not");
 		Assert.assertTrue(enterRateCardName.isDisplayed());
-		enterRateCardName.clear();
 		enterRateCardName.sendKeys(BasePage.getCellData(xlsxName, sheetName, row, 0));
+		
 	}
 
 	@FindBy(how = How.XPATH, using = "//*[@id='priceFieldName']")
@@ -117,7 +117,7 @@ public class CRUDRateCardPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//strong[text()='Done']")
+	@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']//*[text()='Done']")
 	private WebElement verifyConfirmationMsg;
 
 	public void verifyConfirmationMsg() throws IOException {
@@ -126,9 +126,9 @@ public class CRUDRateCardPage extends BasePage {
 				"Assert Failed as its unable to search text in Logged in Page");
 	}
 
-	public void selectRateCard(int rowNum) throws IOException {
+	public void selectRateCard() throws IOException {
 		log.info("");
-		String RateCard = BasePage.getCellData(xlsxName, sheetName, rowNum, 0);
+		String RateCard = BasePage.getCellData(xlsxName, sheetName, 4, 0);
 		WebElement selectRateCard = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + RateCard + "']"));
 		selectRateCard.click();
@@ -185,7 +185,7 @@ public class CRUDRateCardPage extends BasePage {
 
 	public void selectRateCardForDelete() throws IOException {
 		log.info("");
-		String RateCard = BasePage.getCellData(xlsxName, sheetName, 3, 0);
+		String RateCard = BasePage.getCellData(xlsxName, sheetName, 4, 0);
 		WebElement selectRateCard = driver
 				.findElement(By.xpath("//a[@class='cell double']//*[text()='" + RateCard + "']"));
 		selectRateCard.click();

@@ -106,7 +106,7 @@ public class RateCardPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='messages']")
+	@FindBy(how = How.XPATH, using = "//*[@id='messages']/div")
 	private WebElement verifyConfirmationMsg;
 
 	public void verifyConfirmationMsg(int i) throws IOException {
