@@ -2,8 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateUSDChildOrderPage;
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,6 +39,8 @@ public class CreateOrderUSDChildTest {
 		// ActiveSince=Past date
 		createUSDChildOrderPage.clickCustomerTab();
 		createUSDChildOrderPage.selectCustomer();
+		createUSDChildOrderPage.enterCustomerNameFilter();
+		createUSDChildOrderPage.applyFilter();
 		createUSDChildOrderPage.clickCreateOrder();
 		createUSDChildOrderPage.selectActiveSincePast();
 		createUSDChildOrderPage.clickProductSubTab();
@@ -55,6 +55,8 @@ public class CreateOrderUSDChildTest {
 		// ActiveSince=Between Past and Present date
 		createUSDChildOrderPage.clickCustomerTab();
 		createUSDChildOrderPage.selectCustomer();
+		createUSDChildOrderPage.enterCustomerNameFilter();
+		createUSDChildOrderPage.applyFilter();
 		createUSDChildOrderPage.clickCreateOrder();
 		createUSDChildOrderPage.selectActiveSinceBetweenPastPresent();
 		createUSDChildOrderPage.clickProductSubTab();
@@ -69,6 +71,8 @@ public class CreateOrderUSDChildTest {
 		// ActiveSince=Between Present and Future Date
 		createUSDChildOrderPage.clickCustomerTab();
 		createUSDChildOrderPage.selectCustomer();
+		createUSDChildOrderPage.enterCustomerNameFilter();
+		createUSDChildOrderPage.applyFilter();
 		createUSDChildOrderPage.clickCreateOrder();
 		createUSDChildOrderPage.selectActiveSinceBetweenPresentFuture();
 		createUSDChildOrderPage.clickProductSubTab();
@@ -83,6 +87,8 @@ public class CreateOrderUSDChildTest {
 		// ActiveSince=Future Date
 		createUSDChildOrderPage.clickCustomerTab();
 		createUSDChildOrderPage.selectCustomer();
+		createUSDChildOrderPage.enterCustomerNameFilter();
+		createUSDChildOrderPage.applyFilter();
 		createUSDChildOrderPage.clickCreateOrder();
 		createUSDChildOrderPage.selectActiveSinceFuture();
 		createUSDChildOrderPage.clickProductSubTab();

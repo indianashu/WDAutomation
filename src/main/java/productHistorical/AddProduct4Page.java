@@ -145,7 +145,7 @@ public class AddProduct4Page extends BasePage {
         clickSaveChangesButton.click();
         
     }
-    @FindBy(how=How.XPATH, using="//div[@class='msg-box successfully']//*[text()='Done']")
+    @FindBy(how=How.XPATH, using="//strong[text()='Done']")
     private WebElement verifyConfirmationMsg;
     /**
      * Method to verify Account Type is created Successfully.

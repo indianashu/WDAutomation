@@ -2,9 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateCADParentOrderPage;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -38,6 +35,8 @@ public class CreateOrderCADParentTest {
 		// ActiveSince=Past date
 		createCADParentOrderPage.clickCustomerTab();
 		createCADParentOrderPage.addCompanyFilter();
+		createCADParentOrderPage.enterCustomerNameFilter();
+		createCADParentOrderPage.applyFilter();
 		createCADParentOrderPage.selectCustomer();
 		createCADParentOrderPage.clickCreateOrder();
 		createCADParentOrderPage.selectActiveSincePast();
@@ -53,6 +52,8 @@ public class CreateOrderCADParentTest {
 		// ActiveSince=Between Past and Present date
 		createCADParentOrderPage.clickCustomerTab();
 		createCADParentOrderPage.addCompanyFilter();
+		createCADParentOrderPage.enterCustomerNameFilter();
+		createCADParentOrderPage.applyFilter();
 		createCADParentOrderPage.selectCustomer();
 		createCADParentOrderPage.clickCreateOrder();
 		createCADParentOrderPage.selectActiveSinceBetweenPastPresent();
@@ -68,6 +69,8 @@ public class CreateOrderCADParentTest {
 		// ActiveSince=Between Present and Future Date
 		createCADParentOrderPage.clickCustomerTab();
 		createCADParentOrderPage.addCompanyFilter();
+		createCADParentOrderPage.enterCustomerNameFilter();
+		createCADParentOrderPage.applyFilter();
 		createCADParentOrderPage.selectCustomer();
 		createCADParentOrderPage.clickCreateOrder();
 		createCADParentOrderPage.selectActiveSinceBetweenPresentFuture();
@@ -83,6 +86,8 @@ public class CreateOrderCADParentTest {
 		// ActiveSince=Future Date
 		createCADParentOrderPage.clickCustomerTab();
 		createCADParentOrderPage.addCompanyFilter();
+		createCADParentOrderPage.enterCustomerNameFilter();
+		createCADParentOrderPage.applyFilter();
 		createCADParentOrderPage.selectCustomer();
 		createCADParentOrderPage.clickCreateOrder();
 		createCADParentOrderPage.selectActiveSinceFuture();

@@ -2,8 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateEUROChildOrderPage;
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -45,6 +43,8 @@ public class CreateOrderEUROChildTest {
 		// ActiveSince=Past date
 		createEUROChildOrderPage.clickCustomerTab();
 		createEUROChildOrderPage.selectCustomer();
+		createEUROChildOrderPage.enterCustomerNameFilter();
+		createEUROChildOrderPage.applyFilter();
 		createEUROChildOrderPage.clickCreateOrder();
 		createEUROChildOrderPage.selectActiveSincePast();
 		createEUROChildOrderPage.clickProductSubTab();
@@ -59,6 +59,8 @@ public class CreateOrderEUROChildTest {
 		// ActiveSince=Between Past and Present date
 		createEUROChildOrderPage.clickCustomerTab();
 		createEUROChildOrderPage.selectCustomer();
+		createEUROChildOrderPage.enterCustomerNameFilter();
+		createEUROChildOrderPage.applyFilter();
 		createEUROChildOrderPage.clickCreateOrder();
 		createEUROChildOrderPage.selectActiveSinceBetweenPastPresent();
 		createEUROChildOrderPage.clickProductSubTab();
@@ -73,6 +75,8 @@ public class CreateOrderEUROChildTest {
 		// ActiveSince=Between Present and Future Date
 		createEUROChildOrderPage.clickCustomerTab();
 		createEUROChildOrderPage.selectCustomer();
+		createEUROChildOrderPage.enterCustomerNameFilter();
+		createEUROChildOrderPage.applyFilter();
 		createEUROChildOrderPage.clickCreateOrder();
 		createEUROChildOrderPage.selectActiveSinceBetweenPresentFuture();
 		createEUROChildOrderPage.clickProductSubTab();
@@ -87,6 +91,8 @@ public class CreateOrderEUROChildTest {
 		// ActiveSince=Future Date
 		createEUROChildOrderPage.clickCustomerTab();
 		createEUROChildOrderPage.selectCustomer();
+		createEUROChildOrderPage.enterCustomerNameFilter();
+		createEUROChildOrderPage.applyFilter();
 		createEUROChildOrderPage.clickCreateOrder();
 		createEUROChildOrderPage.selectActiveSinceFuture();
 		createEUROChildOrderPage.clickProductSubTab();

@@ -2,9 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateUSDParentOrderPage;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -33,11 +30,13 @@ public class CreateOrderUSDParentTest {
 		/*CreateUSDParentOrderPage.enterLoginID();
 		CreateUSDParentOrderPage.enterPassword();
 		CreateUSDParentOrderPage.selectCompany();
-		CreateUSDParentOrderPage.clickLoginButton();*/
-
+		CreateUSDParentOrderPage.clickLoginButton();
+*/
 		// ActiveSince=Past date
 		CreateUSDParentOrderPage.clickCustomerTab();
 		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.enterCustomerNameFilter();
+		CreateUSDParentOrderPage.applyFilter();
 		CreateUSDParentOrderPage.selectCustomer();
 		CreateUSDParentOrderPage.clickCreateOrder();
 		CreateUSDParentOrderPage.selectActiveSincePast();
@@ -53,6 +52,8 @@ public class CreateOrderUSDParentTest {
 		// ActiveSince=Between Past and Present date
 		CreateUSDParentOrderPage.clickCustomerTab();
 		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.enterCustomerNameFilter();
+		CreateUSDParentOrderPage.applyFilter();
 		CreateUSDParentOrderPage.selectCustomer();
 		CreateUSDParentOrderPage.clickCreateOrder();
 		CreateUSDParentOrderPage.selectActiveSinceBetweenPastPresent();
@@ -68,6 +69,8 @@ public class CreateOrderUSDParentTest {
 		// ActiveSince=Between Present and Future Date
 		CreateUSDParentOrderPage.clickCustomerTab();
 		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.enterCustomerNameFilter();
+		CreateUSDParentOrderPage.applyFilter();
 		CreateUSDParentOrderPage.selectCustomer();
 		CreateUSDParentOrderPage.clickCreateOrder();
 		CreateUSDParentOrderPage.selectActiveSinceBetweenPresentFuture();
@@ -83,6 +86,8 @@ public class CreateOrderUSDParentTest {
 		// ActiveSince=Future Date
 		CreateUSDParentOrderPage.clickCustomerTab();
 		CreateUSDParentOrderPage.addCompanyFilter();
+		CreateUSDParentOrderPage.enterCustomerNameFilter();
+		CreateUSDParentOrderPage.applyFilter();
 		CreateUSDParentOrderPage.selectCustomer();
 		CreateUSDParentOrderPage.clickCreateOrder();
 		CreateUSDParentOrderPage.selectActiveSinceFuture();

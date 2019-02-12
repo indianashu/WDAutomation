@@ -178,7 +178,7 @@ import org.openqa.selenium.support.ui.Select;
 			clickSaveChangesButton.click();
 		}
 		
-		@FindBy(how = How.XPATH, using = "//div[@class='msg-box successfully']")
+		@FindBy(how = How.XPATH, using = "//*[@class='msg-box successfully']")
 		private WebElement verifyLabelConfirmationMessage;
 
 		/**

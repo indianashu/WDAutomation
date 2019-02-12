@@ -2,9 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateEUROParentOrderPage;
-
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -38,6 +35,8 @@ public class CreateOrderEUROParentTest {
 		// ActiveSince=Past date
 		createEUROParentOrderPage.clickCustomerTab();
 		createEUROParentOrderPage.addCompanyFilter();
+		createEUROParentOrderPage.enterCustomerNameFilter();
+		createEUROParentOrderPage.applyFilter();
 		createEUROParentOrderPage.selectCustomer();
 		createEUROParentOrderPage.clickCreateOrder();
 		createEUROParentOrderPage.selectActiveSincePast();
@@ -53,6 +52,8 @@ public class CreateOrderEUROParentTest {
 		// ActiveSince=Between Past and Present date
 		createEUROParentOrderPage.clickCustomerTab();
 		createEUROParentOrderPage.addCompanyFilter();
+		createEUROParentOrderPage.enterCustomerNameFilter();
+		createEUROParentOrderPage.applyFilter();
 		createEUROParentOrderPage.selectCustomer();
 		createEUROParentOrderPage.clickCreateOrder();
 		createEUROParentOrderPage.selectActiveSinceBetweenPastPresent();
@@ -68,6 +69,8 @@ public class CreateOrderEUROParentTest {
 		// ActiveSince=Between Present and Future Date
 		createEUROParentOrderPage.clickCustomerTab();
 		createEUROParentOrderPage.addCompanyFilter();
+		createEUROParentOrderPage.enterCustomerNameFilter();
+		createEUROParentOrderPage.applyFilter();
 		createEUROParentOrderPage.selectCustomer();
 		createEUROParentOrderPage.clickCreateOrder();
 		createEUROParentOrderPage.selectActiveSinceBetweenPresentFuture();
@@ -83,6 +86,8 @@ public class CreateOrderEUROParentTest {
 		// ActiveSince=Future Date
 		createEUROParentOrderPage.clickCustomerTab();
 		createEUROParentOrderPage.addCompanyFilter();
+		createEUROParentOrderPage.enterCustomerNameFilter();
+		createEUROParentOrderPage.applyFilter();
 		createEUROParentOrderPage.selectCustomer();
 		createEUROParentOrderPage.clickCreateOrder();
 		createEUROParentOrderPage.selectActiveSinceFuture();

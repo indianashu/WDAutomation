@@ -1,6 +1,7 @@
 package productHistorical;
 
 import baseClassPackage.BasePage;
+import productDependency.CreateOrderPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -276,7 +277,7 @@ public class CreateUSDChildOrderPage extends BasePage {
 
 	}
 	
-	@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--3-update-form']//a[1]")
 	private WebElement clickUpdateButton1;
 	/**
 	 * Method to click on update button.
@@ -316,7 +317,7 @@ public class CreateUSDChildOrderPage extends BasePage {
 
 	}
 	
-	@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--5-update-form']//a[1]")
 	private WebElement clickUpdateButton2;
 	/**
 	 * Method to click on update button.
@@ -356,7 +357,7 @@ public class CreateUSDChildOrderPage extends BasePage {
 
 	}
 
-	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']/div[2]/a[1]")
+	@FindBy(how=How.XPATH, using="//*[@id='change--7-update-form']//a[1]")
 	private WebElement clickUpdateButton;
 	/**
 	 * Method to click on update button.
@@ -372,22 +373,22 @@ public class CreateUSDChildOrderPage extends BasePage {
 
 	public void expectedAmount1() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 0);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount2() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 1);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount3() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 2);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 	public void expectedAmount4() throws IOException {
 		String expectedAmount = BasePage.getCellData(xlsxName, sheetName, 8, 3);
-		String actualAmount = driver.findElement(By.xpath("//*[@id='review-box']/div[3]")).getText();
+		String actualAmount = driver.findElement(By.xpath("//*[@class='total']")).getText();
 		Assert.assertEquals(actualAmount, expectedAmount);
 	}
 
@@ -396,6 +397,39 @@ public class CreateUSDChildOrderPage extends BasePage {
 				.findElement(By.xpath("//a[@class='submit save']//*[text()='Save Changes']"));
 		Assert.assertTrue(clickSaveButton.isDisplayed());
 		actions.moveToElement(clickSaveButton).click().perform();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='filters.CUSTOMER-LIKE_UserName.stringValue']")
+	private WebElement enterCustomerNameFilter;
+
+	/**
+	 * Method to enter the customer name in the Login name Filter.
+	 * 
+	 * @throws IOException
+	 */
+	public void enterCustomerNameFilter() throws IOException {
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		log.info("Enter the name of the Customer in the Filte Login name");
+		Assert.assertTrue(enterCustomerNameFilter.isDisplayed());
+		enterCustomerNameFilter.clear();
+		enterCustomerNameFilter.sendKeys(BasePage.getCellData(xlsxName, sheetName, 3, 0));
+		JavaScriptExec.sleep();
+	}
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='submit apply']//*[text()='Apply Filters']")
+	private WebElement applyFilter;
+
+	/**
+	 * Method to Click on the Apply Filter Button.
+	 * 
+	 * @throws IOException
+	 */
+	public void applyFilter() throws IOException {
+		CreateOrderPage sp = new CreateOrderPage(driver);
+		log.info("Click on Apply Filter");
+		Assert.assertTrue(applyFilter.isDisplayed());
+		applyFilter.click();
+		JavaScriptExec.sleep();
 	}
 
 	public void navigateBottom() {

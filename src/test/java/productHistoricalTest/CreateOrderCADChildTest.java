@@ -2,8 +2,6 @@ package productHistoricalTest;
 
 import baseClassPackage.BaseClasses;
 import productHistorical.CreateCADChildOrderPage;
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,6 +39,8 @@ public class CreateOrderCADChildTest {
 		// ActiveSince=Past date
 		createCADChildOrderPage.clickCustomerTab();
 		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.enterCustomerNameFilter();
+		createCADChildOrderPage.applyFilter();
 		createCADChildOrderPage.clickCreateOrder();
 		createCADChildOrderPage.selectActiveSincePast();
 		createCADChildOrderPage.clickProductSubTab();
@@ -55,6 +55,8 @@ public class CreateOrderCADChildTest {
 		// ActiveSince=Between Past and Present date
 		createCADChildOrderPage.clickCustomerTab();
 		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.enterCustomerNameFilter();
+		createCADChildOrderPage.applyFilter();
 		createCADChildOrderPage.clickCreateOrder();
 		createCADChildOrderPage.selectActiveSinceBetweenPastPresent();
 		createCADChildOrderPage.clickProductSubTab();
@@ -69,6 +71,8 @@ public class CreateOrderCADChildTest {
 		// ActiveSince=Between Present and Future Date
 		createCADChildOrderPage.clickCustomerTab();
 		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.enterCustomerNameFilter();
+		createCADChildOrderPage.applyFilter();
 		createCADChildOrderPage.clickCreateOrder();
 		createCADChildOrderPage.selectActiveSinceBetweenPresentFuture();
 		createCADChildOrderPage.clickProductSubTab();
@@ -83,6 +87,8 @@ public class CreateOrderCADChildTest {
 		// ActiveSince=Future Date
 		createCADChildOrderPage.clickCustomerTab();
 		createCADChildOrderPage.selectCustomer();
+		createCADChildOrderPage.enterCustomerNameFilter();
+		createCADChildOrderPage.applyFilter();
 		createCADChildOrderPage.clickCreateOrder();
 		createCADChildOrderPage.selectActiveSinceFuture();
 		createCADChildOrderPage.clickProductSubTab();
